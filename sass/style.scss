@@ -1,21 +1,21 @@
 /*!
-Theme Name: sunflower-sass
+Theme Name: Sunflower
 Theme URI: http://underscores.me/
 Author: Tom Rose
-Author URI: http://underscores.me/
-Description: Description
+Author URI: https://tom-rose.de
+Description: German Green Party
 Version: 1.0.0
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: LICENSE
-Text Domain: sunflower-sass
+Text Domain: sunflower
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
 
-sunflower-sass is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Sunflower is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -100,3 +100,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* Alignments
 --------------------------------------------- */
 @import "utilities/alignments";
+
+@import "variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
