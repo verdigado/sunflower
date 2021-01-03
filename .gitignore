@@ -3,3 +3,4 @@ bundle*
 vendor/
 style.css
 style.css.map
+!assets/vendor/
