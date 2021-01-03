@@ -64,6 +64,11 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'sunflower' ) );
+
+			if (  $categories_list AND $tags_list ) {
+				echo ' | ';
+			}
+
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'sunflower' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -93,7 +98,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'sunflower' ),
+					__( 'Edit content<span class="screen-reader-text">%s</span>', 'sunflower' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -102,8 +107,8 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 				),
 				wp_kses_post( get_the_title() )
 			),
-			'<span class="edit-link">',
-			'</span>'
+			'<br><button class="edit-link btn btn-info btn-sm text-white">',
+			'</button>'
 		);
 	}
 endif;

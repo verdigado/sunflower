@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-01-03T22:29:59+01:00\n"
-"PO-Revision-Date: 2021-01-03 22:30+0100\n"
+"POT-Creation-Date: 2021-01-03T22:49:30+01:00\n"
+"PO-Revision-Date: 2021-01-03 22:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -124,7 +124,7 @@ msgstr ""
 #. translators: 1: list of categories.
 #: inc/template-tags.php:62
 msgid "Posted in %1$s"
-msgstr ""
+msgstr "Veröffentlicht unter %1$s"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:66
@@ -133,19 +133,19 @@ msgid ", "
 msgstr ""
 
 #. translators: 1: list of tags.
-#: inc/template-tags.php:69
+#: inc/template-tags.php:74
 msgid "Tagged %1$s"
-msgstr ""
+msgstr "Schlagwörter: %1$s"
 
 #. translators: %s: post title
-#: inc/template-tags.php:79
+#: inc/template-tags.php:84
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:96 template-parts/content-page.php:39
-msgid "Edit <span class=\"screen-reader-text\">%s</span>"
-msgstr ""
+#: inc/template-tags.php:101
+msgid "Edit content<span class=\"screen-reader-text\">%s</span>"
+msgstr "Inhalt bearbeiten  <span class=\"screen-reader-text\">%s</span>"
 
 #. translators: %s: search query.
 #: search.php:21
@@ -154,7 +154,7 @@ msgstr ""
 
 #: single.php:25
 msgid "Previous:"
-msgstr ""
+msgstr "Zurück:"
 
 #: single.php:26
 msgid "Next:"
@@ -185,6 +185,11 @@ msgstr ""
 #: template-parts/content-page.php:25 template-parts/content.php:53
 msgid "Pages:"
 msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-page.php:39
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Bearbeiten  <span class=\"screen-reader-text\">%s</span>"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content.php:40
