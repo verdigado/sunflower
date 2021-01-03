@@ -2,3 +2,4 @@ node_modules/
 bundle*
 vendor/
 style.css
+style.css.map
