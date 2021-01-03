@@ -25,7 +25,7 @@
 <div id="page" class="bg-white site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sunflower' ); ?></a>
 
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="site-header ptsans">
 	
 		<nav class="navbar navbar-top navbar-expand-lg navbar-dark p-0 topmenu">
 			<div class="container">
@@ -55,7 +55,7 @@
 		<nav class="navbar navbar-main navbar-expand-lg bg-white">
 			<div class="container">
 				<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/sunflower.svg" class="">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" class="">
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -70,7 +70,7 @@
 						'container'       => 'div',
 						'container_class' => 'collapse navbar-collapse',
 						'container_id'    => 'bs-example-navbar-collapse-1',
-						'menu_class'      => 'navbar-nav mr-auto text-uppercase',
+						'menu_class'      => 'navbar-nav mr-auto text-uppercase font-weight-bold',
 						'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 						'walker'          => new WP_Bootstrap_Navwalker(),
 					) );

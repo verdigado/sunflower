@@ -1,0 +1,27 @@
+@font-face {
+    font-family: Arvo;
+    src: url('../fonts/Arvo-Regular_201.woff') format('woff'),
+  }
+  
+  @font-face {
+    font-family: ArvoGruen;
+    src: url('../fonts/Arvo_Gruen_2015_10.woff') format('woff'),
+  }
+  
+  @font-face {
+    font-family: PTSans;
+    src: url('assets/fonts/ptsans_regular.woff') format('woff'),
+  }
+    
+  .arvo{
+    font-family: Arvo;
+    font-weight: 500;
+  } 
+  .arvogruen{
+    font-family: ArvoGruen;
+    font-weight: 500;
+  }
+  .ptsans{
+    font-family: PTSans;
+    font-weight: 500;
+  }
