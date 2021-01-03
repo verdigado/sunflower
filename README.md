@@ -63,9 +63,7 @@ $ npm install
 - `npm run watch` : watches all SASS files and recompiles them to css when they change.
 - `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
 - `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
-- `npm run uglify` : minimizes style.css
 - `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
-
 
 Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
 

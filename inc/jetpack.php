@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package sunflower-sass
+ * @package sunflower
  */
 
 /**
@@ -14,13 +14,13 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function sunflower_sass_jetpack_setup() {
+function sunflower_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support(
 		'infinite-scroll',
 		array(
 			'container' => 'main',
-			'render'    => 'sunflower_sass_infinite_scroll_render',
+			'render'    => 'sunflower_infinite_scroll_render',
 			'footer'    => 'page',
 		)
 	);
@@ -33,7 +33,7 @@ function sunflower_sass_jetpack_setup() {
 		'jetpack-content-options',
 		array(
 			'post-details' => array(
-				'stylesheet' => 'sunflower-sass-style',
+				'stylesheet' => 'sunflower-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',
 				'tags'       => '.tags-links',
@@ -48,12 +48,12 @@ function sunflower_sass_jetpack_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'sunflower_sass_jetpack_setup' );
+add_action( 'after_setup_theme', 'sunflower_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function sunflower_sass_infinite_scroll_render() {
+function sunflower_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :
