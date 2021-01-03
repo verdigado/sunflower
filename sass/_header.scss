@@ -4,4 +4,20 @@
             height: 2em;
         }
     }
+
+    &-main{
+        border-bottom: 1px solid $darkgray;
+    }
+}
+
+.nav{
+    &-item{
+        a{
+            color: $black;
+        }
+    }
+}
+
+.topmenu{
+    background: $darkgray;
 }

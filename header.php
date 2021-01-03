@@ -22,14 +22,14 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
+<div id="page" class="bg-white site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sunflower' ); ?></a>
 
 	<header id="masthead" class="site-header">
 	
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<nav class="navbar navbar-top navbar-expand-lg navbar-dark p-0 topmenu">
 			<div class="container">
-				<div class="collapse navbar-collapse" id="">
+				<div class="collapse navbar-collapse">
 				<?php
 					wp_nav_menu( array(
 						'theme_location'  => 'topmenu',
@@ -37,7 +37,7 @@
 						'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
 						'container'       => 'div',
 						'container_class' => 'collapse navbar-collapse justify-content-end',
-						'container_id'    => 'bs-example-navbar-collapse-1',
+						'container_id'    => 'topmenu',
 						'menu_class'      => 'navbar-nav small',
 						'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 						'walker'          => new WP_Bootstrap_Navwalker(),
@@ -52,7 +52,7 @@
 			</div>
 		</nav>
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<nav class="navbar navbar-main navbar-expand-lg bg-white">
 			<div class="container">
 				<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
 					<img src="<?php echo get_template_directory_uri(); ?>/img/sunflower.svg" class="">
@@ -70,7 +70,7 @@
 						'container'       => 'div',
 						'container_class' => 'collapse navbar-collapse',
 						'container_id'    => 'bs-example-navbar-collapse-1',
-						'menu_class'      => 'navbar-nav mr-auto',
+						'menu_class'      => 'navbar-nav mr-auto text-uppercase',
 						'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 						'walker'          => new WP_Bootstrap_Navwalker(),
 					) );
