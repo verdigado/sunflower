@@ -45,7 +45,7 @@
 					) );
 					?>
 				<form class="form-inline my-2 my-md-0">
-					<input class="form-control form-control-sm" name="s" type="text" placeholder="<?php echo _('Search'); ?>" aria-label="<?php echo _('Search'); ?>"
+					<input class="form-control form-control-sm" name="s" type="text" placeholder="<?php _e('Search', 'sunflower'); ?>" aria-label="<?php _e('Search', 'sunflower'); ?>"
 						value="<?php echo get_search_query(); ?>"
 					>
 				</form>
