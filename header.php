@@ -28,7 +28,7 @@
 
 	<header id="masthead" class="site-header ptsans">
 	
-		<nav class="navbar navbar-top navbar-expand-lg navbar-dark p-0 topmenu">
+		<nav class="navbar navbar-top navbar-expand-lg navbar-dark p-1 topmenu">
 			<div class="container">
 				<div class="collapse navbar-collapse">
 				<?php

@@ -11,7 +11,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
 ?>
-<div class="col-2 bg-dark">
+<div class="col-4 bg-dark p-5">
 	<aside id="secondary" class="widget-area">
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</aside><!-- #secondary -->
