@@ -11,7 +11,7 @@ get_header();
 ?>
 	<div id="content" class="container">
 		<div class="row">
-			<div class="col-12 col-md-8">
+			<div class="col-12">
 				<main id="primary" class="site-main">
 					<?php if ( have_posts() ) : ?>
 
@@ -32,7 +32,7 @@ get_header();
 							* If you want to override this in a child theme, then include a file
 							* called content-___.php (where ___ is the Post Type name) and that will be used instead.
 							*/
-							get_template_part( 'template-parts/content', get_post_type() );
+							get_template_part( 'template-parts/content', 'archive' );
 
 						endwhile;
 
@@ -47,9 +47,6 @@ get_header();
 
 				</main><!-- #main -->
 			</div>
-			<?php
-				get_sidebar();
-			?>
 		</div>
 </div>
 <?php
