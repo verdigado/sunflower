@@ -140,8 +140,9 @@ class SunflowerSettingsPage
     public function twitter_callback()
     {
         printf(
-            '<input type="text" id="twitter" name="sunflower_options[twitter]" value="%s" />',
-            isset( $this->options['twitter'] ) ? esc_attr( $this->options['twitter']) : ''
+            '<input type="text" id="twitter" name="sunflower_options[twitter]" value="%s" placeholder="%s"/>',
+            isset( $this->options['twitter'] ) ? esc_attr( $this->options['twitter']) : '',
+            _('complete URL of profile', 'sunflower')
         );
     }
 }
