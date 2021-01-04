@@ -1,0 +1,31 @@
+site_name: Sunflower
+nav:
+  - Einleitung: index.md
+  - Was ist Sunflower: was.md
+theme:
+  name: null
+  custom_dir: 'theme/'
+  static_templates:
+    - 404.html
+
+  include_search_page: true
+  search_index_only: false
+
+  highlightjs: true
+  hljs_languages: []
+
+  include_homepage_in_sidebar: true
+  prev_next_buttons_location: bottom
+  navigation_depth: 4
+  titles_only: false
+  sticky_navigation: true
+  collapse_navigation: true
+site_dir: ../documentation
+extra_css:
+  - extra.css
+use_directory_urls: true
+plugins:
+  - search:
+      lang: en
+dev_addr: '0.0.0.0:8080' # local only
+
