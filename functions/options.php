@@ -95,7 +95,22 @@ class SunflowerSettingsPage
             array( $this, 'twitter_callback' ), 
             'sunflower-setting-admin', 
             'sunflower_social_media'
-        );      
+        );     
+        
+        add_settings_section(
+            'sunflower_misc', // ID
+            __('Miscellaneous', 'sunflower'), // Title
+            array( $this, 'print_section_info' ), // Callback
+            'sunflower-setting-admin' // Page
+        );  
+
+        add_settings_field(
+            'excerps_length', // ID
+            __('Excerpt length (words)'), // Title 
+            array( $this, 'excerpt_length_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_misc' // Section           
+        );    
     }
 
     /**
@@ -109,6 +124,10 @@ class SunflowerSettingsPage
         if( isset( $input['id_number'] ) )
             $new_input['id_number'] = absint( $input['id_number'] );
 
+        if( isset( $input['excerpt_length'] ) )
+            $new_input['excerpt_length'] = absint( $input['excerpt_length'] ) ?: '';
+
+
         if( isset( $input['twitter'] ) )
             $new_input['twitter'] = sanitize_text_field( $input['twitter'] );
 
@@ -120,7 +139,7 @@ class SunflowerSettingsPage
      */
     public function print_section_info()
     {
-        _e('Enter your settings below:', 'sunflower');
+        
     }
 
     /** 
@@ -131,6 +150,14 @@ class SunflowerSettingsPage
         printf(
             '<input type="text" id="id_number" name="sunflower_options[id_number]" value="%s" />',
             isset( $this->options['id_number'] ) ? esc_attr( $this->options['id_number']) : ''
+        );
+    }
+
+    public function excerpt_length_callback()
+    {
+        printf(
+            '<input type="text" id="excerpt_length" name="sunflower_options[excerpt_length]" value="%s" />',
+            isset( $this->options['excerpt_length'] ) ? esc_attr( $this->options['excerpt_length']) : ''
         );
     }
 
@@ -153,7 +180,7 @@ if( is_admin() )
 function get_sunflower_setting( $option ){
     $options = get_option( 'sunflower_options' );
     if ( !isset($options[ $option ]) ){
-        return "$option not set";
+        return false;
     }
 
     if ( empty($options[ $option ]) ){
