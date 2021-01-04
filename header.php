@@ -30,15 +30,16 @@
 	
 		<nav class="navbar navbar-top navbar-expand-lg navbar-dark p-1 topmenu">
 			<div class="container">
-				<div class="collapse navbar-collapse">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topmenu-container" aria-controls="topmenu-container" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-end" id="topmenu-container">
 				<?php
 					wp_nav_menu( array(
 						'theme_location'  => 'topmenu',
 						'menu_id'		  => 'topmenu',
 						'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
-						'container'       => 'div',
-						'container_class' => 'collapse navbar-collapse justify-content-end',
-						'container_id'    => 'topmenu',
+						'container'       => false,
 						'menu_class'      => 'navbar-nav small',
 						'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 						'walker'          => new WP_Bootstrap_Navwalker(),
@@ -53,24 +54,22 @@
 			</div>
 		</nav>
 
-		<nav class="navbar navbar-main navbar-expand-lg bg-white">
+		<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white">
 			<div class="container">
 				<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" class="">
 				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<div class="collapse navbar-collapse" id="navbarsExample07">
+				<div class="collapse navbar-collapse" id="mainmenu-container">
 				<?php
 					wp_nav_menu( array(
 						'theme_location'  => 'mainmenu',
 						'menu_id'		  => 'mainmenu',
 						'depth'	          => 2, // 1 = no dropdowns, 2 = with dropdowns.
-						'container'       => 'div',
-						'container_class' => 'collapse navbar-collapse',
-						'container_id'    => 'bs-example-navbar-collapse-1',
+						'container'       => false,
 						'menu_class'      => 'navbar-nav mr-auto text-uppercase font-weight-bold',
 						'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 						'walker'          => new WP_Bootstrap_Navwalker(),

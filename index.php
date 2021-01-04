@@ -16,7 +16,7 @@ get_header();
 ?>
 	<div id="content" class="container">
 		<div class="row">
-			<div class="col-8">
+			<div class="col-12 col-md-8">
 				<main id="primary" class="site-main">
 
 					<?php
