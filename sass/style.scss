@@ -101,15 +101,25 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------- */
 @import "utilities/alignments";
 
-@import "_variables";
+
+/* Fontawesome
+--------------------------------------------- */
+$fa-font-path : 'assets/vndr/fontawesome/fonts';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
+
+/* Bootstrap
+--------------------------------------------- */
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+/* Custom
+--------------------------------------------- */
+@import "_variables";
 @import "_header";
 @import "_widgets";
 @import "_fonts";
 @import "_main";
 @import "_layout";
 @import "_footer";
-
-
-
