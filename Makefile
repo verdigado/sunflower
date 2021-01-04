@@ -19,7 +19,7 @@ activate:
 VERSION = $(shell grep Version style.css | cut -d: -f2)
 DATE = $(shell date)
 announce:
-	ssh sharepic "cd /var/www/wordpress.tom-rose.de && wp option update blogname 'Sunflower $(VERSION)' && wp post update 1952 -" < announcement.txt
+	ssh sharepic "cd /var/www/wordpress.tom-rose.de && wp option update blogdescription 'Demoseite für das WordPress-Theme Sunflower $(VERSION) von $(DATE)' --url=wordpress.tom-rose.de/demo && wp option update blogname 'Sunflower $(VERSION)' && wp post update 1952 -" < announcement.txt
 
 get:
 	ssh sharepic "cd /var/www/wordpress.tom-rose.de && wp post get 1952 --field=post_content" | sed -e 's/<version>[^<]*/<version>$(VERSION)/g' | sed -e 's/<date>[^<]*/<date>$(DATE)/g' > announcement.txt
