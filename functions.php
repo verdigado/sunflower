@@ -52,7 +52,8 @@ if ( ! function_exists( 'sunflower_setup' ) ) :
 			array(
 				'mainmenu' => esc_html__( 'Mainmenu', 'sunflower' ),
 				'topmenu' => esc_html__( 'Topmenu', 'sunflower' ),
-
+				'footer1' => esc_html__( 'Footer Menu 1', 'sunflower' ),
+				'footer2' => esc_html__( 'Footer Menu 2', 'sunflower' ),	
 			)
 		);
 
