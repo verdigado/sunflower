@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-01-04T23:05:06+01:00\n"
-"PO-Revision-Date: 2021-01-04 23:11+0100\n"
+"POT-Creation-Date: 2021-01-05T00:19:16+01:00\n"
+"PO-Revision-Date: 2021-01-05 00:20+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #. Description of the theme
 msgid "Theme for german Green party"
-msgstr ""
+msgstr "WordPress Theme für Bündnis 90/ Die Grünen"
 
 #. Author of the theme
 msgid "Tom Rose"
@@ -38,7 +38,7 @@ msgstr ""
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
+msgstr "Hoppla, Seite nicht gefunden."
 
 #: 404.php:21
 msgid ""
@@ -48,7 +48,7 @@ msgstr ""
 
 #: 404.php:30
 msgid "Most Used Categories"
-msgstr ""
+msgstr "Häufige Kategorien"
 
 #. translators: %1$s: smiley
 #: 404.php:48
@@ -66,7 +66,7 @@ msgstr "Menü erstellen"
 #. translators: 1: title.
 #: comments.php:35
 msgid "One thought on &ldquo;%1$s&rdquo;"
-msgstr ""
+msgstr "Ein Kommentar zu &ldquo;%1$s&rdquo;"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:41
@@ -78,7 +78,7 @@ msgstr[1] ""
 
 #: comments.php:68
 msgid "Comments are closed."
-msgstr ""
+msgstr "Keine Kommentare möglich."
 
 #: functions/events.php:9 functions/events.php:26
 msgid "Event"
@@ -89,8 +89,8 @@ msgid "event"
 msgstr "termin"
 
 #: functions/events.php:54
-msgid "Startdatum"
-msgstr ""
+msgid "Start date"
+msgstr "Startdatum"
 
 #: functions/options.php:24 functions/options.php:25 functions/options.php:37
 #: functions/options.php:53
@@ -105,13 +105,13 @@ msgstr "Einstellungen"
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options.php:123
-msgid "Enter your settings below:"
-msgstr "Lege Deine Einstellungen hier fest:"
-
-#: functions/options.php:145
-msgid "complete URL of profile"
+#: functions/options.php:102
+msgid "Miscellaneous"
 msgstr ""
+
+#: functions/options.php:172
+msgid "complete URL of profile"
+msgstr "Komplette URL des Profils"
 
 #: functions/_s.php:53
 msgid "Mainmenu"
@@ -119,15 +119,15 @@ msgstr "Hauptmenü"
 
 #: functions/_s.php:54
 msgid "Topmenu"
-msgstr ""
+msgstr "Menü am oberen Rand"
 
 #: functions/_s.php:55
 msgid "Footer Menu 1"
-msgstr ""
+msgstr "Fußzeilenmenü 1"
 
 #: functions/_s.php:56
 msgid "Footer Menu 2"
-msgstr ""
+msgstr "Fußzeilenmenü 2"
 
 #: functions/_s.php:130
 msgid "Sidebar"
@@ -135,11 +135,11 @@ msgstr "Seitenleiste"
 
 #: functions/_s.php:132
 msgid "Add widgets here."
-msgstr ""
+msgstr "Widgets hier hinzufügen."
 
 #: header.php:27
 msgid "Skip to content"
-msgstr ""
+msgstr "Weiter zum Inhalt"
 
 #: header.php:49
 msgid "Search"
@@ -175,7 +175,7 @@ msgstr "Schlagwörter: %1$s"
 #. translators: %s: post title
 #: inc/template-tags.php:84
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
+msgstr "Kommentiere <span class=\"screen-reader-text\"> bei %s</span>"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: inc/template-tags.php:102
@@ -187,11 +187,11 @@ msgstr "Inhalt bearbeiten  <span class=\"screen-reader-text\">%s</span>"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
-#: single.php:25
+#: single-event.php:25 single.php:25
 msgid "Previous:"
 msgstr "Zurück:"
 
-#: single.php:26
+#: single-event.php:26 single.php:26
 msgid "Next:"
 msgstr "Vor:"
 
@@ -199,10 +199,10 @@ msgstr "Vor:"
 #: template-parts/content-archive.php:44 template-parts/content-event.php:49
 #: template-parts/content.php:40
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
+msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: template-parts/content-archive.php:57 template-parts/content-event.php:62
-#: template-parts/content-page.php:25 template-parts/content.php:53
+#: template-parts/content-archive.php:57 template-parts/content-page.php:25
+#: template-parts/content.php:53
 msgid "Pages:"
 msgstr ""
 
@@ -234,6 +234,9 @@ msgstr ""
 #: template-parts/content-page.php:39
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Bearbeiten  <span class=\"screen-reader-text\">%s</span>"
+
+#~ msgid "Enter your settings below:"
+#~ msgstr "Lege Deine Einstellungen hier fest:"
 
 #~ msgid "Proudly powered by %s"
 #~ msgstr "Präsentiert von"

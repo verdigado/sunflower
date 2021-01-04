@@ -51,7 +51,7 @@ function sunflower_meta_box(){
     $from = $custom[ "_sunflower_event_from" ][ 0 ];
 
     printf('<input class="datetimepicker" type="text" name="_sunflower_event_from" placeholder="%s" value="%s"', 
-        __('Startdatum', 'sunflower'), 
+        __('Start date', 'sunflower'), 
         $from );
 
     /*

@@ -81,7 +81,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'sunflower' ),
+						' | ' . __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'sunflower' ),
 						array(
 							'span' => array(
 								'class' => array(),
