@@ -94,22 +94,24 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 			echo '</span>';
 		}
 
-		edit_post_link(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit content<span class="screen-reader-text">%s</span>', 'sunflower' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
+		if( is_singular() ) {
+			edit_post_link(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Edit content<span class="screen-reader-text">%s</span>', 'sunflower' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					wp_kses_post( get_the_title() )
 				),
-				wp_kses_post( get_the_title() )
-			),
-			'<br><button class="edit-link btn btn-info btn-sm text-white">',
-			'</button>'
-		);
+				'<br><button class="edit-link btn btn-info btn-sm text-white">',
+				'</button>'
+			);
+		}
 	}
 endif;
 

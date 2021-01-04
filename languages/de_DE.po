@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "POT-Creation-Date: 2021-01-03T22:49:30+01:00\n"
-"PO-Revision-Date: 2021-01-03 22:49+0100\n"
+"PO-Revision-Date: 2021-01-04 00:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -150,7 +150,7 @@ msgstr "Inhalt bearbeiten  <span class=\"screen-reader-text\">%s</span>"
 #. translators: %s: search query.
 #: search.php:21
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Suchergebnisse für „%s“"
 
 #: single.php:25
 msgid "Previous:"
@@ -162,7 +162,7 @@ msgstr ""
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
-msgstr ""
+msgstr "Nichts gefunden"
 
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content-none.php:24
@@ -175,6 +175,8 @@ msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"Schade, es gibt nichts zu diesem Suchwort. Bitte versuche ein anderes "
+"Suchwort."
 
 #: template-parts/content-none.php:44
 msgid ""

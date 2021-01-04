@@ -21,3 +21,10 @@
 .topmenu{
     background: $darkgray;
 }
+
+body{
+    &.search,
+    &.home,
+    &.archive{
+    background-color: $lightgray;
+}

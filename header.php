@@ -23,7 +23,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="bg-white site">
+<div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sunflower' ); ?></a>
 
 	<header id="masthead" class="site-header ptsans">
@@ -44,7 +44,7 @@
 						'walker'          => new WP_Bootstrap_Navwalker(),
 					) );
 					?>
-				<form class="form-inline my-2 my-md-0">
+				<form class="form-inline my-2 my-md-0" action="<?php bloginfo('url'); ?>">
 					<input class="form-control form-control-sm" name="s" type="text" placeholder="<?php _e('Search', 'sunflower'); ?>" aria-label="<?php _e('Search', 'sunflower'); ?>"
 						value="<?php echo get_search_query(); ?>"
 					>
