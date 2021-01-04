@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-01-03T22:49:30+01:00\n"
-"PO-Revision-Date: 2021-01-04 00:44+0100\n"
+"POT-Creation-Date: 2021-01-04T18:22:44+01:00\n"
+"PO-Revision-Date: 2021-01-04 18:23+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -55,6 +55,10 @@ msgstr ""
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
+#: class-wp-bootstrap-navwalker.php:366
+msgid "Add a menu"
+msgstr "Menü erstellen"
+
 #. translators: 1: title.
 #: comments.php:35
 msgid "One thought on &ldquo;%1$s&rdquo;"
@@ -72,33 +76,43 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:16
-msgid "https://wordpress.org/"
+#: functions/options.php:24 functions/options.php:25 functions/options.php:37
+msgid "Sunflower Settings"
 msgstr ""
 
-#. translators: %s: CMS name, i.e. WordPress.
-#: footer.php:19
-msgid "Proudly powered by %s"
-msgstr "Präsentiert von"
-
-#. translators: 1: Theme name, 2: Theme author.
-#: footer.php:25
-msgid "Theme: %1$s by %2$s."
+#: functions/options.php:36
+msgid "Settings"
 msgstr ""
 
-#: functions.php:53
+#: functions/options.php:79
+msgid "Social Media Profiles"
+msgstr ""
+
+#: functions/options.php:123
+msgid "Enter your settings below:"
+msgstr ""
+
+#: functions/_s.php:53
 msgid "Mainmenu"
 msgstr ""
 
-#: functions.php:54
+#: functions/_s.php:54
 msgid "Topmenu"
 msgstr ""
 
-#: functions.php:129
+#: functions/_s.php:55
+msgid "Footer Menu 1"
+msgstr ""
+
+#: functions/_s.php:56
+msgid "Footer Menu 2"
+msgstr ""
+
+#: functions/_s.php:130
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:131
+#: functions/_s.php:132
 msgid "Add widgets here."
 msgstr ""
 
@@ -106,7 +120,7 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:48
+#: header.php:49
 msgid "Search"
 msgstr "Suche"
 
@@ -143,12 +157,12 @@ msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:101
+#: inc/template-tags.php:102
 msgid "Edit content<span class=\"screen-reader-text\">%s</span>"
 msgstr "Inhalt bearbeiten  <span class=\"screen-reader-text\">%s</span>"
 
 #. translators: %s: search query.
-#: search.php:21
+#: search.php:23
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
@@ -158,6 +172,16 @@ msgstr "Zurück:"
 
 #: single.php:26
 msgid "Next:"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-archive.php:44 template-parts/content.php:40
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: template-parts/content-archive.php:57 template-parts/content-page.php:25
+#: template-parts/content.php:53
+msgid "Pages:"
 msgstr ""
 
 #: template-parts/content-none.php:14
@@ -184,16 +208,10 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:25 template-parts/content.php:53
-msgid "Pages:"
-msgstr ""
-
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content-page.php:39
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Bearbeiten  <span class=\"screen-reader-text\">%s</span>"
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:40
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
+#~ msgid "Proudly powered by %s"
+#~ msgstr "Präsentiert von"
