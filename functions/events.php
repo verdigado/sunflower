@@ -23,7 +23,7 @@ function sunflower_add_event_meta_boxes() {
     // see https://developer.wordpress.org/reference/functions/add_meta_box for a full explanation of each property
     add_meta_box(
         "sunflower_meta_box", // div id containing rendered fields
-        _("Event", 'sunflower'), // section heading displayed as text
+        __("Event", 'sunflower'), // section heading displayed as text
         "sunflower_meta_box", // callback function to render fields
         "event", // name of post type on which to render fields
         "side", // location on the screen
@@ -51,7 +51,7 @@ function sunflower_meta_box(){
     $from = $custom[ "_sunflower_event_from" ][ 0 ];
 
     printf('<input class="datetimepicker" type="text" name="_sunflower_event_from" placeholder="%s" value="%s"', 
-        _('Startdatum', 'sunflower'), 
+        __('Startdatum', 'sunflower'), 
         $from );
 
     /*
@@ -85,16 +85,16 @@ function sunflower_meta_box(){
 }
 
 function sunflower_load_admin_scripts(){ 
-    wp_enqueue_script('sunset-datetimepicker',
+    wp_enqueue_script('sunflower-datetimepicker',
         get_template_directory_uri() .'/assets/vndr/datetimepicker/jquery.datetimepicker.full.min.js', 
         array('jquery'), 
         '1.0.0', 
         true
     ); 
 
-    wp_enqueue_script('sunset-datetimepicker-custom',
+    wp_enqueue_script('sunflower-datetimepicker-custom',
         get_template_directory_uri() .'/assets/vndr/datetimepicker/sunflower.js', 
-        array('sunset-datetimepicker'), 
+        array('sunflower-datetimepicker'), 
         '1.0.0', 
         true
     ); 

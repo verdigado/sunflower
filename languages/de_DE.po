@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-01-04T21:32:28+01:00\n"
-"PO-Revision-Date: 2021-01-04 21:32+0100\n"
+"POT-Creation-Date: 2021-01-04T23:05:06+01:00\n"
+"PO-Revision-Date: 2021-01-04 23:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -93,20 +93,21 @@ msgid "Startdatum"
 msgstr ""
 
 #: functions/options.php:24 functions/options.php:25 functions/options.php:37
+#: functions/options.php:53
 msgid "Sunflower Settings"
-msgstr ""
+msgstr "Sunflower Einstellugen"
 
 #: functions/options.php:36
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: functions/options.php:79
 msgid "Social Media Profiles"
-msgstr ""
+msgstr "Profile in Sozialen Medien"
 
 #: functions/options.php:123
 msgid "Enter your settings below:"
-msgstr ""
+msgstr "Lege Deine Einstellungen hier fest:"
 
 #: functions/options.php:145
 msgid "complete URL of profile"
@@ -114,7 +115,7 @@ msgstr ""
 
 #: functions/_s.php:53
 msgid "Mainmenu"
-msgstr ""
+msgstr "Hauptmenü"
 
 #: functions/_s.php:54
 msgid "Topmenu"
@@ -130,7 +131,7 @@ msgstr ""
 
 #: functions/_s.php:130
 msgid "Sidebar"
-msgstr ""
+msgstr "Seitenleiste"
 
 #: functions/_s.php:132
 msgid "Add widgets here."
@@ -192,7 +193,7 @@ msgstr "Zurück:"
 
 #: single.php:26
 msgid "Next:"
-msgstr ""
+msgstr "Vor:"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content-archive.php:44 template-parts/content-event.php:49

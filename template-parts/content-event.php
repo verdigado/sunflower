@@ -56,19 +56,9 @@
                             wp_kses_post( get_the_title() )
                         )
                     );
-
-                    wp_link_pages(
-                        array(
-                            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sunflower' ),
-                            'after'  => '</div>',
-                        )
-                    );
                     ?>
                 </div><!-- .entry-content -->
 
-                <footer class="entry-footer">
-                    <?php sunflower_entry_footer(); ?>
-                </footer><!-- .entry-footer -->
             </div>
         </div>
         <div class="col-3">

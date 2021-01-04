@@ -21,8 +21,8 @@ class SunflowerSettingsPage
     public function add_plugin_page()
     {
         add_menu_page( 
-            _('Sunflower Settings', 'sunflower'), 
-            _('Sunflower Settings', 'sunflower'), 
+            __('Sunflower Settings', 'sunflower'), 
+            __('Sunflower Settings', 'sunflower'), 
             'manage_options', 
             'sunflower_settings', 
             null,
@@ -33,8 +33,8 @@ class SunflowerSettingsPage
 
         add_submenu_page(
             'sunflower_settings',
-            _('Settings', 'sunflower'), 
-            _('Sunflower Settings', 'sunflower'), 
+            __('Settings', 'sunflower'), 
+            __('Sunflower Settings', 'sunflower'), 
             'manage_options', 
             'sunflower_settings', 
             array( $this, 'create_admin_page' )
@@ -50,7 +50,7 @@ class SunflowerSettingsPage
         $this->options = get_option( 'sunflower_options' );
         ?>
         <div class="wrap">
-            <h1><?php _e('Sunflower Settings'); ?></h1>
+            <h1><?php _e('Sunflower Settings', 'sunflower'); ?></h1>
             <form method="post" action="options.php">
             <?php
                 // This prints out all hidden setting fields
@@ -76,7 +76,7 @@ class SunflowerSettingsPage
 
         add_settings_section(
             'sunflower_social_media', // ID
-            _('Social Media Profiles', 'sunflower'), // Title
+            __('Social Media Profiles', 'sunflower'), // Title
             array( $this, 'print_section_info' ), // Callback
             'sunflower-setting-admin' // Page
         );  
@@ -142,7 +142,7 @@ class SunflowerSettingsPage
         printf(
             '<input type="text" id="twitter" name="sunflower_options[twitter]" value="%s" placeholder="%s"/>',
             isset( $this->options['twitter'] ) ? esc_attr( $this->options['twitter']) : '',
-            _('complete URL of profile', 'sunflower')
+            __('complete URL of profile', 'sunflower')
         );
     }
 }
