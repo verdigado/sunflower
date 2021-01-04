@@ -14,7 +14,7 @@ get_header();
 			<div class="col-12 col-md-8">
 				<main id="primary" class="site-main">
 					<?php if ( have_posts() ) : ?>
-						<i class="fas fa-icons"></i>dd
+					
 						<header class="page-header">
                             <h1 class="page-title"><?php bloginfo('blogname');?></h1>
 							<div class="archive-description"><?php bloginfo('description'); ?></div>

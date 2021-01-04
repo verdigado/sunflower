@@ -112,11 +112,11 @@ $fa-font-path : 'assets/vndr/fontawesome/fonts';
 
 /* Bootstrap
 --------------------------------------------- */
+@import "_variables";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 /* Custom
 --------------------------------------------- */
-@import "_variables";
 @import "_header";
 @import "_widgets";
 @import "_fonts";
