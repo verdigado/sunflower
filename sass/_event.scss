@@ -1,0 +1,27 @@
+.event-card{
+    .date{
+        font-size: 150%;
+    }
+}
+
+a.event-card{
+    color: $black;
+    text-decoration: none;
+
+    article{
+        background-color: $white;
+        &:hover{
+            color: $white;
+            background-color: $primary;
+        }
+    }
+
+    &:visited{
+        color: $black;
+        text-decoration: none;
+    }
+
+    &:hover{
+        text-decoration: none   ;
+    }
+}

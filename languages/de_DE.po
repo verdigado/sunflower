@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-01-04T18:22:44+01:00\n"
-"PO-Revision-Date: 2021-01-04 18:23+0100\n"
+"POT-Creation-Date: 2021-01-04T21:32:28+01:00\n"
+"PO-Revision-Date: 2021-01-04 21:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -55,6 +55,10 @@ msgstr ""
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
+#: archive-event.php:21 functions/events.php:8
+msgid "Events"
+msgstr "Termine"
+
 #: class-wp-bootstrap-navwalker.php:366
 msgid "Add a menu"
 msgstr "Menü erstellen"
@@ -76,6 +80,18 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
+#: functions/events.php:9 functions/events.php:26
+msgid "Event"
+msgstr "Termin"
+
+#: functions/events.php:14
+msgid "event"
+msgstr "termin"
+
+#: functions/events.php:54
+msgid "Startdatum"
+msgstr ""
+
 #: functions/options.php:24 functions/options.php:25 functions/options.php:37
 msgid "Sunflower Settings"
 msgstr ""
@@ -90,6 +106,10 @@ msgstr ""
 
 #: functions/options.php:123
 msgid "Enter your settings below:"
+msgstr ""
+
+#: functions/options.php:145
+msgid "complete URL of profile"
 msgstr ""
 
 #: functions/_s.php:53
@@ -175,12 +195,13 @@ msgid "Next:"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content-archive.php:44 template-parts/content.php:40
+#: template-parts/content-archive.php:44 template-parts/content-event.php:49
+#: template-parts/content.php:40
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: template-parts/content-archive.php:57 template-parts/content-page.php:25
-#: template-parts/content.php:53
+#: template-parts/content-archive.php:57 template-parts/content-event.php:62
+#: template-parts/content-page.php:25 template-parts/content.php:53
 msgid "Pages:"
 msgstr ""
 

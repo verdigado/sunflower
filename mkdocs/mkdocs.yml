@@ -2,6 +2,7 @@ site_name: Sunflower
 nav:
   - Einleitung: index.md
   - Was ist Sunflower: was.md
+  - Termine: events.md
   - Für Entwickler*innen: development.md
 theme:
   name: null

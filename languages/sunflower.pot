@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-01-04T18:22:44+01:00\n"
+"POT-Creation-Date: 2021-01-04T21:32:28+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -51,6 +51,11 @@ msgstr ""
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
+#: archive-event.php:21
+#: functions/events.php:8
+msgid "Events"
+msgstr ""
+
 #: class-wp-bootstrap-navwalker.php:366
 msgid "Add a menu"
 msgstr ""
@@ -72,6 +77,19 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
+#: functions/events.php:9
+#: functions/events.php:26
+msgid "Event"
+msgstr ""
+
+#: functions/events.php:14
+msgid "event"
+msgstr ""
+
+#: functions/events.php:54
+msgid "Startdatum"
+msgstr ""
+
 #: functions/options.php:24
 #: functions/options.php:25
 #: functions/options.php:37
@@ -88,6 +106,10 @@ msgstr ""
 
 #: functions/options.php:123
 msgid "Enter your settings below:"
+msgstr ""
+
+#: functions/options.php:145
+msgid "complete URL of profile"
 msgstr ""
 
 #: functions/_s.php:53
@@ -174,11 +196,13 @@ msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content-archive.php:44
+#: template-parts/content-event.php:49
 #: template-parts/content.php:40
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
 #: template-parts/content-archive.php:57
+#: template-parts/content-event.php:62
 #: template-parts/content-page.php:25
 #: template-parts/content.php:53
 msgid "Pages:"

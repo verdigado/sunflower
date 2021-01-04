@@ -29,7 +29,7 @@
 						?>
 					</div>
 				</nav>
-				<div class="col-md-4 pt-2">
+				<div class="col-md-4 pt-2 text-center">
 					<?php
 						if( $twitter = get_sunflower_setting('twitter') ){
 							printf('<a href="%1$s" target="_blank"><i class="fab fa-twitter icon-round icon-inverse" title="%1$s"></i></a>', $twitter);
