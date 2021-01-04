@@ -12,6 +12,12 @@ get_header();
 	<div id="content" class="container">
 		<div class="row">
 			<div class="col-12 col-md-8">
+
+			<?php
+				if( $twitter = get_sunflower_setting('twitter') ){
+					printf('<i class="fab fa-twitter icon-round"></i>%s', $twitter );
+				}
+			?>
 				<main id="primary" class="site-main">
 					<?php if ( have_posts() ) : ?>
 					
