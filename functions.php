@@ -8,5 +8,4 @@ require_once('functions/events.php');
 require_once('functions/excerpts.php');
 require_once('functions/admin.php');
 require_once('functions/plugin-activation.php');
-require_once('functions/posts.php');
-
+require_once('functions/layout.php');

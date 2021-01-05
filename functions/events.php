@@ -34,6 +34,11 @@ add_action( "admin_init", "sunflower_add_event_meta_boxes" );
 
 function save_sunflower_event_meta_boxes(){
     global $post;
+
+    if ( !isset($post->ID ) ) {
+        return;
+    }
+
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
     }
