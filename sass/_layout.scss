@@ -47,3 +47,15 @@ img.post-thumbnail{
         object-position: center top;
    }
 }
+
+.entry{
+    &-content{
+        margin: 0;
+    }
+}
+
+.page{
+    &-title{
+        margin-top: $grid-gutter-width;
+    }
+}

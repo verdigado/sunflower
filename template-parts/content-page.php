@@ -7,13 +7,17 @@
  * @package sunflower
  */
 
+
+$show_title = @get_post_meta( $post->ID, '_sunflower_show_title')[0] ? true : false;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-
+	<?php if ($show_title ) { ?>
+		<header class="entry-header">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header><!-- .entry-header -->
+	<?php } ?>
+	
 	<?php sunflower_post_thumbnail(); ?>
 
 	<div class="entry-content">

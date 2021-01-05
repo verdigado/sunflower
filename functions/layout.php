@@ -28,6 +28,7 @@ function save_sunflower_meta_boxes(){
 
     update_post_meta( $post->ID, "_sunflower_post_thumbnail_object_fit", sanitize_text_field( $_POST[ "_sunflower_post_thumbnail_object_fit" ] ) );
     update_post_meta( $post->ID, "_sunflower_show_sidebar", sanitize_text_field( $_POST[ "_sunflower_show_sidebar" ] ) );
+    update_post_meta( $post->ID, "_sunflower_show_title", sanitize_text_field( $_POST[ "_sunflower_show_title" ] ) );
 
 }
 add_action( 'save_post', 'save_sunflower_meta_boxes' );
@@ -62,8 +63,26 @@ function sunflower_meta_box(){
                 <label class="components-checkbox-control__label" for="_sunflower_show_sidebar">%s</label>
             </div>
         </div>',
-        ($custom['_sunflower_show_sidebar'][0]) ? 'checked': '',
+        (@$custom['_sunflower_show_sidebar'][0]) ? 'checked': '',
         __('Show sidebar', 'sunflower')
     );
+
+    if( isset( $custom['_sunflower_show_title'][0]) ){
+        $checked = ($custom['_sunflower_show_title'][0]) ? 'checked': '';
+    } else {
+        $checked = 'checked';
+    }
+    printf('
+    <div class="components-panel__row">
+        <div class="components-base-control__field">
+            <span class="components-checkbox-control__input-container">
+                <input name="_sunflower_show_title" id="_sunflower_show_title" class="" type="checkbox" value="1" %s>
+            </span>
+            <label class="components-checkbox-control__label" for="_sunflower_show_title">%s</label>
+        </div>
+    </div>',
+    $checked,
+    __('Show title', 'sunflower')
+);
 
 }

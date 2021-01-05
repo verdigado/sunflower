@@ -2,6 +2,7 @@ site_name: Sunflower
 nav:
   - Einleitung: index.md
   - Einrichtung: setup.md
+  - Startseite: homepage.md
   - Menüs: menus.md
   - Termine: events.md
   - Für Entwickler*innen: development.md

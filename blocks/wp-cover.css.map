@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "wp-cover.css",
+	"sources": [
+		"../sass/blocks/wp-cover.scss"
+	],
+	"names": [],
+	"mappings": "AAAA,AACI,eADW,AACV,WAAW,CAAA;CACR,KAAK,EAAE,KAAK;CACZ,QAAQ,EAAE,QAAQ;CAClB,IAAI,EAAE,GAAG;CACT,KAAK,EAAE,GAAG;CACV,WAAW,EAAE,KAAK;CAClB,YAAY,EAAE,KAAK;CACtB"
+}

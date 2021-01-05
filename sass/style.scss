@@ -120,8 +120,10 @@ $fa-font-path : 'assets/vndr/fontawesome/fonts';
 @import "_header";
 @import "_widgets";
 @import "_fonts";
-@import "_main";
 @import "_layout";
 @import "_footer";
 @import "_event";
+
+@import "blocks/wp-cover";
+
 
