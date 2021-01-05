@@ -12,7 +12,7 @@
 <a href="<?php echo esc_url( get_permalink() ); ?>" class="event-card" rel="bookmark">
 <article id="post-<?php the_ID(); ?>" <?php post_class('mb-2 event'); ?>>
     <div class="row">
-        <div class="col-3 d-flex align-items-center justify-content-around arvogruen">
+        <div class="col-12 col-md-3 d-flex align-items-center justify-content-around arvogruen">
             <?php
                 $from = strToTime( get_post_meta( $post->ID, '_sunflower_event_from')[0] );
                 $attribute = date('Y-m-d', $from );
@@ -30,7 +30,7 @@
 
 
         </div>
-        <div class="col-6">
+        <div class="col-12 col-md-6">
             <div class="">
                 <header class="entry-header pt-2">
                     <?php
@@ -61,8 +61,8 @@
 
             </div>
         </div>
-        <div class="col-3">
-            <?php sunflower_post_thumbnail_background(); ?>
+        <div class="d-none d-md-block col-md-3">
+            <?php sunflower_post_thumbnail(); ?>
         </div>
     </div>
 </article><!-- #post-<?php the_ID(); ?> -->

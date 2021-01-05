@@ -22,9 +22,9 @@ add_action( 'init', 'sunflower_create_event_post_type' );
 function sunflower_add_event_meta_boxes() {
     // see https://developer.wordpress.org/reference/functions/add_meta_box for a full explanation of each property
     add_meta_box(
-        "sunflower_meta_box", // div id containing rendered fields
+        "sunflower_event_meta_box", // div id containing rendered fields
         __("Event", 'sunflower'), // section heading displayed as text
-        "sunflower_meta_box", // callback function to render fields
+        "sunflower_event_meta_box", // callback function to render fields
         "event", // name of post type on which to render fields
         "side", // location on the screen
         "high" // placement priority
@@ -32,7 +32,7 @@ function sunflower_add_event_meta_boxes() {
 }
 add_action( "admin_init", "sunflower_add_event_meta_boxes" );
 
-function save_post_meta_boxes(){
+function save_sunflower_event_meta_boxes(){
     global $post;
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
@@ -42,9 +42,9 @@ function save_post_meta_boxes(){
     }
     update_post_meta( $post->ID, "_sunflower_event_from", sanitize_text_field( $_POST[ "_sunflower_event_from" ] ) );
 }
-add_action( 'save_post', 'save_post_meta_boxes' );
+add_action( 'save_post', 'save_sunflower_event_meta_boxes' );
 
-function sunflower_meta_box(){
+function sunflower_event_meta_box(){
     global $post;
     $custom = get_post_custom( $post->ID );
 

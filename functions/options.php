@@ -111,6 +111,21 @@ class SunflowerSettingsPage
             'sunflower-setting-admin', // Page
             'sunflower_misc' // Section           
         );    
+
+        add_settings_section(
+            'sunflower_layout', // ID
+            __('Layout', 'sunflower'), // Title
+            array( $this, 'print_section_info' ), // Callback
+            'sunflower-setting-admin' // Page
+        );  
+
+        add_settings_field(
+            'post_thumbnail_object_fit', // ID
+            __('Post thumbnails in archives'), // Title 
+            array( $this, 'post_thumbnail_object_fit_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_layout' // Section           
+        );    
     }
 
     /**
@@ -121,15 +136,18 @@ class SunflowerSettingsPage
     public function sanitize( $input )
     {
         $new_input = array();
-        if( isset( $input['id_number'] ) )
-            $new_input['id_number'] = absint( $input['id_number'] );
 
+        // Sanitize everything
+        foreach( $input as $key => $value ){
+            if( isset( $input[$key] ) ){
+                $new_input[$key] = sanitize_text_field( $value );
+            }
+        }
+        
+        // Sanitize special values
         if( isset( $input['excerpt_length'] ) )
             $new_input['excerpt_length'] = absint( $input['excerpt_length'] ) ?: '';
 
-
-        if( isset( $input['twitter'] ) )
-            $new_input['twitter'] = sanitize_text_field( $input['twitter'] );
 
         return $new_input;
     }
@@ -159,6 +177,23 @@ class SunflowerSettingsPage
             '<input type="text" id="excerpt_length" name="sunflower_options[excerpt_length]" value="%s" />',
             isset( $this->options['excerpt_length'] ) ? esc_attr( $this->options['excerpt_length']) : ''
         );
+    }
+
+    public function post_thumbnail_object_fit_callback()
+    {
+        $options = array(
+            'contain' => __('complete image', 'sunflower'),
+            'cover'   => __('full area', 'sunflower'),
+
+        );
+        echo '<select name="sunflower_options[post_thumbnail_object_fit]" id="post_thumbnail_object_fit">';
+        echo '<option value="">' . __('Please choose', 'sunflower') . '</option>';
+            foreach($options AS $id => $label ) {
+                $selected = (isset($this->options['post_thumbnail_object_fit']) AND $id == $this->options['post_thumbnail_object_fit'] ) ? 'selected' : '';
+                printf('<option value="%s" %s>%s</option>', $id, $selected, $label);
+            }
+        echo '</select>';
+  
     }
 
     /** 

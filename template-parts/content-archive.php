@@ -11,10 +11,10 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('bg-white'); ?>>
     <div class="row">
-        <div class="col-4">
-            <?php sunflower_post_thumbnail_background(); ?>
+        <div class="d-none d-md-block col-md-4">
+            <?php sunflower_post_thumbnail(); ?>
         </div>
-        <div class="col-8">
+        <div class="col-12 col-md-8">
             <div class="">
                 <header class="entry-header p-2">
                     <?php

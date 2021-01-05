@@ -115,27 +115,6 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'sunflower_post_thumbnail_background' ) ) :
-	function sunflower_post_thumbnail_background() {
-		// https://gist.github.com/joshuadavidnelson/eb4650aa1ee8da9c7d731960e9402e21
-		$image_id = get_post_thumbnail_id(); // set or grab your image id
-		$img_srcset = wp_get_attachment_image_srcset( $image_id, 'full' );
-
-		if( empty( $img_srcset )){
-			return false;
-		}
-
-		$sizes = explode( ", ", $img_srcset );
-
-		list($url, $size) = explode(' ', $sizes[0]);
-		$cover = (1 == 1) ? 'background-size:cover;' : '';
-		printf('<div class="cover-image-container"><div class="cover-image-image" style="background-image:url(\'%s\');%s"></div></div>',
-			$url,
-			$cover
-		);
-}
-endif;
-
 if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
@@ -148,6 +127,8 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 			return;
 		}
 
+		global $post;
+
 		if ( is_singular() ) :
 			?>
 
@@ -157,20 +138,24 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 
 		<?php else : ?>
 
-			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-				<?php
-					the_post_thumbnail(
-						'post-thumbnail',
-						array(
-							'alt' => the_title_attribute(
-								array(
-									'echo' => false,
-								)
-							),
-						)
-					);
-				?>
-			</a>
+			<?php
+				$setting = @get_post_meta( $post->ID, '_sunflower_post_thumbnail_object_fit')[0] ?: get_sunflower_setting('post_thumbnail_object_fit');
+				
+				$classes = array('post-thumbnail', $setting );
+
+				the_post_thumbnail(
+					'post-thumbnail',
+					array(
+						'alt' => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+						'class' => join(' ', $classes)					
+					)
+				);
+			?>
+
 
 			<?php
 		endif; // End is_singular().
