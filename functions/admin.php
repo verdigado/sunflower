@@ -15,7 +15,7 @@ add_action( 'admin_bar_menu', 'sunflower_admin_bar', 999 );
 function sunflower_notice() {
     ?>
     <div class="notice notice-info notice-large sunflower-plugins is-dismissible">
-        <p><?php _e( 'Hello world', 'sunflower' ); ?></p>
+        <p><?php _e( 'Hello sunflower', 'sunflower' ); ?></p>
     </div>
     <?php
 }
