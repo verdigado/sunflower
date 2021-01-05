@@ -1,3 +1,7 @@
+.wp-block-cover {
+	font-family: ArvoGruen;
+}
+
 .wp-block-cover.full-width {
 	width: 100vw;
 	position: relative;
