@@ -84,7 +84,7 @@ function sunflower_meta_box(){
     */
 }
 
-function sunflower_load_admin_scripts(){ 
+function sunflower_load_event_admin_scripts(){ 
     wp_enqueue_script('sunflower-datetimepicker',
         get_template_directory_uri() .'/assets/vndr/datetimepicker/jquery.datetimepicker.full.min.js', 
         array('jquery'), 
@@ -105,4 +105,4 @@ function sunflower_load_admin_scripts(){
         '1.0.0' );
 
 }
-add_action( 'admin_enqueue_scripts', 'sunflower_load_admin_scripts' );
+add_action( 'admin_enqueue_scripts', 'sunflower_load_event_admin_scripts' );
