@@ -36,3 +36,17 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
         }
     }
 }
+
+.cover-image{
+    &-container{
+        position: relative;
+        height: 100%;
+    }
+
+    &-image{
+        position: relative;
+        height: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}

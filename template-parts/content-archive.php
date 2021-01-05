@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('bg-white'); ?>>
     <div class="row">
         <div class="col-4">
-            <?php sunflower_post_thumbnail(); ?>
+            <?php sunflower_post_thumbnail_background(); ?>
         </div>
         <div class="col-8">
             <div class="">

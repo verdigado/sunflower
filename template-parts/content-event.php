@@ -62,9 +62,7 @@
             </div>
         </div>
         <div class="col-3">
-            <div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
-			</div><!-- .post-thumbnail -->
+            <?php sunflower_post_thumbnail_background(); ?>
         </div>
     </div>
 </article><!-- #post-<?php the_ID(); ?> -->
