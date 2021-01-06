@@ -81,6 +81,11 @@ function sunflower_register_required_plugins() {
 			'slug'        => 'contact-form-7',
 			'is_callable' => 'wpcf7'
 		),
+
+		array(
+			'name'         => 'Free Images', // The plugin name.
+			'slug'         => 'free-images/', // The plugin slug (typically the folder name).
+		),
 	);
 
 	/*

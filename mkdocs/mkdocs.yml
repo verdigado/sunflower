@@ -5,6 +5,7 @@ nav:
   - Startseite: homepage.md
   - Menüs: menus.md
   - Termine: events.md
+  - Häufige Fragen: faq.md
   - Für Entwickler*innen: development.md
 theme:
   name: null
