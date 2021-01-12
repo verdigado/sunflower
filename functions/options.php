@@ -59,7 +59,10 @@ class SunflowerSettingsPage
         <div class="wrap">
             <h1><?php _e('About Sunflower', 'sunflower'); ?></h1>
             <h2>Erste Schritte</h2>
-            <a href="#" target="_blank">Eine ausführliche Dokumentation gibt es unter https://.....</a>
+            <a href="#" target="_blank">Eine ausführliche Dokumentation gibt es unter https://wordpress.tom-rose.de/documentation/</a>
+        
+            <h2>Einstellungen</h2>
+            <a href="admin.php?page=sunflower_settings">Hier geht es zu den Einstellungen</a>
         </div>
     <?php
     }    
