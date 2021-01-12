@@ -232,7 +232,7 @@ class SunflowerSettingsPage
     }
 }
 
-if( is_admin() )
+if( current_user_can('editor') )
     $my_settings_page = new SunflowerSettingsPage();
 
 function get_sunflower_setting( $option ){
