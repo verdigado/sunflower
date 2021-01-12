@@ -38,3 +38,8 @@ Installation
 - `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
 - `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
 - `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
+- `npm run start` : start watcher for js-files
+- `npm run build` : build javascript
+
+### Deployment
+see Makefile for tasks

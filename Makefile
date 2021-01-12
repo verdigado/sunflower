@@ -5,7 +5,7 @@ watch:
 	npm run watch
 
 bundle:
-	npm run bundle
+	npm run build && npm run bundle
 
 make-pot:
 	composer make-pot
@@ -41,3 +41,9 @@ demo-dump-create:
 
 demo-dump-in:
 	mysql wordpress < demo.sql
+
+js:
+	npm run build
+
+js-watch: 
+	npm run start
