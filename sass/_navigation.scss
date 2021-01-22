@@ -1,0 +1,22 @@
+@media all and (min-width: 992px) {
+    .navbar{
+        .nav-item{
+            &:hover{
+                .nav-link{
+                    
+                }
+                .dropdown-menu{ 
+                    display: block; 
+                }
+            }
+            .dropdown-menu{ 
+                display: none; 
+
+                li a:hover{
+                    background: $primary;
+                }
+            }
+        }
+
+    }
+}
