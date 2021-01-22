@@ -1,12 +1,16 @@
 .navbar{
     &-main.stuck{
+        font-size: 90%;
+        transition: 0.3s;
         .navbar-brand{
+            transition: inherit;
+            width: 40px;
             opacity: 1;
         } 
     }
     &-brand{
         opacity: 0;
-
+        width: 50px;
         img{
             height: 2em;
         }
@@ -38,6 +42,8 @@ body{
 }
 
 .bloginfo{
+    background-image: url('assets/img/background.jpg');
+    background-size: cover;
     img{
         width: 50px;
     }
