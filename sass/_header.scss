@@ -1,23 +1,23 @@
 .navbar{
+    &-main{
+        border-bottom: 1px solid $darkgray;
+        transition: 0.3s;
+    }
+
     &-main.stuck{
         font-size: 90%;
-        transition: 0.3s;
         .navbar-brand{
-            transition: inherit;
             width: 40px;
             opacity: 1;
         } 
     }
     &-brand{
         opacity: 0;
-        width: 50px;
+        width: 50px; 
+        transition: opacity 0.3s;
         img{
             height: 2em;
         }
-    }
-
-    &-main{
-        border-bottom: 1px solid $darkgray;
     }
 }
 
