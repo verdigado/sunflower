@@ -174,6 +174,14 @@ function sunflower_scripts() {
         null,
         '3.2.1', 
         true
+	);
+	
+	wp_enqueue_script(
+        'frontend',
+        get_template_directory_uri() . '/assets/js/frontend.js',
+        null,
+        '3.2.1', 
+        true
     );
 }
 add_action( 'wp_enqueue_scripts', 'sunflower_scripts' );

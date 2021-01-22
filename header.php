@@ -54,31 +54,48 @@
 			</div>
 		</nav>
 
-		<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white">
-			<div class="container">
-				<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
+		<div class="container-fluid bloginfo bg-primary p-3">
+			<div class="container d-flex align-items-center">
+				<a class="me-1" href="<?php echo get_home_url(); ?>">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" class="">
 				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="mainmenu-container">
-				<?php
-					wp_nav_menu( array(
-						'theme_location'  => 'mainmenu',
-						'menu_id'		  => 'mainmenu',
-						'depth'	          => 2, // 1 = no dropdowns, 2 = with dropdowns.
-						'container'       => false,
-						'menu_class'      => 'navbar-nav mr-auto text-uppercase font-weight-bold',
-						'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-						'walker'          => new WP_Bootstrap_Navwalker(),
-					) );
-					?>
+				<div>
+					<div class="h5 text-white">
+						<?php bloginfo('name'); ?>
+					</div>
+					<div class="h6 text-white ptsans">
+						<?php bloginfo('description'); ?>
+					</div>
 				</div>
 			</div>
-		</nav>
-	
+		</div>
+
 	</header><!-- #masthead -->
-	
+
+	<?php /* must be outside of masthead for stickness */ ?>
+	<div id="navbar-sticky-detector"></div>
+	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white sticky-top">
+		<div class="container">
+			<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" class="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="mainmenu-container">
+			<?php
+				wp_nav_menu( array(
+					'theme_location'  => 'mainmenu',
+					'menu_id'		  => 'mainmenu',
+					'depth'	          => 2, // 1 = no dropdowns, 2 = with dropdowns.
+					'container'       => false,
+					'menu_class'      => 'navbar-nav mr-auto text-uppercase font-weight-bold',
+					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+					'walker'          => new WP_Bootstrap_Navwalker(),
+				) );
+				?>
+			</div>
+		</div>
+	</nav>
 

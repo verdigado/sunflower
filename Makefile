@@ -36,12 +36,6 @@ mkdocs-build:
 mkdocs-deploy:
 	cd mkdocs && mkdocs build && rsync -r --delete ../documentation/ sharepic:/var/www/wordpress.tom-rose.de/documentation/
 
-demo-dump-create:
-	mysqldump wordpress $(mysql wordpress -Bse "show tables like 'wp_6_%';") > demo.sql
-
-demo-dump-in:
-	mysql wordpress < demo.sql
-
 js:
 	npm run build
 

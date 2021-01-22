@@ -1,5 +1,12 @@
 .navbar{
+    &-main.stuck{
+        .navbar-brand{
+            opacity: 1;
+        } 
+    }
     &-brand{
+        opacity: 0;
+
         img{
             height: 2em;
         }
@@ -19,13 +26,19 @@
 }
 
 .topmenu{
-    background: $darkgray;
+    background: $darkgreen;
 }
 
 body{
     &.search,
     &.home,
     &.archive{
-        background-color: $lightgray;
+        background-color: $lightgreen;
     }   
+}
+
+.bloginfo{
+    img{
+        width: 50px;
+    }
 }
