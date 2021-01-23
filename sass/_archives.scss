@@ -1,9 +1,24 @@
 .archive{
     &-loop{
-       
+        display: flex;
+        flex-flow: column wrap;
+        align-content: space-between;
+        height: 1600px;
+        &::before,
+        &::after {
+            content: "";
+            flex-basis: 100%;
+            width: 0;
+            order: 2;
+        }
         article{
-           
-            border: 1px solid red;
+            width: 50%;
+            &:nth-child(3n+1) { 
+                order: 2; 
+            }
+            &.item:nth-child(3n){
+                order: 1; 
+            }
         }
     }
 }
