@@ -36,9 +36,15 @@ get_header();
 							* called content-___.php (where ___ is the Post Type name) and that will be used instead.
 							*/
 							ob_start();
-								get_template_part( 'template-parts/content', 'archive' );
-								$columns[$i] .= ob_get_clean();
-					
+							get_template_part( 'template-parts/content', 'archive' );
+							
+							$article = ob_get_clean();
+							$columns[$i] .= $article;
+
+							// add articles to the first columns as well, but hide them on big screens
+							if($i === 1){
+								$columns[0] .= sprintf('<div class="d-md-none">%s</div>', $article );
+							}
 
 							$i = ($i + 1 ) % 2;
 							
@@ -49,7 +55,7 @@ get_header();
 							<div class="col-12 col-md-6">
 								<?php echo $columns[0]; ?>
 							</div>
-							<div class="col-12 col-md-6">
+							<div class="d-none d-md-block col-md-6">
 								<?php echo $columns[1]; ?>
 							</div>
 						</div>

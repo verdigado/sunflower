@@ -1,8 +1,8 @@
 .archive{
     &-loop{
         article{
-           
-            border: 1px solid red;
+            overflow: hidden;
+            border-radius: $border-radius;
         }
     }
 }
