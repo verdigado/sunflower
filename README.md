@@ -43,3 +43,6 @@ Installation
 
 ### Deployment
 see Makefile for tasks
+
+### Contributing
+see Documentation in *mkdocs/docs* for more details

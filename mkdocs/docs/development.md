@@ -1,7 +1,7 @@
 # Themeentwicklung
 
 ## Sprachdateien
-- Erzeuge mir `make make-pot` ein neues Template-File
+- Erzeuge mit `make make-pot` ein neues Template-File
 - Öffne `languages/de_DE.po` mit PoEdit
 - Gehe dort auf *Katalog -> Aus POT-Datei aktualisieren*
 - Erstelle die Übersetzungen
@@ -11,3 +11,11 @@
 - Starte `make mkdocs serve` *mkdocs*
 - Bearbeite die Dokumentation unter *mkdocs/docs*
 - Baue die Dokumentation mit `make mkdocs build`
+
+## CSS
+- ``npm run watch``, um css zu kompilieren und eine Source-Map zu erhalten
+- Dateien befinden sich im Ordner *sass*
+
+## Blöcke
+- ``npm run start``, um den Watcher für JS-Files zu starten
+- Dateien befinden sich im Ordner *src*
