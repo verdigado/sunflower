@@ -22,11 +22,11 @@ get_header();
 							?>
 						</header><!-- .page-header -->
 
-						<div class="archive-loop">
 						<?php
 						/* Start the Loop */
 						
-
+						$columns = ['', ''];
+						$i = 0;
 						while ( have_posts() ) :
 							the_post();
 
@@ -35,12 +35,25 @@ get_header();
 							* If you want to override this in a child theme, then include a file
 							* called content-___.php (where ___ is the Post Type name) and that will be used instead.
 							*/
-							get_template_part( 'template-parts/content', 'archive' );
-			
-						endwhile;
+							ob_start();
+								get_template_part( 'template-parts/content', 'archive' );
+								$columns[$i] .= ob_get_clean();
+					
 
-						echo '</div>'; // end .archive-loop
-						
+							$i = ($i + 1 ) % 2;
+							
+						endwhile;
+					?>
+
+						<div class="archive-loop row">
+							<div class="col-12 col-md-6">
+								<?php echo $columns[0]; ?>
+							</div>
+							<div class="col-12 col-md-6">
+								<?php echo $columns[1]; ?>
+							</div>
+						</div>
+					<?php
 						the_posts_navigation();
 
 					else :
