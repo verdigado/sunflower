@@ -18,6 +18,16 @@ function sunflower_add_custom_gutenberg_color_palette() {
 				'name'  => esc_html__( 'Lightgray', 'sunflower' ),
 				'slug'  => 'lightgray',
 				'color' => '#aaaaaa',
+            ],
+            [
+				'name'  => esc_html__( 'White', 'sunflower' ),
+				'slug'  => 'white',
+				'color' => '#ffffff',
+            ],
+            [
+				'name'  => esc_html__( 'Black', 'sunflower' ),
+				'slug'  => 'black',
+				'color' => '#000000',
 			],
 
 		]
