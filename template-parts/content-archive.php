@@ -19,9 +19,12 @@
         <div class="">
             <div class="p-4">
                 <header class="entry-header mb-2">
-                    <div class="theme arvogruen mb-1">
-                        Ernährung
-                    </div> 
+                    <?php
+                        $roofline = @get_post_meta( $post->ID, '_sunflower_roofline')[0] ?: false;
+                        if( $roofline ){
+                            printf(' <div class="roofline arvogruen mb-1">%s</div>', $roofline);
+                        }
+                    ?>
                     <?php
                     
                     the_title( '<h2 class="card-title h4"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
