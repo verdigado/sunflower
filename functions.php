@@ -10,4 +10,7 @@ require_once('functions/admin.php');
 require_once('functions/plugin-activation.php');
 require_once('functions/layout.php');
 require_once('functions/blocks.php');
+require_once('functions/colors.php');
+
+
 

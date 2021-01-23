@@ -12,7 +12,27 @@
     } 
 }
 
-.wp-block-media-text__media{
+.wp-block-group{
+
+    &.has-background{
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        padding: $grid-gutter-width 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__inner-container{
+        max-width: $container-max-width; 
+    } 
+}
+
+.wp-block-media-text__media,
+.wp-block-image{
     img{
         border-radius: $border-radius;
     }
