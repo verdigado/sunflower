@@ -1,0 +1,14 @@
+.tags-links{
+    a{
+        &:before{
+            content: '#'
+        }
+    }
+}
+
+.byline{
+    a{
+        color: inherit;
+        text-decoration: none;
+    }
+}

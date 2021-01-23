@@ -12,11 +12,16 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('bg-white'); ?>>
     <div class="">
         <div class="">
-            <?php sunflower_post_thumbnail(); ?>
+            <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+                <?php sunflower_post_thumbnail(); ?>
+            </a>
         </div>
         <div class="">
-            <div class="p-3">
-                <header class="entry-header p-2">
+            <div class="p-4">
+                <header class="entry-header mb-2">
+                    <div class="theme arvogruen mb-1">
+                        Ernährung
+                    </div> 
                     <?php
                     
                     the_title( '<h2 class="card-title h4"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
@@ -36,6 +41,7 @@
             
 
                 <div class="entry-content">
+                    <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
                     <?php
                     the_excerpt(
                         sprintf(
@@ -59,10 +65,19 @@
                         )
                     );
                     ?>
+                </a>
                 </div><!-- .entry-content -->
 
                 <footer class="entry-footer">
                     <?php sunflower_entry_footer(); ?>
+
+                    
+                    <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="continue-reading">
+                    <?php
+                        _e('Continue reading', 'sunflower');
+                    ?>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                    </a>
                 </footer><!-- .entry-footer -->
             </div>
         </div>

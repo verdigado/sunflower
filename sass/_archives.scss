@@ -3,6 +3,34 @@
         article{
             overflow: hidden;
             border-radius: $border-radius;
+
+            .theme{
+                color: $primary;
+                text-transform: uppercase;
+            }
+
+            h2{
+                a{
+                    color: black;
+                }
+            }
+
+            .entry-content{
+                a{
+                    color: black;
+                    text-decoration: none;
+                }
+            }
+
+            .continue-reading{
+                padding-top: 10px;
+                display: block;
+                font-weight: bold;
+                font-style: italic;
+                color: black;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
         }
     }
 }
