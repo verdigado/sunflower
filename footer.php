@@ -29,15 +29,24 @@
 						?>
 					</div>
 				</nav>
-				<div class="col-md-4 pt-2 text-center">
+				<div class="col-md-4 p-2 justify-content-center d-flex">
 					<?php
-						if( $twitter = get_sunflower_setting('twitter') ){
-							printf('<a href="%1$s" target="_blank"><i class="fab fa-twitter icon-round icon-inverse" title="%1$s"></i></a>', $twitter);
+						$profiles = block_core_social_link_services();
+						foreach($profiles AS $profile => $info){
+							$name = $info['name'];
+							$icon = $info['icon'];
+
+							if( $link = get_sunflower_setting($profile) ){
+								printf('<a href="%1$s" target="_blank" title="%3$s" class="social-media-profile">%2$s</a>', 
+								$link, 
+								$icon,
+								$name);
+							}
 						}
 					?>
 				</div>
-				<nav class="col-md-4 navbar navbar-top navbar-expand-md navbar-dark">
-					<div class="container">
+				<nav class="col-md-4 navbar navbar-top navbar-expand-md navbar-dark d-flex justify-content-end">
+					<div class="">
 						<?php
 							wp_nav_menu( array(
 								'theme_location'  => 'footer2',

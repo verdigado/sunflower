@@ -61,6 +61,20 @@ class SunflowerSettingsPage
             <h2>Erste Schritte</h2>
             <a href="#" target="_blank">Eine ausführliche Dokumentation gibt es unter https://wordpress.tom-rose.de/documentation/</a>
         
+            <h3>Startseite anlegen</h3>
+            <button id="createHomepage">Muster-Startseite erzeugen</button>
+            <div id="createHomepageResponse" style="display:none">
+                Die Muster-Startseite wurde angelegt. Du kannst sie unter Seiten finden und bearbeiten oder 
+                <a href="#" id="createHomepageResponseLink">direkt hier aufrufen</a>.<br>
+            </div>
+            <div>
+                Sobald Du mit Deinen Anpassungen fertig bist, musst Du die Seite noch
+                <ol>
+                    <li>veröffentlichen</li>
+                    <li><a href="options-reading.php">als Startseite festlegen (Deine Homepage zeigt eine statische Seite)</a></li>
+                </ol>
+            </div>
+
             <h2>Einstellungen</h2>
             <a href="admin.php?page=sunflower_settings">Hier geht es zu den Einstellungen</a>
         </div>
@@ -107,21 +121,21 @@ class SunflowerSettingsPage
             'sunflower-setting-admin' // Page
         );  
 
-        add_settings_field(
-            'id_number', // ID
-            'ID Number', // Title 
-            array( $this, 'id_number_callback' ), // Callback
-            'sunflower-setting-admin', // Page
-            'sunflower_social_media' // Section           
-        );      
+        $social_media_profiles = [
+            'twitter', 'instagram','flickr','linkedin','mail','mastodon','meetup','skype','soundcloud','vimeo','youtube'
+        ];
 
-        add_settings_field(
-            'twitter', 
-            'Twitter', 
-            array( $this, 'twitter_callback' ), 
-            'sunflower-setting-admin', 
-            'sunflower_social_media'
-        );     
+        foreach ($social_media_profiles AS $profile ){
+            $info = block_core_social_link_services($profile);
+            add_settings_field(
+                $profile, 
+                $info['name'],
+                array( $this, 'social_media_profile_callback' ), 
+                'sunflower-setting-admin', 
+                'sunflower_social_media',
+                [$profile, $info['icon']]
+            ); 
+        }    
         
         add_settings_section(
             'sunflower_misc', // ID
@@ -186,17 +200,6 @@ class SunflowerSettingsPage
         
     }
 
-    /** 
-     * Get the settings option array and print one of its values
-     */
-    public function id_number_callback()
-    {
-        printf(
-            '<input type="text" id="id_number" name="sunflower_options[id_number]" value="%s" />',
-            isset( $this->options['id_number'] ) ? esc_attr( $this->options['id_number']) : ''
-        );
-    }
-
     public function excerpt_length_callback()
     {
         printf(
@@ -225,12 +228,17 @@ class SunflowerSettingsPage
     /** 
      * Get the settings option array and print one of its values
      */
-    public function twitter_callback()
+    public function social_media_profile_callback($args)
     {
+        $profile = $args[0];
+        $icon = $args[1];
+
         printf(
-            '<input type="text" id="twitter" name="sunflower_options[twitter]" value="%s" placeholder="%s"/>',
-            isset( $this->options['twitter'] ) ? esc_attr( $this->options['twitter']) : '',
-            __('complete URL of profile', 'sunflower')
+            '%4$s<input type="text" id="%1$s" name="sunflower_options[%1$s]" value="%2$s" placeholder="%3$s" style="vertical-align:bottom"/>',
+            $profile,
+            isset( $this->options[$profile] ) ? esc_attr( $this->options[$profile]) : '',
+            __('complete URL of profile', 'sunflower'),
+            $icon
         );
     }
 }
