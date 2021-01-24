@@ -8,7 +8,7 @@
     margin-right: -50vw;
 
     &__inner-container{
-        max-width: $container-max-width; 
+        max-width: map-get($container-max-widths, 'xl');
     } 
 }
 
@@ -27,7 +27,7 @@
     }
 
     &__inner-container{
-        max-width: $container-max-width; 
+        max-width: map-get($container-max-widths, 'xl');
     } 
 }
 
