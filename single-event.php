@@ -10,11 +10,30 @@
 get_header();
 
 $show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true : false;
+$_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
+$_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
+
+$_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_location_name')[0] ?: false;
+$_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street')[0] ?: false;
+$_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_location_city')[0] ?: false;
+
+
 ?>
 	<div id="content" class="container">
 		<div class="row">
 			<div class="col-12 <?php if ( $show_sidebar ) echo 'col-md-8'; ?>">
 				<main id="primary" class="site-main">
+					<?php
+					echo 'Von:' . $_sunflower_event_from;
+					echo 'bis' . $_sunflower_event_until;
+
+					printf('<div>%s, %s, %s</div>',
+						$_sunflower_event_location_name,
+						$_sunflower_event_location_street,
+						$_sunflower_event_location_city
+);
+
+					?>
 
 					<?php
 					while ( have_posts() ) :

@@ -1,4 +1,14 @@
 <?php
+
+$sunflower_event_fields = [
+    '_sunflower_event_from'            => [ 'Startdate', 'datetimepicker' ],
+    '_sunflower_event_until'           => [ 'Enddate', 'datetimepicker' ],
+    '_sunflower_event_whole_day'       => [ 'Whole day', null, 'checkbox' ],
+    '_sunflower_event_location_name'   => [ 'Location name' ],
+    '_sunflower_event_location_street' => [ 'Street'],
+    '_sunflower_event_location_city'   => [ 'City' ]
+];
+
 function sunflower_create_event_post_type() {
  
     register_post_type( 'event',
@@ -33,7 +43,7 @@ function sunflower_add_event_meta_boxes() {
 add_action( "admin_init", "sunflower_add_event_meta_boxes" );
 
 function save_sunflower_event_meta_boxes(){
-    global $post;
+    global $post, $sunflower_event_fields;
 
     if ( !isset($post->ID ) ) {
         return;
@@ -45,48 +55,46 @@ function save_sunflower_event_meta_boxes(){
     if ( get_post_status( $post->ID ) === 'auto-draft' ) {
         return;
     }
-    update_post_meta( $post->ID, "_sunflower_event_from", sanitize_text_field( $_POST[ "_sunflower_event_from" ] ) );
+
+    foreach($sunflower_event_fields AS $id => $config ){
+        update_post_meta( $post->ID, $id, sanitize_text_field( $_POST[ $id ] ) );
+    }
 }
 add_action( 'save_post', 'save_sunflower_event_meta_boxes' );
 
 function sunflower_event_meta_box(){
-    global $post;
+    global $post, $sunflower_event_fields;;
     $custom = get_post_custom( $post->ID );
 
-    $from = $custom[ "_sunflower_event_from" ][ 0 ];
-
-    printf('<input class="datetimepicker" type="text" name="_sunflower_event_from" placeholder="%s" value="%s"', 
-        __('Start date', 'sunflower'), 
-        $from );
-
-    /*
-    $advertisingCategory = $custom[ "_post_advertising_category" ][ 0 ];
-    $advertisingHtml = $custom[ "_post_advertising_html" ][ 0 ];
-    wp_editor(
-        htmlspecialchars_decode( $advertisingHtml ),
-        '_post_advertising_html',
-        $settings = array(
-            'textarea_name' => '_post_advertising_html',
-        )
-    );
-    switch ( $advertisingCategory ) {
-        case 'internal':
-            $internalSelected = "selected";
-            break;
-        case 'external':
-            $externalSelected = "selected";
-            break;
-        case 'mixed':
-            $mixedSelected = "selected";
-            break;
+    foreach($sunflower_event_fields AS $id => $config ){
+        $value = $custom[ $id ][ 0 ];
+        sunflower_event_field( $id, $config, $value );
     }
-    echo "<br>";
-    echo "<select name=\"_post_advertising_category\">";
-    echo "    <option value=\"internal\" $internalSelected>Internal</option>";
-    echo "    <option value=\"external\" $externalSelected>External</option>";
-    echo "    <option value=\"mixed\" $mixedSelected>Mixed</option>";
-    echo "</select>";
-    */
+
+}
+
+function sunflower_event_field( $id, $config, $value ){
+    $label = __($config[0], 'sunflower');
+    $class = $config[1] ?: '';
+    $type = $config[2] ?: false;
+
+    switch($type){
+        case 'checkbox':
+            printf('%2$s<input class="%4$s" type="checkbox" name="%1$s" %3$s value="checked"><br>', 
+                $id,
+                $label,
+                ($value) ?: '',
+                $class );
+            break;
+        default:
+            printf('%2$s<input class="%4$s" type="text" name="%1$s" placeholder="%2$s" value="%3$s">', 
+                $id,
+                $label,
+                $value,
+                $class );
+    }
+    
+
 }
 
 function sunflower_load_event_admin_scripts(){ 

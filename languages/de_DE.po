@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-01-24T21:53:43+01:00\n"
-"PO-Revision-Date: 2021-01-24 21:57+0100\n"
+"POT-Creation-Date: 2021-01-25T00:23:18+01:00\n"
+"PO-Revision-Date: 2021-01-25 00:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -18,11 +18,11 @@ msgstr ""
 
 #. Theme Name of the theme
 msgid "sunflower"
-msgstr ""
+msgstr "sunflower"
 
 #. Theme URI of the theme
 msgid "http://underscores.me/"
-msgstr ""
+msgstr "http://underscores.me/"
 
 #. Description of the theme
 msgid "Theme for german Green party"
@@ -30,11 +30,11 @@ msgstr "WordPress Theme für Bündnis 90/ Die Grünen"
 
 #. Author of the theme
 msgid "Tom Rose"
-msgstr ""
+msgstr "Tom Rose"
 
 #. Author URI of the theme
 msgid "https://tom-rose.de"
-msgstr ""
+msgstr "https://tom-rose.de"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
@@ -45,6 +45,8 @@ msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
 msgstr ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
 
 #: 404.php:30
 msgid "Most Used Categories"
@@ -53,9 +55,9 @@ msgstr "Häufige Kategorien"
 #. translators: %1$s: smiley
 #: 404.php:48
 msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
+msgstr "Try looking in the monthly archives. %1$s"
 
-#: archive-event.php:21 functions/events.php:8
+#: archive-event.php:21 functions/events.php:18
 msgid "Events"
 msgstr "Termine"
 
@@ -69,8 +71,8 @@ msgstr "Ein Kommentar zu &ldquo;%1$s&rdquo;"
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s thought on &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s thoughts on &ldquo;%2$s&rdquo;"
 
 #: comments.php:68
 msgid "Comments are closed."
@@ -82,10 +84,12 @@ msgid ""
 "page=sunflower_admin'>More information ca be found on the theme's setting "
 "page</a>."
 msgstr ""
+"Danke, dass Du das Sunflower-Theme nutzt. <a href='admin.php?"
+"page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
 #: functions/colors.php:8
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 #: functions/colors.php:13
 msgid "Green"
@@ -93,67 +97,83 @@ msgstr "Grün"
 
 #: functions/colors.php:18
 msgid "Lightgray"
-msgstr ""
+msgstr "Hellgrau"
 
 #: functions/colors.php:23
 msgid "White"
-msgstr ""
+msgstr "Weiß"
 
 #: functions/colors.php:28
 msgid "Black"
 msgstr "Schwarz"
 
-#: functions/events.php:9 functions/events.php:26
+#: functions/events.php:4
+msgid "Startdate"
+msgstr "Startdatum"
+
+#: functions/events.php:5
+msgid "Enddate"
+msgstr "Enddatum"
+
+#: functions/events.php:6
+msgid "Whole day"
+msgstr "ganztägig"
+
+#: functions/events.php:7
+msgid "Location name"
+msgstr "Veranstaltungsort (Name)"
+
+#: functions/events.php:8
+msgid "Street"
+msgstr "Straße und Hausnr."
+
+#: functions/events.php:9
+msgid "City"
+msgstr "Stadt"
+
+#: functions/events.php:19 functions/events.php:36
 msgid "Event"
 msgstr "Termin"
 
-#: functions/events.php:14
+#: functions/events.php:24
 msgid "event"
 msgstr "termin"
 
-#: functions/events.php:59
-msgid "Start date"
-msgstr "Startdatum"
-
 #: functions/layout.php:6 functions/options.php:157
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #: functions/layout.php:44
 msgid "Theme default"
-msgstr ""
+msgstr "Voreinstellung des Themes"
 
 #: functions/layout.php:45 functions/options.php:214
 msgid "complete image"
-msgstr ""
+msgstr "ganzes Bild"
 
 #: functions/layout.php:46 functions/options.php:215
 msgid "full area"
-msgstr "Volle Fläche"
+msgstr "volle Fläche"
 
 #: functions/layout.php:51
 msgid "How should the thumbnail be displayed on archive pages?"
-msgstr ""
+msgstr "Wie sollen Vorschaubilder in Übersichtsseiten dargestellt werden?"
 
 #: functions/layout.php:69
-#, fuzzy
-#| msgid "Sidebar"
 msgid "Show sidebar"
 msgstr "Seitenleiste"
 
 #: functions/layout.php:87
 msgid "Show title"
-msgstr ""
+msgstr "Titel anzeigen"
 
 #: functions/layout.php:91
 msgid "Roofline"
-msgstr ""
+msgstr "Dachzeile"
 
 #: functions/options.php:24 functions/options.php:25
-#, fuzzy
-#| msgid "Sunflower Settings"
 msgid "Sunflower"
-msgstr "Sunflower Einstellungen"
+msgstr "Sunflower"
 
 #: functions/options.php:36 functions/options.php:37
 msgid "First steps"
@@ -181,7 +201,7 @@ msgstr "Verschiedenes"
 
 #: functions/options.php:219
 msgid "Please choose"
-msgstr ""
+msgstr "Bitte wähle"
 
 #: functions/options.php:240
 msgid "complete URL of profile"
@@ -193,25 +213,25 @@ msgstr "Plugins installieren"
 
 #: functions/plugin-activation.php:115
 msgid "Install Plugins"
-msgstr ""
+msgstr "Plugins installieren"
 
 #: functions/plugin-activation.php:117
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "Installing Plugin: %s"
 
 #: functions/plugin-activation.php:119
 msgid "Updating Plugin: %s"
-msgstr ""
+msgstr "Updating Plugin: %s"
 
 #: functions/plugin-activation.php:120
 msgid "Something went wrong with the plugin API."
-msgstr ""
+msgstr "Something went wrong with the plugin API."
 
 #: functions/plugin-activation.php:121
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "This theme requires the following plugin: %1$s."
+msgstr[1] "This theme requires the following plugins: %1$s."
 
 #: functions/plugin-activation.php:127
 msgid "This theme recommends the following plugin: %1$s."
@@ -227,19 +247,23 @@ msgid_plural ""
 "The following plugins need to be updated to their latest version to ensure "
 "maximum compatibility with this theme: %1$s."
 msgstr[0] ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
 msgstr[1] ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
 
 #: functions/plugin-activation.php:139
 msgid "There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "There is an update available for: %1$s."
+msgstr[1] "There are updates available for the following plugins: %1$s."
 
 #: functions/plugin-activation.php:145
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "The following required plugin is currently inactive: %1$s."
+msgstr[1] "The following required plugins are currently inactive: %1$s."
 
 #: functions/plugin-activation.php:151
 msgid "The following recommended plugin is currently inactive: %1$s."
@@ -256,8 +280,8 @@ msgstr[1] "Plugins installieren"
 #: functions/plugin-activation.php:162
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Begin updating plugin"
+msgstr[1] "Begin updating plugins"
 
 #: functions/plugin-activation.php:167
 msgid "Begin activating plugin"
@@ -267,7 +291,7 @@ msgstr[1] "Plugins aktivieren"
 
 #: functions/plugin-activation.php:172
 msgid "Return to Required Plugins Installer"
-msgstr ""
+msgstr "Return to Required Plugins Installer"
 
 #: functions/plugin-activation.php:173
 msgid "Plugin activated successfully."
@@ -275,21 +299,23 @@ msgstr "Plugin aktiviert"
 
 #: functions/plugin-activation.php:174
 msgid "The following plugin was activated successfully:"
-msgstr ""
+msgstr "The following plugin was activated successfully:"
 
 #: functions/plugin-activation.php:176
 msgid "No action taken. Plugin %1$s was already active."
-msgstr ""
+msgstr "No action taken. Plugin %1$s was already active."
 
 #: functions/plugin-activation.php:178
 msgid ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
 msgstr ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
 
 #: functions/plugin-activation.php:180
 msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
+msgstr "All plugins installed and activated successfully. %1$s"
 
 #: functions/plugin-activation.php:181
 msgid "Dismiss this notice"
@@ -300,10 +326,12 @@ msgid ""
 "There are one or more required or recommended plugins to install, update or "
 "activate."
 msgstr ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
 
 #: functions/plugin-activation.php:183
 msgid "Please contact the administrator of this site for help."
-msgstr ""
+msgstr "Please contact the administrator of this site for help."
 
 #: functions/_s.php:53
 msgid "Mainmenu"
@@ -350,13 +378,13 @@ msgstr "von %s"
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:57
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:64
 msgctxt "list item separator"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #. translators: %s: post title
 #: inc/template-tags.php:82
@@ -373,11 +401,11 @@ msgstr "Inhalt bearbeiten  <span class=\"screen-reader-text\">%s</span>"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
-#: single-event.php:25 single.php:25
+#: single-event.php:27 single.php:28
 msgid "Previous:"
 msgstr "Zurück:"
 
-#: single-event.php:26 single.php:26
+#: single-event.php:28 single.php:29
 msgid "Next:"
 msgstr "Vor:"
 
@@ -390,7 +418,7 @@ msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 #: template-parts/content-archive.php:66 template-parts/content-page.php:29
 #: template-parts/content.php:53
 msgid "Pages:"
-msgstr ""
+msgstr "Seiten:"
 
 #: template-parts/content-archive.php:80
 msgid "Continue reading"
@@ -405,6 +433,7 @@ msgstr "Nichts gefunden"
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 
 #: template-parts/content-none.php:37
 msgid ""
@@ -419,6 +448,8 @@ msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content-page.php:43
