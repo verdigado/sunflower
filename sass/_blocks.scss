@@ -54,3 +54,19 @@
         background-color: $magenta;
     }
 }
+
+.wp-block-column{
+    img{
+    max-height: 200px;
+    width: 100%;
+    object-fit: cover;
+    }
+}
+
+@include media-breakpoint-up(lg) { 
+    .wp-block-column{
+        img{
+            max-height: 250px;
+        }
+    }
+}
