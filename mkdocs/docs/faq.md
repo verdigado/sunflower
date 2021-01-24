@@ -12,3 +12,15 @@ Du kannst auch das [WordPress-Plugin Free Images](https://wordpress.org/plugins/
 2. Gehe im Menü auf *Medien > Download Images*
 3. Suche ein Bild aus und lade es in Deine Mediathek
 4. Nutze das Bild an jeder beliebigen Stelle in WordPress
+
+## Wie kann ich Soziale Plattformen wie Instagram, Twitter und Facebook verlinken?
+Gehe dazu in die Sunflower-Eintellungen und trage die kompletten Webadressen Deiner Profile ein. 
+Sie erscheinen dann automatisch in der Fußzeile.
+
+## Ich wünsche mir ein neues Feature, das es nicht gibt
+Neue Features kannst Du auf der
+
+* [Projektseite bei gitbub](https://github.com/codeispoetry/sunflower/issues) oder 
+* im Chatkanal auf [Chatbegrünung](https://chatbegruenung.de/channel/sunflower)
+
+melden.

@@ -8,9 +8,10 @@
 - Klicke auf *Speichern*
 
 ## Dokumentation
-- Starte `make mkdocs serve` *mkdocs*
+- Starte `make mkdocs-serve` *mkdocs*
+- Die Dokumentation siehst Du unter localhost:
 - Bearbeite die Dokumentation unter *mkdocs/docs*
-- Baue die Dokumentation mit `make mkdocs build`
+- Baue die Dokumentation mit `make mkdocs-build`
 
 ## CSS
 - ``npm run watch``, um css zu kompilieren und eine Source-Map zu erhalten
