@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The template for displaying all single events
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
@@ -8,10 +8,12 @@
  */
 
 get_header();
+
+$show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true : false;
 ?>
 	<div id="content" class="container">
 		<div class="row">
-			<div class="col-12 col-md-8">
+			<div class="col-12 <?php if ( $show_sidebar ) echo 'col-md-8'; ?>">
 				<main id="primary" class="site-main">
 
 					<?php
@@ -38,7 +40,9 @@ get_header();
 				</main><!-- #main -->
 			</div>
 	<?php
-		get_sidebar();
+		if ( $show_sidebar ) {
+			get_sidebar();
+		}
 	?>
 	</div>
 </div>
