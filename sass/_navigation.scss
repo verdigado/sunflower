@@ -1,4 +1,4 @@
-@media all and (min-width: 992px) {
+@include media-breakpoint-up(lg) { 
     .navbar{
         .nav-item{
             &:hover{
