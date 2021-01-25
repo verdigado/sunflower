@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
-    "@wordpress/scripts": "^12.1.0",
+    "@wordpress/scripts": "^12.6.1",
     "dir-archiver": "^1.1.1",
     "node-sass": "^4.14.1",
     "rtlcss": "^2.5.0"
