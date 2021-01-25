@@ -59,11 +59,18 @@ function save_sunflower_event_meta_boxes(){
         return;
     }
 
+    $intoTransients = ['_sunflower_event_lat', '_sunflower_event_lon', '_sunflower_event_zoom'];
     foreach($sunflower_event_fields AS $id => $config ){
         $value = ($config[1] === 'datetimepicker' ) ? germanDate2intDate( $_POST[ $id ] ) : $_POST[ $id ];
            
         update_post_meta( $post->ID, $id, sanitize_text_field( $value ));
+
+        if( in_array($id, $intoTransients) AND $value){
+            set_transient( $id, $value );
+        }
     }
+
+   
 }
 add_action( 'save_post', 'save_sunflower_event_meta_boxes' );
 
@@ -97,6 +104,12 @@ function sunflower_event_meta_box(){
     $lat = $custom[ '_sunflower_event_lat'][ 0 ];
     $lon = $custom[ '_sunflower_event_lon'][ 0 ];
     $zoom = $custom[ '_sunflower_event_zoom'][ 0 ];
+
+    if( !$lat OR !$lon OR !$zoom){
+        $lat = get_transient('_sunflower_event_lat');
+        $lon = get_transient('_sunflower_event_lon');
+        $zoom = get_transient('_sunflower_event_zoom');;
+    }
 
     if( !$lat OR !$lon OR !$zoom){
         $lat = 50.5;

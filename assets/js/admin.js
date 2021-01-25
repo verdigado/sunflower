@@ -48,14 +48,19 @@ function sunflowerShowLeaflet( lat, lon, zoom ) {
 	} ).addTo( leaflet );
 
 	const marker = L.marker( [ lat, lon ] ).addTo( leaflet );
+	sunflowerSetMarker( lat, lon, leaflet.getZoom(), marker );
 
 	leaflet.addEventListener( 'click', function( ev ) {
-		jQuery( '#_sunflower_event_lat' ).val( ev.latlng.lat );
-		jQuery( '#_sunflower_event_lon' ).val( ev.latlng.lng );
-		jQuery( '#_sunflower_event_zoom' ).val( leaflet.getZoom() );
-
-		marker.setLatLng( new L.LatLng( ev.latlng.lat, ev.latlng.lng ) );
+		sunflowerSetMarker( ev.latlng.lat, ev.latlng.lng, leaflet.getZoom(), marker );
 	} );
 
 	jQuery( '#sunflowerShowMap' ).hide();
+}
+
+function sunflowerSetMarker( lat, lon, zoom, marker ) {
+	jQuery( '#_sunflower_event_lat' ).val( lat );
+	jQuery( '#_sunflower_event_lon' ).val( lon );
+	jQuery( '#_sunflower_event_zoom' ).val( zoom );
+
+	marker.setLatLng( new L.LatLng( lat, lon ) );
 }
