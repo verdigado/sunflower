@@ -9,3 +9,25 @@ const observer = new IntersectionObserver(
 );
 
 observer.observe( stickyDetector );
+
+jQuery(document).ready( function (){
+  jQuery('#show-leaflet').click( function(){
+    const lat = jQuery('#show-leaflet').data('lat');
+    const lon = jQuery('#show-leaflet').data('lon');
+    const zoom = jQuery('#show-leaflet').data('zoom');
+
+    showLeaflet(lat, lon, zoom);
+  })
+});
+
+
+
+function showLeaflet(lat, lon, zoom){
+  const leaflet = L.map('leaflet').setView([lat, lon], zoom);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+  }).addTo(leaflet);
+
+  const marker = L.marker([lat, lon]).addTo(leaflet);
+};

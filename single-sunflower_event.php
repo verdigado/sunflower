@@ -57,6 +57,17 @@ $icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
 
 						get_template_part( 'template-parts/content', 'post' );
 
+					?>
+					<div id="leaflet" class="d-flex flex-column justify-content-center align-items-center">
+
+						<?php _e('This is thirdparty content. If you click the button, the content will be downloaded from a thirdparty server.', 'sunflower'); ?>
+						<button class="btn btn-info btn-sm" id="show-leaflet" data-lat="50" data-lon="12" data-zoom="7">
+							<?php _e('Show map', 'sunflower'); ?>
+						</button>
+
+					</div>
+					<?php
+
 						the_post_navigation(
 							array(
 								'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'sunflower' ) . '</span> <span class="nav-title">%title</span>',
