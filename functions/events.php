@@ -7,6 +7,7 @@ $sunflower_event_fields = [
     '_sunflower_event_location_name'   => [ 'Location name' ],
     '_sunflower_event_location_street' => [ 'Street'],
     '_sunflower_event_location_city'   => [ 'City' ],
+    '_sunflower_event_webinar'   => [ 'Webinar' ],
     '_sunflower_event_lat'    => [ 'Latitude', null, 'hidden'],
     '_sunflower_event_lon'    => [ 'Longitude', null, 'hidden'],
     '_sunflower_event_zoom'   => [ 'Zoom', null, 'hidden'],

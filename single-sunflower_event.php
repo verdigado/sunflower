@@ -32,6 +32,8 @@ $_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_from')[0]
 $_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_location_name')[0] ?: false;
 $_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street')[0] ?: false;
 $_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_location_city')[0] ?: false;
+$_sunflower_event_webinar = @get_post_meta( $post->ID, '_sunflower_event_webinar')[0] ?: false;
+
 
 $_sunflower_event_lon = @get_post_meta( $post->ID, '_sunflower_event_lon')[0] ?: false;
 $_sunflower_event_lat = @get_post_meta( $post->ID, '_sunflower_event_lat')[0] ?: false;
@@ -46,16 +48,32 @@ $icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
 			<div class="col-12 <?php if ( $show_sidebar ) echo 'col-md-8'; ?>">
 				<main id="primary" class="site-main">
 					<?php
-					echo 'Von:' . $_sunflower_event_from;
-					echo 'bis' . $_sunflower_event_until;
+					printf('<div><i class="far fa-clock"></i> Von %s bis %s</div>',
+						$_sunflower_event_from,
+						$_sunflower_event_until,
+					);
 
-					printf('<div>%s, %s, %s</div><a href="%s">%s</a>',
-						$_sunflower_event_location_name,
-						$_sunflower_event_location_street,
-						$_sunflower_event_location_city,
+					$location = [];
+					if( $_sunflower_event_location_name ) $location[] = $_sunflower_event_location_name;
+					if( $_sunflower_event_location_street ) $location[] = $_sunflower_event_location_street;
+					if( $_sunflower_event_location_city) $location[] = $_sunflower_event_location_city;
+					if( !empty($location)){
+						printf('<div><i class="fas fa-map-marker-alt"></i> %s</div>',
+							join(',', $location)
+						);
+					}
+
+					printf('<div><a href="%s"><i class="fas fa-download"></i> %s</a></div>',
 						$icsLink,
 						__('Download as ics', 'sunflower')
 					);
+
+					if( $_sunflower_event_webinar ){
+						printf('<div><a href="%s" target="_blank"><i class="fas fa-desktop"></i> %s</a></div>',
+							$_sunflower_event_webinar,
+							__('Link to webinar', 'sunflower')
+						);
+					}
 
 					while ( have_posts() ) :
 						the_post();
