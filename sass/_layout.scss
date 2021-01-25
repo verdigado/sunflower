@@ -68,8 +68,8 @@ img.post-thumbnail{
 
 .social_media_sharers{
     display: flex;
-    margin-right: 3rem;
     align-items: center;
+
     .sharer{
         background: $black;
         width: 40px;
@@ -86,6 +86,11 @@ img.post-thumbnail{
 
         &:hover{
             background-color: $primary;
+        }
+
+        &:last-child{
+            color: red;
+            margin-right: 3rem;
         }
     }
 }
