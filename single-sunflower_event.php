@@ -26,8 +26,10 @@ function getIcalDate($time, $withTime = true){
 get_header();
 
 $show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true : false;
+$_sunflower_event_whole_day = @get_post_meta( $post->ID, '_sunflower_event_whole_day')[0] ?: false;
+
 $_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
-$_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
+$_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_until')[0] ?: false;
 
 $_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_location_name')[0] ?: false;
 $_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street')[0] ?: false;
@@ -39,8 +41,31 @@ $_sunflower_event_lon = @get_post_meta( $post->ID, '_sunflower_event_lon')[0] ?:
 $_sunflower_event_lat = @get_post_meta( $post->ID, '_sunflower_event_lat')[0] ?: false;
 $_sunflower_event_zoom = @get_post_meta( $post->ID, '_sunflower_event_zoom')[0] ?: false;
 
-
 $icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
+
+function formatDay( $time, $whole_day ){
+	global $post;
+	static $day;
+
+	if( !$time ){
+		return '';
+	}
+	$timestamp = strToTime($time);
+
+
+	$timecode = ( date('H:i', $timestamp) === '00:00' OR $whole_day) ? '' : ',  H<\s\u\p>i</\s\u\p> \U\h\r';
+	
+	if ($day AND $day === date('jFY', $timestamp)){
+		$daycode = '';
+		$timecode = ( date('H:i', $timestamp) === '00:00' OR $whole_day) ? '' : '  H<\s\u\p>i</\s\u\p> \U\h\r';
+	}else{
+		$day = date('jFY', $timestamp);
+		$daycode = 'l, \d\e\n j. F Y';
+	}
+
+	return date_i18n( $daycode . $timecode, $timestamp);
+}
+
 
 ?>
 	<div id="content" class="container">
@@ -48,9 +73,11 @@ $icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
 			<div class="col-12 <?php if ( $show_sidebar ) echo 'col-md-8'; ?>">
 				<main id="primary" class="site-main">
 					<?php
-					printf('<div><i class="far fa-clock"></i> Von %s bis %s</div>',
-						$_sunflower_event_from,
-						$_sunflower_event_until,
+					$startdate = formatDay( $_sunflower_event_from, $_sunflower_event_whole_day );
+					$enddate = formatDay( $_sunflower_event_until, $_sunflower_event_whole_day);
+					printf('<div><i class="far fa-clock"></i> %s %s</div>',
+						$startdate,
+						($enddate) ? ' &dash; ' . $enddate : '',
 					);
 
 					$location = [];
