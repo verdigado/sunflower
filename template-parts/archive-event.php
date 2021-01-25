@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12 col-md-3 d-flex align-items-center justify-content-around arvogruen">
             <?php
-                $from = strToTime( get_post_meta( $post->ID, '_sunflower_event_from')[0] );
+                $from = strToTime(get_post_meta( $post->ID, '_sunflower_event_from')[0]);
                 $attribute = date('Y-m-d', $from );
                 $weekday = date_i18n( 'l ', $from);
                 $date = date_i18n( 'j. F Y', $from);
@@ -23,7 +23,7 @@
                 <div><?php echo $weekday; ?></div>
                 <div class="date">
                     <time datetime="<?php echo $attribute; ?>">
-                        <?php echo $date; ?>
+                        <?php echo $date;?>
                     </time>
                 </div>
             </div>

@@ -57,10 +57,29 @@ function save_sunflower_event_meta_boxes(){
     }
 
     foreach($sunflower_event_fields AS $id => $config ){
-        update_post_meta( $post->ID, $id, sanitize_text_field( $_POST[ $id ] ) );
+        $value = ($config[1] === 'datetimepicker' ) ? germanDate2intDate( $_POST[ $id ] ) : $_POST[ $id ];
+           
+        update_post_meta( $post->ID, $id, sanitize_text_field( $value ));
     }
 }
 add_action( 'save_post', 'save_sunflower_event_meta_boxes' );
+
+function germanDate2intDate($germanDate){
+    if( !$germanDate ){
+        return '';
+    }
+
+    list($day, $month, $year, $hours, $minutes ) = preg_split('/[^0-9]/', $germanDate);
+    return "$year-$month-$day $hours:$minutes";
+}
+
+function intDate2germanDate($intDate){
+    if( !$intDate ){
+        return '';
+    }
+    list($year, $month, $day, $hours, $minutes ) = preg_split('/[^0-9]/', $intDate);
+    return "$day.$month.$year $hours:$minutes";
+}
 
 function sunflower_event_meta_box(){
     global $post, $sunflower_event_fields;;
@@ -77,6 +96,10 @@ function sunflower_event_field( $id, $config, $value ){
     $label = __($config[0], 'sunflower');
     $class = $config[1] ?: '';
     $type = $config[2] ?: false;
+
+    if( $class === 'datetimepicker'){
+        $value = intDate2germanDate( $value );
+    }
 
     switch($type){
         case 'checkbox':
