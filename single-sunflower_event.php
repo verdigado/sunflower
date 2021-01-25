@@ -6,6 +6,22 @@
  *
  * @package sunflower
  */
+$show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true : false;
+$_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
+$_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
+
+$_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_location_name')[0] ?: false;
+$_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street')[0] ?: false;
+$_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_location_city')[0] ?: false;
+
+if( isset($_GET['format']) AND $_GET['format'] === 'ics' ){
+	require_once('functions/ical.php');
+	die();
+}
+
+function getIcalDate($time, $withTime = true){
+    return date('Ymd' . ($withTime ? '\THis\Z' : ''), strToTime($time));
+}
 
 get_header();
 
@@ -17,6 +33,7 @@ $_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_l
 $_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street')[0] ?: false;
 $_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_location_city')[0] ?: false;
 
+$icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
 
 ?>
 	<div id="content" class="container">
@@ -27,10 +44,12 @@ $_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_l
 					echo 'Von:' . $_sunflower_event_from;
 					echo 'bis' . $_sunflower_event_until;
 
-					printf('<div>%s, %s, %s</div>',
+					printf('<div>%s, %s, %s</div><a href="%s">%s</a>',
 						$_sunflower_event_location_name,
 						$_sunflower_event_location_street,
-						$_sunflower_event_location_city
+						$_sunflower_event_location_city,
+						$icsLink,
+						_('Download as ics', 'sunflower')
 					);
 
 					while ( have_posts() ) :
