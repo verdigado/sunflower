@@ -11,6 +11,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+
+		<?php
+			$roofline = @get_post_meta( $post->ID, '_sunflower_roofline')[0] ?: false;
+			if( $roofline ){
+				printf(' <div class="roofline arvogruen mb-1">%s</div>', $roofline);
+			}
+		?>
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );

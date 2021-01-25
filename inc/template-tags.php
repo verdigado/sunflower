@@ -51,6 +51,13 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function sunflower_entry_footer() {
+
+		?>
+			<div class="d-flex mt-5 mb-5">
+				<?php sunflower_the_social_media_sharers(); ?>
+				<div>
+		<?php
+		
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
@@ -64,7 +71,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'sunflower' ) );
 
 			if (  $categories_list AND $tags_list ) {
-				echo ' | ';
+				echo '<br>';
 			}
 
 			if ( $tags_list ) {
@@ -72,6 +79,13 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 				printf( '<span class="tags-links">%s</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
+
+		?>
+				</div>
+			</div>
+		<div> <!-- end flex row-->
+
+		<?php
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
@@ -93,7 +107,6 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 		}
 
 		if( is_singular() ) {
-			sunflower_the_social_media_sharers();
 			edit_post_link(
 				sprintf(
 					wp_kses(
@@ -107,17 +120,19 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 					),
 					wp_kses_post( get_the_title() )
 				),
-				'<br><button class="edit-link btn btn-info btn-sm text-white">',
-				'</button>'
+				'<div><button class="edit-link btn btn-info btn-sm text-white mt-2">',
+				'</button></div>'
 			);
 		}
+
+
 	}
 endif;
 
 function sunflower_the_social_media_sharers(){
 	global $post;
 	if(get_sunflower_setting( 'sunflower_sharer_twitter')){
-		$twitter = sprintf('<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s"><i class="fab fa-twitter"></i></a>',
+		$twitter = sprintf('<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-twitter"></i></a>',
 			urlencode($post->post_title),
 			home_url() . urlencode($post->post_name),
 			$via,
@@ -126,14 +141,14 @@ function sunflower_the_social_media_sharers(){
 	}
 
 	if(get_sunflower_setting( 'sunflower_sharer_facebook')){
-		$facebook = sprintf("<i class='fab fa-facebook' onclick=\"window.open('https://www.facebook.com/sharer/sharer.php?u=%s', 'sharer', 'width=626,height=436')\" title=\"%s\"></i>",
+		$facebook = sprintf("<i class='fab fa-facebook sharer' onclick=\"window.open('https://www.facebook.com/sharer/sharer.php?u=%s', 'sharer', 'width=626,height=436')\" title=\"%s\"></i>",
 			home_url() . urlencode($post->post_name),
 			__('Share on facebook ', 'sunflower')
 		);
 	}
 
 	if(get_sunflower_setting( 'sunflower_sharer_mail')){
-		$mail = sprintf('<a href="MAILTO:?subject=%s&body=%s" target="_blank title="%s"><i class="fas fa-envelope"></i></a>',
+		$mail = sprintf('<a href="MAILTO:?subject=%s&body=%s" target="_blank title="%s" class="sharer"><i class="fas fa-envelope"></i></a>',
 			urlencode($post->post_title),
 			home_url() . urlencode($post->post_name),
 			__('send mail ', 'sunflower')

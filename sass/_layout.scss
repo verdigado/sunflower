@@ -64,3 +64,28 @@ img.post-thumbnail{
         margin-top: $grid-gutter-width;
     }
 }
+
+
+.social_media_sharers{
+    display: flex;
+    margin-right: 3rem;
+    align-items: center;
+    .sharer{
+        background: $black;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 3px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor:pointer;
+
+        &:hover{
+            background-color: $primary;
+        }
+    }
+}
