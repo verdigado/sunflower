@@ -93,6 +93,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 		}
 
 		if( is_singular() ) {
+			sunflower_the_social_media_sharers();
 			edit_post_link(
 				sprintf(
 					wp_kses(
@@ -112,6 +113,30 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 		}
 	}
 endif;
+
+function sunflower_the_social_media_sharers(){
+	global $post;
+
+	$twitter = sprintf('<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s"><i class="fab fa-twitter"></i></a>',
+		urlencode($post->post_title),
+		home_url() . urlencode($post->post_name),
+		$via,
+		__('Share on twitter ', 'sunflower')
+	);
+
+	$facebook = sprintf("<i class='fab fa-facebook' onclick=\"window.open('https://www.facebook.com/sharer/sharer.php?u=%s', 'sharer', 'width=626,height=436')\" title=\"%s\"></i>",
+		home_url() . urlencode($post->post_name),
+		__('Share on facebook ', 'sunflower')
+	);
+
+	$mail = sprintf('<a href="MAILTO:?subject=%s&body=%s" target="_blank title="%s"><i class="fas fa-envelope"></i></a>',
+		urlencode($post->post_title),
+		home_url() . urlencode($post->post_name),
+		__('send mail ', 'sunflower')
+	);
+
+	echo "<div class=\"social_media_sharers\">$twitter $facebook $mail</div>";
+}
 
 if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 	/**

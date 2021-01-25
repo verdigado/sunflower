@@ -32,7 +32,7 @@ $show_title = @get_post_meta( $post->ID, '_sunflower_show_title')[0] ? true : fa
 		);
 		?>
 	</div><!-- .entry-content -->
-
+#
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
