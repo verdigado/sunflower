@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-01-25T00:23:18+01:00\n"
-"PO-Revision-Date: 2021-01-25 00:33+0100\n"
+"POT-Creation-Date: 2021-01-25T11:45:41+01:00\n"
+"PO-Revision-Date: 2021-01-25 11:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -57,7 +57,7 @@ msgstr "Häufige Kategorien"
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "Try looking in the monthly archives. %1$s"
 
-#: archive-event.php:21 functions/events.php:18
+#: archive-sunflower_event.php:21 functions/events.php:18
 msgid "Events"
 msgstr "Termine"
 
@@ -71,8 +71,8 @@ msgstr "Ein Kommentar zu &ldquo;%1$s&rdquo;"
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s thought on &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s Kommentar zu &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s Kommentare zu &ldquo;%2$s&rdquo;"
 
 #: comments.php:68
 msgid "Comments are closed."
@@ -107,37 +107,13 @@ msgstr "Weiß"
 msgid "Black"
 msgstr "Schwarz"
 
-#: functions/events.php:4
-msgid "Startdate"
-msgstr "Startdatum"
-
-#: functions/events.php:5
-msgid "Enddate"
-msgstr "Enddatum"
-
-#: functions/events.php:6
-msgid "Whole day"
-msgstr "ganztägig"
-
-#: functions/events.php:7
-msgid "Location name"
-msgstr "Veranstaltungsort (Name)"
-
-#: functions/events.php:8
-msgid "Street"
-msgstr "Straße und Hausnr."
-
-#: functions/events.php:9
-msgid "City"
-msgstr "Stadt"
-
 #: functions/events.php:19 functions/events.php:36
 msgid "Event"
 msgstr "Termin"
 
 #: functions/events.php:24
-msgid "event"
-msgstr "termin"
+msgid "sunflower_event"
+msgstr "sunflower_event"
 
 #: functions/layout.php:6 functions/options.php:157
 msgid "Layout"
@@ -401,16 +377,20 @@ msgstr "Inhalt bearbeiten  <span class=\"screen-reader-text\">%s</span>"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
-#: single-event.php:27 single.php:28
+#: single-sunflower_event.php:52
+msgid "Download as ics"
+msgstr "Downloas als ics-Datei"
+
+#: single-sunflower_event.php:62 single.php:28
 msgid "Previous:"
 msgstr "Zurück:"
 
-#: single-event.php:28 single.php:29
+#: single-sunflower_event.php:63 single.php:29
 msgid "Next:"
 msgstr "Vor:"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content-archive.php:53 template-parts/content-event.php:49
+#: template-parts/archive-event.php:49 template-parts/content-archive.php:53
 #: template-parts/content.php:40
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
@@ -455,6 +435,27 @@ msgstr ""
 #: template-parts/content-page.php:43
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Bearbeiten  <span class=\"screen-reader-text\">%s</span>"
+
+#~ msgid "Startdate"
+#~ msgstr "Startdatum"
+
+#~ msgid "Enddate"
+#~ msgstr "Enddatum"
+
+#~ msgid "Whole day"
+#~ msgstr "ganztägig"
+
+#~ msgid "Location name"
+#~ msgstr "Veranstaltungsort (Name)"
+
+#~ msgid "Street"
+#~ msgstr "Straße und Hausnr."
+
+#~ msgid "City"
+#~ msgstr "Stadt"
+
+#~ msgid "event"
+#~ msgstr "termin"
 
 #~ msgid "Posted in %1$s"
 #~ msgstr "Veröffentlicht unter %1$s"
