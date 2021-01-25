@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-01-25T11:45:41+01:00\n"
+"POT-Creation-Date: 2021-01-25T12:44:09+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -116,12 +116,12 @@ msgid "Theme default"
 msgstr ""
 
 #: functions/layout.php:45
-#: functions/options.php:214
+#: functions/options.php:266
 msgid "complete image"
 msgstr ""
 
 #: functions/layout.php:46
-#: functions/options.php:215
+#: functions/options.php:267
 msgid "full area"
 msgstr ""
 
@@ -172,11 +172,45 @@ msgstr ""
 msgid "Miscellaneous"
 msgstr ""
 
-#: functions/options.php:219
+#: functions/options.php:149
+msgid "Excerpt length (words)"
+msgstr ""
+
+#: functions/options.php:164
+msgid "Post thumbnails in archives"
+msgstr ""
+
+#: functions/options.php:172
+msgid "Social Sharers"
+msgstr ""
+
+#: functions/options.php:179
+#: functions/options.php:183
+msgid "Twitter"
+msgstr ""
+
+#: functions/options.php:188
+#: functions/options.php:192
+msgid "Facebook"
+msgstr ""
+
+#: functions/options.php:197
+msgid "mail"
+msgstr ""
+
+#: functions/options.php:201
+msgid "Mail"
+msgstr ""
+
+#: functions/options.php:238
+msgid "Show share buttons on single page"
+msgstr ""
+
+#: functions/options.php:271
 msgid "Please choose"
 msgstr ""
 
-#: functions/options.php:240
+#: functions/options.php:292
 msgid "complete URL of profile"
 msgstr ""
 
@@ -349,8 +383,20 @@ msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:100
+#: inc/template-tags.php:101
 msgid "Edit content<span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#: inc/template-tags.php:124
+msgid "Share on twitter "
+msgstr ""
+
+#: inc/template-tags.php:131
+msgid "Share on facebook "
+msgstr ""
+
+#: inc/template-tags.php:139
+msgid "send mail "
 msgstr ""
 
 #. translators: %s: search query.

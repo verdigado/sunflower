@@ -146,12 +146,12 @@ class SunflowerSettingsPage
 
         add_settings_field(
             'excerps_length', // ID
-            __('Excerpt length (words)'), // Title 
+            __('Excerpt length (words)', 'sunflower'), // Title 
             array( $this, 'excerpt_length_callback' ), // Callback
             'sunflower-setting-admin', // Page
             'sunflower_misc' // Section           
-        );    
-
+        );   
+        
         add_settings_section(
             'sunflower_layout', // ID
             __('Layout', 'sunflower'), // Title
@@ -161,10 +161,44 @@ class SunflowerSettingsPage
 
         add_settings_field(
             'post_thumbnail_object_fit', // ID
-            __('Post thumbnails in archives'), // Title 
+            __('Post thumbnails in archives', 'sunflower'), // Title 
             array( $this, 'post_thumbnail_object_fit_callback' ), // Callback
             'sunflower-setting-admin', // Page
             'sunflower_layout' // Section           
+        );    
+
+        add_settings_section(
+            'sunflower_social_media_sharers', // ID
+            __('Social Sharers', 'sunflower'), // Title
+            array( $this, 'print_section_info_sharers'), // Callback
+            'sunflower-setting-admin' // Page
+        );  
+
+        add_settings_field(
+            'sunflower_sharer_twitter', // ID
+            __('Twitter', 'sunflower'), // Title 
+            array( $this, 'sunflower_checkbox_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_social_media_sharers', // Section   
+            ['sunflower_sharer_twitter', __('Twitter', 'sunflower')]
+        );    
+
+        add_settings_field(
+            'sunflower_sharer_facebook', // ID
+            __('Facebook', 'sunflower'), // Title 
+            array( $this, 'sunflower_checkbox_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_social_media_sharers', // Section   
+            ['sunflower_sharer_facebook', __('Facebook', 'sunflower')]
+        );    
+
+        add_settings_field(
+            'sunflower_sharer_mail', // ID
+            __('mail', 'sunflower'), // Title 
+            array( $this, 'sunflower_checkbox_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_social_media_sharers', // Section   
+            ['sunflower_sharer_mail', __('Mail', 'sunflower')]
         );    
     }
 
@@ -197,7 +231,25 @@ class SunflowerSettingsPage
      */
     public function print_section_info()
     {
-        
+    } 
+
+    public function print_section_info_sharers()
+    {
+        _e('Show share buttons on single page', 'sunflower');
+    }
+
+    public function sunflower_checkbox_callback( $args){
+        $field = $args[0];
+        $label = $args[1];
+
+        printf('<label>
+                    <input type="checkbox" id="%1$s" name="sunflower_options[%1$s]" value="checked" %2$s />
+                    %3$s
+                </label>',
+            $field,
+            isset( $this->options[$field] ) ? 'checked': '',
+            $label
+        );
     }
 
     public function excerpt_length_callback()

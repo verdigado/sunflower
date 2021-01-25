@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-01-25T11:45:41+01:00\n"
-"PO-Revision-Date: 2021-01-25 11:47+0100\n"
+"POT-Creation-Date: 2021-01-25T12:44:09+01:00\n"
+"PO-Revision-Date: 2021-01-25 12:45+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -123,11 +123,11 @@ msgstr "Layout"
 msgid "Theme default"
 msgstr "Voreinstellung des Themes"
 
-#: functions/layout.php:45 functions/options.php:214
+#: functions/layout.php:45 functions/options.php:266
 msgid "complete image"
 msgstr "ganzes Bild"
 
-#: functions/layout.php:46 functions/options.php:215
+#: functions/layout.php:46 functions/options.php:267
 msgid "full area"
 msgstr "volle Fläche"
 
@@ -175,11 +175,43 @@ msgstr "Profile in Sozialen Medien"
 msgid "Miscellaneous"
 msgstr "Verschiedenes"
 
-#: functions/options.php:219
+#: functions/options.php:149
+msgid "Excerpt length (words)"
+msgstr "Länge der Vorschautextes in Worten"
+
+#: functions/options.php:164
+msgid "Post thumbnails in archives"
+msgstr "Wie sollen Vorschaubilder in Übersichtsseiten dargestellt werden?"
+
+#: functions/options.php:172
+msgid "Social Sharers"
+msgstr "Teile in Sozialen Medien"
+
+#: functions/options.php:179 functions/options.php:183
+msgid "Twitter"
+msgstr "Twitter"
+
+#: functions/options.php:188 functions/options.php:192
+msgid "Facebook"
+msgstr "Facebook"
+
+#: functions/options.php:197
+msgid "mail"
+msgstr "E-Mail"
+
+#: functions/options.php:201
+msgid "Mail"
+msgstr "E-Mail"
+
+#: functions/options.php:238
+msgid "Show share buttons on single page"
+msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
+
+#: functions/options.php:271
 msgid "Please choose"
 msgstr "Bitte wähle"
 
-#: functions/options.php:240
+#: functions/options.php:292
 msgid "complete URL of profile"
 msgstr "Komplette URL des Profils"
 
@@ -271,7 +303,7 @@ msgstr "Return to Required Plugins Installer"
 
 #: functions/plugin-activation.php:173
 msgid "Plugin activated successfully."
-msgstr "Plugin aktiviert"
+msgstr "Plugin aktiviert."
 
 #: functions/plugin-activation.php:174
 msgid "The following plugin was activated successfully:"
@@ -368,9 +400,21 @@ msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Kommentiere <span class=\"screen-reader-text\"> bei %s</span>"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:100
+#: inc/template-tags.php:101
 msgid "Edit content<span class=\"screen-reader-text\">%s</span>"
 msgstr "Inhalt bearbeiten  <span class=\"screen-reader-text\">%s</span>"
+
+#: inc/template-tags.php:124
+msgid "Share on twitter "
+msgstr "Auf Twitter teilen"
+
+#: inc/template-tags.php:131
+msgid "Share on facebook "
+msgstr "Auf Facebook teilen"
+
+#: inc/template-tags.php:139
+msgid "send mail "
+msgstr "Sende E-Mail"
 
 #. translators: %s: search query.
 #: search.php:23

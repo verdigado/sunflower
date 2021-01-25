@@ -116,24 +116,29 @@ endif;
 
 function sunflower_the_social_media_sharers(){
 	global $post;
+	if(get_sunflower_setting( 'sunflower_sharer_twitter')){
+		$twitter = sprintf('<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s"><i class="fab fa-twitter"></i></a>',
+			urlencode($post->post_title),
+			home_url() . urlencode($post->post_name),
+			$via,
+			__('Share on twitter ', 'sunflower')
+		);
+	}
 
-	$twitter = sprintf('<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s"><i class="fab fa-twitter"></i></a>',
-		urlencode($post->post_title),
-		home_url() . urlencode($post->post_name),
-		$via,
-		__('Share on twitter ', 'sunflower')
-	);
+	if(get_sunflower_setting( 'sunflower_sharer_facebook')){
+		$facebook = sprintf("<i class='fab fa-facebook' onclick=\"window.open('https://www.facebook.com/sharer/sharer.php?u=%s', 'sharer', 'width=626,height=436')\" title=\"%s\"></i>",
+			home_url() . urlencode($post->post_name),
+			__('Share on facebook ', 'sunflower')
+		);
+	}
 
-	$facebook = sprintf("<i class='fab fa-facebook' onclick=\"window.open('https://www.facebook.com/sharer/sharer.php?u=%s', 'sharer', 'width=626,height=436')\" title=\"%s\"></i>",
-		home_url() . urlencode($post->post_name),
-		__('Share on facebook ', 'sunflower')
-	);
-
-	$mail = sprintf('<a href="MAILTO:?subject=%s&body=%s" target="_blank title="%s"><i class="fas fa-envelope"></i></a>',
-		urlencode($post->post_title),
-		home_url() . urlencode($post->post_name),
-		__('send mail ', 'sunflower')
-	);
+	if(get_sunflower_setting( 'sunflower_sharer_mail')){
+		$mail = sprintf('<a href="MAILTO:?subject=%s&body=%s" target="_blank title="%s"><i class="fas fa-envelope"></i></a>',
+			urlencode($post->post_title),
+			home_url() . urlencode($post->post_name),
+			__('send mail ', 'sunflower')
+		);
+	}
 
 	echo "<div class=\"social_media_sharers\">$twitter $facebook $mail</div>";
 }
