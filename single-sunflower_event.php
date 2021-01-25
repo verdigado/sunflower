@@ -49,7 +49,7 @@ $icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
 						$_sunflower_event_location_street,
 						$_sunflower_event_location_city,
 						$icsLink,
-						_('Download as ics', 'sunflower')
+						__('Download as ics', 'sunflower')
 					);
 
 					while ( have_posts() ) :
