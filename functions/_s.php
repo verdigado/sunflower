@@ -170,7 +170,7 @@ function sunflower_scripts() {
 	
 	wp_enqueue_script(
         'jquery-slim',
-        get_template_directory_uri() . '/assets/vndr/jquery-3.2.1.slim.min.js',
+        get_template_directory_uri() . '/assets/vndr/jquery-slim/dist/jquery.slim.min.js',
         null,
         '3.2.1', 
         true
