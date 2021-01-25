@@ -11,7 +11,7 @@ $sunflower_event_fields = [
 
 function sunflower_create_event_post_type() {
  
-    register_post_type( 'event',
+    register_post_type( 'sunflower_event',
     // CPT Options
         array(
             'labels' => array(
@@ -21,7 +21,7 @@ function sunflower_create_event_post_type() {
             'public' => true,
             'menu_icon' => 'dashicons-calendar',
             'has_archive' => true,
-            'rewrite' => array('slug' => __( 'event', 'sunflower' )),
+            'rewrite' => array('slug' => __( 'sunflower_event', 'sunflower' )),
             'show_in_rest' => true,
             'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
         )
@@ -35,7 +35,7 @@ function sunflower_add_event_meta_boxes() {
         "sunflower_event_meta_box", // div id containing rendered fields
         __("Event", 'sunflower'), // section heading displayed as text
         "sunflower_event_meta_box", // callback function to render fields
-        "event", // name of post type on which to render fields
+        "sunflower_event", // name of post type on which to render fields
         "side", // location on the screen
         "high" // placement priority
     );

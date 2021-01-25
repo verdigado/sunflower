@@ -31,11 +31,8 @@ $_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_l
 						$_sunflower_event_location_name,
 						$_sunflower_event_location_street,
 						$_sunflower_event_location_city
-);
+					);
 
-					?>
-
-					<?php
 					while ( have_posts() ) :
 						the_post();
 
