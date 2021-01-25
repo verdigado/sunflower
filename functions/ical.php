@@ -7,6 +7,7 @@ $from = getIcalDate($_sunflower_event_from);
 	$proid = parse_url(get_bloginfo('url'), PHP_URL_HOST);
 	$uid = md5(uniqid(mt_rand(), true)) . '@' . $proid;
 	$description = get_the_excerpt();
+	$filename = preg_replace('/[^a-zA-Z0-9]/','-',$summary) . '.ics';
 
 $ical=<<<ICAL
 BEGIN:VCALENDAR
@@ -33,7 +34,7 @@ ICAL;
 	header("Content-Type: application/force-download");
 	header("Content-Type: application/octet-stream");
 	header("Content-Type: application/download");
-	header("Content-Disposition: attachment; filename=\"termin.ics\";");
+	header("Content-Disposition: attachment; filename=\"{$filename}\";");
 	header("Content-Description: File Transfer");
 	header("Content-Transfer-Encoding: binary");
 	//header('Content-Length: '.$Groesse );
