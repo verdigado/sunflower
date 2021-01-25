@@ -122,21 +122,21 @@ function sunflower_event_field( $id, $config, $value ){
 
 function sunflower_load_event_admin_scripts(){ 
     wp_enqueue_script('sunflower-datetimepicker',
-        get_template_directory_uri() .'/assets/vndr/datetimepicker/jquery.datetimepicker.full.min.js', 
+        get_template_directory_uri() .'/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js', 
         array('jquery'), 
         '1.0.0', 
         true
     ); 
 
     wp_enqueue_script('sunflower-datetimepicker-custom',
-        get_template_directory_uri() .'/assets/vndr/datetimepicker/sunflower.js', 
+        get_template_directory_uri() .'/assets/custom-jquery-date-time-picker.js', 
         array('sunflower-datetimepicker'), 
         '1.0.0', 
         true
     ); 
 
     wp_enqueue_style( 'sunflower-datetimepicker', 
-        get_template_directory_uri() .'/assets/vndr/datetimepicker/jquery.datetimepicker.css', 
+        get_template_directory_uri() .'/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.min.css', 
         array(), 
         '1.0.0' );
 
