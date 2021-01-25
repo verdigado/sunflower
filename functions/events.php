@@ -150,7 +150,7 @@ function sunflower_event_field( $id, $config, $value ){
                 $class );
             break;
         case 'hidden':
-            printf('<input type="HIDDDEN" name="%1$s" id="%1$s" value="%2$s">', 
+            printf('<input type="hidden" name="%1$s" id="%1$s" value="%2$s">', 
                 $id,
                 $value
             );
