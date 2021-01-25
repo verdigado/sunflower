@@ -104,7 +104,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 /* Fontawesome
 --------------------------------------------- */
-$fa-font-path : 'assets/vndr/fontawesome/fonts';
+$fa-font-path : 'assets/vndr/@fortawesome/fontawesome-free/webfonts';
 @import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '../node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
 @import '../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
