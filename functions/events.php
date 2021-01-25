@@ -93,11 +93,29 @@ function sunflower_event_meta_box(){
         sunflower_event_field( $id, $config, $value );
     }
 
-    printf('%s<div><button id="sunflowerDeleteMap">%s</button></div><div id="leaflet" style="height:270px"><div id="sunflowerShowMap">%s</div></div>',
+
+    $lat = $custom[ '_sunflower_event_lat'][ 0 ];
+    $lon = $custom[ '_sunflower_event_lon'][ 0 ];
+    $zoom = $custom[ '_sunflower_event_zoom'][ 0 ];
+
+    if( !$lat OR !$lon OR !$zoom){
+        $lat = 50.5;
+        $lon = 9.7;
+        $zoom = 4;
+    }
+
+    printf('%1$s
+        <div>
+            <button id="sunflowerShowMap" onClick="sunflowerShowLeaflet( %4$s, %5$s, %6$s );">%2$s</button>
+            <button id="sunflowerDeleteMap">%3$s</button>
+        </div>
+        <div id="leaflet" style="height:270px"></div>',
     __('Map', 'sunflower'),
-    __('delete link to map', 'sunflower'),
-    __('Click here to show the map', 'sunflower'))
-    ;
+    __('load map', 'sunflower'),
+    __('delete map', 'sunflower'),
+    $lat, $lon, $zoom
+    );
+
 
 }
 

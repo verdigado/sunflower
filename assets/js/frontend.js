@@ -21,7 +21,6 @@ jQuery(document).ready( function (){
 });
 
 
-
 function showLeaflet(lat, lon, zoom){
   const leaflet = L.map('leaflet').setView([lat, lon], zoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

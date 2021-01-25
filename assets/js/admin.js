@@ -10,7 +10,6 @@ jQuery( document ).on( 'click', '.sunflower-plugins .notice-dismiss', function()
 
 jQuery( document ).ready( function() {
 	jQuery( '#createHomepage' ).click( sunflowerCreateHomepage );
-	jQuery( '#sunflowerShowMap' ).click( () => sunflowerShowLeaflet( 50.68, 9.85, 4 ) );
 	jQuery( '#sunflowerDeleteMap' ).click( () => sunflowerDeleteLeaflet( ) );
 } );
 
@@ -50,11 +49,13 @@ function sunflowerShowLeaflet( lat, lon, zoom ) {
 
 	const marker = L.marker( [ lat, lon ] ).addTo( leaflet );
 
-	leaflet.addEventListener('click', function( ev ) {
+	leaflet.addEventListener( 'click', function( ev ) {
 		jQuery( '#_sunflower_event_lat' ).val( ev.latlng.lat );
 		jQuery( '#_sunflower_event_lon' ).val( ev.latlng.lng );
 		jQuery( '#_sunflower_event_zoom' ).val( leaflet.getZoom() );
 
 		marker.setLatLng( new L.LatLng( ev.latlng.lat, ev.latlng.lng ) );
 	} );
+
+	jQuery( '#sunflowerShowMap' ).hide();
 }
