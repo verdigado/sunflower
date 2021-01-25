@@ -93,9 +93,10 @@ function sunflower_event_meta_box(){
         sunflower_event_field( $id, $config, $value );
     }
 
-    printf('%s<div id="leaflet" style="height:150px"><div id="showMap">%s</div></div>',
+    printf('%s<div><button id="sunflowerDeleteMap">%s</button></div><div id="leaflet" style="height:270px"><div id="sunflowerShowMap">%s</div></div>',
     __('Map', 'sunflower'),
-    __('Map will be placed here', 'sunflower'))
+    __('delete link to map', 'sunflower'),
+    __('Click here to show the map', 'sunflower'))
     ;
 
 }
