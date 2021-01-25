@@ -77,7 +77,7 @@ function formatDay( $time, $whole_day ){
 					$enddate = formatDay( $_sunflower_event_until, $_sunflower_event_whole_day);
 					printf('<div><i class="far fa-clock"></i> %s %s</div>',
 						$startdate,
-						($enddate) ? ' &dash; ' . $enddate : '',
+						($enddate) ? ' &dash; ' . $enddate : ''
 					);
 
 					$location = [];
