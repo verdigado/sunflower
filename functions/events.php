@@ -6,7 +6,10 @@ $sunflower_event_fields = [
     '_sunflower_event_whole_day'       => [ 'Whole day', null, 'checkbox' ],
     '_sunflower_event_location_name'   => [ 'Location name' ],
     '_sunflower_event_location_street' => [ 'Street'],
-    '_sunflower_event_location_city'   => [ 'City' ]
+    '_sunflower_event_location_city'   => [ 'City' ],
+    '_sunflower_event_lat'    => [ 'Latitude', null, 'hidden'],
+    '_sunflower_event_lon'    => [ 'Longitude', null, 'hidden'],
+    '_sunflower_event_zoom'   => [ 'Zoom', null, 'hidden'],
 ];
 
 function sunflower_create_event_post_type() {
@@ -90,6 +93,11 @@ function sunflower_event_meta_box(){
         sunflower_event_field( $id, $config, $value );
     }
 
+    printf('%s<div id="leaflet" style="height:150px"><div id="showMap">%s</div></div>',
+    __('Map', 'sunflower'),
+    __('Map will be placed here', 'sunflower'))
+    ;
+
 }
 
 function sunflower_event_field( $id, $config, $value ){
@@ -103,11 +111,17 @@ function sunflower_event_field( $id, $config, $value ){
 
     switch($type){
         case 'checkbox':
-            printf('%2$s<input class="%4$s" type="checkbox" name="%1$s" %3$s value="checked"><br>', 
+            printf('%2$s<input class="%4$s" type="checkbox" name="%1$s" id="%1$s"  %3$s value="checked"><br>', 
                 $id,
                 $label,
                 ($value) ?: '',
                 $class );
+            break;
+        case 'hidden':
+            printf('<input type="HIDDDEN" name="%1$s" id="%1$s" value="%2$s">', 
+                $id,
+                $value
+            );
             break;
         default:
             printf('%2$s<input class="%4$s" type="text" name="%1$s" placeholder="%2$s" value="%3$s">', 
@@ -139,6 +153,19 @@ function sunflower_load_event_admin_scripts(){
         get_template_directory_uri() .'/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.min.css', 
         array(), 
         '1.0.0' );
+
+    wp_enqueue_script(
+        'sunflower-leaflet',
+        get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.js',
+        null,
+        '3.2.1', 
+        true
+    );
+    
+    wp_enqueue_style( 'sunflower-leaflet', 
+        get_template_directory_uri() .'/assets/vndr/leaflet/dist/leaflet.css', 
+        array(), 
+    '1.0.0' );
 
 }
 add_action( 'admin_enqueue_scripts', 'sunflower_load_event_admin_scripts' );

@@ -33,6 +33,11 @@ $_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_l
 $_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street')[0] ?: false;
 $_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_location_city')[0] ?: false;
 
+$_sunflower_event_lon = @get_post_meta( $post->ID, '_sunflower_event_lon')[0] ?: false;
+$_sunflower_event_lat = @get_post_meta( $post->ID, '_sunflower_event_lat')[0] ?: false;
+$_sunflower_event_zoom = @get_post_meta( $post->ID, '_sunflower_event_zoom')[0] ?: false;
+
+
 $icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
 
 ?>
@@ -58,14 +63,20 @@ $icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
 						get_template_part( 'template-parts/content', 'post' );
 
 					?>
-					<div id="leaflet" class="d-flex flex-column justify-content-center align-items-center">
 
-						<?php _e('This is thirdparty content. If you click the button, the content will be downloaded from a thirdparty server.', 'sunflower'); ?>
-						<button class="btn btn-info btn-sm" id="show-leaflet" data-lat="50" data-lon="12" data-zoom="7">
-							<?php _e('Show map', 'sunflower'); ?>
-						</button>
+					<?php if($_sunflower_event_lat AND $_sunflower_event_lon) { ?>
+						<div id="leaflet" class="d-flex flex-column justify-content-center align-items-center">
+							<?php _e('This is thirdparty content. If you click the button, the content will be downloaded from a thirdparty server.', 'sunflower'); ?>
+							<button class="btn btn-info btn-sm" id="show-leaflet" 
+								data-lat="<?php echo $_sunflower_event_lat; ?>"
+								data-lon="<?php echo $_sunflower_event_lon; ?>" 
+								data-zoom="<?php echo $_sunflower_event_zoom; ?>"
+							>
+								<?php _e('Show map', 'sunflower'); ?>
+							</button>
+						</div>
+					<?php } ?>
 
-					</div>
 					<?php
 
 						the_post_navigation(
