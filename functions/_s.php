@@ -162,7 +162,7 @@ function sunflower_scripts() {
 	
 	wp_enqueue_script(
         'popper',
-        get_template_directory_uri() . '/assets/vndr/popper.min.js',
+        get_template_directory_uri() . '/assets/vndr/@popperjs/core/dist/umd/popper.min.js',
         array( 'bootstrap' ),
         '3.2.1', 
         true
