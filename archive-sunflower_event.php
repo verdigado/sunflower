@@ -35,7 +35,7 @@ get_header();
 									'relation' => 'OR',
 									array(
 										'key' => '_sunflower_event_from',
-										'value' => date('Y-m-d H:i'),
+										'value' => date('Y-m-d H:i', strToTime('now - 6 hours')),
 										'compare' => '>'
 									),
 								),
