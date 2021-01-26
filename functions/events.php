@@ -97,14 +97,14 @@ function sunflower_event_meta_box(){
     $custom = get_post_custom( $post->ID );
 
     foreach($sunflower_event_fields AS $id => $config ){
-        $value = $custom[ $id ][ 0 ];
+        $value = @$custom[ $id ][ 0 ];
         sunflower_event_field( $id, $config, $value );
     }
 
 
-    $lat = $custom[ '_sunflower_event_lat'][ 0 ];
-    $lon = $custom[ '_sunflower_event_lon'][ 0 ];
-    $zoom = $custom[ '_sunflower_event_zoom'][ 0 ];
+    $lat = @$custom[ '_sunflower_event_lat'][ 0 ];
+    $lon = @$custom[ '_sunflower_event_lon'][ 0 ];
+    $zoom = @$custom[ '_sunflower_event_zoom'][ 0 ];
 
     if( !$lat OR !$lon OR !$zoom){
         $lat = get_transient('_sunflower_event_lat');
@@ -135,8 +135,8 @@ function sunflower_event_meta_box(){
 
 function sunflower_event_field( $id, $config, $value ){
     $label = __($config[0], 'sunflower');
-    $class = $config[1] ?: '';
-    $type = $config[2] ?: false;
+    $class = @$config[1] ?: '';
+    $type = @$config[2] ?: false;
 
     if( $class === 'datetimepicker'){
         $value = intDate2germanDate( $value );
