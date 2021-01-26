@@ -26,10 +26,10 @@ function save_sunflower_meta_boxes(){
         return;
     }
 
-    update_post_meta( $post->ID, "_sunflower_post_thumbnail_object_fit", sanitize_text_field( $_POST[ "_sunflower_post_thumbnail_object_fit" ] ) );
-    update_post_meta( $post->ID, "_sunflower_show_sidebar", sanitize_text_field( $_POST[ "_sunflower_show_sidebar" ] ) );
-    update_post_meta( $post->ID, "_sunflower_show_title", sanitize_text_field( $_POST[ "_sunflower_show_title" ] ) );
-    update_post_meta( $post->ID, "_sunflower_roofline", sanitize_text_field( $_POST[ "_sunflower_roofline" ] ) );
+    update_post_meta( $post->ID, "_sunflower_post_thumbnail_object_fit", sanitize_text_field( @$_POST[ "_sunflower_post_thumbnail_object_fit" ] ) );
+    update_post_meta( $post->ID, "_sunflower_show_sidebar", sanitize_text_field( @$_POST[ "_sunflower_show_sidebar" ] ) );
+    update_post_meta( $post->ID, "_sunflower_show_title", sanitize_text_field( @$_POST[ "_sunflower_show_title" ] ) );
+    update_post_meta( $post->ID, "_sunflower_roofline", sanitize_text_field( @$_POST[ "_sunflower_roofline" ] ) );
 
 
 }

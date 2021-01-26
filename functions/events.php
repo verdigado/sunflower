@@ -62,7 +62,7 @@ function save_sunflower_event_meta_boxes(){
 
     $intoTransients = ['_sunflower_event_lat', '_sunflower_event_lon', '_sunflower_event_zoom'];
     foreach($sunflower_event_fields AS $id => $config ){
-        $value = ($config[1] === 'datetimepicker' ) ? germanDate2intDate( $_POST[ $id ] ) : $_POST[ $id ];
+        $value = (@$config[1] === 'datetimepicker' ) ? germanDate2intDate( $_POST[ $id ] ) : $_POST[ $id ];
            
         update_post_meta( $post->ID, $id, sanitize_text_field( $value ));
 
