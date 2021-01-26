@@ -30,7 +30,7 @@
 	
 		<nav class="navbar navbar-top navbar-expand-lg navbar-dark p-1 topmenu">
 			<div class="container">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topmenu-container" aria-controls="topmenu-container" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topmenu-container" aria-controls="topmenu-container" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse justify-content-end" id="topmenu-container">
@@ -79,7 +79,7 @@
 			<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" class="">
 			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 

@@ -155,7 +155,7 @@ function sunflower_scripts() {
 	wp_enqueue_script(
         'bootstrap',
         get_template_directory_uri() . '/assets/vndr/bootstrap/dist/js/bootstrap.min.js',
-        array( 'jquery' ),
+        array( 'jquery-slim' ),
         '3.2.1', 
         true
 	);
