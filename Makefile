@@ -49,7 +49,7 @@ remote-create-dump:
 	#ssh sharepic "cd /var/www/wordpress.tom-rose.de/dumps && mysqldump wordpress tr_6_commentmeta tr_6_comments tr_6_links tr_6_options tr_6_postmeta tr_6_posts tr_6_term_relationships tr_6_term_taxonomy tr_6_termmeta tr_6_terms > demo.sql"
 
 remote-demo2test:
-	ssh sharepic "cd /var/www/wordpress.tom-rose.de/dumps && mysqldump wordpress tr_6_commentmeta tr_6_comments tr_6_links tr_6_options tr_6_postmeta tr_6_posts tr_6_term_relationships tr_6_term_taxonomy tr_6_termmeta tr_6_terms > demo2test.sql && sed -i 's/tr_6/tr_7/g' demo2test.sql && mysql wordpress < demo2test.sql && cd /var/www/wordpress.tom-rose.de/wp-content/uploads/sites && rsync -av 6/ 7"
+	ssh sharepic "cd /var/www/wordpress.tom-rose.de/dumps && mysqldump wordpress tr_6_commentmeta tr_6_comments tr_6_links tr_6_options tr_6_postmeta tr_6_posts tr_6_term_relationships tr_6_term_taxonomy tr_6_termmeta tr_6_terms > demo2test.sql && sed -i 's/tr_6/tr_7/g' demo2test.sql && sed -i 's/\/demo/\/test/g' demo2test.sql && mysql wordpress < demo2test.sql && cd /var/www/wordpress.tom-rose.de/wp-content/uploads/sites && rsync -av 6/ 7"
 
 remote-get-files:
 	rsync -av sharepic:/var/www/wordpress.tom-rose.de/wp-content/uploads/sites/6/ ../../uploads/sites/2
