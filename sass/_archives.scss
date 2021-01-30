@@ -11,13 +11,13 @@
 
             h2{
                 a{
-                    color: black;
+                    color: $body-color;
                 }
             }
 
             .entry-content{
                 a{
-                    color: black;
+                    color: $body-color;
                     text-decoration: none;
                 }
             }
@@ -27,7 +27,7 @@
                 display: block;
                 font-weight: bold;
                 font-style: italic;
-                color: black;
+                color: $body-color;
                 text-decoration: none;
                 text-transform: uppercase;
             }
