@@ -18,6 +18,7 @@ jobs:
           mkdir "$HOME/.ssh"
           echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
+          cat $HOME/.ssh/id_rsa
       - name: test ssh
         run: ssh -v -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa tom@sharepicgenerator.de pwd
       - name: rsync
