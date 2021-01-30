@@ -28,6 +28,10 @@ jobs:
           mkdir "$HOME/.ssh"
           echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
-      - name: rsync
-        run: rsync -avhz -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" ../sunflower.zip tom@sharepicgenerator.de:/var/www/wordpress.tom-rose.de/updateserver/api/update/
+
+      - name: save version
+        run: echo $GITHUB_REF > version.txt
+
+      - name: rsync zipfile
+        run: rsync -z -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" ../sunflower.zip version.txt tom@sharepicgenerator.de:/var/www/wordpress.tom-rose.de/updateserver/api/update/
 
