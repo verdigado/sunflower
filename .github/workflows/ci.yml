@@ -18,8 +18,8 @@ jobs:
           mkdir "$HOME/.ssh"
           echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
-      - name: test
-        run: pwd && ls -l
+      - name: test ssh
+        run: ssh -v -o StrictHostKeyChecking=no -i $HOME/deploy_key tom@sharepicgenerator.de pwd
       - name: rsync
         run: rsync -avhz -e "ssh -v -o StrictHostKeyChecking=no -i $HOME/deploy_key" 404.php tom@sharepicgenerator.de:/var/www/wordpress.tom-rose.de/updateserver/
 
