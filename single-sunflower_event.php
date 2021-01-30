@@ -100,8 +100,10 @@ function formatDay( $time, $whole_day ){
 
 					<?php if($_sunflower_event_lat AND $_sunflower_event_lon) { ?>
 						<div id="leaflet" class="d-flex flex-column justify-content-center align-items-center">
-							<?php _e('This is thirdparty content. If you click the button, the content will be downloaded from a thirdparty server.', 'sunflower'); ?>
-							<button class="btn btn-info btn-sm" id="show-leaflet" 
+							<p class="text-center ms-5 me-5 small">
+								<?php _e('This is thirdparty content. If you click the button, the content will be downloaded from a thirdparty server.', 'sunflower'); ?>
+							<p>
+							<button class="btn btn-info btn-sm show-leaflet" 
 								data-lat="<?php echo $_sunflower_event_lat; ?>"
 								data-lon="<?php echo $_sunflower_event_lon; ?>" 
 								data-zoom="<?php echo $_sunflower_event_zoom; ?>"

@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 0.0.1\n"
+"Project-Id-Version: sunflower 0.1.0-nightly-build\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-01-25T12:44:09+01:00\n"
+"POT-Creation-Date: 2021-01-30T13:00:52+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -52,7 +52,7 @@ msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
 #: archive-sunflower_event.php:21
-#: functions/events.php:18
+#: functions/events.php:22
 msgid "Events"
 msgstr ""
 
@@ -97,13 +97,25 @@ msgstr ""
 msgid "Black"
 msgstr ""
 
-#: functions/events.php:19
-#: functions/events.php:36
+#: functions/events.php:23
+#: functions/events.php:40
 msgid "Event"
 msgstr ""
 
-#: functions/events.php:24
+#: functions/events.php:28
 msgid "sunflower_event"
+msgstr ""
+
+#: functions/events.php:127
+msgid "Map"
+msgstr ""
+
+#: functions/events.php:128
+msgid "load map"
+msgstr ""
+
+#: functions/events.php:129
+msgid "delete map"
 msgstr ""
 
 #: functions/layout.php:6
@@ -367,35 +379,30 @@ msgid "by %s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:57
+#: inc/template-tags.php:64
 msgid ", "
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:64
+#: inc/template-tags.php:71
 msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
 #. translators: %s: post title
-#: inc/template-tags.php:82
+#: inc/template-tags.php:96
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:101
-msgid "Edit content<span class=\"screen-reader-text\">%s</span>"
-msgstr ""
-
-#: inc/template-tags.php:124
+#: inc/template-tags.php:120
 msgid "Share on twitter "
 msgstr ""
 
-#: inc/template-tags.php:131
+#: inc/template-tags.php:127
 msgid "Share on facebook "
 msgstr ""
 
-#: inc/template-tags.php:139
+#: inc/template-tags.php:135
 msgid "send mail "
 msgstr ""
 
@@ -404,16 +411,28 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: single-sunflower_event.php:52
+#: single-sunflower_event.php:84
 msgid "Download as ics"
 msgstr ""
 
-#: single-sunflower_event.php:62
+#: single-sunflower_event.php:90
+msgid "Link to webinar"
+msgstr ""
+
+#: single-sunflower_event.php:103
+msgid "This is thirdparty content. If you click the button, the content will be downloaded from a thirdparty server."
+msgstr ""
+
+#: single-sunflower_event.php:109
+msgid "Show map"
+msgstr ""
+
+#: single-sunflower_event.php:118
 #: single.php:28
 msgid "Previous:"
 msgstr ""
 
-#: single-sunflower_event.php:63
+#: single-sunflower_event.php:119
 #: single.php:29
 msgid "Next:"
 msgstr ""
@@ -421,13 +440,13 @@ msgstr ""
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:49
 #: template-parts/content-archive.php:53
-#: template-parts/content.php:40
+#: template-parts/content.php:47
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
 #: template-parts/content-archive.php:66
 #: template-parts/content-page.php:29
-#: template-parts/content.php:53
+#: template-parts/content.php:60
 msgid "Pages:"
 msgstr ""
 
