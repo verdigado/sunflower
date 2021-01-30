@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Save version
+        run: |
+          echo $GITHUB_SHA > code/dist/version.txt
+          TZ='Europe/Berlin' date >> code/dist/version.txt
+      - name: Install npm packages
+        run: npm install
+      - name: Build scss
+        run: npm run compile:css
+      - name: Make bundle
+        run: npm run bundle
+
+      - name: provide deploy_key
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          mkdir "$HOME/.ssh"
+          echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
+          chmod 600 "$HOME/.ssh/id_rsa"
+      - name: rsync
+        run: rsync ../sunflower.zip sharepic:/var/www/wordpress.tom-rose.de/updateserver/
+
