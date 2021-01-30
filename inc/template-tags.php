@@ -110,11 +110,13 @@ endif;
 
 function sunflower_the_social_media_sharers(){
 	global $post;
+
+	$tiwtter = $facebook = $mail = false;
 	if(get_sunflower_setting( 'sunflower_sharer_twitter')){
 		$twitter = sprintf('<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-twitter"></i></a>',
 			urlencode($post->post_title),
 			home_url() . urlencode($post->post_name),
-			$via,
+			false,
 			__('Share on twitter ', 'sunflower')
 		);
 	}
@@ -134,7 +136,13 @@ function sunflower_the_social_media_sharers(){
 		);
 	}
 
-	echo "<div class=\"social_media_sharers\">$twitter $facebook $mail</div>";
+	if( $twitter || $facebook || $mail ){
+		printf('<div class="social_media_sharers">%s %s %s</div>',
+			$twitter,
+			$facebook,
+			$mail
+	);
+	}
 }
 
 if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
