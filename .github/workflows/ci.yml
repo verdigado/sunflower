@@ -29,5 +29,5 @@ jobs:
           echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
       - name: rsync
-        run: rsync -avhz -e "ssh -o StrictHostKeyChecking=no -i $HOME/deploy_key" ../sunflower.zip sharepicgenerator.de:/var/www/wordpress.tom-rose.de/updateserver/
+        run: rsync -avhz -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" ../sunflower.zip sharepicgenerator.de:/var/www/wordpress.tom-rose.de/updateserver/
 
