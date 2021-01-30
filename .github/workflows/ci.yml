@@ -21,7 +21,7 @@ jobs:
       - name: test
         run: pwd && ls -l
       - name: rsync
-        run: rsync -v --stats --progress -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" 404.php tom@sharepicgenerator.de:/var/www/wordpress.tom-rose.de/updateserver/
+        run: rsync -avhz -e "ssh -v -o StrictHostKeyChecking=no -i $HOME/deploy_key" 404.php tom@sharepicgenerator.de:/var/www/wordpress.tom-rose.de/updateserver/
 
 
       - uses: actions/setup-node@v1
