@@ -29,5 +29,5 @@ jobs:
           echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
       - name: rsync
-        run: rsync ../sunflower.zip sharepic:/var/www/wordpress.tom-rose.de/updateserver/
+        run: rsync ../sunflower.zip sharepicgenerator.de:/var/www/wordpress.tom-rose.de/updateserver/
 
