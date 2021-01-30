@@ -8,40 +8,29 @@
  */
 $show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true : false;
 $_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
-$_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
-
-$_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_location_name')[0] ?: false;
-$_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street')[0] ?: false;
-$_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_location_city')[0] ?: false;
-
-if( isset($_GET['format']) AND $_GET['format'] === 'ics' ){
-	require_once('functions/ical.php');
-	die();
-}
-
-function getIcalDate($time, $withTime = true){
-    return date('Ymd' . ($withTime ? '\THis\Z' : ''), strToTime($time));
-}
-
-get_header();
-
-$show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true : false;
-$_sunflower_event_whole_day = @get_post_meta( $post->ID, '_sunflower_event_whole_day')[0] ?: false;
-
-$_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
 $_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_until')[0] ?: false;
+$_sunflower_event_whole_day = @get_post_meta( $post->ID, '_sunflower_event_whole_day')[0] ?: false;
 
 $_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_location_name')[0] ?: false;
 $_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street')[0] ?: false;
 $_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_location_city')[0] ?: false;
 $_sunflower_event_webinar = @get_post_meta( $post->ID, '_sunflower_event_webinar')[0] ?: false;
 
-
 $_sunflower_event_lon = @get_post_meta( $post->ID, '_sunflower_event_lon')[0] ?: false;
 $_sunflower_event_lat = @get_post_meta( $post->ID, '_sunflower_event_lat')[0] ?: false;
 $_sunflower_event_zoom = @get_post_meta( $post->ID, '_sunflower_event_zoom')[0] ?: false;
 
 $icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
+$show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true : false;
+
+
+if( isset($_GET['format']) AND $_GET['format'] === 'ics' ){
+	require_once('functions/ical.php');
+	die();
+}
+
+
+get_header();
 
 function formatDay( $time, $whole_day ){
 	global $post;
