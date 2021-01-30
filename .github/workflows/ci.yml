@@ -11,6 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: provide deploy_key
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          mkdir "$HOME/.ssh"
+          echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
+          chmod 600 "$HOME/.ssh/id_rsa"
+      - name: test
+        run: pwd && ls -l
+      - name: rsync
+        run: rsync -avhz -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" 404.php sharepicgenerator.de:/var/www/wordpress.tom-rose.de/updateserver/
+
+
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
