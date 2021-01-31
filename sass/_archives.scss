@@ -1,4 +1,8 @@
 .archive{
+    a{
+        text-decoration: none;
+    }
+
     &-loop{
         article{
             overflow: hidden;
@@ -30,6 +34,9 @@
                 color: $body-color;
                 text-decoration: none;
                 text-transform: uppercase;
+                &:hover{
+                    color: $primary;
+                }
             }
         }
     }

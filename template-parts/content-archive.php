@@ -35,7 +35,7 @@
                         <div class="entry-meta">
                             <?php
                             sunflower_posted_on();
-                            sunflower_posted_by();
+                            //sunflower_posted_by();
                             ?>
                         </div><!-- .entry-meta -->
                     <?php endif; ?>
@@ -74,13 +74,13 @@
                 <footer class="entry-footer">
                     <?php sunflower_entry_footer(); ?>
 
-                    
-                    <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="continue-reading">
-                    <?php
-                        _e('Continue reading', 'sunflower');
-                    ?>
-                    <i class="fas fa-long-arrow-alt-right"></i>
+                    <div>
+                        <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="continue-reading float-end">
+                        <?php
+                            _e('Continue reading', 'sunflower');
+                        ?>
                     </a>
+                </div>
                 </footer><!-- .entry-footer -->
             </div>
         </div>

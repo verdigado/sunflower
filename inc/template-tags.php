@@ -50,11 +50,15 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function sunflower_entry_footer() {
+	function sunflower_entry_footer($showSharers = false) {
 
 		?>
 			<div class="d-flex mt-5 mb-5">
-				<?php sunflower_the_social_media_sharers(); ?>
+				<?php 
+					if( $showSharers ) {
+						sunflower_the_social_media_sharers(); 
+					}
+				?>
 				<div>
 		<?php
 		
@@ -87,13 +91,13 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 
 		<?php
 
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		if ( is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						' | ' . __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'sunflower' ),
+						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'sunflower' ),
 						array(
 							'span' => array(
 								'class' => array(),

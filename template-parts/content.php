@@ -65,6 +65,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php sunflower_entry_footer(); ?>
+		<?php sunflower_entry_footer(true); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
