@@ -110,4 +110,20 @@
             padding: 0.2rem;
         }
     }
+
+    &_sunflower_follow_us{
+        .widget-container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .social-media-profile{
+            background-color: $sidebar-color-dark;
+            width: 30px;
+            height: 30px;
+        }
+        svg{
+            fill: white;
+            width: 20px;
+        }
+    }
 }

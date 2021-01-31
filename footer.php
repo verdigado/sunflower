@@ -31,18 +31,7 @@
 				</nav>
 				<div class="col-md-4 p-2 justify-content-center d-flex">
 					<?php
-						$profiles = block_core_social_link_services();
-						foreach($profiles AS $profile => $info){
-							$name = $info['name'];
-							$icon = $info['icon'];
-
-							if( $link = get_sunflower_setting($profile) ){
-								printf('<a href="%1$s" target="_blank" title="%3$s" class="social-media-profile">%2$s</a>', 
-								$link, 
-								$icon,
-								$name);
-							}
-						}
+						echo get_sunflower_social_media_profiles();	
 					?>
 				</div>
 				<nav class="col-md-4 navbar navbar-top navbar-expand-md navbar-dark d-flex justify-content-end">

@@ -310,3 +310,23 @@ function get_sunflower_setting( $option ){
 
     return $options[ $option ];
 }
+
+function get_sunflower_social_media_profiles(){
+
+    $profiles = block_core_social_link_services();
+
+    $return = '';
+    foreach($profiles AS $profile => $info){
+        $name = $info['name'];
+        $icon = $info['icon'];
+
+        if( $link = get_sunflower_setting($profile) ){
+            $return .= sprintf('<a href="%1$s" target="_blank" title="%3$s" class="social-media-profile">%2$s</a>', 
+            $link, 
+            $icon,
+            $name);
+        }
+    }
+
+    return $return;
+}

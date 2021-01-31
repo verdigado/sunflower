@@ -12,3 +12,5 @@ require_once('functions/layout.php');
 require_once('functions/blocks.php');
 require_once('functions/colors.php');
 require_once('functions/update.php');
+require_once('functions/widgets.php');
+
