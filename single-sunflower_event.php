@@ -60,7 +60,7 @@ function formatDay( $time, $whole_day ){
 	<div id="content" class="container">
 		<div class="row">
 			<div class="col-12 <?php if ( $show_sidebar ) echo 'col-md-8'; ?>">
-				<main id="primary" class="site-main">
+				<main id="primary" class="site-main mt-5">
 					<?php
 					$startdate = formatDay( $_sunflower_event_from, $_sunflower_event_whole_day );
 					$enddate = formatDay( $_sunflower_event_until, $_sunflower_event_whole_day);

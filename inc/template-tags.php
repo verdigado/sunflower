@@ -166,8 +166,8 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+			<div class="post-thumbnail mb-5">
+				<?php the_post_thumbnail(null, ['class' => 'w-100 border-radius']); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
