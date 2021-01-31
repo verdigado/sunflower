@@ -1,7 +1,7 @@
 <?php
 /**/
 // TEMP: Enable update check on every request. Normally you don't need this! This is for testing only!
-set_site_transient('update_themes', null);
+//set_site_transient('update_themes', null);
 
 // NOTE: All variables and functions will need to be prefixed properly to allow multiple plugins to be updated
 
