@@ -39,7 +39,7 @@ jobs:
       - name: save version
         run: echo ${GITHUB_REF##*/} > version.txt
 
-      - name: rsync zipfile and version
+      - name: rsync zipfile, version and release_message
         run: rsync -z -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" ../sunflower.zip version.txt release_message.html tom@sharepicgenerator.de:/var/www/wordpress.tom-rose.de/updateserver/api/update/
 
      
