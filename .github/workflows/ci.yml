@@ -13,7 +13,7 @@ jobs:
 
       - name: check theme version against tag
         run: |
-          THEME_VERSION=$(cat style.css | grep Version | sed -r 's/version: +//I')
+          THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
           echo $THEME_VERSION
           echo ${GITHUB_REF##*/}
           if [ "$THEME_VERSION" != "$GITHUB_REF" ]; then exit 1; fi
