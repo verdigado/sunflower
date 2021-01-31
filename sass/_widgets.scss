@@ -1,0 +1,113 @@
+.widget{
+    margin-bottom: 5rem;
+    color: $sidebar-color;
+
+    h3{
+        color: $sidebar-color-dark;
+    }
+
+    ul{
+        list-style-type: none;
+        padding-left: 0;
+        position: relative;
+
+        li{
+            border-bottom: 1px solid $sidebar-color;
+            padding: 0.75rem 0;
+            position: relative;
+        }
+
+        a{
+            color: $sidebar-color;
+            text-decoration: none;
+
+            &:hover{
+                color: $primary;
+            }
+        }
+    }
+
+    &-title{
+        font-family: PTSans;
+        font-weight: bold; 
+        font-size: 1.5rem;
+    }
+
+    &_search{
+        input{
+            border: 1px solid $sidebar-color-dark;
+            padding: 4px;
+            border-radius: 0;
+            background: none;
+        }
+        
+        label{
+
+            &:after{
+                content: "\f002";
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                margin-left: -2rem;
+            }
+        }
+
+        input[type=submit]{
+            display: none;
+        }
+    }
+
+    &_categories{
+        li{
+            a{
+                display: block;
+            }
+
+            &:after{
+                content: "\f054";
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                position: absolute;
+                right: 1rem;
+                top: 0.8rem;
+            }
+        }
+        
+    }
+
+    &_recent_entries{
+        .post-date{
+        display: block;
+        font-style: italic;
+        font-size: 90%;
+        margin-top: 0.2rem;
+     }
+
+    }
+
+    .tagcloud{
+        display: flex;
+        flex-wrap: wrap;
+
+        a{
+            font-size: 80% !important;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid $sidebar-color;
+            border-radius: $border-radius-small;
+            padding: 0.3rem 0.5rem;
+            margin: 0 0.3rem 0.5rem 0;
+
+            &:hover{
+                background-color: $primary;
+                color: white;
+            }
+        }
+    }
+
+    &_archive{
+        select{
+            border: 1px solid $sidebar-color-dark;
+            padding: 0.2rem;
+        }
+    }
+}
