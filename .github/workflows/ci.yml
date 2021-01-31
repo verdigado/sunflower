@@ -16,7 +16,7 @@ jobs:
           THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
           echo $THEME_VERSION
           echo ${GITHUB_REF##*/}
-          if [ "$THEME_VERSION" != "$GITHUB_REF" ]; then exit 1; fi
+          if [ "$THEME_VERSION" != "${GITHUB_REF##*/}" ]; then exit 1; fi
 
       - uses: actions/setup-node@v1
         with:
