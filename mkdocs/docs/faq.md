@@ -24,3 +24,6 @@ Neue Features kannst Du auf der
 * im Chatkanal auf [Chatbegrünung](https://chatbegruenung.de/channel/sunflower)
 
 melden.
+
+## Wie sieht es mit dem Datenschutz aus?
+[Mehr zum Datenschutz gibt es auf einer Unterseite.](privacy.md)

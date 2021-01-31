@@ -7,6 +7,7 @@ nav:
   - Elemente (Blöcke): blocks.md
   - Termine: events.md
   - Häufige Fragen: faq.md
+  - Datenschutz: privacy.md
   - Für Entwickler*innen: development.md
 theme:
   name: null
