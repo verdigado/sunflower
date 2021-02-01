@@ -25,6 +25,8 @@ jobs:
         run: npm install
       - name: Build scss
         run: npm run compile:build
+      - name: Build JS
+        run: npm run build
       - name: Make bundle
         run: npm run bundle
 
