@@ -44,5 +44,10 @@ Installation
 ### Deployment
 see Makefile for tasks
 
+#### Publishing
+1. edit version in style.scss
+2. make deploy
+3. publish release on github with same version number
+
 ### Contributing
 see Documentation in *mkdocs/docs* for more details

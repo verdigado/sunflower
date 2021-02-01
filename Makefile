@@ -1,5 +1,8 @@
 compile:
 	npm run compile:css
+	
+compile-silent:
+	npm run compile:build
 
 watch:
 	npm run watch
@@ -25,7 +28,7 @@ get:
 	ssh sharepic "cd /var/www/wordpress.tom-rose.de && wp post get 1952 --field=post_content" | sed -e 's/<version>[^<]*/<version>$(VERSION)/g' | sed -e 's/<date>[^<]*/<date>$(DATE)/g' > announcement.txt
 
 deploy:
-	git push && make bundle upload activate get announce
+	git push && make compile-silent bundle upload activate get announce
 
 mkdocs-serve:
 	cd mkdocs && mkdocs serve
