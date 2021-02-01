@@ -18,7 +18,7 @@ $show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true 
 ?>
 	<div id="content" class="container">
 		<div class="row">
-			<div class="col-9">
+			<div class="<?php echo ( is_front_page()) ? 'col-12' : 'col-9'; ?>">
 				<main id="primary" class="site-main <?php if( !is_front_page()) echo 'mt-5'; ?>">
 
 					<?php
