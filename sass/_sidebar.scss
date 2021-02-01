@@ -1,0 +1,9 @@
+#secondary{
+    display: flex;
+    flex-wrap: wrap;
+
+    section{
+        flex: 1 0 21%; /* explanation below */
+        margin: 0 4% 4% 0;
+    }
+}

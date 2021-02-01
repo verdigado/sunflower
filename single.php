@@ -14,7 +14,7 @@ $show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true 
 ?>
 	<div id="content" class="container">
 		<div class="row">
-			<div class="col-12 <?php if ( $show_sidebar ) echo 'col-md-8'; ?>">
+			<div class="col-12">
 				<main id="primary" class="site-main mt-5">
 
 					<?php
