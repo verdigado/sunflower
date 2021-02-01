@@ -40,12 +40,10 @@ $show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true 
 
 				</main><!-- #main -->
 			</div>
-	<?php
-		if ( $show_sidebar ) {
-			get_sidebar();
-		}
-	?>
 	</div>
 </div>
 <?php
+if ( $show_sidebar ) {
+	get_sidebar();
+}
 get_footer();

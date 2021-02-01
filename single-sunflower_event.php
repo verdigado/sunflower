@@ -132,12 +132,10 @@ function formatDay( $time, $whole_day ){
 
 				</main><!-- #main -->
 			</div>
-	<?php
-		if ( $show_sidebar ) {
-			get_sidebar();
-		}
-	?>
 	</div>
 </div>
 <?php
+if ( $show_sidebar ) {
+	get_sidebar();
+}
 get_footer();
