@@ -74,8 +74,8 @@
                 <footer class="entry-footer">
                     <?php sunflower_entry_footer(); ?>
 
-                    <div>
-                        <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="continue-reading float-end">
+                    <div class="d-flex flex-row-reverse">
+                        <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="continue-reading">
                         <?php
                             _e('Continue reading', 'sunflower');
                         ?>

@@ -87,7 +87,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 		?>
 				</div>
 			</div>
-		<div> <!-- end flex row-->
+		<div> 
 
 		<?php
 
