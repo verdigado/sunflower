@@ -10,9 +10,32 @@
   
   @font-face {
     font-family: PTSans;
+    font-style: normal;
+    font-weight: 400;
     src: url('assets/fonts/ptsans_regular.woff') format('woff'),
   }
-    
+  
+  @font-face {
+    font-family: PTSans;
+    font-style: bold;
+    font-weight: 700;
+    src: url('assets/fonts/ptsans_bold.woff') format('woff'),
+  }
+
+  @font-face {
+    font-family: PTSans;
+    font-style: italic;
+    font-weight: 400;
+    src: url('assets/fonts/ptsans_italic.woff') format('woff'),
+  }
+
+  @font-face {
+    font-family: PTSans;
+    font-style: italic;
+    font-weight: 700;
+    src: url('assets/fonts/ptsans_bolditalic.woff') format('woff'),
+  }
+
   .arvo{
     font-family: Arvo !important;
     font-weight: 500;
@@ -23,5 +46,5 @@
   }
   .ptsans{
     font-family: PTSans !important;
-    font-weight: 500;
   }
+
