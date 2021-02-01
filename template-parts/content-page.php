@@ -11,7 +11,7 @@
 $show_title = @get_post_meta( $post->ID, '_sunflower_show_title')[0] ? true : false;
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('pe-5'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('pe-md-5'); ?>>
 	<?php if ($show_title ) { ?>
 		<header class="entry-header">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>

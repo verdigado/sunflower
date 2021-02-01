@@ -10,7 +10,7 @@
 ?>
 
 <a href="<?php echo esc_url( get_permalink() ); ?>" class="event-card" rel="bookmark">
-<article id="post-<?php the_ID(); ?>" <?php post_class('mb-2 pe-5 event'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('mb-2 pe-md-5 event'); ?>>
     <div class="row">
         <div class="col-12 col-md-3 d-flex align-items-center justify-content-around arvogruen">
             <?php
