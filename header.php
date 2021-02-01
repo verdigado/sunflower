@@ -60,7 +60,7 @@
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" class="">
 				</a>
 				<div>
-					<div class="h5 text-white">
+					<div class="h5 text-white arvogruen">
 						<?php bloginfo('name'); ?>
 					</div>
 					<div class="h6 text-white ptsans">
