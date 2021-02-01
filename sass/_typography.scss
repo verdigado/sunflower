@@ -12,12 +12,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     letter-spacing: 0.1em;
 }
 
-h1, .h1{
+h1, .h1, 
+.has-huge-fontsize{
     font-family: ArvoGruen;
     font-size: 52px;
 }
 
-h2, .h2{
+h2, .h2,
+.has-large-fontsize{
     font-family: ArvoGruen;
     font-size: 30px;
 }
