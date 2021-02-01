@@ -47,7 +47,9 @@ see Makefile for tasks
 #### Publishing
 1. edit version in style.scss
 2. make deploy
-3. publish release on github with same version number
+3. publish release on github with same version number. This triggers a github-action
+4. increment version in style.scss and add nightly-build
+
 
 ### Contributing
 see Documentation in *mkdocs/docs* for more details
