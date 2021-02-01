@@ -59,7 +59,7 @@ function formatDay( $time, $whole_day ){
 ?>
 	<div id="content" class="container">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-9">
 				<main id="primary" class="site-main mt-5">
 					<?php
 					$startdate = formatDay( $_sunflower_event_from, $_sunflower_event_whole_day );

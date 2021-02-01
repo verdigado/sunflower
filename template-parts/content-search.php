@@ -14,7 +14,7 @@
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
+		<div class="entry-meta mb-3">
 			<?php
 			sunflower_posted_on();
 			sunflower_posted_by();

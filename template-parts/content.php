@@ -27,7 +27,7 @@
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
+			<div class="entry-meta mb-3">
 				<?php
 				sunflower_posted_on();
 				sunflower_posted_by();
