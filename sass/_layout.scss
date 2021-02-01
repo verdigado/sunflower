@@ -3,14 +3,6 @@ body{
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
-    font-family: ArvoGruen;
-
-    a{
-        text-decoration: none;
-    }
-}
-
 .post-edit-link{
     color: $white;
     &:visited{
@@ -97,8 +89,4 @@ img.post-thumbnail{
 #leaflet{
     height: 250px;
     border: 1px solid $lightgray;
-}
-
-.border-radius{
-    border-radius: $border-radius;
 }

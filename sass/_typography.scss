@@ -1,0 +1,46 @@
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    a{
+        text-decoration: none;
+    }
+}
+
+.roofline{
+    font-family: ArvoGruen;
+    color: $primary;
+    text-transform: uppercase;
+    font-size: 17x;
+}
+
+h1, .h1{
+    font-family: ArvoGruen;
+    font-size: 52px;
+}
+
+h2, .h2{
+    font-family: ArvoGruen;
+    font-size: 30px;
+}
+
+h3, .h3{
+    font-family: PTSans;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h4, .h4{
+    font-family: PTSans;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+h5, .h5{
+    font-family: PTSans;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+h6, .h6{
+    font-family: Arvo;
+    font-weight: normal;
+    font-size: 17px;
+}

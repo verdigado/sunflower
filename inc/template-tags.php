@@ -53,7 +53,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 	function sunflower_entry_footer($showSharers = false) {
 
 		?>
-			<div class="d-flex mt-5 mb-5">
+			<div class="d-flex mt-2 mb-2">
 				<?php 
 					if( $showSharers ) {
 						sunflower_the_social_media_sharers(); 
@@ -68,7 +68,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'sunflower' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">%s</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<span class="cat-links small">%s</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 			/* translators: used between list items, there is a space after the comma */
@@ -80,7 +80,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">%s</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<span class="tags-links small">%s</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 

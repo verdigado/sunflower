@@ -35,6 +35,12 @@
 .wp-block-image{
     img{
         border-radius: $border-radius;
+        width: 100%;
+    }
+
+    figcaption{
+        font-size: $small-font-size;
+        text-align: right;  
     }
 }
 
@@ -59,6 +65,45 @@
     img{
         width: 100%;
         object-fit: cover;
+    }
+}
+
+.wp-block-gallery{
+    .blocks-gallery-item{
+        figure{
+            flex-direction: column;
+        }
+        figcaption{
+            position: relative;
+            width: unset;
+            padding: 5px 0 0 0;
+            color: inherit;
+            text-align: right;
+            font-size: $small-font-size;
+            background: none;
+        }
+    }
+}
+
+.wp-block-quote{ 
+    padding: 3em;
+    p{
+        font-family: ArvoGruen;
+        font-size: 30px;
+        position: relative;
+        &:before{   
+            content: '„';
+            position: absolute;
+            left: -0.5em;
+        }
+        &:after{   
+            content: '“';
+           
+        }
+    }
+    cite{
+        font-style: normal;
+        font-size: $small-font-size;
     }
 }
 
