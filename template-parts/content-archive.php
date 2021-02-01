@@ -27,7 +27,7 @@
                     ?>
                     <?php
                     
-                    the_title( '<h2 class="card-title h4"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+                    the_title( '<h2 class="card-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
            
 
                     if ( 'post' === get_post_type() ) :
