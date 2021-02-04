@@ -23,6 +23,22 @@ get_header();
                             </h1>
 						</header><!-- .page-header -->
 
+
+						<div class="isotope-button-group mb-2">
+							<button class="btn btn-sm btn-outline-primary me-2" data-filter="*"><?php _e('Show all', 'sunflower'); ?></button>
+							<?php
+							$terms = get_terms([
+								'taxonomy' => 'sunflower_event_tag',
+								'hide_empty' => true,
+							]);
+
+
+							foreach($terms AS $term){
+								printf('<button class="btn btn-sm btn-outline-info me-1" data-filter=".%s">%s</button>', $term->slug, $term->name);
+							}
+							?>
+						</div>
+
 						<div class="event-list">
 						<?php
 
@@ -71,5 +87,24 @@ get_header();
 			</div>
 		</div>
 </div>
+
+<?php
+	wp_enqueue_script(
+        'isotope-module',
+        get_template_directory_uri() . '/assets/vndr/isotope-layout/dist/isotope.pkgd.min.js',
+       null,
+        '3.2.1', 
+        true
+	);
+
+	wp_enqueue_script(
+        'isotope-custom',
+        get_template_directory_uri() . '/assets/js/isotope.js',
+       'isotope-module',
+        '3.2.1', 
+        true
+	);
+?>
+
 <?php
 get_footer();

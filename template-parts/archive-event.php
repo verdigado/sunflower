@@ -9,7 +9,15 @@
 
 ?>
 
-<a href="<?php echo esc_url( get_permalink() ); ?>" class="event-card" rel="bookmark">
+<?php
+    $tags = wp_get_object_terms(get_the_ID(), 'sunflower_event_tag');
+    $tag_list = [];
+    foreach($tags AS $tag){
+        $tag_list[ $tag->slug ] = $tag->name;
+    }
+?>
+
+<a href="<?php echo esc_url( get_permalink() ); ?>" class="event-card <?php echo join(' ', array_keys($tag_list)); ?>" rel="bookmark">
 <article id="post-<?php the_ID(); ?>" <?php post_class('mb-2 event'); ?>>
     <div class="p-4">
         <?php
@@ -35,10 +43,7 @@
 
                 <div class="small">
                     <?php
-                        $tags = wp_get_object_terms(get_the_ID(), 'sunflower_event_tag');
-                        foreach($tags AS $tag){
-                            echo $tag->name . ', ';
-                        }
+                       echo join(', ', $tag_list);
                     ?>
                 </div>
 
