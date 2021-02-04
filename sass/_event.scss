@@ -1,6 +1,12 @@
-.event-card{
-    .date{
-        font-size: 150%;
+.event{
+    &-list{
+        display: flex;
+        flex-wrap: wrap;
+
+        &>*{
+            flex-basis: 30%;
+            margin: 0 $grid-gutter-width $grid-gutter-width 0;
+        }
     }
 }
 

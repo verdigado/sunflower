@@ -23,11 +23,13 @@ get_header();
                             </h1>
 						</header><!-- .page-header -->
 
+						<div class="event-list">
 						<?php
 
-						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
+						//$paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
 						$ordered_posts = new WP_Query(array(
-							'paged' => $paged,
+							//'paged' => $paged,
+							'nopaging'		=> true,
 							'post_type'     => 'sunflower_event',
 							'meta_key' 	    => '_sunflower_event_from', 
 							'orderby'       => 'meta_value',
@@ -64,7 +66,7 @@ get_header();
 
 					endif;
 					?>
-
+					</div> <!-- event-list -->
 				</main><!-- #main -->
 			</div>
 		</div>
