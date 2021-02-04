@@ -33,6 +33,15 @@
                     the_title( '<strong>', '</strong>' );
                 ?>
 
+                <div class="small">
+                    <?php
+                        $tags = wp_get_object_terms(get_the_ID(), 'sunflower_event_tag');
+                        foreach($tags AS $tag){
+                            echo $tag->name . ', ';
+                        }
+                    ?>
+                </div>
+
             </header><!-- .entry-header -->
 
         

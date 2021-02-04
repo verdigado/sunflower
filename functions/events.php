@@ -30,6 +30,31 @@ function sunflower_create_event_post_type() {
             'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
         )
     );
+
+    $labels = array(
+        'name' => _x( 'Tags', 'taxonomy general name' ),
+        'singular_name' => _x( 'Tag', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Tags' ),
+        'popular_items' => __( 'Popular Tags' ),
+        'all_items' => __( 'All Tags' ),
+        'parent_item' => null,
+        'parent_item_colon' => null,
+        'edit_item' => __( 'Edit Tag' ), 
+        'update_item' => __( 'Update Tag' ),
+        'add_new_item' => __( 'Add New Tag' ),
+        'new_item_name' => __( 'New Tag Name' ),
+        'separate_items_with_commas' => __( 'Separate tags with commas' ),
+        'add_or_remove_items' => __( 'Add or remove tags' ),
+        'choose_from_most_used' => __( 'Choose from the most used tags' ),
+        'menu_name' => __( 'Tags' ),
+      ); 
+    
+      register_taxonomy('sunflower_event_tag','sunflower_event',array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true
+      ));
 }
 add_action( 'init', 'sunflower_create_event_post_type' );
 
