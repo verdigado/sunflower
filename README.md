@@ -4,7 +4,7 @@ sunflower WordPress theme
  
  **This repo is for development only, it is not usable out of the box within WordPress**
 
-Demo
+Demo and Download
 ---------------
 A Demo-Website can be found at
 https://wordpress.tom-rose.de.
