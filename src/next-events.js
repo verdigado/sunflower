@@ -4,9 +4,9 @@ import { useBlockProps } from '@wordpress/block-editor';
  
 registerBlockType( 'sunflower/next-events', {
     apiVersion: 2,
-    title: 'Sunflower: Neueste Termine',
-    icon: 'megaphone',
-    category: 'widgets',
+    title: 'Nächste Termine',
+    icon: 'calendar-alt',
+    category: 'sunflower-blocks',
  
     edit: withSelect( ( select ) => {
         return {
