@@ -227,3 +227,23 @@ function sunflower_load_event_admin_scripts(){
 
 }
 add_action( 'admin_enqueue_scripts', 'sunflower_load_event_admin_scripts' );
+
+function sunflower_get_next_events( $number = -1){
+    return new WP_Query(array(
+        //'paged' => $paged,
+        //'nopaging'		=> true,
+        'post_type'     => 'sunflower_event',
+        'posts_per_page'=> $number,
+        'meta_key' 	    => '_sunflower_event_from', 
+        'orderby'       => 'meta_value',
+        'meta_query'    => array(
+                'relation' => 'OR',
+                array(
+                    'key' => '_sunflower_event_from',
+                    'value' => date('Y-m-d H:i', strToTime('now - 6 hours')),
+                    'compare' => '>'
+                ),
+            ),
+        'order'        => 'ASC',
+    ));
+}

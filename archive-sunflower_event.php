@@ -43,22 +43,7 @@ get_header();
 						<?php
 
 						//$paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
-						$ordered_posts = new WP_Query(array(
-							//'paged' => $paged,
-							'nopaging'		=> true,
-							'post_type'     => 'sunflower_event',
-							'meta_key' 	    => '_sunflower_event_from', 
-							'orderby'       => 'meta_value',
-							'meta_query'    => array(
-									'relation' => 'OR',
-									array(
-										'key' => '_sunflower_event_from',
-										'value' => date('Y-m-d H:i', strToTime('now - 6 hours')),
-										'compare' => '>'
-									),
-								),
-							'order'        => 'ASC',
-						));
+						$ordered_posts = sunflower_get_next_events();
 
 
 						/* Start the Loop */
