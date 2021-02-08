@@ -62,6 +62,7 @@ sync-db:
 	cd ../../../../ && \
 	rsync sharepic:/var/www/wordpress.tom-rose.de/dumps/demo.sql demo.sql && \
 	sed -i 's/tr_6/tr_2/g' demo.sql && \
+	sed -i 's/sites\/6/sites\/2/g' demo.sql && \
 	sed -i 's/https:\/\/wordpress.tom-rose.de/http:\/\/localhost/g' demo.sql && \
 	docker-compose exec -T db mysql wordpress < demo.sql
 
