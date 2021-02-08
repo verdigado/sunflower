@@ -1,9 +1,10 @@
 sunflower WordPress theme
 ===
  This is sunflower, a WordPress-Theme for the german green party. It is based on the starter theme [_s](https://underscores.me/).
- This repo is for development only, it is not usable out of the box within WordPress
+ 
+ **This repo is for development only, it is not usable out of the box within WordPress**
 
-Demo
+Demo and Download
 ---------------
 A Demo-Website can be found at
 https://wordpress.tom-rose.de.
