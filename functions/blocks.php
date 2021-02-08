@@ -25,11 +25,11 @@ function sunflower_next_events_render( $block_attributes, $content ) {
     $return = sprintf(' <div class="wp-block-group has-background next-events">
                         <div class="wp-block-group__inner-container">
                             <h2 class="text-center">%s</h2>
-                            <div class="wp-block-button text-center mb-4"><a class="wp-block-button__link no-border-radius" href="/termine" rel="">%s</a></div>
+                            <div class="wp-block-button text-center mb-4"><a class="wp-block-button__link no-border-radius" href="%s?post_type=sunflower_event" rel="">%s</a></div>
                         <div class="row">',
                         __('Next events', 'sunflower'),
+                        home_url(),
                         __('all events', 'sunflower'),
-
     );
 
     ob_start();

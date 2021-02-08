@@ -4,7 +4,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  
 registerBlockType( 'sunflower/next-events', {
     apiVersion: 2,
-    title: 'Sunflower: Neuste Termine',
+    title: 'Sunflower: Neueste Termine',
     icon: 'megaphone',
     category: 'widgets',
  
