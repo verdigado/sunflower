@@ -1,0 +1,7 @@
+.wp-block-sunflower-meta-data{
+    display: flex;
+    align-items: baseline;
+}
+.wp-block-sunflower-meta-data i{
+    margin-right: 0.5em;
+}

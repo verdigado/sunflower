@@ -72,3 +72,9 @@ function sunflower_createHomepage(){
 add_action( 'wp_ajax_sunflowerCreateHomepage', 'sunflower_createHomepage' );
 
 
+function sunflower_admin_style() {
+    wp_enqueue_style('sunflower-admin-fontawesome', get_template_directory_uri().'/assets/css/admin-fontawesome.css');
+    wp_enqueue_style('sunflower-admin-styles', get_template_directory_uri().'/assets/css/admin.css');
+ }
+ 
+ add_action('admin_enqueue_scripts', 'sunflower_admin_style');

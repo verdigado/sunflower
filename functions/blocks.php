@@ -50,3 +50,17 @@ function sunflower_next_events_render( $block_attributes, $content ) {
 
     return $return;
 }
+
+
+function sunflower_block_category( $categories, $post ) {
+	return array_merge(
+		array(
+			array(
+				'slug' => 'sunflower-blocks',
+				'title' => __( 'Sunflower', 'sunflower' ),
+			),
+		),
+        $categories
+	);
+}
+add_filter( 'block_categories', 'sunflower_block_category', 10, 2);

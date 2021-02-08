@@ -115,3 +115,17 @@
         }
     }
 }
+
+
+.wp-block-sunflower-meta-data{
+    display: flex;
+    align-items: baseline;
+
+    p{
+        margin-bottom: 0;
+    }
+    
+    i{
+        margin-right: 0.5em;
+    }
+}
