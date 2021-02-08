@@ -24,7 +24,7 @@ get_header();
 						</header><!-- .page-header -->
 
 
-						<div class="isotope-button-group mb-2">
+						<div class="filter-button-group mb-2">
 							<button class="btn btn-sm btn-outline-primary me-2" data-filter="*"><?php _e('Show all', 'sunflower'); ?></button>
 							<?php
 							$terms = get_terms([
@@ -39,7 +39,7 @@ get_header();
 							?>
 						</div>
 
-						<div class="event-list">
+						<div class="row event-list">
 						<?php
 
 						//$paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
@@ -55,7 +55,10 @@ get_header();
 							* If you want to override this in a child theme, then include a file
 							* called content-___.php (where ___ is the Post Type name) and that will be used instead.
 							*/
-							get_template_part( 'template-parts/archive', 'event');
+
+							echo '<div class="col-12 col-md-6 col-lg-4">';
+								get_template_part( 'template-parts/archive', 'event');
+							echo '</div>';
 
 						endwhile;
 
@@ -75,17 +78,9 @@ get_header();
 
 <?php
 	wp_enqueue_script(
-        'isotope-module',
-        get_template_directory_uri() . '/assets/vndr/isotope-layout/dist/isotope.pkgd.min.js',
-       null,
-        '3.2.1', 
-        true
-	);
-
-	wp_enqueue_script(
-        'isotope-custom',
-        get_template_directory_uri() . '/assets/js/isotope.js',
-       'isotope-module',
+        'filter-custom',
+        get_template_directory_uri() . '/assets/js/filter.js',
+		null,
         '3.2.1', 
         true
 	);

@@ -36,9 +36,9 @@ function sunflower_next_events_render( $block_attributes, $content ) {
     while ( $next_events->have_posts() ) {
         $next_events->the_post();
 
-       
-        get_template_part( 'template-parts/archive', 'event');
-  
+        echo '<div class="col-12 col-md-6 col-lg-4">';
+            get_template_part( 'template-parts/archive', 'event');
+        echo '</div>';
 
     }
   
