@@ -6,6 +6,8 @@ nav:
   - Menüs: menus.md
   - Elemente (Blöcke): blocks.md
   - Termine: events.md
+  - Individuelles CSS: customcss.md
+  - Besonderheiten: specials.md
   - Häufige Fragen: faq.md
   - Datenschutz: privacy.md
   - Für Entwickler*innen: development.md
