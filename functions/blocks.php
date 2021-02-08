@@ -29,7 +29,7 @@ function sunflower_next_events_render( $block_attributes, $content ) {
                         <div class="row">',
                         __('Next events', 'sunflower'),
                         home_url(),
-                        __('all events', 'sunflower'),
+                        __('all events', 'sunflower')
     );
 
     ob_start();
