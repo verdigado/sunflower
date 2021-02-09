@@ -17,7 +17,7 @@ function sunflower_block_enqueue() {
     ) );
 
 }
-add_action( 'init', 'sunflower_block_enqueue' );
+add_action( 'enqueue_block_editor_assets', 'sunflower_block_enqueue' );
 
 function sunflower_next_events_render( $block_attributes, $content ) {
     $next_events = sunflower_get_next_events( 3 );
@@ -56,7 +56,7 @@ function sunflower_block_category( $categories, $post ) {
 	return array_merge(
 		array(
 			array(
-				'slug' => 'sunflower-blocks',
+				'slug'  => 'sunflower-blocks',
 				'title' => __( 'Sunflower', 'sunflower' ),
 			),
 		),
