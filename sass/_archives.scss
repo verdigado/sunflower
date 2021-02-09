@@ -3,36 +3,4 @@
         text-decoration: none;
     }
 
-    &-loop{
-        article{
-            overflow: hidden;
-            border-radius: $border-radius;
-
-            h2{
-                a{
-                    color: $body-color;
-                }
-            }
-
-            .entry-content{
-                a{
-                    color: $body-color;
-                    text-decoration: none;
-                }
-            }
-
-            .continue-reading{
-                padding-top: 10px;
-                display: block;
-                font-weight: bold;
-                font-style: italic;
-                color: $body-color;
-                text-decoration: none;
-                text-transform: uppercase;
-                &:hover{
-                    color: $primary;
-                }
-            }
-        }
-    }
 }

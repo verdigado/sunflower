@@ -90,3 +90,33 @@ img.post-thumbnail{
     height: 250px;
     border: 1px solid $lightgray;
 }
+
+article.post{
+    overflow: hidden;
+    border-radius: $border-radius;
+    h2{
+        a{
+            color: $body-color;
+        }
+    }
+
+    .entry-content{
+        a{
+            color: $body-color;
+            text-decoration: none;
+        }
+    }
+
+    .continue-reading{
+        padding-top: 10px;
+        display: block;
+        font-weight: bold;
+        font-style: italic;
+        color: $body-color;
+        text-decoration: none;
+        text-transform: uppercase;
+        &:hover{
+            color: $primary;
+        }
+    }
+}

@@ -6,8 +6,9 @@
     margin-right: 0.5em;
 }
 
-.wp-block-sunflower-next-events{
+.wp-block-sunflower-next-events,
+.wp-block-sunflower-latest-posts{
     color: white;
-    background: green;
+    background: #46962b;
     padding: 20px;
 }
