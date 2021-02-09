@@ -87,9 +87,11 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
     ob_end_clean();
 
 
-    $return .= sprintf('<div class="col-12"></div><div class="col-12 col-md-6 offset-md-6 bg-primary p-5 d-flex justify-content-between">
-           <span class="text-white h2">%s</span>
-            <a class="btn btn-outline-light text-white" href="%s?post_type=post" rel="">%s</a>
+    $return .= sprintf('<div class="col-12"></div><div class="col-12 col-md-6 offset-md-6">
+            <div class="bg-primary p-5 d-flex justify-content-between border-radius">
+            <span class="text-white h2">%s</span>
+                <a class="btn btn-outline-light text-white" href="%s?post_type=post" rel="">%s</a>
+            </div>
             </div>
          ',
         __('more posts', 'sunflower'), 
