@@ -14,15 +14,21 @@ registerBlockType( 'sunflower/next-events', {
         };
     } )( ( { posts } ) => {
         const blockProps = useBlockProps();
+        
+        const info = 'Zeige';
  
         return (
             <div { ...blockProps }>
                 { ! posts && 'Loading' }
                 { posts && posts.length === 0 && 'No Posts' }
                 { posts && posts.length > 0 && (
-                    <a href={ posts[ 0 ].link }>
-                        { posts[ 0 ].title.rendered }
-                    </a>
+                    <span> Zeige die nächsten drei Termine an, derzeit  
+                        <ol>
+                            <li>{ posts[ 0 ].title.rendered }</li>
+                            <li>{ posts[ 1 ].title.rendered }</li>
+                            <li>{ posts[ 2 ].title.rendered }</li>
+                        </ol>
+                    </span>
                 ) } 
             </div>
         )
