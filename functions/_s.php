@@ -184,18 +184,20 @@ function sunflower_scripts() {
         true
 	);
 
-	wp_enqueue_script(
-        'sunflower-leaflet',
-        get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.js',
-        null,
-        '3.2.1', 
-        true
-	);
-	
-	wp_enqueue_style( 'sunflower-leaflet', 
-		get_template_directory_uri() .'/assets/vndr/leaflet/dist/leaflet.css', 
-		array(), 
-	'1.0.0' );
+	if( 'sunflower_event' == get_post_type() ){
+		wp_enqueue_script(
+			'sunflower-leaflet',
+			get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.js',
+			null,
+			'3.2.1', 
+			true
+		);
+		
+		wp_enqueue_style( 'sunflower-leaflet', 
+			get_template_directory_uri() .'/assets/vndr/leaflet/dist/leaflet.css', 
+			array(), 
+		'1.0.0' );
+	}
 
 }
 add_action( 'wp_enqueue_scripts', 'sunflower_scripts' );
