@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-01-30T13:00:52+01:00\n"
-"PO-Revision-Date: 2021-01-30 13:10+0100\n"
+"POT-Creation-Date: 2021-02-10T00:40:20+01:00\n"
+"PO-Revision-Date: 2021-02-10 00:42+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -61,6 +61,10 @@ msgstr "Try looking in the monthly archives. %1$s"
 msgid "Events"
 msgstr "Termine"
 
+#: archive-sunflower_event.php:28
+msgid "Show all"
+msgstr "alles anzeigen"
+
 #. translators: 1: title.
 #: comments.php:35
 msgid "One thought on &ldquo;%1$s&rdquo;"
@@ -87,6 +91,30 @@ msgstr ""
 "Danke, dass Du das Sunflower-Theme nutzt. <a href='admin.php?"
 "page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
+#: functions/blocks.php:36
+msgid "Next events"
+msgstr "Nächste Termine"
+
+#: functions/blocks.php:38
+msgid "all events"
+msgstr "Zur Terminübersicht"
+
+#: functions/blocks.php:73
+msgid "News"
+msgstr "Aktuelles"
+
+#: functions/blocks.php:95
+msgid "more posts"
+msgstr "Weitere Beiträge"
+
+#: functions/blocks.php:97
+msgid "to archive"
+msgstr "Zum Blog-Archiv"
+
+#: functions/blocks.php:110 functions/options.php:24 functions/options.php:25
+msgid "Sunflower"
+msgstr "Sunflower"
+
 #: functions/colors.php:8
 msgid "Magenta"
 msgstr "Magenta"
@@ -107,7 +135,7 @@ msgstr "Weiß"
 msgid "Black"
 msgstr "Schwarz"
 
-#: functions/events.php:23 functions/events.php:40
+#: functions/events.php:23 functions/events.php:65
 msgid "Event"
 msgstr "Termin"
 
@@ -115,15 +143,15 @@ msgstr "Termin"
 msgid "sunflower_event"
 msgstr "sunflower_event"
 
-#: functions/events.php:127
+#: functions/events.php:152
 msgid "Map"
 msgstr "Landkarte"
 
-#: functions/events.php:128
+#: functions/events.php:153
 msgid "load map"
 msgstr "Landkarte anzeigen"
 
-#: functions/events.php:129
+#: functions/events.php:154
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
@@ -158,10 +186,6 @@ msgstr "Titel anzeigen"
 #: functions/layout.php:91
 msgid "Roofline"
 msgstr "Dachzeile"
-
-#: functions/options.php:24 functions/options.php:25
-msgid "Sunflower"
-msgstr "Sunflower"
 
 #: functions/options.php:36 functions/options.php:37
 msgid "First steps"
@@ -396,30 +420,30 @@ msgid "by %s"
 msgstr "von %s"
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:64
+#: inc/template-tags.php:68
 msgid ", "
 msgstr ", "
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:71
+#: inc/template-tags.php:75
 msgctxt "list item separator"
 msgid ", "
 msgstr ", "
 
 #. translators: %s: post title
-#: inc/template-tags.php:96
+#: inc/template-tags.php:100
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Kommentiere <span class=\"screen-reader-text\"> bei %s</span>"
 
-#: inc/template-tags.php:120
+#: inc/template-tags.php:124
 msgid "Share on twitter "
 msgstr "Auf Twitter teilen"
 
-#: inc/template-tags.php:127
+#: inc/template-tags.php:131
 msgid "Share on facebook "
 msgstr "Auf Facebook teilen"
 
-#: inc/template-tags.php:135
+#: inc/template-tags.php:139
 msgid "send mail "
 msgstr "Sende E-Mail"
 
@@ -436,7 +460,7 @@ msgstr "Downloas als ics-Datei"
 msgid "Link to webinar"
 msgstr "Link zur Online-Teilnahme (Webinar)"
 
-#: single-sunflower_event.php:103
+#: single-sunflower_event.php:104
 msgid ""
 "This is thirdparty content. If you click the button, the content will be "
 "downloaded from a thirdparty server."
@@ -445,20 +469,20 @@ msgstr ""
 "Daten von openstreetmap.org geladen.<br>Dafür gelten deren <a href=\"https://"
 "www.openstreetmap.org/about\" target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: single-sunflower_event.php:109
+#: single-sunflower_event.php:111
 msgid "Show map"
 msgstr "Landkarte anzeigen"
 
-#: single-sunflower_event.php:118 single.php:28
+#: single-sunflower_event.php:120 single.php:28
 msgid "Previous:"
 msgstr "Zurück:"
 
-#: single-sunflower_event.php:119 single.php:29
+#: single-sunflower_event.php:121 single.php:29
 msgid "Next:"
 msgstr "Vor:"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/archive-event.php:49 template-parts/content-archive.php:53
+#: template-parts/archive-event.php:59 template-parts/content-archive.php:53
 #: template-parts/content.php:47
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
@@ -499,10 +523,8 @@ msgstr ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content-page.php:43
-msgid "Edit <span class=\"screen-reader-text\">%s</span>"
-msgstr "Bearbeiten  <span class=\"screen-reader-text\">%s</span>"
+#~ msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+#~ msgstr "Bearbeiten  <span class=\"screen-reader-text\">%s</span>"
 
 #~ msgid "Edit content<span class=\"screen-reader-text\">%s</span>"
 #~ msgstr "Inhalt bearbeiten  <span class=\"screen-reader-text\">%s</span>"
@@ -524,9 +546,6 @@ msgstr "Bearbeiten  <span class=\"screen-reader-text\">%s</span>"
 
 #~ msgid "City"
 #~ msgstr "Stadt"
-
-#~ msgid "event"
-#~ msgstr "termin"
 
 #~ msgid "Posted in %1$s"
 #~ msgstr "Veröffentlicht unter %1$s"
