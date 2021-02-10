@@ -13,4 +13,6 @@ require_once('functions/blocks.php');
 require_once('functions/colors.php');
 require_once('functions/update.php');
 require_once('functions/widgets.php');
+require_once('functions/block-patterns.php');
+
 
