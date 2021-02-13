@@ -25,7 +25,7 @@ get_header();
 
 
 						<div class="filter-button-group mb-2">
-							<button class="btn btn-sm btn-outline-primary me-2" data-filter="*"><?php _e('Show all', 'sunflower'); ?></button>
+							<button class="btn btn-sm btn-outline-primary me-2" data-filter="*"><?php _e('show all', 'sunflower'); ?></button>
 							<?php
 							$terms = get_terms([
 								'taxonomy' => 'sunflower_event_tag',

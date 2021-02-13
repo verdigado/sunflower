@@ -39,12 +39,12 @@ $metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
 				
 				$previous = get_previous_post_link(
 					'<div class="">%link </div>',
-					'%title <div class="announce">' . __('previous', 'funflower'). '</div>'
+					'%title <div class="announce">' . __('previous', 'sunflower'). '</div>'
 				);
 
 				$next = get_next_post_link(
 					'<div class="">%link </div>',
-					'%title <div class="announce">' . __('next', 'funflower'). '</div>'
+					'%title <div class="announce">' . __('next', 'sunflower'). '</div>'
 				);
 
 			

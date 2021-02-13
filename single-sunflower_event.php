@@ -99,28 +99,27 @@ $metadata .= sprintf('<div><a href="%s" class="text-white">%s</a></div>',
 					?>
 
 					<?php if($_sunflower_event_lat AND $_sunflower_event_lon) { ?>
-						<div id="leaflet" class="d-flex flex-column justify-content-center align-items-center">
-							<p class="text-center ms-5 me-5 small">
-								<?php _e('This is thirdparty content. If you click the button, the content will be downloaded from a thirdparty server.', 'sunflower'); ?>
-							<p>
-							<button class="btn btn-info btn-sm show-leaflet" 
-								data-lat="<?php echo $_sunflower_event_lat; ?>"
-								data-lon="<?php echo $_sunflower_event_lon; ?>" 
-								data-zoom="<?php echo $_sunflower_event_zoom; ?>"
-							>
-								<?php _e('Show map', 'sunflower'); ?>
-							</button>
+						<div id="leaflet" class="d-flex flex-column justify-content-center align-items-center bg-lightgreen border-0">
+							<div class="before-loading text-center">
+								<i class="fas fa-map-marker-alt mb-3"></i>
+								<div class="h5 mb-3">
+									<?php _e('Show event location on map', 'sunflower'); ?>
+								</div>
+								<div class="mb-3">
+									<?php _e('If you click the button, the content will be downloaded from openstreetmap.', 'sunflower'); ?>
+								</div>
+
+								<button class="wp-block-button__link no-border-radius show-leaflet" 
+									data-lat="<?php echo $_sunflower_event_lat; ?>"
+									data-lon="<?php echo $_sunflower_event_lon; ?>" 
+									data-zoom="<?php echo $_sunflower_event_zoom; ?>"
+								>
+									<?php _e('Show map', 'sunflower'); ?>
+								</button>
+							</div>
 						</div>
 					<?php } ?>
-
 					<?php
-
-						the_post_navigation(
-							array(
-								'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'sunflower' ) . '</span> <span class="nav-title">%title</span>',
-								'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'sunflower' ) . '</span> <span class="nav-title">%title</span>',
-							)
-						);
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						if ( comments_open() || get_comments_number() ) :

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-02-13T14:51:37+01:00\n"
-"PO-Revision-Date: 2021-02-13 14:52+0100\n"
+"POT-Creation-Date: 2021-02-13T15:17:31+01:00\n"
+"PO-Revision-Date: 2021-02-13 15:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -62,7 +62,9 @@ msgid "Events"
 msgstr "Termine"
 
 #: archive-sunflower_event.php:28
-msgid "Show all"
+#, fuzzy
+#| msgid "Show all"
+msgid "show all"
 msgstr "alles anzeigen"
 
 #. translators: 1: title.
@@ -154,7 +156,7 @@ msgstr "Landkarte"
 
 #: functions/events.php:153
 msgid "load map"
-msgstr "Landkarte anzeigen"
+msgstr "Kartendaten laden"
 
 #: functions/events.php:154
 msgid "delete map"
@@ -449,26 +451,29 @@ msgstr "Link zur Online-Teilnahme (Webinar)"
 msgid "Download as ics"
 msgstr "Downloas als ics-Datei"
 
-#: single-sunflower_event.php:104
+#: single-sunflower_event.php:106
+msgid "Show event location on map"
+msgstr "Veranstaltungsort auf der Karte anzeigen"
+
+#: single-sunflower_event.php:109
 msgid ""
-"This is thirdparty content. If you click the button, the content will be "
-"downloaded from a thirdparty server."
+"If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
-"Hier fehlt noch die Landkarte.<br> Wenn Sie auf den Button klicken, werden "
-"Daten von openstreetmap.org geladen.<br>Dafür gelten deren <a href=\"https://"
-"www.openstreetmap.org/about\" target=\"_blank\">Datenschutzrichtlinien</a>."
+"Wenn Sie auf den Button klicken, werden Daten von openstreetmap.org geladen."
+"<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
+"target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: single-sunflower_event.php:111
+#: single-sunflower_event.php:117
 msgid "Show map"
-msgstr "Landkarte anzeigen"
+msgstr "Kartendaten laden"
 
-#: single-sunflower_event.php:120
-msgid "Previous:"
-msgstr "Zurück:"
+#: single-sunflower_event.php:130 single.php:42
+msgid "previous"
+msgstr "zurück"
 
-#: single-sunflower_event.php:121
-msgid "Next:"
-msgstr "Vor:"
+#: single-sunflower_event.php:135 single.php:47
+msgid "next"
+msgstr "vor"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:59 template-parts/content-archive.php:53
@@ -511,6 +516,9 @@ msgid ""
 msgstr ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
+
+#~ msgid "Next:"
+#~ msgstr "Vor:"
 
 #~ msgid "Theme default"
 #~ msgstr "Voreinstellung des Themes"
