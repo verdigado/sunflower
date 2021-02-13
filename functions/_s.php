@@ -237,3 +237,16 @@ function register_navwalker(){
 	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 }
 add_action( 'after_setup_theme', 'register_navwalker' );
+
+
+
+add_filter( 'body_class', 'sunflower_body_class', 10, 2 );
+
+function sunflower_body_class( $classes, $class )
+{
+	if( is_front_page() ){
+		$classes = array( 'home' );
+	}
+	
+	return $classes;
+}

@@ -88,7 +88,7 @@ $metadata .= sprintf('<div><a href="%s" class="text-white">%s</a></div>',
 	<div id="content" class="container">
 		<div class="row">
 			<div class="col-12 col-md-10 offset-md-1">
-				<main id="primary" class="site-main">
+				<main id="primary" class="site-main mt-5">
 					<?php
 
 					while ( have_posts() ) :

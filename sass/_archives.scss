@@ -2,5 +2,8 @@
     a{
         text-decoration: none;
     }
-
+    article{
+        border-radius: $border-radius;
+        overflow: hidden;
+    }
 }
