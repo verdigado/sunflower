@@ -17,4 +17,6 @@ Die verwendeten Blöcke sind
 * Unser Programm: *Medien und Text*, Text bei Einstellungen unter Typografie angepasst
 * Werde aktiv: *Gruppierung* mit Hintergrundfarbe, *Überschrift*, *Text*, *Buttons* 
 
+Einige dieser Blöcke sind auch als Vorlagen verfügbar.
+
 Auf der Seite Blöcke gibt es [mehr Infos zu Blöcken](blocks.md).
