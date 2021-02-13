@@ -3,7 +3,6 @@ name: CI
 on:
   create:
     tags:
-      - *
     
 jobs:
   build:
