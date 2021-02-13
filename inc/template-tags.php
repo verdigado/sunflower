@@ -173,9 +173,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 		<?php else : ?>
 
 			<?php
-				$setting = @get_post_meta( $post->ID, '_sunflower_post_thumbnail_object_fit')[0] ?: get_sunflower_setting('post_thumbnail_object_fit');
-				
-				$classes = array('post-thumbnail', $setting );
+				$classes = array('post-thumbnail' );
 
 				the_post_thumbnail(
 					'post-thumbnail',

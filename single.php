@@ -9,8 +9,6 @@
 
 get_header();
 
-$show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true : false;
-
 ?>
 	<div id="content" class="container">
 		<div class="row">
@@ -68,7 +66,5 @@ $show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true 
 	</div>
 </div>
 <?php
-if ( $show_sidebar ) {
-	get_sidebar();
-}
+get_sidebar();
 get_footer();

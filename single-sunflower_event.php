@@ -6,7 +6,6 @@
  *
  * @package sunflower
  */
-$show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true : false;
 $_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
 $_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_until')[0] ?: false;
 $_sunflower_event_whole_day = @get_post_meta( $post->ID, '_sunflower_event_whole_day')[0] ?: false;
@@ -21,7 +20,6 @@ $_sunflower_event_lat = @get_post_meta( $post->ID, '_sunflower_event_lat')[0] ?:
 $_sunflower_event_zoom = @get_post_meta( $post->ID, '_sunflower_event_zoom')[0] ?: false;
 
 $icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
-$show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true : false;
 
 
 if( isset($_GET['format']) AND $_GET['format'] === 'ics' ){
@@ -135,7 +133,5 @@ function formatDay( $time, $whole_day ){
 	</div>
 </div>
 <?php
-if ( $show_sidebar ) {
-	get_sidebar();
-}
+get_sidebar();
 get_footer();
