@@ -7,36 +7,47 @@
  * @package sunflower
  */
 
+ $metadata = false;
+ extract($args);
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
 	<header class="entry-header full-width">
 		<div class="container">
-			<div class="row">
-				<div class="col-12 col-md-10 offset-md-1">
-				<?php
-					$roofline = @get_post_meta( $post->ID, '_sunflower_roofline')[0] ?: false;
-					if( $roofline ){
-						printf(' <div class="roofline arvogruen mb-1">%s</div>', $roofline);
-					}
-				?>
-				<?php
-				if ( is_singular() ) :
-					the_title( '<h1 class="entry-title">', '</h1>' );
-				else :
-					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-				endif;
-
-				if ( 'post' === get_post_type() ) :
+			<div class="row position-relative">
+				<div class="col-12 offset-md-1 <?php echo ($metadata) ? 'text-left col-md-9' : 'col-md-10'; ?>">
+					<?php
+						$roofline = @get_post_meta( $post->ID, '_sunflower_roofline')[0] ?: false;
+						if( $roofline ){
+							printf(' <div class="roofline arvogruen mb-1">%s</div>', $roofline);
+						}
 					?>
-					<div class="entry-meta mb-3">
-						<?php
-						sunflower_posted_on();
-						sunflower_posted_by();
+					<?php
+					if ( is_singular() ) :
+						the_title( '<h1 class="entry-title">', '</h1>' );
+					else :
+						the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+					endif;
+
+					if ( 'post' === get_post_type() ) :
 						?>
-					</div><!-- .entry-meta -->
-				<?php endif; ?>
-				</div>
+						<div class="entry-meta mb-3">
+							<?php
+							sunflower_posted_on();
+							sunflower_posted_by();
+							?>
+						</div><!-- .entry-meta -->
+					<?php endif; ?>
+					</div>
+
+					<?php
+						if($metadata){
+							printf('<div class="col-md-2 metabox small">%s</div>',
+								$metadata
+							);
+						}
+					?>
+				
 			</div>
 		</div>
 	</header><!-- .entry-header -->

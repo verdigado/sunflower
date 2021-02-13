@@ -9,6 +9,7 @@
 
 get_header();
 
+$metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
 ?>
 	<div id="content" class="container">
 		<div class="row">
@@ -18,8 +19,8 @@ get_header();
 					<?php
 					while ( have_posts() ) :
 						the_post();
-
-						get_template_part( 'template-parts/content', get_post_type() );
+	
+						get_template_part( 'template-parts/content', get_post_type(), ['metadata' => $metadata] );
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						if ( comments_open() || get_comments_number() ) :
@@ -58,9 +59,7 @@ get_header();
 						$next
 					);
 				}
-
-			
-				
+		
 				?>
 			</div>	
 	</div>

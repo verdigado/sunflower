@@ -12,3 +12,15 @@
         text-decoration: none;
     }
 }
+
+.metabox{
+    background: $primary;   
+    position: absolute;
+    right: -40px;
+    top: -10px;
+    border-radius: $border-radius;
+    color: white;
+    padding: $grid-gutter-width; 
+    z-index: 20;
+    text-align: left;
+}

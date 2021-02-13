@@ -35,9 +35,9 @@ function save_sunflower_meta_boxes(){
         return;
     }
 
-    update_post_meta( $post->ID, "_sunflower_post_thumbnail_object_fit", sanitize_text_field( @$_POST[ "_sunflower_post_thumbnail_object_fit" ] ) );
     update_post_meta( $post->ID, "_sunflower_show_title", sanitize_text_field( @$_POST[ "_sunflower_show_title" ] ) );
     update_post_meta( $post->ID, "_sunflower_roofline", sanitize_text_field( @$_POST[ "_sunflower_roofline" ] ) );
+    update_post_meta( $post->ID, "_sunflower_metadata", @$_POST[ "sunflower-meta-data" ] );
 
 
 }
@@ -75,6 +75,14 @@ function sunflower_meta_box_metadata(){
     _e('Roofline', 'sunflower');
     echo '<div><input name="_sunflower_roofline" value="' . @$custom['_sunflower_roofline'][0] .'" class="components-text-control__input">';
     echo '</div></div>';
+
+    echo '<div class="">';
+    _e('Metadata', 'sunflower');
+    wp_editor( @$custom['_sunflower_metadata'][0], 'sunflower-meta-data', array(
+        'textarea_rows' => '5',
+        'media_buttons' => false
+    ));
+    echo '</div>';
 
 }
 
