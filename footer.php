@@ -14,8 +14,8 @@
 	<footer id="colophon" class="site-footer">
 		<div class="container site-info">
 			<div class="row">
-				<nav class="col-md-4 navbar navbar-top navbar-expand-md navbar-dark">
-					<div class="container">
+				<nav class="col-md-4 navbar navbar-top navbar-expand-md">
+					<div class="">
 						<?php
 							wp_nav_menu( array(
 								'theme_location'  => 'footer1',
@@ -34,7 +34,7 @@
 						echo get_sunflower_social_media_profiles();	
 					?>
 				</div>
-				<nav class="col-md-4 navbar navbar-top navbar-expand-md navbar-dark d-flex justify-content-end">
+				<nav class="col-md-4 navbar navbar-top navbar-expand-md d-flex justify-content-end">
 					<div class="">
 						<?php
 							wp_nav_menu( array(
@@ -49,7 +49,24 @@
 						?>
 					</div>
 				</nav>
+	
+		
+				<div class="col-12 mt-4 mb-4">
+					<hr>
+				</div>	
+
+				<div class="col-10">
+					<p class="small">
+						<?php bloginfo('name'); ?> benutzt das<br>freie 
+						grüne Theme <a href="https://sunflower-theme.de" target="_blank">sunflower</a>.
+					</p>
+				</div>
+				<div class="col-2">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-diegruenen.svg" class="img-fluid">
+				</div>
+
 			</div>
+			
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
