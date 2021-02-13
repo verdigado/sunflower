@@ -20,3 +20,8 @@
 ## Blöcke
 - ``npm run start``, um den Watcher für JS-Files zu starten
 - Dateien befinden sich im Ordner *src*
+
+### Neue Block-Vorlage hinzufügen
+Lege dazu eine neue Datei im Verzeichnis *functions/block-patterns/seiten* an.
+Fertig.
+
