@@ -1,8 +1,16 @@
 .tags-links{
     a{
         &:before{
-            content: '#'
+            content: '#';
+            color: black;
         }
+    }
+}
+
+.cat-links,
+.tags-links{
+    a{
+        text-decoration: none;
     }
 }
 
