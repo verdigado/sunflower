@@ -159,14 +159,6 @@ class SunflowerSettingsPage
             'sunflower-setting-admin' // Page
         );  
 
-        add_settings_field(
-            'post_thumbnail_object_fit', // ID
-            __('Post thumbnails in archives', 'sunflower'), // Title 
-            array( $this, 'post_thumbnail_object_fit_callback' ), // Callback
-            'sunflower-setting-admin', // Page
-            'sunflower_layout' // Section           
-        );    
-
         add_settings_section(
             'sunflower_social_media_sharers', // ID
             __('Social Sharers', 'sunflower'), // Title
@@ -260,23 +252,7 @@ class SunflowerSettingsPage
         );
     }
 
-    public function post_thumbnail_object_fit_callback()
-    {
-        $options = array(
-            'contain' => __('complete image', 'sunflower'),
-            'cover'   => __('full area', 'sunflower'),
-
-        );
-        echo '<select name="sunflower_options[post_thumbnail_object_fit]" id="post_thumbnail_object_fit">';
-        echo '<option value="">' . __('Please choose', 'sunflower') . '</option>';
-            foreach($options AS $id => $label ) {
-                $selected = (isset($this->options['post_thumbnail_object_fit']) AND $id == $this->options['post_thumbnail_object_fit'] ) ? 'selected' : '';
-                printf('<option value="%s" %s>%s</option>', $id, $selected, $label);
-            }
-        echo '</select>';
-  
-    }
-
+ 
     /** 
      * Get the settings option array and print one of its values
      */
