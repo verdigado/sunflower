@@ -1,5 +1,19 @@
-.entry{
-    &-header{
-        
+body.single,
+body.page{
+    .entry{
+        &-header{
+            text-align: center;
+            background: $lightgreen;
+            padding: 50px 0 100px 0;
+        }
+
+        &-content{
+            margin-top: 30px;
+        }
+    }
+
+    .post-thumbnail{
+        position: relative;
+        margin-top: -10%;
     }
 }

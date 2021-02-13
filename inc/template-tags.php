@@ -37,7 +37,7 @@ if ( ! function_exists( 'sunflower_posted_by' ) ) :
 	function sunflower_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'sunflower' ),
+			esc_html_x( '| %s', 'post author', 'sunflower' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -166,7 +166,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail mb-5">
+			<div class="post-thumbnail">
 				<?php the_post_thumbnail(null, ['class' => 'w-100 border-radius']); ?>
 			</div><!-- .post-thumbnail -->
 
