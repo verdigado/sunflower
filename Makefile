@@ -1,3 +1,6 @@
+up:
+	cd ../../../../ && docker-compose up -d
+	
 compile:
 	npm run compile:css
 	
