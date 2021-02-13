@@ -17,7 +17,7 @@ import {
  
 registerBlockType( 'sunflower/meta-data', {
     apiVersion: 2,
-    title: 'Metadaten',
+    title: 'Metadaten-Zeile',
     icon: 'info-outline',
     category: 'sunflower-blocks',
     attributes: {
