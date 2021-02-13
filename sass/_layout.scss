@@ -136,3 +136,26 @@ button.filter{
         border-bottom-color: $black;
     }
 }
+
+.sunflower-pagination{
+    background: white;
+    border-radius: $border-radius;
+    display: flex;
+    align-items: baseline;
+    font-size: 80%;
+
+    &>*{
+        padding: 20px 30px;
+        display: block;
+    }
+
+    .current{
+        font-size: 150%;
+    }
+
+    .prev,.next{
+        text-transform: uppercase;
+        color: $black;
+        font-style: italic;
+    }
+}

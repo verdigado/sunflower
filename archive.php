@@ -60,7 +60,16 @@ get_header();
 							</div>
 						</div>
 					<?php
-						the_posts_navigation();
+						
+						$args = array(
+							'prev_text' => __('previous', 'sunflower'),
+							'next_text' => __('next', 'sunflower'),
+
+						);
+						
+						printf('<div class="d-flex justify-content-around mt-3 mb-5"><div class="sunflower-pagination">%s</div></div>',
+							 paginate_links( $args )
+					);
 
 					else :
 
