@@ -5,4 +5,7 @@ jQuery( '.filter-button-group' ).on( 'click', 'button', function() {
 
     jQuery( '.event-list>*' ).addClass( 'd-none' );
     jQuery( filterValue, '.event-list' ).parent().removeClass( 'd-none' );
+
+    jQuery( '.filter-active' ).removeClass( 'filter-active' );
+    jQuery( this ).addClass( 'filter-active' );
 });

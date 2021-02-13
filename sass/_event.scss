@@ -1,18 +1,23 @@
-.event{
-    &-list{
-        
-    }
-}
-
 a.event-card{
     color: $body-color;
     text-decoration: none;
+   
 
     article{
-        background-color: $white;
+        background-color: $white; 
+        border-radius: $border-radius;
+
+        .event-archive-meta{
+            color: $primary;
+        }
+
         &:hover{
             color: $white;
             background-color: $primary;
+
+            .event-archive-meta{
+                color: white;
+            }
         }
     }
 
@@ -22,7 +27,7 @@ a.event-card{
     }
 
     &:hover{
-        text-decoration: none   ;
+        text-decoration: none;
     }
 }
 

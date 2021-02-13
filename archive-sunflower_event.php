@@ -12,10 +12,10 @@ get_header();
 	<div id="content" class="container">
 		<div class="row">
 			<div class="col-12">
-				<main id="primary" class="site-main mt-5">
+				<main id="primary" class="site-main">
 					<?php if ( have_posts() ) : ?>
 
-						<header class="page-header">
+						<header class="page-header text-center">
                             <h1 class="page-title">
                                 <?php
                                     _e('Events', 'sunflower');
@@ -24,8 +24,8 @@ get_header();
 						</header><!-- .page-header -->
 
 
-						<div class="filter-button-group mb-2">
-							<button class="btn btn-sm btn-outline-primary me-2" data-filter="*"><?php _e('show all', 'sunflower'); ?></button>
+						<div class="filter-button-group mt-3 mb-5 text-center">
+							<button class="filter filter-active" data-filter="*"><?php _e('all events', 'sunflower'); ?></button>
 							<?php
 							$terms = get_terms([
 								'taxonomy' => 'sunflower_event_tag',
@@ -34,7 +34,7 @@ get_header();
 
 
 							foreach($terms AS $term){
-								printf('<button class="btn btn-sm btn-outline-info me-1" data-filter=".%s">%s</button>', $term->slug, $term->name);
+								printf('<button class="filter" data-filter=".%s">%s</button>', $term->slug, $term->name);
 							}
 							?>
 						</div>

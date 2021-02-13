@@ -18,7 +18,7 @@
 ?>
 
 <a href="<?php echo esc_url( get_permalink() ); ?>" class="event-card <?php echo join(' ', array_keys($tag_list)); ?>" rel="bookmark">
-<article id="post-<?php the_ID(); ?>" <?php post_class('mb-2 event'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('mb-4 event'); ?>>
     <div class="p-4">
         <?php
             $from = strToTime(get_post_meta( $post->ID, '_sunflower_event_from')[0]);
@@ -26,27 +26,25 @@
             $weekday = date_i18n( 'l ', $from);
             $date = date_i18n( 'j. F Y', $from);
         ?>
-        <div>
-            <div><?php echo $weekday; ?></div>
+        <div class="event-archive-meta">
+            <div class="arvo text-uppercase small"><?php echo $weekday; ?></div>
             <div class="date">
                 <time datetime="<?php echo $attribute; ?>">
                     <?php echo $date;?>
                 </time>
+            </div>
+            <div class="small">
+                <?php
+                    echo join(' | ', $tag_list);
+                ?>
             </div>
         </div>
 
         <div class="">
             <header class="entry-header pt-2">
                 <?php
-                    the_title( '<strong>', '</strong>' );
+                    the_title( '<strong class="h5">', '</strong>' );
                 ?>
-
-                <div class="small">
-                    <?php
-                       echo join(', ', $tag_list);
-                    ?>
-                </div>
-
             </header><!-- .entry-header -->
 
         

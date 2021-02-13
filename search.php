@@ -12,7 +12,7 @@ get_header();
 	<div id="content" class="container">
 		<div class="row">
 			<div class="col-12">
-				<main id="primary" class="site-main mt-5">
+				<main id="primary" class="site-main">
 
 					<?php if ( have_posts() ) : ?>
 

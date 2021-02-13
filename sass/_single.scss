@@ -1,5 +1,6 @@
 body.single,
-body.page{
+body.page,
+body:not(.home){
     .entry{
         &-header{
             text-align: center;
