@@ -2,10 +2,19 @@
 function sunflower_add_meta_boxes() {
     // see https://developer.wordpress.org/reference/functions/add_meta_box for a full explanation of each property
     add_meta_box(
-        "sunflower_meta_box", // div id containing rendered fields
+        "sunflower_meta_box_layout", // div id containing rendered fields
         __("Layout", 'sunflower'), // section heading displayed as text
-        "sunflower_meta_box", // callback function to render fields
+        "sunflower_meta_box_layout", // callback function to render fields
         array("post", "page","event"), // name of post type on which to render fields
+        "side", // location on the screen
+        "high" // placement priority
+    );
+
+    add_meta_box(
+        "sunflower_meta_box_metadata", // div id containing rendered fields
+        __("Metadata", 'sunflower'), // section heading displayed as text
+        "sunflower_meta_box_metadata", // callback function to render fields
+        array("post", "page"), // name of post type on which to render fields
         "side", // location on the screen
         "high" // placement priority
     );
@@ -35,7 +44,7 @@ function save_sunflower_meta_boxes(){
 }
 add_action( 'save_post', 'save_sunflower_meta_boxes' );
 
-function sunflower_meta_box(){
+function sunflower_meta_box_layout(){
     global $post;
     $custom = get_post_custom( $post->ID );
 
@@ -86,6 +95,12 @@ function sunflower_meta_box(){
     $checked,
     __('Show title', 'sunflower')
     );
+
+}
+
+function sunflower_meta_box_metadata(){
+    global $post;
+    $custom = get_post_custom( $post->ID );
 
     echo '<div class="">';
     _e('Roofline', 'sunflower');
