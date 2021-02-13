@@ -7,7 +7,9 @@
  * @package sunflower
  */
 $_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
+$_sunflower_event_from = strToTime($_sunflower_event_from);
 $_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_until')[0] ?: false;
+$_sunflower_event_until = strToTime($_sunflower_event_until);
 $_sunflower_event_whole_day = @get_post_meta( $post->ID, '_sunflower_event_whole_day')[0] ?: false;
 
 $_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_location_name')[0] ?: false;
@@ -30,69 +32,69 @@ if( isset($_GET['format']) AND $_GET['format'] === 'ics' ){
 
 get_header();
 
-function formatDay( $time, $whole_day ){
-	global $post;
-	static $day;
+$metadata = '';
 
-	if( !$time ){
-		return '';
-	}
-	$timestamp = strToTime($time);
+$event_more_days = ( $_sunflower_event_until AND date('jFY', $_sunflower_event_from) !== date('jFY', $_sunflower_event_until) );
 
+$metadata .= sprintf('<div class="arvo text-uppercase weekday">%s %s</div>',
+		($event_more_days) ? __('from', 'sunflower') : '',
+		date_i18n('l',  $_sunflower_event_from)
+	);
 
-	$timecode = ( date('H:i', $timestamp) === '00:00' OR $whole_day) ? '' : ',  H<\s\u\p>i</\s\u\p> \U\h\r';
-	
-	if ($day AND $day === date('jFY', $timestamp)){
-		$daycode = '';
-		$timecode = ( date('H:i', $timestamp) === '00:00' OR $whole_day) ? '' : '  H<\s\u\p>i</\s\u\p> \U\h\r';
-	}else{
-		$day = date('jFY', $timestamp);
-		$daycode = 'l, \d\e\n j. F Y';
-	}
+$untildate = $untiltime = '';
+if($_sunflower_event_until){
+	$untildate = '&dash; ' . date_i18n(' j.m.Y',  $_sunflower_event_until);
+	$untiltime = '&dash; ' . date_i18n(' H:i',  $_sunflower_event_until);
+}
+$metadata .= sprintf('<div class="date mb-2">%s %s</div>',
+	date_i18n('j.m.Y',  $_sunflower_event_from),
+	$untildate
+);
 
-	return date_i18n( $daycode . $timecode, $timestamp);
+// show time only if not whole day
+if( date('H:i', $_sunflower_event_from) !== '00:00' AND !$_sunflower_event_whole_day){
+	$metadata .= sprintf('<div class="time mt-2 mb-2">%s %s %s</div>',
+		date_i18n('H:i',  $_sunflower_event_from),
+		$untiltime,
+		__("o'clock", 'sunflower')
+
+	);
 }
 
+$location = [];
+if( $_sunflower_event_location_name ) $location[] = $_sunflower_event_location_name;
+if( $_sunflower_event_location_street ) $location[] = $_sunflower_event_location_street;
+if( $_sunflower_event_location_city) $location[] = $_sunflower_event_location_city;
+if( !empty($location)){
+	$metadata .= sprintf('<div class="mt-2 mb-2">%s</div>',
+		join(',', $location)
+	);
+}
+
+
+if( $_sunflower_event_webinar ){
+	$metadata .= sprintf('<div class="mt-1 mb-1"><a href="%s" target="_blank"><i class="fas fa-desktop"></i> %s</a></div>',
+		$_sunflower_event_webinar,
+		__('Link to webinar', 'sunflower')
+	);
+}
+
+$metadata .= sprintf('<div><a href="%s" class="text-white">%s</a></div>',
+	$icsLink,
+	__('Download as ics', 'sunflower')
+);
 
 ?>
 	<div id="content" class="container">
 		<div class="row">
-			<div class="col-9">
+			<div class="col-12 col-md-10 offset-md-1">
 				<main id="primary" class="site-main mt-5">
 					<?php
-					$startdate = formatDay( $_sunflower_event_from, $_sunflower_event_whole_day );
-					$enddate = formatDay( $_sunflower_event_until, $_sunflower_event_whole_day);
-					printf('<div><i class="far fa-clock"></i> %s %s</div>',
-						$startdate,
-						($enddate) ? ' &dash; ' . $enddate : ''
-					);
-
-					$location = [];
-					if( $_sunflower_event_location_name ) $location[] = $_sunflower_event_location_name;
-					if( $_sunflower_event_location_street ) $location[] = $_sunflower_event_location_street;
-					if( $_sunflower_event_location_city) $location[] = $_sunflower_event_location_city;
-					if( !empty($location)){
-						printf('<div><i class="fas fa-map-marker-alt"></i> %s</div>',
-							join(',', $location)
-						);
-					}
-
-					printf('<div><a href="%s"><i class="fas fa-download"></i> %s</a></div>',
-						$icsLink,
-						__('Download as ics', 'sunflower')
-					);
-
-					if( $_sunflower_event_webinar ){
-						printf('<div><a href="%s" target="_blank"><i class="fas fa-desktop"></i> %s</a></div>',
-							$_sunflower_event_webinar,
-							__('Link to webinar', 'sunflower')
-						);
-					}
 
 					while ( have_posts() ) :
 						the_post();
 
-						get_template_part( 'template-parts/content', 'post' );
+						get_template_part( 'template-parts/content', '', ['metadata' => $metadata] );
 
 					?>
 

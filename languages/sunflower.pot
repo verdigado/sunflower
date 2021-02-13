@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-02-10T00:40:20+01:00\n"
+"POT-Creation-Date: 2021-02-13T14:51:37+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -81,6 +81,17 @@ msgstr ""
 msgid "Thank you for using sunflower theme. <a href='admin.php?page=sunflower_admin'>More information ca be found on the theme's setting page</a>."
 msgstr ""
 
+#: functions/block-patterns.php:6
+#: functions/blocks.php:112
+#: functions/options.php:24
+#: functions/options.php:25
+msgid "Sunflower"
+msgstr ""
+
+#: functions/block-patterns.php:12
+msgid "Person"
+msgstr ""
+
 #: functions/blocks.php:36
 msgid "Next events"
 msgstr ""
@@ -93,18 +104,12 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: functions/blocks.php:95
+#: functions/blocks.php:97
 msgid "more posts"
 msgstr ""
 
-#: functions/blocks.php:97
+#: functions/blocks.php:99
 msgid "to archive"
-msgstr ""
-
-#: functions/blocks.php:110
-#: functions/options.php:24
-#: functions/options.php:25
-msgid "Sunflower"
 msgstr ""
 
 #: functions/colors.php:8
@@ -148,38 +153,21 @@ msgstr ""
 msgid "delete map"
 msgstr ""
 
-#: functions/layout.php:6
+#: functions/metaboxes.php:6
 #: functions/options.php:157
 msgid "Layout"
 msgstr ""
 
-#: functions/layout.php:44
-msgid "Theme default"
+#: functions/metaboxes.php:15
+#: functions/metaboxes.php:80
+msgid "Metadata"
 msgstr ""
 
-#: functions/layout.php:45
-#: functions/options.php:266
-msgid "complete image"
-msgstr ""
-
-#: functions/layout.php:46
-#: functions/options.php:267
-msgid "full area"
-msgstr ""
-
-#: functions/layout.php:51
-msgid "How should the thumbnail be displayed on archive pages?"
-msgstr ""
-
-#: functions/layout.php:69
-msgid "Show sidebar"
-msgstr ""
-
-#: functions/layout.php:87
+#: functions/metaboxes.php:65
 msgid "Show title"
 msgstr ""
 
-#: functions/layout.php:91
+#: functions/metaboxes.php:75
 msgid "Roofline"
 msgstr ""
 
@@ -214,40 +202,32 @@ msgid "Excerpt length (words)"
 msgstr ""
 
 #: functions/options.php:164
-msgid "Post thumbnails in archives"
-msgstr ""
-
-#: functions/options.php:172
 msgid "Social Sharers"
 msgstr ""
 
-#: functions/options.php:179
-#: functions/options.php:183
+#: functions/options.php:171
+#: functions/options.php:175
 msgid "Twitter"
 msgstr ""
 
-#: functions/options.php:188
-#: functions/options.php:192
+#: functions/options.php:180
+#: functions/options.php:184
 msgid "Facebook"
 msgstr ""
 
-#: functions/options.php:197
+#: functions/options.php:189
 msgid "mail"
 msgstr ""
 
-#: functions/options.php:201
+#: functions/options.php:193
 msgid "Mail"
 msgstr ""
 
-#: functions/options.php:238
+#: functions/options.php:230
 msgid "Show share buttons on single page"
 msgstr ""
 
-#: functions/options.php:271
-msgid "Please choose"
-msgstr ""
-
-#: functions/options.php:292
+#: functions/options.php:268
 msgid "complete URL of profile"
 msgstr ""
 
@@ -400,7 +380,7 @@ msgstr ""
 #. translators: %s: post author.
 #: inc/template-tags.php:40
 msgctxt "post author"
-msgid "by %s"
+msgid "| %s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
@@ -436,12 +416,20 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: single-sunflower_event.php:84
-msgid "Download as ics"
+#: single-sunflower_event.php:40
+msgid "from"
 msgstr ""
 
-#: single-sunflower_event.php:90
+#: single-sunflower_event.php:59
+msgid "o'clock"
+msgstr ""
+
+#: single-sunflower_event.php:78
 msgid "Link to webinar"
+msgstr ""
+
+#: single-sunflower_event.php:84
+msgid "Download as ics"
 msgstr ""
 
 #: single-sunflower_event.php:104
@@ -453,25 +441,23 @@ msgid "Show map"
 msgstr ""
 
 #: single-sunflower_event.php:120
-#: single.php:28
 msgid "Previous:"
 msgstr ""
 
 #: single-sunflower_event.php:121
-#: single.php:29
 msgid "Next:"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:59
 #: template-parts/content-archive.php:53
-#: template-parts/content.php:47
+#: template-parts/content.php:64
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
 #: template-parts/content-archive.php:66
 #: template-parts/content-page.php:29
-#: template-parts/content.php:60
+#: template-parts/content.php:77
 msgid "Pages:"
 msgstr ""
 

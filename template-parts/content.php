@@ -15,7 +15,7 @@
 	<header class="entry-header full-width">
 		<div class="container">
 			<div class="row position-relative">
-				<div class="col-12 offset-md-1 <?php echo ($metadata) ? 'text-left col-md-9' : 'col-md-10'; ?>">
+				<div class="col-12 offset-md-1 <?php echo ($metadata) ? 'text-left col-md-8' : 'col-md-10'; ?>">
 					<?php
 						$roofline = @get_post_meta( $post->ID, '_sunflower_roofline')[0] ?: false;
 						if( $roofline ){
@@ -42,7 +42,7 @@
 
 					<?php
 						if($metadata){
-							printf('<div class="col-md-2 metabox small">%s</div>',
+							printf('<div class="col-md-3 metabox small">%s</div>',
 								$metadata
 							);
 						}

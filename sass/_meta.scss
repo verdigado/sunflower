@@ -23,4 +23,12 @@
     padding: $grid-gutter-width; 
     z-index: 20;
     text-align: left;
+
+    .date{
+        font-size: 200%;
+        font-weight: bold;
+    }
+    .time{
+        font-weight: bold;
+    }
 }

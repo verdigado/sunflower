@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-02-10T00:40:20+01:00\n"
-"PO-Revision-Date: 2021-02-10 00:42+0100\n"
+"POT-Creation-Date: 2021-02-13T14:51:37+01:00\n"
+"PO-Revision-Date: 2021-02-13 14:52+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -91,6 +91,15 @@ msgstr ""
 "Danke, dass Du das Sunflower-Theme nutzt. <a href='admin.php?"
 "page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
+#: functions/block-patterns.php:6 functions/blocks.php:112
+#: functions/options.php:24 functions/options.php:25
+msgid "Sunflower"
+msgstr "Sunflower"
+
+#: functions/block-patterns.php:12
+msgid "Person"
+msgstr "Person"
+
 #: functions/blocks.php:36
 msgid "Next events"
 msgstr "Nächste Termine"
@@ -103,17 +112,13 @@ msgstr "Zur Terminübersicht"
 msgid "News"
 msgstr "Aktuelles"
 
-#: functions/blocks.php:95
+#: functions/blocks.php:97
 msgid "more posts"
 msgstr "Weitere Beiträge"
 
-#: functions/blocks.php:97
+#: functions/blocks.php:99
 msgid "to archive"
 msgstr "Zum Blog-Archiv"
-
-#: functions/blocks.php:110 functions/options.php:24 functions/options.php:25
-msgid "Sunflower"
-msgstr "Sunflower"
 
 #: functions/colors.php:8
 msgid "Magenta"
@@ -155,35 +160,19 @@ msgstr "Landkarte anzeigen"
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/layout.php:6 functions/options.php:157
+#: functions/metaboxes.php:6 functions/options.php:157
 msgid "Layout"
 msgstr "Layout"
 
-#: functions/layout.php:44
-msgid "Theme default"
-msgstr "Voreinstellung des Themes"
+#: functions/metaboxes.php:15 functions/metaboxes.php:80
+msgid "Metadata"
+msgstr "Metadaten"
 
-#: functions/layout.php:45 functions/options.php:266
-msgid "complete image"
-msgstr "ganzes Bild"
-
-#: functions/layout.php:46 functions/options.php:267
-msgid "full area"
-msgstr "volle Fläche"
-
-#: functions/layout.php:51
-msgid "How should the thumbnail be displayed on archive pages?"
-msgstr "Wie sollen Vorschaubilder in Übersichtsseiten dargestellt werden?"
-
-#: functions/layout.php:69
-msgid "Show sidebar"
-msgstr "Seitenleiste"
-
-#: functions/layout.php:87
+#: functions/metaboxes.php:65
 msgid "Show title"
 msgstr "Titel anzeigen"
 
-#: functions/layout.php:91
+#: functions/metaboxes.php:75
 msgid "Roofline"
 msgstr "Dachzeile"
 
@@ -216,38 +205,30 @@ msgid "Excerpt length (words)"
 msgstr "Länge der Vorschautextes in Worten"
 
 #: functions/options.php:164
-msgid "Post thumbnails in archives"
-msgstr "Wie sollen Vorschaubilder in Übersichtsseiten dargestellt werden?"
-
-#: functions/options.php:172
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options.php:179 functions/options.php:183
+#: functions/options.php:171 functions/options.php:175
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options.php:188 functions/options.php:192
+#: functions/options.php:180 functions/options.php:184
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options.php:197
+#: functions/options.php:189
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options.php:201
+#: functions/options.php:193
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options.php:238
+#: functions/options.php:230
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
-#: functions/options.php:271
-msgid "Please choose"
-msgstr "Bitte wähle"
-
-#: functions/options.php:292
+#: functions/options.php:268
 msgid "complete URL of profile"
 msgstr "Komplette URL des Profils"
 
@@ -416,8 +397,8 @@ msgstr "Menü erstellen"
 #. translators: %s: post author.
 #: inc/template-tags.php:40
 msgctxt "post author"
-msgid "by %s"
-msgstr "von %s"
+msgid "| %s"
+msgstr "Autor*in"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:68
@@ -452,13 +433,21 @@ msgstr "Sende E-Mail"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
+#: single-sunflower_event.php:40
+msgid "from"
+msgstr "ab"
+
+#: single-sunflower_event.php:59
+msgid "o'clock"
+msgstr "Uhr"
+
+#: single-sunflower_event.php:78
+msgid "Link to webinar"
+msgstr "Link zur Online-Teilnahme (Webinar)"
+
 #: single-sunflower_event.php:84
 msgid "Download as ics"
 msgstr "Downloas als ics-Datei"
-
-#: single-sunflower_event.php:90
-msgid "Link to webinar"
-msgstr "Link zur Online-Teilnahme (Webinar)"
 
 #: single-sunflower_event.php:104
 msgid ""
@@ -473,22 +462,22 @@ msgstr ""
 msgid "Show map"
 msgstr "Landkarte anzeigen"
 
-#: single-sunflower_event.php:120 single.php:28
+#: single-sunflower_event.php:120
 msgid "Previous:"
 msgstr "Zurück:"
 
-#: single-sunflower_event.php:121 single.php:29
+#: single-sunflower_event.php:121
 msgid "Next:"
 msgstr "Vor:"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:59 template-parts/content-archive.php:53
-#: template-parts/content.php:47
+#: template-parts/content.php:64
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
 #: template-parts/content-archive.php:66 template-parts/content-page.php:29
-#: template-parts/content.php:60
+#: template-parts/content.php:77
 msgid "Pages:"
 msgstr "Seiten:"
 
@@ -522,6 +511,31 @@ msgid ""
 msgstr ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
+
+#~ msgid "Theme default"
+#~ msgstr "Voreinstellung des Themes"
+
+#~ msgid "complete image"
+#~ msgstr "ganzes Bild"
+
+#~ msgid "full area"
+#~ msgstr "volle Fläche"
+
+#~ msgid "How should the thumbnail be displayed on archive pages?"
+#~ msgstr "Wie sollen Vorschaubilder in Übersichtsseiten dargestellt werden?"
+
+#~ msgid "Show sidebar"
+#~ msgstr "Seitenleiste"
+
+#~ msgid "Post thumbnails in archives"
+#~ msgstr "Wie sollen Vorschaubilder in Übersichtsseiten dargestellt werden?"
+
+#~ msgid "Please choose"
+#~ msgstr "Bitte wähle"
+
+#~ msgctxt "post author"
+#~ msgid "by %s"
+#~ msgstr "von %s"
 
 #~ msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 #~ msgstr "Bearbeiten  <span class=\"screen-reader-text\">%s</span>"
