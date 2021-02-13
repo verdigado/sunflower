@@ -1,7 +1,7 @@
 <?php
 
 function sunflower_excerpt_length($length){
-    return get_sunflower_setting('excerpt_length') ?: 60;
+    return get_sunflower_setting('excerpt_length') ?: 30;
 }
 add_filter('excerpt_length', 'sunflower_excerpt_length', 900);
 
