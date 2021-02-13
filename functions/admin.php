@@ -49,29 +49,6 @@ function sunflower_admin() {
 }
 add_action( 'admin_init', 'sunflower_admin' );
 
-function sunflower_createHomepage(){
-    $content = file_get_contents( 'https://wordpress.tom-rose.de/dumps/homepage.txt');
-    $post = [
-        'post_title'   => 'Muster-Startseite',
-        'post_content' => $content,
-        'post_status'  => 'draft',
-        'post_type'    => 'page'
-    ];
-
-    
-    $id = wp_insert_post( $post );
-    add_post_meta( $id, '_sunflower_show_title', 0 );
-
-    $return = [ 'id' => $id ];
-
-    echo json_encode( $return );
-
-    wp_die();
-}
-
-add_action( 'wp_ajax_sunflowerCreateHomepage', 'sunflower_createHomepage' );
-
-
 function sunflower_admin_style() {
     wp_enqueue_style('sunflower-admin-fontawesome', get_template_directory_uri().'/assets/css/admin-fontawesome.css');
     wp_enqueue_style('sunflower-admin-styles', get_template_directory_uri().'/assets/css/admin.css');

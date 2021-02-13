@@ -61,20 +61,6 @@ class SunflowerSettingsPage
             <h2>Erste Schritte</h2>
             <a href="#" target="_blank">Eine ausführliche Dokumentation gibt es unter https://wordpress.tom-rose.de/documentation/</a>
         
-            <h3>Startseite anlegen</h3>
-            <button id="createHomepage">Muster-Startseite erzeugen</button>
-            <div id="createHomepageResponse" style="display:none">
-                Die Muster-Startseite wurde angelegt. Du kannst sie unter Seiten finden und bearbeiten oder 
-                <a href="#" id="createHomepageResponseLink">direkt hier aufrufen</a>.<br>
-            </div>
-            <div>
-                Sobald Du mit Deinen Anpassungen fertig bist, musst Du die Seite noch
-                <ol>
-                    <li>veröffentlichen</li>
-                    <li><a href="options-reading.php">als Startseite festlegen (Deine Homepage zeigt eine statische Seite)</a></li>
-                </ol>
-            </div>
-
             <h2>Einstellungen</h2>
             <a href="admin.php?page=sunflower_settings">Hier geht es zu den Einstellungen</a>
         </div>
