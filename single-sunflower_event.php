@@ -6,11 +6,14 @@
  *
  * @package sunflower
  */
-$_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
-$_sunflower_event_from = strToTime($_sunflower_event_from);
-$_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_until')[0] ?: false;
-$_sunflower_event_until = strToTime($_sunflower_event_until);
-$_sunflower_event_whole_day = @get_post_meta( $post->ID, '_sunflower_event_whole_day')[0] ?: false;
+
+
+$icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
+
+if( isset($_GET['format']) AND $_GET['format'] === 'ics' ){
+	require_once('functions/ical.php');
+	die();
+}
 
 $_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_location_name')[0] ?: false;
 $_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street')[0] ?: false;
@@ -21,41 +24,26 @@ $_sunflower_event_lon = @get_post_meta( $post->ID, '_sunflower_event_lon')[0] ?:
 $_sunflower_event_lat = @get_post_meta( $post->ID, '_sunflower_event_lat')[0] ?: false;
 $_sunflower_event_zoom = @get_post_meta( $post->ID, '_sunflower_event_zoom')[0] ?: false;
 
-$icsLink = home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics';
-
-
-if( isset($_GET['format']) AND $_GET['format'] === 'ics' ){
-	require_once('functions/ical.php');
-	die();
-}
-
-
 get_header();
+
+list($weekday, $days, $time ) = sunflower_prepare_event_time_data( $post );
 
 $metadata = '';
 
-$event_more_days = ( $_sunflower_event_until AND date('jFY', $_sunflower_event_from) !== date('jFY', $_sunflower_event_until) );
 
-$metadata .= sprintf('<div class="arvo text-uppercase weekday">%s %s</div>',
-		($event_more_days) ? __('from', 'sunflower') : '',
-		date_i18n('l',  $_sunflower_event_from)
+$metadata .= sprintf('<div class="arvo text-uppercase weekday">%s</div>',
+		$weekday
 	);
 
-$untildate = $untiltime = '';
-if($_sunflower_event_until){
-	$untildate = '&dash; ' . date_i18n(' j.m.Y',  $_sunflower_event_until);
-	$untiltime = '&dash; ' . date_i18n(' H:i',  $_sunflower_event_until);
-}
-$metadata .= sprintf('<div class="date mb-2">%s %s</div>',
-	date_i18n('j.m.Y',  $_sunflower_event_from),
-	$untildate
+
+$metadata .= sprintf('<div class="date mb-2">%s</div>',
+	$days
 );
 
 // show time only if not whole day
-if( date('H:i', $_sunflower_event_from) !== '00:00' AND !$_sunflower_event_whole_day){
-	$metadata .= sprintf('<div class="time mt-2 mb-2">%s %s %s</div>',
-		date_i18n('H:i',  $_sunflower_event_from),
-		$untiltime,
+if( $time ){
+	$metadata .= sprintf('<div class="time mt-2 mb-2">%s %s</div>',
+		$time,
 		__("o'clock", 'sunflower')
 
 	);

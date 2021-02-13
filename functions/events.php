@@ -247,3 +247,53 @@ function sunflower_get_next_events( $number = -1){
         'order'        => 'ASC',
     ));
 }
+
+function sunflower_prepare_event_time_data( $post ){
+    $_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
+    $_sunflower_event_from = strToTime($_sunflower_event_from);
+    $_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_until')[0] ?: false;
+    $_sunflower_event_until = strToTime($_sunflower_event_until);
+    $_sunflower_event_whole_day = @get_post_meta( $post->ID, '_sunflower_event_whole_day')[0] ?: false;
+
+    $event_more_days = ( $_sunflower_event_until AND date('jFY', $_sunflower_event_from) !== date('jFY', $_sunflower_event_until) );
+
+    $weekday = sprintf('%s%s' ,    
+        ($event_more_days) ? __('from', 'sunflower') . ' ' : '',
+        date_i18n('l',  $_sunflower_event_from),
+    );
+
+    $untildate = $untiltime = '';
+    $fromdate = date_i18n('d.m.Y',  $_sunflower_event_from);
+    if($_sunflower_event_until){
+        $untildate = ' &dash; ' . date_i18n('d.m.Y',  $_sunflower_event_until);
+
+        if( date_i18n('d.m.Y',  $_sunflower_event_from) === date_i18n('d.m.Y',  $_sunflower_event_until)){
+            // same day, no until day
+            $untildate = '';
+        }elseif( date_i18n('m',  $_sunflower_event_from) === date_i18n('m',  $_sunflower_event_until)){
+           // same month
+           $fromdate =  date_i18n('d.',  $_sunflower_event_from);
+        }elseif( date_i18n('Y',  $_sunflower_event_from) === date_i18n('Y',  $_sunflower_event_until)){
+            // same month
+            $fromdate =  date_i18n('d.m.',  $_sunflower_event_from);
+         }
+
+        $untiltime =  '&dash; ' . date_i18n(' H:i',  $_sunflower_event_until);
+    }
+
+    $days = sprintf('%s%s',
+        $fromdate,
+	    $untildate
+    );
+
+    $time = false;
+    if( date('H:i', $_sunflower_event_from) !== '00:00' AND !$_sunflower_event_whole_day){
+        $time = sprintf('%s %s',
+            date_i18n('H:i',  $_sunflower_event_from),
+            $untiltime
+    
+        );
+    }
+
+   return [$weekday, $days, $time];
+}

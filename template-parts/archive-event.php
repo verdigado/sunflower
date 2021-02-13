@@ -21,16 +21,17 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('mb-4 event'); ?>>
     <div class="p-4">
         <?php
+         list($weekday, $days, $time ) = sunflower_prepare_event_time_data( $post );
+
             $from = strToTime(get_post_meta( $post->ID, '_sunflower_event_from')[0]);
             $attribute = date('Y-m-d', $from );
-            $weekday = date_i18n( 'l ', $from);
-            $date = date_i18n( 'j. F Y', $from);
+           
         ?>
         <div class="event-archive-meta">
             <div class="arvo text-uppercase small"><?php echo $weekday; ?></div>
             <div class="date">
                 <time datetime="<?php echo $attribute; ?>">
-                    <?php echo $date;?>
+                    <?php echo $days;?>
                 </time>
             </div>
             <div class="small">
