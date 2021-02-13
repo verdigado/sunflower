@@ -25,3 +25,10 @@
 Lege dazu eine neue Datei im Verzeichnis *functions/block-patterns/seiten* an.
 Fertig.
 
+## Publishing
+1. edit version in style.scss
+1. git add . && git commit
+1. git tag -a 0.1.9 -m "Layoutverbesserungen"
+1 .git push --follow-tags
+4. increment version in style.scss and add beta, nightly-build, etc.
+
