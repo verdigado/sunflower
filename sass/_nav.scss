@@ -1,0 +1,25 @@
+.sunflower-post-navigation{
+   div{
+       a{
+           background: $lightgreen;
+           display: block;
+           padding: 30px; 
+           text-decoration: none;
+           color: $black;
+
+           &:hover{
+               background: $primary;
+               color: $white;
+           }
+
+           .announce{
+               text-align: right;
+               text-transform: uppercase;
+               font-weight: bold;
+               font-style: italic;
+              
+           }
+       }
+   }
+
+}

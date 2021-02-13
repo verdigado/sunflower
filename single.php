@@ -23,13 +23,6 @@ $show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true 
 
 						get_template_part( 'template-parts/content', get_post_type() );
 
-						the_post_navigation(
-							array(
-								'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'sunflower' ) . '</span> <span class="nav-title">%title</span>',
-								'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'sunflower' ) . '</span> <span class="nav-title">%title</span>',
-							)
-						);
-
 						// If comments are open or we have at least one comment, load up the comment template.
 						if ( comments_open() || get_comments_number() ) :
 							comments_template();
@@ -40,6 +33,38 @@ $show_sidebar = @get_post_meta( $post->ID, '_sunflower_show_sidebar')[0] ? true 
 
 				</main><!-- #main -->
 			</div>
+
+			<div class="row sunflower-post-navigation">
+				<?php
+				
+				
+				$previous = get_previous_post_link(
+					'<div class="">%link </div>',
+					'%title <div class="announce">' . __('previous', 'funflower'). '</div>'
+				);
+
+				$next = get_next_post_link(
+					'<div class="">%link </div>',
+					'%title <div class="announce">' . __('next', 'funflower'). '</div>'
+				);
+
+			
+				if( $previous ){
+					printf('<div class="col-6 ">%s</div>',
+						$previous
+					);
+				}
+
+				if( $next ){
+					printf('<div class="col-6">%s</div>',
+						$next
+					);
+				}
+
+			
+				
+				?>
+			</div>	
 	</div>
 </div>
 <?php

@@ -141,7 +141,7 @@ function sunflower_the_social_media_sharers(){
 	}
 
 	if( $twitter || $facebook || $mail ){
-		printf('<div class="social-media-sharers">%s %s %s</div>',
+		printf('<div class="social-media-sharers mb-5">%s %s %s</div>',
 			$twitter,
 			$facebook,
 			$mail
