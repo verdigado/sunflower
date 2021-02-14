@@ -41,6 +41,7 @@ publish:
 	sed -i  "s/Version.*/Version:\ $$newversion/" "sass/style.scss" && \
 	git add sass/style.scss && git commit -m "publishing version $$newversion" && \
 	git tag "v$$newversion"
+	git push --follow-tags
 	@echo "Please update styles.scss with next version."
 
 
