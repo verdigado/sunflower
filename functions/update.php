@@ -6,7 +6,7 @@ set_site_transient('update_themes', null);
 // NOTE: All variables and functions will need to be prefixed properly to allow multiple plugins to be updated
 
 /******************Change this*******************/
-$api_url = 'https://wordpress.tom-rose.de/updateserver/api/';
+$api_url = 'https://wordpress.tom-rose.de/updateserver/';
 /************************************************/
 
 
@@ -23,23 +23,19 @@ $theme_base = get_option('template');
 /**************************************************/
 
 
-add_filter('pre_set_site_transient_update_themes', 'check_for_update');
+add_filter('pre_set_site_transient_update_themes', 'sunflower_check_for_update');
 
-function check_for_update($checked_data) {
+function sunflower_check_for_update($checked_data) {
 	global $wp_version, $theme_version, $theme_base, $api_url;
 
 	$request = array(
-		'slug' => $theme_base,
 		'version' => $theme_version 
 	);
 	// Start checking for an update
 	$send_for_check = array(
 		'body' => array(
-			'action' => 'theme_update', 
-			'request' => serialize($request),
-			'api-key' => md5(get_bloginfo('url'))
+			'request' => serialize($request)
 		),
-		'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo('url')
 	);
 	$raw_response = wp_remote_post($api_url, $send_for_check);
 	if (!is_wp_error($raw_response) && ($raw_response['response']['code'] == 200))
@@ -53,9 +49,9 @@ function check_for_update($checked_data) {
 }
 
 // Take over the Theme info screen on WP multisite
-add_filter('themes_api', 'my_theme_api_call', 10, 3);
+add_filter('themes_api', 'sunflower_theme_api_call', 10, 3);
 
-function my_theme_api_call($def, $action, $args) {
+function sunflower_theme_api_call($def, $action, $args) {
 	global $theme_base, $api_url, $theme_version, $api_url;
 	
 	if ($args->slug != $theme_base)
