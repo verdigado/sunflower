@@ -33,6 +33,17 @@ get:
 deploy:
 	git push && make compile-silent bundle upload activate get announce
 
+publish:
+	@echo "Be sure to have edited release_notes.html"
+	@echo "Latest tag was: " 
+	@git describe --tags --abbrev=0
+	@read -p "which version do you want to publish now: " newversion; \
+	sed -i  "s/Version.*/Version:\ $$newversion/" "sass/style.scss" && \
+	git add sass/style.scss && git commit -m "publishing version $$newversion" && \
+	git tag "v$$newversion"
+	@echo "Please update styles.scss with next version."
+
+
 mkdocs-serve:
 	cd mkdocs && mkdocs serve
 
