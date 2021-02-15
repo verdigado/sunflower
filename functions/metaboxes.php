@@ -72,12 +72,15 @@ function sunflower_meta_box_metadata(){
     $custom = get_post_custom( $post->ID );
 
     echo '<div class="">';
-    _e('Roofline', 'sunflower');
+    printf('<h3>%s</h3>',__('Roofline', 'sunflower'));
+
     echo '<div><input name="_sunflower_roofline" value="' . @$custom['_sunflower_roofline'][0] .'" class="components-text-control__input">';
     echo '</div></div>';
 
     echo '<div class="">';
-    _e('Metadata', 'sunflower');
+    printf('<h3>%s</h3>',__('Metadata', 'sunflower'));
+    printf('<p>%s</p>',__('use Shift + Enter to prevent line between', 'sunflower'));
+
     wp_editor( @$custom['_sunflower_metadata'][0], 'sunflower-meta-data', array(
         'textarea_rows' => '5',
         'media_buttons' => false

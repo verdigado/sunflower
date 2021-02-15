@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-02-13T15:21:04+01:00\n"
-"PO-Revision-Date: 2021-02-13 15:22+0100\n"
+"POT-Creation-Date: 2021-02-15T12:58:07+01:00\n"
+"PO-Revision-Date: 2021-02-15 12:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -65,6 +65,14 @@ msgstr "Termine"
 msgid "all events"
 msgstr "Alle Termine"
 
+#: archive.php:65 single.php:42
+msgid "previous"
+msgstr "zurück"
+
+#: archive.php:66 single.php:47
+msgid "next"
+msgstr "vor"
+
 #. translators: 1: title.
 #: comments.php:35
 msgid "One thought on &ldquo;%1$s&rdquo;"
@@ -91,14 +99,10 @@ msgstr ""
 "Danke, dass Du das Sunflower-Theme nutzt. <a href='admin.php?"
 "page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
-#: functions/block-patterns.php:6 functions/blocks.php:112
+#: functions/block-patterns.php:11 functions/blocks.php:112
 #: functions/options.php:24 functions/options.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
-
-#: functions/block-patterns.php:12
-msgid "Person"
-msgstr "Person"
 
 #: functions/blocks.php:36
 msgid "Next events"
@@ -156,11 +160,15 @@ msgstr "Kartendaten laden"
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/metaboxes.php:6 functions/options.php:157
+#: functions/events.php:261
+msgid "from"
+msgstr "ab"
+
+#: functions/metaboxes.php:6 functions/options.php:143
 msgid "Layout"
 msgstr "Layout"
 
-#: functions/metaboxes.php:15 functions/metaboxes.php:80
+#: functions/metaboxes.php:15 functions/metaboxes.php:81
 msgid "Metadata"
 msgstr "Metadaten"
 
@@ -171,6 +179,10 @@ msgstr "Titel anzeigen"
 #: functions/metaboxes.php:75
 msgid "Roofline"
 msgstr "Dachzeile"
+
+#: functions/metaboxes.php:82
+msgid "use Shift + Enter to prevent line between"
+msgstr "Tippe Shift + Enter, um  Zwischenzeile zu verhindern."
 
 #: functions/options.php:36 functions/options.php:37
 msgid "First steps"
@@ -184,47 +196,47 @@ msgstr "Einstellungen"
 msgid "About Sunflower"
 msgstr "Über Sunflower"
 
-#: functions/options.php:93
+#: functions/options.php:79
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
-#: functions/options.php:119
+#: functions/options.php:105
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options.php:142
+#: functions/options.php:128
 msgid "Miscellaneous"
 msgstr "Verschiedenes"
 
-#: functions/options.php:149
+#: functions/options.php:135
 msgid "Excerpt length (words)"
 msgstr "Länge der Vorschautextes in Worten"
 
-#: functions/options.php:164
+#: functions/options.php:150
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options.php:171 functions/options.php:175
+#: functions/options.php:157 functions/options.php:161
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options.php:180 functions/options.php:184
+#: functions/options.php:166 functions/options.php:170
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options.php:189
+#: functions/options.php:175
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options.php:193
+#: functions/options.php:179
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options.php:230
+#: functions/options.php:216
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
-#: functions/options.php:268
+#: functions/options.php:254
 msgid "complete URL of profile"
 msgstr "Komplette URL des Profils"
 
@@ -392,8 +404,11 @@ msgstr "Menü erstellen"
 
 #. translators: %s: post author.
 #: inc/template-tags.php:40
+#, fuzzy
+#| msgctxt "post author"
+#| msgid "| %s"
 msgctxt "post author"
-msgid "| %s"
+msgid " | %s"
 msgstr "Autor*in"
 
 #. translators: used between list items, there is a space after the comma
@@ -429,27 +444,23 @@ msgstr "Sende E-Mail"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
-#: single-sunflower_event.php:40
-msgid "from"
-msgstr "ab"
-
-#: single-sunflower_event.php:59
+#: single-sunflower_event.php:47
 msgid "o'clock"
 msgstr "Uhr"
 
-#: single-sunflower_event.php:78
+#: single-sunflower_event.php:66
 msgid "Link to webinar"
 msgstr "Link zur Online-Teilnahme (Webinar)"
 
-#: single-sunflower_event.php:84
+#: single-sunflower_event.php:72
 msgid "Download as ics"
 msgstr "Downloas als ics-Datei"
 
-#: single-sunflower_event.php:106
+#: single-sunflower_event.php:94
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: single-sunflower_event.php:109
+#: single-sunflower_event.php:97
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
@@ -457,20 +468,12 @@ msgstr ""
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: single-sunflower_event.php:117
+#: single-sunflower_event.php:105
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: single.php:42
-msgid "previous"
-msgstr "zurück"
-
-#: single.php:47
-msgid "next"
-msgstr "vor"
-
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/archive-event.php:59 template-parts/content-archive.php:53
+#: template-parts/archive-event.php:58 template-parts/content-archive.php:53
 #: template-parts/content.php:64
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
@@ -510,6 +513,9 @@ msgid ""
 msgstr ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
+
+#~ msgid "Person"
+#~ msgstr "Person"
 
 #, fuzzy
 #~| msgid "Show all"
