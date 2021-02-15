@@ -6,7 +6,7 @@ set_site_transient('update_themes', null);
 // NOTE: All variables and functions will need to be prefixed properly to allow multiple plugins to be updated
 
 /******************Change this*******************/
-$api_url = 'https://wordpress.tom-rose.de/updateserver/';
+$api_url = 'https://wordpress.tom-rose.de/updateserver/?rand=' . rand();
 /************************************************/
 
 
@@ -29,7 +29,8 @@ function sunflower_check_for_update($checked_data) {
 	global $wp_version, $theme_version, $theme_base, $api_url;
 
 	$request = array(
-		'version' => $theme_version 
+		'version' => $theme_version,
+		'url'	  => get_bloginfo('url')
 	);
 	// Start checking for an update
 	$send_for_check = array(
