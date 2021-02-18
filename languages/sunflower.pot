@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 0.1.26\n"
+"Project-Id-Version: sunflower 0.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-02-15T12:58:07+01:00\n"
+"POT-Creation-Date: 2021-02-19T00:03:32+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -144,20 +144,16 @@ msgstr ""
 msgid "sunflower_event"
 msgstr ""
 
-#: functions/events.php:152
+#: functions/events.php:153
 msgid "Map"
 msgstr ""
 
-#: functions/events.php:153
+#: functions/events.php:154
 msgid "load map"
 msgstr ""
 
-#: functions/events.php:154
+#: functions/events.php:155
 msgid "delete map"
-msgstr ""
-
-#: functions/events.php:261
-msgid "from"
 msgstr ""
 
 #: functions/metaboxes.php:6
@@ -166,19 +162,23 @@ msgid "Layout"
 msgstr ""
 
 #: functions/metaboxes.php:15
-#: functions/metaboxes.php:81
+#: functions/metaboxes.php:100
 msgid "Metadata"
 msgstr ""
 
-#: functions/metaboxes.php:65
+#: functions/metaboxes.php:66
 msgid "Show title"
 msgstr ""
 
-#: functions/metaboxes.php:75
+#: functions/metaboxes.php:81
+msgid "Layout wide"
+msgstr ""
+
+#: functions/metaboxes.php:94
 msgid "Roofline"
 msgstr ""
 
-#: functions/metaboxes.php:82
+#: functions/metaboxes.php:101
 msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
@@ -213,32 +213,37 @@ msgid "Excerpt length (words)"
 msgstr ""
 
 #: functions/options.php:150
-msgid "Social Sharers"
+#: functions/options.php:154
+msgid "show related posts"
 msgstr ""
 
-#: functions/options.php:157
-#: functions/options.php:161
-msgid "Twitter"
+#: functions/options.php:159
+msgid "Social Sharers"
 msgstr ""
 
 #: functions/options.php:166
 #: functions/options.php:170
-msgid "Facebook"
+msgid "Twitter"
 msgstr ""
 
 #: functions/options.php:175
+#: functions/options.php:179
+msgid "Facebook"
+msgstr ""
+
+#: functions/options.php:184
 msgid "mail"
 msgstr ""
 
-#: functions/options.php:179
+#: functions/options.php:188
 msgid "Mail"
 msgstr ""
 
-#: functions/options.php:216
+#: functions/options.php:225
 msgid "Show share buttons on single page"
 msgstr ""
 
-#: functions/options.php:254
+#: functions/options.php:263
 msgid "complete URL of profile"
 msgstr ""
 
@@ -483,4 +488,8 @@ msgstr ""
 
 #: template-parts/content-none.php:44
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/related-posts.php:7
+msgid "Related posts"
 msgstr ""

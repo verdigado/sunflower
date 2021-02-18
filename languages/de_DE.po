@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-02-15T12:58:07+01:00\n"
-"PO-Revision-Date: 2021-02-15 12:59+0100\n"
+"POT-Creation-Date: 2021-02-19T00:03:32+01:00\n"
+"PO-Revision-Date: 2021-02-19 00:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -148,39 +148,39 @@ msgstr "Termin"
 msgid "sunflower_event"
 msgstr "sunflower_event"
 
-#: functions/events.php:152
+#: functions/events.php:153
 msgid "Map"
 msgstr "Landkarte"
 
-#: functions/events.php:153
+#: functions/events.php:154
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/events.php:154
+#: functions/events.php:155
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
-
-#: functions/events.php:261
-msgid "from"
-msgstr "ab"
 
 #: functions/metaboxes.php:6 functions/options.php:143
 msgid "Layout"
 msgstr "Layout"
 
-#: functions/metaboxes.php:15 functions/metaboxes.php:81
+#: functions/metaboxes.php:15 functions/metaboxes.php:100
 msgid "Metadata"
 msgstr "Metadaten"
 
-#: functions/metaboxes.php:65
+#: functions/metaboxes.php:66
 msgid "Show title"
 msgstr "Titel anzeigen"
 
-#: functions/metaboxes.php:75
+#: functions/metaboxes.php:81
+msgid "Layout wide"
+msgstr "breites Layout (z.B. für Startseite)"
+
+#: functions/metaboxes.php:94
 msgid "Roofline"
 msgstr "Dachzeile"
 
-#: functions/metaboxes.php:82
+#: functions/metaboxes.php:101
 msgid "use Shift + Enter to prevent line between"
 msgstr "Tippe Shift + Enter, um  Zwischenzeile zu verhindern."
 
@@ -212,31 +212,35 @@ msgstr "Verschiedenes"
 msgid "Excerpt length (words)"
 msgstr "Länge der Vorschautextes in Worten"
 
-#: functions/options.php:150
+#: functions/options.php:150 functions/options.php:154
+msgid "show related posts"
+msgstr "Ähnliche Artikel zeigen"
+
+#: functions/options.php:159
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options.php:157 functions/options.php:161
+#: functions/options.php:166 functions/options.php:170
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options.php:166 functions/options.php:170
+#: functions/options.php:175 functions/options.php:179
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options.php:175
+#: functions/options.php:184
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options.php:179
+#: functions/options.php:188
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options.php:216
+#: functions/options.php:225
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
-#: functions/options.php:254
+#: functions/options.php:263
 msgid "complete URL of profile"
 msgstr "Komplette URL des Profils"
 
@@ -513,6 +517,13 @@ msgid ""
 msgstr ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
+
+#: template-parts/related-posts.php:7
+msgid "Related posts"
+msgstr "Ählniche Beiträge"
+
+#~ msgid "from"
+#~ msgstr "ab"
 
 #~ msgid "Person"
 #~ msgstr "Person"
