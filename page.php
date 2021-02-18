@@ -14,10 +14,12 @@
 
 get_header();
 
+$page_width_col = @get_post_meta( $post->ID, '_sunflower_page_width')[0] ? 'col-12' : 'col-9';
+
 ?>
 	<div id="content" class="container">
 		<div class="row">
-			<div class="col-9">
+			<div class="<?php echo $page_width_col; ?>">
 				<main id="primary" class="site-main">
 
 					<?php
