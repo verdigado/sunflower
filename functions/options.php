@@ -145,6 +145,15 @@ class SunflowerSettingsPage
             'sunflower-setting-admin' // Page
         );  
 
+        add_settings_field(
+            'sunflower_show_related_posts', // ID
+            __('show related posts', 'sunflower'), // Title 
+            array( $this, 'sunflower_checkbox_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_layout', // Section   
+            ['sunflower_show_related_posts', __('show related posts', 'sunflower')]
+        );    
+
         add_settings_section(
             'sunflower_social_media_sharers', // ID
             __('Social Sharers', 'sunflower'), // Title

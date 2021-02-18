@@ -7,11 +7,11 @@
  * @package sunflower
  */
 
- $metadata = false;
+ $metadata = $class = false;
  extract($args);
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class($class); ?>>
 	<header class="entry-header full-width">
 		<div class="container">
 			<div class="row position-relative">

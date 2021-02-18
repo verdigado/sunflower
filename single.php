@@ -20,7 +20,7 @@ $metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
 					while ( have_posts() ) :
 						the_post();
 	
-						get_template_part( 'template-parts/content', get_post_type(), ['metadata' => $metadata] );
+						get_template_part( 'template-parts/content', get_post_type(), ['metadata' => $metadata, 'class' => 'display-single'] );
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						if ( comments_open() || get_comments_number() ) :
@@ -33,7 +33,7 @@ $metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
 				</main><!-- #main -->
 			</div>
 
-			<div class="row sunflower-post-navigation">
+			<div class="row sunflower-post-navigation mb-3">
 				<?php
 				
 				
@@ -63,6 +63,14 @@ $metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
 				?>
 			</div>	
 	</div>
+
+
+	<?php
+		if( get_sunflower_setting('sunflower_show_related_posts') ) {
+			get_template_part( 'template-parts/related-posts', '' );
+		}
+	?>
+
 </div>
 <?php
 get_sidebar();
