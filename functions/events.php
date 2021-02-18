@@ -257,9 +257,9 @@ function sunflower_prepare_event_time_data( $post ){
 
     $event_more_days = ( $_sunflower_event_until AND date('jFY', $_sunflower_event_from) !== date('jFY', $_sunflower_event_until) );
 
-    $weekday = sprintf('%s%s' ,    
-        ($event_more_days) ? __('from', 'sunflower') . ' ' : '',
-        date_i18n('l',  $_sunflower_event_from)
+    $weekday = sprintf('%s%s' , 
+        date_i18n('l',  $_sunflower_event_from),
+        ($event_more_days) ? ' &dash; ' . date_i18n('l',  $_sunflower_event_until) : ''
     );
 
     $untildate = $untiltime = '';
