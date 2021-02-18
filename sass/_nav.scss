@@ -21,5 +21,28 @@
            }
        }
    }
+}
 
+.navbar{
+    padding: 0;
+
+    &-main{
+        border-bottom: 0;
+        box-shadow: 0 4px 2px -2px gray;
+    }
+
+    &-light{
+        .navbar-nav{
+            .nav-link{
+                color: $body-color;
+                &:hover{
+                    color: $primary;
+                };
+            }
+        }
+    }
+
+    li{
+        margin-right: 10px;
+    }
 }

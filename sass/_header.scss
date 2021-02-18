@@ -44,8 +44,20 @@ body{
 .bloginfo{
     background-image: url('assets/img/background.jpg');
     background-size: cover;
+    text-transform: uppercase;
     img{
-        width: 50px;
+        width: 60px;
+        margin-right: 7px;
+    }
+
+    &-name{
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    &-description{
+        font-size: 18px; 
+        letter-spacing: 0.2px;
     }
 }
 

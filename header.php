@@ -28,7 +28,7 @@
 
 	<header id="masthead" class="site-header ptsans">
 	
-		<nav class="navbar navbar-top navbar-expand-lg navbar-dark p-1 topmenu">
+		<nav class="navbar navbar-top navbar-expand-lg navbar-dark p-0 topmenu">
 			<div class="container">
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topmenu-container" aria-controls="topmenu-container" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -54,16 +54,16 @@
 			</div>
 		</nav>
 
-		<div class="container-fluid bloginfo bg-primary p-3">
+		<div class="container-fluid bloginfo bg-primary p-2">
 			<div class="container d-flex align-items-center">
 				<a class="me-1" href="<?php echo get_home_url(); ?>">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" class="">
 				</a>
 				<div>
-					<div class="h5 text-white arvogruen">
+					<div class="h5 text-white arvogruen mb-0 bloginfo-name">
 						<?php bloginfo('name'); ?>
 					</div>
-					<div class="h6 text-white ptsans">
+					<div class="h6 text-white ptsans mb-0 bloginfo-description">
 						<?php bloginfo('description'); ?>
 					</div>
 				</div>
