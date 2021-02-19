@@ -123,6 +123,12 @@ function intDate2germanDate($intDate){
 function sunflower_event_meta_box(){
     global $post, $sunflower_event_fields;;
     $custom = get_post_custom( $post->ID );
+    $uid = @$custom[ '_sunflower_event_uid'][ 0 ];
+
+    if( $uid ){
+        printf('<div style="color:red">%s</div>', __('This event will be imported by remote ical-calendar. All changes here will be overwritten.', 'sunflower'));
+        return;
+    }
 
     foreach($sunflower_event_fields AS $id => $config ){
         $value = @$custom[ $id ][ 0 ];

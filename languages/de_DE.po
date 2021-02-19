@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-02-19T22:38:48+01:00\n"
-"PO-Revision-Date: 2021-02-19 22:40+0100\n"
+"POT-Creation-Date: 2021-02-19T22:44:54+01:00\n"
+"PO-Revision-Date: 2021-02-19 22:45+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -147,7 +147,7 @@ msgstr "Weiß"
 msgid "Black"
 msgstr "Schwarz"
 
-#: functions/events.php:4 functions/events.php:19
+#: functions/events.php:4
 msgid "Startdate"
 msgstr "Startdatum"
 
@@ -193,15 +193,23 @@ msgstr "Termin"
 msgid "sunflower_event"
 msgstr "sunflower_event"
 
-#: functions/events.php:155
+#: functions/events.php:129
+msgid ""
+"This event will be imported by remote ical-calendar. All changes here will "
+"be overwritten."
+msgstr ""
+"Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
+"Änderungen hier werden regelmäßig überschrieben."
+
+#: functions/events.php:161
 msgid "Map"
 msgstr "Landkarte"
 
-#: functions/events.php:156
+#: functions/events.php:162
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/events.php:157
+#: functions/events.php:163
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
