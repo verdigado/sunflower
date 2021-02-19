@@ -10,7 +10,7 @@ function sunflower_icalimport( $url = false){
     try {
         $ical = new ICal('ICal.ics', array(
             'defaultSpan'                 => 2,     // Default value
-            'defaultTimeZone'             => 'CET',
+            'defaultTimeZone'             => 'GMT',
             'defaultWeekStart'            => 'MO',  // Default value
             'disableCharacterReplacement' => false, // Default value
             'filterDaysAfter'             => null,  // Default value
@@ -40,8 +40,6 @@ function sunflower_icalimport( $url = false){
             $updated_events++;
         }
 
-        $ids_from_remote[] = $wp_id;
-
         $post = array(
             'ID'            => $wp_id,
             'post_type'     => 'sunflower_event',
@@ -55,6 +53,8 @@ function sunflower_icalimport( $url = false){
             echo "Could not copy post";
             return false;
         }
+
+        $ids_from_remote[] = $id;
 
         update_post_meta( $id, '_sunflower_event_from', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($event->dtstart_tz )));
         update_post_meta( $id, '_sunflower_event_until', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($event->dtend_tz )));
@@ -107,20 +107,17 @@ function sunflower_get_events_having_uid( ){
     return $ids;
 }
 
+add_action('init', 'sunflower_import_icals');
+function sunflower_import_icals() {
 
-register_activation_hook( __FILE__, 'sunflower_register_cron_ical_import' );
-  
-function sunflower_register_cron_ical_import() {
-    $args = array( $args_1, $args_2 );
-    if (! wp_next_scheduled ( 'sunflower_cron_import_ical', $args )) {
-        wp_schedule_event( time(), 'hourly', 'sunflower_cron_import_ical', $args );
+    if( get_transient( 'sunflower_ical_imported' ) ){
+        return false;
     }
-}
 
-add_action( 'sunflower_cron_import_ical', 'sunflower_import_ical', 10, 2 );
-function sunflower_import_ical($args_1, $args_2 ) {
+    set_transient( 'sunflower_ical_imported', 1, 3 * 3600 );
+
     $urls = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
-
+    $ids_from_remote = array();
     foreach($urls AS $url){
         $url = trim($url);
         if(!filter_var($url, FILTER_VALIDATE_URL)){
@@ -136,10 +133,4 @@ function sunflower_import_ical($args_1, $args_2 ) {
     foreach($deleted_on_remote AS $to_be_deleted){
         wp_delete_post($to_be_deleted);
     }
-}
-
-register_deactivation_hook( __FILE__, 'my_deactivation' );
-  
-function my_deactivation() {
-    wp_clear_scheduled_hook( 'sunflower_cron_import_ical' );
 }

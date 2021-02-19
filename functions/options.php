@@ -90,6 +90,7 @@ class SunflowerSettingsPage
                    printf('%d / %d %s', $response[1], $response[2], __(' events were new/updated', 'sunflower'));
 
                    $ids_from_remote = array_merge($ids_from_remote, $response[0]);
+                   print_r($response[0]);
                 }
 
                 $deleted_on_remote = array_diff(sunflower_get_events_having_uid(), $ids_from_remote);
