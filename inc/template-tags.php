@@ -115,7 +115,7 @@ endif;
 function sunflower_the_social_media_sharers(){
 	global $post;
 
-	$tiwtter = $facebook = $mail = false;
+	$twitter = $facebook = $mail = false;
 	if(get_sunflower_setting( 'sunflower_sharer_twitter')){
 		$twitter = sprintf('<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-twitter"></i></a>',
 			urlencode($post->post_title),
