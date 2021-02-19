@@ -106,3 +106,40 @@ function sunflower_get_events_having_uid( ){
 
     return $ids;
 }
+
+
+register_activation_hook( __FILE__, 'sunflower_register_cron_ical_import' );
+  
+function sunflower_register_cron_ical_import() {
+    $args = array( $args_1, $args_2 );
+    if (! wp_next_scheduled ( 'sunflower_cron_import_ical', $args )) {
+        wp_schedule_event( time(), 'hourly', 'sunflower_cron_import_ical', $args );
+    }
+}
+
+add_action( 'sunflower_cron_import_ical', 'sunflower_import_ical', 10, 2 );
+function sunflower_import_ical($args_1, $args_2 ) {
+    $urls = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
+
+    foreach($urls AS $url){
+        $url = trim($url);
+        if(!filter_var($url, FILTER_VALIDATE_URL)){
+            continue;
+        }
+    
+       $response = sunflower_icalimport($url);
+       $ids_from_remote = array_merge($ids_from_remote, $response[0]);
+    }
+
+    $deleted_on_remote = array_diff(sunflower_get_events_having_uid(), $ids_from_remote);
+
+    foreach($deleted_on_remote AS $to_be_deleted){
+        wp_delete_post($to_be_deleted);
+    }
+}
+
+register_deactivation_hook( __FILE__, 'my_deactivation' );
+  
+function my_deactivation() {
+    wp_clear_scheduled_hook( 'sunflower_cron_import_ical' );
+}
