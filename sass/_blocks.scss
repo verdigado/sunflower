@@ -12,6 +12,11 @@
     } 
 }
 
+a.wp-block-file__button {
+    color: $white !important;
+    background-color: $primary;
+}
+
 .wp-block-group{
 
     &.has-background{
