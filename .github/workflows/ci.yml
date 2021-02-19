@@ -29,6 +29,8 @@ jobs:
         run: npm run compile:build
       - name: Build JS
         run: npm run build
+      - name: run install composer
+        run: composer install
       - name: Make bundle
         run: npm run bundle
 
