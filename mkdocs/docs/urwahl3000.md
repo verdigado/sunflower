@@ -14,3 +14,7 @@ Du kannst die bisherige Startseite so lassen oder eine neue, besonders schöne S
 
 ## Beiträge und Seiten 
 Beiträge und Seiten werden automatisch übernommen. [Wenn es zu Fehlern kommt, melde sie bitte unter https://github.com/codeispoetry/sunflower/issues](https://github.com/codeispoetry/sunflower/issues)
+
+## Termine
+Termine können zum Großteil aus Urwahl3000 importiert werden. Gehe dazu in die Sunflower-Einstellungen und klicke auf *Termine importieren*.
+Nicht übernommen wird das Feld "Geheime Veranstaltung". Diese Termine werden auch nicht importiert.
