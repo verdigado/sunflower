@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-02-19T16:46:16+01:00\n"
-"PO-Revision-Date: 2021-02-19 16:48+0100\n"
+"POT-Creation-Date: 2021-02-19T16:51:53+01:00\n"
+"PO-Revision-Date: 2021-02-19 16:52+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -84,6 +84,14 @@ msgstr "abschicken"
 #: comments.php:48
 msgid "One comment"
 msgstr "Ein Kommentar"
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:52
+msgctxt "context"
+msgid "%1$s commment"
+msgid_plural "%1$s comments"
+msgstr[0] "Ein Kommentar"
+msgstr[1] "%s Kommentare"
 
 #: comments.php:79
 msgid "Comments are closed."

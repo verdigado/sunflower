@@ -49,7 +49,7 @@ if ( post_password_required() ) {
 			} else {
 				printf( 
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s commment', '%1$s comments', $sunflower_comment_count, 'sunflower' ) ),
+					esc_html( _nx( '%1$s commment', '%1$s comments', $sunflower_comment_count, 'context', 'sunflower' ) ),
 					number_format_i18n( $sunflower_comment_count ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
