@@ -56,8 +56,12 @@ function sunflower_icalimport( $url = false){
 
         $ids_from_remote[] = $id;
 
-        update_post_meta( $id, '_sunflower_event_from', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($event->dtstart_tz )));
-        update_post_meta( $id, '_sunflower_event_until', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($event->dtend_tz )));
+        // use original date if no hours are given, else timezoned
+        $startdate = (strlen($event->dtstart) == 8 ) ? $event->dtstart : $event->dtstart_tz;
+        $enddate   = (strlen($event->dtend) == 8 ) ? $event->dtend : $event->dtend_tz;
+
+        update_post_meta( $id, '_sunflower_event_from', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($startdate )));
+        update_post_meta( $id, '_sunflower_event_until', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($enddate )));
         update_post_meta( $id, '_sunflower_event_location_name', $event->location);
         update_post_meta( $id, '_sunflower_event_uid', $event->uid);
     }
