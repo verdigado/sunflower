@@ -76,13 +76,13 @@ $metadata .= sprintf('<div><a href="%s" class="text-white">%s</a></div>',
 	<div id="content" class="container">
 		<div class="row">
 			<div class="col-12 col-md-10 offset-md-1">
-				<main id="primary" class="site-main mt-5">
+				<main id="primary" class="site-main">
 					<?php
 
 					while ( have_posts() ) :
 						the_post();
 
-						get_template_part( 'template-parts/content', '', ['metadata' => $metadata] );
+						get_template_part( 'template-parts/content', '', ['metadata' => $metadata, 'class' => 'display-single'] );
 
 					?>
 
