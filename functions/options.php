@@ -101,7 +101,11 @@ class SunflowerSettingsPage
 
                 printf('<br><a href="edit.php?post_type=sunflower_event">Termine ansehen</a>');
             }else{
-                echo '<a href="admin.php?page=sunflower_admin&icalimport=1">Kalender importieren</a>';
+                if(get_sunflower_setting('sunflower_ical_urls') ){
+                    echo '<a href="admin.php?page=sunflower_admin&icalimport=1">Kalender importieren</a>';
+                }else{
+                    echo 'Um einen Kalender importieren zu können, trage die URL bitte unter Sunflower-Einstellungen ein.';
+                }
             }
             ?>
 
