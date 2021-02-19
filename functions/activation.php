@@ -16,7 +16,6 @@ function sunflower_import_widgets(){
     if( empty($option['sidebar-1'] ) ){
         $option['sidebar-1'] = $sidebars_widgets;
         update_option('sidebars_widgets', $option);
-        echo "updated";
     }
  
 }
