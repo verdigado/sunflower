@@ -165,18 +165,16 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 
 		if ( is_singular() ) :
 			?>
-rr
 			<div class="post-thumbnail">
 				<?php the_post_thumbnail('null', ['class' => 'w-100 border-radius']); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
-dd
 			<?php
 				$classes = array('post-thumbnail' );
 
 				the_post_thumbnail(
-					'medium',
+					'medium-large',
 					array(
 						'alt' => the_title_attribute(
 							array(
