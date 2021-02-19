@@ -6,7 +6,7 @@ set_site_transient('update_themes', null);
 // NOTE: All variables and functions will need to be prefixed properly to allow multiple plugins to be updated
 
 /******************Change this*******************/
-$api_url = 'https://wordpress.tom-rose.de/updateserver/?rand=' . rand();
+$api_url = 'https://sunflower-theme.de/updateserver/?rand=' . rand();
 /************************************************/
 
 
