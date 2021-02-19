@@ -19,6 +19,9 @@ $_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_l
 $_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street')[0] ?: false;
 $_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_location_city')[0] ?: false;
 $_sunflower_event_webinar = @get_post_meta( $post->ID, '_sunflower_event_webinar')[0] ?: false;
+$_sunflower_event_organizer = @get_post_meta( $post->ID, '_sunflower_event_organizer')[0] ?: false;
+$_sunflower_event_organizer_url = @get_post_meta( $post->ID, '_sunflower_event_organizer_url')[0] ?: false;
+
 
 $_sunflower_event_lon = @get_post_meta( $post->ID, '_sunflower_event_lon')[0] ?: false;
 $_sunflower_event_lat = @get_post_meta( $post->ID, '_sunflower_event_lat')[0] ?: false;
@@ -55,7 +58,7 @@ if( $_sunflower_event_location_street ) $location[] = $_sunflower_event_location
 if( $_sunflower_event_location_city) $location[] = $_sunflower_event_location_city;
 if( !empty($location)){
 	$metadata .= sprintf('<div class="mt-2 mb-2">%s</div>',
-		join(',', $location)
+		join(', ', $location)
 	);
 }
 
@@ -65,6 +68,15 @@ if( $_sunflower_event_webinar ){
 		$_sunflower_event_webinar,
 		__('Link to webinar', 'sunflower')
 	);
+}
+
+if( $_sunflower_event_organizer ){
+	if( $_sunflower_event_organizer_url ){
+		$metadata .= sprintf('<div class="mt-1 mb-1">%s <a href="%s" target="_blank">%s</a></div>', __('organized by', 'sunflower'), $_sunflower_event_organizer_url, $_sunflower_event_organizer	);
+	}else{
+		$metadata .= sprintf('<div class="mt-1 mb-1">%s %s</div>', __('organized by', 'sunflower'), $_sunflower_event_organizer	);
+	}
+
 }
 
 $metadata .= sprintf('<div><a href="%s" class="text-white">%s</a></div>',
