@@ -65,18 +65,32 @@ class SunflowerSettingsPage
             <h2>Umzug von Urwahl3000</h2>
             Hier gibt es 
             <a href="https://sunflower-theme.de/documentation/urwahl3000" target="_blank">Hilfe zum Umzug von Urwahl3000</a>. 
+            Widgets und Menüs werden automatisch importiert. Um Termine zu importieren,
+            musst Du einmalig weiter unten klicken. 
+            
+            <h3>Import von Terminen</h3>
+            <?php
+              if(isset($_GET['sunflower_import_events'])){
+                  $count = sunflower_import_events();
+                  printf('%d %s<br>',
+                    $count,
+                    __('event were imported', 'sunflower')
+                    ); 
+                    printf('<a href="edit.php?post_type=sunflower_event">%s</a>',
+                    __('have a look here', 'sunflower')
+                    ); 
+
+              }else{
+                printf('<a href="admin.php?page=sunflower_admin&sunflower_import_events=true" class="">%s</a>',
+                    __('Import events from Urwahl3000', 'sunflower')
+                );   
+              }
+            ?>
 
             <h2>Einstellungen</h2>
             <a href="admin.php?page=sunflower_settings">Hier geht es zu den Einstellungen</a>
 
-            <h2>Debug</h2>
-            <pre>
-            <?php
-                $api_url = 'https://sunflower-theme.de/updateserver/?rand=' . rand();
-                $request = wp_remote_post($api_url, $request_string);
-                print_r($request);
-            ?>
-            </pre>
+            
         </div>
     <?php
     }    
