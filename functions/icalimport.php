@@ -114,6 +114,10 @@ function sunflower_import_icals() {
         return false;
     }
 
+    if( !get_sunflower_setting('sunflower_ical_urls') ){
+        return false;
+    }
+
     set_transient( 'sunflower_ical_imported', 1, 3 * 3600 );
 
     $urls = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
