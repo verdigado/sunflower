@@ -68,6 +68,15 @@ class SunflowerSettingsPage
 
             <h2>Einstellungen</h2>
             <a href="admin.php?page=sunflower_settings">Hier geht es zu den Einstellungen</a>
+
+            <h2>Debug</h2>
+            <pre>
+            <?php
+                $api_url = 'https://sunflower-theme.de/updateserver/?rand=' . rand();
+                $request = wp_remote_post($api_url, $request_string);
+                print_r($request);
+            ?>
+            </pre>
         </div>
     <?php
     }    
