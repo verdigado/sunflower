@@ -1,0 +1,94 @@
+.comment{
+    &-list{
+       list-style-type: none; 
+    }
+    
+    &s-title{
+        text-align: center;
+        margin: 50px 0;
+    }
+
+    .children{
+        border-left: 2px solid $primary;
+        margin-bottom: 30px;   
+    }
+
+    &-body{
+        footer{
+            display: flex;
+
+            .says{
+                display: none;
+            }
+
+            .comment-author{
+                border-right: 1px solid black;
+                padding-right: 10px;
+                margin-right: 10px;
+            }
+        }
+
+        .reply{
+            text-align: right;
+        }
+        .comment-reply-link{
+            font-style: italic;
+            text-transform: uppercase;
+            color: $black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    }
+
+    &-reply{
+        &-title{
+            text-align: center;
+        }
+    }
+
+
+    &-respond{
+        background-color: $white;
+        padding: 30px;
+        border-radius: $border-radius;
+    }
+
+    &-form{
+       &-comment{
+           float:left;
+           width: 45%;
+           margin-right: 5%;
+       }
+
+       &-author,
+       &-email,
+       &-url{
+            display: flex;
+            flex-direction: column;
+       }
+
+       &-cookies-consent{
+           padding-left: 50%;
+           label{
+               display: inline;
+           }
+       }
+    }
+}
+
+.form-submit{
+    text-align: right;
+
+    input{
+        background-color: #46962b;
+        text-transform: uppercase;
+        font-size: 1rem;
+        border-radius: 0;
+        color: white;
+        padding: 10px 30px;
+        border: 0;
+        font-style: italic;
+    }
+}
+
+

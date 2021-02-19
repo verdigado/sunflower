@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-02-19T00:03:32+01:00\n"
-"PO-Revision-Date: 2021-02-19 00:05+0100\n"
+"POT-Creation-Date: 2021-02-19T16:46:16+01:00\n"
+"PO-Revision-Date: 2021-02-19 16:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -57,7 +57,7 @@ msgstr "Häufige Kategorien"
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "Try looking in the monthly archives. %1$s"
 
-#: archive-sunflower_event.php:21 functions/events.php:22
+#: archive-sunflower_event.php:21 functions/events.php:26
 msgid "Events"
 msgstr "Termine"
 
@@ -65,28 +65,27 @@ msgstr "Termine"
 msgid "all events"
 msgstr "Alle Termine"
 
-#: archive.php:65 single.php:42
+#: archive.php:65 index.php:71 single.php:42
 msgid "previous"
 msgstr "zurück"
 
-#: archive.php:66 single.php:47
+#: archive.php:66 index.php:72 single.php:47
 msgid "next"
 msgstr "vor"
 
-#. translators: 1: title.
-#: comments.php:35
-msgid "One thought on &ldquo;%1$s&rdquo;"
-msgstr "Ein Kommentar zu &ldquo;%1$s&rdquo;"
+#: comments.php:27
+msgid "comment article"
+msgstr "Artikel kommentieren"
 
-#. translators: 1: comment count number, 2: title.
-#: comments.php:41
-msgctxt "comments title"
-msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s Kommentar zu &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s Kommentare zu &ldquo;%2$s&rdquo;"
+#: comments.php:28
+msgid "send"
+msgstr "abschicken"
 
-#: comments.php:68
+#: comments.php:48
+msgid "One comment"
+msgstr "Ein Kommentar"
+
+#: comments.php:79
 msgid "Comments are closed."
 msgstr "Keine Kommentare möglich."
 
@@ -140,27 +139,27 @@ msgstr "Weiß"
 msgid "Black"
 msgstr "Schwarz"
 
-#: functions/events.php:23 functions/events.php:65
+#: functions/events.php:27 functions/events.php:69
 msgid "Event"
 msgstr "Termin"
 
-#: functions/events.php:28
+#: functions/events.php:32
 msgid "sunflower_event"
 msgstr "sunflower_event"
 
-#: functions/events.php:153
+#: functions/events.php:157
 msgid "Map"
 msgstr "Landkarte"
 
-#: functions/events.php:154
+#: functions/events.php:158
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/events.php:155
+#: functions/events.php:159
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/metaboxes.php:6 functions/options.php:143
+#: functions/metaboxes.php:6 functions/options.php:152
 msgid "Layout"
 msgstr "Layout"
 
@@ -196,51 +195,51 @@ msgstr "Einstellungen"
 msgid "About Sunflower"
 msgstr "Über Sunflower"
 
-#: functions/options.php:79
+#: functions/options.php:88
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
-#: functions/options.php:105
+#: functions/options.php:114
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options.php:128
+#: functions/options.php:137
 msgid "Miscellaneous"
 msgstr "Verschiedenes"
 
-#: functions/options.php:135
+#: functions/options.php:144
 msgid "Excerpt length (words)"
 msgstr "Länge der Vorschautextes in Worten"
 
-#: functions/options.php:150 functions/options.php:154
+#: functions/options.php:159 functions/options.php:163
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options.php:159
+#: functions/options.php:168
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options.php:166 functions/options.php:170
+#: functions/options.php:175 functions/options.php:179
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options.php:175 functions/options.php:179
+#: functions/options.php:184 functions/options.php:188
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options.php:184
+#: functions/options.php:193
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options.php:188
+#: functions/options.php:197
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options.php:225
+#: functions/options.php:234
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
-#: functions/options.php:263
+#: functions/options.php:272
 msgid "complete URL of profile"
 msgstr "Komplette URL des Profils"
 
@@ -448,23 +447,27 @@ msgstr "Sende E-Mail"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
-#: single-sunflower_event.php:47
+#: single-sunflower_event.php:50
 msgid "o'clock"
 msgstr "Uhr"
 
-#: single-sunflower_event.php:66
+#: single-sunflower_event.php:69
 msgid "Link to webinar"
 msgstr "Link zur Online-Teilnahme (Webinar)"
 
-#: single-sunflower_event.php:72
+#: single-sunflower_event.php:75 single-sunflower_event.php:77
+msgid "organized by"
+msgstr "organisiert von"
+
+#: single-sunflower_event.php:84
 msgid "Download as ics"
 msgstr "Downloas als ics-Datei"
 
-#: single-sunflower_event.php:94
+#: single-sunflower_event.php:106
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: single-sunflower_event.php:97
+#: single-sunflower_event.php:109
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
@@ -472,7 +475,7 @@ msgstr ""
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: single-sunflower_event.php:105
+#: single-sunflower_event.php:117
 msgid "Show map"
 msgstr "Kartendaten laden"
 
@@ -521,6 +524,15 @@ msgstr ""
 #: template-parts/related-posts.php:7
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
+
+#~ msgid "One thought on &ldquo;%1$s&rdquo;"
+#~ msgstr "Ein Kommentar zu &ldquo;%1$s&rdquo;"
+
+#~ msgctxt "comments title"
+#~ msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+#~ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+#~ msgstr[0] "%1$s Kommentar zu &ldquo;%2$s&rdquo;"
+#~ msgstr[1] "%1$s Kommentare zu &ldquo;%2$s&rdquo;"
 
 #~ msgid "from"
 #~ msgstr "ab"

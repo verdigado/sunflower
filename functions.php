@@ -16,6 +16,8 @@ require_once('functions/widgets.php');
 require_once('functions/block-patterns.php');
 require_once('functions/related-posts.php');
 require_once('functions/activation.php');
+require_once('functions/comments.php');
+
 
 
 

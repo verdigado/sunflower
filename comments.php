@@ -20,6 +20,21 @@ if ( post_password_required() ) {
 }
 ?>
 
+<div class="full-width bg-lightgreen pt-5 pb-5">
+	<div class="container">
+		<?php 
+			$args = array(
+				'title_reply' => __('comment article', 'sunflower'),
+				'label_submit' => __('send', 'sunflower')
+			);
+			
+			comment_form( $args ); 
+		?>
+	</div>
+</div>
+
+
+
 <div id="comments" class="comments-area">
 
 	<?php
@@ -30,17 +45,12 @@ if ( post_password_required() ) {
 			<?php
 			$sunflower_comment_count = get_comments_number();
 			if ( '1' === $sunflower_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'sunflower' ),
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-				);
+				_e('One comment', 'sunflower');
 			} else {
 				printf( 
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $sunflower_comment_count, 'comments title', 'sunflower' ) ),
-					number_format_i18n( $sunflower_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
+					esc_html( _nx( '%1$s commment', '%1$s comments', $sunflower_comment_count, 'sunflower' ) ),
+					number_format_i18n( $sunflower_comment_count ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
 			?>
@@ -54,6 +64,7 @@ if ( post_password_required() ) {
 				array(
 					'style'      => 'ol',
 					'short_ping' => true,
+					'avatar_size' => 0
 				)
 			);
 			?>
@@ -71,7 +82,7 @@ if ( post_password_required() ) {
 
 	endif; // Check for have_comments().
 
-	comment_form();
+
 	?>
 
 </div><!-- #comments -->

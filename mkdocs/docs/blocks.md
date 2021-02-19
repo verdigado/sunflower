@@ -8,4 +8,4 @@
 - Wählen in den Block-Einstellungen die Farbeinstellungen aus
 
 ## Vorlagen
-Es gibt auch Vorlagen für typische Szenarien wie z.B. die Startseite, die Darstellung von Personen und von Anträgen.
+Es gibt auch Vorlagen für typische Szenarien wie z.B. die Startseite.
