@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-02-19T16:51:53+01:00\n"
-"PO-Revision-Date: 2021-02-19 16:52+0100\n"
+"POT-Creation-Date: 2021-02-19T22:38:48+01:00\n"
+"PO-Revision-Date: 2021-02-19 22:40+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -57,7 +57,7 @@ msgstr "Häufige Kategorien"
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "Try looking in the monthly archives. %1$s"
 
-#: archive-sunflower_event.php:21 functions/events.php:26
+#: archive-sunflower_event.php:21 functions/events.php:24
 msgid "Events"
 msgstr "Termine"
 
@@ -147,27 +147,65 @@ msgstr "Weiß"
 msgid "Black"
 msgstr "Schwarz"
 
-#: functions/events.php:27 functions/events.php:69
+#: functions/events.php:4 functions/events.php:19
+msgid "Startdate"
+msgstr "Startdatum"
+
+#: functions/events.php:5
+msgid "Enddate"
+msgstr "Enddatum"
+
+#: functions/events.php:6
+msgid "Whole day"
+msgstr "ganztägig"
+
+#: functions/events.php:7
+msgid "Location name"
+msgstr "Veranstaltungsort (Name)"
+
+#: functions/events.php:8
+msgid "Street"
+msgstr "Straße und Hausnr."
+
+#: functions/events.php:9
+msgid "City"
+msgstr "Stadt"
+
+#: functions/events.php:10
+msgid "Webinar"
+msgstr "Webinar"
+
+#: functions/events.php:11
+#, fuzzy
+#| msgid "organized by"
+msgid "Organizer"
+msgstr "organisiert von"
+
+#: functions/events.php:12
+msgid "Organizer URL"
+msgstr "URL der Organisator*in"
+
+#: functions/events.php:25 functions/events.php:67
 msgid "Event"
 msgstr "Termin"
 
-#: functions/events.php:32
+#: functions/events.php:30
 msgid "sunflower_event"
 msgstr "sunflower_event"
 
-#: functions/events.php:157
+#: functions/events.php:155
 msgid "Map"
 msgstr "Landkarte"
 
-#: functions/events.php:158
+#: functions/events.php:156
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/events.php:159
+#: functions/events.php:157
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/metaboxes.php:6 functions/options.php:152
+#: functions/metaboxes.php:6 functions/options.php:193
 msgid "Layout"
 msgstr "Layout"
 
@@ -203,51 +241,59 @@ msgstr "Einstellungen"
 msgid "About Sunflower"
 msgstr "Über Sunflower"
 
-#: functions/options.php:88
+#: functions/options.php:90
+msgid " events were new/updated"
+msgstr "Termine sind neu/ wurden erneuert"
+
+#: functions/options.php:121
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
-#: functions/options.php:114
+#: functions/options.php:147
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options.php:137
+#: functions/options.php:170
 msgid "Miscellaneous"
 msgstr "Verschiedenes"
 
-#: functions/options.php:144
+#: functions/options.php:177
 msgid "Excerpt length (words)"
 msgstr "Länge der Vorschautextes in Worten"
 
-#: functions/options.php:159 functions/options.php:163
+#: functions/options.php:185
+msgid "URLs of iCal calendars, one per row"
+msgstr "URls der iCal-Kaleder, pro Zeile eine URL"
+
+#: functions/options.php:200 functions/options.php:204
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options.php:168
+#: functions/options.php:209
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options.php:175 functions/options.php:179
+#: functions/options.php:216 functions/options.php:220
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options.php:184 functions/options.php:188
+#: functions/options.php:225 functions/options.php:229
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options.php:193
+#: functions/options.php:234
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options.php:197
+#: functions/options.php:238
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options.php:234
+#: functions/options.php:278
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
-#: functions/options.php:272
+#: functions/options.php:324
 msgid "complete URL of profile"
 msgstr "Komplette URL des Profils"
 
@@ -586,24 +632,6 @@ msgstr "Ähnliche Beiträge"
 
 #~ msgid "Edit content<span class=\"screen-reader-text\">%s</span>"
 #~ msgstr "Inhalt bearbeiten  <span class=\"screen-reader-text\">%s</span>"
-
-#~ msgid "Startdate"
-#~ msgstr "Startdatum"
-
-#~ msgid "Enddate"
-#~ msgstr "Enddatum"
-
-#~ msgid "Whole day"
-#~ msgstr "ganztägig"
-
-#~ msgid "Location name"
-#~ msgstr "Veranstaltungsort (Name)"
-
-#~ msgid "Street"
-#~ msgstr "Straße und Hausnr."
-
-#~ msgid "City"
-#~ msgstr "Stadt"
 
 #~ msgid "Posted in %1$s"
 #~ msgstr "Veröffentlicht unter %1$s"

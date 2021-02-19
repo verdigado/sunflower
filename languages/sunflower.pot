@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 0.3.2\n"
+"Project-Id-Version: sunflower 0.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-02-19T16:51:53+01:00\n"
+"POT-Creation-Date: 2021-02-19T22:38:48+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -52,7 +52,7 @@ msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
 #: archive-sunflower_event.php:21
-#: functions/events.php:26
+#: functions/events.php:24
 msgid "Events"
 msgstr ""
 
@@ -144,29 +144,66 @@ msgstr ""
 msgid "Black"
 msgstr ""
 
-#: functions/events.php:27
-#: functions/events.php:69
+#: functions/events.php:4
+#: functions/events.php:19
+msgid "Startdate"
+msgstr ""
+
+#: functions/events.php:5
+msgid "Enddate"
+msgstr ""
+
+#: functions/events.php:6
+msgid "Whole day"
+msgstr ""
+
+#: functions/events.php:7
+msgid "Location name"
+msgstr ""
+
+#: functions/events.php:8
+msgid "Street"
+msgstr ""
+
+#: functions/events.php:9
+msgid "City"
+msgstr ""
+
+#: functions/events.php:10
+msgid "Webinar"
+msgstr ""
+
+#: functions/events.php:11
+msgid "Organizer"
+msgstr ""
+
+#: functions/events.php:12
+msgid "Organizer URL"
+msgstr ""
+
+#: functions/events.php:25
+#: functions/events.php:67
 msgid "Event"
 msgstr ""
 
-#: functions/events.php:32
+#: functions/events.php:30
 msgid "sunflower_event"
 msgstr ""
 
-#: functions/events.php:157
+#: functions/events.php:155
 msgid "Map"
 msgstr ""
 
-#: functions/events.php:158
+#: functions/events.php:156
 msgid "load map"
 msgstr ""
 
-#: functions/events.php:159
+#: functions/events.php:157
 msgid "delete map"
 msgstr ""
 
 #: functions/metaboxes.php:6
-#: functions/options.php:152
+#: functions/options.php:193
 msgid "Layout"
 msgstr ""
 
@@ -205,54 +242,62 @@ msgstr ""
 msgid "About Sunflower"
 msgstr ""
 
-#: functions/options.php:88
+#: functions/options.php:90
+msgid " events were new/updated"
+msgstr ""
+
+#: functions/options.php:121
 msgid "Sunflower Settings"
 msgstr ""
 
-#: functions/options.php:114
+#: functions/options.php:147
 msgid "Social Media Profiles"
 msgstr ""
 
-#: functions/options.php:137
+#: functions/options.php:170
 msgid "Miscellaneous"
 msgstr ""
 
-#: functions/options.php:144
+#: functions/options.php:177
 msgid "Excerpt length (words)"
 msgstr ""
 
-#: functions/options.php:159
-#: functions/options.php:163
+#: functions/options.php:185
+msgid "URLs of iCal calendars, one per row"
+msgstr ""
+
+#: functions/options.php:200
+#: functions/options.php:204
 msgid "show related posts"
 msgstr ""
 
-#: functions/options.php:168
+#: functions/options.php:209
 msgid "Social Sharers"
 msgstr ""
 
-#: functions/options.php:175
-#: functions/options.php:179
+#: functions/options.php:216
+#: functions/options.php:220
 msgid "Twitter"
 msgstr ""
 
-#: functions/options.php:184
-#: functions/options.php:188
+#: functions/options.php:225
+#: functions/options.php:229
 msgid "Facebook"
 msgstr ""
 
-#: functions/options.php:193
+#: functions/options.php:234
 msgid "mail"
 msgstr ""
 
-#: functions/options.php:197
+#: functions/options.php:238
 msgid "Mail"
 msgstr ""
 
-#: functions/options.php:234
+#: functions/options.php:278
 msgid "Show share buttons on single page"
 msgstr ""
 
-#: functions/options.php:272
+#: functions/options.php:324
 msgid "complete URL of profile"
 msgstr ""
 
