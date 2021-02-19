@@ -74,9 +74,32 @@ class SunflowerSettingsPage
             <h2>Kalenderimport</h2>
             <?php
             
+            $ids_from_remote = array();
+
             if( isset($_GET['icalimport'])){
-                $count = sunflower_icalimport();
-                printf('<a href="edit.php?post_type=sunflower_event">Termine ansehen</a>', $count);
+                $urls = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
+
+                foreach($urls AS $url){
+                    $url = trim($url);
+                    if(!filter_var($url, FILTER_VALIDATE_URL)){
+                        continue;
+                    }
+                   printf('<div>Importiere von %s</div>', $url);
+                   $response = sunflower_icalimport($url);
+
+                   printf('%d / %d %s', $response[1], $response[2], __(' events were new/updated', 'sunflower'));
+
+                   $ids_from_remote = array_merge($ids_from_remote, $response[0]);
+                }
+
+                $deleted_on_remote = array_diff(sunflower_get_events_having_uid(), $ids_from_remote);
+
+                foreach($deleted_on_remote AS $to_be_deleted){
+                    wp_delete_post($to_be_deleted);
+                }
+                printf('<br>%d Termine wurden gelöscht', count($deleted_on_remote));
+
+                printf('<br><a href="edit.php?post_type=sunflower_event">Termine ansehen</a>');
             }else{
                 echo '<a href="admin.php?page=sunflower_admin&icalimport=1">Kalender importieren</a>';
             }
@@ -156,6 +179,14 @@ class SunflowerSettingsPage
             'sunflower-setting-admin', // Page
             'sunflower_misc' // Section           
         );   
+
+        add_settings_field(
+            'sunflower_ical_urls', // ID
+            __('URLs of iCal calendars, one per row', 'sunflower'), // Title 
+            array( $this, 'sunflower_ical_urls_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_misc' // Section           
+        );   
         
         add_settings_section(
             'sunflower_layout', // ID
@@ -228,6 +259,9 @@ class SunflowerSettingsPage
         if( isset( $input['excerpt_length'] ) )
             $new_input['excerpt_length'] = absint( $input['excerpt_length'] ) ?: '';
 
+         if( isset( $input['sunflower_ical_urls'] ) )
+             $new_input['sunflower_ical_urls'] = $input['sunflower_ical_urls'] ?: '';
+
 
         return $new_input;
     }
@@ -263,6 +297,14 @@ class SunflowerSettingsPage
         printf(
             '<input type="text" id="excerpt_length" name="sunflower_options[excerpt_length]" value="%s" />',
             isset( $this->options['excerpt_length'] ) ? esc_attr( $this->options['excerpt_length']) : ''
+        );
+    }
+
+    public function sunflower_ical_urls_callback()
+    {
+        printf(
+            '<textarea style="white-space: pre-wrap;width: 600px" id="sunflower_ical_urls" name="sunflower_options[sunflower_ical_urls]">%s</textarea>',
+            isset( $this->options['sunflower_ical_urls'] ) ? $this->options['sunflower_ical_urls'] : ''
         );
     }
 
