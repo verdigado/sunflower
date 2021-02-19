@@ -2,6 +2,7 @@ site_name: Sunflower
 nav:
   - Einleitung: index.md
   - Einrichtung: setup.md
+  - Umzug von Urwahl3000: urwahl3000.md
   - Startseite: homepage.md
   - Menüs: menus.md
   - Elemente (Blöcke): blocks.md

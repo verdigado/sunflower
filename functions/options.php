@@ -59,23 +59,12 @@ class SunflowerSettingsPage
         <div class="wrap">
             <h1><?php _e('About Sunflower', 'sunflower'); ?></h1>
             <h2>Erste Schritte</h2>
-            <a href="#" target="_blank">Eine ausführliche Dokumentation gibt es unter https://sunflower-theme.de/documentation/</a>
+            <a href="https://sunflower-theme.de/documentation/" target="_blank">Eine ausführliche Dokumentation gibt es unter https://sunflower-theme.de/documentation/</a>
         
 
             <h2>Umzug von Urwahl3000</h2>
-            <?php
-                $option = get_option('sidebars_widgets');
-              
-                
-                if( empty($option['sidebar-1'] ) ){
-                    $option['sidebar-1'] = $option['wp_inactive_widgets'];
-                    print_r($option);
-                    update_option('sidebars_widgets', $option);
-                    printf('%d Widgets aus einem anderen Theme importiert.', count($option['sidebar-1'])) ;
-                }
-
-            ?>
-
+            Hier gibt es 
+            <a href="https://sunflower-theme.de/documentation/urwahl3000" target="_blank">Hilfe zum Umzug von Urwahl3000</a>. 
 
             <h2>Einstellungen</h2>
             <a href="admin.php?page=sunflower_settings">Hier geht es zu den Einstellungen</a>
