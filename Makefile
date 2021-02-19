@@ -52,7 +52,7 @@ mkdocs-build:
 	cd mkdocs && mkdocs build
 
 mkdocs-deploy:
-	cd mkdocs && mkdocs build && rsync -r --delete ../documentation/ sharepic:/var/www/wordpress.tom-rose.de/documentation/
+	cd mkdocs && mkdocs build && rsync -r --delete ../documentation/ sharepic:/var/www/sunflower-theme.de/documentation/
 
 js:
 	npm run build
