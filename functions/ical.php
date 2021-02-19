@@ -8,8 +8,9 @@ $_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_l
 
 
 
-$from = getIcalDate(strToTime($_sunflower_event_from), !$_sunflower_event_whole_day);
-$until = ($_sunflower_event_until) ? getIcalDate(strToTime($_sunflower_event_until), !$_sunflower_event_whole_day) : getIcalDate(3600 + strToTime($_sunflower_event_from), !$_sunflower_event_whole_day);
+$from = getIcalDate($_sunflower_event_from, !$_sunflower_event_whole_day);
+$until = ($_sunflower_event_until) ? getIcalDate($_sunflower_event_until, !$_sunflower_event_whole_day) : getIcalDate(3600 + strToTime($_sunflower_event_from), !$_sunflower_event_whole_day);
+
 
 $now = getIcalDate(strToTime('now'), true);
 $summary = get_the_title();
