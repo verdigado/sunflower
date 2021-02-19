@@ -42,7 +42,7 @@ publish:
 	git add sass/style.scss && git commit -m "publishing version $$newversion" && \
 	git tag "v$$newversion"
 	git push && git push --tags
-	@echo "Please update styles.scss with next version."
+	make deploy
 
 
 mkdocs-serve:
