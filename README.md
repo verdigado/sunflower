@@ -7,7 +7,7 @@ sunflower WordPress theme
 Demo and Download
 ---------------
 A Demo-Website can be found at
-https://wordpress.tom-rose.de.
+https://sunflower-theme.de.
 
 
 Installation
