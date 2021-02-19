@@ -71,7 +71,17 @@ class SunflowerSettingsPage
             <h2>Einstellungen</h2>
             <a href="admin.php?page=sunflower_settings">Hier geht es zu den Einstellungen</a>
 
+            <h2>Kalenderimport</h2>
+            <?php
             
+            if( isset($_GET['icalimport'])){
+                $count = sunflower_icalimport();
+                printf('<a href="edit.php?post_type=sunflower_event">Termine ansehen</a>', $count);
+            }else{
+                echo '<a href="admin.php?page=sunflower_admin&icalimport=1">Kalender importieren</a>';
+            }
+            ?>
+
         </div>
     <?php
     }    

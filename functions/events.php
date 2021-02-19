@@ -275,6 +275,16 @@ function sunflower_prepare_event_time_data( $post ){
         if( date_i18n('d.m.Y',  $_sunflower_event_from) === date_i18n('d.m.Y',  $_sunflower_event_until)){
             // same day, no until day
             $untildate = '';
+        }elseif(date('H:i', $_sunflower_event_until) == '00:00' ) {
+            // days with time 00:00
+            $datetime = new DateTime();
+            $datetime->setTimestamp($_sunflower_event_from);
+            $datetime->modify('+1 day');
+
+            if( date('Y-m-d',  $_sunflower_event_until) == $datetime->format('Y-m-d')){
+                // tommorrow
+                $untildate = '';
+            }
         }elseif( date_i18n('m',  $_sunflower_event_from) === date_i18n('m',  $_sunflower_event_until)){
            // same month
            $fromdate =  date_i18n('d.',  $_sunflower_event_from);

@@ -1,4 +1,12 @@
 <?php
+$_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
+$_sunflower_event_from = strToTime($_sunflower_event_from);
+$_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_until')[0] ?: false;
+$_sunflower_event_until = strToTime($_sunflower_event_until);
+$_sunflower_event_whole_day = @get_post_meta( $post->ID, '_sunflower_event_whole_day')[0] ?: false;
+$_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_location_name')[0] ?: false;
+
+
 
 $from = getIcalDate(strToTime($_sunflower_event_from), !$_sunflower_event_whole_day);
 $until = ($_sunflower_event_until) ? getIcalDate(strToTime($_sunflower_event_until), !$_sunflower_event_whole_day) : getIcalDate(3600 + strToTime($_sunflower_event_from), !$_sunflower_event_whole_day);
