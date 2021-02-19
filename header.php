@@ -45,7 +45,7 @@
 						'walker'          => new WP_Bootstrap_Navwalker(),
 					) );
 					?>
-				<form class="form-inline my-2 my-md-0" action="<?php bloginfo('url'); ?>">
+				<form class="form-inline my-2 my-md-0 search" action="<?php bloginfo('url'); ?>">
 					<input class="form-control form-control-sm" name="s" type="text" placeholder="<?php _e('Search', 'sunflower'); ?>" aria-label="<?php _e('Search', 'sunflower'); ?>"
 						value="<?php echo get_search_query(); ?>"
 					>
@@ -63,7 +63,7 @@
 					<div class="h5 text-white arvogruen mb-0 bloginfo-name">
 						<?php bloginfo('name'); ?>
 					</div>
-					<div class="h6 text-white ptsans mb-0 bloginfo-description">
+					<div class="text-white ptsans mb-0 bloginfo-description">
 						<?php bloginfo('description'); ?>
 					</div>
 				</div>

@@ -28,13 +28,14 @@
 
     &-main{
         border-bottom: 0;
-        box-shadow: 0 4px 2px -2px gray;
+        box-shadow: 0 6px 6px -6px $lightgray
     }
 
     &-light{
         .navbar-nav{
             .nav-link{
                 color: $body-color;
+                font-size: 18px;
                 &:hover{
                     color: $primary;
                 };

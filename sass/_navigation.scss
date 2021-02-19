@@ -12,11 +12,26 @@
             .dropdown-menu{ 
                 display: none; 
 
-                li a:hover{
-                    background: $primary;
+                li{
+                    a{                            
+                        &:hover{
+                            background: $primary;
+                        }
+                    } 
                 }
             }
         }
 
+    }
+}
+
+.topmenu{
+    .search{
+        input{
+            background: none;
+            color: $white;
+            border-radius: $border-radius;
+            padding-left: 15px;
+        }
     }
 }
