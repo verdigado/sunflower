@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "POT-Creation-Date: 2021-02-19T22:44:54+01:00\n"
-"PO-Revision-Date: 2021-02-19 22:45+0100\n"
+"PO-Revision-Date: 2021-02-20 22:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -271,7 +271,7 @@ msgstr "Länge der Vorschautextes in Worten"
 
 #: functions/options.php:185
 msgid "URLs of iCal calendars, one per row"
-msgstr "URls der iCal-Kaleder, pro Zeile eine URL"
+msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
 #: functions/options.php:200 functions/options.php:204
 msgid "show related posts"
