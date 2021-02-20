@@ -6,6 +6,7 @@ a.event-card{
     article{
         background-color: $white; 
         border-radius: $border-radius;
+        height: 100%;
 
         .event-archive-meta{
             color: $primary;
@@ -18,6 +19,12 @@ a.event-card{
             .event-archive-meta{
                 color: white;
             }
+        }
+
+        .date{
+            font-family: 'PT Sans';
+            font-weight: bold;
+            font-size: 25px;
         }
     }
 
@@ -34,6 +41,10 @@ a.event-card{
 .next-events{
     background-image: url('assets/img/sunflower1.jpg');
     background-size: cover;
+
+    .wp-block-group__inner-container {
+        margin-bottom: 80px;
+    }
 }
 
 #leaflet{

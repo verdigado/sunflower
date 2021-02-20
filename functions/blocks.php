@@ -30,8 +30,8 @@ function sunflower_next_events_render( $block_attributes, $content ) {
 
     $return = sprintf(' <div class="wp-block-group has-background next-events">
                         <div class="wp-block-group__inner-container">
-                            <h2 class="text-center">%s</h2>
-                            <div class="wp-block-button text-center mb-4"><a class="wp-block-button__link no-border-radius" href="%s?post_type=sunflower_event" rel="">%s</a></div>
+                            <h2 class="text-center h1 mt-3 mb-5">%s</h2>
+                            <div class="wp-block-button text-center mb-5"><a class="wp-block-button__link no-border-radius" href="%s?post_type=sunflower_event" rel="">%s</a></div>
                         <div class="row">',
                         __('Next events', 'sunflower'),
                         home_url(),
@@ -68,7 +68,7 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
    
     $return = sprintf(' <div class="wp-block-group has-background latest-posts">
                         <div class="wp-block-group__inner-container">
-                            <h2 class="text-center">%s</h2>
+                            <h2 class="text-center h1 mt-4 mb-5">%s</h2>
                         <div class="row">',
                         __('News', 'sunflower')
     );
