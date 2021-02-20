@@ -80,3 +80,21 @@ add_action( 'wp_dashboard_setup', 'sunflower_add_custom_dashboard_widgets' );
 function sunflower_dashboard_widget_content() {
     echo 'Schön, dass Du Sunflower benutzt. Eine ausführliche Hilfe gibt es unter <a href="https://sunflower-theme.de/documentation" target="_blank">https://sunflower-theme.de/documentation</a>.';
 }
+
+function sunfloer_setup_help_tab() {
+ 
+    $screen = get_current_screen();
+     
+    if ( 'sunflower_event' == $screen->post_type ) {
+     
+    get_current_screen()->add_help_tab( array(
+    'id' => 'sunflower-event',
+    'title' => __( 'Help for sunflowers events', 'sunflower' ),
+    'content' => '<strong>Sunflower-Termine.</strong>
+        <p>Du kannst Termine hier anlegen oder einen iCal-Kalender importieren. Mehr Infos dazu gibt es auf
+        <a href="https://sunflower-theme.de/documentation/events/" target="_blank">https://sunflower-theme.de/documentation/events/</a></p>
+    ',
+    ) );
+    }
+    }
+    add_action( 'admin_head', 'sunfloer_setup_help_tab' );
