@@ -48,6 +48,24 @@ class SunflowerSettingsPage
             'sunflower_settings', 
             array( $this, 'create_sunflower_settings_page' )
         );
+
+        add_submenu_page(
+            'sunflower_admin',
+            __('Social Media', 'sunflower'), 
+            __('Social Media', 'sunflower'), 
+            'edit_pages', 
+            'sunflower_social_media', 
+            array( $this, 'create_sunflower_social_media_page' )
+        );
+
+        add_submenu_page(
+            'sunflower_admin',
+            __('Events', 'sunflower'), 
+            __('Events', 'sunflower'), 
+            'edit_pages', 
+            'sunflower_events_options', 
+            array( $this, 'create_sunflower_events_options_page' )
+        );
     }
 
     /**
@@ -69,45 +87,7 @@ class SunflowerSettingsPage
             Hier gibt es mehr Info über den Umzug von Urwahl3000</a>. 
 
             <h2>Einstellungen</h2>
-            <a href="admin.php?page=sunflower_settings">Hier geht es zu den Einstellungen</a>
-
-            <h2>Kalenderimport</h2>
-            <?php
-            
-            $ids_from_remote = array();
-
-            if( isset($_GET['icalimport'])){
-                $urls = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
-
-                foreach($urls AS $url){
-                    $url = trim($url);
-                    if(!filter_var($url, FILTER_VALIDATE_URL)){
-                        continue;
-                    }
-                   printf('<div>Importiere von %s</div>', $url);
-                   $response = sunflower_icalimport($url);
-
-                   printf('%d / %d %s', $response[1], $response[2], __(' events were new/updated', 'sunflower'));
-
-                   $ids_from_remote = array_merge($ids_from_remote, $response[0]);
-                }
-
-                $deleted_on_remote = array_diff(sunflower_get_events_having_uid(), $ids_from_remote);
-
-                foreach($deleted_on_remote AS $to_be_deleted){
-                    wp_delete_post($to_be_deleted);
-                }
-                printf('<br>%d Termine wurden gelöscht', count($deleted_on_remote));
-
-                printf('<br><a href="edit.php?post_type=sunflower_event">Termine ansehen</a>');
-            }else{
-                if(get_sunflower_setting('sunflower_ical_urls') ){
-                    echo '<a href="admin.php?page=sunflower_admin&icalimport=1">Kalender importieren</a>';
-                }else{
-                    echo 'Um einen Kalender importieren zu können, trage die URL bitte unter Sunflower-Einstellungen ein.';
-                }
-            }
-            ?>
+            Bitte siehe links im Menü, welche Unterpunkte es gibt.
 
         </div>
     <?php
@@ -135,6 +115,89 @@ class SunflowerSettingsPage
         <?php
     }
 
+     /**
+     * Events Options page callback
+     */
+    public function create_sunflower_events_options_page()
+    {
+        // Set class property
+        $this->options = get_option( 'sunflower_options' );
+        ?>
+        <div class="wrap">
+            <h1><?php _e('Sunflower Settings', 'sunflower'); ?></h1>
+            <form method="post" action="options.php">
+            <?php
+                // This prints out all hidden setting fields
+                settings_fields( 'sunflower_option_group' );
+                do_settings_sections( 'sunflower-setting-events' );
+                submit_button();
+            ?>
+            </form>
+
+            <h2>Kalenderimport</h2>
+            <?php
+            
+            $ids_from_remote = array();
+
+            if( isset($_GET['icalimport'])){
+                $urls = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
+
+                foreach($urls AS $url){
+                    $url = trim($url);
+                    if(!filter_var($url, FILTER_VALIDATE_URL)){
+                        continue;
+                    }
+                   printf('<div>Importiere von %s</div>', $url);
+                   $response = sunflower_icalimport($url);
+
+                   printf('<div style="margin-bottom:1em">%d / %d %s</div>', $response[1], $response[2], __(' events were new/updated', 'sunflower'));
+
+                   $ids_from_remote = array_merge($ids_from_remote, $response[0]);
+                }
+
+                $deleted_on_remote = array_diff(sunflower_get_events_having_uid(), $ids_from_remote);
+
+                foreach($deleted_on_remote AS $to_be_deleted){
+                    wp_delete_post($to_be_deleted);
+                }
+                printf('<div>%d Termine wurden gelöscht</div>', count($deleted_on_remote));
+
+                printf('<div><a href="../?post_type=sunflower_event">Termine ansehen</a></div>');
+            }else{
+                if(get_sunflower_setting('sunflower_ical_urls') ){
+                    echo '<a href="admin.php?page=sunflower_events_options&icalimport=1">Kalender jetzt      importieren</a>';
+                }else{
+                    echo 'Um einen Kalender importieren zu können, trage die URL bitte unter Sunflower-Einstellungen ein.';
+                }
+            }
+            ?>
+
+        </div>
+        <?php
+    }
+
+    /**
+     * Social Media Profiles page callback
+     */
+    public function create_sunflower_social_media_page()
+    {
+        // Set class property
+        $this->options = get_option( 'sunflower_options' );
+        ?>
+        <div class="wrap">
+            <h1><?php _e('Sunflower Settings', 'sunflower'); ?></h1>
+            <form method="post" action="options.php">
+            <?php
+                // This prints out all hidden setting fields
+                settings_fields( 'sunflower_option_group' );
+                do_settings_sections( 'sunflower-setting-social-media-options' );
+                submit_button();
+            ?>
+            </form>
+        </div>
+        <?php
+    }
+
     /**
      * Register and add settings
      */
@@ -150,7 +213,7 @@ class SunflowerSettingsPage
             'sunflower_social_media', // ID
             __('Social Media Profiles', 'sunflower'), // Title
             array( $this, 'print_section_info' ), // Callback
-            'sunflower-setting-admin' // Page
+            'sunflower-setting-social-media-options' // Page
         );  
 
         $social_media_profiles = [
@@ -163,34 +226,11 @@ class SunflowerSettingsPage
                 $profile, 
                 $info['name'],
                 array( $this, 'social_media_profile_callback' ), 
-                'sunflower-setting-admin', 
+                'sunflower-setting-social-media-options', 
                 'sunflower_social_media',
                 [$profile, $info['icon']]
             ); 
         }    
-        
-        add_settings_section(
-            'sunflower_misc', // ID
-            __('Miscellaneous', 'sunflower'), // Title
-            array( $this, 'print_section_info' ), // Callback
-            'sunflower-setting-admin' // Page
-        );  
-
-        add_settings_field(
-            'excerps_length', // ID
-            __('Excerpt length (words)', 'sunflower'), // Title 
-            array( $this, 'excerpt_length_callback' ), // Callback
-            'sunflower-setting-admin', // Page
-            'sunflower_misc' // Section           
-        );   
-
-        add_settings_field(
-            'sunflower_ical_urls', // ID
-            __('URLs of iCal calendars, one per row', 'sunflower'), // Title 
-            array( $this, 'sunflower_ical_urls_callback' ), // Callback
-            'sunflower-setting-admin', // Page
-            'sunflower_misc' // Section           
-        );   
         
         add_settings_section(
             'sunflower_layout', // ID
@@ -198,6 +238,30 @@ class SunflowerSettingsPage
             array( $this, 'print_section_info' ), // Callback
             'sunflower-setting-admin' // Page
         );  
+
+        add_settings_section(
+            'sunflower-setting-events', // ID
+            __('Events', 'sunflower'), // Title
+            array( $this, 'print_section_info' ), // Callback
+            'sunflower-setting-events' // Page
+        );  
+
+        add_settings_field(
+            'excerps_length', // ID
+            __('Excerpt length (words)', 'sunflower'), // Title 
+            array( $this, 'excerpt_length_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_layout' // Section           
+        );   
+
+        add_settings_field(
+            'sunflower_ical_urls', // ID
+            __('URLs of iCal calendars, one per row', 'sunflower'), // Title 
+            array( $this, 'sunflower_ical_urls_callback' ), // Callback
+            'sunflower-setting-events', // Page
+            'sunflower-setting-events' // Section           
+        );   
+    
 
         add_settings_field(
             'sunflower_show_related_posts', // ID
@@ -212,14 +276,14 @@ class SunflowerSettingsPage
             'sunflower_social_media_sharers', // ID
             __('Social Sharers', 'sunflower'), // Title
             array( $this, 'print_section_info_sharers'), // Callback
-            'sunflower-setting-admin' // Page
+            'sunflower-setting-social-media-options' // Page
         );  
 
         add_settings_field(
             'sunflower_sharer_twitter', // ID
             __('Twitter', 'sunflower'), // Title 
             array( $this, 'sunflower_checkbox_callback' ), // Callback
-            'sunflower-setting-admin', // Page
+            'sunflower-setting-social-media-options', // Page
             'sunflower_social_media_sharers', // Section   
             ['sunflower_sharer_twitter', __('Twitter', 'sunflower')]
         );    
@@ -228,7 +292,7 @@ class SunflowerSettingsPage
             'sunflower_sharer_facebook', // ID
             __('Facebook', 'sunflower'), // Title 
             array( $this, 'sunflower_checkbox_callback' ), // Callback
-            'sunflower-setting-admin', // Page
+            'sunflower-setting-social-media-options', // Page
             'sunflower_social_media_sharers', // Section   
             ['sunflower_sharer_facebook', __('Facebook', 'sunflower')]
         );    
@@ -237,7 +301,7 @@ class SunflowerSettingsPage
             'sunflower_sharer_mail', // ID
             __('mail', 'sunflower'), // Title 
             array( $this, 'sunflower_checkbox_callback' ), // Callback
-            'sunflower-setting-admin', // Page
+            'sunflower-setting-social-media-options', // Page
             'sunflower_social_media_sharers', // Section   
             ['sunflower_sharer_mail', __('Mail', 'sunflower')]
         );    
@@ -307,9 +371,14 @@ class SunflowerSettingsPage
     public function sunflower_ical_urls_callback()
     {
         printf(
-            '<textarea style="white-space: pre-wrap;width: 600px" id="sunflower_ical_urls" name="sunflower_options[sunflower_ical_urls]">%s</textarea>',
+            '<textarea style="white-space: pre-wrap;width: 90%%;height:7em;" id="sunflower_ical_urls" name="sunflower_options[sunflower_ical_urls]">%s</textarea>',
             isset( $this->options['sunflower_ical_urls'] ) ? $this->options['sunflower_ical_urls'] : ''
         );
+        echo '<div>Importiert werden die Termine der nächsten 6 Monate. 
+        Alle 3 Stunden findet ein automatischer Import statt.<br>
+        Importierte Termine dürfen nicht im WordPress-Backend bearbeitet werden, weil Änderungen beim nächsten 
+        Import überschrieben werden.
+        </div>';
     }
 
  
