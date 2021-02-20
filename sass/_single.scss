@@ -3,12 +3,17 @@
         &-header{
             text-align: center;
             background: $lightgreen;
-            padding: 50px 0 100px 0;
+            padding: 100px 0 85px 0;
+        }
+
+        &-title{
+            margin-bottom: 50px;
         }
     }
 
     .post-thumbnail{
         position: relative;
-        margin-top: -10%;
+        margin-top: -25px;
+        margin-bottom: 60px;
     }
 }

@@ -19,7 +19,7 @@
 					<?php
 						$roofline = @get_post_meta( $post->ID, '_sunflower_roofline')[0] ?: false;
 						if( $roofline ){
-							printf(' <div class="roofline arvogruen mb-1">%s</div>', $roofline);
+							printf(' <div class="roofline arvogruen">%s</div>', $roofline);
 						}
 					?>
 					<?php
