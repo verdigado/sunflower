@@ -62,7 +62,7 @@
 					</p>
 				</div>
 				<div class="col-2">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-diegruenen.svg" class="img-fluid">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-diegruenen.svg" class="img-fluid" alt="Logo Bündnis 90/Die Grünen">
 				</div>
 
 			</div>
