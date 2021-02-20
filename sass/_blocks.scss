@@ -139,3 +139,15 @@ a.wp-block-file__button {
         margin-bottom: 1em;
     }
 }
+
+.latest-posts{
+    article{
+        border-radius: $border-radius;
+
+        .post-thumbnail{
+            img{
+                border-radius: $border-radius $border-radius 0 0;
+            }
+        }
+    }
+}

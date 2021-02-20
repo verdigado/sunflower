@@ -59,9 +59,10 @@ function sunflower_next_events_render( $block_attributes, $content ) {
 
 function sunflower_latest_posts_render( $block_attributes, $content ) {
 
+    $posts_per_page = 4; 
     $posts = new WP_Query(array(
         'post_type'     => 'post',
-        'posts_per_page'=> 4,
+        'posts_per_page'=> $posts_per_page,
         'order'        => 'DESC'
     ));
 
@@ -73,14 +74,19 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
                         __('News', 'sunflower')
     );
 
+    
     ob_start();
-
+    $i = 1;
+    echo '<div class="col-12 col-md-6">';
     while ( $posts->have_posts() ) {
         $posts->the_post();
-            echo '<div class="col-12 col-md-6">';
-                get_template_part( 'template-parts/content', 'archive');
-            echo '</div>';
+            get_template_part( 'template-parts/content', 'archive');
+            if($i == floor( $posts_per_page / 2)){
+                echo '</div><div class="col-12 col-md-6">';
+            }
+            $i++;
     }  
+    echo '</div>';
      
            
     $return .= ob_get_contents();
