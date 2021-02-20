@@ -6,8 +6,13 @@ sunflower WordPress theme
 
 Demo and Download
 ---------------
-A Demo-Website can be found at
-https://sunflower-theme.de.
+ - The project-page can be found at https://sunflower-theme.de 
+ - The demopage is lacted at https://sunflower-theme.de/demo
+ - Here you can download the installable theme-zip: https://sunflower-theme.de/updateserver/sunflower.zip
+
+## Chat-Channel
+There is also a chat-channel (access for green party members only)
+https://chatbegruenung.de/channel/sunflower-wordpress
 
 
 Installation
