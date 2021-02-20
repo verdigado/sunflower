@@ -55,3 +55,8 @@ function sunflower_admin_style() {
  }
  
  add_action('admin_enqueue_scripts', 'sunflower_admin_style');
+
+ function sunflower_change_admin_footer(){
+    echo '<span id="footer-note">Programmiert von <a href="https://sunflower-theme.de/" target="_blank">Tom Rose</a>.</span>';
+   }
+add_filter('admin_footer_text', 'sunflower_change_admin_footer');
