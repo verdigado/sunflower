@@ -17,3 +17,12 @@
     background: #46962b;
     padding: 20px;
 }
+
+.sunflower-admin-hint{
+    text-align: center;
+    background: #e6007e;
+    padding: 10px;
+    color: white;
+    font-size: 200%;
+    border-radius: 15px;
+}

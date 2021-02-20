@@ -127,6 +127,16 @@ function sunflower_event_meta_box(){
 
     if( $uid ){
         printf('<div style="color:red">%s</div>', __('This event will be imported by remote ical-calendar. All changes here will be overwritten.', 'sunflower'));
+    ?>
+        <script>
+            jQuery( document ).ready(function() {
+                window.setTimeout(() => {
+                    jQuery('.popover-slot').prepend('<div class="sunflower-admin-hint">Dies ist ein importierter Termin.<br>Änderungen hier werden in Kürze automatisch überschrieben.</div>');
+                }, 1000);
+                
+            });
+        </script>
+    <?php
         return;
     }
 
