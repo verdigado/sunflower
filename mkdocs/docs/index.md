@@ -6,10 +6,9 @@ Dies ist die Anleitung für das Sunflower-WordPress-Theme.
 * WordPress 5
 
 ## Features
-* zeigt bei Aktivierung Liste mit empfohlenen Plugins
+* einfacher Umzug von Urwahl3000
 * eine Musterstartseite erstellt man mit nur einem Knopfdruck
-* Hinweis, wenn ein neues Update vorliegt
-* eigene Terminverwaltung
+* eigene Terminverwaltung, Kalender können per ics importiert werden
 * responsives Layout für verschiedene Bildschirmgrößen (Handys, Tablet, Desktops)
 
 ## Technik

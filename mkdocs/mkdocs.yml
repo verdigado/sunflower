@@ -1,18 +1,21 @@
 site_name: Sunflower
 nav:
   - Einleitung: index.md
-  - Einrichtung: setup.md
-  - Umzug von Urwahl3000: urwahl3000.md
-  - Startseite: homepage.md
-  - Menüs: menus.md
-  - Elemente (Blöcke): blocks.md
-  - Termine: events.md
-  - Anträge & Beschlüsse: proposals.md
-  - Individuelles CSS: customcss.md
   - Besonderheiten: specials.md
-  - Häufige Fragen: faq.md
-  - Datenschutz: privacy.md
-  - Für Entwickler*innen: development.md
+  - Einrichtung:
+    - Einrichtung: setup.md
+    - Umzug von Urwahl3000: urwahl3000.md
+    - Startseite: homepage.md
+    - Menüs: menus.md
+    - Individuelles CSS: customcss.md
+  - Nutzung:
+    - Elemente (Blöcke): blocks.md
+    - Termine: events.md
+    - Anträge & Beschlüsse: proposals.md
+  - Allgemeines:
+    - Häufige Fragen: faq.md
+    - Datenschutz: privacy.md
+    - Für Entwickler*innen: development.md
 theme:
   name: null
   custom_dir: 'theme/'
@@ -30,7 +33,7 @@ theme:
   navigation_depth: 4
   titles_only: false
   sticky_navigation: true
-  collapse_navigation: true
+  collapse_navigation: false
 site_dir: ../documentation
 extra_css:
   - extra.css
