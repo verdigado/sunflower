@@ -60,3 +60,23 @@ function sunflower_admin_style() {
     echo '<span id="footer-note">Programmiert von <a href="https://sunflower-theme.de/" target="_blank">Tom Rose</a>.</span>';
    }
 add_filter('admin_footer_text', 'sunflower_change_admin_footer');
+
+function sunflower_add_custom_dashboard_widgets() {
+    wp_add_dashboard_widget(
+                 'sunflower_dashboard_widget', // Widget slug.
+                 __('Sunflower', 'sunflower'), // Title.
+                 'sunflower_dashboard_widget_content', // Display function.
+                 null,
+                 null,
+                 'column-4'
+        );
+}
+add_action( 'wp_dashboard_setup', 'sunflower_add_custom_dashboard_widgets' );
+
+/**
+ * Create the function to output the contents of your Dashboard Widget.
+ */
+
+function sunflower_dashboard_widget_content() {
+    echo 'Schön, dass Du Sunflower benutzt. Eine ausführliche Hilfe gibt es unter <a href="https://sunflower-theme.de/documentation" target="_blank">https://sunflower-theme.de/documentation</a>.';
+}
