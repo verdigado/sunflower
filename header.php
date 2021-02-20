@@ -57,7 +57,7 @@
 		<div class="container-fluid bloginfo bg-primary p-2">
 			<div class="container d-flex align-items-center">
 				<a class="me-1" href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" class="">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" class="" alt="Sonnenblume - Logo">
 				</a>
 				<div>
 					<div class="h5 text-white arvogruen mb-0 bloginfo-name">
