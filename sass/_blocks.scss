@@ -19,6 +19,8 @@ a.wp-block-file__button {
 
 .wp-block-group{
 
+    padding: 100px 0;
+    
     &.has-background{
         width: 100vw;
         position: relative;
@@ -26,7 +28,6 @@ a.wp-block-file__button {
         right: 50%;
         margin-left: -50vw;
         margin-right: -50vw;
-        padding: $grid-gutter-width 0;
         display: flex;
         justify-content: center;
     }
