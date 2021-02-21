@@ -28,7 +28,7 @@
 
 	<header id="masthead" class="site-header ptsans">
 	
-		<nav class="navbar navbar-top navbar-expand-lg navbar-dark p-0 topmenu">
+		<nav class="navbar navbar-top d-none d-md-block navbar-expand-lg navbar-dark p-0 topmenu">
 			<div class="container">
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topmenu-container" aria-controls="topmenu-container" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
