@@ -14,11 +14,11 @@ get_header();
 
 		<section class="error-404 not-found">
 			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'sunflower' ); ?></h1>
+				<h1 class="page-title"><?php esc_html_e('Da ist etwas schiefgelaufen.', 'sunflower' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'sunflower' ); ?></p>
+				<p><?php esc_html_e( 'Leider wurde die gesuchte Seite nicht gefunden. Das tut uns sehr leid. Am Besten probierst Du die Suchfunktion aus, um den passenden Inhalt zu finden.', 'sunflower' ); ?></p>
 
 					<?php
 					get_search_form();
