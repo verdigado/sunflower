@@ -76,17 +76,22 @@
  
      &-light{
          .navbar-nav{
-             .nav-link{
-                 color: $body-color;
-                 font-size: 18px;
-                 &:hover{
-                     color: $primary;
-                 };
-             }
+            .current-menu-item{
+                a.nav-link{
+                    color: $primary;
+                }
+            }
+            .nav-link{
+                color: $body-color;
+                font-size: 18px;
+                &:hover{
+                    color: $primary;
+                };
+            }
          }
      }
  
      li{
          margin-right: 10px;
      }
- }
+}
