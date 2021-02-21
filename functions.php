@@ -18,6 +18,8 @@ require_once('functions/related-posts.php');
 require_once('functions/activation.php');
 require_once('functions/comments.php');
 require_once('functions/icalimport.php');
+require_once('functions/pictureimport.php');
+
 
 
 

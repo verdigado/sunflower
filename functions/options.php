@@ -89,6 +89,31 @@ class SunflowerSettingsPage
             <h2>Einstellungen</h2>
             Bitte siehe links im Menü, welche Unterpunkte es gibt.
 
+            <h2>Import von Muster-Bildern</h2>
+            <?php
+
+            if( isset($_GET['pictureimport'])){
+               $count = sunflower_import_all_pictures();
+               printf('<a href="upload.php">Es wurden %d Bilder importiert. Sieh sie Dir in der Mediathek an</a>', $count);
+            }else{
+            ?>
+                Wir haben eine Auswahl an Muster-Bildern zusammengestellt, die Du Dir in Deine Mediathek 
+                herunterladen kannst. Du darfst diese Bilder ohne Quellenangabe nutzen. 
+                Hier siehst Du die Bilder, die du importieren kannst:
+                <div style="margin-bottom:1em">
+                    <img src="https://sunflower-theme.de/updateserver/images/thumbnails.jpg" alt="Thumbnails">
+                </div>
+                <div>
+                    <a href="admin.php?page=sunflower_admin&pictureimport=1" class="button button-primary">
+                        Bilder in Mediathek importieren</a>
+                </div>
+                <div>
+                Der Import kann einige Minuten dauern. Bitte warte so lange, und klicke nirgendwo hin.
+            </div>
+            <?php
+            }
+            ?>
+
         </div>
     <?php
     }    
@@ -165,7 +190,7 @@ class SunflowerSettingsPage
                 printf('<div><a href="../?post_type=sunflower_event">Termine ansehen</a></div>');
             }else{
                 if(get_sunflower_setting('sunflower_ical_urls') ){
-                    echo '<a href="admin.php?page=sunflower_events_options&icalimport=1">Kalender jetzt      importieren</a>';
+                    echo '<a href="admin.php?page=sunflower_events_options&icalimport=1" class="button button-primary">Kalender jetzt importieren</a>';
                 }else{
                     echo 'Um einen Kalender importieren zu können, trage die URL bitte unter Sunflower-Einstellungen ein.';
                 }
