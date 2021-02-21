@@ -67,7 +67,12 @@ function sunflower_meta_box_layout(){
     );
 
 
-    $checked = ( isset( $custom['_sunflower_page_width'][0]) AND $custom['_sunflower_page_width'][0] ) ? 'checked' : '';
+    if( isset( $custom['_sunflower_page_width'][0]) ){
+        $checked = ($custom['_sunflower_page_width'][0]) ? 'checked': '';
+    } else {
+        $checked = 'checked';
+    }
+
     printf('
     <div class="components-panel__row">
         <div class="components-base-control__field">
