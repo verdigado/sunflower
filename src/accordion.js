@@ -62,8 +62,9 @@ registerBlockType( 'sunflower/accordion', {
         return (
             <div {...blockProps}>
         
-                <RichText
+                <TextControl
                     tagName="p"
+                    label="Klickbarer Text, der die Sektion öffnet"
                     onChange={ onChangeHeadline }
                     value={ headline }
                 />
@@ -81,20 +82,21 @@ registerBlockType( 'sunflower/accordion', {
         return (
             <div {...blockProps}>
                 <div class="accordion-item">
-                    <div class="sunflower-accordion-headline accordion-header" data-bs-toggle="collapse" data-bs-target={'.sacc' + random}>
-                        <RichText.Content
-                            className={ `sunflower-accordion` }
-                            tagName="p"
-                            value={ props.attributes.headline }
-                        />
-                    </div>
 
-                    <div class={'sunflower-accordion-content accordion-body collapse sacc' + random}>
-                        <RichText.Content
-                            className={ `sunflower-accordion` }
-                            tagName="p"
-                            value={ props.attributes.content }
-                        />
+                    <h4 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={'.sacc' + random} aria-expanded="false" aria-controls={'.sacc' + random}>
+                        { props.attributes.headline }
+                        </button>
+                    </h4>
+
+                    <div class={'accordion-collapse collapse sacc' + random} aria-labelledby={'.sacc' + random}>
+                        <div class="accordion-body">
+                            <RichText.Content
+                                className={ `sunflower-accordion` }
+                                tagName="p"
+                                value={ props.attributes.content }
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
