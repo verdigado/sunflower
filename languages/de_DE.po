@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-02-19T22:44:54+01:00\n"
-"PO-Revision-Date: 2021-02-21 21:22+0100\n"
+"POT-Creation-Date: 2021-02-21T23:09:55+01:00\n"
+"PO-Revision-Date: 2021-02-21 23:12+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -21,8 +21,10 @@ msgid "sunflower"
 msgstr "sunflower"
 
 #. Theme URI of the theme
-msgid "http://underscores.me/"
-msgstr "http://underscores.me/"
+#, fuzzy
+#| msgid "https://tom-rose.de"
+msgid "https://sunflower-theme.de"
+msgstr "https://tom-rose.de"
 
 #. Description of the theme
 msgid "Theme for german Green party"
@@ -36,26 +38,18 @@ msgstr "Tom Rose"
 msgid "https://tom-rose.de"
 msgstr "https://tom-rose.de"
 
-#: 404.php:17
+#: 404.php:19
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Hoppla, Seite nicht gefunden."
 
-#: 404.php:21
+#: 404.php:25
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
 msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
 
-#: 404.php:30
-msgid "Most Used Categories"
-msgstr "Häufige Kategorien"
-
-#. translators: %1$s: smiley
-#: 404.php:48
-msgid "Try looking in the monthly archives. %1$s"
-msgstr "Try looking in the monthly archives. %1$s"
-
 #: archive-sunflower_event.php:21 functions/events.php:24
+#: functions/options.php:63 functions/options.php:64 functions/options.php:269
 msgid "Events"
 msgstr "Termine"
 
@@ -63,35 +57,49 @@ msgstr "Termine"
 msgid "all events"
 msgstr "Alle Termine"
 
-#: archive.php:65 index.php:71 single.php:42
+#: archive.php:65 index.php:71 single.php:43
 msgid "previous"
 msgstr "zurück"
 
-#: archive.php:66 index.php:72 single.php:47
+#: archive.php:66 index.php:72 single.php:48
 msgid "next"
 msgstr "vor"
 
-#: comments.php:27
-msgid "comment article"
+#: comments.php:25
+msgid "Comment article"
 msgstr "Artikel kommentieren"
 
 #: comments.php:28
+msgid "comment article"
+msgstr "Artikel kommentieren"
+
+#: comments.php:29
 msgid "send"
 msgstr "abschicken"
 
-#: comments.php:48
+#: comments.php:31
+msgid ""
+"Your mail will not be published. Required fields are marked with a *. For "
+"more info see <a href=\"%s\">privacy</a>"
+msgstr ""
+"Ihre E-Mail-Adresse wird nicht veröffentlicht. Erforderliche Felder sind "
+"tmit * markiert. Mit der Nutzung dieses Formulars erklären Sie sich mit der "
+"Speicherung und Verarbeitung Ihrer Daten durch diese Website einverstanden. "
+"Weiteres entnehmen Sie bitte der <a href=\"%s\">Datenschutzerklärung</a>."
+
+#: comments.php:53
 msgid "One comment"
 msgstr "Ein Kommentar"
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:52
+#: comments.php:57
 msgctxt "context"
 msgid "%1$s commment"
 msgid_plural "%1$s comments"
 msgstr[0] "Ein Kommentar"
 msgstr[1] "%s Kommentare"
 
-#: comments.php:79
+#: comments.php:84
 msgid "Comments are closed."
 msgstr "Keine Kommentare möglich."
 
@@ -104,24 +112,30 @@ msgstr ""
 "Danke, dass Du das Sunflower-Theme nutzt. <a href='admin.php?"
 "page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
-#: functions/block-patterns.php:11 functions/blocks.php:112
-#: functions/options.php:24 functions/options.php:25
+#: functions/admin.php:67 functions/block-patterns.php:11
+#: functions/blocks.php:118 functions/options.php:24 functions/options.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
+
+#: functions/admin.php:92
+#, fuzzy
+#| msgid "sunflower_event"
+msgid "Help for sunflowers events"
+msgstr "sunflower_event"
 
 #: functions/blocks.php:36
 msgid "Next events"
 msgstr "Nächste Termine"
 
-#: functions/blocks.php:73
+#: functions/blocks.php:74
 msgid "News"
 msgstr "Aktuelles"
 
-#: functions/blocks.php:97
+#: functions/blocks.php:103
 msgid "more posts"
 msgstr "Weitere Beiträge"
 
-#: functions/blocks.php:99
+#: functions/blocks.php:105
 msgid "to archive"
 msgstr "Zum Blog-Archiv"
 
@@ -199,23 +213,23 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:161
+#: functions/events.php:171
 msgid "Map"
 msgstr "Landkarte"
 
-#: functions/events.php:162
+#: functions/events.php:172
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/events.php:163
+#: functions/events.php:173
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/metaboxes.php:6 functions/options.php:193
+#: functions/metaboxes.php:6 functions/options.php:262
 msgid "Layout"
 msgstr "Layout"
 
-#: functions/metaboxes.php:15 functions/metaboxes.php:100
+#: functions/metaboxes.php:15 functions/metaboxes.php:105
 msgid "Metadata"
 msgstr "Metadaten"
 
@@ -223,15 +237,15 @@ msgstr "Metadaten"
 msgid "Show title"
 msgstr "Titel anzeigen"
 
-#: functions/metaboxes.php:81
+#: functions/metaboxes.php:86
 msgid "Layout wide"
 msgstr "breites Layout"
 
-#: functions/metaboxes.php:94
+#: functions/metaboxes.php:99
 msgid "Roofline"
 msgstr "Dachzeile"
 
-#: functions/metaboxes.php:101
+#: functions/metaboxes.php:106
 msgid "use Shift + Enter to prevent line between"
 msgstr "Tippe Shift + Enter, um  Zwischenzeile zu verhindern."
 
@@ -243,65 +257,72 @@ msgstr "Erste Schritte"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: functions/options.php:60
+#: functions/options.php:54 functions/options.php:55
+#, fuzzy
+#| msgid "Social Media Profiles"
+msgid "Social Media"
+msgstr "Profile in Sozialen Medien"
+
+#: functions/options.php:78
 msgid "About Sunflower"
 msgstr "Über Sunflower"
 
-#: functions/options.php:90
-msgid " events were new/updated"
-msgstr "Termine sind neu/ wurden erneuert"
-
-#: functions/options.php:121
+#: functions/options.php:130 functions/options.php:152
+#: functions/options.php:213
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
-#: functions/options.php:147
+#: functions/options.php:178
+msgid " events were new/updated"
+msgstr "Termine sind neu/ wurden erneuert"
+
+#: functions/options.php:239
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options.php:170
-msgid "Miscellaneous"
-msgstr "Verschiedenes"
-
-#: functions/options.php:177
+#: functions/options.php:276
 msgid "Excerpt length (words)"
 msgstr "Länge der Vorschautextes in Worten"
 
-#: functions/options.php:185
+#: functions/options.php:284
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options.php:200 functions/options.php:204
+#: functions/options.php:293 functions/options.php:297
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options.php:209
+#: functions/options.php:302
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options.php:216 functions/options.php:220
+#: functions/options.php:309 functions/options.php:313
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options.php:225 functions/options.php:229
+#: functions/options.php:318 functions/options.php:322
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options.php:234
+#: functions/options.php:327
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options.php:238
+#: functions/options.php:331
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options.php:278
+#: functions/options.php:371
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
-#: functions/options.php:324
+#: functions/options.php:422
 msgid "complete URL of profile"
 msgstr "Komplette URL des Profils"
+
+#: functions/pictureimport.php:57
+msgid "An error occurred. Could not import images"
+msgstr "Es ist ein Fehler aufgetreten. Die Bilder wurden nicht importiert."
 
 #: functions/plugin-activation.php:114
 msgid "Install Required Plugins"
@@ -467,9 +488,6 @@ msgstr "Menü erstellen"
 
 #. translators: %s: post author.
 #: inc/template-tags.php:40
-#, fuzzy
-#| msgctxt "post author"
-#| msgid "| %s"
 msgctxt "post author"
 msgid " | %s"
 msgstr "Autor*in"
@@ -545,7 +563,7 @@ msgstr "Kartendaten laden"
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: template-parts/content-archive.php:66 template-parts/content-page.php:29
+#: template-parts/content-archive.php:66 template-parts/content-page.php:31
 #: template-parts/content.php:77
 msgid "Pages:"
 msgstr "Seiten:"
@@ -584,6 +602,18 @@ msgstr ""
 #: template-parts/related-posts.php:7
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
+
+#~ msgid "http://underscores.me/"
+#~ msgstr "http://underscores.me/"
+
+#~ msgid "Most Used Categories"
+#~ msgstr "Häufige Kategorien"
+
+#~ msgid "Try looking in the monthly archives. %1$s"
+#~ msgstr "Try looking in the monthly archives. %1$s"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "Verschiedenes"
 
 #~ msgid "One thought on &ldquo;%1$s&rdquo;"
 #~ msgstr "Ein Kommentar zu &ldquo;%1$s&rdquo;"

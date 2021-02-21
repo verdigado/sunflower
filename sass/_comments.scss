@@ -59,16 +59,24 @@
 
         .comment-form-cookies-consent{
             display: flex;
-        }
-        label[for=wp-comment-cookies-consent]{
-            display: inline;
+            align-items: center;
+            
+            input{
+                width: 50px;
+                height: 50px;
+                margin-right: 1em;
+            }
+            label{
+                display: inline;
+                font-size: 15px;
+            }
         }
 
-        #wp-comment-cookies-consent{
-            width: 50px;
-            height: 50px;
+        input[type=url],
+        input[type=text],
+        input[type=email]{
+            width: 100%;
         }
-
     }
 
     &-form{
@@ -109,5 +117,3 @@
         font-style: italic;
     }
 }
-
-
