@@ -57,7 +57,7 @@
 		<div class="container-fluid bloginfo bg-primary p-2">
 			<div class="container d-flex align-items-center">
 				<a class="me-1" href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" class="" alt="Sonnenblume - Logo">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower.svg" class="" alt="Sonnenblume - Logo">
 				</a>
 				<div>
 					<div class="h5 text-white arvogruen mb-0 bloginfo-name">
@@ -77,7 +77,7 @@
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white sticky-top">
 		<div class="container">
 			<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/sunflower.svg" alt="Sonnenblume - Logo">
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower.svg" alt="Sonnenblume - Logo">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
