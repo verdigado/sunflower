@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
-    "bootstrap": "^5.0.0-beta1",
+    "bootstrap": "^5.0.0-beta2",
     "copyfiles": "^2.4.1",
     "jquery-datetimepicker": "^2.5.21",
     "jquery-slim": "^3.0.0",
