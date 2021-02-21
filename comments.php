@@ -22,10 +22,15 @@ if ( post_password_required() ) {
 
 <div class="full-width bg-lightgreen pt-5 pb-5">
 	<div class="container">
+		<h4 class="h2 text-center mt-3 mb-5"><?php _e('Comment article', 'sunflower'); ?></h4>
 		<?php 
 			$args = array(
-				'title_reply' => __('comment article', 'sunflower'),
-				'label_submit' => __('send', 'sunflower')
+				'title_reply' 			=> __('comment article', 'sunflower'),
+				'label_submit' 			=> __('send', 'sunflower'),
+				'comment_notes_after'   => __('Comment-notes ....', 'sunflower') . '</div>',
+				'comment_notes_before'  => false,
+				'class_form'   			=> 'row',
+				'title_reply'			=> ''
 			);
 			
 			comment_form( $args ); 

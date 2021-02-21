@@ -51,26 +51,45 @@
         background-color: $white;
         padding: 30px;
         border-radius: $border-radius;
+    
+
+        label{
+            display: block;
+        }
+
+        .comment-form-cookies-consent{
+            display: flex;
+        }
+        label[for=wp-comment-cookies-consent]{
+            display: inline;
+        }
+
+        #wp-comment-cookies-consent{
+            width: 50px;
+            height: 50px;
+        }
+
     }
 
     &-form{
        &-comment{
-           float:left;
-           width: 45%;
-           margin-right: 5%;
+          
        }
 
        &-author,
        &-email,
        &-url{
-            display: flex;
-            flex-direction: column;
+           
+       }
+
+       &-meta{
+
        }
 
        &-cookies-consent{
-           padding-left: 50%;
+           
            label{
-               display: inline;
+              
            }
        }
     }
