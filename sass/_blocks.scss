@@ -60,6 +60,11 @@ a.wp-block-file__button {
     }
 }
 
+.wp-block-columns{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .wp-block-column{
     img{
         width: 100%;
@@ -111,6 +116,11 @@ a.wp-block-file__button {
         img{
             max-height: 140px;
         }
+    }
+}
+
+@include media-breakpoint-up(sm) { 
+    .wp-block-columns{
     }
 }
 
