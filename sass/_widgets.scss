@@ -31,11 +31,13 @@
     }
 
     &_search{
-        input{
+        input,
+        input:focus{
             border: 1px solid $sidebar-color;
             padding: 4px;
             border-radius: 0;
             background: none;
+            color: white;
         }
         
         label{
