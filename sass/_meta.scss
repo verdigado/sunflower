@@ -22,8 +22,11 @@
 }
 
 .metabox{
+
+    @include media-breakpoint-up(md) {
+        position: absolute;
+    }
     background: $primary;   
-    position: absolute;
     right: -40px;
     top: -10px;
     border-radius: $border-radius;
@@ -31,6 +34,7 @@
     padding: $grid-gutter-width; 
     z-index: 20;
     text-align: left;
+
 
     .date{
         font-size: 200%;
