@@ -27,9 +27,9 @@ if ( post_password_required() ) {
 			$args = array(
 				'title_reply' 			=> __('comment article', 'sunflower'),
 				'label_submit' 			=> __('send', 'sunflower'),
-				'comment_notes_after'   => sprintf(
+				'comment_notes_after'   => '<p>' . sprintf(
 						__('Your mail will not be published. Required fields are marked with a *. For more info see <a href="%s">privacy</a>', 'sunflower'), 
-						get_privacy_policy_url()) . '</div><div class="col-6 comment-form-meta">',
+						get_privacy_policy_url()) . '</p></div><div class="col-6 comment-form-meta">',
 				'comment_notes_before'  => '<div class="col-6">',
 				'class_form'   			=> 'row',
 				'title_reply'			=> ''
