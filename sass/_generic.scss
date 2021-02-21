@@ -21,3 +21,12 @@
 .text-left{
     text-align: left;
 }
+
+.no-link{
+    color: inherit;
+    text-decoration: none;
+    a{
+        color: inherit;
+        text-decoration: none; 
+    }
+}

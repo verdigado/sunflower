@@ -154,7 +154,7 @@ a.wp-block-file__button {
 .latest-posts{
     article{
         border-radius: $border-radius;
-
+        margin-bottom: 10px;
         .post-thumbnail{
             img{
                 border-radius: $border-radius $border-radius 0 0;
