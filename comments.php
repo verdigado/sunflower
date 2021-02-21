@@ -23,16 +23,18 @@ if ( post_password_required() ) {
 <div class="full-width bg-lightgreen pt-5 pb-5">
 	<div class="container">
 		<h4 class="h2 text-center mt-3 mb-5"><?php _e('Comment article', 'sunflower'); ?></h4>
-		<?php 
+		<?php
+			$divider = (is_user_logged_in()) ? '' : '</div><div class="col-6">';
 			$args = array(
 				'title_reply' 			=> __('comment article', 'sunflower'),
 				'label_submit' 			=> __('send', 'sunflower'),
+				'comment_notes_before'  => '<div class="col-6">',
 				'comment_notes_after'   => '<p>' . sprintf(
 						__('Your mail will not be published. Required fields are marked with a *. For more info see <a href="%s">privacy</a>', 'sunflower'), 
-						get_privacy_policy_url()) . '</p></div><div class="col-6 comment-form-meta">',
-				'comment_notes_before'  => '<div class="col-6">',
+						get_privacy_policy_url()) . '</p>' . $divider,
 				'class_form'   			=> 'row',
-				'title_reply'			=> ''
+				'title_reply'			=> '',
+				//'submit_field'			=> '<p class="form-submit col-12">%1$s %2$s</p>'
 			);
 			
 			comment_form( $args ); 

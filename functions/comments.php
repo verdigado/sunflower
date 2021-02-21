@@ -1,7 +1,7 @@
 <?php
 
 function sunflower_rearrange_comment_fields( $fields ) {
-    $fields[] = '</div>';
+    $fields['closer'] = '</div>';
 
     return $fields;
 }
