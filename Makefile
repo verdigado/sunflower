@@ -33,6 +33,9 @@ get:
 deploy:
 	git push && make compile-silent bundle upload activate get announce
 
+style-deploy:
+	rsync style.css sharepic:/var/www/sunflower-theme.de/wp-content/themes/sunflower
+
 publish:
 	@echo "Be sure to have edited release_notes.html"
 	@echo "Latest tag was: " 
