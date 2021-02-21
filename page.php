@@ -14,13 +14,13 @@
 
 get_header();
 
-$page_width_col = @get_post_meta( $post->ID, '_sunflower_page_width')[0] ? 'col-12' : 'col-9';
+$layout_width = @get_post_meta( $post->ID, '_sunflower_page_width')[0] ? '' : 'container-narrow';
 $metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
 
 ?>
-	<div id="content" class="container">
+	<div id="content" class="container <?php echo $layout_width; ?>">
 		<div class="row">
-			<div class="<?php echo $page_width_col; ?>">
+			<div class="col-12">
 				<main id="primary" class="site-main">
 
 					<?php

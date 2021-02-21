@@ -3,6 +3,10 @@ body{
     overflow-x: hidden;
 }
 
+.container-narrow{
+    max-width: 900px;
+}
+
 .post-edit-link{
     color: $white;
     &:visited{
@@ -164,4 +168,4 @@ input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;  
     opacity: 0;
     pointer-events: none;
-  }
+}
