@@ -3,7 +3,13 @@
     flex-wrap: wrap;
 
     section{
-        flex: 1 0 21%; /* explanation below */
+        flex: 1 0 21%; 
         margin: 0 4% 4% 0;
+    }
+
+    @include media-breakpoint-down(md) { 
+        section{
+            flex: 1 0 100%; 
+        }
     }
 }

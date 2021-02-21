@@ -56,7 +56,7 @@ get_header();
 							* called content-___.php (where ___ is the Post Type name) and that will be used instead.
 							*/
 
-							echo '<div class="col-12 col-md-6 col-lg-4">';
+							echo '<div class="col-12 col-md-6 col-lg-4 mb-3">';
 								get_template_part( 'template-parts/archive', 'event');
 							echo '</div>';
 
