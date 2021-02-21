@@ -15,6 +15,7 @@
 get_header();
 
 $page_width_col = @get_post_meta( $post->ID, '_sunflower_page_width')[0] ? 'col-12' : 'col-9';
+$metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
 
 ?>
 	<div id="content" class="container">
@@ -26,7 +27,7 @@ $page_width_col = @get_post_meta( $post->ID, '_sunflower_page_width')[0] ? 'col-
 					while ( have_posts() ) :
 						the_post();
 
-						get_template_part( 'template-parts/content', 'page' );
+						get_template_part( 'template-parts/content', 'page', ['metadata' => $metadata, 'class' => 'display-single'] );
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						if ( comments_open() || get_comments_number() ) :

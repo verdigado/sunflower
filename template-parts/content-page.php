@@ -9,9 +9,11 @@
 
 
 $show_title = @get_post_meta( $post->ID, '_sunflower_show_title')[0] ? true : false;
+$metadata = $class = false;
+extract($args);
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class($class); ?>>
 	<?php if ($show_title ) { ?>
 		<header class="entry-header">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
