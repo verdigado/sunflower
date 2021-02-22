@@ -95,3 +95,17 @@
          margin-right: 10px;
      }
 }
+
+.navbar-toggler{
+    &:focus{
+        box-shadow: none;
+    }
+    &>.close {
+        display: block;
+    }
+}
+
+.navbar-toggler.collapsed>.close, 
+.navbar-toggler:not(.collapsed)>.open {
+    display: none;
+}
