@@ -64,16 +64,22 @@ function sunflower_icalimport( $url = false){
 
         update_post_meta( $id, '_sunflower_event_from', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($startdate )));
         update_post_meta( $id, '_sunflower_event_until', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($enddate )));
-        update_post_meta( $id, '_sunflower_event_location_name', $event->location);
         update_post_meta( $id, '_sunflower_event_uid', $event->uid);
 
-        $coordinates = sunflower_geocode( $event->location );
-        if ( $coordinates ) {
-            list($lon, $lat) = $coordinates;
-            update_post_meta( $id, '_sunflower_event_lat', $lat);
-            update_post_meta( $id, '_sunflower_event_lon', $lon);
-            $zoom = sunflower_get_constant('SUNFLOWER_EVENT_IMPORTED_ZOOM') ?: 12;
-            update_post_meta( $id, '_sunflower_event_zoom', $zoom);
+        if( isset($event->location) ){
+            update_post_meta( $id, '_sunflower_event_location_name', $event->location);
+            $coordinates = sunflower_geocode( $event->location );
+            if ( $coordinates ) {
+                list($lon, $lat) = $coordinates;
+                update_post_meta( $id, '_sunflower_event_lat', $lat);
+                update_post_meta( $id, '_sunflower_event_lon', $lon);
+                $zoom = sunflower_get_constant('SUNFLOWER_EVENT_IMPORTED_ZOOM') ?: 12;
+                update_post_meta( $id, '_sunflower_event_zoom', $zoom);
+            }
+        }
+
+        if( isset($event->categories) ){
+            wp_set_post_terms( $id, $event->categories, 'sunflower_event_tag');
         }
     }
 
