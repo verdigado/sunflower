@@ -49,20 +49,21 @@
 								'walker'          => new WP_Bootstrap_Navwalker(),
 							) );
 							?>
-
-						<div class="d-block d-md-none">
-							<?php
-								wp_nav_menu( array(
-									'theme_location'  => 'topmenu',
-									'menu_id'		  => 'topmenu',
-									'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
-									'container'       => false,
-									'menu_class'      => 'navbar-nav small',
-									'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-									'walker'          => new WP_Bootstrap_Navwalker(),
-								) );
-							?>
-						</div>
+					</div>
+				</nav>
+				<nav class="col-12 d-block d-lg-none navbar navbar-top navbar-expand-md d-flex justify-content-center">
+					<div class="text-center">
+						<?php
+							wp_nav_menu( array(
+								'theme_location'  => 'topmenu',
+								'menu_id'		  => 'topmenu-footer',
+								'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
+								'container'       => false,
+								'menu_class'      => 'navbar-nav small',
+								'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+								'walker'          => new WP_Bootstrap_Navwalker(),
+							) );
+						?>
 					</div>
 				</nav>
 			</div>
