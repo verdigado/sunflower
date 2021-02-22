@@ -133,7 +133,7 @@ function sunflower_import_icals() {
     }
 
     $import_every_n_hour = sunflower_get_constant('SUNFLOWER_EVENT_IMPORT_EVERY_N_HOUR') ?: 3;
-    set_transient( 'sunflower_ical_imported', 1, import_every_n_hour * 3600 );
+    set_transient( 'sunflower_ical_imported', 1, $import_every_n_hour * 3600 );
 
     $urls = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
     $ids_from_remote = array();
