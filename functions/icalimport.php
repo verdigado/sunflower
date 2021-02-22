@@ -67,7 +67,8 @@ function sunflower_icalimport( $url = false){
         update_post_meta( $id, '_sunflower_event_location_name', $event->location);
         update_post_meta( $id, '_sunflower_event_uid', $event->uid);
 
-        if ( !$coordinates = sunflower_geocode( $event->location )) {
+        $coordinates = sunflower_geocode( $event->location );
+        if ( $coordinates ) {
             list($lon, $lat) = $coordinates;
             update_post_meta( $id, '_sunflower_event_lat', $lat);
             update_post_meta( $id, '_sunflower_event_lon', $lon);
