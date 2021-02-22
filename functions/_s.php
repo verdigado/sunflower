@@ -243,11 +243,18 @@ add_action( 'after_setup_theme', 'register_navwalker' );
 
 add_filter( 'body_class', 'sunflower_body_class', 10, 2 );
 
-function sunflower_body_class( $classes, $class )
-{
+function sunflower_body_class( $classes, $class ){
 	if( is_front_page() ){
 		$classes = array( 'home' );
 	}
 	
 	return $classes;
+}
+
+function sunflower_get_constant( $constant ){
+	if (!defined( $constant )){
+		return false;
+	}
+
+	return constant( $constant );
 }

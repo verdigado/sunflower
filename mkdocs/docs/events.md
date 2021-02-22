@@ -32,8 +32,37 @@ Das machst Du folgendermaßen:
 ## Termine über ical importieren
 Sunflower importiert Termine aus mehreren externen Kalendern, auf die per iCal-Datei zugeriffen wird. Voraussetzung ist, dass der Kalender eine iCal-Datei (Endung meist .ics) per URL zur Verfügung stellt.
 
-Bitte trage diese iCal-URLs in den Sunflower-Einstellungen ein. Die Termine werden automatisch alle drei Stunden importiert. Beachte bitte, dass Du solche Termine im WordPress-Backend nicht editieren darfst. Alle Änderungen werden regelmäßig überschrieben.
+Bitte trage diese iCal-URLs in den Sunflower-Einstellungen ein. Die Termine werden automatisch alle paar Stunden importiert (wie Du diese Zeitspanne ändern kannst, siehe unten). Beachte bitte, dass Du solche Termine im WordPress-Backend nicht editieren darfst. Alle Änderungen werden regelmäßig überschrieben.
 
 Du kannst das Importieren von Termine auch gewollt auslösen (zusätzlich zum automatischen Import alle paar Stunden), indem Du in den Sunflower-Einstellungen auf *Kalender importieren* klickst.
 
-Importiert werden alle Termine der nächsten 6 Monate.
+Importiert werden alle Termine der nächsten 6 Monate. Das kannst Du ändern, siehe unten.
+
+### Geodaten
+Die Information zum Veranstaltungsort werden über [Nominatim](https://nominatim.openstreetmap.org/ui/) auf einer Landkarte gesucht. Die Geokoordinaten werden lokal gespeichert. Pro Import-Lauf werden höchstens drei neue Orte über Nominatim gesucht, damit die Import-Performance hoch bleibt. 
+
+### Zoom-Level für importierte Termine festlegen
+Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abweichen möchtest, tragte in der *wp-config.php* bitte die Zeile
+
+``define('SUNFLOWER_EVENT_IMPORTED_ZOOM', 10);``
+
+ein, wobei die *10* das neue Zoomlevel angibt. Es wird werst beim nächsten Import verwendet, diesen Import kannst Du aber manuell triggern (wie, siehe oben).
+
+### Import-Häufigkeit festlegen
+Standardmäßig holt sich *Sunflower* alle drei Stunden neue Daten vom externen Kalender. Um diese Zeit zu ändern, kannst Du in der wp-confit.php folgendes eintragen:
+
+``define('SUNFLOWER_EVENT_IMPORT_EVERY_N_HOUR', 1);``
+
+wobei die 1 hier im Beispiel für jede Stunde steht.
+
+### Anzahl der zu importierenden Termine festlegen
+Standardmäßig holt sich *Sunflower* alle Termie der nächsten sechs Monate vom externen Kalender. Um dies zu ändern, kannst Du in der wp-confit.php folgendes eintragen:
+
+``define('SUNFLOWER_EVENT_TIME_RANGE', '3 months);``
+
+Dabei kannst Du bspw. folgendes nutzen
+
+- 4 weeks
+- 9 months
+- 1 year
+

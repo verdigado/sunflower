@@ -24,7 +24,9 @@ function sunflower_icalimport( $url = false){
         die($e);
     }
 
-    $time_range = '6 months'; 
+    $time_range = sunflower_get_constant('SUNFLOWER_EVENT_TIME_RANGE') ?: '6 months';
+
+    
     $events = $ical->eventsFromInterval($time_range);
 
     $updated_events = 0;
@@ -64,6 +66,14 @@ function sunflower_icalimport( $url = false){
         update_post_meta( $id, '_sunflower_event_until', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($enddate )));
         update_post_meta( $id, '_sunflower_event_location_name', $event->location);
         update_post_meta( $id, '_sunflower_event_uid', $event->uid);
+
+        if ( !$coordinates = sunflower_geocode( $event->location )) {
+            list($lon, $lat) = $coordinates;
+            update_post_meta( $id, '_sunflower_event_lat', $lat);
+            update_post_meta( $id, '_sunflower_event_lon', $lon);
+            $zoom = sunflower_get_constant('SUNFLOWER_EVENT_IMPORTED_ZOOM') ?: 12;
+            update_post_meta( $id, '_sunflower_event_zoom', $zoom);
+        }
     }
 
     return [$ids_from_remote, count($events) - $updated_events, $updated_events];
@@ -122,7 +132,8 @@ function sunflower_import_icals() {
         return false;
     }
 
-    set_transient( 'sunflower_ical_imported', 1, 3 * 3600 );
+    $import_every_n_hour = sunflower_get_constant('SUNFLOWER_EVENT_IMPORT_EVERY_N_HOUR') ?: 3;
+    set_transient( 'sunflower_ical_imported', 1, import_every_n_hour * 3600 );
 
     $urls = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
     $ids_from_remote = array();
@@ -141,4 +152,37 @@ function sunflower_import_icals() {
     foreach($deleted_on_remote AS $to_be_deleted){
         wp_delete_post($to_be_deleted);
     }
+}
+
+
+function sunflower_geocode( $location ){
+    static $i = 0;
+    $transient = sprintf('sunflower_geocache_%s', md5($location));
+
+    if( $cached = get_transient($transient) ) {
+        return $cached;
+    }
+
+    if( $i > 3 ){
+        // download 3 geodata per import
+        return false;
+    }
+
+    $url = sprintf('https://nominatim.openstreetmap.org/search?q=%s&format=geocodejson', urlencode( $location ));
+    $opts = [
+        "http" => [
+            "method" => "GET",
+            "header" => "Accept-language: en\r\n" .
+                "user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36\r\n"
+        ]
+    ];
+    $context = stream_context_create($opts);
+
+    $json = json_decode(file_get_contents($url, false, $context));
+    $lonlat = $json->features[0]->geometry->coordinates;
+    $i++;
+
+    set_transient($transient, $lonlat);
+
+    return $lonlat;
 }

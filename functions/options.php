@@ -402,7 +402,8 @@ class SunflowerSettingsPage
         echo '<div>Importiert werden die Termine der nächsten 6 Monate. 
         Alle 3 Stunden findet ein automatischer Import statt.<br>
         Importierte Termine dürfen nicht im WordPress-Backend bearbeitet werden, weil Änderungen beim nächsten 
-        Import überschrieben werden.
+        Import überschrieben werden.<br>
+        Jede URL mit mit http:// oder https:// beginnen.
         </div>';
     }
 
