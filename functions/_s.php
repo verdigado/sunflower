@@ -8,8 +8,9 @@
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	$theme_data = wp_get_theme(get_option('template'));
+    $theme_version = $theme_data->Version;  
+	define( '_S_VERSION', $theme_version );
 }
 
 if ( ! function_exists( 'sunflower_setup' ) ) :
@@ -156,7 +157,7 @@ function sunflower_scripts() {
         'bootstrap',
         get_template_directory_uri() . '/assets/vndr/bootstrap/dist/js/bootstrap.min.js',
         array( 'jquery-slim' ),
-        '3.2.1', 
+        _S_VERSION, 
         true
 	);
 	
@@ -164,7 +165,7 @@ function sunflower_scripts() {
         'popper',
         get_template_directory_uri() . '/assets/vndr/@popperjs/core/dist/umd/popper.min.js',
         array( 'bootstrap' ),
-        '3.2.1', 
+        _S_VERSION, 
         true
 	);
 	
@@ -172,7 +173,7 @@ function sunflower_scripts() {
         'jquery-slim',
         get_template_directory_uri() . '/assets/vndr/jquery-slim/dist/jquery.slim.min.js',
         null,
-        '3.2.1', 
+        _S_VERSION, 
         true
 	);
 	
@@ -180,7 +181,7 @@ function sunflower_scripts() {
         'frontend',
         get_template_directory_uri() . '/assets/js/frontend.js',
         null,
-        '3.2.1', 
+        _S_VERSION, 
         true
 	);
 
@@ -189,14 +190,14 @@ function sunflower_scripts() {
 			'sunflower-leaflet',
 			get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.js',
 			null,
-			'3.2.1', 
+			_S_VERSION, 
 			true
 		);
 		
 		wp_enqueue_style( 'sunflower-leaflet', 
 			get_template_directory_uri() .'/assets/vndr/leaflet/dist/leaflet.css', 
 			array(), 
-		'1.0.0' );
+			_S_VERSION );
 	}
 
 }
