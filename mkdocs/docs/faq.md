@@ -27,3 +27,8 @@ melden.
 
 ## Wie sieht es mit dem Datenschutz aus?
 [Mehr zum Datenschutz gibt es auf einer Unterseite.](privacy.md)
+
+## Manche Begriffe sind auf Handys zu lang
+Manche Begriffe sind auf Handys zu lang. Sunflower bricht mitten im Wort in eine neue Zeile um, damit das Layout nicht zerschossen wird. Diese Bruchstelle kannst Du selbst definieren, indem Du an die gewünschte Sollbruchstelle ein `&shy;`einträgst. Das ist das ein bedingtes oder weiches Trennzeichen. Wenn nötig, wird an dieser Stelle umgebrochen. Wenn nicht, erscheint an dieser Stelle nichts. 
+
+Auf manchen System kann man den bedingten Trennstrich auch mit der Tastenkombination AltGr + Minus erzeugen.
