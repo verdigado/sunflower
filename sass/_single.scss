@@ -19,6 +19,14 @@
         position: relative;
         margin-top: -25px;
     }
+
+    .page{
+        .entry{
+            &-header{
+                padding: 80px 0;
+            }
+        }
+    }
 }
 
 .post,

@@ -54,7 +54,7 @@
 			</div>
 		</nav>
 
-		<div class="container-fluid bloginfo bg-primary p-2">
+		<div class="container-fluid bloginfo bg-primary">
 			<div class="container d-flex align-items-center">
 				<a class="me-1" href="<?php echo get_home_url(); ?>">
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower.svg" class="" alt="Sonnenblume - Logo">

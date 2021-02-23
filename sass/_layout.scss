@@ -123,13 +123,20 @@ article.post{
     }
 }
 
+.filter-button-group{
+    margin-top: -35px;
+}
 button.filter{
-    font-family: Arvo;
+    font-family: PTSans;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.05em;
     background: none;
     border: 0;
     padding: 0;
     margin: 0 1em;
-    border-bottom: 3px solid transparent;
+    border-bottom: 2px solid transparent;
+    text-transform: uppercase;
 
     &:focus{
         outline: none;
@@ -143,6 +150,9 @@ button.filter{
 
     &.filter-active{
         border-bottom-color: $black;
+        &:hover{
+            border-bottom-color: $primary;
+        }
     }
 }
 

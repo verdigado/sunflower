@@ -11,11 +11,16 @@
             }
             .dropdown-menu{ 
                 display: none; 
-
+                border-radius: 5px;
+                margin-right: 0;
+                padding-bottom: 0;
                 li{
-                    a{                            
+                    border-bottom: 1px solid $very-light-gray;
+                    a{    
+                        font-size: 18px;                        
                         &:hover{
-                            background: $primary;
+                            color: $primary;
+                            background: none;
                         }
                     } 
                 }
@@ -79,6 +84,7 @@
             .current-menu-item{
                 a.nav-link{
                     color: $primary;
+                    border-bottom: 3px solid $primary;
                 }
             }
             .nav-link{

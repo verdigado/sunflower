@@ -15,7 +15,7 @@ extract($args);
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($class); ?>>
 	<?php if ($show_title ) { ?>
-		<header class="entry-header">
+		<header class="entry-header text-center">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</header><!-- .entry-header -->
 	<?php } ?>

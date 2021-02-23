@@ -58,7 +58,7 @@ if( $_sunflower_event_location_street ) $location[] = $_sunflower_event_location
 if( $_sunflower_event_location_city) $location[] = $_sunflower_event_location_city;
 if( !empty($location)){
 	$metadata .= sprintf('<div class="mt-2 mb-2">%s</div>',
-		join(', ', $location)
+		join('<br>', $location)
 	);
 }
 
