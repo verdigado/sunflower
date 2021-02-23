@@ -29,7 +29,7 @@ function sunflower_import_events(){
         $meta = get_post_meta($post->ID);
         $originalPostId = $post->ID;
         
-        if($meta['_sunflower_copied'][0]){
+        if(isset($meta['_sunflower_copied'][0])){
             continue;
         }
 
