@@ -89,9 +89,9 @@
 				wp_nav_menu( array(
 					'theme_location'  => 'mainmenu',
 					'menu_id'		  => 'mainmenu',
-					'depth'	          => 2, // 1 = no dropdowns, 2 = with dropdowns.
+					'depth'	          => 4, // 1 = no dropdowns, 2 = with dropdowns.
 					'container'       => false,
-					'menu_class'      => 'navbar-nav mr-auto text-uppercase font-weight-bold',
+					'menu_class'      => 'navbar-nav mr-auto',
 					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 					'walker'          => new WP_Bootstrap_Navwalker(),
 				) );

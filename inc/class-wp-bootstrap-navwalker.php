@@ -47,7 +47,11 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			}
 			$indent = str_repeat( $t, $depth );
 			// Default class to add to the file.
-			$classes = array( 'dropdown-menu' );
+			if($depth == 0 ){
+				$classes = array( 'dropdown-menu', 'dropdown-menu-level-' . $depth);
+			}else{
+				$classes = array( 'dropdown-submenu', 'dropdown-menu-level-' . $depth);
+			}
 			/**
 			 * Filters the CSS class(es) applied to a menu list element.
 			 *
@@ -190,7 +194,8 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '#';
 				// Items in dropdowns use .dropdown-item instead of .nav-link.
 				if ( $depth > 0 ) {
-					$atts['class'] = 'dropdown-item';
+					$has_children = ( isset( $args->has_children ) && $args->has_children ) ? ' has-children' : '';
+					$atts['class'] = 'dropdown-item' . $has_children;
 				} else {
 					$atts['class'] = 'nav-link';
 				}
