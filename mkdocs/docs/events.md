@@ -32,21 +32,17 @@ Das machst Du folgendermaßen:
 ## Termine über ical importieren
 Sunflower importiert Termine aus mehreren externen Kalendern, auf die per iCal-Datei zugeriffen wird. Voraussetzung ist, dass der Kalender eine iCal-Datei (Endung meist .ics) per URL zur Verfügung stellt.
 
-Bitte trage diese iCal-URLs in den Sunflower-Einstellungen ein. Die Termine werden automatisch alle paar Stunden importiert (wie Du diese Zeitspanne ändern kannst, siehe unten). Beachte bitte, dass Du solche Termine im WordPress-Backend nicht editieren darfst. Alle Änderungen werden regelmäßig überschrieben.
+Bitte trage diese iCal-URLs in den Sunflower-Einstellungen ein. Die Termine werden regelmäßig automatisch aktualisier. Solche Termine darfst Du nicht mehr im WordPress-Backend bearbeiten, weil Änderungen wieder überschrieben würden.
 
 Du kannst das Importieren von Termine auch gewollt auslösen (zusätzlich zum automatischen Import alle paar Stunden), indem Du in den Sunflower-Einstellungen auf *Kalender importieren* klickst.
 
-Importiert werden alle Termine der nächsten 6 Monate. Das kannst Du ändern, siehe unten.
+Importiert werden
 
-### Geodaten
-Die Information zum Veranstaltungsort werden über [Nominatim](https://nominatim.openstreetmap.org/ui/) auf einer Landkarte gesucht. Die Geokoordinaten werden lokal gespeichert. Pro Import-Lauf werden höchstens drei neue Orte über Nominatim gesucht, damit die Import-Performance hoch bleibt. 
-
-### Zoom-Level für importierte Termine festlegen
-Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abweichen möchtest, tragte in der *wp-config.php* bitte die Zeile
-
-``define('SUNFLOWER_EVENT_IMPORTED_ZOOM', 10);``
-
-ein, wobei die *10* das neue Zoomlevel angibt. Es wird werst beim nächsten Import verwendet, diesen Import kannst Du aber manuell triggern (wie, siehe oben).
+- Titel
+- Beschreibung
+- Start- und Enddatum
+- Kategorien (technisch sind das WordPress-Schlagwörter)
+- Ort (dazu holt sich *Sunflower* selbstständig Geodaten, siehe unten)
 
 ### Import-Häufigkeit festlegen
 Standardmäßig holt sich *Sunflower* alle drei Stunden neue Daten vom externen Kalender. Um diese Zeit zu ändern, kannst Du in der wp-confit.php folgendes eintragen:
@@ -65,4 +61,30 @@ Dabei kannst Du bspw. folgendes nutzen
 - 4 weeks
 - 9 months
 - 1 year
+
+### Geodaten
+Die Information zum Veranstaltungsort werden über [Nominatim](https://nominatim.openstreetmap.org/ui/) auf einer Landkarte gesucht. Die Geokoordinaten werden lokal gespeichert. Pro Import-Lauf werden höchstens drei neue Orte über Nominatim gesucht, damit die Import-Performance hoch bleibt. 
+
+### Zoom-Level für importierte Termine festlegen
+Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abweichen möchtest, tragte in der *wp-config.php* bitte die Zeile
+
+``define('SUNFLOWER_EVENT_IMPORTED_ZOOM', 10);``
+
+ein, wobei die *10* das neue Zoomlevel angibt. Es wird werst beim nächsten Import verwendet, diesen Import kannst Du aber manuell triggern (wie, siehe oben).
+
+## Externen Kalender anlegen
+Du kannst jeden Kalender importieren, der eine öffentliche URL im iCal-Format anbietet. In der grünen Wolke gibt es auch einen Service für grüne Mitglieder und Gliederungen. Unter
+[wolke.netzbegruenung.de](https://wolke.netzbegruenung.de/apps/calendar/dayGridMonth/now)
+findest Du Deine eigenen Kalender. Dort kanst Du mehrere Kalender anlegen, z.B. einen nur für die Webseite.
+
+Klicke auf 
+
+1. *+ Neuer Kalender* und vergebe einen beliebigen Namen
+2. Neben dem Kalendername gibt es ein Kettensymbol, damit öffnet sich ein kleine Menü
+3. hierin gibt es ein Untermenü, dass Du mit den drei Punkten öffnen kannst
+4. anschließend klickst Du auf *Abonnement-Link kopieren*
+5. diesen trägst Du in den *Sunflower-Einstellungen* ein
+
+
+
 
