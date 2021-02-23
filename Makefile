@@ -8,7 +8,7 @@ compile-silent:
 	npm run compile:build
 
 watch:
-	npm run watch
+	npm run compile:build watch
 
 bundle:
 	npm run build && npm run bundle
