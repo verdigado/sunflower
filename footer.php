@@ -14,7 +14,7 @@
 	<footer id="colophon" class="site-footer">
 		<div class="container site-info">
 			<div class="row">
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-md-4 d-flex">
 					<nav class="navbar navbar-top navbar-expand-md justify-content-center justify-content-md-start">
 						<div class="text-center ">
 							<?php
