@@ -102,22 +102,31 @@
 
 .dropdown{
     &-menu{
-        display: none;
+        display: none; // block for testing
         border-radius: 5px;
         margin-right: 0;
         padding-top: 0;
         padding-bottom: 0;
         overflow: hidden;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+        border: 0;
+        @include media-breakpoint-up(lg) { 
+            border: 1px solid $very-light-gray;  
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+        }   
+
+        
 
         li{
             padding: 0px;
             margin-right: 0;
             a{    
                 font-size: 18px;     
-                border-bottom: 1px solid $very-light-gray;    
+                  
                 padding-top: 10px;
-                padding-bottom: 10px;      
+                padding-bottom: 10px;   
+                @include media-breakpoint-up(lg) { 
+                    border-bottom: 1px solid $very-light-gray;  
+                }   
                 &:hover{
                     color: $primary;
                     background: none;
