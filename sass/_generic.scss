@@ -10,7 +10,7 @@
 
 
 .full-width{
-    width: 100vw;
+    width: calc(100vw - #{$scroll-bar-width});
     position: relative;
     left: 50%;
     right: 50%;

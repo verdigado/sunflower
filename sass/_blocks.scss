@@ -1,6 +1,6 @@
 .wp-block-cover{
     font-family: ArvoGruen;
-    width: 100vw;
+    width: calc(100vw - #{$scroll-bar-width});
     position: relative;
     left: 50%;
     right: 50%;
@@ -22,7 +22,7 @@ a.wp-block-file__button {
     padding: 100px 0;
     
     &.has-background{
-        width: 100vw;
+        width: calc(100vw - #{$scroll-bar-width});
         position: relative;
         left: 50%;
         right: 50%;
