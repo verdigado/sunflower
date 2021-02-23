@@ -164,7 +164,7 @@ function sunflower_import_icals() {
 
 function sunflower_geocode( $location ){
     static $i = 0;
-    $transient = sprintf('sunflower_geocache_%s', md5($location));
+    $transient = sprintf('sunflower_geocache_%s', $location);
 
     if( $cached = get_transient($transient) ) {
         return $cached;
@@ -186,7 +186,13 @@ function sunflower_geocode( $location ){
     $context = stream_context_create($opts);
 
     $json = json_decode(file_get_contents($url, false, $context));
-    $lonlat = $json->features[0]->geometry->coordinates;
+
+    if(isset($json->features[0])){
+        $lonlat = $json->features[0]->geometry->coordinates;
+    }else{
+        $lonlat = false;
+    }
+
     $i++;
 
     set_transient($transient, $lonlat);
