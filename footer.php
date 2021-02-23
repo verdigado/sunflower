@@ -14,8 +14,8 @@
 	<footer id="colophon" class="site-footer">
 		<div class="container site-info">
 			<div class="row">
-				<div class="col-12 col-md-4 d-flex">
-					<nav class="navbar navbar-top navbar-expand-md justify-content-center justify-content-md-start">
+				<div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start">
+					<nav class="navbar navbar-top navbar-expand-md ">
 						<div class="text-center ">
 							<?php
 								wp_nav_menu( array(
