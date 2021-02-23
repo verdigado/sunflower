@@ -197,6 +197,25 @@ class SunflowerSettingsPage
             }
             ?>
 
+            <h2>Korrektur der Marker auf Landkarten von importierten Terminen</h2>
+            <select name="sunflower_location">
+            <?php
+                global $wpdb;
+                $prefix = 'sunflower_geocache';
+
+                $transients = $wpdb->get_results("SELECT * FROM $wpdb->options WHERE option_name LIKE '_transient_${prefix}%'");
+
+                foreach($transients AS $transient ){
+                    $location = preg_replace("/_transient_${prefix}/", '' , $transient->option_name);
+
+                    list($lon, $lat) = unserialize($transient->option_value); 
+                    printf('<option value="">%s</option>', $location);
+
+                }
+
+            ?>
+            </select>
+
         </div>
         <?php
     }
