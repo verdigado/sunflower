@@ -45,16 +45,16 @@ Importiert werden
 - Ort (dazu holt sich *Sunflower* selbstständig Geodaten, siehe unten)
 
 ### Import-Häufigkeit festlegen
-Standardmäßig holt sich *Sunflower* alle drei Stunden neue Daten vom externen Kalender. Um diese Zeit zu ändern, kannst Du in der wp-confit.php folgendes eintragen:
+Standardmäßig holt sich *Sunflower* alle drei Stunden neue Daten vom externen Kalender. Um diese Zeit zu ändern, kannst Du in der wp-config.php folgendes eintragen:
 
 ``define('SUNFLOWER_EVENT_IMPORT_EVERY_N_HOUR', 1);``
 
 wobei die 1 hier im Beispiel für jede Stunde steht.
 
 ### Anzahl der zu importierenden Termine festlegen
-Standardmäßig holt sich *Sunflower* alle Termie der nächsten sechs Monate vom externen Kalender. Um dies zu ändern, kannst Du in der wp-confit.php folgendes eintragen:
+Standardmäßig holt sich *Sunflower* alle Termie der nächsten sechs Monate vom externen Kalender. Um dies zu ändern, kannst Du in der wp-config.php folgendes eintragen:
 
-``define('SUNFLOWER_EVENT_TIME_RANGE', '3 months);``
+``define('SUNFLOWER_EVENT_TIME_RANGE', '3 months');``
 
 Dabei kannst Du bspw. folgendes nutzen
 
