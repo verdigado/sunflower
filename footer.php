@@ -10,17 +10,59 @@
  */
 
 ?>
+<?php
+$sunflower_social_media_profiles = get_sunflower_social_media_profiles();
+?>
 
 	<footer id="colophon" class="site-footer">
 		<div class="container site-info">
-			<div class="row">
-				<div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start">
-					<nav class="navbar navbar-top navbar-expand-md ">
-						<div class="text-center ">
+			<?php
+				if( has_nav_menu('footer1') ||  has_nav_menu('footer2') || $sunflower_social_media_profiles) {
+			?>
+				<div class="row">
+					<div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start">
+						<nav class="navbar navbar-top navbar-expand-md ">
+							<div class="text-center ">
+								<?php
+									wp_nav_menu( array(
+										'theme_location'  => 'footer1',
+										'menu_id'		  => 'footer1',
+										'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
+										'container'       => false,
+										'menu_class'      => 'navbar-nav small',
+										'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+										'walker'          => new WP_Bootstrap_Navwalker(),
+									) );
+								?>
+							</div>
+						</nav>
+					</div>
+					<div class="col-12 col-md-4 p-2 justify-content-center d-flex">
+						<?php
+							echo $sunflower_social_media_profiles;	
+						?>
+					</div>
+					<nav class="col-12 col-md-4 navbar navbar-top navbar-expand-md d-flex justify-content-center justify-content-md-end">
+						<div class="text-center">
 							<?php
 								wp_nav_menu( array(
-									'theme_location'  => 'footer1',
-									'menu_id'		  => 'footer1',
+									'theme_location'  => 'footer2',
+									'menu_id'		  => 'footer2',
+									'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
+									'container'       => false,
+									'menu_class'      => 'navbar-nav small',
+									'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+									'walker'          => new WP_Bootstrap_Navwalker(),
+								) );
+								?>
+						</div>
+					</nav>
+					<nav class="col-12 d-block d-lg-none navbar navbar-top navbar-expand-md d-flex justify-content-center">
+						<div class="text-center">
+							<?php
+								wp_nav_menu( array(
+									'theme_location'  => 'topmenu',
+									'menu_id'		  => 'topmenu-footer',
 									'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
 									'container'       => false,
 									'menu_class'      => 'navbar-nav small',
@@ -31,48 +73,16 @@
 						</div>
 					</nav>
 				</div>
-				<div class="col-12 col-md-4 p-2 justify-content-center d-flex">
-					<?php
-						echo get_sunflower_social_media_profiles();	
-					?>
+			
+				<div class="row">
+					<div class="col-12 mt-4 mb-4">
+						<hr>
+					</div>	
 				</div>
-				<nav class="col-12 col-md-4 navbar navbar-top navbar-expand-md d-flex justify-content-center justify-content-md-end">
-					<div class="text-center">
-						<?php
-							wp_nav_menu( array(
-								'theme_location'  => 'footer2',
-								'menu_id'		  => 'footer2',
-								'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
-								'container'       => false,
-								'menu_class'      => 'navbar-nav small',
-								'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-								'walker'          => new WP_Bootstrap_Navwalker(),
-							) );
-							?>
-					</div>
-				</nav>
-				<nav class="col-12 d-block d-lg-none navbar navbar-top navbar-expand-md d-flex justify-content-center">
-					<div class="text-center">
-						<?php
-							wp_nav_menu( array(
-								'theme_location'  => 'topmenu',
-								'menu_id'		  => 'topmenu-footer',
-								'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
-								'container'       => false,
-								'menu_class'      => 'navbar-nav small',
-								'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-								'walker'          => new WP_Bootstrap_Navwalker(),
-							) );
-						?>
-					</div>
-				</nav>
-			</div>
-		
-			<div class="row">
-				<div class="col-12 mt-4 mb-4">
-					<hr>
-				</div>	
-			</div>
+
+			<?php
+			}
+			?>		
 			<div class="row">
 				<div class="col-10">
 					<p class="small">
