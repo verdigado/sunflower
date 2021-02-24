@@ -66,6 +66,8 @@ Dabei kannst Du bspw. folgendes nutzen
 ### Geodaten
 Die Information zum Veranstaltungsort werden über [Nominatim](https://nominatim.openstreetmap.org/ui/) auf einer Landkarte gesucht. Die Geokoordinaten werden lokal gespeichert. Pro Import-Lauf werden höchstens drei neue Orte über Nominatim gesucht, damit die Import-Performance hoch bleibt. 
 
+Fehlerhafte Geodaten können in den Sunflower-Einstellungen unter Termine korrigiert werden. Sie werden beim nächsten Import-Lauf wirksam.
+
 ### Zoom-Level für importierte Termine festlegen
 Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abweichen möchtest, tragte in der *wp-config.php* bitte die Zeile
 
