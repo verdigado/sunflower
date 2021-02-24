@@ -39,13 +39,27 @@ function sunflower_next_events_render( $block_attributes, $content ) {
     );
 
     ob_start();
+    switch($next_events->post_count){
+        case 1:
+            $cols = '';
+            break;
+        case 2:
+            $cols = 'col-md-6';
+            break;
+        default:
+            $cols = 'col-md-6 col-lg-4';
+    }
+
     while ( $next_events->have_posts() ) {
         $next_events->the_post();
 
-        echo '<div class="col-12 col-md-6 col-lg-4 mb-2">';
+        printf('<div class="col-12 %s mb-2">', $cols);
             get_template_part( 'template-parts/archive', 'event');
         echo '</div>';
+    }
 
+    if($next_events->post_count === 0 ){
+        printf('<div class="col-12 text-center">%s</div>', __('Currently there are no coming events.', 'sunflower'));
     }
   
            
