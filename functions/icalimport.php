@@ -6,7 +6,7 @@ require_once ABSPATH . '/wp-content/themes/sunflower/assets/vndr/johngrogg/ics-p
 
 use ICal\ICal;
 
-function sunflower_icalimport( $url = false){
+function sunflower_icalimport( $url = false, $auto_categories = false){
     try {
         $ical = new ICal('ICal.ics', array(
             'defaultSpan'                 => 2,     // Default value
@@ -21,12 +21,11 @@ function sunflower_icalimport( $url = false){
 
         $ical->initUrl($url, $username = null, $password = null, $userAgent = null);
     } catch (\Exception $e) {
-        die($e);
+        return false;
     }
 
     $time_range = sunflower_get_constant('SUNFLOWER_EVENT_TIME_RANGE') ?: '6 months';
 
-    
     $events = $ical->eventsFromInterval($time_range);
 
     $updated_events = 0;
@@ -79,7 +78,8 @@ function sunflower_icalimport( $url = false){
         }
 
         if( isset($event->categories) ){
-            wp_set_post_terms( $id, $event->categories, 'sunflower_event_tag');
+            $auto_categories_append = ($auto_categories) ? ',' . $auto_categories : '';
+            wp_set_post_terms( $id, $event->categories . $auto_categories_append, 'sunflower_event_tag');
         }
     }
 
@@ -129,9 +129,9 @@ function sunflower_get_events_having_uid( ){
 }
 
 add_action('init', 'sunflower_import_icals');
-function sunflower_import_icals() {
+function sunflower_import_icals( $force = false) {
 
-    if( get_transient( 'sunflower_ical_imported' ) ){
+    if( $force && get_transient( 'sunflower_ical_imported' ) ){
         return false;
     }
 
@@ -142,16 +142,21 @@ function sunflower_import_icals() {
     $import_every_n_hour = sunflower_get_constant('SUNFLOWER_EVENT_IMPORT_EVERY_N_HOUR') ?: 3;
     set_transient( 'sunflower_ical_imported', 1, $import_every_n_hour * 3600 );
 
-    $urls = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
+    $lines = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
+
     $ids_from_remote = array();
-    foreach($urls AS $url){
-        $url = trim($url);
+    foreach($lines AS $line){
+        $info = explode(";",$line);
+
+        $url = trim($info[0]);
+        $auto_categories = (isset($info[1])) ? $info[1] : false;
+
         if(!filter_var($url, FILTER_VALIDATE_URL)){
             continue;
         }
     
-       $response = sunflower_icalimport($url);
-       $ids_from_remote = array_merge($ids_from_remote, $response[0]);
+       $response = sunflower_icalimport($url, $auto_categories);
+      $ids_from_remote = array_merge($ids_from_remote, $response[0]);
     }
 
     $deleted_on_remote = array_diff(sunflower_get_events_having_uid(), $ids_from_remote);
