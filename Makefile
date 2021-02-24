@@ -33,6 +33,9 @@ get:
 deploy:
 	git push && make compile-silent bundle upload activate get announce
 
+childtheme-deploy:
+	rsync ../sunflower-child.zip sharepic:/var/www/sunflower-theme.de/updateserver/
+
 publish:
 	@echo "Be sure to have edited release_notes.html"
 	@echo "Latest tag was: " 
