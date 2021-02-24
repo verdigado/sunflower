@@ -403,7 +403,7 @@ class SunflowerSettingsPage
         Alle 3 Stunden findet ein automatischer Import statt.<br>
         Importierte Termine dürfen nicht im WordPress-Backend bearbeitet werden, weil Änderungen beim nächsten 
         Import überschrieben werden.<br>
-        Jede URL mit mit http:// oder https:// beginnen.
+        Jede URL mit http:// oder https:// beginnen.
         </div>';
     }
 
