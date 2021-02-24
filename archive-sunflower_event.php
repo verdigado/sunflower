@@ -12,7 +12,7 @@ get_header();
 	<div id="content" class="container">
 		<div class="row">
 			<div class="col-12">
-				<main id="primary" class="site-main mt-5">
+				<main id="primary" class="site-main">
 					<?php if ( have_posts() ) : ?>
 
 						<header class="page-header text-center">
@@ -24,7 +24,7 @@ get_header();
 						</header><!-- .page-header -->
 
 
-						<div class="filter-button-group mt-3 mb-5 text-center">
+						<div class="filter-button-group mb-5 text-center">
 							<button class="filter filter-active" data-filter="*"><?php _e('all events', 'sunflower'); ?></button>
 							<?php
 							$terms = get_terms([

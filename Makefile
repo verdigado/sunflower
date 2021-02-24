@@ -8,7 +8,7 @@ compile-silent:
 	npm run compile:build
 
 watch:
-	npm run compile:build watch
+	npm run watch
 
 bundle:
 	npm run build && npm run bundle
@@ -33,8 +33,8 @@ get:
 deploy:
 	git push && make compile-silent bundle upload activate get announce
 
-style-deploy:
-	rsync style.css sharepic:/var/www/sunflower-theme.de/wp-content/themes/sunflower
+childtheme-deploy:
+	rsync ../sunflower-child.zip sharepic:/var/www/sunflower-theme.de/updateserver/
 
 publish:
 	@echo "Be sure to have edited release_notes.html"

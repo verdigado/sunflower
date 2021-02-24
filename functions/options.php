@@ -162,31 +162,9 @@ class SunflowerSettingsPage
             <h2>Kalenderimport</h2>
             <?php
             
-            $ids_from_remote = array();
-
             if( isset($_GET['icalimport'])){
-                $urls = explode("\n", get_sunflower_setting('sunflower_ical_urls'));
-
-                foreach($urls AS $url){
-                    $url = trim($url);
-                    if(!filter_var($url, FILTER_VALIDATE_URL)){
-                        continue;
-                    }
-                   printf('<div>Importiere von %s</div>', $url);
-                   $response = sunflower_icalimport($url);
-
-                   printf('<div style="margin-bottom:1em">%d / %d %s</div>', $response[1], $response[2], __(' events were new/updated', 'sunflower'));
-
-                   $ids_from_remote = array_merge($ids_from_remote, $response[0]);
-                }
-
-                $deleted_on_remote = array_diff(sunflower_get_events_having_uid(), $ids_from_remote);
-
-                foreach($deleted_on_remote AS $to_be_deleted){
-                    wp_delete_post($to_be_deleted);
-                }
-                printf('<div>%d Termine wurden gelöscht</div>', count($deleted_on_remote));
-
+                sunflower_import_icals(true);
+                echo '<div>Die Termine wurden aktualisiert.</div>';
                 printf('<div><a href="../?post_type=sunflower_event">Termine ansehen</a></div>');
             }else{
                 if(get_sunflower_setting('sunflower_ical_urls') ){
@@ -418,11 +396,11 @@ class SunflowerSettingsPage
             '<textarea style="white-space: pre-wrap;width: 90%%;height:7em;" id="sunflower_ical_urls" name="sunflower_options[sunflower_ical_urls]">%s</textarea>',
             isset( $this->options['sunflower_ical_urls'] ) ? $this->options['sunflower_ical_urls'] : ''
         );
-        echo '<div>Importiert werden die Termine der nächsten 6 Monate. 
-        Alle 3 Stunden findet ein automatischer Import statt.<br>
+        echo '<div><a href="https://sunflower-theme.de/documentation/events/" target="_blank">Mehr zu den Einstellungen in der Dokumenation</a><br>
         Importierte Termine dürfen nicht im WordPress-Backend bearbeitet werden, weil Änderungen beim nächsten 
         Import überschrieben werden.<br>
-        Jede URL mit mit http:// oder https:// beginnen.
+        Jede URL mit http:// oder https:// beginnen. Automatische Kategorien pro Kalender bitte mit ; anfügen.
+
         </div>';
     }
 

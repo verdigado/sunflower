@@ -32,7 +32,7 @@ Das machst Du folgendermaßen:
 ## Termine über ical importieren
 Sunflower importiert Termine aus mehreren externen Kalendern, auf die per iCal-Datei zugeriffen wird. Voraussetzung ist, dass der Kalender eine iCal-Datei (Endung meist .ics) per URL zur Verfügung stellt.
 
-Bitte trage diese iCal-URLs in den Sunflower-Einstellungen ein. Die Termine werden regelmäßig automatisch aktualisier. Solche Termine darfst Du nicht mehr im WordPress-Backend bearbeiten, weil Änderungen wieder überschrieben würden.
+Bitte trage diese iCal-URLs in den Sunflower-Einstellungen ein. Die Termine werden regelmäßig automatisch aktualisiert. Solche Termine darfst Du nicht mehr im WordPress-Backend bearbeiten, weil Änderungen wieder überschrieben würden.
 
 Du kannst das Importieren von Termine auch gewollt auslösen (zusätzlich zum automatischen Import alle paar Stunden), indem Du in den Sunflower-Einstellungen auf *Kalender importieren* klickst.
 
@@ -42,7 +42,8 @@ Importiert werden
 - Beschreibung
 - Start- und Enddatum
 - Kategorien (technisch sind das WordPress-Schlagwörter)
-- Ort (dazu holt sich *Sunflower* selbstständig Geodaten, siehe unten)
+- Ort (dazu holt sich *Sunflower* selbstständig Geodaten, siehe unten)#
+- Auf Wunsch bekommen Termine eines Kalenders eine automatische Kategorie in WordPress zugewiesen. Trage dazu in den Einstellungen nach der KalenderURL einen Strichpunkt ; ein und dann den beliebigen Namen der automatisch zugewiesenenen Kategorie.
 
 ### Import-Häufigkeit festlegen
 Standardmäßig holt sich *Sunflower* alle drei Stunden neue Daten vom externen Kalender. Um diese Zeit zu ändern, kannst Du in der wp-config.php folgendes eintragen:

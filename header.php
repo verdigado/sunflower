@@ -16,7 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="shortcut icon" href="#">
+	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower.svg">
 
 	<?php wp_head(); ?>
 </head>
@@ -54,7 +54,7 @@
 			</div>
 		</nav>
 
-		<div class="container-fluid bloginfo bg-primary p-2">
+		<div class="container-fluid bloginfo bg-primary">
 			<div class="container d-flex align-items-center">
 				<a class="me-1" href="<?php echo get_home_url(); ?>">
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower.svg" class="" alt="Sonnenblume - Logo">
@@ -89,9 +89,9 @@
 				wp_nav_menu( array(
 					'theme_location'  => 'mainmenu',
 					'menu_id'		  => 'mainmenu',
-					'depth'	          => 2, // 1 = no dropdowns, 2 = with dropdowns.
+					'depth'	          => 4, // 1 = no dropdowns, 2 = with dropdowns.
 					'container'       => false,
-					'menu_class'      => 'navbar-nav mr-auto text-uppercase font-weight-bold',
+					'menu_class'      => 'navbar-nav mr-auto',
 					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 					'walker'          => new WP_Bootstrap_Navwalker(),
 				) );

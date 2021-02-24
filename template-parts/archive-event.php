@@ -41,8 +41,8 @@
             </div>
         </div>
 
-        <div class="">
-            <header class="entry-header pt-2">
+        <div class="mt-2">
+            <header class="entry-header pt-2 pb-2">
                 <?php
                     the_title( '<strong class="h5">', '</strong>' );
                 ?>
