@@ -131,7 +131,7 @@ function sunflower_get_events_having_uid( ){
 add_action('init', 'sunflower_import_icals');
 function sunflower_import_icals( $force = false) {
 
-    if( $force && get_transient( 'sunflower_ical_imported' ) ){
+    if( !$force && get_transient( 'sunflower_ical_imported' ) ){
         return false;
     }
 

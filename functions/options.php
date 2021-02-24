@@ -176,24 +176,47 @@ class SunflowerSettingsPage
             ?>
 
             <h2>Korrektur der Marker auf Landkarten von importierten Terminen</h2>
-            <select name="sunflower_location">
+            <input type="hidden" name="_sunflower_event_lat" id="_sunflower_event_lat">
+            <input type="hidden" name="_sunflower_event_lon" id="_sunflower_event_lon">
+
+            <div id="sunflower-location-row" style="display:none">
+                Bearbeite die Geo-Markierung für: 
+                <select name="sunflower_location" id="sunflower-location">
+                    <option value="">bitte wählen</option>
+                <?php
+                    global $wpdb;
+                    $prefix = 'sunflower_geocache_';
+
+                    $transients = $wpdb->get_results("SELECT * FROM $wpdb->options WHERE option_name LIKE '_transient_${prefix}%'");
+
+                    foreach($transients AS $transient ){
+                        $location = preg_replace("/_transient_${prefix}/", '' , $transient->option_name);
+
+                        list($lon, $lat) = unserialize($transient->option_value); 
+                        printf('<option value="%s;%s">%s</option>', $lat, $lon, $location);
+
+                    }
+
+                ?>
+                </select>
+                <button id="sunflower-fix-location-delete">Geodaten für diesen Ort löschen</button>
+                <br>
+                Die Änderung wird automatisch nach Setzen der Markierung gespeichert. Wirksam wird sie beim nächsten Import. Den Import kannst Du per Hand auslösen.
+            </div>
             <?php
-                global $wpdb;
-                $prefix = 'sunflower_geocache';
-
-                $transients = $wpdb->get_results("SELECT * FROM $wpdb->options WHERE option_name LIKE '_transient_${prefix}%'");
-
-                foreach($transients AS $transient ){
-                    $location = preg_replace("/_transient_${prefix}/", '' , $transient->option_name);
-
-                    list($lon, $lat) = unserialize($transient->option_value); 
-                    printf('<option value="">%s</option>', $location);
-
-                }
-
+                $lat = 49.5; 
+                $lon = 12;
+                $zoom = 5;
+                printf('
+                <div>
+                    <button id="sunflowerShowMap" onClick="sunflowerShowLeaflet( %3$s, %4$s, %5$s, false );">%2$s</button>
+                </div>
+                <div id="leaflet" style="height:400px"></div>',
+            __('Map', 'sunflower'),
+            __('load map', 'sunflower'),
+            $lat, $lon, $zoom
+            );
             ?>
-            </select>
-
         </div>
         <?php
     }
