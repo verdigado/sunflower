@@ -68,7 +68,9 @@
             .current-menu-item{
                 a.nav-link{
                     color: $primary;
-                    border-bottom: 3px solid $primary;
+                    @include media-breakpoint-up(lg) { 
+                        border-bottom: 3px solid $primary;
+                    }
                 }
             }
             .nav-link{
