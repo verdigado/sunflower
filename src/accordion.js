@@ -30,6 +30,9 @@ registerBlockType( 'sunflower/accordion', {
             type: 'string',
             default: 'Titel zum Klicken',
         },
+        blockId: {
+            type: 'string',
+        }
     },
     example: {
         attributes: {
@@ -41,24 +44,28 @@ registerBlockType( 'sunflower/accordion', {
             attributes: {
                 content,
                 headline,
+                blockId
             },
+            setAttributes,
+            clientId,
         } = props;
  
         const blockProps = useBlockProps();
- 
+
+        props.setAttributes( { blockId: clientId } );
+
         const onChangeContent = ( newContent ) => {
             props.setAttributes( { content: newContent } );
+
         };
 
         const onChangeHeadline = ( newHeadline ) => {
             props.setAttributes( { headline: newHeadline } );
         };
  
-
         const { InspectorControls } = wp.blockEditor;
         const { PanelBody } = wp.components;
- 
-        
+  
         return (
             <div {...blockProps}>
         
@@ -78,18 +85,17 @@ registerBlockType( 'sunflower/accordion', {
     },
     save: ( props ) => {
         const blockProps = useBlockProps.save();
-        const random = Math.floor(1000000 * Math.random());
         return (
             <div {...blockProps}>
                 <div class="accordion-item">
 
                     <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={'.sacc' + random} aria-expanded="false" aria-controls={'.sacc' + random}>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={'.sacc' + props.attributes.blockId} aria-expanded="false" aria-controls={'.sacc' + props.attributes.blockId}>
                         { props.attributes.headline }
                         </button>
                     </h4>
 
-                    <div class={'accordion-collapse collapse sacc' + random} aria-labelledby={'.sacc' + random}>
+                    <div class={'accordion-collapse collapse sacc' + props.attributes.blockId} aria-labelledby={'.sacc' + props.attributes.blockId}>
                         <div class="accordion-body">
                             <RichText.Content
                                 className={ `sunflower-accordion` }
