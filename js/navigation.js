@@ -97,3 +97,8 @@
 		}
 	}
 }() );
+
+
+function unscramble( text ){
+	window.open('mailto:' + text.split('').reverse().join(''));
+}

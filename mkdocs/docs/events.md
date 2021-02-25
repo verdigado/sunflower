@@ -69,7 +69,7 @@ Die Information zum Veranstaltungsort werden über [Nominatim](https://nominatim
 Fehlerhafte Geodaten können in den Sunflower-Einstellungen unter Termine korrigiert werden. Sie werden beim nächsten Import-Lauf wirksam.
 
 ### Zoom-Level für importierte Termine festlegen
-Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abweichen möchtest, tragte in der *wp-config.php* bitte die Zeile
+Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abweichen möchtest, trage in der *wp-config.php* bitte die Zeile
 
 ``define('SUNFLOWER_EVENT_IMPORTED_ZOOM', 10);``
 
