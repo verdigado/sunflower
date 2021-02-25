@@ -262,7 +262,7 @@ class SunflowerSettingsPage
         );  
 
         $social_media_profiles = [
-            'twitter', 'instagram','flickr','linkedin','mail','mastodon','meetup','skype','soundcloud','vimeo','youtube'
+            'twitter', 'instagram','facebook','mail','snapchat','wordpress','flickr','linkedin','mail','mastodon','meetup','skype','soundcloud','vimeo','youtube'
         ];
 
         foreach ($social_media_profiles AS $profile ){
