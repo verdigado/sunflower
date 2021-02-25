@@ -4,7 +4,17 @@ const stickyElement = document.querySelector( '.navbar-main' );
 
 
 const observer = new IntersectionObserver(
-  ( [e] ) => stickyElement.classList.toggle( 'stuck', e.intersectionRatio < 1 ),
+  ( [e] ) => {
+    stickyElement.classList.toggle( 'stuck', e.intersectionRatio < 1 );
+
+    const h =  jQuery('.navbar-main').height();
+    if(e.intersectionRatio < 1) {
+      jQuery('#content').css('margin-top', h);
+    }else{
+      jQuery('#content').css('margin-top', 0);
+    }
+
+  },
   {threshold: [ 0, 1 ] }
 );
 
