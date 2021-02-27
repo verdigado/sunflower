@@ -76,6 +76,10 @@
             .nav-link{
                 color: $body-color;
                 font-size: 18px;
+                padding-right: 0;
+                padding-left: 0;
+                margin-right: 0.5rem;
+                margin-left: 0.5rem;
                 &:hover{
                     color: $primary;
                 };
@@ -112,8 +116,9 @@
         overflow: hidden;
         border: 0;
         @include media-breakpoint-up(lg) { 
-            border: 1px solid $very-light-gray;  
-            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+            border: 0;  
+            border-top: 20px solid transparent;
+            box-shadow: 5px 20px 5px rgba(0, 0, 0, 0.05);
         }   
 
         
@@ -123,7 +128,8 @@
             margin-right: 0;
             a{    
                 font-size: 18px;     
-                  
+                text-transform: none;
+                font-weight: bold;
                 padding-top: 10px;
                 padding-bottom: 10px;   
                 @include media-breakpoint-up(lg) { 
@@ -157,8 +163,8 @@
         li{
             text-transform: none;
             a{
-                font-size: 16px;
-                font-weight: bold;
+                font-size: 18px;
+                font-weight: normal;
             }
         }
     }
