@@ -24,11 +24,11 @@ if ( post_password_required() ) {
 	<div class="container">
 		<h4 class="h2 text-center mt-3 mb-5"><?php _e('Comment article', 'sunflower'); ?></h4>
 		<?php
-			$divider = (is_user_logged_in()) ? '' : '</div><div class="col-6">';
+			$divider = (is_user_logged_in()) ? '' : '</div><div class="col-12 col-md-6">';
 			$args = array(
 				'title_reply' 			=> __('comment article', 'sunflower'),
 				'label_submit' 			=> __('send', 'sunflower'),
-				'comment_notes_before'  => '<div class="col-6">',
+				'comment_notes_before'  => '<div class="col-12 col-md-6">',
 				'comment_notes_after'   => '<p>' . sprintf(
 						__('Your mail will not be published. Required fields are marked with a *. For more info see <a href="%s">privacy</a>', 'sunflower'), 
 						get_privacy_policy_url()) . '</p>' . $divider,

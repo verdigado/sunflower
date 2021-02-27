@@ -41,12 +41,14 @@
         }
         
         label{
-
+            position: relative;
             &:after{
                 content: "\f002";
                 font-family: 'Font Awesome 5 Free';
                 font-weight: 900;
-                margin-left: -2rem;
+                position: absolute;
+                top: 5px;
+                right: 10px;
             }
         }
 

@@ -33,7 +33,7 @@ $metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
 
 				</main><!-- #main -->
 			</div>
-
+		</div>
 			<div class="row sunflower-post-navigation mb-3">
 				<?php
 				
@@ -50,19 +50,19 @@ $metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
 
 			
 				if( $previous ){
-					printf('<div class="col-6 ">%s</div>',
+					printf('<div class="col-12 col-md-6 mb-2 mb-md-0">%s</div>',
 						$previous
 					);
 				}
 
 				if( $next ){
-					printf('<div class="col-6">%s</div>',
+					printf('<div class="col-12 col-md-6">%s</div>',
 						$next
 					);
 				}
 		
 				?>
-			</div>	
+				
 	</div>
 
 

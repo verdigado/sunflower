@@ -10,21 +10,43 @@
 
     .children{
         border-left: 2px solid $primary;
-        margin-bottom: 65px;   
+        margin-bottom: 65px;  
+        margin-left: 0;
+        @include media-breakpoint-up(md) { 
+            margin-left: 1.5em;
+        }
+
     }
 
     &-body{
         footer{
-            display: flex;
+            display: block;
+            @include media-breakpoint-up(md) { 
+                display: flex;
+            }
 
             .says{
                 display: none;
             }
 
-            .comment-author{
-                border-right: 1px solid black;
-                padding-right: 10px;
-                margin-right: 10px;
+            .comment{
+                &-author{
+                    @include media-breakpoint-up(md) { 
+                        border-right: 1px solid black;
+                        padding-right: 10px;
+                        margin-right: 10px;
+                    }
+                }
+                &-metadata{
+                    margin-bottom: 10px;
+                    @include media-breakpoint-up(md) { 
+                        margin-bottom: 0;
+                    }
+                    a{
+                        color:inherit;
+                        text-decoration: none;
+                    }
+                }
             }
         }
 

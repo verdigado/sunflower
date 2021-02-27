@@ -80,7 +80,7 @@
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower.svg" alt="Sonnenblume - Logo">
 			</a>
 			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
-				<i class="fas fa-times close text-danger"></i>
+				<i class="fas fa-times close"></i>
 				<i class="fas fa-bars open"></i>
 			</button>
 

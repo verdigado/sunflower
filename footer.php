@@ -84,13 +84,13 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 			}
 			?>		
 			<div class="row">
-				<div class="col-10">
+				<div class="col-8 col-md-10">
 					<p class="small">
 						<?php bloginfo('name'); ?> benutzt das<br>freie 
 						grüne Theme <a href="https://sunflower-theme.de" target="_blank">sunflower</a>.
 					</p>
 				</div>
-				<div class="col-2">
+				<div class="col-4 col-md-2">
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo-diegruenen.svg" class="img-fluid" alt="Logo Bündnis 90/Die Grünen">
 				</div>
 			</div>
