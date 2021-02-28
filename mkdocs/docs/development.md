@@ -25,6 +25,15 @@
 Lege dazu eine neue Datei im Verzeichnis *functions/block-patterns/seiten* an.
 Fertig.
 
+## Lehrvideo erstellen
+- Anzeigeeinstellungen auf 1280x720 (16:9)
+- ggf. primären Bildschirm ändern (um die Topbar zu verstecken)
+- ggf. unter Darstellung das Dock verschieben
+- Kazam, Vollbild
+- Bearbeitung mit Kdenlive
+- resize mit ``ffmpeg -i input.mp4 -vf scale=960:540,setsar=1:1 output.mp4``
+- thumbnail mit ``ffmpeg -i input.mp4 -ss 00:00:01.000 -vframes 1 output.png``
+
 ## Publishing
 ``make publish``
 
