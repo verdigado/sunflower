@@ -77,7 +77,7 @@
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white">
 		<div class="container">
 			<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower.svg" alt="Sonnenblume - Logo">
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower-dark.svg" alt="Sonnenblume - Logo">
 			</a>
 			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-times close"></i>
