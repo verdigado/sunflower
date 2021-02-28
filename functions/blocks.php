@@ -107,11 +107,13 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
     ob_end_clean();
 
 
-    $return .= sprintf('<div class="col-12"></div><div class="col-12 col-md-6 offset-md-6">
-            <div class="bg-primary p-5 d-flex justify-content-between border-radius">
-            <span class="text-white h2">%s</span>
-                <a class="btn btn-outline-light text-white" href="%s?post_type=post" rel="">%s</a>
-            </div>
+    $return .= sprintf('<div class="col-12 col-md-6 offset-md-6">
+            <a class="text-white no-link" href="%2$s?post_type=post" rel="">
+                <div class="bg-primary hover-bg-green-550 p-5 row border-radius">
+                   <span class="h2 col-12 col-md-6">%1$s</span>
+                   <span class="continue-reading text-white col-12 col-md-6">%3$s</span>
+                </div>
+            </a>
             </div>
          ',
         __('more posts', 'sunflower'), 

@@ -34,3 +34,9 @@
 .p-45{
     padding: 2.25rem !important;
 }
+
+.hover-bg-green-550{
+    &:hover{
+        background-color: $green-550 !important;
+    }
+}

@@ -38,7 +38,8 @@ body{
     &.search,
     &.home,
     &.page,
-    &.archive{
+    &.archive,
+    &.blog{
         background-color: $lightgreen;
     }   
 }

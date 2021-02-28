@@ -108,18 +108,18 @@ article.post{
             text-decoration: none;
         }
     }
+}
 
-    .continue-reading{
-        padding-top: 10px;
-        display: block;
-        font-weight: bold;
-        font-style: italic;
-        color: $body-color;
-        text-decoration: none;
-        text-transform: uppercase;
-        &:hover{
-            color: $primary;
-        }
+.continue-reading{
+    padding-top: 10px;
+    display: block;
+    font-weight: bold;
+    font-style: italic;
+    color: $body-color;
+    text-decoration: none;
+    text-transform: uppercase;
+    &:hover{
+        color: $primary;
     }
 }
 
