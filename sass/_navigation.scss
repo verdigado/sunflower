@@ -5,7 +5,7 @@
                 .nav-link{
                     
                 }
-                .dropdown-menu{ 
+                div.dropdown-menu{ 
                     display: block; 
                 }
             }
@@ -60,7 +60,7 @@
  
      &-main{
          border-bottom: 0;
-         box-shadow: 0 6px 6px -6px $lightgray
+         box-shadow: 0 1px 20px rgba(0,0,0,.08);
      }
  
      &-light{
@@ -109,22 +109,56 @@
     display: none;
 }
 
+
 .dropdown{
     &-menu{
-        display: none; // block for testing
-        border-radius: 5px;
-        margin-right: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-        overflow: hidden;
+        border-radius: 0;
+        padding:0;
+        display: none; // block for testing 
+        background: transparent;
         border: 0;
-        @include media-breakpoint-up(lg) { 
-            border: 0;  
-            border-top: 20px solid transparent;
-            box-shadow: 5px 20px 5px rgba(0, 0, 0, 0.05);
-        }   
+        &-spacer{
+            height: 0px;
+            background: none;
+            @include media-breakpoint-up(lg) { 
+                height: 20px;
+            }
+        }
 
-        
+        &[data-bs-popper]{
+            margin-top: 0;
+        }
+
+        &-level{
+            &-0{
+                @include media-breakpoint-up(lg) { 
+                    border: 0;  
+                    box-shadow: 0px 25px 20px rgba(0, 0, 0, 0.1);
+                }  
+            }
+            &-1{
+                a{
+                    padding-left: 1.5rem;
+                }
+            }
+            &-2{
+                a{
+                    padding-left: 2rem;
+                }
+            }
+        }
+
+        ul{
+            display: block; 
+            border-radius: 5px;
+            margin-right: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            overflow: hidden;
+            border: 0;
+            list-style-type: none;
+            background: white;
+            padding: 0; 
 
         li{
             padding: 0px;
@@ -144,30 +178,20 @@
                 }
             } 
         }
-
-        &-level{
-            &-1{
-                a{
-                    padding-left: 1.5rem;
-                }
-            }
-            &-2{
-                a{
-                    padding-left: 2rem;
-                }
-            }
-        }
     }
+}
 
     &-submenu{
         list-style-type: none;
         padding-left: 0;
         margin-left: 0;
-        li{
-            text-transform: none;
-            a{
-                font-size: 18px;
-                font-weight: normal;
+        ul{
+            li{
+                text-transform: none;
+                a{
+                    font-size: 18px;
+                    font-weight: normal;
+                }
             }
         }
     }

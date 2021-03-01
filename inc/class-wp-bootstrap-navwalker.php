@@ -78,7 +78,21 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				// build a string to use as aria-labelledby.
 				$labelledby = 'aria-labelledby="' . esc_attr( end( $matches[2] ) ) . '"';
 			}
-			$output .= "{$n}{$indent}<ul$class_names $labelledby role=\"menu\">{$n}";
+			$spacer = ($depth == 0 ) ? '<div class="dropdown-menu-spacer"></div>' : '';;
+			$output .= "{$n}{$indent}<div $class_names>{$spacer}<ul $labelledby role=\"menu\">{$n}";
+		}
+
+
+		public function end_lvl( &$output, $depth = 0, $args = null ) {
+			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+				$t = '';
+				$n = '';
+			} else {
+				$t = "\t";
+				$n = "\n";
+			}
+			$indent  = str_repeat( $t, $depth );
+			$output .= "$indent</ul></div>{$n}";
 		}
 
 		/**
