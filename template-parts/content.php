@@ -12,7 +12,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($class); ?>>
-	<header class="entry-header full-width">
+	<header class="entry-header full-width <?php echo (has_post_thumbnail()) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
 		<div class="container">
 			<div class="row position-relative">
 				<div class="col-12 offset-md-1 <?php echo ($metadata) ? 'text-left col-md-8' : 'col-md-10'; ?>">

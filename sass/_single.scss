@@ -18,6 +18,7 @@
     .post-thumbnail{
         position: relative;
         margin-top: -35px;
+        margin-bottom: 50px;
     }
 
 }
@@ -25,4 +26,9 @@
 .post,
 .page{
     margin: 0;
+}
+
+
+header.has-no-post-thumbnail{
+    margin-bottom: 50px;
 }
