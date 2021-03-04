@@ -20,6 +20,11 @@ function sunflower_add_custom_gutenberg_color_palette() {
 				'color' => '#46962b',
             ],
 			[
+				'name'  => esc_html__( 'Green 800b', 'sunflower' ),
+				'slug'  => 'green-800b',
+				'color' => '#224634',
+            ],
+			[
 				'name'  => esc_html__( 'Green 550', 'sunflower' ),
 				'slug'  => 'green-550',
 				'color' => '#3C8025',
@@ -42,7 +47,7 @@ function sunflower_add_custom_gutenberg_color_palette() {
 			[
 				'name'  => esc_html__( 'Blue 500', 'sunflower' ),
 				'slug'  => 'blue-500',
-				'color' => '#4097c2',
+				'color' => '#4cb4e7',
             ],
 			[
 				'name'  => esc_html__( 'Blue 600', 'sunflower' ),
@@ -50,13 +55,13 @@ function sunflower_add_custom_gutenberg_color_palette() {
 				'color' => '#4097c2',
             ],
 			[
-				'name'  => esc_html__( 'Background', 'sunflower' ),
-				'slug'  => 'background',
+				'name'  => esc_html__( 'Gray 100', 'sunflower' ),
+				'slug'  => 'gray-100',
 				'color' => '#EFF2ED',
             ],
 			[
-				'name'  => esc_html__( 'Text', 'sunflower' ),
-				'slug'  => 'text',
+				'name'  => esc_html__( 'Black 500', 'sunflower' ),
+				'slug'  => 'black-500',
 				'color' => '#363636',
             ]
 
