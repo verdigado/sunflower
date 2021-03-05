@@ -108,8 +108,8 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
 
 
     $return .= sprintf('<div class="col-12 col-md-6 offset-md-6">
-            <a class="text-white no-link d-block bg-primary hover-bg-green-550  border-radius" href="%2$s?post_type=post" rel="">
-                <div class=" p-4 row ">
+            <a class="text-white no-link d-block bg-primary hover-bg-green-550 border-radius" href="%2$s?post_type=post" rel="">
+                <div class="p-45 row ">
                    <span class="h2 col-12 col-md-6">%1$s</span>
                    <span class="continue-reading text-white col-12 col-md-6">%3$s</span>
                 </div>
