@@ -37,16 +37,34 @@ a.wp-block-file__button {
     } 
 }
 
-.wp-block-media-text__media,
-.wp-block-image{
-    img{
-        border-radius: $border-radius;
+.wp-block-media-text{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .wp-block-media-text__content{
+        padding: 20px;
+        align-self:start;
         width: 100%;
+        height: 100%;
+        background: white;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
     }
 
-    figcaption{
-        font-size: $small-font-size;
-        text-align: right;  
+    &__media,
+    .wp-block-image{
+        img{
+            border-top-left-radius: $border-radius;
+            border-top-right-radius: $border-radius;
+            width: 100%;
+
+        }
+
+        figcaption{
+            font-size: $small-font-size;
+            text-align: right;  
+        }
     }
 }
 
@@ -130,20 +148,12 @@ a.wp-block-file__button {
 
 
 .wp-block-sunflower-meta-data{
-    display: flex;
-    align-items: baseline;
-    font-size: small;
-
-    p{
-        margin-bottom: 0;
-    }
-
-    i{
-        margin-right: 0.5em;
-    }
-
-    &:last-of-type{
-        margin-bottom: 1em;
+    a{
+        color: inherit;
+        margin-right: 1.0em;
+        &:hover{
+            color: $primary;
+        }
     }
 }
 
@@ -161,4 +171,10 @@ a.wp-block-file__button {
 
 .wp-block-sunflower-accordion:last-of-type{
     margin-bottom: 50px;
+}
+
+.d-flex{
+    .wp-block-group__inner-container{
+        display: flex !important;
+    }
 }

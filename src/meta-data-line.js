@@ -21,11 +21,6 @@ registerBlockType( 'sunflower/meta-data', {
     icon: 'info-outline',
     category: 'sunflower-blocks',
     attributes: {
-        content: {
-            type: 'array',
-            source: 'children',
-            selector: 'p',
-        },
         alignment: {
             type: 'string',
             default: 'none',
@@ -34,28 +29,22 @@ registerBlockType( 'sunflower/meta-data', {
 			type: 'string',
 			default: 'fas fa-clock'
 		},
-    },
-    example: {
-        attributes: {
-            content: 'Hello World',
-            alignment: 'right',
-        },
+        url: {
+			type: 'string',
+			default: '#'
+		},
     },
     edit: ( props ) => {
         const {
             attributes: {
-                content,
                 alignment,
                 icon,
-                iconSelect
+                iconSelect,
+                url
             },
         } = props;
  
         const blockProps = useBlockProps();
- 
-        const onChangeContent = ( newContent ) => {
-            props.setAttributes( { content: newContent } );
-        };
  
         const onChangeAlignment = ( newAlignment ) => {
             props.setAttributes( { alignment: newAlignment === undefined ? 'none' : newAlignment } );
@@ -67,6 +56,10 @@ registerBlockType( 'sunflower/meta-data', {
 
         const onChangeIconSelect = ( newIcon ) => {
             props.setAttributes( { icon: newIcon === undefined ? 'none' : newIcon } );
+        };
+
+        const onChangeUrl = ( newUrl ) => {
+            props.setAttributes( { url: newUrl === undefined ? '#' : newUrl } );
         };
 
         const { InspectorControls } = wp.blockEditor;
@@ -98,6 +91,11 @@ registerBlockType( 'sunflower/meta-data', {
                                     { value: 'far fa-calendar-alt', label: 'Kalender' },
                                     { value: 'far fa-thumbs-up', label: 'Daumen hoch' },
                                     { value: 'far fa-thumbs-down', label: 'Daumen runter' },
+                                    { value: 'fab fa-twitter', label: 'Twitter' },
+                                    { value: 'fab fa-instagram', label: 'Instragram' },
+                                    { value: 'fab fa-facebook-f', label: 'Facebook' },
+                                    { value: 'fas fa-envelope', label: 'E-Mail' },
+                                    { value: 'fas fa-globe', label: 'Website' },   
                                 ]
                             }
                             onChange={ onChangeIconSelect }
@@ -109,18 +107,19 @@ registerBlockType( 'sunflower/meta-data', {
                             value={ icon }
                             onChange={ onChangeIcon }
                         />
+
+                        <TextControl
+                            label="URL"
+                            help="URL, wohin verlinkt wird"
+                            value={ url }
+                            onChange={ onChangeUrl }
+                        />
                     </PanelBody>
                  
                  </InspectorControls>
                 }
         
                 <i class={ props.attributes.icon }></i>
-                <RichText
-                    style={ { textAlign: alignment } }
-                    tagName="p"
-                    onChange={ onChangeContent }
-                    value={ content }
-                />
             </div>
         );
     },
@@ -129,12 +128,9 @@ registerBlockType( 'sunflower/meta-data', {
  
         return (
             <div {...blockProps}>
-                <i class={ props.attributes.icon }></i>
-                <RichText.Content
-                    className={ `sunflower-meta-data-${ props.attributes.alignment }` }
-                    tagName="p"
-                    value={ props.attributes.content }
-                />
+                <a href={ props.attributes.url } target="_blank" rel="noopener">
+                    <i class={ props.attributes.icon }></i>
+                </a>
             </div>
         );
     },
