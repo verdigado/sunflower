@@ -64,7 +64,7 @@ if( !empty($location)){
 
 
 if( $_sunflower_event_webinar ){
-	$metadata .= sprintf('<div class="mt-1 mb-1"><a href="%s" target="_blank"><i class="fas fa-desktop"></i> %s</a></div>',
+	$metadata .= sprintf('<div class="mt-1 mb-1"><a href="%s" target="_blank">%s</a></div>',
 		$_sunflower_event_webinar,
 		__('Link to webinar', 'sunflower')
 	);
