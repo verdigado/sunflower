@@ -83,10 +83,10 @@ a.wp-block-file__button {
 }
 
 .wp-block-column{
-    margin-bottom: 30px;
     img{
         width: 100%;
         object-fit: cover;
+        border-radius: $border-radius;
     }
 }
 
@@ -129,10 +129,16 @@ a.wp-block-file__button {
     }
 }
 
+.wp-block-columns{
+    margin-bottom: 0;
+}
+
 @include media-breakpoint-up(sm) { 
-    .wp-block-column{
-        img{
-            max-height: 140px;
+    .same-height{
+        .wp-block-column{
+            img{
+                max-height: 140px;
+            }
         }
     }
 }
@@ -143,9 +149,11 @@ a.wp-block-file__button {
 }
 
 @include media-breakpoint-up(xl) { 
-    .wp-block-column{
-        img{
-            max-height: 230px;
+    .same-height{
+        .wp-block-column{
+            img{
+                max-height: 230px;
+            }
         }
     }
 }
