@@ -83,7 +83,7 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
    
     $return = sprintf(' <div class="wp-block-group has-background latest-posts">
                         <div class="wp-block-group__inner-container">
-                            <h2 class="text-center h1 mt-4 mb-5">%s</h2>
+                            <h2 class="text-center h1 mt-4 pb-5 mb-5">%s</h2>
                         <div class="row">',
                         __('News', 'sunflower')
     );
