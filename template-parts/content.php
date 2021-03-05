@@ -7,11 +7,13 @@
  * @package sunflower
  */
 
- $metadata = $class = false;
- extract($args);
+$show_title = @get_post_meta( $post->ID, '_sunflower_show_title')[0] ? true : false;
+$metadata = $class = false;
+extract($args);
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($class); ?>>
+	<?php if ($show_title ) { ?>
 	<header class="entry-header full-width <?php echo (has_post_thumbnail()) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
 		<div class="container">
 			<div class="row position-relative">
@@ -51,6 +53,9 @@
 			</div>
 		</div>
 	</header><!-- .entry-header -->
+	<?php
+	}
+	?>
 
 	<?php sunflower_post_thumbnail(); ?>
 
