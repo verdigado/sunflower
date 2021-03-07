@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('bg-white mb-4'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('bg-white mb-4 has-shadow'); ?>>
     <div class="">
         <div class="">
             <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">

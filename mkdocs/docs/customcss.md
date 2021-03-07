@@ -43,3 +43,7 @@ archive-loop article {
     background-image: url(assets/img/sunflower1.jpg);
 }
 ```
+
+## Eigene Klassennamen
+ - .has-shadow: erzeugt Schatten
+ - .no-link: Keine Linkfarbe

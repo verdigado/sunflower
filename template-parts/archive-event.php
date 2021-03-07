@@ -18,7 +18,7 @@
 ?>
 
 <a href="<?php echo esc_url( get_permalink() ); ?>" class="event-card <?php echo join(' ', array_keys($tag_list)); ?>" rel="bookmark">
-<article id="post-<?php the_ID(); ?>" <?php post_class('mb-4 event'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('mb-4 event has-shadow'); ?>>
     <div class="p-4">
         <?php
          list($weekday, $days, $time ) = sunflower_prepare_event_time_data( $post );
