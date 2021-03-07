@@ -8,6 +8,10 @@
  */
 
 $show_title = @get_post_meta( $post->ID, '_sunflower_show_title')[0] ? true : false;
+if( 'sunflower_event' === get_post_type() ){
+	$show_title = true;
+}
+
 $metadata = $class = false;
 extract($args);
 ?>
