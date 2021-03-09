@@ -61,7 +61,7 @@ extract($args);
 	}
 	?>
 
-	<?php sunflower_post_thumbnail(); ?>
+	<?php sunflower_post_thumbnail($show_title); ?>
 
 	<div class="col-12 col-md-10 offset-md-1">
 		<div class="row entry-content">
