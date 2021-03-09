@@ -37,7 +37,7 @@ a.wp-block-file__button {
     } 
 }
 
-.wp-block-media-text{
+.wp-block-media-text.person{
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -56,11 +56,13 @@ a.wp-block-file__button {
         align-self: auto;
     }
 
-    &__media,
+    .wp-block-media-text__media,
     .wp-block-image{
         img{
             border-top-left-radius: $border-radius;
             border-top-right-radius: $border-radius;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
             width: 100%;
 
         }
