@@ -87,7 +87,8 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 				<div class="col-8 col-md-10">
 					<p class="small">
 						<?php bloginfo('name'); ?> benutzt das<br>freie 
-						grüne Theme <a href="https://sunflower-theme.de" target="_blank">sunflower</a>.
+						grüne Theme <a href="https://sunflower-theme.de" target="_blank">sunflower</a> &dash; ein 
+						Angebot der <a href="https://verdigado.com/" target="_blank">verdigado eG</a>.
 					</p>
 				</div>
 				<div class="col-4 col-md-2">
