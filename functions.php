@@ -20,6 +20,8 @@ require_once('functions/comments.php');
 require_once('functions/icalimport.php');
 require_once('functions/pictureimport.php');
 require_once('functions/emailscrambler.php');
+require_once('functions/contact-form.php');
+
 
 
 

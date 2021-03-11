@@ -156,7 +156,7 @@ function sunflower_scripts() {
 	wp_enqueue_script(
         'bootstrap',
         get_template_directory_uri() . '/assets/vndr/bootstrap/dist/js/bootstrap.min.js',
-        array( 'jquery-slim' ),
+        array( 'jquery' ),
         _S_VERSION, 
         true
 	);
@@ -169,13 +169,13 @@ function sunflower_scripts() {
         true
 	);
 	
-	wp_enqueue_script(
-        'jquery-slim',
-        get_template_directory_uri() . '/assets/vndr/jquery-slim/dist/jquery.slim.min.js',
-        null,
-        _S_VERSION, 
-        true
-	);
+	// wp_enqueue_script(
+    //     'jquery-slim',
+    //     get_template_directory_uri() . '/assets/vndr/jquery-slim/dist/jquery.slim.min.js',
+    //     null,
+    //     _S_VERSION, 
+    //     true
+	// );
 	
 	wp_enqueue_script(
         'frontend',
@@ -184,6 +184,11 @@ function sunflower_scripts() {
         _S_VERSION, 
         true
 	);
+
+	wp_localize_script( 'frontend', 'sunflower', array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' )
+		)
+    );
 
 	if( 'sunflower_event' == get_post_type() ){
 		wp_enqueue_script(

@@ -40,3 +40,26 @@ function showLeaflet(lat, lon, zoom){
 
   const marker = L.marker([lat, lon]).addTo(leaflet);
 };
+
+jQuery( '#sunflower-contact-form' ).on( 'submit', function(e) {
+  e.preventDefault();
+
+	jQuery.ajax( {
+		url: sunflower.ajaxurl,
+    method: "POST",
+		data: {
+			action: 'sunflower_contact_form',
+      message: jQuery('#message').val(),
+      name: jQuery('#name').val(),
+
+		},
+	} ).done(function(response){
+      response = JSON.parse(response);
+      jQuery('#sunflower-contact-form').html(response.text);
+      console.log(response.text);
+  }
+
+  );
+
+  return false;
+} );
