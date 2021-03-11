@@ -261,21 +261,14 @@ class SunflowerSettingsPage
             'sunflower-setting-social-media-options' // Page
         );  
 
-        $social_media_profiles = [
-            'twitter', 'instagram','facebook','mail','snapchat','wordpress','flickr','linkedin','mail','mastodon','meetup','skype','soundcloud','vimeo','youtube'
-        ];
 
-        foreach ($social_media_profiles AS $profile ){
-            $info = block_core_social_link_services($profile);
-            add_settings_field(
-                $profile, 
-                $info['name'],
-                array( $this, 'social_media_profile_callback' ), 
-                'sunflower-setting-social-media-options', 
-                'sunflower_social_media',
-                [$profile, $info['icon']]
-            ); 
-        }    
+        add_settings_field(
+            'sunflower_social_media_profiles', 
+            __('Social Media Profiles', 'sunflower'), // Title 
+            array( $this, 'social_media_profiles_callback' ), 
+            'sunflower-setting-social-media-options', 
+            'sunflower_social_media'
+        ); 
         
         add_settings_section(
             'sunflower_layout', // ID
@@ -372,10 +365,12 @@ class SunflowerSettingsPage
         if( isset( $input['excerpt_length'] ) )
             $new_input['excerpt_length'] = absint( $input['excerpt_length'] ) ?: '';
 
-         if( isset( $input['sunflower_ical_urls'] ) )
-             $new_input['sunflower_ical_urls'] = $input['sunflower_ical_urls'] ?: '';
+        if( isset( $input['sunflower_ical_urls'] ) )
+            $new_input['sunflower_ical_urls'] = $input['sunflower_ical_urls'] ?: '';
 
-
+        if( isset( $input['sunflower_social_media_profiles'] ) )
+            $new_input['sunflower_social_media_profiles'] = sanitize_textarea_field( $input['sunflower_social_media_profiles'] );
+ 
         return $new_input;
     }
 
@@ -427,22 +422,33 @@ class SunflowerSettingsPage
         </div>';
     }
 
- 
-    /** 
+
+     /** 
      * Get the settings option array and print one of its values
      */
-    public function social_media_profile_callback($args)
+    public function social_media_profiles_callback($args)
     {
-        $profile = $args[0];
-        $icon = $args[1];
+        $default = [];
+        $default[] = 'fab fa-twitter;Twitter;';
+        $default[] = 'fab fa-facebook;Facebook;';
+        $default[] = 'fab fa-linkedin;LinkedIn;';
+        $default[] = 'fab fa-instagram;Instagram;';
+        $default[] = 'fab fa-youtube;YouTube;';
+        $default[] = 'fas fa-globe;Webseite;';
+
+
 
         printf(
-            '%4$s<input type="text" id="%1$s" name="sunflower_options[%1$s]" value="%2$s" placeholder="%3$s" style="vertical-align:bottom"/>',
-            $profile,
-            isset( $this->options[$profile] ) ? esc_attr( $this->options[$profile]) : '',
-            __('complete URL of profile', 'sunflower'),
-            $icon
+            '<textarea style="white-space: pre-wrap;width: 90%%;height:7em;" id="sunflower_social_media_profiles" name="sunflower_options[sunflower_social_media_profiles]">%s</textarea>',
+            ( isset( $this->options['sunflower_social_media_profiles'] ) && $this->options['sunflower_social_media_profiles'] != '' ) ? $this->options['sunflower_social_media_profiles'] : join("\n", $default)
         );
+        echo '<div><a href="https://sunflower-theme.de/documentation/setup/#social-media-profile" target="_blank">Mehr zu den Einstellungen in der Dokumenation</a> und
+        <a href="https://fontawesome.com/icons?d=gallery&p=2&m=free" target="_blank">alle möglichen Icons bei Fontawesome</a>.<br>
+       Pro Zeile ein Social-Media-Profil<br>
+       Format: Fontawesome-Klasse; Title-Attribut; URL<br>
+       Wenn die URL fehlt, wird nichts verlinkt.
+
+        </div>';
     }
 }
 
@@ -467,16 +473,20 @@ function get_sunflower_social_media_profiles(){
     $profiles = block_core_social_link_services();
 
     $return = '';
-    foreach($profiles AS $profile => $info){
-        $name = $info['name'];
-        $icon = $info['icon'];
 
-        if( $link = get_sunflower_setting($profile) ){
-            $return .= sprintf('<a href="%1$s" target="_blank" title="%3$s" class="social-media-profile">%2$s</a>', 
-            $link, 
-            $icon,
-            $name);
+    $lines = explode("\n", get_sunflower_setting('sunflower_social_media_profiles'));
+    foreach($lines AS $line){
+        @list($class, $title, $url ) = explode(";", $line);
+
+        if(!isset($url) || $url == '' ){
+            continue;
         }
+     
+        $return .= sprintf('<a href="%1$s" target="_blank" title="%3$s" class="social-media-profile"><i class="%2$s"></i></a>', 
+        $url, 
+        $class,
+        $title);
+        
     }
 
     return $return;
