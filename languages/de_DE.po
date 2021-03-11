@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "POT-Creation-Date: 2021-02-21T23:09:55+01:00\n"
-"PO-Revision-Date: 2021-02-28 19:19+0100\n"
+"PO-Revision-Date: 2021-03-11 20:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -21,10 +21,8 @@ msgid "sunflower"
 msgstr "sunflower"
 
 #. Theme URI of the theme
-#, fuzzy
-#| msgid "https://tom-rose.de"
 msgid "https://sunflower-theme.de"
-msgstr "https://tom-rose.de"
+msgstr "https://sunflower-theme.de"
 
 #. Description of the theme
 msgid "Theme for german Green party"
@@ -82,8 +80,8 @@ msgid ""
 "Your mail will not be published. Required fields are marked with a *. For "
 "more info see <a href=\"%s\">privacy</a>"
 msgstr ""
-"Ihre E-Mail-Adresse wird nicht veröffentlicht. Erforderliche Felder sind "
-"tmit * markiert. Mit der Nutzung dieses Formulars erklären Sie sich mit der "
+"Ihre E-Mail-Adresse wird nicht veröffentlicht. Erforderliche Felder sind mit "
+"* markiert. Mit der Nutzung dieses Formulars erklären Sie sich mit der "
 "Speicherung und Verarbeitung Ihrer Daten durch diese Website einverstanden. "
 "Weiteres entnehmen Sie bitte der <a href=\"%s\">Datenschutzerklärung</a>."
 
