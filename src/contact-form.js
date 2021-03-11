@@ -25,16 +25,18 @@ registerBlockType( 'sunflower/contact-form', {
         const blockProps = useBlockProps.save();
         return  (
             <div {...blockProps}>  
+                <div class="comment-respond mb-5">
                <form id="sunflower-contact-form" method="post" class="row">
                   
                 <div class="col-12 col-md-6">
                     <p class="comment-form-comment">
-                        <label for="message">Nachricht</label> 
+                        <label for="message">Nachricht <span class="required">*</span></label> 
                         <textarea id="message" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
                     </p>
                     <p>Erforderliche Felder sind mit * markiert. 
                         Mit der Nutzung dieses Formulars erklären Sie sich mit der Speicherung und Verarbeitung 
-                        Ihrer Daten durch diese Website einverstanden. Weiteres entnehmen Sie bitte unserer Datenschutzerklärung.
+                        Ihrer Daten durch diese Website einverstanden. 
+                        Weiteres entnehmen Sie bitte unserer <a href="#" id="privacy_policy_url">Datenschutzerklärung</a>.
                     </p>
                 </div>
                 <div class="col-12 col-md-6"><p class="comment-form-author">
@@ -52,6 +54,7 @@ registerBlockType( 'sunflower/contact-form', {
                         <input name="submit" type="submit" id="submit" class="submit" value="abschicken"/> 
                     </p>
                </form>
+               </div>
             </div>
 
         );

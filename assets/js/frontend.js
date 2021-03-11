@@ -28,6 +28,8 @@ jQuery(document).ready( function (){
 
     showLeaflet(lat, lon, zoom);
   })
+
+  jQuery('#privacy_policy_url').attr('href',sunflower.privacy_policy_url);
 });
 
 
