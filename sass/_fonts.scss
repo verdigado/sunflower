@@ -36,6 +36,13 @@
     src: url('assets/fonts/ptsans_bolditalic.woff') format('woff'),
   }
 
+  @font-face {
+    font-family: ForkAwesome;
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/forkawesome-webfont.woff') format('woff'),
+  }
+
   .arvo{
     font-family: Arvo !important;
     font-weight: 500;
@@ -47,4 +54,14 @@
   .ptsans{
     font-family: PTSans !important;
   }
+  .forkawesome{
+    font-family: ForkAwesome !important;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+  }
+
 

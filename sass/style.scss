@@ -117,6 +117,7 @@ $fa-font-path : 'assets/vndr/@fortawesome/fontawesome-free/webfonts';
 
 /* Custom
 --------------------------------------------- */
+@import "_forkawesome";
 @import "_typography";
 @import "_generic";
 @import "_header";
@@ -125,7 +126,6 @@ $fa-font-path : 'assets/vndr/@fortawesome/fontawesome-free/webfonts';
 @import "_layout";
 @import "_footer";
 @import "_event";
-@import "_blocks";
 @import "_navigation";
 @import "_archives";
 @import "_meta";
@@ -134,6 +134,7 @@ $fa-font-path : 'assets/vndr/@fortawesome/fontawesome-free/webfonts';
 @import "_sidebar";
 @import "_comments";
 
+@import "_blocks";
 @import "wp-blocks/cover";
 @import "wp-blocks/group";
 @import "wp-blocks/file";

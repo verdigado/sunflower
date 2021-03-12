@@ -435,11 +435,15 @@ class SunflowerSettingsPage
         $default[] = 'fab fa-instagram;Instagram;';
         $default[] = 'fab fa-youtube;YouTube;';
         $default[] = 'fas fa-globe;Webseite;';
+        $default[] = 'forkawesome fa-peertube;PeerTube;';
+        $default[] = 'forkawesome fa-mastodon;Mastodon;';
+
+
 
 
 
         printf(
-            '<textarea style="white-space: pre-wrap;width: 90%%;height:7em;" id="sunflower_social_media_profiles" name="sunflower_options[sunflower_social_media_profiles]">%s</textarea>',
+            '<textarea style="white-space: pre-wrap;width: 90%%;height:18em;" id="sunflower_social_media_profiles" name="sunflower_options[sunflower_social_media_profiles]">%s</textarea>',
             ( isset( $this->options['sunflower_social_media_profiles'] ) && $this->options['sunflower_social_media_profiles'] != '' ) ? $this->options['sunflower_social_media_profiles'] : join("\n", $default)
         );
         echo '<div><a href="https://sunflower-theme.de/documentation/setup/#social-media-profile" target="_blank">Mehr zu den Einstellungen in der Dokumenation</a> und
@@ -476,6 +480,7 @@ function get_sunflower_social_media_profiles(){
 
     $lines = explode("\n", get_sunflower_setting('sunflower_social_media_profiles'));
     foreach($lines AS $line){
+        $line = trim($line);
         @list($class, $title, $url ) = explode(";", $line);
 
         if(!isset($url) || $url == '' ){
