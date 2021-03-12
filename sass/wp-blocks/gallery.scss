@@ -1,0 +1,17 @@
+
+.wp-block-gallery{
+    .blocks-gallery-item{
+        figure{
+            flex-direction: column;
+        }
+        figcaption{
+            position: relative;
+            width: unset;
+            padding: 5px 0 0 0;
+            color: inherit;
+            text-align: right;
+            font-size: $small-font-size;
+            background: none;
+        }
+    }
+}

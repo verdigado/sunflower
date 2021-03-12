@@ -1,0 +1,25 @@
+.wp-block-group{
+
+    padding: 100px 10px;
+    
+    &.has-background{
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__inner-container{
+        max-width: map-get($container-max-widths, 'xl');
+    } 
+}
+
+.d-flex{
+    .wp-block-group__inner-container{
+        display: flex !important;
+    }
+}

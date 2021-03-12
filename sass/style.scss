@@ -134,5 +134,12 @@ $fa-font-path : 'assets/vndr/@fortawesome/fontawesome-free/webfonts';
 @import "_sidebar";
 @import "_comments";
 
-
-
+@import "wp-blocks/cover";
+@import "wp-blocks/group";
+@import "wp-blocks/file";
+@import "wp-blocks/media-text";
+@import "wp-blocks/button";
+@import "wp-blocks/column";
+@import "wp-blocks/gallery";
+@import "wp-blocks/quote";
+@import "wp-blocks/separator";

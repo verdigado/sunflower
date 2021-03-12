@@ -1,0 +1,13 @@
+.wp-block-cover{
+    font-family: ArvoGruen;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    &__inner-container{
+        max-width: map-get($container-max-widths, 'xl');
+    } 
+}
