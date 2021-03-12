@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 0.7.5\n"
+"Project-Id-Version: sunflower 0.11.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-02-21T23:09:55+01:00\n"
+"POT-Creation-Date: 2021-03-12T09:15:33+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -46,7 +46,7 @@ msgstr ""
 #: functions/events.php:24
 #: functions/options.php:63
 #: functions/options.php:64
-#: functions/options.php:269
+#: functions/options.php:282
 msgid "Events"
 msgstr ""
 
@@ -71,31 +71,31 @@ msgstr ""
 msgid "Comment article"
 msgstr ""
 
-#: comments.php:28
+#: comments.php:29
 msgid "comment article"
 msgstr ""
 
-#: comments.php:29
+#: comments.php:30
 msgid "send"
 msgstr ""
 
-#: comments.php:31
+#: comments.php:33
 msgid "Your mail will not be published. Required fields are marked with a *. For more info see <a href=\"%s\">privacy</a>"
 msgstr ""
 
-#: comments.php:53
+#: comments.php:55
 msgid "One comment"
 msgstr ""
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:57
+#: comments.php:59
 msgctxt "context"
 msgid "%1$s commment"
 msgid_plural "%1$s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:84
+#: comments.php:86
 msgid "Comments are closed."
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 
 #: functions/admin.php:67
 #: functions/block-patterns.php:11
-#: functions/blocks.php:118
+#: functions/blocks.php:134
 #: functions/options.php:24
 #: functions/options.php:25
 msgid "Sunflower"
@@ -119,15 +119,19 @@ msgstr ""
 msgid "Next events"
 msgstr ""
 
-#: functions/blocks.php:74
+#: functions/blocks.php:62
+msgid "Currently there are no coming events."
+msgstr ""
+
+#: functions/blocks.php:88
 msgid "News"
 msgstr ""
 
-#: functions/blocks.php:103
+#: functions/blocks.php:119
 msgid "more posts"
 msgstr ""
 
-#: functions/blocks.php:105
+#: functions/blocks.php:121
 msgid "to archive"
 msgstr ""
 
@@ -136,19 +140,59 @@ msgid "Magenta"
 msgstr ""
 
 #: functions/colors.php:13
-msgid "Green"
+msgid "Magenta 600"
 msgstr ""
 
 #: functions/colors.php:18
-msgid "Lightgray"
+msgid "Green"
 msgstr ""
 
 #: functions/colors.php:23
-msgid "White"
+msgid "Green 800b"
 msgstr ""
 
 #: functions/colors.php:28
-msgid "Black"
+msgid "Green 550"
+msgstr ""
+
+#: functions/colors.php:33
+msgid "White"
+msgstr ""
+
+#: functions/colors.php:38
+msgid "Yellow 500"
+msgstr ""
+
+#: functions/colors.php:43
+msgid "Yellow 600"
+msgstr ""
+
+#: functions/colors.php:48
+msgid "Blue 500"
+msgstr ""
+
+#: functions/colors.php:53
+msgid "Blue 600"
+msgstr ""
+
+#: functions/colors.php:58
+msgid "Gray 100"
+msgstr ""
+
+#: functions/colors.php:63
+msgid "Black 500"
+msgstr ""
+
+#: functions/contact-form.php:6
+msgid "Form not sent. Captcha wrong. Please try again."
+msgstr ""
+
+#: functions/contact-form.php:15
+msgid "Thank you. The form has been sent."
+msgstr ""
+
+#: functions/contact-form.php:17
+msgid "New contact form"
 msgstr ""
 
 #: functions/events.php:4
@@ -201,10 +245,12 @@ msgid "This event will be imported by remote ical-calendar. All changes here wil
 msgstr ""
 
 #: functions/events.php:171
+#: functions/options.php:215
 msgid "Map"
 msgstr ""
 
 #: functions/events.php:172
+#: functions/options.php:216
 msgid "load map"
 msgstr ""
 
@@ -213,7 +259,7 @@ msgid "delete map"
 msgstr ""
 
 #: functions/metaboxes.php:6
-#: functions/options.php:262
+#: functions/options.php:275
 msgid "Layout"
 msgstr ""
 
@@ -259,59 +305,52 @@ msgstr ""
 
 #: functions/options.php:130
 #: functions/options.php:152
-#: functions/options.php:213
+#: functions/options.php:233
 msgid "Sunflower Settings"
 msgstr ""
 
-#: functions/options.php:178
-msgid " events were new/updated"
-msgstr ""
-
-#: functions/options.php:239
+#: functions/options.php:259
+#: functions/options.php:267
 msgid "Social Media Profiles"
 msgstr ""
 
-#: functions/options.php:276
+#: functions/options.php:289
 msgid "Excerpt length (words)"
 msgstr ""
 
-#: functions/options.php:284
+#: functions/options.php:297
 msgid "URLs of iCal calendars, one per row"
 msgstr ""
 
-#: functions/options.php:293
-#: functions/options.php:297
+#: functions/options.php:306
+#: functions/options.php:310
 msgid "show related posts"
 msgstr ""
 
-#: functions/options.php:302
+#: functions/options.php:315
 msgid "Social Sharers"
 msgstr ""
 
-#: functions/options.php:309
-#: functions/options.php:313
+#: functions/options.php:322
+#: functions/options.php:326
 msgid "Twitter"
 msgstr ""
 
-#: functions/options.php:318
-#: functions/options.php:322
+#: functions/options.php:331
+#: functions/options.php:335
 msgid "Facebook"
 msgstr ""
 
-#: functions/options.php:327
+#: functions/options.php:340
 msgid "mail"
 msgstr ""
 
-#: functions/options.php:331
+#: functions/options.php:344
 msgid "Mail"
 msgstr ""
 
-#: functions/options.php:371
+#: functions/options.php:386
 msgid "Show share buttons on single page"
-msgstr ""
-
-#: functions/options.php:422
-msgid "complete URL of profile"
 msgstr ""
 
 #: functions/pictureimport.php:57
@@ -428,27 +467,27 @@ msgstr ""
 msgid "Please contact the administrator of this site for help."
 msgstr ""
 
-#: functions/_s.php:53
+#: functions/_s.php:54
 msgid "Mainmenu"
 msgstr ""
 
-#: functions/_s.php:54
+#: functions/_s.php:55
 msgid "Topmenu"
 msgstr ""
 
-#: functions/_s.php:55
+#: functions/_s.php:56
 msgid "Footer Menu 1"
 msgstr ""
 
-#: functions/_s.php:56
+#: functions/_s.php:57
 msgid "Footer Menu 2"
 msgstr ""
 
-#: functions/_s.php:130
+#: functions/_s.php:131
 msgid "Sidebar"
 msgstr ""
 
-#: functions/_s.php:132
+#: functions/_s.php:133
 msgid "Add widgets here."
 msgstr ""
 
@@ -460,41 +499,30 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: inc/class-wp-bootstrap-navwalker.php:366
+#: inc/class-wp-bootstrap-navwalker.php:385
 msgid "Add a menu"
 msgstr ""
 
-#. translators: %s: post author.
-#: inc/template-tags.php:40
-msgctxt "post author"
-msgid " | %s"
-msgstr ""
-
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:68
+#: inc/template-tags.php:64
 msgid ", "
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:75
+#: inc/template-tags.php:71
 msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
-#. translators: %s: post title
-#: inc/template-tags.php:100
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
-
-#: inc/template-tags.php:124
+#: inc/template-tags.php:101
 msgid "Share on twitter "
 msgstr ""
 
-#: inc/template-tags.php:131
+#: inc/template-tags.php:108
 msgid "Share on facebook "
 msgstr ""
 
-#: inc/template-tags.php:139
+#: inc/template-tags.php:116
 msgid "send mail "
 msgstr ""
 
@@ -534,18 +562,18 @@ msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58
-#: template-parts/content-archive.php:53
-#: template-parts/content.php:64
+#: template-parts/content-archive.php:50
+#: template-parts/content.php:73
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: template-parts/content-archive.php:66
+#: template-parts/content-archive.php:63
 #: template-parts/content-page.php:31
-#: template-parts/content.php:77
+#: template-parts/content.php:86
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-archive.php:80
+#: template-parts/content-archive.php:77
 msgid "Continue reading"
 msgstr ""
 

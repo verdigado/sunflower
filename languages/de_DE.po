@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-02-21T23:09:55+01:00\n"
-"PO-Revision-Date: 2021-03-11 20:18+0100\n"
+"POT-Creation-Date: 2021-03-12T09:15:33+01:00\n"
+"PO-Revision-Date: 2021-03-12 09:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -47,7 +47,7 @@ msgid ""
 msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
 
 #: archive-sunflower_event.php:21 functions/events.php:24
-#: functions/options.php:63 functions/options.php:64 functions/options.php:269
+#: functions/options.php:63 functions/options.php:64 functions/options.php:282
 msgid "Events"
 msgstr "Termine"
 
@@ -67,15 +67,15 @@ msgstr "vor"
 msgid "Comment article"
 msgstr "Artikel kommentieren"
 
-#: comments.php:28
+#: comments.php:29
 msgid "comment article"
 msgstr "Artikel kommentieren"
 
-#: comments.php:29
+#: comments.php:30
 msgid "send"
 msgstr "abschicken"
 
-#: comments.php:31
+#: comments.php:33
 msgid ""
 "Your mail will not be published. Required fields are marked with a *. For "
 "more info see <a href=\"%s\">privacy</a>"
@@ -85,19 +85,19 @@ msgstr ""
 "Speicherung und Verarbeitung Ihrer Daten durch diese Website einverstanden. "
 "Weiteres entnehmen Sie bitte der <a href=\"%s\">Datenschutzerklärung</a>."
 
-#: comments.php:53
+#: comments.php:55
 msgid "One comment"
 msgstr "Ein Kommentar"
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:57
+#: comments.php:59
 msgctxt "context"
 msgid "%1$s commment"
 msgid_plural "%1$s comments"
 msgstr[0] "Ein Kommentar"
 msgstr[1] "%s Kommentare"
 
-#: comments.php:84
+#: comments.php:86
 msgid "Comments are closed."
 msgstr "Keine Kommentare möglich."
 
@@ -111,7 +111,7 @@ msgstr ""
 "page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
 #: functions/admin.php:67 functions/block-patterns.php:11
-#: functions/blocks.php:118 functions/options.php:24 functions/options.php:25
+#: functions/blocks.php:134 functions/options.php:24 functions/options.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
 
@@ -125,15 +125,19 @@ msgstr "sunflower_event"
 msgid "Next events"
 msgstr "Nächste Termine"
 
-#: functions/blocks.php:74
+#: functions/blocks.php:62
+msgid "Currently there are no coming events."
+msgstr "Derzeit sind keine Veranstaltungen geplant."
+
+#: functions/blocks.php:88
 msgid "News"
 msgstr "Aktuelles"
 
-#: functions/blocks.php:103
+#: functions/blocks.php:119
 msgid "more posts"
 msgstr "Alle Beiträge"
 
-#: functions/blocks.php:105
+#: functions/blocks.php:121
 msgid "to archive"
 msgstr "Zum Blog-Archiv"
 
@@ -142,20 +146,70 @@ msgid "Magenta"
 msgstr "Magenta"
 
 #: functions/colors.php:13
+#, fuzzy
+#| msgid "Magenta"
+msgid "Magenta 600"
+msgstr "Magenta"
+
+#: functions/colors.php:18
 msgid "Green"
 msgstr "Grün"
 
-#: functions/colors.php:18
-msgid "Lightgray"
-msgstr "Hellgrau"
-
 #: functions/colors.php:23
+#, fuzzy
+#| msgid "Green"
+msgid "Green 800b"
+msgstr "Grün"
+
+#: functions/colors.php:28
+#, fuzzy
+#| msgid "Green"
+msgid "Green 550"
+msgstr "Grün"
+
+#: functions/colors.php:33
 msgid "White"
 msgstr "Weiß"
 
-#: functions/colors.php:28
-msgid "Black"
+#: functions/colors.php:38
+msgid "Yellow 500"
+msgstr ""
+
+#: functions/colors.php:43
+msgid "Yellow 600"
+msgstr ""
+
+#: functions/colors.php:48
+msgid "Blue 500"
+msgstr ""
+
+#: functions/colors.php:53
+msgid "Blue 600"
+msgstr ""
+
+#: functions/colors.php:58
+msgid "Gray 100"
+msgstr ""
+
+#: functions/colors.php:63
+#, fuzzy
+#| msgid "Black"
+msgid "Black 500"
 msgstr "Schwarz"
+
+#: functions/contact-form.php:6
+msgid "Form not sent. Captcha wrong. Please try again."
+msgstr ""
+"Das Formular konnte nicht gesendet werden, weil die Rechnung (Captcha) "
+"falsch ist. Bitte versuchen Sie es noch einmal."
+
+#: functions/contact-form.php:15
+msgid "Thank you. The form has been sent."
+msgstr "Vielen Dank. Das Formular wurde verschickt."
+
+#: functions/contact-form.php:17
+msgid "New contact form"
+msgstr "Neues Kontaktformular"
 
 #: functions/events.php:4
 msgid "Startdate"
@@ -211,11 +265,11 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:171
+#: functions/events.php:171 functions/options.php:215
 msgid "Map"
 msgstr "Landkarte"
 
-#: functions/events.php:172
+#: functions/events.php:172 functions/options.php:216
 msgid "load map"
 msgstr "Kartendaten laden"
 
@@ -223,7 +277,7 @@ msgstr "Kartendaten laden"
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/metaboxes.php:6 functions/options.php:262
+#: functions/metaboxes.php:6 functions/options.php:275
 msgid "Layout"
 msgstr "Layout"
 
@@ -266,57 +320,49 @@ msgid "About Sunflower"
 msgstr "Über Sunflower"
 
 #: functions/options.php:130 functions/options.php:152
-#: functions/options.php:213
+#: functions/options.php:233
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
-#: functions/options.php:178
-msgid " events were new/updated"
-msgstr "Termine sind neu/ wurden erneuert"
-
-#: functions/options.php:239
+#: functions/options.php:259 functions/options.php:267
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options.php:276
+#: functions/options.php:289
 msgid "Excerpt length (words)"
 msgstr "Länge der Vorschautextes in Worten"
 
-#: functions/options.php:284
+#: functions/options.php:297
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options.php:293 functions/options.php:297
+#: functions/options.php:306 functions/options.php:310
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options.php:302
+#: functions/options.php:315
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options.php:309 functions/options.php:313
+#: functions/options.php:322 functions/options.php:326
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options.php:318 functions/options.php:322
+#: functions/options.php:331 functions/options.php:335
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options.php:327
+#: functions/options.php:340
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options.php:331
+#: functions/options.php:344
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options.php:371
+#: functions/options.php:386
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
-
-#: functions/options.php:422
-msgid "complete URL of profile"
-msgstr "Komplette URL des Profils"
 
 #: functions/pictureimport.php:57
 msgid "An error occurred. Could not import images"
@@ -448,27 +494,27 @@ msgstr ""
 msgid "Please contact the administrator of this site for help."
 msgstr "Please contact the administrator of this site for help."
 
-#: functions/_s.php:53
+#: functions/_s.php:54
 msgid "Mainmenu"
 msgstr "Hauptmenü"
 
-#: functions/_s.php:54
+#: functions/_s.php:55
 msgid "Topmenu"
 msgstr "Menü am oberen Rand"
 
-#: functions/_s.php:55
+#: functions/_s.php:56
 msgid "Footer Menu 1"
 msgstr "Fußzeilenmenü 1"
 
-#: functions/_s.php:56
+#: functions/_s.php:57
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/_s.php:130
+#: functions/_s.php:131
 msgid "Sidebar"
 msgstr "Seitenleiste"
 
-#: functions/_s.php:132
+#: functions/_s.php:133
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
@@ -480,41 +526,30 @@ msgstr "Weiter zum Inhalt"
 msgid "Search"
 msgstr "Suche"
 
-#: inc/class-wp-bootstrap-navwalker.php:366
+#: inc/class-wp-bootstrap-navwalker.php:385
 msgid "Add a menu"
 msgstr "Menü erstellen"
 
-#. translators: %s: post author.
-#: inc/template-tags.php:40
-msgctxt "post author"
-msgid " | %s"
-msgstr "Autor*in"
-
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:68
+#: inc/template-tags.php:64
 msgid ", "
 msgstr ", "
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:75
+#: inc/template-tags.php:71
 msgctxt "list item separator"
 msgid ", "
 msgstr ", "
 
-#. translators: %s: post title
-#: inc/template-tags.php:100
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr "Kommentiere <span class=\"screen-reader-text\"> bei %s</span>"
-
-#: inc/template-tags.php:124
+#: inc/template-tags.php:101
 msgid "Share on twitter "
 msgstr "Auf Twitter teilen"
 
-#: inc/template-tags.php:131
+#: inc/template-tags.php:108
 msgid "Share on facebook "
 msgstr "Auf Facebook teilen"
 
-#: inc/template-tags.php:139
+#: inc/template-tags.php:116
 msgid "send mail "
 msgstr "Sende E-Mail"
 
@@ -556,17 +591,17 @@ msgid "Show map"
 msgstr "Kartendaten laden"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/archive-event.php:58 template-parts/content-archive.php:53
-#: template-parts/content.php:64
+#: template-parts/archive-event.php:58 template-parts/content-archive.php:50
+#: template-parts/content.php:73
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: template-parts/content-archive.php:66 template-parts/content-page.php:31
-#: template-parts/content.php:77
+#: template-parts/content-archive.php:63 template-parts/content-page.php:31
+#: template-parts/content.php:86
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: template-parts/content-archive.php:80
+#: template-parts/content-archive.php:77
 msgid "Continue reading"
 msgstr "weiterlesen"
 
@@ -600,6 +635,22 @@ msgstr ""
 #: template-parts/related-posts.php:7
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
+
+#~ msgid "Lightgray"
+#~ msgstr "Hellgrau"
+
+#~ msgid " events were new/updated"
+#~ msgstr "Termine sind neu/ wurden erneuert"
+
+#~ msgid "complete URL of profile"
+#~ msgstr "Komplette URL des Profils"
+
+#~ msgctxt "post author"
+#~ msgid " | %s"
+#~ msgstr "Autor*in"
+
+#~ msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+#~ msgstr "Kommentiere <span class=\"screen-reader-text\"> bei %s</span>"
 
 #~ msgid "http://underscores.me/"
 #~ msgstr "http://underscores.me/"

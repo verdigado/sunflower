@@ -53,12 +53,20 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function(e) {
 			action: 'sunflower_contact_form',
       message: jQuery('#message').val(),
       name: jQuery('#name').val(),
+      mail: jQuery('#mail').val(),
+      captcha: jQuery('#captcha').val(),
+
 
 		},
 	} ).done(function(response){
       response = JSON.parse(response);
+
+      if(response.code == 500 ){
+        jQuery('#sunflower-contact-form').append('<div class="bg-danger p-4 text-white">' + response.text + '</div>');
+        return;
+      }
+
       jQuery('#sunflower-contact-form').html(response.text);
-      console.log(response.text);
   }
 
   );

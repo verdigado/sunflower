@@ -33,20 +33,24 @@ registerBlockType( 'sunflower/contact-form', {
                         <label for="message">Nachricht <span class="required">*</span></label> 
                         <textarea id="message" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
                     </p>
-                    <p>Erforderliche Felder sind mit * markiert. 
+                    <p class="small">Bitte füllen Sie alle Felder aus. 
                         Mit der Nutzung dieses Formulars erklären Sie sich mit der Speicherung und Verarbeitung 
                         Ihrer Daten durch diese Website einverstanden. 
                         Weiteres entnehmen Sie bitte unserer <a href="#" id="privacy_policy_url">Datenschutzerklärung</a>.
                     </p>
                 </div>
                 <div class="col-12 col-md-6"><p class="comment-form-author">
-                    <label for="name">Name <span class="required">*</span></label> 
+                    <label for="name">Name </label> 
                     <input id="name" name="name" type="text" value="" size="30" maxlength="245" required="required"/>
 
                     </p>
                     <p class="comment-form-email">
-                        <label for="mail">E-Mail <span class="required">*</span></label> 
+                        <label for="mail">E-Mail</label> 
                         <input id="mail" name="mail" type="email" value="" size="30" maxlength="100" required="required"/>
+                     </p>
+                     <p class="comment-form-email">
+                        <label for="captcha">Was ist 1 + 1 ?</label> 
+                        <input id="captcha" name="captcha" type="text" value="" size="30" maxlength="100" required="required"/>
                      </p>
    
                 </div>

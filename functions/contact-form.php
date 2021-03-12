@@ -1,12 +1,18 @@
 <?php
 function sunflower_contact_form() {
-    $subject = sanitize_text_field($_POST['subject']);
+    $captcha = (int) sanitize_text_field($_POST['captcha']);
+
+    if( $captcha != 2 ){
+        echo json_encode(['code' => 500, 'text' => __('Form not sent. Captcha wrong. Please try again.', 'sunflower')]);
+        die();
+    }
+
+
     $message = sanitize_textarea_field($_POST['message']);
     $name = sanitize_text_field($_POST['name']);
     $mail = sanitize_email($_POST['mail']);
 
-    $response = __('sent', 'sunflower');
-
+    $response = __('Thank you. The form has been sent.', 'sunflower');
     $to = get_option('admin_email');
     $subject = __('New contact form', 'sunflower');
     $message = sprintf("Name: %s\nE-Mail:%s\n\n%s", $name, $mail, $message);

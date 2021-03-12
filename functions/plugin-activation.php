@@ -76,11 +76,6 @@ function sunflower_register_required_plugins() {
 		),
 
 		*/
-		array(
-			'name'        => 'Contact Form 7',
-			'slug'        => 'contact-form-7',
-			'is_callable' => 'wpcf7'
-		),
 
 		array(
 			'name'         => 'Free Images', // The plugin name.
