@@ -1,10 +1,22 @@
-$green-500: #46962b;
-$green-550: #3C8025;
-$green-800b: #224634;
+$custom-colors: (
+        green-500: #46962b,
+        green: #46962b,
+        green-800b: #224634,
+        magenta :#e6007e,
+        magenta-600: #BF0069,
+        green-550: #3C8025,
+        white: #ffffff,
+        yellow-500: #ffd500,  
+        blue-500 :#4cb4e7,
+        blue-600: #4097c2,  
+        gray-100 :#EFF2ED, 
+        black-500 :#363636
+);
 
 $very-light-gray: #D6D9D6;
-$primary: $green-500;
-$magenta: #e6007e;
+$green: map-get($custom-colors, 'green-500');
+$primary: $green;
+
 $dark: #dddddd;
 $darkgray: #333333;
 $lightgray: #AEB2AD;

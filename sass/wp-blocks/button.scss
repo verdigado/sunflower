@@ -4,6 +4,6 @@
     font-size: 1rem;
 
     &:hover{
-        background-color: $magenta;
+        background-color:  map-get($custom-colors, 'magenta');
     }
 }
