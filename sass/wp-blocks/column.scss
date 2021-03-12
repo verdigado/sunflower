@@ -7,10 +7,6 @@
     }
 }
 
-.wp-block-columns{
-    margin-bottom: 0;
-}
-
 @include media-breakpoint-up(sm) { 
     .same-height{
         .wp-block-column{
