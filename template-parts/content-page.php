@@ -20,7 +20,7 @@ extract($args);
 		</header><!-- .entry-header -->
 	<?php } ?>
 	
-	<?php sunflower_post_thumbnail(); ?>
+	<?php sunflower_post_thumbnail($show_title); ?>
 
 	<div class="entry-content">
 		<?php
