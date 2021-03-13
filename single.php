@@ -11,8 +11,10 @@ get_header();
 
 $layout_width = @get_post_meta( $post->ID, '_sunflower_page_width')[0] ? '' : 'container-narrow';
 $metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
+$styled_layout = @get_post_meta( $post->ID, '_sunflower_styled_layout')[0] ? 'styled-layout' : '';
+
 ?>
-	<div id="content" class="container <?php echo $layout_width; ?>">
+	<div id="content" class="container <?php echo "$layout_width $styled_layout"; ?>">
 		<div class="row">
 			<div class="col-12">
 				<main id="primary" class="site-main">
