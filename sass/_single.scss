@@ -1,5 +1,5 @@
 .display-single{
-    .entry{
+    >.entry{
         &-header{
             text-align: center;
             background: $lightgreen;
@@ -15,7 +15,7 @@
         }
     }
 
-    .post-thumbnail{
+    >.post-thumbnail{
         position: relative;
         margin-top: -35px;
         margin-bottom: 50px;
