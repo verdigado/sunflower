@@ -47,3 +47,4 @@ archive-loop article {
 ## Eigene Klassennamen
  - .has-shadow: erzeugt Schatten
  - .no-link: Keine Linkfarbe
+ - .same-height: damit in Spalten alle Bilder gleich hoch sind
