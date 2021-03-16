@@ -14,7 +14,7 @@
 
 get_header();
 
-$layout_width = @get_post_meta( $post->ID, '_sunflower_page_width')[0] ? '' : 'container-narrow';
+$layout_width = @get_post_meta( $post->ID, '_sunflower_styled_layout')[0] ? '' : 'container-narrow';
 $styled_layout = @get_post_meta( $post->ID, '_sunflower_styled_layout')[0] ? 'styled-layout' : '';
 $metadata = @get_post_meta( $post->ID, '_sunflower_metadata')[0] ?: false;
 

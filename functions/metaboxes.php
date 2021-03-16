@@ -36,7 +36,6 @@ function save_sunflower_meta_boxes(){
     }
 
     update_post_meta( $post->ID, "_sunflower_show_title", sanitize_text_field( @$_POST[ "_sunflower_show_title" ] ) );
-    update_post_meta( $post->ID, "_sunflower_page_width", sanitize_text_field( @$_POST[ "_sunflower_page_width" ] ) );
     update_post_meta( $post->ID, "_sunflower_styled_layout", sanitize_text_field( @$_POST[ "_sunflower_styled_layout" ] ) );    
     update_post_meta( $post->ID, "_sunflower_roofline", sanitize_text_field( @$_POST[ "_sunflower_roofline" ] ) );
     update_post_meta( $post->ID, "_sunflower_metadata", @$_POST[ "sunflower-meta-data" ] );
@@ -85,27 +84,6 @@ function sunflower_meta_box_layout(){
     </div>',
     $checked,
     __('Styled layout', 'sunflower')
-    );
-
-
-
-    if( isset( $custom['_sunflower_page_width'][0]) ){
-        $checked = ($custom['_sunflower_page_width'][0]) ? 'checked': '';
-    } else {
-        $checked = 'checked';
-    }
-
-    printf('
-    <div class="components-panel__row">
-        <div class="components-base-control__field">
-            <span class="components-checkbox-control__input-container">
-                <input name="_sunflower_page_width" id="_sunflower_page_width" class="" type="checkbox" value="1" %s>
-            </span>
-            <label class="components-checkbox-control__label" for="_sunflower_page_width">%s</label>
-        </div>
-    </div>',
-    $checked,
-    __('Layout wide', 'sunflower')
     );
 
 }
