@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 0.11.7\n"
+"Project-Id-Version: sunflower 0.12.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-03-12T09:15:33+01:00\n"
+"POT-Creation-Date: 2021-03-16T11:51:37+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -57,13 +57,13 @@ msgstr ""
 
 #: archive.php:65
 #: index.php:71
-#: single.php:43
+#: single.php:45
 msgid "previous"
 msgstr ""
 
 #: archive.php:66
 #: index.php:72
-#: single.php:48
+#: single.php:50
 msgid "next"
 msgstr ""
 
@@ -264,7 +264,7 @@ msgid "Layout"
 msgstr ""
 
 #: functions/metaboxes.php:15
-#: functions/metaboxes.php:105
+#: functions/metaboxes.php:102
 msgid "Metadata"
 msgstr ""
 
@@ -273,14 +273,14 @@ msgid "Show title"
 msgstr ""
 
 #: functions/metaboxes.php:86
-msgid "Layout wide"
+msgid "Styled layout"
 msgstr ""
 
-#: functions/metaboxes.php:99
+#: functions/metaboxes.php:96
 msgid "Roofline"
 msgstr ""
 
-#: functions/metaboxes.php:106
+#: functions/metaboxes.php:103
 msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
@@ -357,113 +357,113 @@ msgstr ""
 msgid "An error occurred. Could not import images"
 msgstr ""
 
-#: functions/plugin-activation.php:114
+#: functions/plugin-activation.php:109
 msgid "Install Required Plugins"
 msgstr ""
 
-#: functions/plugin-activation.php:115
+#: functions/plugin-activation.php:110
 msgid "Install Plugins"
 msgstr ""
 
-#: functions/plugin-activation.php:117
+#: functions/plugin-activation.php:112
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: functions/plugin-activation.php:119
+#: functions/plugin-activation.php:114
 msgid "Updating Plugin: %s"
 msgstr ""
 
-#: functions/plugin-activation.php:120
+#: functions/plugin-activation.php:115
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: functions/plugin-activation.php:121
+#: functions/plugin-activation.php:116
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions/plugin-activation.php:127
+#: functions/plugin-activation.php:122
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions/plugin-activation.php:133
+#: functions/plugin-activation.php:128
 msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
 msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions/plugin-activation.php:139
+#: functions/plugin-activation.php:134
 msgid "There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions/plugin-activation.php:145
+#: functions/plugin-activation.php:140
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions/plugin-activation.php:151
+#: functions/plugin-activation.php:146
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions/plugin-activation.php:157
+#: functions/plugin-activation.php:152
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions/plugin-activation.php:162
+#: functions/plugin-activation.php:157
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions/plugin-activation.php:167
+#: functions/plugin-activation.php:162
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions/plugin-activation.php:172
+#: functions/plugin-activation.php:167
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: functions/plugin-activation.php:173
+#: functions/plugin-activation.php:168
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: functions/plugin-activation.php:174
+#: functions/plugin-activation.php:169
 msgid "The following plugin was activated successfully:"
 msgstr ""
 
-#: functions/plugin-activation.php:176
+#: functions/plugin-activation.php:171
 msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
-#: functions/plugin-activation.php:178
+#: functions/plugin-activation.php:173
 msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
 msgstr ""
 
-#: functions/plugin-activation.php:180
+#: functions/plugin-activation.php:175
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: functions/plugin-activation.php:181
+#: functions/plugin-activation.php:176
 msgid "Dismiss this notice"
 msgstr ""
 
-#: functions/plugin-activation.php:182
+#: functions/plugin-activation.php:177
 msgid "There are one or more required or recommended plugins to install, update or activate."
 msgstr ""
 
-#: functions/plugin-activation.php:183
+#: functions/plugin-activation.php:178
 msgid "Please contact the administrator of this site for help."
 msgstr ""
 
