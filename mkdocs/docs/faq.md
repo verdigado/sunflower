@@ -29,7 +29,19 @@ melden.
 [Mehr zum Datenschutz gibt es auf einer Unterseite.](privacy.md)
 
 ## Manche Begriffe sind auf Handys zu lang
-Manche Begriffe sind auf Handys zu lang. Sunflower bricht mitten im Wort in eine neue Zeile um, damit das Layout nicht zerschossen wird. Diese Bruchstelle kannst Du selbst definieren, indem Du an die gewünschte Sollbruchstelle ein `&shy;`einträgst. Das ist das ein bedingtes oder weiches Trennzeichen. Wenn nötig, wird an dieser Stelle umgebrochen. Wenn nicht, erscheint an dieser Stelle nichts. 
+Manche Begriffe sind auf Handys zu lang. Sunflower bricht mitten im Wort in eine neue Zeile um, damit das Layout nicht zerschossen wird. Diese Bruchstelle kannst Du selbst definieren, indem Du an die gewünschte Sollbruchstelle ein `&shy;` einträgst. Das ist das ein bedingtes oder weiches Trennzeichen. Wenn nötig, wird an dieser Stelle umgebrochen. Wenn nicht, erscheint an dieser Stelle nichts. 
+
+Um `&shy;` einzutragen, gehe wie folgt vor:
+Variante 1:
+
+- füge über die Tastenkombination ALT+0173 das Trennzeichen ein
+
+oder Variante 2:
+
+- gehe unter Optionen auf 'in HTML bearbeiten' 
+- füge es dann ein
+- und wechsle danach wieder in den visuelle Editor
+
 
 Auf manchen System kann man den bedingten Trennstrich auch mit der Tastenkombination AltGr + Minus erzeugen.
 
