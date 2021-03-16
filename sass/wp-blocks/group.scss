@@ -11,6 +11,10 @@
         margin-right: -50vw;
         display: flex;
         justify-content: center;
+
+        .wp-block-group__inner-container{
+           max-width: 1155px;
+        } 
     }
 
     &__inner-container{
