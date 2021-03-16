@@ -25,6 +25,8 @@
 
             &:focus{
                 border-color: $navbar-dark-color;
+                outline: none;
+                box-shadow: none;
             }
         }
     }
@@ -61,15 +63,16 @@
      &-main{
          border-bottom: 0;
          box-shadow: 0 1px 20px rgba(0,0,0,.08);
+         letter-spacing:    0.3px
      }
  
      &-light{
          .navbar-nav{
             .current-menu-item{
                 a.nav-link{
-                    color: $primary;
+                    color: $green-550;
                     @include media-breakpoint-up(lg) { 
-                        border-bottom: 3px solid $primary;
+                        border-bottom: 3px solid $green-550;
                     }
                 }
             }
@@ -81,7 +84,7 @@
                 margin-right: 0.5rem;
                 margin-left: 0.5rem;
                 &:hover{
-                    color: $primary;
+                    color: $green-550;
                 };
             }
          }
