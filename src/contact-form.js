@@ -31,7 +31,7 @@ registerBlockType( 'sunflower/contact-form', {
                 <div class="col-12 col-md-6">
                     <p class="comment-form-comment">
                         <label for="message">Nachricht <span class="required">*</span></label> 
-                        <textarea id="message" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+                        <textarea id="message" name="message" cols="45" rows="8" maxlength="65525" required="required"></textarea>
                     </p>
                     <p class="small">Bitte füllen Sie alle Felder aus. 
                         Mit der Nutzung dieses Formulars erklären Sie sich mit der Speicherung und Verarbeitung 
