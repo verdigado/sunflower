@@ -75,11 +75,13 @@ body{
 // to scroll to correct position with sticky header
 // while destination is an anchor
 .entry-content{
-    [id]::before{
-        content: '';
-        display: block;
-        height:      75px;
-        margin-top: -75px;
-        visibility: hidden;
+    h1,h2,h3,h4,h5,h6{
+        &[id]::before{
+            content: '';
+            display: block;
+            height:      75px;
+            margin-top: -75px;
+            visibility: hidden;
+        }
     }
 }
