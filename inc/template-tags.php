@@ -133,7 +133,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function sunflower_post_thumbnail($show_title = true) {
+	function sunflower_post_thumbnail($styled_layout = false) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -142,7 +142,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 
 		if ( is_singular() ) :
 			?>
-			<div class="post-thumbnail<?php if(!$show_title) echo ' mt-1'; ?> ">
+			<div class="post-thumbnail<?php if(!$styled_layout) echo ' mt-1'; ?> ">
 				<?php the_post_thumbnail('null', ['class' => 'w-100 border-radius']); ?>
 			</div><!-- .post-thumbnail -->
 

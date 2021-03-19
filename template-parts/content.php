@@ -7,9 +7,9 @@
  * @package sunflower
  */
 
-$show_title = @get_post_meta( $post->ID, '_sunflower_show_title')[0] ? true : false;
+$styled_layout = @get_post_meta( $post->ID, '_sunflower_styled_layout')[0] ? true : false;
 if( 'sunflower_event' === get_post_type() ){
-	$show_title = true;
+	$styled_layout = true;
 }
 
 $metadata = $class = false;
@@ -17,7 +17,7 @@ extract($args);
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($class); ?>>
-	<?php if ($show_title ) { ?>
+	<?php if (!$styled_layout ) { ?>
 	<header class="entry-header full-width <?php echo (has_post_thumbnail()) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
 		<div class="container">
 			<div class="row position-relative">
@@ -61,7 +61,7 @@ extract($args);
 	}
 	?>
 
-	<?php sunflower_post_thumbnail($show_title); ?>
+	<?php sunflower_post_thumbnail($styled_layout); ?>
 
 	<div class="col-12 col-md-10 offset-md-1">
 		<div class="row entry-content">
