@@ -26,3 +26,7 @@
     font-size: 200%;
     border-radius: 15px;
 }
+
+.wp-block-button__link{
+    border-radius: 0;
+}
