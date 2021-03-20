@@ -13,7 +13,8 @@ function sunflower_contact_form() {
     $mail = sanitize_email($_POST['mail']);
 
     $response = __('Thank you. The form has been sent.', 'sunflower');
-    $to = get_option('admin_email');
+    $to = get_sunflower_setting('sunflower_contact_form_to') ?: get_option('admin_email');
+
     $subject = __('New contact form', 'sunflower');
     $message = sprintf("Name: %s\nE-Mail:%s\n\n%s", $name, $mail, $message);
     wp_mail($to, $subject, $message );

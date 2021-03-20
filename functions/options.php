@@ -310,6 +310,15 @@ class SunflowerSettingsPage
             ['sunflower_show_related_posts', __('show related posts', 'sunflower')]
         );    
 
+        add_settings_field(
+            'sunflower_contact_form_to', // ID
+            __('to-field for contact-forms', 'sunflower'), // Title 
+            array( $this, 'sunflower_contact_form_to' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_layout', // Section   
+            ['sunflower_contact_form_to', __('to-field for contact-forms', 'sunflower')]
+        );    
+
         add_settings_section(
             'sunflower_social_media_sharers', // ID
             __('Social Sharers', 'sunflower'), // Title
@@ -407,6 +416,15 @@ class SunflowerSettingsPage
             isset( $this->options['excerpt_length'] ) ? esc_attr( $this->options['excerpt_length']) : ''
         );
     }
+
+    public function sunflower_contact_form_to()
+    {
+        printf(
+            '<input type="email" id="sunflower_contact_form_to" name="sunflower_options[sunflower_contact_form_to]" value="%s" />',
+            isset( $this->options['sunflower_contact_form_to'] ) ? esc_attr( $this->options['sunflower_contact_form_to']) : ''
+        );
+    }
+    
 
     public function sunflower_ical_urls_callback()
     {
