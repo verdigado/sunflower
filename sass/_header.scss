@@ -50,20 +50,47 @@ body{
     text-transform: uppercase;
     padding: 27px 12px;
     
+    .img-container{
+        margin-right: 0.75rem;
+    }
+
     img{
-        width: 60px;
+        width: 55px;
         margin-right: 7px;
         background: transparent;
     }
 
     &-name{
-        font-size: 25px;
+        font-size: 22px;
         letter-spacing: 1px;
+        margin-bottom: 3px;
     }
 
     &-description{
-        font-size: 18px; 
+        font-size: 17px; 
         letter-spacing: 0.2px;
+        line-height: 1.3em;
+    }
+
+
+    @include media-breakpoint-up(md) { 
+        &-name{
+            font-size: 25px;
+            margin-bottom: 0;
+        }
+
+        &-description{
+            font-size: 18px; 
+            line-height: 1.5em;
+        }
+
+        .img-container{
+            margin-right: 0.25rem;
+        }
+
+        img{
+            width: 60px;
+        }
     }
 }
 

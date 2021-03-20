@@ -60,11 +60,11 @@
 
 		<div class="container-fluid bloginfo bg-primary">
 			<div class="container d-flex align-items-center">
-				<a class="me-1" href="<?php echo get_home_url(); ?>">
+				<a class="img-container" href="<?php echo get_home_url(); ?>">
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower.svg" class="" alt="Sonnenblume - Logo">
 				</a>
 				<div>
-					<div class="h5 text-white arvogruen mb-0 bloginfo-name">
+					<div class="h5 text-white arvogruen bloginfo-name">
 						<?php bloginfo('name'); ?>
 					</div>
 					<div class="text-white ptsans mb-0 bloginfo-description">
