@@ -56,7 +56,8 @@ img.post-thumbnail{
 
 .entry{
     &-content{
-        margin: 0 0 100px 0;
+        margin: 0;
+        word-wrap: break-word;
     }
 }
 

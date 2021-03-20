@@ -13,8 +13,17 @@
         justify-content: center;
 
         .wp-block-group__inner-container{
-           max-width: 1155px;
+           max-width: 100%;
         } 
+
+        @include media-breakpoint-up(md) { 
+            .wp-block-group__inner-container{
+                max-width: 1155px;
+             } 
+        }
+
+
+
     }
 
     &__inner-container{
