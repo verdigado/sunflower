@@ -14,7 +14,7 @@
         }
 
         a{
-            color: $white;
+            color: $white-90;
             text-decoration: none;
 
             &:hover{
@@ -27,7 +27,8 @@
         font-family: PTSans;
         font-weight: bold; 
         font-size: 1.3rem;
-        color: $white;
+        color: $white-90;
+        letter-spacing: 0.3px;
     }
 
     &_search{
