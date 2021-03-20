@@ -48,7 +48,7 @@ body{
     background-image: url('assets/img/background.jpg');
     background-size: cover;
     text-transform: uppercase;
-    padding: 27px 12px;
+    padding: 27px 0px;
     
     .img-container{
         margin-right: 0.75rem;
@@ -74,6 +74,10 @@ body{
 
 
     @include media-breakpoint-up(md) { 
+        padding-left: 12px;
+        padding-right: 12px;
+
+
         &-name{
             font-size: 25px;
             margin-bottom: 0;
