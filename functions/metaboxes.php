@@ -60,10 +60,12 @@ function sunflower_meta_box_layout(){
                 <input name="_sunflower_styled_layout" id="_sunflower_styled_layout" class="" type="checkbox" value="1" %s>
             </span>
             <label class="components-checkbox-control__label" for="_sunflower_styled_layout">%s</label>
+            <div><small>%s</small></div>
         </div>
     </div>',
     $checked,
-    __('Styled layout', 'sunflower')
+    __('Styled layout', 'sunflower'),
+    __('do not show title, add and remove margins. e.g. for the homepage', 'sunflower')
     );
 
 }

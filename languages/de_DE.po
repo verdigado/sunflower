@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-03-16T11:51:37+01:00\n"
-"PO-Revision-Date: 2021-03-16 11:51+0100\n"
+"POT-Creation-Date: 2021-03-21T00:04:08+01:00\n"
+"PO-Revision-Date: 2021-03-21 00:06+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -51,7 +51,7 @@ msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
 msgid "Events"
 msgstr "Termine"
 
-#: archive-sunflower_event.php:28 functions/blocks.php:38
+#: archive-sunflower_event.php:28 functions/blocks/next-events.php:13
 msgid "all events"
 msgstr "Alle Termine"
 
@@ -111,7 +111,7 @@ msgstr ""
 "page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
 #: functions/admin.php:67 functions/block-patterns.php:11
-#: functions/blocks.php:134 functions/options.php:24 functions/options.php:25
+#: functions/blocks.php:34 functions/options.php:24 functions/options.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
 
@@ -121,25 +121,25 @@ msgstr "Sunflower"
 msgid "Help for sunflowers events"
 msgstr "sunflower_event"
 
-#: functions/blocks.php:36
-msgid "Next events"
-msgstr "Nächste Termine"
-
-#: functions/blocks.php:62
-msgid "Currently there are no coming events."
-msgstr "Derzeit sind keine Veranstaltungen geplant."
-
-#: functions/blocks.php:88
+#: functions/blocks/latest-posts.php:22
 msgid "News"
 msgstr "Aktuelles"
 
-#: functions/blocks.php:119
+#: functions/blocks/latest-posts.php:62
 msgid "more posts"
 msgstr "Alle Beiträge"
 
-#: functions/blocks.php:121
+#: functions/blocks/latest-posts.php:64
 msgid "to archive"
 msgstr "Zum Blog-Archiv"
+
+#: functions/blocks/next-events.php:11
+msgid "Next events"
+msgstr "Nächste Termine"
+
+#: functions/blocks/next-events.php:37
+msgid "Currently there are no coming events."
+msgstr "Derzeit sind keine Veranstaltungen geplant."
 
 #: functions/colors.php:8
 msgid "Magenta"
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Thank you. The form has been sent."
 msgstr "Vielen Dank. Das Formular wurde verschickt."
 
-#: functions/contact-form.php:17
+#: functions/contact-form.php:18
 msgid "New contact form"
 msgstr "Neues Kontaktformular"
 
@@ -281,23 +281,25 @@ msgstr "Karte nicht anzeigen"
 msgid "Layout"
 msgstr "Layout"
 
-#: functions/metaboxes.php:15 functions/metaboxes.php:102
+#: functions/metaboxes.php:15 functions/metaboxes.php:84
 msgid "Metadata"
 msgstr "Metadaten"
 
-#: functions/metaboxes.php:66
-msgid "Show title"
-msgstr "Titel anzeigen"
-
-#: functions/metaboxes.php:86
+#: functions/metaboxes.php:67
 msgid "Styled layout"
 msgstr "gestyltes Layout"
 
-#: functions/metaboxes.php:96
+#: functions/metaboxes.php:68
+msgid "do not show title, add and remove margins. e.g. for the homepage"
+msgstr ""
+"versteckt den Titel und fügt Abstände ein bzw. löscht sie anderen Stellen. "
+"Setze diesen Haken z.B. für die Startseite."
+
+#: functions/metaboxes.php:78
 msgid "Roofline"
 msgstr "Dachzeile"
 
-#: functions/metaboxes.php:103
+#: functions/metaboxes.php:85
 msgid "use Shift + Enter to prevent line between"
 msgstr "Tippe Shift + Enter, um  Zwischenzeile zu verhindern."
 
@@ -340,27 +342,31 @@ msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options.php:315
+#: functions/options.php:315 functions/options.php:319
+msgid "to-field for contact-forms"
+msgstr "an diese Adresse werden Kontaktformulare geschickt"
+
+#: functions/options.php:324
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options.php:322 functions/options.php:326
+#: functions/options.php:331 functions/options.php:335
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options.php:331 functions/options.php:335
+#: functions/options.php:340 functions/options.php:344
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options.php:340
+#: functions/options.php:349
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options.php:344
+#: functions/options.php:353
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options.php:386
+#: functions/options.php:395
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
@@ -510,11 +516,11 @@ msgstr "Fußzeilenmenü 1"
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/_s.php:131
+#: functions/_s.php:117
 msgid "Sidebar"
 msgstr "Seitenleiste"
 
-#: functions/_s.php:133
+#: functions/_s.php:119
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
@@ -635,6 +641,9 @@ msgstr ""
 #: template-parts/related-posts.php:7
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
+
+#~ msgid "Show title"
+#~ msgstr "Titel anzeigen"
 
 #~ msgid "Layout wide"
 #~ msgstr "breites Layout"

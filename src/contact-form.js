@@ -16,7 +16,8 @@ registerBlockType( 'sunflower/contact-form', {
         };
         return (
             <div {...blockProps}>
-                Kontaktformular. Es gibt keine Einstellungsmöglichkeiten. Das Formular wird an den*die
+                Kontaktformular. Die Empfänger*innen-Adresse kann in den Sunflower-Einstellungen 
+                geändert werden. Standardmäßig wird das Formular wird an den*die
                 Webseiten-Administrator*in gesendet. 
             </div>
         );
