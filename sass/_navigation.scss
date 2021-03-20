@@ -227,6 +227,24 @@
     }
 }
 
+.dropdown-toggle{
+    
+    &:after{
+        content: "\f107";
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        border: 0;
+        vertical-align: inherit;
+    }
+}
+
+
 #mainmenu{
     &>li{
         text-transform: uppercase;
