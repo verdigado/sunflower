@@ -30,6 +30,11 @@ jQuery(document).ready( function (){
   })
 
   jQuery('#privacy_policy_url').attr('href',sunflower.privacy_policy_url);
+
+  jQuery('.show-search').click(function(){
+    jQuery('.topmenu .search input').toggleClass('active');
+    jQuery('.topmenu .search input').focus();
+  })
 });
 
 

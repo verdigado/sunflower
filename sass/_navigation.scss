@@ -20,15 +20,30 @@
             background: none;
             color: $white;
             border-radius: 0;
-            padding-left: 15px;
             border-color: $navbar-dark-color;
+            width: 0;
+            padding-left: 15px;
+            border-width: 0;
+            transition: width .4s ease-out 0s;
+
+            &.active{
+                width: 200px;
+                border-width: 1px;
+            }
 
             &:focus{
                 border-color: $navbar-dark-color;
                 outline: none;
                 box-shadow: none;
             }
+
         }
+    }
+
+    button.show-search{
+        color: $navbar-dark-color;
+        border: 0;
+        background: none;
     }
 }
 

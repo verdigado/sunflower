@@ -45,11 +45,15 @@
 						'walker'          => new WP_Bootstrap_Navwalker(),
 					) );
 					?>
-				<form class="form-inline my-2 my-md-0 search" action="<?php bloginfo('url'); ?>">
-					<input class="form-control form-control-sm" name="s" type="text" placeholder="<?php _e('Search', 'sunflower'); ?>" aria-label="<?php _e('Search', 'sunflower'); ?>"
+				<form class="form-inline my-2 my-md-0 search d-flex" action="<?php bloginfo('url'); ?>">
+					<input class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php _e('Search', 'sunflower'); ?>" aria-label="<?php _e('Search', 'sunflower'); ?>"
 						value="<?php echo get_search_query(); ?>"
 					>
+					
 				</form>
+				<button class="show-search">
+					<i class="fas fa-search"></i>
+				</button>
 				</div>
 			</div>
 		</nav>
