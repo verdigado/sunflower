@@ -142,7 +142,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 
 		if ( is_singular() ) :
 			?>
-			<div class="post-thumbnail<?php if(!$styled_layout) echo ' mt-1'; ?> ">
+			<div class="post-thumbnail<?php if($styled_layout) echo ' mt-1'; ?> ">
 				<?php the_post_thumbnail('null', ['class' => 'w-100 border-radius']); ?>
 			</div><!-- .post-thumbnail -->
 
