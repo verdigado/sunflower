@@ -16,6 +16,10 @@
     &-brand{
         opacity: 0;
         width: 50px; 
+        margin-left: 0.5rem;
+        @include media-breakpoint-up(md) { 
+            margin-left: 0;
+        }
         img{
             height: 33px;
         }
