@@ -19,7 +19,7 @@ registerBlockType( 'sunflower/latest-posts', {
 			default: ''
 		},
         count: {
-			type: 'string',
+			type: 'number',
 			default: ''
 		},
         title: {
