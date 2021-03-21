@@ -3,6 +3,27 @@
     flex-direction: column;
     height: 100%;
 
+    .person{
+        &-name{
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        @include media-breakpoint-up(lg) { 
+            &-name{
+                font-size: 25px;
+            }
+
+            &-description{
+                font-size: 16px;
+            }
+
+            &-mail{
+                font-size: 16px;
+            }
+        }
+    }
+
     .wp-block-media-text__content{
         padding: 20px;
         align-self:start;
@@ -38,8 +59,8 @@
 .wp-block-columns{
     .person{
         img {
-            height: 300px;
-            max-height: 300px;
+            height: 250px;
+            max-height: 250px;
         }
     }
 }
