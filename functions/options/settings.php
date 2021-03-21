@@ -48,24 +48,6 @@ class SunflowerSettingsPage
             'sunflower_settings', 
             array( $this, 'create_sunflower_settings_page' )
         );
-
-        add_submenu_page(
-            'sunflower_admin',
-            __('Social Media', 'sunflower'), 
-            __('Social Media', 'sunflower'), 
-            'edit_pages', 
-            'sunflower_social_media', 
-            array( $this, 'create_sunflower_social_media_page' )
-        );
-
-        add_submenu_page(
-            'sunflower_admin',
-            __('Events', 'sunflower'), 
-            __('Events', 'sunflower'), 
-            'edit_pages', 
-            'sunflower_events_options', 
-            array( $this, 'create_sunflower_events_options_page' )
-        );
     }
 
     /**
@@ -140,109 +122,6 @@ class SunflowerSettingsPage
         <?php
     }
 
-     /**
-     * Events Options page callback
-     */
-    public function create_sunflower_events_options_page()
-    {
-        // Set class property
-        $this->options = get_option( 'sunflower_options' );
-        ?>
-        <div class="wrap">
-            <h1><?php _e('Sunflower Settings', 'sunflower'); ?></h1>
-            <form method="post" action="options.php">
-            <?php
-                // This prints out all hidden setting fields
-                settings_fields( 'sunflower_option_group' );
-                do_settings_sections( 'sunflower-setting-events' );
-                submit_button();
-            ?>
-            </form>
-
-            <h2>Kalenderimport</h2>
-            <?php
-            
-            if( isset($_GET['icalimport'])){
-                sunflower_import_icals(true);
-                echo '<div>Die Termine wurden aktualisiert.</div>';
-                printf('<div><a href="../?post_type=sunflower_event">Termine ansehen</a></div>');
-            }else{
-                if(get_sunflower_setting('sunflower_ical_urls') ){
-                    echo '<a href="admin.php?page=sunflower_events_options&icalimport=1" class="button button-primary">Kalender jetzt importieren</a>';
-                }else{
-                    echo 'Um einen Kalender importieren zu können, trage die URL bitte unter Sunflower-Einstellungen ein.';
-                }
-            }
-            ?>
-
-            <h2>Korrektur der Marker auf Landkarten von importierten Terminen</h2>
-            <input type="hidden" name="_sunflower_event_lat" id="_sunflower_event_lat">
-            <input type="hidden" name="_sunflower_event_lon" id="_sunflower_event_lon">
-
-            <div id="sunflower-location-row" style="display:none">
-                Bearbeite die Geo-Markierung für: 
-                <select name="sunflower_location" id="sunflower-location">
-                    <option value="">bitte wählen</option>
-                <?php
-                    global $wpdb;
-                    $prefix = 'sunflower_geocache_';
-
-                    $transients = $wpdb->get_results("SELECT * FROM $wpdb->options WHERE option_name LIKE '_transient_${prefix}%'");
-
-                    foreach($transients AS $transient ){
-                        $location = preg_replace("/_transient_${prefix}/", '' , $transient->option_name);
-
-                        list($lon, $lat) = unserialize($transient->option_value); 
-                        printf('<option value="%s;%s">%s</option>', $lat, $lon, $location);
-
-                    }
-
-                ?>
-                </select>
-                <button id="sunflower-fix-location-delete">Geodaten für diesen Ort löschen</button>
-                <br>
-                Die Änderung wird automatisch nach Setzen der Markierung gespeichert. Wirksam wird sie beim nächsten Import. Den Import kannst Du per Hand auslösen.
-            </div>
-            <?php
-                $lat = 49.5; 
-                $lon = 12;
-                $zoom = 5;
-                printf('
-                <div>
-                    <button id="sunflowerShowMap" onClick="sunflowerShowLeaflet( %3$s, %4$s, %5$s, false );">%2$s</button>
-                </div>
-                <div id="leaflet" style="height:400px"></div>',
-            __('Map', 'sunflower'),
-            __('load map', 'sunflower'),
-            $lat, $lon, $zoom
-            );
-            ?>
-        </div>
-        <?php
-    }
-
-    /**
-     * Social Media Profiles page callback
-     */
-    public function create_sunflower_social_media_page()
-    {
-        // Set class property
-        $this->options = get_option( 'sunflower_options' );
-        ?>
-        <div class="wrap">
-            <h1><?php _e('Sunflower Settings', 'sunflower'); ?></h1>
-            <form method="post" action="options.php">
-            <?php
-                // This prints out all hidden setting fields
-                settings_fields( 'sunflower_option_group' );
-                do_settings_sections( 'sunflower-setting-social-media-options' );
-                submit_button();
-            ?>
-            </form>
-        </div>
-        <?php
-    }
-
     /**
      * Register and add settings
      */
@@ -255,33 +134,10 @@ class SunflowerSettingsPage
         );
 
         add_settings_section(
-            'sunflower_social_media', // ID
-            __('Social Media Profiles', 'sunflower'), // Title
-            array( $this, 'print_section_info' ), // Callback
-            'sunflower-setting-social-media-options' // Page
-        );  
-
-
-        add_settings_field(
-            'sunflower_social_media_profiles', 
-            __('Social Media Profiles', 'sunflower'), // Title 
-            array( $this, 'social_media_profiles_callback' ), 
-            'sunflower-setting-social-media-options', 
-            'sunflower_social_media'
-        ); 
-        
-        add_settings_section(
             'sunflower_layout', // ID
             __('Layout', 'sunflower'), // Title
             array( $this, 'print_section_info' ), // Callback
             'sunflower-setting-admin' // Page
-        );  
-
-        add_settings_section(
-            'sunflower-setting-events', // ID
-            __('Events', 'sunflower'), // Title
-            array( $this, 'print_section_info' ), // Callback
-            'sunflower-setting-events' // Page
         );  
 
         add_settings_field(
@@ -291,15 +147,6 @@ class SunflowerSettingsPage
             'sunflower-setting-admin', // Page
             'sunflower_layout' // Section           
         );   
-
-        add_settings_field(
-            'sunflower_ical_urls', // ID
-            __('URLs of iCal calendars, one per row', 'sunflower'), // Title 
-            array( $this, 'sunflower_ical_urls_callback' ), // Callback
-            'sunflower-setting-events', // Page
-            'sunflower-setting-events' // Section           
-        );   
-    
 
         add_settings_field(
             'sunflower_show_related_posts', // ID
@@ -318,40 +165,7 @@ class SunflowerSettingsPage
             'sunflower_layout', // Section   
             ['sunflower_contact_form_to', __('to-field for contact-forms', 'sunflower')]
         );    
-
-        add_settings_section(
-            'sunflower_social_media_sharers', // ID
-            __('Social Sharers', 'sunflower'), // Title
-            array( $this, 'print_section_info_sharers'), // Callback
-            'sunflower-setting-social-media-options' // Page
-        );  
-
-        add_settings_field(
-            'sunflower_sharer_twitter', // ID
-            __('Twitter', 'sunflower'), // Title 
-            array( $this, 'sunflower_checkbox_callback' ), // Callback
-            'sunflower-setting-social-media-options', // Page
-            'sunflower_social_media_sharers', // Section   
-            ['sunflower_sharer_twitter', __('Twitter', 'sunflower')]
-        );    
-
-        add_settings_field(
-            'sunflower_sharer_facebook', // ID
-            __('Facebook', 'sunflower'), // Title 
-            array( $this, 'sunflower_checkbox_callback' ), // Callback
-            'sunflower-setting-social-media-options', // Page
-            'sunflower_social_media_sharers', // Section   
-            ['sunflower_sharer_facebook', __('Facebook', 'sunflower')]
-        );    
-
-        add_settings_field(
-            'sunflower_sharer_mail', // ID
-            __('mail', 'sunflower'), // Title 
-            array( $this, 'sunflower_checkbox_callback' ), // Callback
-            'sunflower-setting-social-media-options', // Page
-            'sunflower_social_media_sharers', // Section   
-            ['sunflower_sharer_mail', __('Mail', 'sunflower')]
-        );    
+      
     }
 
     /**
@@ -374,12 +188,6 @@ class SunflowerSettingsPage
         if( isset( $input['excerpt_length'] ) )
             $new_input['excerpt_length'] = absint( $input['excerpt_length'] ) ?: '';
 
-        if( isset( $input['sunflower_ical_urls'] ) )
-            $new_input['sunflower_ical_urls'] = $input['sunflower_ical_urls'] ?: '';
-
-        if( isset( $input['sunflower_social_media_profiles'] ) )
-            $new_input['sunflower_social_media_profiles'] = sanitize_textarea_field( $input['sunflower_social_media_profiles'] );
- 
         return $new_input;
     }
 
@@ -424,21 +232,6 @@ class SunflowerSettingsPage
             isset( $this->options['sunflower_contact_form_to'] ) ? esc_attr( $this->options['sunflower_contact_form_to']) : ''
         );
     }
-    
-
-    public function sunflower_ical_urls_callback()
-    {
-        printf(
-            '<textarea style="white-space: pre-wrap;width: 90%%;height:7em;" id="sunflower_ical_urls" name="sunflower_options[sunflower_ical_urls]">%s</textarea>',
-            isset( $this->options['sunflower_ical_urls'] ) ? $this->options['sunflower_ical_urls'] : ''
-        );
-        echo '<div><a href="https://sunflower-theme.de/documentation/events/" target="_blank">Mehr zu den Einstellungen in der Dokumenation</a><br>
-        Importierte Termine dürfen nicht im WordPress-Backend bearbeitet werden, weil Änderungen beim nächsten 
-        Import überschrieben werden.<br>
-        Jede URL mit http:// oder https:// beginnen. Automatische Kategorien pro Kalender bitte mit ; anfügen.
-
-        </div>';
-    }
 
 
      /** 
@@ -474,11 +267,17 @@ class SunflowerSettingsPage
     }
 }
 
-if( is_admin() )
+if( is_admin() ){
     $my_settings_page = new SunflowerSettingsPage();
+}
 
 function get_sunflower_setting( $option ){
-    $options = get_option( 'sunflower_options' );
+    $options = array_merge(
+        get_option( 'sunflower_options' ),
+        get_option( 'sunflower_social_media_options'),
+        get_option( 'sunflower_events_options')
+    );
+
     if ( !isset($options[ $option ]) ){
         return false;
     }
@@ -490,27 +289,3 @@ function get_sunflower_setting( $option ){
     return $options[ $option ];
 }
 
-function get_sunflower_social_media_profiles(){
-
-    $profiles = block_core_social_link_services();
-
-    $return = '';
-
-    $lines = explode("\n", get_sunflower_setting('sunflower_social_media_profiles'));
-    foreach($lines AS $line){
-        $line = trim($line);
-        @list($class, $title, $url ) = explode(";", $line);
-
-        if(!isset($url) || $url == '' ){
-            continue;
-        }
-     
-        $return .= sprintf('<a href="%1$s" target="_blank" title="%3$s" class="social-media-profile"><i class="%2$s"></i></a>', 
-        $url, 
-        $class,
-        $title);
-        
-    }
-
-    return $return;
-}
