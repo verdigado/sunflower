@@ -9,7 +9,7 @@
 
 $styled_layout = @get_post_meta( $post->ID, '_sunflower_styled_layout')[0] ? true : false;
 if( 'sunflower_event' === get_post_type() ){
-	$styled_layout = true;
+	$styled_layout = false;
 }
 
 $metadata = $class = false;
