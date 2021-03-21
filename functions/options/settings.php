@@ -233,38 +233,6 @@ class SunflowerSettingsPage
         );
     }
 
-
-     /** 
-     * Get the settings option array and print one of its values
-     */
-    public function social_media_profiles_callback($args)
-    {
-        $default = [];
-        $default[] = 'fab fa-twitter;Twitter;';
-        $default[] = 'fab fa-facebook;Facebook;';
-        $default[] = 'fab fa-linkedin;LinkedIn;';
-        $default[] = 'fab fa-instagram;Instagram;';
-        $default[] = 'fab fa-youtube;YouTube;';
-        $default[] = 'fas fa-globe;Webseite;';
-        $default[] = 'forkawesome fa-peertube;PeerTube;';
-        $default[] = 'forkawesome fa-mastodon;Mastodon;';
-
-
-
-
-
-        printf(
-            '<textarea style="white-space: pre-wrap;width: 90%%;height:18em;" id="sunflower_social_media_profiles" name="sunflower_options[sunflower_social_media_profiles]">%s</textarea>',
-            ( isset( $this->options['sunflower_social_media_profiles'] ) && $this->options['sunflower_social_media_profiles'] != '' ) ? $this->options['sunflower_social_media_profiles'] : join("\n", $default)
-        );
-        echo '<div><a href="https://sunflower-theme.de/documentation/setup/#social-media-profile" target="_blank">Mehr zu den Einstellungen in der Dokumenation</a> und
-        <a href="https://fontawesome.com/icons?d=gallery&p=2&m=free" target="_blank">alle möglichen Icons bei Fontawesome</a>.<br>
-       Pro Zeile ein Social-Media-Profil<br>
-       Format: Fontawesome-Klasse; Title-Attribut; URL<br>
-       Wenn die URL fehlt, wird nichts verlinkt.
-
-        </div>';
-    }
 }
 
 if( is_admin() ){
@@ -272,11 +240,16 @@ if( is_admin() ){
 }
 
 function get_sunflower_setting( $option ){
-    $options = array_merge(
-        get_option( 'sunflower_options' ),
-        get_option( 'sunflower_social_media_options'),
-        get_option( 'sunflower_events_options')
-    );
+    $options = get_option( 'sunflower_options' );
+
+    $sunflower_social_media_options = get_option( 'sunflower_social_media_options');
+    if(is_array($sunflower_social_media_options)){
+        $options = array_merge($options, $sunflower_social_media_options);
+    }
+    $sunflower_events_options = get_option( 'sunflower_events_options');
+    if(is_array($sunflower_events_options)){
+        $options = array_merge($options, $sunflower_events_options);
+    }
 
     if ( !isset($options[ $option ]) ){
         return false;
