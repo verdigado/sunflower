@@ -19,7 +19,7 @@ registerBlockType( 'sunflower/latest-posts', {
 			default: ''
 		},
         count: {
-			type: 'number',
+			type: 'string',
 			default: ''
 		},
         title: {
@@ -92,7 +92,7 @@ registerBlockType( 'sunflower/latest-posts', {
 
                         <TextControl
                             label="Kategorien"
-                            help="Kategorie-Slug(URL) eintragen. Mehrere mit Komma trennen."
+                            help="Kategorie-Slug(URL) eintragen. Mehrere mit Komma trennen. Leer lassen für alle."
                             value={ categories }
                             onChange={ onChangeCategories }
                         />

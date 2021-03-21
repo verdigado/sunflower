@@ -43,27 +43,24 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
             }
             $i++;
     }  
-    echo '</div>';
     
-        
     $return .= ob_get_contents();
     ob_end_clean();
 
 
-    $return .= sprintf('<div class="col-12 col-md-6 offset-md-6">
-            <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%2$s?post_type=post" rel="">
+    $return .= sprintf('
+            <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s?post_type=post" rel="">
                 <div class="p-45 row ">
-                <span class="continue-reading text-white text-center pt-0">%3$s</span>
+                <span class="continue-reading text-white text-center pt-0">%2$s</span>
                 </div>
             </a>
-            </div>
+           
         ',
-        __('more posts', 'sunflower'), 
         home_url(),
         __('to archive', 'sunflower')
     );
 
-    $return .= '</div></div></div>';
+    $return .= '</div></div></div></div>';
 
     return $return;
 }
