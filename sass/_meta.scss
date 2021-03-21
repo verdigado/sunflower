@@ -1,8 +1,9 @@
 .tags-links{
     a{
+        margin-right: 8px;
         &:before{
             content: '#';
-            color: black;
+            color: map-get($custom-colors, 'black-500');;
         }
     }
 }
