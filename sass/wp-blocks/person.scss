@@ -8,20 +8,6 @@
             font-size: 27px;
             font-weight: bold;
         }
-
-        @include media-breakpoint-up(lg) { 
-            &-name{
-                font-size: 25px;
-            }
-
-            &-description{
-                font-size: 16px;
-            }
-
-            &-mail{
-                font-size: 16px;
-            }
-        }
     }
 
     .wp-block-media-text__content{
@@ -59,8 +45,8 @@
 .wp-block-columns{
     .person{
         img {
-            height: 250px;
-            max-height: 250px;
+            height: 300px;
+            max-height: 300px;
         }
     }
 }
