@@ -8,16 +8,19 @@ function sunflower_activate_theme( $old_theme_name, $old_theme = false ){
 }
 
 function sunflower_import_widgets(){
-    // check for theme_mods_urwahl3000
-    $options = get_option('theme_mods_urwahl3000');  
-    $sidebars_widgets = array_merge($options['sidebars_widgets']['data']['infospalte'], $options['sidebars_widgets']['data']['fussleist'] );
-    
-    $option = get_option('sidebars_widgets');                  
-    if( empty($option['sidebar-1'] ) ){
-        $option['sidebar-1'] = $sidebars_widgets;
-        update_option('sidebars_widgets', $option);
-    }
- 
+	// check for theme_mods_urwahl3000
+	$options = get_option( 'theme_mods_urwahl3000' );
+	if ( empty( $options['sidebars_widgets'] ) ) {
+		return;
+	}
+
+	$sidebars_widgets = array_merge( $options['sidebars_widgets']['data']['infospalte'], $options['sidebars_widgets']['data']['fussleist'] );
+
+	$option = get_option( 'sidebars_widgets' );
+	if ( empty( $option['sidebar-1'] ) ) {
+		$option['sidebar-1'] = $sidebars_widgets;
+		update_option( 'sidebars_widgets', $option );
+	}
 }
 
 function sunflower_import_events(){
