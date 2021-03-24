@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "POT-Creation-Date: 2021-03-21T00:04:08+01:00\n"
-"PO-Revision-Date: 2021-03-21 00:06+0100\n"
+"PO-Revision-Date: 2021-03-24 23:06+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -287,7 +287,7 @@ msgstr "Metadaten"
 
 #: functions/metaboxes.php:67
 msgid "Styled layout"
-msgstr "gestyltes Layout"
+msgstr "Layout selbst gestalten"
 
 #: functions/metaboxes.php:68
 msgid "do not show title, add and remove margins. e.g. for the homepage"
