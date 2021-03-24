@@ -86,14 +86,10 @@ registerBlockType( 'sunflower/meta-data', {
                             options={
                                 [
                                     { value: 'none', label: 'Bitte wählen' },
-                                    { value: 'fas fa-clock', label: 'Uhr' },
-                                    { value: 'fas fa-tasks', label: 'Fortschritt' },
-                                    { value: 'far fa-calendar-alt', label: 'Kalender' },
-                                    { value: 'far fa-thumbs-up', label: 'Daumen hoch' },
-                                    { value: 'far fa-thumbs-down', label: 'Daumen runter' },
                                     { value: 'fab fa-twitter', label: 'Twitter' },
                                     { value: 'fab fa-instagram', label: 'Instragram' },
                                     { value: 'fab fa-facebook-f', label: 'Facebook' },
+                                    { value: 'fab fa-youtube', label: 'YouTube' },
                                     { value: 'fas fa-envelope', label: 'E-Mail' },
                                     { value: 'fas fa-globe', label: 'Website' },   
                                 ]
