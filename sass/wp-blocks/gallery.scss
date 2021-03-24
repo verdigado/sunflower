@@ -1,6 +1,9 @@
 
 .wp-block-gallery{
     .blocks-gallery-item{
+        img{
+            border-radius: $border-radius;
+        }
         figure{
             flex-direction: column;
         }
@@ -12,6 +15,11 @@
             text-align: right;
             font-size: $small-font-size;
             background: none;
+        }
+
+        @include media-breakpoint-down(md) { 
+            width: 100%;
+            margin-right: 0;
         }
     }
 }
