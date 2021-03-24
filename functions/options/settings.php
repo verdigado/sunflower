@@ -242,6 +242,10 @@ if( is_admin() ){
 function get_sunflower_setting( $option ){
     $options = get_option( 'sunflower_options' );
 
+    if(!is_array($options)){
+        $options = array();
+    }
+
     $sunflower_social_media_options = get_option( 'sunflower_social_media_options');
     if(is_array($sunflower_social_media_options)){
         $options = array_merge($options, $sunflower_social_media_options);
