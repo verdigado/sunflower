@@ -32,6 +32,12 @@ Installation
     $ composer install
     $ npm install
     ```
+ - compile the theme with the following commands:
+    ```sh
+    $ npm run compile:css
+    $ npm run copy-composer
+    $ npm run copy-node-modules
+    ```
  - activate `sunflower` in WordPress-Backend
 
 ### Available CLI commands
