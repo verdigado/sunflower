@@ -30,7 +30,8 @@ h2, .h2,
 
 h3, .h3,
 .has-medium-font-size{
-    font-family: ArvoGruen;
+    font-family: PTSans;
+    font-weight: bold;
     font-size: 25px;
 }
 
@@ -56,13 +57,13 @@ h6, .h6{
 @include media-breakpoint-up(md) { 
     h1, .h1, 
     .has-huge-font-size{
-        font-size: 47px;
+        font-size: 45px;
         line-height: 1.3em;
     }
 
     h2, .h2,
     .has-large-font-size{
-        font-size: 34px;
+        font-size: 31px;
         line-height: 1.3em;
     }
 
