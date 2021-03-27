@@ -67,7 +67,7 @@ extract($args);
 	<?php sunflower_post_thumbnail($styled_layout); ?>
 
 	<div class="col-12 col-md-10 offset-md-1">
-		<div class="row entry-content">
+		<div class="entry-content">
 			<?php
 			the_content(
 				sprintf(
