@@ -103,6 +103,14 @@ article.post{
         }
     }
 
+    .entry-header{
+        &:hover{
+           h2 a{
+               color: $green-550;   
+           }
+        }
+    }
+
     .entry-content{
         a{
             color: $body-color;
