@@ -40,7 +40,10 @@ extract($args);
 						<div class="entry-meta mb-3">
 							<?php
 							sunflower_posted_on();
-							sunflower_posted_by();
+
+							if( get_sunflower_setting('sunflower_show_author') ) {
+								sunflower_posted_by();
+							}
 							?>
 						</div><!-- .entry-meta -->
 					<?php endif; ?>
