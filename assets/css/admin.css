@@ -30,3 +30,143 @@
 .wp-block-button__link{
     border-radius: 0;
 }
+
+.has-green-500-color {
+	color: #46962b !important;
+}
+
+.has-green-500-background-color {
+	background-color: #46962b !important;
+}
+
+.has-green-500-hover-background-color:hover {
+	background-color: #46962b !important;
+}
+
+.has-green-color {
+	color: #46962b !important;
+}
+
+.has-green-background-color {
+	background-color: #46962b !important;
+}
+
+.has-green-hover-background-color:hover {
+	background-color: #46962b !important;
+}
+
+.has-green-800b-color {
+	color: #224634 !important;
+}
+
+.has-green-800b-background-color {
+	background-color: #224634 !important;
+}
+
+.has-green-800b-hover-background-color:hover {
+	background-color: #224634 !important;
+}
+
+.has-magenta-color {
+	color: #e6007e !important;
+}
+
+.has-magenta-background-color {
+	background-color: #e6007e !important;
+}
+
+.has-magenta-hover-background-color:hover {
+	background-color: #e6007e !important;
+}
+
+.has-magenta-600-color {
+	color: #BF0069 !important;
+}
+
+.has-magenta-600-background-color {
+	background-color: #BF0069 !important;
+}
+
+.has-magenta-600-hover-background-color:hover {
+	background-color: #BF0069 !important;
+}
+
+.has-green-550-color {
+	color: #3C8025 !important;
+}
+
+.has-green-550-background-color {
+	background-color: #3C8025 !important;
+}
+
+.has-green-550-hover-background-color:hover {
+	background-color: #3C8025 !important;
+}
+
+.has-white-color {
+	color: #ffffff !important;
+}
+
+.has-white-background-color {
+	background-color: #ffffff !important;
+}
+
+.has-white-hover-background-color:hover {
+	background-color: #ffffff !important;
+}
+
+.has-yellow-500-color {
+	color: #ffd500 !important;
+}
+
+.has-yellow-500-background-color {
+	background-color: #ffd500 !important;
+}
+
+.has-yellow-500-hover-background-color:hover {
+	background-color: #ffd500 !important;
+}
+
+.has-blue-500-color {
+	color: #4cb4e7 !important;
+}
+
+.has-blue-500-background-color {
+	background-color: #4cb4e7 !important;
+}
+
+.has-blue-500-hover-background-color:hover {
+	background-color: #4cb4e7 !important;
+}
+
+.has-blue-600-color {
+	color: #4097c2 !important;
+}
+
+.has-blue-600-background-color {
+	background-color: #4097c2 !important;
+}
+
+.has-blue-600-hover-background-color:hover {
+	background-color: #4097c2 !important;
+}
+
+.has-gray-100-color {
+	color: #EFF2ED !important;
+}
+
+.has-gray-100-background-color {
+	background-color: #EFF2ED !important;
+}
+
+.has-gray-100-hover-background-color:hover {
+	background-color: #EFF2ED !important;
+}
+
+.has-black-500-color {
+	color: #363636 !important;
+}
+
+.has-black-500-background-color {
+	background-color: #363636 !important;
+}
