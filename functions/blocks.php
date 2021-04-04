@@ -28,13 +28,13 @@ add_action( 'init', 'sunflower_block_enqueue' );
 
 function sunflower_block_category( $categories, $post ) {
 	return array_merge(
+        $categories,
 		array(
 			array(
 				'slug'  => 'sunflower-blocks',
 				'title' => __( 'Sunflower', 'sunflower' ),
 			),
-		),
-        $categories
+		)
 	);
 }
 add_filter( 'block_categories', 'sunflower_block_category', 10, 2);
