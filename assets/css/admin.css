@@ -30,6 +30,10 @@
 .wp-block-button__link{
     border-radius: 0;
 }
+.wp-block-pullquote{
+	border-top: 0;
+	border-bottom: 0;
+}
 
 .has-green-500-color {
 	color: #46962b !important;
