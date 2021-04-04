@@ -18,6 +18,13 @@
             }
         }
     }
+
+    .entry-content{
+        a{
+            color: $body-color;
+            text-decoration: none;
+        }
+    }
 }
 
 .wp-block-sunflower-accordion:last-of-type{
