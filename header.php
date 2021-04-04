@@ -16,7 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower.svg">
+	<link rel="shortcut icon" href="<?php echo sunflower_parent_or_child('assets/img/sunflower.svg'); ?>">
 
 	<?php wp_head(); ?>
 </head>
@@ -61,7 +61,7 @@
 		<div class="container-fluid bloginfo bg-primary">
 			<div class="container d-flex align-items-center">
 				<a class="img-container" href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower.svg" class="" alt="Sonnenblume - Logo">
+					<img src="<?php echo sunflower_parent_or_child('assets/img/sunflower.svg');?>" class="" alt="Sonnenblume - Logo">
 				</a>
 				<div>
 					<div class="h5 text-white arvogruen bloginfo-name">
@@ -81,7 +81,7 @@
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white">
 		<div class="container">
 			<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sunflower-dark.svg" alt="Sonnenblume - Logo">
+				<img src="<?php echo sunflower_parent_or_child('assets/img/sunflower-dark.svg'); ?>" alt="Sonnenblume - Logo">
 			</a>
 			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-times close"></i>

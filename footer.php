@@ -92,7 +92,7 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 					</p>
 				</div>
 				<div class="col-4 col-md-2">
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo-diegruenen.svg" class="img-fluid" alt="Logo Bündnis 90/Die Grünen">
+					<img src="<?php echo sunflower_parent_or_child('assets/img/logo-diegruenen.svg'); ?>" class="img-fluid" alt="Logo Bündnis 90/Die Grünen">
 				</div>
 			</div>
 

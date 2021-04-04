@@ -26,6 +26,8 @@ require_once('functions/pictureimport.php');
 require_once('functions/emailscrambler.php');
 require_once('functions/contact-form.php');
 require_once('functions/rest-api.php');
+require_once('functions/childtheme.php');
+
 
 
 
