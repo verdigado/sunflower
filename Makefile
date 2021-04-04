@@ -87,3 +87,5 @@ sync-db:
 remote-create-homepage-txt:
 	ssh sharepic "cd /var/www/sunflower-theme.de/dumps && wp post get 37 --url=sunflower-theme.de/demo --field=content > homepage.txt"
 	
+changelog:
+	git log $$(git describe --tags --abbrev=0)..HEAD --pretty=format:"%s" >> release_notes.html
