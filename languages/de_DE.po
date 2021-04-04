@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-03-21T00:04:08+01:00\n"
-"PO-Revision-Date: 2021-03-27 20:31+0100\n"
+"POT-Creation-Date: 2021-04-04T15:29:04+02:00\n"
+"PO-Revision-Date: 2021-04-04 15:29+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -47,7 +47,8 @@ msgid ""
 msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
 
 #: archive-sunflower_event.php:21 functions/events.php:24
-#: functions/options.php:63 functions/options.php:64 functions/options.php:282
+#: functions/options/events.php:30 functions/options/events.php:31
+#: functions/options/events.php:205
 msgid "Events"
 msgstr "Termine"
 
@@ -111,7 +112,8 @@ msgstr ""
 "page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
 #: functions/admin.php:67 functions/block-patterns.php:11
-#: functions/blocks.php:34 functions/options.php:24 functions/options.php:25
+#: functions/blocks.php:34 functions/options/settings.php:24
+#: functions/options/settings.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
 
@@ -125,11 +127,11 @@ msgstr "sunflower_event"
 msgid "News"
 msgstr "Aktuelles"
 
-#: functions/blocks/latest-posts.php:62
-msgid "more posts"
-msgstr "Alle Beiträge"
+#: functions/blocks/latest-posts.php:51
+msgid "No posts found"
+msgstr "Keine Beiträge gefunden"
 
-#: functions/blocks/latest-posts.php:64
+#: functions/blocks/latest-posts.php:63
 msgid "to archive"
 msgstr "Zum Blog-Archiv"
 
@@ -265,11 +267,11 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:171 functions/options.php:215
+#: functions/events.php:171 functions/options/events.php:182
 msgid "Map"
 msgstr "Landkarte"
 
-#: functions/events.php:172 functions/options.php:216
+#: functions/events.php:172 functions/options/events.php:183
 msgid "load map"
 msgstr "Kartendaten laden"
 
@@ -277,7 +279,7 @@ msgstr "Kartendaten laden"
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/metaboxes.php:6 functions/options.php:275
+#: functions/metaboxes.php:6 functions/options/settings.php:138
 msgid "Layout"
 msgstr "Layout"
 
@@ -303,72 +305,77 @@ msgstr "Dachzeile"
 msgid "use Shift + Enter to prevent line between"
 msgstr "Tippe Shift + Enter, um  Zwischenzeile zu verhindern."
 
-#: functions/options.php:36 functions/options.php:37
+#: functions/options/events.php:45 functions/options/settings.php:60
+msgid "About Sunflower"
+msgstr "Über Sunflower"
+
+#: functions/options/events.php:97 functions/options/events.php:119
+#: functions/options/settings.php:112 functions/options/social-media.php:47
+msgid "Sunflower Settings"
+msgstr "Sunflower Einstellungen"
+
+#: functions/options/events.php:212
+msgid "URLs of iCal calendars, one per row"
+msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
+
+#: functions/options/settings.php:36 functions/options/settings.php:37
 msgid "First steps"
 msgstr "Erste Schritte"
 
-#: functions/options.php:45 functions/options.php:46
+#: functions/options/settings.php:45 functions/options/settings.php:46
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: functions/options.php:54 functions/options.php:55
+#: functions/options/settings.php:145
+msgid "Excerpt length (words)"
+msgstr "Anzahl der Wörter im Vorschautext"
+
+#: functions/options/settings.php:153 functions/options/settings.php:157
+msgid "show related posts"
+msgstr "Ähnliche Artikel zeigen"
+
+#: functions/options/settings.php:162 functions/options/settings.php:166
+msgid "show author of posts"
+msgstr "Zeige Autor*in"
+
+#: functions/options/settings.php:171 functions/options/settings.php:175
+msgid "to-field for contact-forms"
+msgstr "an diese Adresse werden Kontaktformulare geschickt"
+
+#: functions/options/settings.php:212 functions/options/social-media.php:156
+msgid "Show share buttons on single page"
+msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
+
+#: functions/options/social-media.php:29 functions/options/social-media.php:30
 #, fuzzy
 #| msgid "Social Media Profiles"
 msgid "Social Media"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options.php:78
-msgid "About Sunflower"
-msgstr "Über Sunflower"
-
-#: functions/options.php:130 functions/options.php:152
-#: functions/options.php:233
-msgid "Sunflower Settings"
-msgstr "Sunflower Einstellungen"
-
-#: functions/options.php:259 functions/options.php:267
+#: functions/options/social-media.php:73 functions/options/social-media.php:81
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options.php:289
-msgid "Excerpt length (words)"
-msgstr "Anzahl der Wörter im Vorschautext"
-
-#: functions/options.php:297
-msgid "URLs of iCal calendars, one per row"
-msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
-
-#: functions/options.php:306 functions/options.php:310
-msgid "show related posts"
-msgstr "Ähnliche Artikel zeigen"
-
-#: functions/options.php:315 functions/options.php:319
-msgid "to-field for contact-forms"
-msgstr "an diese Adresse werden Kontaktformulare geschickt"
-
-#: functions/options.php:324
+#: functions/options/social-media.php:89
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options.php:331 functions/options.php:335
+#: functions/options/social-media.php:96 functions/options/social-media.php:100
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options.php:340 functions/options.php:344
+#: functions/options/social-media.php:105
+#: functions/options/social-media.php:109
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options.php:349
+#: functions/options/social-media.php:114
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options.php:353
+#: functions/options/social-media.php:118
 msgid "Mail"
 msgstr "E-Mail"
-
-#: functions/options.php:395
-msgid "Show share buttons on single page"
-msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
 #: functions/pictureimport.php:57
 msgid "An error occurred. Could not import images"
@@ -543,8 +550,10 @@ msgstr ", "
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:71
+#, fuzzy
+#| msgid ", "
 msgctxt "list item separator"
-msgid ", "
+msgid " "
 msgstr ", "
 
 #: inc/template-tags.php:101
@@ -598,12 +607,12 @@ msgstr "Kartendaten laden"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58 template-parts/content-archive.php:50
-#: template-parts/content.php:73
+#: template-parts/content.php:76
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
 #: template-parts/content-archive.php:63 template-parts/content-page.php:31
-#: template-parts/content.php:86
+#: template-parts/content.php:89
 msgid "Pages:"
 msgstr "Seiten:"
 
@@ -641,6 +650,13 @@ msgstr ""
 #: template-parts/related-posts.php:7
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
+
+#~ msgid "more posts"
+#~ msgstr "Alle Beiträge"
+
+#~ msgctxt "list item separator"
+#~ msgid ", "
+#~ msgstr ", "
 
 #~ msgid "Show title"
 #~ msgstr "Titel anzeigen"

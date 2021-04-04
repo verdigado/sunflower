@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 0.14.3\n"
+"Project-Id-Version: sunflower 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-03-21T00:04:08+01:00\n"
+"POT-Creation-Date: 2021-04-04T15:29:04+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -44,9 +44,9 @@ msgstr ""
 
 #: archive-sunflower_event.php:21
 #: functions/events.php:24
-#: functions/options.php:63
-#: functions/options.php:64
-#: functions/options.php:282
+#: functions/options/events.php:30
+#: functions/options/events.php:31
+#: functions/options/events.php:205
 msgid "Events"
 msgstr ""
 
@@ -106,8 +106,8 @@ msgstr ""
 #: functions/admin.php:67
 #: functions/block-patterns.php:11
 #: functions/blocks.php:34
-#: functions/options.php:24
-#: functions/options.php:25
+#: functions/options/settings.php:24
+#: functions/options/settings.php:25
 msgid "Sunflower"
 msgstr ""
 
@@ -119,11 +119,11 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: functions/blocks/latest-posts.php:62
-msgid "more posts"
+#: functions/blocks/latest-posts.php:51
+msgid "No posts found"
 msgstr ""
 
-#: functions/blocks/latest-posts.php:64
+#: functions/blocks/latest-posts.php:63
 msgid "to archive"
 msgstr ""
 
@@ -245,12 +245,12 @@ msgid "This event will be imported by remote ical-calendar. All changes here wil
 msgstr ""
 
 #: functions/events.php:171
-#: functions/options.php:215
+#: functions/options/events.php:182
 msgid "Map"
 msgstr ""
 
 #: functions/events.php:172
-#: functions/options.php:216
+#: functions/options/events.php:183
 msgid "load map"
 msgstr ""
 
@@ -259,7 +259,7 @@ msgid "delete map"
 msgstr ""
 
 #: functions/metaboxes.php:6
-#: functions/options.php:275
+#: functions/options/settings.php:138
 msgid "Layout"
 msgstr ""
 
@@ -284,78 +284,86 @@ msgstr ""
 msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
-#: functions/options.php:36
-#: functions/options.php:37
-msgid "First steps"
-msgstr ""
-
-#: functions/options.php:45
-#: functions/options.php:46
-msgid "Settings"
-msgstr ""
-
-#: functions/options.php:54
-#: functions/options.php:55
-msgid "Social Media"
-msgstr ""
-
-#: functions/options.php:78
+#: functions/options/events.php:45
+#: functions/options/settings.php:60
 msgid "About Sunflower"
 msgstr ""
 
-#: functions/options.php:130
-#: functions/options.php:152
-#: functions/options.php:233
+#: functions/options/events.php:97
+#: functions/options/events.php:119
+#: functions/options/settings.php:112
+#: functions/options/social-media.php:47
 msgid "Sunflower Settings"
 msgstr ""
 
-#: functions/options.php:259
-#: functions/options.php:267
-msgid "Social Media Profiles"
-msgstr ""
-
-#: functions/options.php:289
-msgid "Excerpt length (words)"
-msgstr ""
-
-#: functions/options.php:297
+#: functions/options/events.php:212
 msgid "URLs of iCal calendars, one per row"
 msgstr ""
 
-#: functions/options.php:306
-#: functions/options.php:310
+#: functions/options/settings.php:36
+#: functions/options/settings.php:37
+msgid "First steps"
+msgstr ""
+
+#: functions/options/settings.php:45
+#: functions/options/settings.php:46
+msgid "Settings"
+msgstr ""
+
+#: functions/options/settings.php:145
+msgid "Excerpt length (words)"
+msgstr ""
+
+#: functions/options/settings.php:153
+#: functions/options/settings.php:157
 msgid "show related posts"
 msgstr ""
 
-#: functions/options.php:315
-#: functions/options.php:319
+#: functions/options/settings.php:162
+#: functions/options/settings.php:166
+msgid "show author of posts"
+msgstr ""
+
+#: functions/options/settings.php:171
+#: functions/options/settings.php:175
 msgid "to-field for contact-forms"
 msgstr ""
 
-#: functions/options.php:324
+#: functions/options/settings.php:212
+#: functions/options/social-media.php:156
+msgid "Show share buttons on single page"
+msgstr ""
+
+#: functions/options/social-media.php:29
+#: functions/options/social-media.php:30
+msgid "Social Media"
+msgstr ""
+
+#: functions/options/social-media.php:73
+#: functions/options/social-media.php:81
+msgid "Social Media Profiles"
+msgstr ""
+
+#: functions/options/social-media.php:89
 msgid "Social Sharers"
 msgstr ""
 
-#: functions/options.php:331
-#: functions/options.php:335
+#: functions/options/social-media.php:96
+#: functions/options/social-media.php:100
 msgid "Twitter"
 msgstr ""
 
-#: functions/options.php:340
-#: functions/options.php:344
+#: functions/options/social-media.php:105
+#: functions/options/social-media.php:109
 msgid "Facebook"
 msgstr ""
 
-#: functions/options.php:349
+#: functions/options/social-media.php:114
 msgid "mail"
 msgstr ""
 
-#: functions/options.php:353
+#: functions/options/social-media.php:118
 msgid "Mail"
-msgstr ""
-
-#: functions/options.php:395
-msgid "Show share buttons on single page"
 msgstr ""
 
 #: functions/pictureimport.php:57
@@ -516,7 +524,7 @@ msgstr ""
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:71
 msgctxt "list item separator"
-msgid ", "
+msgid " "
 msgstr ""
 
 #: inc/template-tags.php:101
@@ -568,13 +576,13 @@ msgstr ""
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58
 #: template-parts/content-archive.php:50
-#: template-parts/content.php:73
+#: template-parts/content.php:76
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
 #: template-parts/content-archive.php:63
 #: template-parts/content-page.php:31
-#: template-parts/content.php:86
+#: template-parts/content.php:89
 msgid "Pages:"
 msgstr ""
 

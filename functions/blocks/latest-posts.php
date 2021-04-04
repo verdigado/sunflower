@@ -38,7 +38,7 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
     while ( $posts->have_posts() ) {
         $posts->the_post();
             get_template_part( 'template-parts/content', 'archive');
-            if($i == floor( $posts->post_count / 2)){
+            if($i == ceil( $posts->post_count / 2)){
                 echo '</div><div class="col-12 col-md-6">';
             }
             $i++;
@@ -47,7 +47,10 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
     $return .= ob_get_contents();
     ob_end_clean();
 
-
+    if( $posts->post_count == 0 ){
+        $return .= sprintf('%s</div><div class="col-12">', __('No posts found', 'sunflower'));
+    }
+    
     $return .= sprintf('
             <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s?post_type=post" rel="">
                 <div class="p-45 row ">
