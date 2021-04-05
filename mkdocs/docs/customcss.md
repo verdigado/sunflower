@@ -29,8 +29,8 @@ archive-loop article {
 
 ## Suche in der oberen Menüleiste ausblenden
 ```
-.search {
-    display: none;
+#topmenu-container .search, #topmenu-container .show-search {
+    display: none !important;
 }
 ```
 
