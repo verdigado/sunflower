@@ -81,7 +81,7 @@ sync-db:
 	rsync sharepic:/var/www/sunflower-theme.de/dumps/demo.sql demo.sql && \
 	sed -i 's/tr_6/tr_2/g' demo.sql && \
 	sed -i 's/sites\/6/sites\/2/g' demo.sql && \
-	sed -i 's/https:\/\/sunflower-theme.de/http:\/\/localhost/g' demo.sql && \
+	sed -i 's/https:\/\/sunflower-theme.de/http:\/\/wordpress/g' demo.sql && \
 	docker-compose exec -T db mysql wordpress < demo.sql
 
 remote-create-homepage-txt:
