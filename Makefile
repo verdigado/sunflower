@@ -92,3 +92,6 @@ changelog:
 
 test:
 	cd ../../../../tests && LOCAL=true MODE=test python3 test.py
+
+pattern:
+	cd ../../../../tests && LOCAL=true MODE=patterns python3 test.py
