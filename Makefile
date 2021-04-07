@@ -89,3 +89,6 @@ remote-create-homepage-txt:
 	
 changelog:
 	git log $$(git describe --tags --abbrev=0)..HEAD --pretty=format:"%s" >> release_notes.html
+
+test:
+	cd ../../../../tests && LOCAL=true MODE=test python3 test.py
