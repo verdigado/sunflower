@@ -83,6 +83,7 @@ sync-db:
 	sed -i 's/sites\/6/sites\/2/g' demo.sql && \
 	sed -i 's/https:\/\/sunflower-theme.de/http:\/\/wordpress/g' demo.sql && \
 	docker-compose exec -T db mysql wordpress < demo.sql
+	# in db-container: nano /root/.mycnf -> [client] \n password="somewordpress"
 
 remote-create-homepage-txt:
 	ssh sharepic "cd /var/www/sunflower-theme.de/dumps && wp post get 37 --url=sunflower-theme.de/demo --field=content > homepage.txt"
