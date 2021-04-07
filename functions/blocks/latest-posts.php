@@ -6,8 +6,11 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
         'order'             => 'DESC',
     );
 
+    $url_category_name = '';
+    
     if(isset($block_attributes['categories']) AND $block_attributes['categories'] != '' ){
         $wp_query_args['category_name'] = $block_attributes['categories'];
+        $url_category_name = '&category_name=' . $block_attributes['categories'];
     }
 
     if(isset($block_attributes['count']) AND $block_attributes['count'] != '' ){
@@ -52,7 +55,7 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
     }
     
     $return .= sprintf('
-            <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s?post_type=post" rel="">
+            <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s?post_type=post%3$s" rel="">
                 <div class="p-45 row ">
                 <span class="continue-reading text-white text-center pt-0">%2$s</span>
                 </div>
@@ -60,7 +63,8 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
            
         ',
         home_url(),
-        __('to archive', 'sunflower')
+        __('to archive', 'sunflower'),
+        $url_category_name
     );
 
     $return .= '</div></div></div></div>';
