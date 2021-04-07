@@ -24,5 +24,5 @@ function sunflower_contact_form() {
 }
 
 add_action( 'wp_ajax_sunflower_contact_form', 'sunflower_contact_form' );
-add_action( 'wp_ajax_nopiv_sunflower_contact_form', 'sunflower_contact_form' );
+add_action( 'wp_ajax_nopriv_sunflower_contact_form', 'sunflower_contact_form' );
 
