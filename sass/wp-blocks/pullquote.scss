@@ -1,0 +1,8 @@
+.wp-block-pullquote{
+    p{
+        font-size: 26px;
+        @include media-breakpoint-up(md) { 
+            font-size: 30px;
+        }
+    }
+}
