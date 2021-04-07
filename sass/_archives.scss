@@ -11,4 +11,12 @@
         padding-top: 80px;
         padding-bottom: 80px;
     }
+
+    &-loop{
+        .entry-content{
+            a{
+                color: $body-color;
+            }
+        }
+    }
 }
