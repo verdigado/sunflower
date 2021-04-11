@@ -173,6 +173,15 @@ class SunflowerSettingsPage
             'sunflower-setting-admin', // Page
             'sunflower_layout', // Section   
             ['sunflower_contact_form_to', __('to-field for contact-forms', 'sunflower')]
+        );      
+        
+        add_settings_field(
+            'sunflower_header_layout', // ID
+            __('Use this header layout', 'sunflower'), // Title 
+            array( $this, 'sunflower_header_layout' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_layout', // Section   
+            ['sunflower_header_layout', __('Use this header layout', 'sunflower')]
         );    
       
     }
@@ -240,6 +249,20 @@ class SunflowerSettingsPage
             '<input type="email" id="sunflower_contact_form_to" name="sunflower_options[sunflower_contact_form_to]" value="%s" />',
             isset( $this->options['sunflower_contact_form_to'] ) ? esc_attr( $this->options['sunflower_contact_form_to']) : ''
         );
+    }
+
+    public function sunflower_header_layout()
+    {
+        echo '<select id="sunflower_header_layout" name="sunflower_options[sunflower_header_layout]">';
+
+        $options = ['standard', 'personal'];
+        foreach($options AS $option){
+            $selected = (isset( $this->options['sunflower_header_layout']) && $this->options['sunflower_header_layout'] == $option ) ? 'selected' : '';
+            printf('<option value="%1$s" %2$s>%1$s</option>',
+                $option,
+                $selected);
+        }
+        echo '</select>';
     }
 
 }
