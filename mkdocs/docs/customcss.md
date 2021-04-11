@@ -48,3 +48,4 @@ archive-loop article {
  - .has-shadow: erzeugt Schatten
  - .no-link: Keine Linkfarbe
  - .same-height: damit in Spalten alle Bilder gleich hoch sind
+ - .max-800: erwingt Maximalbreite
