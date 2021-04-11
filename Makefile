@@ -1,6 +1,9 @@
 up:
 	cd ../../../../ && docker-compose up -d
-	
+
+stop:
+	cd ../../../../ && docker-compose stop
+
 compile:
 	npm run compile:css
 	
