@@ -143,5 +143,12 @@ body{
                 }
             }
         }
+
+        .social-media-profile{
+            background: none;
+            i{
+                color: $body-color;
+            }
+        }
     }
 }

@@ -35,5 +35,11 @@
 				) );
 				?>
 			</div>
+
+			<div class="social-media-profiles d-flex">
+				<?php
+					echo get_sunflower_social_media_profiles();
+				?>
+			</div>
 		</div>
 	</nav>
