@@ -63,6 +63,11 @@ Dabei kannst Du bspw. folgendes nutzen
 - 9 months
 - 1 year
 
+### Anzahl der sich wiederholenden Termine beim Import festlegen
+Sich wiederholende Termine werden bis längstens in einem Jahr importiert. Du kannst die Höchstzahl der zu 
+importierenden Termine bei sich wiederholenden Terminen so festlegen:
+``define('SUNFLOWER_EVENT_RECURRING_EVENTS', 10);``
+
 ### Geodaten
 Die Information zum Veranstaltungsort werden über [Nominatim](https://nominatim.openstreetmap.org/ui/) auf einer Landkarte gesucht. Die Geokoordinaten werden lokal gespeichert. Pro Import-Lauf werden höchstens drei neue Orte über Nominatim gesucht, damit die Import-Performance hoch bleibt. 
 

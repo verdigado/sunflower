@@ -9,7 +9,7 @@ use ICal\ICal;
 function sunflower_icalimport( $url = false, $auto_categories = false){
     try {
         $ical = new ICal('ICal.ics', array(
-            'defaultSpan'                 => 2,     // Default value
+            'defaultSpan'                 => 1,     // Default value
             'defaultTimeZone'             => 'GMT',
             'defaultWeekStart'            => 'MO',  // Default value
             'disableCharacterReplacement' => false, // Default value
@@ -25,15 +25,32 @@ function sunflower_icalimport( $url = false, $auto_categories = false){
     }
 
     $time_range = sunflower_get_constant('SUNFLOWER_EVENT_TIME_RANGE') ?: '6 months';
+    $recurring_events_max = (int) sunflower_get_constant('SUNFLOWER_EVENT_RECURRING_EVENTS') ?: 10; 
 
     $events = $ical->eventsFromInterval($time_range);
 
     $updated_events = 0;
     $ids_from_remote = array();
-    foreach ($events as $event){
+    $count_recurring_events = [];
 
+    foreach ($events as $event){
+        $uid = $event->uid;
+    
+        if(isset($event->rrule)){
+            if(isset($count_recurring_events[$uid])){
+                $count_recurring_events[$uid]++;
+            }else{
+                $count_recurring_events[$uid] = 1;
+            }
+
+            if($count_recurring_events[$uid] > $recurring_events_max ){
+                continue;
+            }
+            $uid .= rand(1,1000);
+        }
+     
         // is this event already imported
-        $is_imported = sunflower_get_event_by_uid( $event->uid );
+        $is_imported = sunflower_get_event_by_uid( $uid );
         $wp_id = 0;
         if ( $is_imported->have_posts() ){
             $is_imported->the_post();
@@ -63,7 +80,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false){
 
         update_post_meta( $id, '_sunflower_event_from', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($startdate )));
         update_post_meta( $id, '_sunflower_event_until', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($enddate )));
-        update_post_meta( $id, '_sunflower_event_uid', $event->uid);
+        update_post_meta( $id, '_sunflower_event_uid', $uid);
 
         if( isset($event->location) ){
             update_post_meta( $id, '_sunflower_event_location_name', $event->location);
