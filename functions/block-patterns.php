@@ -1,7 +1,7 @@
 <?php
 
 if( function_exists( 'register_block_pattern_category') ){
-    $dirs = glob(get_stylesheet_directory() . '/functions/block-patterns/*', GLOB_ONLYDIR);
+    $dirs = glob(get_template_directory() . '/functions/block-patterns/*', GLOB_ONLYDIR);
 
     foreach($dirs AS $dir){
         $basenameDir = basename($dir);
