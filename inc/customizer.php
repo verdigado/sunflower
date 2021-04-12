@@ -30,6 +30,8 @@ function sunflower_customize_register( $wp_customize ) {
 				'render_callback' => 'sunflower_customize_partial_blogdescription',
 			)
 		);
+
+		$wp_customize->remove_control('site_icon');
 	}
 }
 add_action( 'customize_register', 'sunflower_customize_register' );
