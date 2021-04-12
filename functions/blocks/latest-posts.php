@@ -26,11 +26,14 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
     }
 
     $posts = new WP_Query($wp_query_args);
+    
+    $classes = (isset($block_attributes['className'])) ? $block_attributes['className'] : '';
 
-    $return = sprintf(' <div class="wp-block-group has-background latest-posts">
+    $return = sprintf(' <div class="wp-block-group has-background latest-posts %s">
                         <div class="wp-block-group__inner-container">
                             <h2 class="text-center h1">%s</h2>
                         <div class="row">',
+                        $classes,
                         $title
     );
 
