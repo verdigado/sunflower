@@ -175,14 +175,14 @@ class SunflowerSettingsPage
             ['sunflower_contact_form_to', __('to-field for contact-forms', 'sunflower')]
         );      
         
-        add_settings_field(
-            'sunflower_header_layout', // ID
-            __('Use this header layout', 'sunflower'), // Title 
-            array( $this, 'sunflower_header_layout' ), // Callback
-            'sunflower-setting-admin', // Page
-            'sunflower_layout', // Section   
-            ['sunflower_header_layout', __('Use this header layout', 'sunflower')]
-        );    
+        // add_settings_field(
+        //     'sunflower_header_layout', // ID
+        //     __('Use this header layout', 'sunflower'), // Title 
+        //     array( $this, 'sunflower_header_layout' ), // Callback
+        //     'sunflower-setting-admin', // Page
+        //     'sunflower_layout', // Section   
+        //     ['sunflower_header_layout', __('Use this header layout', 'sunflower')]
+        // );    
       
     }
 
