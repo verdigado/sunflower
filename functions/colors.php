@@ -62,7 +62,7 @@ function sunflower_add_custom_gutenberg_color_palette() {
 			[
 				'name'  => esc_html__( 'Black 500', 'sunflower' ),
 				'slug'  => 'black-500',
-				'color' => '#363636',
+				'color' => '#201D1B',
             ]
 
 		]
