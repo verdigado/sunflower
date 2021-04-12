@@ -7,7 +7,7 @@
     margin-left: -50vw;
     margin-right: -50vw;
 
-    &__inner-container{
+    .wp-block-cover__inner-container{
         max-width: map-get($container-max-widths, 'xl');
     } 
 }
