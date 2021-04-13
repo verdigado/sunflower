@@ -10,7 +10,7 @@ import {
  
 registerBlockType( 'sunflower/latest-posts', {
     apiVersion: 2,
-    title: 'Neueste Beiträge',
+    title: 'Neueste Beiträge (Sunflower)',
     icon: 'admin-post',
     category: 'sunflower-blocks',
     attributes: {
@@ -69,7 +69,7 @@ registerBlockType( 'sunflower/latest-posts', {
             <div { ...blockProps }>
                 { 
                     <span> 
-                        Zeige die neuesten Beiträge an. Kategorien und Anzahl kannst Du rechts einstellen. 
+                        Zeige die neuesten Beiträge an. Titel, Kategorien und Anzahl kannst Du rechts einstellen. 
                         Hier klicken für eine Liste aller Kategorien. 
                         <ul>
                             {get_wp_categories().map((category, i) => {     
@@ -85,7 +85,7 @@ registerBlockType( 'sunflower/latest-posts', {
 
                         <TextControl
                             label="Überschrift"
-                            help="Title der Sektion"
+                            help="Titel der Sektion"
                             value={ title }
                             onChange={ onChangeTitle }
                         />

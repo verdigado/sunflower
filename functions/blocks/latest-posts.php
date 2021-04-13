@@ -20,9 +20,9 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
     }
 
     if(isset($block_attributes['title']) ){
-        $title = $block_attributes['title'];
+        $title = sprintf('<h2 class="text-center h1">%s</h2>', $block_attributes['title']);
     }else{
-        $title =  __('News', 'sunflower');
+        $title = '';
     }
 
     $posts = new WP_Query($wp_query_args);
@@ -31,7 +31,7 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
 
     $return = sprintf(' <div class="wp-block-group has-background latest-posts %s">
                         <div class="wp-block-group__inner-container">
-                            <h2 class="text-center h1">%s</h2>
+                            %s
                         <div class="row">',
                         $classes,
                         $title
