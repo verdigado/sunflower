@@ -120,3 +120,35 @@ body{
         }
     }
 }
+
+.header{
+    &-personal{
+        .bloginfo{
+            background: none;
+            padding: 0;
+        }
+
+
+       #mainmenu{
+            &>.menu-item{
+                display: flex;
+                align-items: center;
+                height: 6em;
+            }
+            &>.current-menu-item{
+                background-color: $primary;
+                a.nav-link{
+                    color: $white !important;
+                    border: 0 !important;
+                }
+            }
+        }
+
+        .social-media-profile{
+            background: none;
+            i{
+                color: $body-color;
+            }
+        }
+    }
+}
