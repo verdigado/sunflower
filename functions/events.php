@@ -297,13 +297,21 @@ function sunflower_prepare_event_time_data( $post ){
 
             if( date('Y-m-d',  $_sunflower_event_until) == $datetime->format('Y-m-d')){
                 // tommorrow
+                $weekday = date_i18n('l',  $_sunflower_event_from);
                 $untildate = '';
+            }else{
+                $weekday = sprintf('%s%s' , 
+                    date_i18n('l',  $_sunflower_event_from),
+                    ($event_more_days) ? ' &dash; ' . date_i18n('l',  $_sunflower_event_until - 1) : ''
+                );
+                // the - 1 leads to 1 seconds before midnight, that means the day before
+                $untildate = ' &dash; ' . date_i18n('d.m.Y',  $_sunflower_event_until - 1 );
             }
         }elseif( date_i18n('m',  $_sunflower_event_from) === date_i18n('m',  $_sunflower_event_until)){
            // same month
            $fromdate =  date_i18n('d.',  $_sunflower_event_from);
         }elseif( date_i18n('Y',  $_sunflower_event_from) === date_i18n('Y',  $_sunflower_event_until)){
-            // same month
+            // same year
             $fromdate =  date_i18n('d.m.',  $_sunflower_event_from);
          }
 
