@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-04-04T15:29:04+02:00\n"
-"PO-Revision-Date: 2021-04-11 07:29+0200\n"
+"POT-Creation-Date: 2021-04-13T13:55:01+02:00\n"
+"PO-Revision-Date: 2021-04-13 13:55+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -52,7 +52,7 @@ msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
 msgid "Events"
 msgstr "Termine"
 
-#: archive-sunflower_event.php:28 functions/blocks/next-events.php:13
+#: archive-sunflower_event.php:28 functions/blocks/next-events.php:16
 msgid "all events"
 msgstr "Alle Termine"
 
@@ -112,7 +112,7 @@ msgstr ""
 "page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
 #: functions/admin.php:67 functions/block-patterns.php:11
-#: functions/blocks.php:34 functions/options/settings.php:24
+#: functions/blocks.php:35 functions/options/settings.php:24
 #: functions/options/settings.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
@@ -123,23 +123,23 @@ msgstr "Sunflower"
 msgid "Help for sunflowers events"
 msgstr "sunflower_event"
 
-#: functions/blocks/latest-posts.php:22
+#: functions/blocks/latest-posts.php:25
 msgid "News"
 msgstr "Aktuelles"
 
-#: functions/blocks/latest-posts.php:51
+#: functions/blocks/latest-posts.php:57
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: functions/blocks/latest-posts.php:63
+#: functions/blocks/latest-posts.php:69
 msgid "to archive"
 msgstr "Zum Blog-Archiv"
 
-#: functions/blocks/next-events.php:11
+#: functions/blocks/next-events.php:14
 msgid "Next events"
 msgstr "Nächste Termine"
 
-#: functions/blocks/next-events.php:37
+#: functions/blocks/next-events.php:40
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
@@ -256,8 +256,8 @@ msgid "Event"
 msgstr "Termin"
 
 #: functions/events.php:30
-msgid "sunflower_event"
-msgstr "sunflower_event"
+msgid "events"
+msgstr "termine"
 
 #: functions/events.php:129
 msgid ""
@@ -342,7 +342,7 @@ msgstr "Zeige Autor*in"
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/settings.php:212 functions/options/social-media.php:156
+#: functions/options/settings.php:221 functions/options/social-media.php:156
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
@@ -523,21 +523,17 @@ msgstr "Fußzeilenmenü 1"
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/_s.php:117
+#: functions/_s.php:105
 msgid "Sidebar"
 msgstr "Seitenleiste"
 
-#: functions/_s.php:119
+#: functions/_s.php:107
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
 #: header.php:27
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
-
-#: header.php:49
-msgid "Search"
-msgstr "Suche"
 
 #: inc/class-wp-bootstrap-navwalker.php:385
 msgid "Add a menu"
@@ -647,9 +643,16 @@ msgstr ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 
+#: template-parts/header-standard.php:21
+msgid "Search"
+msgstr "Suche"
+
 #: template-parts/related-posts.php:7
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
+
+#~ msgid "sunflower_event"
+#~ msgstr "sunflower_event"
 
 #~ msgid "more posts"
 #~ msgstr "Alle Beiträge"

@@ -27,7 +27,7 @@ function sunflower_create_event_post_type() {
             'public' => true,
             'menu_icon' => 'dashicons-calendar',
             'has_archive' => true,
-            'rewrite' => array('slug' => __( 'sunflower_event', 'sunflower' )),
+            'rewrite' => array('slug' => __( 'events', 'sunflower' )),
             'show_in_rest' => true,
             'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
         )

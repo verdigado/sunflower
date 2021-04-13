@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 1.0.0\n"
+"Project-Id-Version: sunflower 1.0.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-04-04T15:29:04+02:00\n"
+"POT-Creation-Date: 2021-04-13T13:55:01+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -51,7 +51,7 @@ msgid "Events"
 msgstr ""
 
 #: archive-sunflower_event.php:28
-#: functions/blocks/next-events.php:13
+#: functions/blocks/next-events.php:16
 msgid "all events"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 
 #: functions/admin.php:67
 #: functions/block-patterns.php:11
-#: functions/blocks.php:34
+#: functions/blocks.php:35
 #: functions/options/settings.php:24
 #: functions/options/settings.php:25
 msgid "Sunflower"
@@ -115,23 +115,23 @@ msgstr ""
 msgid "Help for sunflowers events"
 msgstr ""
 
-#: functions/blocks/latest-posts.php:22
+#: functions/blocks/latest-posts.php:25
 msgid "News"
 msgstr ""
 
-#: functions/blocks/latest-posts.php:51
+#: functions/blocks/latest-posts.php:57
 msgid "No posts found"
 msgstr ""
 
-#: functions/blocks/latest-posts.php:63
+#: functions/blocks/latest-posts.php:69
 msgid "to archive"
 msgstr ""
 
-#: functions/blocks/next-events.php:11
+#: functions/blocks/next-events.php:14
 msgid "Next events"
 msgstr ""
 
-#: functions/blocks/next-events.php:37
+#: functions/blocks/next-events.php:40
 msgid "Currently there are no coming events."
 msgstr ""
 
@@ -237,7 +237,7 @@ msgid "Event"
 msgstr ""
 
 #: functions/events.php:30
-msgid "sunflower_event"
+msgid "events"
 msgstr ""
 
 #: functions/events.php:129
@@ -329,7 +329,7 @@ msgstr ""
 msgid "to-field for contact-forms"
 msgstr ""
 
-#: functions/options/settings.php:212
+#: functions/options/settings.php:221
 #: functions/options/social-media.php:156
 msgid "Show share buttons on single page"
 msgstr ""
@@ -496,20 +496,16 @@ msgstr ""
 msgid "Footer Menu 2"
 msgstr ""
 
-#: functions/_s.php:117
+#: functions/_s.php:105
 msgid "Sidebar"
 msgstr ""
 
-#: functions/_s.php:119
+#: functions/_s.php:107
 msgid "Add widgets here."
 msgstr ""
 
 #: header.php:27
 msgid "Skip to content"
-msgstr ""
-
-#: header.php:49
-msgid "Search"
 msgstr ""
 
 #: inc/class-wp-bootstrap-navwalker.php:385
@@ -605,6 +601,10 @@ msgstr ""
 
 #: template-parts/content-none.php:44
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/header-standard.php:21
+msgid "Search"
 msgstr ""
 
 #: template-parts/related-posts.php:7
