@@ -5,13 +5,6 @@ function sunflower_next_events_render( $block_attributes, $content ) {
 
     $classes = (isset($block_attributes['className'])) ? $block_attributes['className'] : '';
 
-    $rules = get_option( 'rewrite_rules' );
-    if($rules){
-        $link = home_url() . '/' . __('events', 'sunflower');
-    }else{
-        $link = home_url() . '?post_type=sunflower_event';
-    }
-
     $return = sprintf(' <div class="wp-block-group has-background next-events %s">
                         <div class="wp-block-group__inner-container">
                             <h2 class="text-center h1">%s</h2>
@@ -19,7 +12,7 @@ function sunflower_next_events_render( $block_attributes, $content ) {
                         <div class="row">',
                         $classes,
                         __('Next events', 'sunflower'),
-                        $link,
+                        get_post_type_archive_link('sunflower_event'),
                         __('all events', 'sunflower')
     );
 
