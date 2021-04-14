@@ -135,9 +135,13 @@ class SunflowerEventSettingsPage
                 printf('<div><a href="../?post_type=sunflower_event">Termine ansehen</a></div>');
             }else{
                 if(get_sunflower_setting('sunflower_ical_urls') ){
-                    echo '<a href="admin.php?page=sunflower_events_options&icalimport=1" class="button button-primary">Kalender jetzt importieren</a>';
+                    if(ini_get('allow_url_fopen')){
+                        echo '<a href="admin.php?page=sunflower_events_options&icalimport=1" class="button button-primary">Kalender jetzt importieren</a>';
+                    }else{
+                        echo 'Der externe Kalender kann noch nicht importiert werden. Bitte erlaube in den php-Einstellungen <em>allow_url_fopen</em>.';
+                    }
                 }else{
-                    echo 'Um einen Kalender importieren zu können, trage die URL bitte unter Sunflower-Einstellungen ein.';
+                echo 'Um einen Kalender importieren zu können, trage die URL bitte unter Sunflower-Einstellungen ein.';
                 }
             }
             ?>
