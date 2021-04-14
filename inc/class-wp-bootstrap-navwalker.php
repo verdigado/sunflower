@@ -196,10 +196,13 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 
 			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
 			$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
+
+			$item_has_children = false;
 			// If item has_children add atts to <a>.
 			if ( isset( $args->has_children ) && $args->has_children && 0 === $depth && $args->depth > 1 ) {
-				$atts['href']          = '#';
-				$atts['data-bs-toggle']   = 'dropdown';
+				$item_has_children = true;
+				$atts['href']          = ! empty( $item->url ) ? $item->url : '#';
+				//$atts['data-bs-toggle']   = 'dropdown';
 				$atts['aria-haspopup'] = 'true';
 				$atts['aria-expanded'] = 'false';
 				$atts['class']         = 'dropdown-toggle nav-link';
@@ -304,6 +307,10 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			}
 
 			$item_output .= isset( $args->after ) ? $args->after : '';
+
+			if($item_has_children){
+				$item_output .= '<div class="submenu-opener" data-bs-toggle="dropdown"><i class="fas fa-angle-down" ></i></div>';
+			}
 
 			/**
 			 * END appending the internal item contents to the output.
