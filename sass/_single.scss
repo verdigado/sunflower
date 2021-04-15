@@ -21,6 +21,15 @@
         margin-bottom: 50px;
     }
 
+    >p.caption{
+	color: #8c8c8c;
+        text-align: right;
+	margin: -50px 10px 50px 10px;
+        	
+	>span {
+            font-size: 0.8em;
+	}
+    }
 }
 
 .post,
