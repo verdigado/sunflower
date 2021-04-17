@@ -64,13 +64,7 @@ extract($args);
 	}
 	?>
 
-	<?php sunflower_post_thumbnail($styled_layout); ?>
-	<?php
-		$caption = get_post(get_post_thumbnail_id())->post_excerpt;
-		if(!empty($caption)) {
-			?><p class="caption"><span><i class ="fas fa-image"></i> <?php echo $caption; ?></span></p><?php
-		}
-	?>
+	<?php sunflower_post_thumbnail($styled_layout, true); ?>
 
 	<div class="col-12 col-md-10 offset-md-1">
 		<div class="entry-content">

@@ -19,16 +19,18 @@
         position: relative;
         margin-top: -35px;
         margin-bottom: 50px;
-    }
-
-    >p.caption{
-	color: #8c8c8c;
-        text-align: right;
-	margin: -50px 10px 50px 10px;
-        	
-	>span {
-            font-size: 0.8em;
-	}
+      
+        figcaption{
+            position: relative;
+            width: unset;
+            padding: 5px 0 0 0;
+            color: inherit;
+            text-align: right;
+            font-size: $small-font-size;
+            background: none;
+            margin-right: 0.3em;
+            margin-top: 0.5em;
+        }
     }
 }
 
