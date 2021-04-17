@@ -36,12 +36,12 @@
 					<img src="<?php echo sunflower_parent_or_child('assets/img/sunflower.svg');?>" class="" alt="Sonnenblume - Logo">
 				</a>
 				<div>
-					<div class="h5 text-white arvogruen bloginfo-name">
+					<a href="<?php echo get_home_url(); ?>" class="d-block h5 text-white arvogruen bloginfo-name no-link">
 						<?php bloginfo('name'); ?>
-					</div>
-					<div class="text-white ptsans mb-0 bloginfo-description">
+					</a>
+					<a href="<?php echo get_home_url(); ?>" class="d-block text-white ptsans mb-0 bloginfo-description no-link">
 						<?php bloginfo('description'); ?>
-					</div>
+					</a>
 				</div>
 			</div>
 		</div>
