@@ -64,7 +64,22 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
     
 
     if( $posts->post_count > 0 ){
-        $return .= sprintf('<div class="col-12 col-md-6">%s</div><div class="d-none d-md-block col-md-6">%s', $columns[0], $columns[1]);
+        $button = sprintf('
+                    <a class="text-white no-link d-block d-md-none bg-primary has-green-550-hover-background-color border-radius" href="%1$s" rel="">
+                        <div class="p-45 row ">
+                        <span class="continue-reading text-white text-center pt-0">%2$s</span>
+                        </div>
+                    </a>
+                ',
+                $link,
+                __('to archive', 'sunflower')
+            );
+
+        $return .= sprintf('<div class="col-12 col-md-6">%s%s</div><div class="d-none d-md-block col-md-6">%s', 
+        $columns[0], 
+        $button, 
+        $columns[1]
+    );
     }else{
         $return .= sprintf('<div class="col-12 text-center pb-4">%s</div><div class="col-12">', __('No posts found', 'sunflower'));
     }
@@ -75,7 +90,6 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
                 <span class="continue-reading text-white text-center pt-0">%2$s</span>
                 </div>
             </a>
-           
         ',
         $link,
         __('to archive', 'sunflower')
