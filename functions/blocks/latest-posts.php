@@ -43,23 +43,30 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
     );
 
 
-    ob_start();
-    $i = 1;
-    echo '<div class="col-12 col-md-6">';
+    
+    $columns = ['', ''];
+	$i = 0;
     while ( $posts->have_posts() ) {
         $posts->the_post();
+            ob_start();
             get_template_part( 'template-parts/content', 'archive');
-            if($i == ceil( $posts->post_count / 2)){
-                echo '</div><div class="col-12 col-md-6">';
+
+            $article = ob_get_clean();
+			$columns[$i] .= $article;
+            
+            // add articles to the first columns as well, but hide them on big screens
+            if($i === 1){
+                $columns[0] .= sprintf('<div class="d-md-none">%s</div>', $article );
             }
-            $i++;
+
+            $i = ($i + 1 ) % 2;
     }  
     
-    $return .= ob_get_contents();
-    ob_end_clean();
 
-    if( $posts->post_count == 0 ){
-        $return .= sprintf('%s</div><div class="col-12">', __('No posts found', 'sunflower'));
+    if( $posts->post_count > 0 ){
+        $return .= sprintf('<div class="col-12 col-md-6">%s</div><div class="d-none d-md-block col-md-6">%s', $columns[0], $columns[1]);
+    }else{
+        $return .= sprintf('<div class="col-12 text-center pb-4">%s</div><div class="col-12">', __('No posts found', 'sunflower'));
     }
     
     $return .= sprintf('
