@@ -31,13 +31,12 @@ get_header();
 
 list($weekday, $days, $time ) = sunflower_prepare_event_time_data( $post );
 
+get_template_part( 'template-parts/event', 'json-ld' );
+
 $metadata = '';
-
-
 $metadata .= sprintf('<div class="arvo text-uppercase weekday">%s</div>',
 		$weekday
 	);
-
 
 $metadata .= sprintf('<div class="date mb-2">%s</div>',
 	$days
