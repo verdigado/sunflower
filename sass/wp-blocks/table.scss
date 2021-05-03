@@ -1,0 +1,26 @@
+.wp-block-table{
+    th,
+    td{
+        padding: 1em 1em 1em 0;
+    }
+
+    thead{
+        tr{
+            border-bottom: 2px solid $black-500;
+        }
+    }
+
+    tbody{
+        tr{
+            border-bottom: 1px solid $lightgray;
+        }
+    }
+
+    figcaption{
+        text-align: right;
+        font-size: $small-font-size;
+        background: none;
+        margin-right: 0.3em;
+        margin-top: 0.5em;
+    }
+}
