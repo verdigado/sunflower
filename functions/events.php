@@ -55,7 +55,8 @@ function sunflower_create_event_post_type() {
         'hierarchical' => false,
         'labels' => $labels,
         'show_ui' => true,
-        'show_admin_column' => true
+        'show_admin_column' => true,
+        'show_in_rest' => true
       ));
 }
 add_action( 'init', 'sunflower_create_event_post_type' );
