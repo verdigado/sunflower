@@ -8,4 +8,14 @@ jQuery( '.filter-button-group' ).on( 'click', 'button', function() {
 
     jQuery( '.filter-active' ).removeClass( 'filter-active' );
     jQuery( this ).addClass( 'filter-active' );
+
+    window.location.hash = '#' + filterValue.substr(1);
+});
+
+jQuery(document).ready( function (){
+    const hash = window.location.hash.substr(1);
+
+    if( hash !== '' ){
+        jQuery('.filter[data-filter=".' + hash + '"]').click();
+    }
 });
