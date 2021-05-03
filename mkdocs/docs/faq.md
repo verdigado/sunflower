@@ -51,3 +51,13 @@ Trage in der *wp-config.php* bitte die Zeile
 ``define('SUNFLOWER_EMAIL_SCRAMBLE_NO', true);``
 
 ein.
+
+## In Multisite funktioniert das Kontaktformular nicht
+Damit das Kontaktformular auch in Multisite von normalen Admins (nicht Super-Admins) genutzt werden kann,
+muss man dieser Nutzer*innen-Rolle zusätzliche Rechte geben. Das vermindert die Sicherheit!
+Mehr Infos gibt es unter
+[https://kellenmace.com/add-unfiltered_html-capability-to-admins-or-editors-in-wordpress-multisite/]()
+
+Trage folgendes in die Datei *wp-config.php* ein
+
+``define('SUNFLOWER_UNFILTERED_HTML', true);``
