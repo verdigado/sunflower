@@ -95,7 +95,7 @@ changelog:
 	git log $$(git describe --tags --abbrev=0)..HEAD --pretty=format:"%s" >> release_notes.html
 
 test:
-	cd ../../../../tests && LOCAL=true MODE=test python3 test.py
+	cd ../../../../tests && LOCAL=true MODE=test python3 test.py && LOCAL=true MODE=test MOBILE=true python3 test.py
 
 pattern:
-	cd ../../../../tests && LOCAL=true MODE=patterns python3 test.py
+	cd ../../../../tests && LOCAL=true MODE=pattern python3 test.py && LOCAL=true MODE=patterns MOBILE=true python3 test.py
