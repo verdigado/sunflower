@@ -23,7 +23,9 @@ Außerdem kannst Du eine Markierung auf einer Landkarte [OpenStreetMap](https://
 
 ## Die Terminseite wird im Frontend nicht gefunden
 Wenn die Seite nicht gefunden wird, musst Du die die Permalink-Struktur neu einlesen.
-Das machst Du folgendermaßen:
+Das kannst Du direkt in den Sunflower-Einstellungen machen unter Einstellungen -> Permalinks.
+
+Alternativ kannst Du folgendes probieren:
 - Einstellungen Permalinks
 - Wähle eine beliebiege andere Einstellung aus und speichere sie
 - Wähle Deine bisherige Einstellung wieder aus und speichere sie
