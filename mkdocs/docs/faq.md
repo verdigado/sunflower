@@ -56,7 +56,7 @@ ein.
 Damit das Kontaktformular auch in Multisite von normalen Admins (nicht Super-Admins) genutzt werden kann,
 muss man dieser Nutzer*innen-Rolle zusätzliche Rechte geben. Das vermindert die Sicherheit!
 Mehr Infos gibt es unter
-[https://kellenmace.com/add-unfiltered_html-capability-to-admins-or-editors-in-wordpress-multisite/]()
+[https://kellenmace.com/add-unfiltered_html-capability-to-admins-or-editors-in-wordpress-multisite/](https://kellenmace.com/add-unfiltered_html-capability-to-admins-or-editors-in-wordpress-multisite/)
 
 Trage folgendes in die Datei *wp-config.php* ein
 
