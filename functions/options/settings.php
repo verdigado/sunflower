@@ -118,6 +118,28 @@ class SunflowerSettingsPage
                 submit_button();
             ?>
             </form>
+
+            <table class="form-table" role="presentation">
+                <tbody>
+                    <tr>
+                        <th scope="row">Permalinks</th>
+                        <td>
+
+                        <?php if( isset($_GET['flush_permalinks'])){ 
+                            flush_rewrite_rules();
+                        ?>
+                            Die Permalinkstruktur wurde neu eingelesen.
+                        <?php }else{?>
+                            <p>Falls der Link für die Termineseite fehlerhaft ist, kannst Du die Permalinkstruktur neu einlesen. </p><br>
+                            <a href="admin.php?page=sunflower_settings&flush_permalinks=1" class="button button-primary">Permalinkstruktur neu einlesen </a>
+                        <?php } ?>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+
         </div>
         <?php
     }
@@ -183,6 +205,8 @@ class SunflowerSettingsPage
         //     'sunflower_layout', // Section   
         //     ['sunflower_header_layout', __('Use this header layout', 'sunflower')]
         // );    
+
+
       
     }
 
