@@ -278,7 +278,7 @@ class SunflowerEventSettingsPage
         echo '<div><a href="https://sunflower-theme.de/documentation/events/" target="_blank">Mehr zu den Einstellungen in der Dokumenation</a><br>
         Importierte Termine dürfen nicht im WordPress-Backend bearbeitet werden, weil Änderungen beim nächsten 
         Import überschrieben werden.<br>
-        Jede URL mit http:// oder https:// beginnen. Automatische Kategorien pro Kalender bitte mit ; anfügen.
+        Jede URL muss mit http:// oder https:// beginnen. Automatische Kategorien pro Kalender bitte mit ; anfügen.
 
         </div>';
     }
