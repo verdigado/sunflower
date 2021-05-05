@@ -46,7 +46,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false){
             if($count_recurring_events[$uid] > $recurring_events_max ){
                 continue;
             }
-            $uid .= '_' . $event->dtstamp;
+            $uid .= '_' . $event->dtstart;
         }
      
         // is this event already imported
