@@ -1,19 +1,21 @@
 <?php
 
-$sunflower_event_fields = [
-    '_sunflower_event_from'            => [ __('Startdate', 'sunflower'), 'datetimepicker' ],
-    '_sunflower_event_until'           => [ __('Enddate', 'sunflower'), 'datetimepicker' ],
-    '_sunflower_event_whole_day'       => [ __('Whole day', 'sunflower'), null, 'checkbox' ],
-    '_sunflower_event_location_name'   => [ __('Location name', 'sunflower') ],
-    '_sunflower_event_location_street' => [ __('Street', 'sunflower')],
-    '_sunflower_event_location_city'   => [ __('City', 'sunflower') ],
-    '_sunflower_event_webinar'         => [ __('Webinar', 'sunflower') ],
-    '_sunflower_event_organizer'       => [ __('Organizer', 'sunflower') ],
-    '_sunflower_event_organizer_url'   => [ __('Organizer URL', 'sunflower') ],
-    '_sunflower_event_lat'    => [ 'Latitude', null, 'hidden'],
-    '_sunflower_event_lon'    => [ 'Longitude', null, 'hidden'],
-    '_sunflower_event_zoom'   => [ 'Zoom', null, 'hidden'],
-];
+function sunflower_get_event_fields(){
+    return [
+        '_sunflower_event_from'            => [ __('Startdate', 'sunflower'), 'datetimepicker' ],
+        '_sunflower_event_until'           => [ __('Enddate', 'sunflower'), 'datetimepicker' ],
+        '_sunflower_event_whole_day'       => [ __('Whole day', 'sunflower'), null, 'checkbox' ],
+        '_sunflower_event_location_name'   => [ __('Location name', 'sunflower') ],
+        '_sunflower_event_location_street' => [ __('Street', 'sunflower')],
+        '_sunflower_event_location_city'   => [ __('City', 'sunflower') ],
+        '_sunflower_event_webinar'         => [ __('Webinar', 'sunflower') ],
+        '_sunflower_event_organizer'       => [ __('Organizer', 'sunflower') ],
+        '_sunflower_event_organizer_url'   => [ __('Organizer URL', 'sunflower') ],
+        '_sunflower_event_lat'    => [ 'Latitude', null, 'hidden'],
+        '_sunflower_event_lon'    => [ 'Longitude', null, 'hidden'],
+        '_sunflower_event_zoom'   => [ 'Zoom', null, 'hidden'],
+    ];
+}
 
 function sunflower_create_event_post_type() {
 
@@ -75,7 +77,9 @@ function sunflower_add_event_meta_boxes() {
 add_action( "admin_init", "sunflower_add_event_meta_boxes" );
 
 function save_sunflower_event_meta_boxes(){
-    global $post, $sunflower_event_fields;
+    global $post;
+    
+    $sunflower_event_fields = sunflower_get_event_fields();
 
     if ( !isset($post->ID ) ) {
         return;
@@ -122,7 +126,10 @@ function intDate2germanDate($intDate){
 }
 
 function sunflower_event_meta_box(){
-    global $post, $sunflower_event_fields;;
+    global $post;
+    
+    $sunflower_event_fields = sunflower_get_event_fields();
+    
     $custom = get_post_custom( $post->ID );
     $uid = @$custom[ '_sunflower_event_uid'][ 0 ];
 
@@ -202,7 +209,7 @@ function sunflower_event_field( $id, $config, $value ){
             );
             break;
         default:
-            printf('%2$s<input class="%4$s" type="text" name="%1$s" placeholder="%2$s" value="%3$s">', 
+            printf('<div>%2$s<br><input class="%4$s" type="text" name="%1$s" placeholder="%2$s" value="%3$s"></div>', 
                 $id,
                 $label,
                 $value,
