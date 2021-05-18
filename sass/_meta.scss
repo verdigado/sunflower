@@ -36,6 +36,15 @@
     z-index: 20;
     text-align: left;
 
+    &-spacer{
+        display: none;
+        @include media-breakpoint-up(md) {
+            display: block;
+            float: right;
+            width: 100px;
+            height: 150px;
+        }
+    }
 
     .date{
         font-size: 200%;

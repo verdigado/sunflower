@@ -35,6 +35,8 @@ jQuery(document).ready( function (){
     jQuery('.topmenu .search input').toggleClass('active');
     jQuery('.topmenu .search input').focus();
   })
+
+  adjustMetaboxHeight();
 });
 
 
@@ -78,3 +80,20 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function(e) {
 
   return false;
 } );
+
+function adjustMetaboxHeight(){
+  if( !jQuery(".metabox").length){
+    return;
+  }
+
+  const tooBig = jQuery('.metabox').outerHeight() - jQuery('.entry-header').outerHeight();
+
+  if( tooBig <= 0 ){
+    return;
+  }
+
+ jQuery(".entry-content").prepend('<div class="metabox-spacer"></div>');
+
+ jQuery(".metabox-spacer").height(tooBig + 'px');
+
+}
