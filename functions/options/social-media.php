@@ -218,7 +218,7 @@ function get_sunflower_social_media_profiles(){
             continue;
         }
      
-        $return .= sprintf('<a href="%1$s" target="_blank" title="%3$s" class="social-media-profile"><i class="%2$s"></i></a>', 
+        $return .= sprintf('<a href="%1$s" target="_blank" title="%3$s" class="social-media-profile" rel="me"><i class="%2$s"></i></a>', 
         $url, 
         $class,
         $title);
