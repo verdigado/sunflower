@@ -9,8 +9,7 @@ $_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_l
 
 
 $from = getIcalDate($_sunflower_event_from, !$_sunflower_event_whole_day);
-$until = ($_sunflower_event_until) ? getIcalDate($_sunflower_event_until, !$_sunflower_event_whole_day) : getIcalDate(3600 + strToTime($_sunflower_event_from), !$_sunflower_event_whole_day);
-
+$until = ($_sunflower_event_until) ? getIcalDate($_sunflower_event_until, !$_sunflower_event_whole_day) : getIcalDate(3600 + $_sunflower_event_from, !$_sunflower_event_whole_day);
 
 $now = getIcalDate(strToTime('now'), true);
 $summary = get_the_title();
@@ -47,7 +46,6 @@ header("Content-Type: application/download");
 header("Content-Disposition: attachment; filename=\"{$filename}\";");
 header("Content-Description: File Transfer");
 header("Content-Transfer-Encoding: binary");
-//header('Content-Length: '.$Groesse );
 
 echo $ical;
 die();
