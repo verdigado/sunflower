@@ -77,6 +77,11 @@ function sunflower_register_required_plugins() {
 
 		*/
 
+		
+		array(
+			'name'         => 'Embed Privacy', // The plugin name.
+			'slug'         => 'embed-privacy/', // The plugin slug (typically the folder name).
+		),
 		array(
 			'name'         => 'Free Images', // The plugin name.
 			'slug'         => 'free-images/', // The plugin slug (typically the folder name).
