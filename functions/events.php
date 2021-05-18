@@ -342,3 +342,35 @@ function sunflower_prepare_event_time_data( $post ){
 
    return [$weekday, $days, $time];
 }
+
+// Add the custom columns to the book post type:
+add_filter( 'manage_sunflower_event_posts_columns', 'set_custom_edit_book_columns' );
+function set_custom_edit_book_columns($columns) {
+    unset( $columns['date'] );
+    $columns['sunflower_event_date'] = __( 'Event date', 'sunflower' );
+    $columns['sunflower_event_location_name'] = __( 'Event location', 'sunflower' );
+
+
+    return $columns;
+}
+
+// Add the data to the custom columns for the book post type:
+add_action( 'manage_sunflower_event_posts_custom_column' , 'custom_sunflower_event_column', 10, 2 );
+function custom_sunflower_event_column( $column, $post_id ) {
+    switch ( $column ) {
+
+    case 'sunflower_event_date' :
+        $date = @get_post_meta( $post_id, '_sunflower_event_from')[0] ?: false;
+
+        if( $date ){
+            echo intDate2germanDate($date);
+        }
+        break;
+
+    case 'sunflower_event_location_name' :
+        $location = @get_post_meta( $post_id, '_sunflower_event_location_name')[0] ?: false;
+
+        echo $location;
+    }
+}
+  

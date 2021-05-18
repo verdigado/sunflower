@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 1.1.4\n"
+"Project-Id-Version: sunflower 1.1.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-05-18T14:14:33+02:00\n"
+"POT-Creation-Date: 2021-05-18T15:57:20+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -251,6 +251,14 @@ msgstr ""
 
 #: functions/events.php:181
 msgid "delete map"
+msgstr ""
+
+#: functions/events.php:350
+msgid "Event date"
+msgstr ""
+
+#: functions/events.php:351
+msgid "Event location"
 msgstr ""
 
 #: functions/metaboxes.php:6
