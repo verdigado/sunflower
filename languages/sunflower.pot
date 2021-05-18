@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 1.0.7\n"
+"Project-Id-Version: sunflower 1.1.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-04-13T13:55:01+02:00\n"
+"POT-Creation-Date: 2021-05-18T14:14:33+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -43,10 +43,10 @@ msgid "It looks like nothing was found at this location. Maybe try one of the li
 msgstr ""
 
 #: archive-sunflower_event.php:21
-#: functions/events.php:24
+#: functions/events.php:26
 #: functions/options/events.php:30
 #: functions/options/events.php:31
-#: functions/options/events.php:205
+#: functions/options/events.php:209
 msgid "Events"
 msgstr ""
 
@@ -57,12 +57,14 @@ msgstr ""
 
 #: archive.php:65
 #: index.php:71
+#: search.php:68
 #: single.php:45
 msgid "previous"
 msgstr ""
 
 #: archive.php:66
 #: index.php:72
+#: search.php:69
 #: single.php:50
 msgid "next"
 msgstr ""
@@ -115,23 +117,20 @@ msgstr ""
 msgid "Help for sunflowers events"
 msgstr ""
 
-#: functions/blocks/latest-posts.php:25
-msgid "News"
-msgstr ""
-
-#: functions/blocks/latest-posts.php:57
-msgid "No posts found"
-msgstr ""
-
-#: functions/blocks/latest-posts.php:69
+#: functions/blocks/latest-posts.php:75
+#: functions/blocks/latest-posts.php:95
 msgid "to archive"
+msgstr ""
+
+#: functions/blocks/latest-posts.php:84
+msgid "No posts found"
 msgstr ""
 
 #: functions/blocks/next-events.php:14
 msgid "Next events"
 msgstr ""
 
-#: functions/blocks/next-events.php:40
+#: functions/blocks/next-events.php:42
 msgid "Currently there are no coming events."
 msgstr ""
 
@@ -195,71 +194,67 @@ msgstr ""
 msgid "New contact form"
 msgstr ""
 
-#: functions/events.php:4
+#: functions/events.php:5
 msgid "Startdate"
 msgstr ""
 
-#: functions/events.php:5
+#: functions/events.php:6
 msgid "Enddate"
 msgstr ""
 
-#: functions/events.php:6
+#: functions/events.php:7
 msgid "Whole day"
 msgstr ""
 
-#: functions/events.php:7
+#: functions/events.php:8
 msgid "Location name"
 msgstr ""
 
-#: functions/events.php:8
+#: functions/events.php:9
 msgid "Street"
 msgstr ""
 
-#: functions/events.php:9
+#: functions/events.php:10
 msgid "City"
 msgstr ""
 
-#: functions/events.php:10
+#: functions/events.php:11
 msgid "Webinar"
 msgstr ""
 
-#: functions/events.php:11
+#: functions/events.php:12
 msgid "Organizer"
 msgstr ""
 
-#: functions/events.php:12
+#: functions/events.php:13
 msgid "Organizer URL"
 msgstr ""
 
-#: functions/events.php:25
-#: functions/events.php:67
+#: functions/events.php:27
+#: functions/events.php:70
 msgid "Event"
 msgstr ""
 
-#: functions/events.php:30
-msgid "events"
-msgstr ""
-
-#: functions/events.php:129
+#: functions/events.php:137
 msgid "This event will be imported by remote ical-calendar. All changes here will be overwritten."
 msgstr ""
 
-#: functions/events.php:171
-#: functions/options/events.php:182
+#: functions/events.php:179
+#: functions/options/events.php:186
 msgid "Map"
 msgstr ""
 
-#: functions/events.php:172
-#: functions/options/events.php:183
+#: functions/events.php:180
+#: functions/options/events.php:187
 msgid "load map"
 msgstr ""
 
-#: functions/events.php:173
+#: functions/events.php:181
 msgid "delete map"
 msgstr ""
 
 #: functions/metaboxes.php:6
-#: functions/options/settings.php:138
+#: functions/options/settings.php:160
 msgid "Layout"
 msgstr ""
 
@@ -296,7 +291,7 @@ msgstr ""
 msgid "Sunflower Settings"
 msgstr ""
 
-#: functions/options/events.php:212
+#: functions/options/events.php:216
 msgid "URLs of iCal calendars, one per row"
 msgstr ""
 
@@ -310,26 +305,26 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: functions/options/settings.php:145
+#: functions/options/settings.php:167
 msgid "Excerpt length (words)"
 msgstr ""
 
-#: functions/options/settings.php:153
-#: functions/options/settings.php:157
+#: functions/options/settings.php:175
+#: functions/options/settings.php:179
 msgid "show related posts"
 msgstr ""
 
-#: functions/options/settings.php:162
-#: functions/options/settings.php:166
+#: functions/options/settings.php:184
+#: functions/options/settings.php:188
 msgid "show author of posts"
 msgstr ""
 
-#: functions/options/settings.php:171
-#: functions/options/settings.php:175
+#: functions/options/settings.php:193
+#: functions/options/settings.php:197
 msgid "to-field for contact-forms"
 msgstr ""
 
-#: functions/options/settings.php:221
+#: functions/options/settings.php:245
 #: functions/options/social-media.php:156
 msgid "Show share buttons on single page"
 msgstr ""
@@ -504,11 +499,11 @@ msgstr ""
 msgid "Add widgets here."
 msgstr ""
 
-#: header.php:27
+#: header.php:29
 msgid "Skip to content"
 msgstr ""
 
-#: inc/class-wp-bootstrap-navwalker.php:385
+#: inc/class-wp-bootstrap-navwalker.php:392
 msgid "Add a menu"
 msgstr ""
 
@@ -523,15 +518,15 @@ msgctxt "list item separator"
 msgid " "
 msgstr ""
 
-#: inc/template-tags.php:101
+#: inc/template-tags.php:99
 msgid "Share on twitter "
 msgstr ""
 
-#: inc/template-tags.php:108
+#: inc/template-tags.php:106
 msgid "Share on facebook "
 msgstr ""
 
-#: inc/template-tags.php:116
+#: inc/template-tags.php:114
 msgid "send mail "
 msgstr ""
 
@@ -540,32 +535,32 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: single-sunflower_event.php:50
+#: single-sunflower_event.php:49
 msgid "o'clock"
 msgstr ""
 
-#: single-sunflower_event.php:69
+#: single-sunflower_event.php:68
 msgid "Link to webinar"
 msgstr ""
 
-#: single-sunflower_event.php:75
-#: single-sunflower_event.php:77
+#: single-sunflower_event.php:74
+#: single-sunflower_event.php:76
 msgid "organized by"
 msgstr ""
 
-#: single-sunflower_event.php:84
+#: single-sunflower_event.php:83
 msgid "Download as ics"
 msgstr ""
 
-#: single-sunflower_event.php:106
+#: single-sunflower_event.php:105
 msgid "Show event location on map"
 msgstr ""
 
-#: single-sunflower_event.php:109
+#: single-sunflower_event.php:108
 msgid "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
 
-#: single-sunflower_event.php:117
+#: single-sunflower_event.php:116
 msgid "Show map"
 msgstr ""
 
@@ -586,8 +581,13 @@ msgstr ""
 msgid "Continue reading"
 msgstr ""
 
+#: template-parts/content-no-events.php:14
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-no-events.php:19
+msgid "No upcoming events."
 msgstr ""
 
 #. translators: 1: link to WP admin new post page.
@@ -601,6 +601,10 @@ msgstr ""
 
 #: template-parts/content-none.php:44
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/event-json-ld.php:15
+msgid "none"
 msgstr ""
 
 #: template-parts/header-standard.php:21
