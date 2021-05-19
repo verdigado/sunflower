@@ -563,52 +563,6 @@
             "time": "2019-08-28T14:22:28+00:00"
         },
         {
-            "name": "ramsey/array_column",
-            "version": "1.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ramsey/array_column.git",
-                "reference": "f8e52eb28e67eb50e613b451dd916abcf783c1db"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/array_column/zipball/f8e52eb28e67eb50e613b451dd916abcf783c1db",
-                "reference": "f8e52eb28e67eb50e613b451dd916abcf783c1db",
-                "shasum": ""
-            },
-            "require-dev": {
-                "jakub-onderka/php-parallel-lint": "0.8.*",
-                "phpunit/phpunit": "~4.5",
-                "satooshi/php-coveralls": "0.6.*",
-                "squizlabs/php_codesniffer": "~2.2"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/array_column.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ben Ramsey",
-                    "homepage": "http://benramsey.com"
-                }
-            ],
-            "description": "Provides functionality for array_column() to projects using PHP earlier than version 5.5.",
-            "homepage": "https://github.com/ramsey/array_column",
-            "keywords": [
-                "array",
-                "array_column",
-                "column"
-            ],
-            "abandoned": "it-for-free/array_column",
-            "time": "2015-03-20T22:07:39+00:00"
-        },
-        {
             "name": "rmccue/requests",
             "version": "v1.8.0",
             "source": {
@@ -717,20 +671,20 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.2.0",
+            "version": "v3.4.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "fd8305521692f27eae3263895d1ef1571c71a78d"
+                "reference": "b6b6ad3db3edb1b4b1c1896b1975fb684994de6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/fd8305521692f27eae3263895d1ef1571c71a78d",
-                "reference": "fd8305521692f27eae3263895d1ef1571c71a78d",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/b6b6ad3db3edb1b4b1c1896b1975fb684994de6e",
+                "reference": "b6b6ad3db3edb1b4b1c1896b1975fb684994de6e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2.5"
+                "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
             "autoload": {
@@ -771,7 +725,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-18T09:42:36+00:00"
+            "time": "2020-11-16T17:02:08+00:00"
         },
         {
             "name": "wp-cli/i18n-command",
@@ -880,16 +834,16 @@
         },
         {
             "name": "wp-cli/php-cli-tools",
-            "version": "v0.11.11",
+            "version": "v0.11.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/php-cli-tools.git",
-                "reference": "fe9c7c44a9e1bf2196ec51dc38da0593dbf2993f"
+                "reference": "e472e08489f7504d9e8c5c5a057e1419cd1b2b3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/php-cli-tools/zipball/fe9c7c44a9e1bf2196ec51dc38da0593dbf2993f",
-                "reference": "fe9c7c44a9e1bf2196ec51dc38da0593dbf2993f",
+                "url": "https://api.github.com/repos/wp-cli/php-cli-tools/zipball/e472e08489f7504d9e8c5c5a057e1419cd1b2b3e",
+                "reference": "e472e08489f7504d9e8c5c5a057e1419cd1b2b3e",
                 "shasum": ""
             },
             "require": {
@@ -910,14 +864,14 @@
             ],
             "authors": [
                 {
-                    "name": "James Logsdon",
-                    "email": "jlogsdon@php.net",
-                    "role": "Developer"
-                },
-                {
                     "name": "Daniel Bachhuber",
                     "email": "daniel@handbuilt.co",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "James Logsdon",
+                    "email": "jlogsdon@php.net",
+                    "role": "Developer"
                 }
             ],
             "description": "Console utilities for PHP",
@@ -926,27 +880,27 @@
                 "cli",
                 "console"
             ],
-            "time": "2018-09-04T13:28:00+00:00"
+            "time": "2021-03-03T12:43:49+00:00"
         },
         {
             "name": "wp-cli/wp-cli",
-            "version": "v2.0.1",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli.git",
-                "reference": "8b47483c730b592ca956f1447bb064e90606e4ba"
+                "reference": "0bcf0c54f4d35685211d435e25219cc7acbe6d48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/8b47483c730b592ca956f1447bb064e90606e4ba",
-                "reference": "8b47483c730b592ca956f1447bb064e90606e4ba",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/0bcf0c54f4d35685211d435e25219cc7acbe6d48",
+                "reference": "0bcf0c54f4d35685211d435e25219cc7acbe6d48",
                 "shasum": ""
             },
             "require": {
-                "mustache/mustache": "~2.4",
-                "php": ">=5.4",
-                "ramsey/array_column": "~1.1",
-                "rmccue/requests": "~1.6",
+                "ext-curl": "*",
+                "mustache/mustache": "~2.13",
+                "php": "^5.6 || ^7.0 || ^8.0",
+                "rmccue/requests": "^1.8",
                 "symfony/finder": ">2.7",
                 "wp-cli/mustangostang-spyc": "^0.6.3",
                 "wp-cli/php-cli-tools": "~0.11.2"
@@ -957,7 +911,11 @@
                 "wp-cli/entity-command": "^1.2 || ^2",
                 "wp-cli/extension-command": "^1.1 || ^2",
                 "wp-cli/package-command": "^1 || ^2",
-                "wp-cli/wp-cli-tests": "^2.0.8"
+                "wp-cli/wp-cli-tests": "^3.0.7"
+            },
+            "suggest": {
+                "ext-readline": "Include for a better --prompt implementation",
+                "ext-zip": "Needed to support extraction of ZIP archives when doing downloads or updates"
             },
             "bin": [
                 "bin/wp",
@@ -966,13 +924,17 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.5.x-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "WP_CLI": "php"
-                }
+                    "WP_CLI\\": "php/"
+                },
+                "classmap": [
+                    "php/class-wp-cli.php",
+                    "php/class-wp-cli-command.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -984,7 +946,7 @@
                 "cli",
                 "wordpress"
             ],
-            "time": "2018-08-23T23:01:42+00:00"
+            "time": "2021-05-14T13:44:51+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
