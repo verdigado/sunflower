@@ -25,15 +25,22 @@
 
             $from = strToTime(get_post_meta( $post->ID, '_sunflower_event_from')[0]);
             $attribute = date('Y-m-d', $from );
-           
+           if( $time ){
+        $time = sprintf(' | %s %s',
+                $time,
+                __("o'clock", 'sunflower')
+
+        );
+}
+
         ?>
         <div class="event-archive-meta">
-            <div class="arvo text-uppercase small"><?php echo $weekday; ?></div>
             <div class="date">
                 <time datetime="<?php echo $attribute; ?>">
                     <?php echo $days;?>
                 </time>
             </div>
+            <div class="arvo text-uppercase small"><?php echo $weekday.''. $time; ?></div>
             <div class="small">
                 <?php
                     echo join(' | ', $tag_list);
