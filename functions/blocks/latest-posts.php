@@ -7,14 +7,17 @@ function sunflower_latest_posts_render( $block_attributes, $content ) {
     );
 
     $url_category_name = '';
+    $link = false;
     
     if(isset($block_attributes['categories']) AND $block_attributes['categories'] != '' ){
         $wp_query_args['category_name'] = $block_attributes['categories'];
         $url_category_name = '&category_name=' . $block_attributes['categories'];
 
         $categories = explode(",", $block_attributes['categories']);
-        $link = get_category_link( get_cat_ID( trim($categories[0] ) ) );
-    }else{
+        $link = get_category_link( get_category_by_slug( trim($categories[0] ) ) );
+    }
+
+    if(!$link OR $link == '' ){
         $link =  home_url() . '?post_type=post';
     }
 
