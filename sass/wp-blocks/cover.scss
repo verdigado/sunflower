@@ -11,3 +11,8 @@
         max-width: map-get($container-max-widths, 'xl');
     } 
 }
+
+.wp-block-cover{
+    overflow: hidden;
+    border-radius: $border-radius;
+}
