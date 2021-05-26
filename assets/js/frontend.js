@@ -39,7 +39,6 @@ jQuery(document).ready( function (){
   adjustMetaboxHeight();
 });
 
-
 function showLeaflet(lat, lon, zoom){
   const leaflet = L.map('leaflet').setView([lat, lon], zoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -48,6 +47,18 @@ function showLeaflet(lat, lon, zoom){
   }).addTo(leaflet);
 
   const marker = L.marker([lat, lon]).addTo(leaflet);
+};
+
+jQuery('.show-leaflet-all').click( showLeafletAll);
+function showLeafletAll(){
+  const leaflet = L.map('leaflet').setView([map.center.lat, map.center.lon], map.center.zoom);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+  }).addTo(leaflet);
+
+  map.marker.forEach(marker => L.marker([marker.lat, marker.lon]).addTo(leaflet).bindPopup(marker.content) );
+
 };
 
 jQuery( '#sunflower-contact-form' ).on( 'submit', function(e) {

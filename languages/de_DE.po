@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-05-18T15:57:20+02:00\n"
-"PO-Revision-Date: 2021-05-18 15:57+0200\n"
+"POT-Creation-Date: 2021-05-26T11:19:23+02:00\n"
+"PO-Revision-Date: 2021-05-26 11:20+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -46,15 +46,40 @@ msgid ""
 "below or a search?"
 msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
 
-#: archive-sunflower_event.php:21 functions/events.php:26
+#: archive-sunflower_event.php:31 functions/events.php:26
 #: functions/options/events.php:30 functions/options/events.php:31
 #: functions/options/events.php:209
 msgid "Events"
 msgstr "Termine"
 
-#: archive-sunflower_event.php:28 functions/blocks/next-events.php:16
+#: archive-sunflower_event.php:38 functions/blocks/next-events.php:16
 msgid "all events"
 msgstr "Alle Termine"
+
+#: archive-sunflower_event.php:39 functions/events.php:179
+#: functions/options/events.php:186
+msgid "Map"
+msgstr "Landkarte"
+
+#: archive-sunflower_event.php:83
+msgid "more info"
+msgstr "mehr Infos"
+
+#: archive-sunflower_event.php:119 single-sunflower_event.php:105
+msgid "Show event location on map"
+msgstr "Veranstaltungsort auf der Karte anzeigen"
+
+#: archive-sunflower_event.php:122 single-sunflower_event.php:108
+msgid ""
+"If you click the button, the content will be downloaded from openstreetmap."
+msgstr ""
+"Wenn Sie auf den Button klicken, werden Daten von openstreetmap.org geladen."
+"<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
+"target=\"_blank\">Datenschutzrichtlinien</a>."
+
+#: archive-sunflower_event.php:126 single-sunflower_event.php:116
+msgid "Show map"
+msgstr "Kartendaten laden"
 
 #: archive.php:65 index.php:71 search.php:68 single.php:45
 msgid "previous"
@@ -259,10 +284,6 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:179 functions/options/events.php:186
-msgid "Map"
-msgstr "Landkarte"
-
 #: functions/events.php:180 functions/options/events.php:187
 msgid "load map"
 msgstr "Kartendaten laden"
@@ -381,39 +402,39 @@ msgstr "E-Mail"
 msgid "An error occurred. Could not import images"
 msgstr "Es ist ein Fehler aufgetreten. Die Bilder wurden nicht importiert."
 
-#: functions/plugin-activation.php:109
+#: functions/plugin-activation.php:114
 msgid "Install Required Plugins"
 msgstr "Plugins installieren"
 
-#: functions/plugin-activation.php:110
+#: functions/plugin-activation.php:115
 msgid "Install Plugins"
 msgstr "Plugins installieren"
 
-#: functions/plugin-activation.php:112
+#: functions/plugin-activation.php:117
 msgid "Installing Plugin: %s"
 msgstr "Installing Plugin: %s"
 
-#: functions/plugin-activation.php:114
+#: functions/plugin-activation.php:119
 msgid "Updating Plugin: %s"
 msgstr "Updating Plugin: %s"
 
-#: functions/plugin-activation.php:115
+#: functions/plugin-activation.php:120
 msgid "Something went wrong with the plugin API."
 msgstr "Something went wrong with the plugin API."
 
-#: functions/plugin-activation.php:116
+#: functions/plugin-activation.php:121
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] "This theme requires the following plugin: %1$s."
 msgstr[1] "This theme requires the following plugins: %1$s."
 
-#: functions/plugin-activation.php:122
+#: functions/plugin-activation.php:127
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] "Dieses Theme empfiehlt das Plugin %1$s."
 msgstr[1] "Dieses Theme empfiehlt die Plugins %1$s."
 
-#: functions/plugin-activation.php:128
+#: functions/plugin-activation.php:133
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
 "maximum compatibility with this theme: %1$s."
@@ -427,59 +448,59 @@ msgstr[1] ""
 "The following plugins need to be updated to their latest version to ensure "
 "maximum compatibility with this theme: %1$s."
 
-#: functions/plugin-activation.php:134
+#: functions/plugin-activation.php:139
 msgid "There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
 msgstr[0] "There is an update available for: %1$s."
 msgstr[1] "There are updates available for the following plugins: %1$s."
 
-#: functions/plugin-activation.php:140
+#: functions/plugin-activation.php:145
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] "The following required plugin is currently inactive: %1$s."
 msgstr[1] "The following required plugins are currently inactive: %1$s."
 
-#: functions/plugin-activation.php:146
+#: functions/plugin-activation.php:151
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] "Folgendes empfohlenes Plugin ist inaktiv: %1$s."
 msgstr[1] "Folgende empfohlene Plugins sind inaktiv: %1$s."
 
-#: functions/plugin-activation.php:152
+#: functions/plugin-activation.php:157
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] "Plugin installieren"
 msgstr[1] "Plugins installieren"
 
-#: functions/plugin-activation.php:157
+#: functions/plugin-activation.php:162
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] "Begin updating plugin"
 msgstr[1] "Begin updating plugins"
 
-#: functions/plugin-activation.php:162
+#: functions/plugin-activation.php:167
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] "Plugin aktivieren"
 msgstr[1] "Plugins aktivieren"
 
-#: functions/plugin-activation.php:167
+#: functions/plugin-activation.php:172
 msgid "Return to Required Plugins Installer"
 msgstr "Return to Required Plugins Installer"
 
-#: functions/plugin-activation.php:168
+#: functions/plugin-activation.php:173
 msgid "Plugin activated successfully."
 msgstr "Plugin aktiviert."
 
-#: functions/plugin-activation.php:169
+#: functions/plugin-activation.php:174
 msgid "The following plugin was activated successfully:"
 msgstr "The following plugin was activated successfully:"
 
-#: functions/plugin-activation.php:171
+#: functions/plugin-activation.php:176
 msgid "No action taken. Plugin %1$s was already active."
 msgstr "No action taken. Plugin %1$s was already active."
 
-#: functions/plugin-activation.php:173
+#: functions/plugin-activation.php:178
 msgid ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
@@ -487,15 +508,15 @@ msgstr ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
 
-#: functions/plugin-activation.php:175
+#: functions/plugin-activation.php:180
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr "All plugins installed and activated successfully. %1$s"
 
-#: functions/plugin-activation.php:176
+#: functions/plugin-activation.php:181
 msgid "Dismiss this notice"
 msgstr "Hinweis nicht mehr anzeigen"
 
-#: functions/plugin-activation.php:177
+#: functions/plugin-activation.php:182
 msgid ""
 "There are one or more required or recommended plugins to install, update or "
 "activate."
@@ -503,7 +524,7 @@ msgstr ""
 "There are one or more required or recommended plugins to install, update or "
 "activate."
 
-#: functions/plugin-activation.php:178
+#: functions/plugin-activation.php:183
 msgid "Please contact the administrator of this site for help."
 msgstr "Please contact the administrator of this site for help."
 
@@ -585,22 +606,6 @@ msgstr "organisiert von"
 msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
-#: single-sunflower_event.php:105
-msgid "Show event location on map"
-msgstr "Veranstaltungsort auf der Karte anzeigen"
-
-#: single-sunflower_event.php:108
-msgid ""
-"If you click the button, the content will be downloaded from openstreetmap."
-msgstr ""
-"Wenn Sie auf den Button klicken, werden Daten von openstreetmap.org geladen."
-"<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
-"target=\"_blank\">Datenschutzrichtlinien</a>."
-
-#: single-sunflower_event.php:116
-msgid "Show map"
-msgstr "Kartendaten laden"
-
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58 template-parts/content-archive.php:50
 #: template-parts/content.php:76
@@ -667,9 +672,6 @@ msgstr "Ähnliche Beiträge"
 
 #~ msgid "sunflower_event"
 #~ msgstr "sunflower_event"
-
-#~ msgid "more posts"
-#~ msgstr "Alle Beiträge"
 
 #~ msgctxt "list item separator"
 #~ msgid ", "

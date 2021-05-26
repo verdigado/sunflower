@@ -9,6 +9,16 @@
 
 get_header();
 ?>
+	<?php
+	// Prepare map data
+	$map = [];
+	?>
+	<script>
+		const map = {};
+		map.marker = [];
+	</script>
+
+
 	<div id="content" class="container">
 		<div class="row">
 			<div class="col-12">
@@ -26,6 +36,7 @@ get_header();
 
 						<div class="filter-button-group mb-5 text-center">
 							<button class="filter filter-active" data-filter="*"><?php _e('all events', 'sunflower'); ?></button>
+							<button class="filter" data-filter=".map"><?php _e('Map', 'sunflower'); ?></button>
 							<?php
 							$terms = get_terms([
 								'taxonomy' => 'sunflower_event_tag',
@@ -58,6 +69,22 @@ get_header();
 
 							echo '<div class="col-12 col-md-6 col-lg-4 mb-3">';
 								get_template_part( 'template-parts/archive', 'event');
+
+								$_sunflower_event_lon = @get_post_meta( $post->ID, '_sunflower_event_lon')[0] ?: false;
+								$_sunflower_event_lat = @get_post_meta( $post->ID, '_sunflower_event_lat')[0] ?: false;
+
+								if($_sunflower_event_lat AND $_sunflower_event_lon){
+									$map[] = (object) [
+										'lat' => $_sunflower_event_lat,
+										'lon' => $_sunflower_event_lon,
+										'content' => sprintf('<div class="leaflet-marker"><strong>%s</strong><a href="%s">%s</a></div>',
+											get_the_title(), 
+											get_permalink(),
+											__('more info', 'sunflower')
+											)
+
+								];
+								}
 							echo '</div>';
 
 						endwhile;
@@ -68,7 +95,61 @@ get_header();
 
 					endif;
 					?>
+					
+					<script>
+
+						<?php
+						$lowerLat = 90;
+						$upperLat = 0;
+						$lowerLon = 90;
+						$upperLon = 0;
+
+						foreach($map AS $marker){
+							printf("map.marker.push( { 'lat' : %s, 'lon': %s, 'content': '%s'} );",
+								$marker->lat,
+								$marker->lon,
+								$marker->content,
+							);
+
+							$lowerLat = min($lowerLat, $marker->lat);
+							$upperLat = max($upperLat, $marker->lat);
+							$lowerLon = min($lowerLon, $marker->lon);
+							$upperLon = max($upperLon, $marker->lon);
+
+						}
+
+						$centerLat = ($lowerLat + $upperLat ) / 2;
+						$centerLon = ($lowerLon + $upperLon ) / 2;
+						$zoom = get_sunflower_setting('sunflower_zoom') ?: 2;
+						printf("map.center = { 'lat': %s, 'lon': %s, 'zoom': %s };",
+							$centerLat,
+							$centerLon,
+							$zoom);
+
+						?>
+
+					</script>
+
+					<div class="col-12">
+						<div id="leaflet" style="height:500px" class="map d-flex flex-column justify-content-center align-items-center bg-lightgreen border-0">
+							<div class="before-loading text-center">
+								<i class="fas fa-map-marker-alt mb-3"></i>
+								<div class="h5 mb-3">
+									<?php _e('Show event location on map', 'sunflower'); ?>
+								</div>
+								<div class="mb-3">
+									<?php _e('If you click the button, the content will be downloaded from openstreetmap.', 'sunflower'); ?>
+								</div>
+
+								<button class="wp-block-button__link no-border-radius show-leaflet-all">
+									<?php _e('Show map', 'sunflower'); ?>
+								</button>
+							</div>
+						</div>
+					</div>
+
 					</div> <!-- event-list -->
+
 				</main><!-- #main -->
 			</div>
 		</div>

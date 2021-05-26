@@ -49,3 +49,12 @@ a.event-card{
       font-size: 60px;
   }
 }
+
+.leaflet{
+    &-marker{
+        strong{
+            display:block;
+            margin-bottom: 0.5em;
+        }
+    }
+}
