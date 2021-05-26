@@ -72,13 +72,29 @@ get_header();
 
 								$_sunflower_event_lon = @get_post_meta( $post->ID, '_sunflower_event_lon')[0] ?: false;
 								$_sunflower_event_lat = @get_post_meta( $post->ID, '_sunflower_event_lat')[0] ?: false;
+								$_sunflower_event_location_name = @get_post_meta( $post->ID, '_sunflower_event_location_name')[0] ?: false;
+								$_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_location_city')[0] ?: false;
+								list($weekday, $days, $time ) = sunflower_prepare_event_time_data( $post );
+								$location = $_sunflower_event_location_city;
+								if($_sunflower_event_location_city){
+									$location .= ', ' . $_sunflower_event_location_city;
+								}
+
+								if($location){
+									$location = ' | ' . $location;
+								}
+
+								$date = "Heute";
 
 								if($_sunflower_event_lat AND $_sunflower_event_lon){
 									$map[] = (object) [
 										'lat' => $_sunflower_event_lat,
 										'lon' => $_sunflower_event_lon,
-										'content' => sprintf('<div class="leaflet-marker"><strong>%s</strong><a href="%s">%s</a></div>',
+										'content' => sprintf('<div class="leaflet-marker"><strong>%s</strong><div>%s%s</div><div>%s</div><a href="%s">%s</a></div>',
 											get_the_title(), 
+											$days,
+											$location,
+											get_the_excerpt(),
 											get_permalink(),
 											__('more info', 'sunflower')
 											)
