@@ -134,13 +134,23 @@ body{
                 display: flex;
                 align-items: center;
                 height: 5em;
+                padding-right: 5px;
+                margin-right: 5px;
             }
+
             &>.current-menu-item{
                 background-color: $primary;
                 a.nav-link{
                     color: $white !important;
                     border: 0 !important;
                 }
+                .submenu-opener{
+                    color: $white;
+                }
+            }
+
+            &>li.menu-item-has-children{
+                flex-wrap: nowrap;
             }
         }
 
