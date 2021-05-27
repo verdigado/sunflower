@@ -84,8 +84,6 @@ get_header();
 									$location = ' | ' . $location;
 								}
 
-								$date = "Heute";
-
 								if($_sunflower_event_lat AND $_sunflower_event_lon){
 									$map[] = (object) [
 										'lat' => $_sunflower_event_lat,
@@ -136,7 +134,7 @@ get_header();
 
 						$centerLat = ($lowerLat + $upperLat ) / 2;
 						$centerLon = ($lowerLon + $upperLon ) / 2;
-						$zoom = get_sunflower_setting('sunflower_zoom') ?: 2;
+						$zoom = get_sunflower_setting('sunflower_zoom') ?: 6;
 						printf("map.center = { 'lat': %s, 'lon': %s, 'zoom': %s };",
 							$centerLat,
 							$centerLon,
@@ -146,7 +144,7 @@ get_header();
 
 					</script>
 
-					<div class="col-12">
+					<div class="col-12 d-none">
 						<div id="leaflet" style="height:500px" class="map d-flex flex-column justify-content-center align-items-center bg-lightgreen border-0">
 							<div class="before-loading text-center">
 								<i class="fas fa-map-marker-alt mb-3"></i>
