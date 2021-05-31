@@ -2,7 +2,7 @@
     <?php /* must be outside of masthead for stickness */ ?>
 	<div id="navbar-sticky-detector" class="header-personal"></div>
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white header-personal">
-		<div class="container">
+		<div class="container nowrap">
 			<div class="container d-flex align-items-center bloginfo">
 				<a class="img-container" href="<?php echo get_home_url(); ?>">
 					<img src="<?php echo sunflower_parent_or_child('assets/img/sunflower-dark.svg');?>" class="" alt="Sonnenblume - Logo">
@@ -36,10 +36,22 @@
 				?>
 			</div>
 
-			<div class="social-media-profiles d-flex">
+			<div class="social-media-profiles d-none d-md-flex">
 				<?php
 					echo get_sunflower_social_media_profiles();
 				?>
 			</div>
 		</div>
 	</nav>
+
+	<script>
+		jQuery(document).ready( function (){
+			jQuery('.navbar-toggler').click(function(){
+				if(jQuery('.navbar-toggler').hasClass('collapsed')){
+					jQuery('.navbar > .container').addClass('nowrap');
+				}else{
+					jQuery('.navbar > .container').removeClass('nowrap');
+				}
+			})
+		})
+  </script>
