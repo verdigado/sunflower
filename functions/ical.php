@@ -51,5 +51,5 @@ echo $ical;
 die();
 
 function getIcalDate($timestamp, $withTime = false){
-	return date('Ymd' . ($withTime ? '\THis\Z' : ''), $timestamp);
+	return date('Ymd' . ($withTime ? '\THis' : ''), $timestamp);
 }
