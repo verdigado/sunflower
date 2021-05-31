@@ -12,7 +12,9 @@
     } 
 }
 
-.wp-block-cover{
-    overflow: hidden;
-    border-radius: $border-radius;
+.wp-block-column{
+    .wp-block-cover{
+        overflow: hidden;
+        border-radius: $border-radius;
+    }
 }
