@@ -94,9 +94,11 @@ function sunflower_icalimport( $url = false, $auto_categories = false){
             }
         }
 
-        if( isset($event->categories) ){
-            $auto_categories_append = ($auto_categories) ? ',' . $auto_categories : '';
-            wp_set_post_terms( $id, $event->categories . $auto_categories_append, 'sunflower_event_tag');
+        $categories = ( isset($event->categories) ) ? $event->categories : '';
+        $categories .= ($auto_categories) ? ',' . $auto_categories : '';
+        
+        if ($categories) {
+            wp_set_post_terms( $id, $categories, 'sunflower_event_tag');
         }
     }
 
