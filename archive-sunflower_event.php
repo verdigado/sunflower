@@ -140,7 +140,7 @@ $is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
 							printf("map.marker.push( { 'lat' : %s, 'lon': %s, 'content': '%s'} );",
 								$marker->lat,
 								$marker->lon,
-								$marker->content,
+								$marker->content
 							);
 
 							$lowerLat = min($lowerLat, $marker->lat);
