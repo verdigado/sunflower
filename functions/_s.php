@@ -162,7 +162,8 @@ function sunflower_scripts() {
 	wp_localize_script( 'frontend', 'sunflower', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		'privacy_policy_url' => get_privacy_policy_url(),
-		'theme_url' =>  get_template_directory_uri()
+		'theme_url' =>  get_template_directory_uri(),
+		'maps_marker' => sunflower_parent_or_child('assets/img/marker.png')
 		)
     );
 

@@ -41,8 +41,7 @@ jQuery(document).ready( function (){
 
 function getIcon(){
   return L.icon({
-    iconUrl: sunflower.theme_url + '/assets/img/marker.png',
-  
+    iconUrl: sunflower.maps_marker,
     iconSize:     [25, 41], // size of the icon
     shadowSize:   [0, 0], // size of the shadow
     iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
