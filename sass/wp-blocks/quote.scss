@@ -4,14 +4,6 @@
         font-family: ArvoGruen;
         font-size: 23px;
         position: relative;
-        &:before{   
-            content: '„';
-            left: -0.5em;
-        }
-        &:after{   
-            content: '“';
-           
-        }
     }
     cite{
         font-style: normal;
