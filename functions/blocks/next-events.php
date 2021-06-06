@@ -5,8 +5,8 @@ function sunflower_next_events_render( $block_attributes, $content ) {
 
     $classes = (isset($block_attributes['className'])) ? $block_attributes['className'] : '';
 
-    $return = sprintf(' <div class="wp-block-group wp-block-cover has-background has-background-dim has-background-dim-30 has-black-500-background-color next-events %s">
-                        <div class="wp-block-cover__inner-container">
+    $return = sprintf(' <div class="wp-block-group sunflower-has-background-dim has-background next-events %s">
+                        <div class="wp-block-group__inner-container">
                             <h2 class="text-center h1 text-white">%s</h2>
                             <div class="wp-block-button text-center mb-5"><a class="wp-block-button__link no-border-radius" href="%s" rel="">%s</a></div>
                         <div class="row">',
