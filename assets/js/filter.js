@@ -10,6 +10,10 @@ jQuery( '.filter-button-group' ).on( 'click', 'button', function() {
     jQuery( this ).addClass( 'filter-active' );
 
     window.location.hash = '#' + filterValue.substr(1);
+
+    if( filterValue == '*'){
+        jQuery('#leaflet').parent().addClass( 'd-none' );
+    }
 });
 
 jQuery(document).ready( function (){

@@ -219,6 +219,14 @@ class SunflowerEventSettingsPage
             'sunflower-setting-events' // Section           
         );   
     
+        add_settings_field(
+            'sunflower_ical_zoom', // ID
+            __('Zoom-level of overall map', 'sunflower'), // Title 
+            array( $this, 'sunflower_zoom_callback' ), // Callback
+            'sunflower-setting-events', // Page
+            'sunflower-setting-events' // Section           
+        );   
+    
 
       
     }
@@ -282,6 +290,16 @@ class SunflowerEventSettingsPage
 
         </div>';
     }
+
+    public function sunflower_zoom_callback()
+    {
+        printf(
+            '<input type="number" min="1" max="19" id="sunflower_zoom" name="sunflower_events_options[sunflower_zoom]" value="%s">',
+            isset( $this->options['sunflower_zoom'] ) ? $this->options['sunflower_zoom'] : '11'
+        );
+        echo '<div>0 bis 19, Zoomlevel für die Übersichtskarte für Termine</div>';
+    }
+
 
   
 }
