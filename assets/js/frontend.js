@@ -20,7 +20,18 @@ const observer = new IntersectionObserver(
 
 observer.observe( stickyDetector );
 
+var greenIcon;
 jQuery(document).ready( function (){
+   greenIcon = L.icon({
+    iconUrl: sunflower.theme_url + '/assets/img/marker.png',
+  
+    iconSize:     [25, 41], // size of the icon
+    shadowSize:   [0, 0], // size of the shadow
+    iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
+    shadowAnchor: [0, 0],  // the same for the shadow
+    popupAnchor:  [0,-41] // point from which the popup should open relative to the iconAnchor
+  });
+
   jQuery('.show-leaflet').click( function(){
     const lat = jQuery('.show-leaflet').data('lat');
     const lon = jQuery('.show-leaflet').data('lon');
@@ -46,7 +57,7 @@ function showLeaflet(lat, lon, zoom){
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
   }).addTo(leaflet);
 
-  const marker = L.marker([lat, lon]).addTo(leaflet);
+  const marker = L.marker([lat, lon],{icon:greenIcon}).addTo(leaflet);
 };
 
 jQuery('.show-leaflet-all').click( showLeafletAll);
@@ -57,7 +68,7 @@ function showLeafletAll(){
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
   }).addTo(leaflet);
 
-  map.marker.forEach(marker => L.marker([marker.lat, marker.lon]).addTo(leaflet).bindPopup(marker.content) );
+  map.marker.forEach(marker => L.marker([marker.lat, marker.lon], {icon:greenIcon}).addTo(leaflet).bindPopup(marker.content) );
 
 };
 
