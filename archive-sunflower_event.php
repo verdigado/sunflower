@@ -36,7 +36,9 @@ get_header();
 
 						<div class="filter-button-group mb-5 text-center">
 							<button class="filter filter-active" data-filter="*"><?php _e('all events', 'sunflower'); ?></button>
-							<button class="filter" data-filter=".map"><?php _e('Map', 'sunflower'); ?></button>
+							<?php if( get_sunflower_setting('sunflower_show_overall_map') ) { ?>
+								<button class="filter" data-filter=".map"><?php _e('Map', 'sunflower'); ?></button>
+							<?php } ?>
 							<?php
 							$terms = get_terms([
 								'taxonomy' => 'sunflower_event_tag',

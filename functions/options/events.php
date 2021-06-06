@@ -218,16 +218,23 @@ class SunflowerEventSettingsPage
             'sunflower-setting-events', // Page
             'sunflower-setting-events' // Section           
         );   
+
+        add_settings_field(
+            'sunflower_show_overall_map', // ID
+            __('Show overall map', 'sunflower'), // Title 
+            array( $this, 'sunflower_checkbox_callback' ), // Callback
+            'sunflower-setting-events', // Page
+            'sunflower-setting-events', // Section    
+            ['sunflower_show_overall_map',__('Show overall map')]       // args
+        );   
     
         add_settings_field(
-            'sunflower_ical_zoom', // ID
+            'sunflower_zoom', // ID
             __('Zoom-level of overall map', 'sunflower'), // Title 
             array( $this, 'sunflower_zoom_callback' ), // Callback
             'sunflower-setting-events', // Page
             'sunflower-setting-events' // Section           
         );   
-    
-
       
     }
 
@@ -297,7 +304,7 @@ class SunflowerEventSettingsPage
             '<input type="number" min="1" max="19" id="sunflower_zoom" name="sunflower_events_options[sunflower_zoom]" value="%s">',
             isset( $this->options['sunflower_zoom'] ) ? $this->options['sunflower_zoom'] : '11'
         );
-        echo '<div>0 bis 19, Zoomlevel für die Übersichtskarte für Termine</div>';
+        echo '<div>1 (ganze Welt) bis 19 (einzelne Straße), Zoomlevel für die Übersichtskarte für Termine</div>';
     }
 
 
