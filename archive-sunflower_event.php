@@ -8,6 +8,8 @@
  */
 
 get_header();
+
+$is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
 ?>
 	<?php
 	// Prepare map data
@@ -28,26 +30,38 @@ get_header();
 						<header class="page-header text-center">
                             <h1 class="page-title">
                                 <?php
-                                    _e('Events', 'sunflower');
+								($is_event_archive) ?  _e('Events archive', 'sunflower') :  _e('Events', 'sunflower');
                                 ?>
                             </h1>
 						</header><!-- .page-header -->
 
 
 						<div class="filter-button-group mb-5 text-center">
-							<button class="filter filter-active" data-filter="*"><?php _e('all events', 'sunflower'); ?></button>
-							<?php if( get_sunflower_setting('sunflower_show_overall_map') ) { ?>
+							<?php if ($is_event_archive) {
+								printf('<a href="?archive=false" class="eventlist" >%s</a>', __('to upcoming events', 'sunflower'));
+							}else{
+								printf('<button class="filter filter-active" data-filter="*">%s</button>', __('all events', 'sunflower'));
+								if( get_sunflower_setting('sunflower_show_event_archive') ) { 
+									printf('<a href="?archive=true" class="eventlist" >%s</a>', __('Archive', 'sunflower'));
+								}
+							}
+							?>
+
+							<?php if( get_sunflower_setting('sunflower_show_overall_map') AND !$is_event_archive) { ?>
 								<button class="filter" data-filter=".map"><?php _e('Map', 'sunflower'); ?></button>
 							<?php } ?>
+
+							
 							<?php
 							$terms = get_terms([
 								'taxonomy' => 'sunflower_event_tag',
 								'hide_empty' => true,
 							]);
 
-
-							foreach($terms AS $term){
-								printf('<button class="filter" data-filter=".%s">%s</button>', $term->slug, $term->name);
+							if(!$is_event_archive){
+								foreach($terms AS $term){
+									printf('<button class="filter" data-filter=".%s">%s</button>', $term->slug, $term->name);
+								}
 							}
 							?>
 						</div>
@@ -56,7 +70,9 @@ get_header();
 						<?php
 
 						//$paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
-						$ordered_posts = sunflower_get_next_events();
+
+						$ordered_posts = ($is_event_archive) ? sunflower_get_past_events() : sunflower_get_next_events();
+				
 
 
 						/* Start the Loop */

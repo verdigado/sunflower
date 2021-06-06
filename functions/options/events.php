@@ -227,6 +227,15 @@ class SunflowerEventSettingsPage
             'sunflower-setting-events', // Section    
             ['sunflower_show_overall_map',__('Show overall map')]       // args
         );   
+
+        add_settings_field(
+            'sunflower_show_event_archive', // ID
+            __('Show events archive', 'sunflower'), // Title 
+            array( $this, 'sunflower_checkbox_callback' ), // Callback
+            'sunflower-setting-events', // Page
+            'sunflower-setting-events', // Section    
+            ['sunflower_show_event_archive',__('Show events archive', 'sunflower')]       // args
+        );   
     
         add_settings_field(
             'sunflower_zoom', // ID

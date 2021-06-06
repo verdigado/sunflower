@@ -129,10 +129,12 @@ a.continue-reading,
 .filter-button-group{
     margin-top: -35px;
 }
-button.filter{
+button.filter,
+a.eventlist{
     font-family: PTSans;
     font-weight: bold;
     font-size: 16px;
+    color: $black;
     letter-spacing: 0.05em;
     background: none;
     border: 0;

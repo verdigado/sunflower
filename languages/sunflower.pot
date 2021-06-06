@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 1.1.5\n"
+"Project-Id-Version: sunflower 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-05-26T11:19:23+02:00\n"
+"POT-Creation-Date: 2021-06-06T19:09:29+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -42,7 +42,11 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
 msgstr ""
 
-#: archive-sunflower_event.php:31
+#: archive-sunflower_event.php:33
+msgid "Events archive"
+msgstr ""
+
+#: archive-sunflower_event.php:33
 #: functions/events.php:26
 #: functions/options/events.php:30
 #: functions/options/events.php:31
@@ -50,32 +54,40 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: archive-sunflower_event.php:38
+#: archive-sunflower_event.php:41
+msgid "to upcoming events"
+msgstr ""
+
+#: archive-sunflower_event.php:43
 #: functions/blocks/next-events.php:16
 msgid "all events"
 msgstr ""
 
-#: archive-sunflower_event.php:39
+#: archive-sunflower_event.php:45
+msgid "Archive"
+msgstr ""
+
+#: archive-sunflower_event.php:51
 #: functions/events.php:179
 #: functions/options/events.php:186
 msgid "Map"
 msgstr ""
 
-#: archive-sunflower_event.php:83
+#: archive-sunflower_event.php:115
 msgid "more info"
 msgstr ""
 
-#: archive-sunflower_event.php:119
+#: archive-sunflower_event.php:170
 #: single-sunflower_event.php:105
 msgid "Show event location on map"
 msgstr ""
 
-#: archive-sunflower_event.php:122
+#: archive-sunflower_event.php:173
 #: single-sunflower_event.php:108
 msgid "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
 
-#: archive-sunflower_event.php:126
+#: archive-sunflower_event.php:177
 #: single-sunflower_event.php:116
 msgid "Show map"
 msgstr ""
@@ -142,12 +154,12 @@ msgstr ""
 msgid "Help for sunflowers events"
 msgstr ""
 
-#: functions/blocks/latest-posts.php:75
-#: functions/blocks/latest-posts.php:95
+#: functions/blocks/latest-posts.php:78
+#: functions/blocks/latest-posts.php:98
 msgid "to archive"
 msgstr ""
 
-#: functions/blocks/latest-posts.php:84
+#: functions/blocks/latest-posts.php:87
 msgid "No posts found"
 msgstr ""
 
@@ -273,11 +285,11 @@ msgstr ""
 msgid "delete map"
 msgstr ""
 
-#: functions/events.php:350
+#: functions/events.php:370
 msgid "Event date"
 msgstr ""
 
-#: functions/events.php:351
+#: functions/events.php:371
 msgid "Event location"
 msgstr ""
 
@@ -321,6 +333,19 @@ msgstr ""
 
 #: functions/options/events.php:216
 msgid "URLs of iCal calendars, one per row"
+msgstr ""
+
+#: functions/options/events.php:224
+msgid "Show overall map"
+msgstr ""
+
+#: functions/options/events.php:233
+#: functions/options/events.php:237
+msgid "Show events archive"
+msgstr ""
+
+#: functions/options/events.php:242
+msgid "Zoom-level of overall map"
 msgstr ""
 
 #: functions/options/settings.php:36

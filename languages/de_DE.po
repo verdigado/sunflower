@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-05-26T11:19:23+02:00\n"
-"PO-Revision-Date: 2021-05-26 11:20+0200\n"
+"POT-Creation-Date: 2021-06-06T19:09:29+02:00\n"
+"PO-Revision-Date: 2021-06-06 19:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -46,30 +46,42 @@ msgid ""
 "below or a search?"
 msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
 
-#: archive-sunflower_event.php:31 functions/events.php:26
+#: archive-sunflower_event.php:33
+msgid "Events archive"
+msgstr "Vergangene Veranstaltungen"
+
+#: archive-sunflower_event.php:33 functions/events.php:26
 #: functions/options/events.php:30 functions/options/events.php:31
 #: functions/options/events.php:209
 msgid "Events"
 msgstr "Termine"
 
-#: archive-sunflower_event.php:38 functions/blocks/next-events.php:16
+#: archive-sunflower_event.php:41
+msgid "to upcoming events"
+msgstr "Zu den kommenden Veranstaltungen"
+
+#: archive-sunflower_event.php:43 functions/blocks/next-events.php:16
 msgid "all events"
 msgstr "Alle Termine"
 
-#: archive-sunflower_event.php:39 functions/events.php:179
+#: archive-sunflower_event.php:45
+msgid "Archive"
+msgstr "Archiv"
+
+#: archive-sunflower_event.php:51 functions/events.php:179
 #: functions/options/events.php:186
 msgid "Map"
 msgstr "Landkarte"
 
-#: archive-sunflower_event.php:83
+#: archive-sunflower_event.php:115
 msgid "more info"
 msgstr "mehr Infos"
 
-#: archive-sunflower_event.php:119 single-sunflower_event.php:105
+#: archive-sunflower_event.php:170 single-sunflower_event.php:105
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: archive-sunflower_event.php:122 single-sunflower_event.php:108
+#: archive-sunflower_event.php:173 single-sunflower_event.php:108
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
@@ -77,7 +89,7 @@ msgstr ""
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: archive-sunflower_event.php:126 single-sunflower_event.php:116
+#: archive-sunflower_event.php:177 single-sunflower_event.php:116
 msgid "Show map"
 msgstr "Kartendaten laden"
 
@@ -148,11 +160,11 @@ msgstr "Sunflower"
 msgid "Help for sunflowers events"
 msgstr "sunflower_event"
 
-#: functions/blocks/latest-posts.php:75 functions/blocks/latest-posts.php:95
+#: functions/blocks/latest-posts.php:78 functions/blocks/latest-posts.php:98
 msgid "to archive"
 msgstr "Zum Blog-Archiv"
 
-#: functions/blocks/latest-posts.php:84
+#: functions/blocks/latest-posts.php:87
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
@@ -263,8 +275,6 @@ msgid "Webinar"
 msgstr "Webinar"
 
 #: functions/events.php:12
-#, fuzzy
-#| msgid "organized by"
 msgid "Organizer"
 msgstr "organisiert von"
 
@@ -292,11 +302,11 @@ msgstr "Kartendaten laden"
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/events.php:350
+#: functions/events.php:370
 msgid "Event date"
 msgstr "Datum der Veranstaltung"
 
-#: functions/events.php:351
+#: functions/events.php:371
 msgid "Event location"
 msgstr "Ort"
 
@@ -339,6 +349,18 @@ msgstr "Sunflower Einstellungen"
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
+#: functions/options/events.php:224
+msgid "Show overall map"
+msgstr "Übersichtskarte zeigen"
+
+#: functions/options/events.php:233 functions/options/events.php:237
+msgid "Show events archive"
+msgstr "Vergangene Veranstaltungen anzeigen"
+
+#: functions/options/events.php:242
+msgid "Zoom-level of overall map"
+msgstr ""
+
 #: functions/options/settings.php:36 functions/options/settings.php:37
 msgid "First steps"
 msgstr "Erste Schritte"
@@ -368,8 +390,6 @@ msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
 #: functions/options/social-media.php:29 functions/options/social-media.php:30
-#, fuzzy
-#| msgid "Social Media Profiles"
 msgid "Social Media"
 msgstr "Profile in Sozialen Medien"
 
@@ -663,6 +683,14 @@ msgstr "Suche"
 #: template-parts/related-posts.php:7
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
+
+#~ msgid "Upcoming events"
+#~ msgstr "Kommende Veranstaltungen"
+
+#, fuzzy
+#~| msgid "Show events archive"
+#~ msgid "Show event archive"
+#~ msgstr "Vergangene Veranstaltungen anzeigen"
 
 #~ msgid "News"
 #~ msgstr "Aktuelles"
