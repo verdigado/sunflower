@@ -133,24 +133,32 @@ body{
             &>.menu-item{
                 display: flex;
                 align-items: center;
-                height: 5em;
+                height: auto;
                 padding-right: 5px;
                 margin-right: 5px;
+
+                @include media-breakpoint-up(md) { 
+                    height: 5em
+                }
             }
 
             &>.current-menu-item{
                 background-color: $primary;
                 a.nav-link{
-                    color: $white !important;
-                    border: 0 !important;
-                }
-                .submenu-opener{
                     color: $white;
+                    border: 1px !important;
+
+                    &:hover{
+                        color: $primary;
+                    }
                 }
             }
 
             &>li.menu-item-has-children{
-                flex-wrap: nowrap;
+                flex-wrap: auto;
+                @include media-breakpoint-up(md) { 
+                    flex-wrap: nowrap;
+                }
             }
         }
 
