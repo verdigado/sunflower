@@ -16,6 +16,7 @@
     ],
     "require": {
         "php": ">=5.6",
+        "ext-json": "*",
         "johngrogg/ics-parser": "^2.2"
     },
     "require-dev": {

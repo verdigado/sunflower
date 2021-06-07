@@ -44,7 +44,7 @@
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'",
     "copy-composer": "copyfiles -u 1 vendor/johngrogg/ics-parser/src/ICal/*.php assets/vndr",
-    "copy-node-modules": "copyfiles -u 1 node_modules/jquery-slim/dist/*.min.js node_modules/@popperjs/core/dist/umd/popper.min.js node_modules/bootstrap/dist/js/*.min.js node_modules/@fortawesome/fontawesome-free/webfonts/*.woff* node_modules/leaflet/dist/*.js node_modules/leaflet/dist/*.css node_modules/leaflet/dist/images/* node_modules/jquery-datetimepicker/build/*.min.js node_modules/jquery-datetimepicker/build/*.min.css assets/vndr",
+    "copy-node-modules": "copyfiles -u 1 node_modules/jquery-slim/dist/*.min.js node_modules/@popperjs/core/dist/umd/popper.min.js node_modules/bootstrap/dist/js/*.min.js node_modules/@fortawesome/fontawesome-free/webfonts/*.woff* node_modules/leaflet/dist/*.js node_modules/leaflet/dist/*.css node_modules/leaflet/dist/images/* node_modules/jquery-datetimepicker/build/*.min.js node_modules/jquery-datetimepicker/build/*.min.css node_modules/fullcalendar/main.js node_modules/fullcalendar/locales/de.js node_modules/fullcalendar/main.css assets/vndr",
     "bundle": "npm run copy-composer && npm run copy-node-modules && cd .. && dir-archiver --src sunflower --dest sunflower.zip --exclude Makefile release_notes.html documentation mkdocs announcement.txt .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map",
     "build": "wp-scripts build",
     "start": "wp-scripts start"
@@ -53,6 +53,7 @@
     "@popperjs/core": "^2.6.0",
     "bootstrap": "^5.0.0-beta2",
     "copyfiles": "^2.4.1",
+    "fullcalendar": "5.7.2",
     "jquery-datetimepicker": "^2.5.21",
     "jquery-slim": "^3.0.0",
     "leaflet": "^1.7.1"

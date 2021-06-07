@@ -1,10 +1,10 @@
 a.event-card{
     color: $body-color !important ;
     text-decoration: none;
-   
+
 
     article{
-        background-color: $white; 
+        background-color: $white;
         border-radius: $border-radius;
         height: 100%;
 
@@ -57,4 +57,14 @@ a.event-card{
             margin-bottom: 0.5em;
         }
     }
+}
+
+.fc{
+  table{
+    margin: 0;
+  }
+
+  td{
+    border-style: none;
+  }
 }
