@@ -3,7 +3,7 @@
 	<div id="navbar-sticky-detector" class="header-personal"></div>
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white header-personal">
 		<div class="container nowrap">
-			<div class="d-flex">
+			<div class="d-flex w-100">
 			<div class="container d-flex align-items-center bloginfo">
 				<a class="img-container" href="<?php echo get_home_url(); ?>">
 					<img src="<?php echo sunflower_parent_or_child('assets/img/sunflower-dark.svg');?>" class="" alt="Sonnenblume - Logo">
@@ -52,7 +52,6 @@
 			jQuery('.navbar-toggler').click(function(){
 				if(jQuery('.navbar-toggler').hasClass('collapsed')){
 					window.setTimeout(() => {
-						console.log("time")
 						jQuery('.navbar > .container').add('nowrap');
 					}, 100);
 				}else{
