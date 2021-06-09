@@ -44,8 +44,7 @@ DTSTAMP:$now\r
 END:VEVENT\r
 END:VCALENDAR\r
 ICAL;
-echo $ical;
-die();
+
 header("Pragma: public");
 header("Expires: 0");
 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
