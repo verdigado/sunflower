@@ -3,6 +3,7 @@
 	<div id="navbar-sticky-detector" class="header-personal"></div>
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white header-personal">
 		<div class="container nowrap">
+			<div class="d-flex">
 			<div class="container d-flex align-items-center bloginfo">
 				<a class="img-container" href="<?php echo get_home_url(); ?>">
 					<img src="<?php echo sunflower_parent_or_child('assets/img/sunflower-dark.svg');?>" class="" alt="Sonnenblume - Logo">
@@ -21,6 +22,8 @@
 				<i class="fas fa-times close"></i>
 				<i class="fas fa-bars open"></i>
 			</button>
+
+			</div>
 
 			<div class="collapse navbar-collapse" id="mainmenu-container">
 			<?php
@@ -48,7 +51,10 @@
 		jQuery(document).ready( function (){
 			jQuery('.navbar-toggler').click(function(){
 				if(jQuery('.navbar-toggler').hasClass('collapsed')){
-					jQuery('.navbar > .container').addClass('nowrap');
+					window.setTimeout(() => {
+						console.log("time")
+						jQuery('.navbar > .container').add('nowrap');
+					}, 100);
 				}else{
 					jQuery('.navbar > .container').removeClass('nowrap');
 				}
