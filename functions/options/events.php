@@ -225,7 +225,7 @@ class SunflowerEventSettingsPage
             array( $this, 'sunflower_checkbox_callback' ), // Callback
             'sunflower-setting-events', // Page
             'sunflower-setting-events', // Section    
-            ['sunflower_show_overall_map',__('Show overall map')]       // args
+            ['sunflower_show_overall_map',__('Show overall map', 'sunflower')]       // args
         );   
 
         add_settings_field(
