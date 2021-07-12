@@ -43,6 +43,13 @@
     src: url('assets/fonts/forkawesome-webfont.woff') format('woff'),
   }
 
+  @font-face {
+    font-family: BereitBold;
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/bereitbold.woff2') format('woff2'),
+  }
+
   .arvo{
     font-family: Arvo !important;
     font-weight: 500;
@@ -63,5 +70,9 @@
     text-rendering: auto;
     line-height: 1;
   }
+  .bereit{
+    font-family: BereitBold !important;
+    font-weight: 500;
+  } 
 
 
