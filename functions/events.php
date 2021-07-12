@@ -287,11 +287,11 @@ function sunflower_get_past_events( $number = -1){
                 'relation' => 'OR',
                 array(
                     'key' => '_sunflower_event_from',
-                    'value' => date('Y-m-d H:i', strToTime('now + 2 hours')),
+                    'value' => date('Y-m-d H:i', strToTime('now')),
                     'compare' => '<'
                 ),
             ),
-        'order'        => 'ASC',
+        'order'        => 'DESC',
     ));
 }
 
