@@ -10,7 +10,7 @@ function sunflower_email_scrambler( $content ) {
 function sunflower_text_scramble( $input ){
     $mail = strrev($input[1]);
 
-    $return = sprintf('#%2$s onClick="unscramble(\'%1$s\')"', $mail, $input[2]);
+    $return = sprintf('#%2$s data-unscramble="%1$s"', $mail, $input[2]);
     return $return;
 }
 
