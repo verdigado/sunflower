@@ -20,8 +20,8 @@ function sunflower_add_custom_gutenberg_color_palette() {
 				'color' => '#46962b',
             ],
 			[
-				'name'  => esc_html__( 'Green 800b', 'sunflower' ),
-				'slug'  => 'green-800b',
+				'name'  => esc_html__( 'Green 800', 'sunflower' ),
+				'slug'  => 'green-800',
 				'color' => '#224634',
             ],
 			[
