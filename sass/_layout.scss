@@ -212,3 +212,12 @@ iframe{
         }
     }
 }
+
+.related-posts{
+    .entry-content{
+        a{
+            text-decoration: none;
+            color: $body-color;
+        }
+    }
+}
