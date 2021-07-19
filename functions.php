@@ -28,6 +28,9 @@ require_once('functions/contact-form.php');
 require_once('functions/childtheme.php');
 
 
+// Remove generator meta-tag
+remove_action('wp_head', 'wp_generator');
+
 
 
 
