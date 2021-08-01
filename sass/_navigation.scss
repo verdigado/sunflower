@@ -242,6 +242,9 @@
             display: flex;
             align-items: baseline;
             flex-wrap: wrap;
+            @include media-breakpoint-up(lg) { 
+                flex-wrap: nowrap;
+            }
            
             a{
                 flex-basis: auto;
