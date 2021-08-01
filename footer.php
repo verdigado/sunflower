@@ -42,21 +42,23 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 							echo $sunflower_social_media_profiles;	
 						?>
 					</div>
-					<nav class="col-12 col-md-4 navbar navbar-top navbar-expand-md d-flex justify-content-center justify-content-md-end">
-						<div class="text-center">
-							<?php
-								wp_nav_menu( array(
-									'theme_location'  => 'footer2',
-									'menu_id'		  => 'footer2',
-									'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
-									'container'       => false,
-									'menu_class'      => 'navbar-nav small',
-									'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-									'walker'          => new WP_Bootstrap_Navwalker(),
-								) );
-								?>
-						</div>
-					</nav>
+					<div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
+						<nav class="navbar navbar-top navbar-expand-md">
+							<div class="text-center">
+								<?php
+									wp_nav_menu( array(
+										'theme_location'  => 'footer2',
+										'menu_id'		  => 'footer2',
+										'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
+										'container'       => false,
+										'menu_class'      => 'navbar-nav small',
+										'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+										'walker'          => new WP_Bootstrap_Navwalker(),
+									) );
+									?>
+							</div>
+						</nav>
+					</div>
 					<nav class="col-12 d-block d-lg-none navbar navbar-top navbar-expand-md d-flex justify-content-center">
 						<div class="text-center">
 							<?php

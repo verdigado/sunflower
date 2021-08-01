@@ -28,8 +28,9 @@
     }
 
     .navbar-nav{
+        flex-wrap: wrap;
         .nav-link{
-        padding-left: 0;
+            padding-left: 0;
         }
     }
     
