@@ -10,15 +10,14 @@ function sunflower_icalimport( $url = false, $auto_categories = false){
     try {
         $ical = new ICal('ICal.ics', array(
             'defaultSpan'                 => 1,     // Default value
-            'defaultTimeZone'             => 'GMT',
+            'defaultTimeZone'             => 'Europe/Berlin',
             'defaultWeekStart'            => 'MO',  // Default value
             'disableCharacterReplacement' => false, // Default value
             'filterDaysAfter'             => null,  // Default value
             'filterDaysBefore'            => null,  // Default value
             'skipRecurrence'              => false, // Default value
         ));
-         //$ical->initFile(ABSPATH . '/wp-content/themes/sunflower/functions/ical-test2.ics');
-
+       
         $ical->initUrl($url, $username = null, $password = null, $userAgent = null);
     } catch (\Exception $e) {
         return false;
@@ -78,6 +77,10 @@ function sunflower_icalimport( $url = false, $auto_categories = false){
         $startdate = (strlen($event->dtstart) == 8 ) ? $event->dtstart : $event->dtstart_tz;
         $enddate   = (strlen($event->dtend) == 8 ) ? $event->dtend : $event->dtend_tz;
 
+        if( get_sunflower_setting('sunflower_fix_time_zone_error')){
+            $startdate .= 'Z';
+        }
+       
         update_post_meta( $id, '_sunflower_event_from', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($startdate )));
         update_post_meta( $id, '_sunflower_event_until', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($enddate )));
         update_post_meta( $id, '_sunflower_event_uid', $uid);

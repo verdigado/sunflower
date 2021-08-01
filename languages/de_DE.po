@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-06-06T19:09:29+02:00\n"
-"PO-Revision-Date: 2021-06-06 19:09+0200\n"
+"POT-Creation-Date: 2021-08-01T12:00:08+02:00\n"
+"PO-Revision-Date: 2021-08-01 12:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -193,7 +193,7 @@ msgstr "Grün"
 #: functions/colors.php:23
 #, fuzzy
 #| msgid "Green"
-msgid "Green 800b"
+msgid "Green 800"
 msgstr "Grün"
 
 #: functions/colors.php:28
@@ -349,17 +349,21 @@ msgstr "Sunflower Einstellungen"
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options/events.php:224
+#: functions/options/events.php:224 functions/options/events.php:228
+msgid "Rectify time zone"
+msgstr "Zeitzone korrigieren"
+
+#: functions/options/events.php:233 functions/options/events.php:237
 msgid "Show overall map"
 msgstr "Übersichtskarte zeigen"
 
-#: functions/options/events.php:233 functions/options/events.php:237
+#: functions/options/events.php:242 functions/options/events.php:246
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
-#: functions/options/events.php:242
+#: functions/options/events.php:251
 msgid "Zoom-level of overall map"
-msgstr ""
+msgstr "Zoomlevel für Übersichtskarte"
 
 #: functions/options/settings.php:36 functions/options/settings.php:37
 msgid "First steps"

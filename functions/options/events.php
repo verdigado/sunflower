@@ -220,6 +220,15 @@ class SunflowerEventSettingsPage
         );   
 
         add_settings_field(
+            'sunflower_fix_time_zone_error', // ID
+            __('Rectify time zone', 'sunflower'), // Title 
+            array( $this, 'sunflower_checkbox_callback' ), // Callback
+            'sunflower-setting-events', // Page
+            'sunflower-setting-events', // Section    
+            ['sunflower_fix_time_zone_error',__('Rectify time zone', 'sunflower')]       // args
+        );   
+
+        add_settings_field(
             'sunflower_show_overall_map', // ID
             __('Show overall map', 'sunflower'), // Title 
             array( $this, 'sunflower_checkbox_callback' ), // Callback

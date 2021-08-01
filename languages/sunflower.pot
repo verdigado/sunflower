@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 1.2.0\n"
+"Project-Id-Version: sunflower 1.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-06-06T19:09:29+02:00\n"
+"POT-Creation-Date: 2021-08-01T12:00:08+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: sunflower\n"
@@ -184,7 +184,7 @@ msgid "Green"
 msgstr ""
 
 #: functions/colors.php:23
-msgid "Green 800b"
+msgid "Green 800"
 msgstr ""
 
 #: functions/colors.php:28
@@ -336,15 +336,21 @@ msgid "URLs of iCal calendars, one per row"
 msgstr ""
 
 #: functions/options/events.php:224
-msgid "Show overall map"
+#: functions/options/events.php:228
+msgid "Rectify time zone"
 msgstr ""
 
 #: functions/options/events.php:233
 #: functions/options/events.php:237
-msgid "Show events archive"
+msgid "Show overall map"
 msgstr ""
 
 #: functions/options/events.php:242
+#: functions/options/events.php:246
+msgid "Show events archive"
+msgstr ""
+
+#: functions/options/events.php:251
 msgid "Zoom-level of overall map"
 msgstr ""
 
