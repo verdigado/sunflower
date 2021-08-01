@@ -21,7 +21,6 @@
 					<input class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php _e('Search', 'sunflower'); ?>" aria-label="<?php _e('Search', 'sunflower'); ?>"
 						value="<?php echo get_search_query(); ?>"
 					>
-					
 				</form>
 				<button class="show-search">
 					<i class="fas fa-search"></i>
@@ -72,6 +71,12 @@
 					'walker'          => new WP_Bootstrap_Navwalker(),
 				) );
 				?>
+				
+				<form class="form-inline my-2 mb-2 search d-block d-lg-none" action="<?php bloginfo('url'); ?>">
+					<input class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php _e('Search', 'sunflower'); ?>" aria-label="<?php _e('Search', 'sunflower'); ?>"
+						value="<?php echo get_search_query(); ?>"
+					>
+				</form>
 			</div>
 		</div>
 	</nav>
