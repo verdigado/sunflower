@@ -37,4 +37,9 @@ function sunflower_block_category( $categories, $post ) {
 		)
 	);
 }
-add_filter( 'block_categories', 'sunflower_block_category', 10, 2);
+
+if ( version_compare( $wp_version, '5.8', '>=' ) ) {
+	add_filter( 'block_categories_all', 'sunflower_block_category', 10, 2);
+}else{
+    add_filter( 'block_categories', 'sunflower_block_category', 10, 2);
+}
