@@ -1,8 +1,8 @@
 <?php
 // phpcs:disable Generic.Arrays.DisallowLongArraySyntax
 
-require_once ABSPATH . '/wp-content/themes/sunflower/assets/vndr/johngrogg/ics-parser/src/ICal/Event.php';
-require_once ABSPATH . '/wp-content/themes/sunflower/assets/vndr/johngrogg/ics-parser/src/ICal/ICal.php';
+require_once WP_CONTENT_DIR . '/themes/sunflower/assets/vndr/johngrogg/ics-parser/src/ICal/Event.php';
+require_once WP_CONTENT_DIR . '/themes/sunflower/assets/vndr/johngrogg/ics-parser/src/ICal/ICal.php';
 
 use ICal\ICal;
 
