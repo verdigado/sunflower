@@ -79,6 +79,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false){
 
         if( get_sunflower_setting('sunflower_fix_time_zone_error')){
             $startdate .= 'Z';
+            $enddate   .= 'Z';
         }
        
         update_post_meta( $id, '_sunflower_event_from', date('Y-m-d H:i', $ical->iCalDateToUnixTimestamp($startdate )));
