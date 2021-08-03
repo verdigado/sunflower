@@ -5,7 +5,8 @@ $_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_l
 $_sunflower_event_webinar = @get_post_meta( $post->ID, '_sunflower_event_webinar')[0] ?: false;
 $_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
 $_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
-
+$_sunflower_event_organizer_name = @get_post_meta( $post->ID, '_sunflower_event_organizer')[0] ?: false;
+$_sunflower_event_organizer_url = @get_post_meta( $post->ID, '_sunflower_event_organizer_url')[0] ?: false;
 
 
 
@@ -61,6 +62,16 @@ function getJsonldDate($input){
   <?php 
     if ($_sunflower_event_until ){
         printf('"endDate": "%s",', getJsonldDate($_sunflower_event_until));
+    }
+
+    if ($_sunflower_event_organizer_name ){
+	printf('"organizer": {		
+	    "@type": "Organization",
+	    "name": "%s",
+	    "url": "%s"
+	},', 
+        $_sunflower_event_organizer_name,
+        $_sunflower_event_organizer_url);
     }
  
     echo $location;
