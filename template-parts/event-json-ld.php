@@ -15,7 +15,7 @@ $jsonld['image'] = get_the_post_thumbnail_url() ?: false;
 $location =  sprintf('"location": "%s"', __('none', 'sunflower'));
 if($_sunflower_event_location_name){
     $location = '"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",';
-    $location = sprintf('"location": {		
+    $location .= sprintf('"location": {		
         "@type": "Place",
         "name": "%s",
         "address": {
