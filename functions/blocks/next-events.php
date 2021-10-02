@@ -1,7 +1,8 @@
 <?php
 
 function sunflower_next_events_render( $block_attributes, $content ) {
-    $next_events = sunflower_get_next_events( 3 );
+    $tag         = isset( $block_attributes['tag'] ) ? $block_attributes['tag'] : '';
+    $next_events = sunflower_get_next_events( 3, $tag );
 
     $classes = (isset($block_attributes['className'])) ? $block_attributes['className'] : '';
 
@@ -16,7 +17,7 @@ function sunflower_next_events_render( $block_attributes, $content ) {
                         __('all events', 'sunflower')
     );
 
-    
+
 
     ob_start();
     switch($next_events->post_count){
@@ -41,8 +42,8 @@ function sunflower_next_events_render( $block_attributes, $content ) {
     if($next_events->post_count === 0 ){
         printf('<div class="col-12 text-center h4 text-white">%s</div>', __('Currently there are no coming events.', 'sunflower'));
     }
-  
-           
+
+
     $return .= ob_get_contents();
     ob_end_clean();
 

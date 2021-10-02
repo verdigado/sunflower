@@ -43,7 +43,7 @@ function sunflower_create_event_post_type() {
         'all_items' => __( 'All Tags' ),
         'parent_item' => null,
         'parent_item_colon' => null,
-        'edit_item' => __( 'Edit Tag' ), 
+        'edit_item' => __( 'Edit Tag' ),
         'update_item' => __( 'Update Tag' ),
         'add_new_item' => __( 'Add New Tag' ),
         'new_item_name' => __( 'New Tag Name' ),
@@ -51,8 +51,8 @@ function sunflower_create_event_post_type() {
         'add_or_remove_items' => __( 'Add or remove tags' ),
         'choose_from_most_used' => __( 'Choose from the most used tags' ),
         'menu_name' => __( 'Tags' ),
-      ); 
-    
+      );
+
       register_taxonomy('sunflower_event_tag','sunflower_event',array(
         'hierarchical' => false,
         'labels' => $labels,
@@ -78,7 +78,7 @@ add_action( "admin_init", "sunflower_add_event_meta_boxes" );
 
 function save_sunflower_event_meta_boxes(){
     global $post;
-    
+
     $sunflower_event_fields = sunflower_get_event_fields();
 
     if ( !isset($post->ID ) ) {
@@ -96,7 +96,7 @@ function save_sunflower_event_meta_boxes(){
 
     foreach($sunflower_event_fields AS $id => $config ){
         $value = (@$config[1] === 'datetimepicker' ) ? germanDate2intDate( @$_POST[ $id ] ) : @$_POST[ $id ];
-           
+
         update_post_meta( $post->ID, $id, sanitize_text_field( $value ));
 
         if( in_array($id, $intoTransients) AND $value){
@@ -104,7 +104,7 @@ function save_sunflower_event_meta_boxes(){
         }
     }
 
-   
+
 }
 add_action( 'save_post', 'save_sunflower_event_meta_boxes' );
 
@@ -127,9 +127,9 @@ function intDate2germanDate($intDate){
 
 function sunflower_event_meta_box(){
     global $post;
-    
+
     $sunflower_event_fields = sunflower_get_event_fields();
-    
+
     $custom = get_post_custom( $post->ID );
     $uid = @$custom[ '_sunflower_event_uid'][ 0 ];
 
@@ -141,7 +141,7 @@ function sunflower_event_meta_box(){
                 window.setTimeout(() => {
                     jQuery('.popover-slot').prepend('<div class="sunflower-admin-hint">Dies ist ein importierter Termin.<br>Änderungen hier werden in Kürze automatisch überschrieben.</div>');
                 }, 1000);
-                
+
             });
         </script>
     <?php
@@ -196,82 +196,100 @@ function sunflower_event_field( $id, $config, $value ){
 
     switch($type){
         case 'checkbox':
-            printf('%2$s<input class="%4$s" type="checkbox" name="%1$s" id="%1$s"  %3$s value="checked"><br>', 
+            printf('%2$s<input class="%4$s" type="checkbox" name="%1$s" id="%1$s"  %3$s value="checked"><br>',
                 $id,
                 $label,
                 ($value) ?: '',
                 $class );
             break;
         case 'hidden':
-            printf('<input type="hidden" name="%1$s" id="%1$s" value="%2$s">', 
+            printf('<input type="hidden" name="%1$s" id="%1$s" value="%2$s">',
                 $id,
                 $value
             );
             break;
         default:
-            printf('<div>%2$s<br><input class="%4$s" type="text" name="%1$s" placeholder="%2$s" value="%3$s"></div>', 
+            printf('<div>%2$s<br><input class="%4$s" type="text" name="%1$s" placeholder="%2$s" value="%3$s"></div>',
                 $id,
                 $label,
                 $value,
                 $class );
     }
-    
+
 
 }
 
-function sunflower_load_event_admin_scripts(){ 
+function sunflower_load_event_admin_scripts(){
     wp_enqueue_script('sunflower-datetimepicker',
-        get_template_directory_uri() .'/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js', 
-        array('jquery'), 
-        '1.0.0', 
+        get_template_directory_uri() .'/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js',
+        array('jquery'),
+        '1.0.0',
         true
-    ); 
+    );
 
     wp_enqueue_script('sunflower-datetimepicker-custom',
-        get_template_directory_uri() .'/assets/custom-jquery-date-time-picker.js', 
-        array('sunflower-datetimepicker'), 
-        '1.0.0', 
+        get_template_directory_uri() .'/assets/custom-jquery-date-time-picker.js',
+        array('sunflower-datetimepicker'),
+        '1.0.0',
         true
-    ); 
+    );
 
-    wp_enqueue_style( 'sunflower-datetimepicker', 
-        get_template_directory_uri() .'/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.min.css', 
-        array(), 
+    wp_enqueue_style( 'sunflower-datetimepicker',
+        get_template_directory_uri() .'/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.min.css',
+        array(),
         '1.0.0' );
 
     wp_enqueue_script(
         'sunflower-leaflet',
         get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.js',
         null,
-        '3.2.1', 
+        '3.2.1',
         true
     );
-    
-    wp_enqueue_style( 'sunflower-leaflet', 
-        get_template_directory_uri() .'/assets/vndr/leaflet/dist/leaflet.css', 
-        array(), 
+
+    wp_enqueue_style( 'sunflower-leaflet',
+        get_template_directory_uri() .'/assets/vndr/leaflet/dist/leaflet.css',
+        array(),
     '1.0.0' );
 
 }
 add_action( 'admin_enqueue_scripts', 'sunflower_load_event_admin_scripts' );
 
-function sunflower_get_next_events( $number = -1){
+/**
+ * @param int $number
+ * @param null|int[] $tagIds Array of sunflower_event_tag IDs
+ *
+ * @return WP_Query
+ */
+function sunflower_get_next_events( $number = -1, $tagIds = null ){
+	$taxQuery = null;
+	if ( $tagIds ) {
+		$taxQuery = array(
+				array(
+						'taxonomy' => 'sunflower_event_tag',
+						'field'    => 'id',
+						'terms'    => $tagIds,
+				),
+		);
+	}
+
     return new WP_Query(array(
-        //'paged' => $paged,
-        //'nopaging'		=> true,
-        'post_type'     => 'sunflower_event',
-        'posts_per_page'=> $number,
-        'meta_key' 	    => '_sunflower_event_from', 
-        'orderby'       => 'meta_value',
-        'meta_query'    => array(
+        //'paged'       => $paged,
+        //'nopaging'    => true,
+        'post_type'      => 'sunflower_event',
+        'posts_per_page' => $number,
+        'tax_query'      => $taxQuery,
+        'meta_key' 	     => '_sunflower_event_from',
+        'orderby'        => 'meta_value',
+        'meta_query'     => array(
                 'relation' => 'OR',
                 array(
-                    'key' => '_sunflower_event_from',
-                    'value' => date('Y-m-d H:i', strToTime('now - 6 hours')),
+                    'key'     => '_sunflower_event_from',
+                    'value'   => date('Y-m-d H:i', strToTime('now - 6 hours')),
                     'compare' => '>'
                 ),
             ),
-        'order'        => 'ASC',
+        'order'          => 'ASC',
     ));
 }
 
@@ -281,7 +299,7 @@ function sunflower_get_past_events( $number = -1){
         //'nopaging'		=> true,
         'post_type'     => 'sunflower_event',
         'posts_per_page'=> $number,
-        'meta_key' 	    => '_sunflower_event_from', 
+        'meta_key' 	    => '_sunflower_event_from',
         'orderby'       => 'meta_value',
         'meta_query'    => array(
                 'relation' => 'OR',
@@ -304,7 +322,7 @@ function sunflower_prepare_event_time_data( $post ){
 
     $event_more_days = ( $_sunflower_event_until AND date('jFY', $_sunflower_event_from) !== date('jFY', $_sunflower_event_until) );
 
-    $weekday = sprintf('%s%s' , 
+    $weekday = sprintf('%s%s' ,
         date_i18n('l',  $_sunflower_event_from),
         ($event_more_days) ? ' &dash; ' . date_i18n('l',  $_sunflower_event_until) : ''
     );
@@ -328,7 +346,7 @@ function sunflower_prepare_event_time_data( $post ){
                 $weekday = date_i18n('l',  $_sunflower_event_from);
                 $untildate = '';
             }else{
-                $weekday = sprintf('%s%s' , 
+                $weekday = sprintf('%s%s' ,
                     date_i18n('l',  $_sunflower_event_from),
                     ($event_more_days) ? ' &dash; ' . date_i18n('l',  $_sunflower_event_until - 1) : ''
                 );
@@ -356,7 +374,7 @@ function sunflower_prepare_event_time_data( $post ){
         $time = sprintf('%s %s',
             date_i18n('H:i',  $_sunflower_event_from),
             $untiltime
-    
+
         );
     }
 
@@ -393,4 +411,3 @@ function custom_sunflower_event_column( $column, $post_id ) {
         echo $location;
     }
 }
-  
