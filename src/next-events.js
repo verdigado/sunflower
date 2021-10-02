@@ -20,11 +20,9 @@ registerBlockType( 'sunflower/next-events', {
                 { ! posts && 'Loading' }
                 { posts && posts.length === 0 && 'No Posts' }
                 { posts && posts.length > 0 && (
-                    <span> Zeige die nächsten drei Termine an, derzeit  
+                    <span> Zeige die nächsten drei Termine an, derzeit
                         <ol>
-                            <li>{ posts[ 0 ].title.rendered }</li>
-                            <li>{ posts[ 1 ].title.rendered }</li>
-                            <li>{ posts[ 2 ].title.rendered }</li>
+                            { posts.map( ( post, i ) => <li key={ i }>{ post.title.rendered }</li> ) }
                         </ol>
                     </span>
                 ) } 
