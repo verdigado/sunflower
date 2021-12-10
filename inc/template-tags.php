@@ -158,7 +158,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 				$classes = array('post-thumbnail' );
 
 				the_post_thumbnail(
-					'medium-large',
+					'medium_large',
 					array(
 						'alt' => the_title_attribute(
 							array(
