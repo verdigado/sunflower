@@ -38,9 +38,9 @@ jQuery(document).ready( function (){
 
   adjustMetaboxHeight();
 
-  jQuery('[data-unscramble]').click(function(){
-    const text = jQuery(this).data('unscramble').split('').reverse().join('')
-    jQuery(this).attr('href', 'MAILTO:' + text).click();
+jQuery('[data-unscramble]').click(function(){
+    let text = jQuery(this).data('unscramble').split('').reverse().join('');
+    window.location.href = "MAILTO:" + text;
 
     return false;
   })
