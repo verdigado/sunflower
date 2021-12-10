@@ -209,7 +209,7 @@ function sunflower_event_field( $id, $config, $value ){
             );
             break;
         default:
-            printf('<div>%2$s<br><input class="%4$s" type="text" name="%1$s" placeholder="%2$s" value="%3$s"></div>',
+            printf('<div>%2$s<br><input class="%4$s" type="text" name="%1$s" placeholder="%2$s" autocomplete="off" value="%3$s"></div>',
                 $id,
                 $label,
                 $value,
