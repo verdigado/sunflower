@@ -394,3 +394,20 @@ function custom_sunflower_event_column( $column, $post_id ) {
     }
 }
   
+// Make sunflower_event_date column-header clickable in backend
+// to allow ordering by it. 
+add_filter('manage_edit-sunflower_event_sortable_columns', function($columns) {
+  $columns['sunflower_event_date'] = 'sunflower_event_date';
+  return $columns;
+});
+
+add_action('pre_get_posts', function($query) {
+    if (!is_admin()) {
+        return;
+    }
+    $orderby = $query->get('orderby');
+    if ($orderby == 'sunflower_event_date') {
+        $query->set('meta_key', '_sunflower_event_from');
+        $query->set('orderby', 'meta_value');
+    }
+});
