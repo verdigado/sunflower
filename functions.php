@@ -28,15 +28,4 @@ require_once('functions/contact-form.php');
 require_once('functions/api.php');
 require_once('functions/childtheme.php');
 require_once('functions/menu.php');
-
-// Remove generator meta-tag
-remove_action('wp_head', 'wp_generator');
-
-
-
-
-
-
-
-
-
+require_once('functions/security.php');

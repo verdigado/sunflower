@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-12-10T09:17:38+00:00\n"
-"PO-Revision-Date: 2021-12-10 10:20+0100\n"
+"POT-Creation-Date: 2021-12-22T09:24:37+00:00\n"
+"PO-Revision-Date: 2021-12-22 10:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -60,7 +60,7 @@ msgstr "Termine"
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:43 functions/blocks/next-events.php:16
+#: archive-sunflower_event.php:43 functions/blocks/next-events.php:17
 msgid "all events"
 msgstr "Alle Termine"
 
@@ -155,10 +155,8 @@ msgid "Sunflower"
 msgstr "Sunflower"
 
 #: functions/admin.php:92
-#, fuzzy
-#| msgid "sunflower_event"
 msgid "Help for sunflowers events"
-msgstr "sunflower_event"
+msgstr "Hilfe für Sunflower-Termine"
 
 #: functions/blocks/latest-posts.php:78 functions/blocks/latest-posts.php:98
 msgid "to archive"
@@ -168,11 +166,11 @@ msgstr "Zum Blog-Archiv"
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: functions/blocks/next-events.php:14
+#: functions/blocks/next-events.php:15
 msgid "Next events"
 msgstr "Nächste Termine"
 
-#: functions/blocks/next-events.php:42
+#: functions/blocks/next-events.php:43
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
@@ -181,26 +179,20 @@ msgid "Magenta"
 msgstr "Magenta"
 
 #: functions/colors.php:13
-#, fuzzy
-#| msgid "Magenta"
 msgid "Magenta 600"
-msgstr "Magenta"
+msgstr "Magenta 600"
 
 #: functions/colors.php:18
 msgid "Green"
 msgstr "Grün"
 
 #: functions/colors.php:23
-#, fuzzy
-#| msgid "Green"
 msgid "Green 800"
-msgstr "Grün"
+msgstr "Grün 800"
 
 #: functions/colors.php:28
-#, fuzzy
-#| msgid "Green"
 msgid "Green 550"
-msgstr "Grün"
+msgstr "Grün 550"
 
 #: functions/colors.php:33
 msgid "White"
@@ -208,29 +200,27 @@ msgstr "Weiß"
 
 #: functions/colors.php:38
 msgid "Yellow 500"
-msgstr ""
+msgstr "Gelb 500"
 
 #: functions/colors.php:43
 msgid "Yellow 600"
-msgstr ""
+msgstr "Gelb 600"
 
 #: functions/colors.php:48
 msgid "Blue 500"
-msgstr ""
+msgstr "Blau 500"
 
 #: functions/colors.php:53
 msgid "Blue 600"
-msgstr ""
+msgstr "Blau 600"
 
 #: functions/colors.php:58
 msgid "Gray 100"
-msgstr ""
+msgstr "Grau 100"
 
 #: functions/colors.php:63
-#, fuzzy
-#| msgid "Black"
 msgid "Black 500"
-msgstr "Schwarz"
+msgstr "Schwarz 500"
 
 #: functions/contact-form.php:6
 msgid "Form not sent. Captcha wrong. Please try again."
@@ -302,11 +292,11 @@ msgstr "Kartendaten laden"
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/events.php:370
+#: functions/events.php:388
 msgid "Event date"
 msgstr "Datum der Veranstaltung"
 
-#: functions/events.php:371
+#: functions/events.php:389
 msgid "Event location"
 msgstr "Ort"
 
@@ -560,6 +550,10 @@ msgstr ""
 msgid "Please contact the administrator of this site for help."
 msgstr "Please contact the administrator of this site for help."
 
+#: functions/security.php:6
+msgid "Login error. Did you mistype s.th.?"
+msgstr "Loginfehler. Haben Sie sich vertippt?"
+
 #: functions/_s.php:54
 msgid "Mainmenu"
 msgstr "Hauptmenü"
@@ -695,6 +689,16 @@ msgstr "Suche"
 #: template-parts/related-posts.php:7
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
+
+#: src/next-events.js:43
+msgid "Loading"
+msgstr ""
+
+#: src/next-events.js:44
+#, fuzzy
+#| msgid "Events"
+msgid "No Events"
+msgstr "Termine"
 
 #~ msgid "Upcoming events"
 #~ msgstr "Kommende Veranstaltungen"
