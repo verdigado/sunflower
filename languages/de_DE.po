@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-12-22T14:28:31+00:00\n"
-"PO-Revision-Date: 2021-12-22 15:28+0100\n"
+"POT-Creation-Date: 2021-12-22T16:05:05+00:00\n"
+"PO-Revision-Date: 2021-12-22 17:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -56,32 +56,32 @@ msgstr "Vergangene Veranstaltungen"
 msgid "Events"
 msgstr "Termine"
 
-#: archive-sunflower_event.php:41
+#: archive-sunflower_event.php:45
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:43 functions/blocks/next-events.php:18
+#: archive-sunflower_event.php:47 functions/blocks/next-events.php:18
 msgid "all events"
 msgstr "Alle Termine"
 
-#: archive-sunflower_event.php:45
+#: archive-sunflower_event.php:49
 msgid "Archive"
 msgstr "Archiv"
 
-#: archive-sunflower_event.php:51 functions/events.php:179
+#: archive-sunflower_event.php:55 functions/events.php:179
 #: functions/options/events.php:186
 msgid "Map"
 msgstr "Landkarte"
 
-#: archive-sunflower_event.php:115
+#: archive-sunflower_event.php:119
 msgid "more info"
 msgstr "mehr Infos"
 
-#: archive-sunflower_event.php:170 single-sunflower_event.php:105
+#: archive-sunflower_event.php:174 single-sunflower_event.php:105
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: archive-sunflower_event.php:173 single-sunflower_event.php:108
+#: archive-sunflower_event.php:177 single-sunflower_event.php:108
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
@@ -89,7 +89,7 @@ msgstr ""
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: archive-sunflower_event.php:177 single-sunflower_event.php:116
+#: archive-sunflower_event.php:181 single-sunflower_event.php:116
 msgid "Show map"
 msgstr "Kartendaten laden"
 
@@ -337,22 +337,26 @@ msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
 #: functions/options/events.php:216
+msgid "Description shown on the events page"
+msgstr "Beschreibung für die Termineseite"
+
+#: functions/options/events.php:224
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options/events.php:224 functions/options/events.php:228
+#: functions/options/events.php:232 functions/options/events.php:236
 msgid "Rectify time zone"
 msgstr "Zeitzone korrigieren"
 
-#: functions/options/events.php:233 functions/options/events.php:237
+#: functions/options/events.php:241 functions/options/events.php:245
 msgid "Show overall map"
 msgstr "Übersichtskarte zeigen"
 
-#: functions/options/events.php:242 functions/options/events.php:246
+#: functions/options/events.php:250 functions/options/events.php:254
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
-#: functions/options/events.php:251
+#: functions/options/events.php:259
 msgid "Zoom-level of overall map"
 msgstr "Zoomlevel für Übersichtskarte"
 
@@ -388,7 +392,7 @@ msgstr "Einträge im Menü"
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/settings.php:254 functions/options/social-media.php:156
+#: functions/options/settings.php:254 functions/options/social-media.php:164
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
@@ -404,20 +408,25 @@ msgstr "Profile in Sozialen Medien"
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options/social-media.php:96 functions/options/social-media.php:100
+#: functions/options/social-media.php:96
+msgid "Open graph fallback image"
+msgstr "Fallback-Bild für Open-Graph-Tag"
+
+#: functions/options/social-media.php:104
+#: functions/options/social-media.php:108
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options/social-media.php:105
-#: functions/options/social-media.php:109
+#: functions/options/social-media.php:113
+#: functions/options/social-media.php:117
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options/social-media.php:114
+#: functions/options/social-media.php:122
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options/social-media.php:118
+#: functions/options/social-media.php:126
 msgid "Mail"
 msgstr "E-Mail"
 
@@ -701,7 +710,11 @@ msgstr "lade"
 msgid "No Events"
 msgstr "Keine Termine"
 
-#: src/next-events.js:73
+#: src/next-events.js:58 build/index.js:485
+msgid "Maximum events shown"
+msgstr "Maximale Anzahl angezeigter Termine"
+
+#: src/next-events.js:80 build/index.js:507
 msgid "Count"
 msgstr "Anzahl"
 
