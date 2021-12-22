@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-12-22T09:24:37+00:00\n"
-"PO-Revision-Date: 2021-12-22 10:31+0100\n"
+"POT-Creation-Date: 2021-12-22T14:28:31+00:00\n"
+"PO-Revision-Date: 2021-12-22 15:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -60,7 +60,7 @@ msgstr "Termine"
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:43 functions/blocks/next-events.php:17
+#: archive-sunflower_event.php:43 functions/blocks/next-events.php:18
 msgid "all events"
 msgstr "Alle Termine"
 
@@ -166,11 +166,12 @@ msgstr "Zum Blog-Archiv"
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: functions/blocks/next-events.php:15
+#: functions/blocks/next-events.php:16 src/next-events.js:13
+#: src/next-events.js:56 build/index.js:440 build/index.js:483
 msgid "Next events"
 msgstr "Nächste Termine"
 
-#: functions/blocks/next-events.php:43
+#: functions/blocks/next-events.php:44
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
@@ -593,11 +594,9 @@ msgstr ", "
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:71
-#, fuzzy
-#| msgid ", "
 msgctxt "list item separator"
 msgid " "
-msgstr ", "
+msgstr ","
 
 #: inc/template-tags.php:99
 msgid "Share on twitter "
@@ -680,7 +679,7 @@ msgstr ""
 
 #: template-parts/event-json-ld.php:16
 msgid "none"
-msgstr ""
+msgstr "keine"
 
 #: template-parts/header-standard.php:21 template-parts/header-standard.php:76
 msgid "Search"
@@ -690,15 +689,21 @@ msgstr "Suche"
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
 
-#: src/next-events.js:43
-msgid "Loading"
-msgstr ""
+#: src/next-events.js:14 build/index.js:441
+msgid "show next events"
+msgstr "zeige nächste Termine"
 
-#: src/next-events.js:44
-#, fuzzy
-#| msgid "Events"
+#: src/next-events.js:53 build/index.js:480
+msgid "Loading"
+msgstr "lade"
+
+#: src/next-events.js:54 build/index.js:481
 msgid "No Events"
-msgstr "Termine"
+msgstr "Keine Termine"
+
+#: src/next-events.js:73
+msgid "Count"
+msgstr "Anzahl"
 
 #~ msgid "Upcoming events"
 #~ msgstr "Kommende Veranstaltungen"

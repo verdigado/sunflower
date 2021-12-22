@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-12-22T09:24:37+00:00\n"
+"POT-Creation-Date: 2021-12-22T14:28:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: sunflower\n"
@@ -59,7 +59,7 @@ msgid "to upcoming events"
 msgstr ""
 
 #: archive-sunflower_event.php:43
-#: functions/blocks/next-events.php:17
+#: functions/blocks/next-events.php:18
 msgid "all events"
 msgstr ""
 
@@ -163,11 +163,15 @@ msgstr ""
 msgid "No posts found"
 msgstr ""
 
-#: functions/blocks/next-events.php:15
+#: functions/blocks/next-events.php:16
+#: src/next-events.js:13
+#: src/next-events.js:56
+#: build/index.js:440
+#: build/index.js:483
 msgid "Next events"
 msgstr ""
 
-#: functions/blocks/next-events.php:43
+#: functions/blocks/next-events.php:44
 msgid "Currently there are no coming events."
 msgstr ""
 
@@ -675,10 +679,21 @@ msgstr ""
 msgid "Related posts"
 msgstr ""
 
-#: src/next-events.js:43
+#: src/next-events.js:14
+#: build/index.js:441
+msgid "show next events"
+msgstr ""
+
+#: src/next-events.js:53
+#: build/index.js:480
 msgid "Loading"
 msgstr ""
 
-#: src/next-events.js:44
+#: src/next-events.js:54
+#: build/index.js:481
 msgid "No Events"
+msgstr ""
+
+#: src/next-events.js:73
+msgid "Count"
 msgstr ""

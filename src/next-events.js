@@ -4,19 +4,24 @@ import { withSelect } from '@wordpress/data';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import {
     FormTokenField,
-    PanelBody
+    PanelBody,
+    TextControl
 } from '@wordpress/components';
 
 registerBlockType( 'sunflower/next-events', {
     apiVersion: 2,
-    title: 'Nächste Termine',
-    description: 'Zeige eine Liste deiner nächsten Termine an.',
+    title: __('Next events', 'sunflower') ,
+    description: __('show next events', 'sunflower') ,
     icon: 'calendar-alt',
     category: 'sunflower-blocks',
     attributes: {
         tag: {
             type: 'array',
             default: [],
+        },
+        count: {
+            type: 'int',
+            default: 3,
         }
     },
 
@@ -37,13 +42,18 @@ registerBlockType( 'sunflower/next-events', {
             });
         }
 
-        // TODO Übersetzungen hinzufügen
+        const onCountChange = ( newCount ) => {
+            setAttributes({
+              count: newCount === undefined ? '3' : newCount
+            });
+        }
+
         return (
             <div { ...blockProps }>
                 { ! posts && __('Loading', 'sunflower') }
                 { posts && posts.length === 0 && __('No Events', 'sunflower') }
                 { posts && posts.length > 0 && (
-                    <span> Zeige die nächsten drei Termine an, derzeit
+                    <span> { __('Next events', 'sunflower') }
                         <ol>
                             { posts.map( ( post, i ) => <li key={ i }>{ post.title.rendered }</li> ) }
                         </ol>
@@ -57,6 +67,12 @@ registerBlockType( 'sunflower/next-events', {
                             value={ tagFormValue }
                             onChange={ onTagChange }
                             suggestions={ tagFormSuggestions }
+                        />
+
+                        <TextControl
+                            label={ __('Count', 'sunflower') }
+                            value={ attributes.count }
+                            onChange={ onCountChange }
                         />
                     </PanelBody>
                 </InspectorControls>
