@@ -54,8 +54,15 @@ registerBlockType( 'sunflower/next-events', {
                 { posts && posts.length === 0 && __('No Events', 'sunflower') }
                 { posts && posts.length > 0 && (
                     <span> { __('Next events', 'sunflower') }
+                        <br/>
+                            <small>{ __('Maximum events shown', 'sunflower') }: {attributes.count}</small>
                         <ol>
-                            { posts.map( ( post, i ) => <li key={ i }>{ post.title.rendered }</li> ) }
+                            { posts.map( ( post, i ) => {
+                                if( i >= attributes.count ){
+                                    return;
+                                }
+                                return <li key={ i }>{ post.title.rendered }</li> })
+                            }
                         </ol>
                     </span>
                 ) }
