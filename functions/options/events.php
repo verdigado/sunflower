@@ -209,7 +209,15 @@ class SunflowerEventSettingsPage
             __('Events', 'sunflower'), // Title
             array( $this, 'print_section_info' ), // Callback
             'sunflower-setting-events' // Page
-        );  
+        );
+
+        add_settings_field(
+            'sunflower_events_description', // ID
+            __('Description shown on the events page', 'sunflower'), // Title
+            array( $this, 'sunflower_events_description_callback' ), // Callback
+            'sunflower-setting-events', // Page
+            'sunflower-setting-events' // Section
+        );
 
         add_settings_field(
             'sunflower_ical_urls', // ID
@@ -276,6 +284,9 @@ class SunflowerEventSettingsPage
         if( isset( $input['sunflower_ical_urls'] ) )
             $new_input['sunflower_ical_urls'] = $input['sunflower_ical_urls'] ?: '';
 
+        if( isset( $input['sunflower_events_description'] ) )
+            $new_input['sunflower_events_description'] = $input['sunflower_events_description'] ?: '';
+
         return $new_input;
     }
 
@@ -300,7 +311,15 @@ class SunflowerEventSettingsPage
             $label
         );
     }
-   
+
+    public function sunflower_events_description_callback()
+    {
+        printf(
+            '<textarea style="white-space: pre-wrap;width: 90%%;height:7em;" id="sunflower_events_description" name="sunflower_events_options[sunflower_events_description]">%s</textarea>',
+            isset( $this->options['sunflower_events_description'] ) ? $this->options['sunflower_events_description'] : ''
+        );
+        echo '<div>Dieser Text wird auf der Übersichtsseite für Termine angezeigt. HTML-Tags sind erlaubt.</div>';
+    }
 
     public function sunflower_ical_urls_callback()
     {

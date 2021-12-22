@@ -33,8 +33,12 @@ $is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
 								($is_event_archive) ?  _e('Events archive', 'sunflower') :  _e('Events', 'sunflower');
                                 ?>
                             </h1>
+                                <?php
+                                    if( $sunflower_events_description = get_sunflower_setting('sunflower_events_description') ){
+                                        printf('<p>%s</p>', $sunflower_events_description);
+                                    }
+                                ?>
 						</header><!-- .page-header -->
-
 
 						<div class="filter-button-group mb-5 text-center">
 							<?php if ($is_event_archive) {
