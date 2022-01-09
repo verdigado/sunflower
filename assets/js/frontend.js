@@ -7,7 +7,11 @@ const observer = new IntersectionObserver(
   ( [e] ) => {
     stickyElement.classList.toggle( 'stuck', e.intersectionRatio < 1 );
 
-    const h =  jQuery('.navbar-main').height();
+    let h = jQuery('.navbar-main').height();
+    if( jQuery('body.admin-bar').length ) {
+      h += 32;
+    }
+
     if(e.intersectionRatio < 1) {
       jQuery('#content').css('margin-top', h);
     }else{

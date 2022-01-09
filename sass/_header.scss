@@ -175,3 +175,11 @@ body{
     height: 1px;
     background: white;
 }
+
+body.admin-bar {
+    .navbar{
+        &-main.stuck{
+            top: 32px;
+        }
+    }
+}
