@@ -4,11 +4,11 @@ $output = '<!DOCTYPE html>
 <html lang="de-DE">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Release-Notes Sunflower Theme</title>
+	<title>Changelog Sunflower Theme</title>
 </head>
 
 <body>
-<h1>Release-Notes</h1>';
+<h1>Changelogs</h1>';
 
 exec('git tag', $tags);
 $tags = array_reverse($tags);
@@ -41,5 +41,5 @@ $output .= '</body>
 </html>
 ';
 
-file_put_contents('release_notes.html', $output);
+file_put_contents('changelog.html', $output);
 echo "..done";
