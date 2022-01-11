@@ -189,6 +189,15 @@ class SunflowerSettingsPage
         );    
 
         add_settings_field(
+            'sunflower_hide_prev_next', // ID
+            __('hide previous and next linkss', 'sunflower'), // Title 
+            array( $this, 'sunflower_checkbox_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_layout', // Section   
+            ['sunflower_hide_prev_next', __('hide previous and next links', 'sunflower')]
+        );    
+
+        add_settings_field(
             'sunflower_contact_form_to', // ID
             __('to-field for contact-forms', 'sunflower'), // Title 
             array( $this, 'sunflower_contact_form_to' ), // Callback
