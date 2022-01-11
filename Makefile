@@ -40,11 +40,11 @@ childtheme-deploy:
 	rsync ../sunflower-child.zip sharepic:/var/www/sunflower-theme.de/updateserver/
 
 publish:
-	make changelog
 	@echo "Latest tag was: " 
 	@git describe --tags --abbrev=0
 	@read -p "which version do you want to publish now (start with number, NO v): " newversion; \
 	sed -i  "s/Version.*/Version:\ $$newversion/" "sass/style.scss" && \
+	php create-changelog.php $$newversion && \
 	git add sass/style.scss changelog.html && git commit -m "publishing version $$newversion" && \
 	git tag "v$$newversion"
 	git push && git push --tags
