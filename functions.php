@@ -29,3 +29,4 @@ require_once('functions/api.php');
 require_once('functions/childtheme.php');
 require_once('functions/menu.php');
 require_once('functions/security.php');
+require_once('functions/theme.php');

@@ -94,7 +94,16 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 					</p>
 				</div>
 				<div class="col-4 col-md-2">
-					<img src="<?php echo sunflower_parent_or_child('assets/img/logo-diegruenen.svg'); ?>" class="img-fluid" alt="Logo Bündnis 90/Die Grünen">
+				
+					<?php
+						$logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' );
+						
+						if ( has_custom_logo() ) {
+							printf('<img src="%s" class="img-fluid" alt="Logo %s">', esc_url( $logo[0] ), get_bloginfo( 'name' ));
+						} else {
+							printf('<img src="%s" class="img-fluid" alt="Logo Bündnis 90/Die Grünen">', sunflower_parent_or_child('assets/img/logo-diegruenen.svg'));
+						}
+					?>
 				</div>
 			</div>
 
