@@ -59,7 +59,21 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 							</div>
 						</nav>
 					</div>
-					<nav class="col-12 d-block d-lg-none navbar navbar-top navbar-expand-md d-flex justify-content-center">
+				</div>
+			
+				<div class="row">
+					<div class="col-12 mt-4 mb-4">
+						<hr>
+					</div>	
+				</div>
+
+			<?php
+			}
+			?>	
+			
+			<div class="row d-block d-lg-none mb-5">
+				<div class="col-12">
+					<nav class=" navbar navbar-top navbar-expand-md d-flex justify-content-center">
 						<div class="text-center">
 							<?php
 								wp_nav_menu( array(
@@ -75,16 +89,9 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 						</div>
 					</nav>
 				</div>
-			
-				<div class="row">
-					<div class="col-12 mt-4 mb-4">
-						<hr>
-					</div>	
-				</div>
+			</div>
 
-			<?php
-			}
-			?>		
+			
 			<div class="row">
 				<div class="col-8 col-md-10">
 					<p class="small">
