@@ -17,7 +17,7 @@ bundle:
 	npm run build && npm run bundle
 
 make-pot:
-	composer make-pot
+	wp i18n make-pot . languages/sunflower.pot 
 
 upload:
 	rsync ../sunflower.zip sharepic:/var/www/sunflower-theme.de/wp-content/themes/
