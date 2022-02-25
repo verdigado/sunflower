@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-12-22T16:05:05+00:00\n"
-"PO-Revision-Date: 2021-12-22 17:05+0100\n"
+"POT-Creation-Date: 2022-02-25T12:40:11+01:00\n"
+"PO-Revision-Date: 2022-02-25 12:41+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 2.3\n"
 "X-Domain: sunflower\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -166,8 +166,8 @@ msgstr "Zum Blog-Archiv"
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: functions/blocks/next-events.php:16 src/next-events.js:13
-#: src/next-events.js:56 build/index.js:440 build/index.js:483
+#: functions/blocks/next-events.php:16 build/index.js:1 src/next-events.js:13
+#: src/next-events.js:56
 msgid "Next events"
 msgstr "Nächste Termine"
 
@@ -392,6 +392,10 @@ msgstr "Einträge im Menü"
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
+#: functions/options/settings.php:211 functions/options/settings.php:215
+msgid "Use this header layout"
+msgstr "Layout für den Header"
+
 #: functions/options/settings.php:254 functions/options/social-media.php:164
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
@@ -604,8 +608,8 @@ msgstr ", "
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:71
 msgctxt "list item separator"
-msgid " "
-msgstr ","
+msgid ", "
+msgstr ", "
 
 #: inc/template-tags.php:99
 msgid "Share on twitter "
@@ -698,25 +702,29 @@ msgstr "Suche"
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
 
-#: src/next-events.js:14 build/index.js:441
+#: build/index.js:1 src/next-events.js:14
 msgid "show next events"
 msgstr "zeige nächste Termine"
 
-#: src/next-events.js:53 build/index.js:480
+#: build/index.js:1 src/next-events.js:53
 msgid "Loading"
 msgstr "lade"
 
-#: src/next-events.js:54 build/index.js:481
+#: build/index.js:1 src/next-events.js:54
 msgid "No Events"
 msgstr "Keine Termine"
 
-#: src/next-events.js:58 build/index.js:485
+#: build/index.js:1 src/next-events.js:58
 msgid "Maximum events shown"
 msgstr "Maximale Anzahl angezeigter Termine"
 
-#: src/next-events.js:80 build/index.js:507
+#: build/index.js:1 src/next-events.js:80
 msgid "Count"
 msgstr "Anzahl"
+
+#~ msgctxt "list item separator"
+#~ msgid " "
+#~ msgstr ","
 
 #~ msgid "Upcoming events"
 #~ msgstr "Kommende Veranstaltungen"
@@ -734,10 +742,6 @@ msgstr "Anzahl"
 
 #~ msgid "sunflower_event"
 #~ msgstr "sunflower_event"
-
-#~ msgctxt "list item separator"
-#~ msgid ", "
-#~ msgstr ", "
 
 #~ msgid "Show title"
 #~ msgstr "Titel anzeigen"
