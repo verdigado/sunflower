@@ -4,7 +4,7 @@ $_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event
 $_sunflower_event_location_city = @get_post_meta( $post->ID, '_sunflower_event_location_city')[0] ?: false;
 $_sunflower_event_webinar = @get_post_meta( $post->ID, '_sunflower_event_webinar')[0] ?: false;
 $_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
-$_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_from')[0] ?: false;
+$_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_until')[0] ?: false;
 $_sunflower_event_organizer_name = @get_post_meta( $post->ID, '_sunflower_event_organizer')[0] ?: false;
 $_sunflower_event_organizer_url = @get_post_meta( $post->ID, '_sunflower_event_organizer_url')[0] ?: false;
 
