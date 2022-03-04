@@ -190,7 +190,7 @@ class SunflowerSettingsPage
 
         add_settings_field(
             'sunflower_hide_prev_next', // ID
-            __('hide previous and next linkss', 'sunflower'), // Title 
+            __('hide previous and next links', 'sunflower'), // Title 
             array( $this, 'sunflower_checkbox_callback' ), // Callback
             'sunflower-setting-admin', // Page
             'sunflower_layout', // Section   
