@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2021-12-22T16:05:05+00:00\n"
-"PO-Revision-Date: 2021-12-22 17:05+0100\n"
+"POT-Creation-Date: 2022-03-04T09:27:07+01:00\n"
+"PO-Revision-Date: 2022-03-04 09:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 2.3\n"
 "X-Domain: sunflower\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -93,11 +93,11 @@ msgstr ""
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: archive.php:65 index.php:71 search.php:68 single.php:45
+#: archive.php:65 index.php:71 search.php:68 single.php:46
 msgid "previous"
 msgstr "zurück"
 
-#: archive.php:66 index.php:72 search.php:69 single.php:50
+#: archive.php:66 index.php:72 search.php:69 single.php:51
 msgid "next"
 msgstr "vor"
 
@@ -166,8 +166,8 @@ msgstr "Zum Blog-Archiv"
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: functions/blocks/next-events.php:16 src/next-events.js:13
-#: src/next-events.js:56 build/index.js:440 build/index.js:483
+#: functions/blocks/next-events.php:16 build/index.js:1 src/next-events.js:13
+#: src/next-events.js:56
 msgid "Next events"
 msgstr "Nächste Termine"
 
@@ -381,18 +381,22 @@ msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
 #: functions/options/settings.php:193 functions/options/settings.php:197
+msgid "hide previous and next links"
+msgstr "Verstecke vor- und zurück-Links"
+
+#: functions/options/settings.php:202 functions/options/settings.php:206
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/settings.php:202
+#: functions/options/settings.php:211
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/settings.php:206
+#: functions/options/settings.php:215
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/settings.php:254 functions/options/social-media.php:164
+#: functions/options/settings.php:263 functions/options/social-media.php:164
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
@@ -698,23 +702,23 @@ msgstr "Suche"
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
 
-#: src/next-events.js:14 build/index.js:441
+#: build/index.js:1 src/next-events.js:14
 msgid "show next events"
 msgstr "zeige nächste Termine"
 
-#: src/next-events.js:53 build/index.js:480
+#: build/index.js:1 src/next-events.js:53
 msgid "Loading"
 msgstr "lade"
 
-#: src/next-events.js:54 build/index.js:481
+#: build/index.js:1 src/next-events.js:54
 msgid "No Events"
 msgstr "Keine Termine"
 
-#: src/next-events.js:58 build/index.js:485
+#: build/index.js:1 src/next-events.js:58
 msgid "Maximum events shown"
 msgstr "Maximale Anzahl angezeigter Termine"
 
-#: src/next-events.js:80 build/index.js:507
+#: build/index.js:1 src/next-events.js:80
 msgid "Count"
 msgstr "Anzahl"
 

@@ -1,17 +1,17 @@
-# Copyright (C) 2021 Tom Rose
+# Copyright (C) 2022 Tom Rose
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 1.4.0\n"
+"Project-Id-Version: sunflower 1.5.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-12-22T16:05:05+00:00\n"
+"POT-Creation-Date: 2022-03-04T09:27:07+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0\n"
+"X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: sunflower\n"
 
 #. Theme Name of the theme
@@ -95,14 +95,14 @@ msgstr ""
 #: archive.php:65
 #: index.php:71
 #: search.php:68
-#: single.php:45
+#: single.php:46
 msgid "previous"
 msgstr ""
 
 #: archive.php:66
 #: index.php:72
 #: search.php:69
-#: single.php:50
+#: single.php:51
 msgid "next"
 msgstr ""
 
@@ -164,10 +164,9 @@ msgid "No posts found"
 msgstr ""
 
 #: functions/blocks/next-events.php:16
+#: build/index.js:1
 #: src/next-events.js:13
 #: src/next-events.js:56
-#: build/index.js:440
-#: build/index.js:483
 msgid "Next events"
 msgstr ""
 
@@ -388,18 +387,23 @@ msgstr ""
 
 #: functions/options/settings.php:193
 #: functions/options/settings.php:197
-msgid "to-field for contact-forms"
+msgid "hide previous and next links"
 msgstr ""
 
 #: functions/options/settings.php:202
+#: functions/options/settings.php:206
+msgid "to-field for contact-forms"
+msgstr ""
+
+#: functions/options/settings.php:211
 msgid "items in menu"
 msgstr ""
 
-#: functions/options/settings.php:206
+#: functions/options/settings.php:215
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr ""
 
-#: functions/options/settings.php:254
+#: functions/options/settings.php:263
 #: functions/options/social-media.php:164
 msgid "Show share buttons on single page"
 msgstr ""
@@ -687,27 +691,27 @@ msgstr ""
 msgid "Related posts"
 msgstr ""
 
+#: build/index.js:1
 #: src/next-events.js:14
-#: build/index.js:441
 msgid "show next events"
 msgstr ""
 
+#: build/index.js:1
 #: src/next-events.js:53
-#: build/index.js:480
 msgid "Loading"
 msgstr ""
 
+#: build/index.js:1
 #: src/next-events.js:54
-#: build/index.js:481
 msgid "No Events"
 msgstr ""
 
+#: build/index.js:1
 #: src/next-events.js:58
-#: build/index.js:485
 msgid "Maximum events shown"
 msgstr ""
 
+#: build/index.js:1
 #: src/next-events.js:80
-#: build/index.js:507
 msgid "Count"
 msgstr ""
