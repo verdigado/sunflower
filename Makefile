@@ -17,7 +17,8 @@ bundle:
 	npm run build && npm run bundle
 
 make-pot:
-	wp i18n make-pot . languages/sunflower.pot 
+	 wp i18n make-pot . languages/sunflower.pot
+	 //composer make-pot
 
 upload:
 	rsync ../sunflower.zip sharepic:/var/www/sunflower-theme.de/wp-content/themes/
@@ -104,4 +105,4 @@ test-mobile:
 	cd ../../../../tests && LOCAL=true MODE=test MOBILE=true python3 test.py
 
 pattern:
-	cd ../../../../tests && LOCAL=true MODE=pattern python3 test.py && LOCAL=true MODE=patterns MOBILE=true python3 test.py
+	cd ../../../../tests && LOCAL=true MODE=pattern python3 test.py && LOCAL=true MODE=patterns MOBILE=true python3 test.pyf
