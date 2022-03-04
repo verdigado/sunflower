@@ -39,28 +39,30 @@ $styled_layout = @get_post_meta( $post->ID, '_sunflower_styled_layout')[0] ? 'st
 			<div class="row sunflower-post-navigation mb-3">
 				<?php
 				
+				if( !get_sunflower_setting('sunflower_hide_prev_next') ) {
 				
-				$previous = get_previous_post_link(
-					'<div class="">%link </div>',
-					'%title <div class="announce">' . __('previous', 'sunflower'). '</div>'
-				);
-
-				$next = get_next_post_link(
-					'<div class="">%link </div>',
-					'%title <div class="announce">' . __('next', 'sunflower'). '</div>'
-				);
-
-			
-				if( $previous ){
-					printf('<div class="col-12 col-md-6 mb-2 mb-md-0">%s</div>',
-						$previous
+					$previous = get_previous_post_link(
+						'<div class="">%link </div>',
+						'%title <div class="announce">' . __('previous', 'sunflower'). '</div>'
 					);
-				}
 
-				if( $next ){
-					printf('<div class="col-12 col-md-6">%s</div>',
-						$next
+					$next = get_next_post_link(
+						'<div class="">%link </div>',
+						'%title <div class="announce">' . __('next', 'sunflower'). '</div>'
 					);
+
+				
+					if( $previous ){
+						printf('<div class="col-12 col-md-6 mb-2 mb-md-0">%s</div>',
+							$previous
+						);
+					}
+
+					if( $next ){
+						printf('<div class="col-12 col-md-6">%s</div>',
+							$next
+						);
+					}
 				}
 		
 				?>

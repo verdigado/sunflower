@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2022-02-25T12:40:11+01:00\n"
-"PO-Revision-Date: 2022-02-25 12:41+0100\n"
+"POT-Creation-Date: 2022-03-04T09:32:59+01:00\n"
+"PO-Revision-Date: 2022-03-04 09:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -93,11 +93,11 @@ msgstr ""
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: archive.php:65 index.php:71 search.php:68 single.php:45
+#: archive.php:65 index.php:71 search.php:68 single.php:46
 msgid "previous"
 msgstr "zurück"
 
-#: archive.php:66 index.php:72 search.php:69 single.php:50
+#: archive.php:66 index.php:72 search.php:69 single.php:51
 msgid "next"
 msgstr "vor"
 
@@ -381,22 +381,26 @@ msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
 #: functions/options/settings.php:193 functions/options/settings.php:197
+msgid "hide previous and next links"
+msgstr "Verstecke vor- und zurück-Links"
+
+#: functions/options/settings.php:202 functions/options/settings.php:206
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/settings.php:202
+#: functions/options/settings.php:211
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/settings.php:206
+#: functions/options/settings.php:215
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/settings.php:211 functions/options/settings.php:215
+#: functions/options/settings.php:220 functions/options/settings.php:224
 msgid "Use this header layout"
 msgstr "Layout für den Header"
 
-#: functions/options/settings.php:254 functions/options/social-media.php:164
+#: functions/options/settings.php:263 functions/options/social-media.php:164
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
