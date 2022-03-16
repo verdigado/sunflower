@@ -21,7 +21,7 @@ Sie erscheinen dann automatisch in der Fußzeile.
 Neue Features kannst Du auf der
 
 * [Projektseite bei gitbub](https://github.com/codeispoetry/sunflower/issues) oder 
-* im Chatkanal auf [Chatbegrünung](https://chatbegruenung.de/channel/sunflower)
+* im Chatkanal auf [Chatbegrünung](https://chatbegruenung.de/channel/sunflower-wordpress)
 
 melden.
 
