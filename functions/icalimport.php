@@ -23,10 +23,15 @@ function sunflower_icalimport( $url = false, $auto_categories = false){
         return false;
     }
 
-    $time_range = sunflower_get_constant('SUNFLOWER_EVENT_TIME_RANGE') ?: '6 months';
+    $time_range_history = sunflower_get_constant('SUNFLOWER_EVENT_TIME_RANGE_BACK') ?: '0 months';
+    $time_range_future = sunflower_get_constant('SUNFLOWER_EVENT_TIME_RANGE') ?: '6 months';
     $recurring_events_max = (int) sunflower_get_constant('SUNFLOWER_EVENT_RECURRING_EVENTS') ?: 10; 
 
-    $events = $ical->eventsFromInterval($time_range);
+    //$events = $ical->eventsFromInterval($time_range_future);
+    $events = $ical->eventsFromRange(
+        strftime('%F', strtotime('-' .$time_range_history)), 
+        strftime('%F', strtotime($time_range_future))
+    );
 
     $updated_events = 0;
     $ids_from_remote = array();
@@ -34,7 +39,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false){
 
     foreach ($events as $event){
         $uid = $event->uid;
-    
+    echo $event->summary;
         if(isset($event->rrule)){
             if(isset($count_recurring_events[$uid])){
                 $count_recurring_events[$uid]++;

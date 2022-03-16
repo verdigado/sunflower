@@ -61,6 +61,10 @@ Standardmäßig holt sich *Sunflower* alle Termie der nächsten sechs Monate vom
 
 ``define('SUNFLOWER_EVENT_TIME_RANGE', '3 months');``
 
+Von Haus aus werden vergangene Termine nicht mehr importiert. Um das zu ändern, kann Du in der wp-config.php folgendes eintragen:
+
+``define('SUNFLOWER_EVENT_TIME_RANGE_BACK', '3 months');``
+
 Dabei kannst Du bspw. folgendes nutzen
 
 - 4 weeks
