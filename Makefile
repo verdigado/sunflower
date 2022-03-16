@@ -23,6 +23,9 @@ make-pot:
 upload:
 	rsync ../sunflower.zip sharepic:/var/www/sunflower-theme.de/wp-content/themes/
 
+upload-nightly:
+	rsync --progress ../sunflower.zip sharepic:/var/www/sunflower-theme.de/updateserver/nightly
+
 activate:
 	ssh sharepic "cd /var/www/sunflower-theme.de/wp-content/themes/ && wp theme install sunflower.zip --force"
 
@@ -36,6 +39,9 @@ get:
 
 deploy:
 	git push && make compile-silent bundle upload activate get announce
+
+deploy-nightly:
+	make compile-silent bundle upload-nightly
 
 childtheme-deploy:
 	rsync ../sunflower-child.zip sharepic:/var/www/sunflower-theme.de/updateserver/
