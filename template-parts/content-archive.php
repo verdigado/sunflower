@@ -11,16 +11,18 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('bg-white mb-4 has-shadow'); ?>>
     <div class="">
-        <div class="">
-            <a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark">
-                <?php sunflower_post_thumbnail(); ?>
-            </a>
-        </div>
+        <?php if (has_post_thumbnail() ) { ?>
+            <div class="">
+                <a href="<?php echo esc_url(get_permalink()); ?>" aria-label="Post Thumbnail" rel="bookmark">
+                    <?php sunflower_post_thumbnail(); ?>
+                </a>
+            </div>
+        <?php } ?>
         <div class="p-45">
             <header class="entry-header mb-2">
                 <?php
                     $roofline = @get_post_meta($post->ID, '_sunflower_roofline')[0] ?: false;
-                if($roofline ) {
+                if ($roofline ) {
                     printf(' <div class="roofline arvo mb-1">%s</div>', $roofline);
                 }
                 ?>

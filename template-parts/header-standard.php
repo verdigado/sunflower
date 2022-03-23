@@ -24,7 +24,7 @@
                         value="<?php echo get_search_query(); ?>"
                     >
                 </form>
-                <button class="show-search">
+                <button class="show-search" aria-label="<?php _e('show search', 'sunflower'); ?>">
                     <i class="fas fa-search"></i>
                 </button>
                 </div>
