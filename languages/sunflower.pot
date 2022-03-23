@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-23T18:50:49+01:00\n"
+"POT-Creation-Date: 2022-03-24T00:15:27+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: sunflower\n"
@@ -158,12 +158,12 @@ msgstr ""
 msgid "Help for sunflowers events"
 msgstr ""
 
-#: functions/blocks/latest-posts.php:78
-#: functions/blocks/latest-posts.php:98
+#: functions/blocks/latest-posts.php:89
+#: functions/blocks/latest-posts.php:111
 msgid "to archive"
 msgstr ""
 
-#: functions/blocks/latest-posts.php:87
+#: functions/blocks/latest-posts.php:99
 msgid "No posts found"
 msgstr ""
 
@@ -582,12 +582,16 @@ msgid "none"
 msgstr ""
 
 #: template-parts/header-standard.php:23
-#: template-parts/header-standard.php:80
+#: template-parts/header-standard.php:85
 msgid "Search"
 msgstr ""
 
 #: template-parts/header-standard.php:27
 msgid "show search"
+msgstr ""
+
+#: template-parts/header-standard.php:30
+msgid "increase contrast"
 msgstr ""
 
 #: template-parts/related-posts.php:7

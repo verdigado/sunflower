@@ -24,9 +24,14 @@
                         value="<?php echo get_search_query(); ?>"
                     >
                 </form>
-                <button class="show-search" aria-label="<?php _e('show search', 'sunflower'); ?>">
+                <button class="show-search me-3" title="<?php _e('show search', 'sunflower'); ?>" aria-label="<?php _e('show search', 'sunflower'); ?>">
                     <i class="fas fa-search"></i>
                 </button>
+                <button class="show-contrast" title="<?php _e('increase contrast', 'sunflower'); ?>" aria-label="<?php _e('increase contrast', 'sunflower'); ?>">
+                    <i class="fab fa-accessible-icon"></i>
+                </button>
+
+               
                 </div>
             </div>
         </nav>

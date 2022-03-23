@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2022-03-23T18:50:49+01:00\n"
-"PO-Revision-Date: 2022-03-23 18:51+0100\n"
+"POT-Creation-Date: 2022-03-24T00:15:27+01:00\n"
+"PO-Revision-Date: 2022-03-24 00:16+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -162,11 +162,11 @@ msgstr "Sunflower"
 msgid "Help for sunflowers events"
 msgstr "Hilfe für Sunflower-Termine"
 
-#: functions/blocks/latest-posts.php:78 functions/blocks/latest-posts.php:98
+#: functions/blocks/latest-posts.php:89 functions/blocks/latest-posts.php:111
 msgid "to archive"
 msgstr "Zum Blog-Archiv"
 
-#: functions/blocks/latest-posts.php:87
+#: functions/blocks/latest-posts.php:99
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
@@ -576,13 +576,17 @@ msgstr ""
 msgid "none"
 msgstr "keine"
 
-#: template-parts/header-standard.php:23 template-parts/header-standard.php:80
+#: template-parts/header-standard.php:23 template-parts/header-standard.php:85
 msgid "Search"
 msgstr "Suche"
 
 #: template-parts/header-standard.php:27
 msgid "show search"
 msgstr "zeige Suche"
+
+#: template-parts/header-standard.php:30
+msgid "increase contrast"
+msgstr "Kontrast erhöhen"
 
 #: template-parts/related-posts.php:7
 msgid "Related posts"
