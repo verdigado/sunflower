@@ -21,10 +21,10 @@
         <div class="p-45">
             <header class="entry-header mb-2">
                 <?php
-                    $roofline = @get_post_meta($post->ID, '_sunflower_roofline')[0] ?: false;
-                if ($roofline ) {
-                    printf(' <div class="roofline arvo mb-1">%s</div>', $roofline);
-                }
+                    $roofline = @get_post_meta($post->ID, '_sunflower_roofline', true) ?: false;
+                    if ($roofline ) {
+                        printf(' <div class="roofline arvo mb-1">%s</div>', $roofline);
+                    }
                 ?>
                 <?php
                 
