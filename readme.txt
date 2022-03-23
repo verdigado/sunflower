@@ -24,15 +24,6 @@ Theme for german Green party
 
 == Frequently Asked Questions ==
 
-= Does this theme support any plugins? =
-
-sunflower includes support for WooCommerce and for Infinite Scroll in Jetpack.
-
-== Changelog ==
-
-= 1.0 - May 12 2015 =
-* Initial release
-
 == Credits ==
 
 * Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)

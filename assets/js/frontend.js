@@ -7,7 +7,11 @@ const observer = new IntersectionObserver(
   ( [e] ) => {
     stickyElement.classList.toggle( 'stuck', e.intersectionRatio < 1 );
 
-    const h =  jQuery('.navbar-main').height();
+    let h = jQuery('.navbar-main').height();
+    if( jQuery('body.admin-bar').length ) {
+      h += 32;
+    }
+
     if(e.intersectionRatio < 1) {
       jQuery('#content').css('margin-top', h);
     }else{
@@ -37,6 +41,14 @@ jQuery(document).ready( function (){
   })
 
   adjustMetaboxHeight();
+
+jQuery('[data-unscramble]').click(function(){
+    let text = jQuery(this).data('unscramble').split('').reverse().join('');
+    window.location.href = "MAILTO:" + text;
+
+    return false;
+  })
+ 
 });
 
 function getIcon(){

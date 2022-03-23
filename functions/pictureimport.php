@@ -1,15 +1,16 @@
 <?php
 
-function sunflower_import_all_pictures(){
+function sunflower_import_all_pictures()
+{
     // Gives us access to the download_url() and wp_handle_sideload() functions
-    require_once( ABSPATH . 'wp-admin/includes/file.php' );
+    include_once ABSPATH . 'wp-admin/includes/file.php';
     
     $server = 'https://sunflower-theme.de/updateserver/';
     $images = json_decode(file_get_contents($server . 'images.php'));
 
     $count = 0;
     foreach($images AS $image){
-        if(sunflower_import_one_picture( $server.$image)){
+        if(sunflower_import_one_picture($server.$image)) {
             $count++;
         };
     }   
@@ -17,15 +18,16 @@ function sunflower_import_all_pictures(){
     return $count;
 }
 
-function sunflower_import_one_picture( $url ){
+function sunflower_import_one_picture( $url )
+{
     // URL to the WordPress logo
     
     $timeout_seconds = 5;
 
     // Download file to temp dir
-    $temp_file = download_url( $url, $timeout_seconds );
+    $temp_file = download_url($url, $timeout_seconds);
 
-    if ( !is_wp_error( $temp_file ) ) {
+    if (!is_wp_error($temp_file) ) {
 
         // Array based on $_FILE as seen in PHP file uploads
         $file = array(
@@ -50,9 +52,9 @@ function sunflower_import_one_picture( $url ){
         );
 
         // Move the temporary file into the uploads directory
-        $results = wp_handle_sideload( $file, $overrides );
+        $results = wp_handle_sideload($file, $overrides);
 
-        if ( !empty( $results['error'] ) ) {
+        if (!empty($results['error']) ) {
             // print_r($results);
             echo __('An error occurred. Could not import images', 'sunflower');
             return false;
@@ -70,9 +72,9 @@ function sunflower_import_one_picture( $url ){
             );
         
             
-            $attachment_id = wp_insert_attachment( $attachment, $filename );
-            $attachment_data = wp_generate_attachment_metadata( $attachment_id, $filename );
-            wp_update_attachment_metadata( $attachment_id, $attachment_data );
+            $attachment_id = wp_insert_attachment($attachment, $filename);
+            $attachment_data = wp_generate_attachment_metadata($attachment_id, $filename);
+            wp_update_attachment_metadata($attachment_id, $attachment_data);
 
             echo "<li>$url importiert</li>";
         }

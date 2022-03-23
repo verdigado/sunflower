@@ -17,6 +17,8 @@ Außerdem kannst Du eine Markierung auf einer Landkarte [OpenStreetMap](https://
 - Termine > alle anzeigen
 - Den obersten Eintrag zum Menü hinzufügen
 
+Wenn Du keine "Termine" siehst, klicke rechts oben auf das Zahnrad und blende Termine ein.
+
 ## In der Menüansicht werden keine Termine angezeigt
 - Klicke auf *Ansicht anpassen* und
 - setze den Hake bei Termine
@@ -58,6 +60,10 @@ wobei die 1 hier im Beispiel für jede Stunde steht.
 Standardmäßig holt sich *Sunflower* alle Termie der nächsten sechs Monate vom externen Kalender. Um dies zu ändern, kannst Du in der wp-config.php folgendes eintragen:
 
 ``define('SUNFLOWER_EVENT_TIME_RANGE', '3 months');``
+
+Von Haus aus werden vergangene Termine nicht mehr importiert. Um das zu ändern, kann Du in der wp-config.php folgendes eintragen:
+
+``define('SUNFLOWER_EVENT_TIME_RANGE_BACK', '3 months');``
 
 Dabei kannst Du bspw. folgendes nutzen
 

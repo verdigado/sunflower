@@ -41,7 +41,6 @@ or
 1. edit version in style.scss
 1. git add . && git commit
 1. git tag -a v0.1.9 -m "message"
-1. edit release_notes.html
 1 .git push --follow-tags
 4. increment version in style.scss and add beta, nightly-build, etc.
 

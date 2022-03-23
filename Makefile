@@ -17,10 +17,14 @@ bundle:
 	npm run build && npm run bundle
 
 make-pot:
-	composer make-pot
+	 wp i18n make-pot . languages/sunflower.pot
+	 //composer make-pot
 
 upload:
 	rsync ../sunflower.zip sharepic:/var/www/sunflower-theme.de/wp-content/themes/
+
+upload-nightly:
+	rsync --progress ../sunflower.zip sharepic:/var/www/sunflower-theme.de/updateserver/nightly
 
 activate:
 	ssh sharepic "cd /var/www/sunflower-theme.de/wp-content/themes/ && wp theme install sunflower.zip --force"
@@ -36,16 +40,19 @@ get:
 deploy:
 	git push && make compile-silent bundle upload activate get announce
 
+deploy-nightly:
+	make compile-silent bundle upload-nightly
+
 childtheme-deploy:
 	rsync ../sunflower-child.zip sharepic:/var/www/sunflower-theme.de/updateserver/
 
 publish:
-	@echo "Be sure to have edited release_notes.html"
 	@echo "Latest tag was: " 
 	@git describe --tags --abbrev=0
 	@read -p "which version do you want to publish now (start with number, NO v): " newversion; \
 	sed -i  "s/Version.*/Version:\ $$newversion/" "sass/style.scss" && \
-	git add sass/style.scss && git commit -m "publishing version $$newversion" && \
+	php create-changelog.php $$newversion && \
+	git add sass/style.scss changelog.html && git commit -m "publishing version $$newversion" && \
 	git tag "v$$newversion"
 	git push && git push --tags
 	make deploy
@@ -92,10 +99,13 @@ remote-create-homepage-txt:
 	ssh sharepic "cd /var/www/sunflower-theme.de/dumps && wp post get 37 --url=sunflower-theme.de/demo --field=content > homepage.txt"
 	
 changelog:
-	git log $$(git describe --tags --abbrev=0)..HEAD --pretty=format:"%s" >> release_notes.html
+	php create-changelog.php
+
+change-since-last-tag:
+	git log --pretty=format:"%s" HEAD...$(shell git describe --tags --abbrev=0)
 
 test:
-	cd ../../../../tests && LOCAL=true MODE=test python3 test.py && LOCAL=true MODE=test MOBILE=true python3 test.py
+	cd ../../../../tests && LOCAL=true MODE=test python3 test.py
 
 test-mobile:
 	cd ../../../../tests && LOCAL=true MODE=test MOBILE=true python3 test.py

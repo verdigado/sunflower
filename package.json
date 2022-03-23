@@ -17,11 +17,12 @@
     "url": "https://github.com/Automattic/_s/issues"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.2",
-    "@wordpress/scripts": "^12.6.1",
-    "dir-archiver": "^1.1.1",
-    "node-sass": "^4.14.1",
-    "rtlcss": "^2.5.0"
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@wordpress/scripts": "^19.2.2",
+    "dir-archiver": "^1.2.0",
+    "node-sass": "^7.0.0",
+    "rtlcss": "^3.5.0",
+    "stylelint-config-wordpress": "^17.0.0"
   },
   "rtlcssConfig": {
     "options": {
@@ -45,13 +46,13 @@
     "lint:js": "wp-scripts lint-js 'js/*.js'",
     "copy-composer": "copyfiles -u 1 vendor/johngrogg/ics-parser/src/ICal/*.php assets/vndr",
     "copy-node-modules": "copyfiles -u 1 node_modules/jquery-slim/dist/*.min.js node_modules/@popperjs/core/dist/umd/popper.min.js node_modules/bootstrap/dist/js/*.min.js node_modules/@fortawesome/fontawesome-free/webfonts/*.woff* node_modules/leaflet/dist/*.js node_modules/leaflet/dist/*.css node_modules/leaflet/dist/images/* node_modules/jquery-datetimepicker/build/*.min.js node_modules/jquery-datetimepicker/build/*.min.css node_modules/fullcalendar/main.js node_modules/fullcalendar/locales/de.js node_modules/fullcalendar/main.css assets/vndr",
-    "bundle": "npm run copy-composer && npm run copy-node-modules && cd .. && dir-archiver --src sunflower --dest sunflower.zip --exclude Makefile release_notes.html documentation mkdocs announcement.txt .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map",
+    "bundle": "npm run copy-composer && npm run copy-node-modules && cd ../ && dir-archiver --src sunflower --dest sunflower.zip --exclude sunflower/Makefile sunflower/create-changelog.php sunflower/changelog.html sunflower/documentation sunflower/mkdocs sunflower/announcement.txt sunflower/.DS_Store sunflower/.stylelintrc.json sunflower/.eslintrc sunflower/.git sunflower/.gitattributes sunflower/.github sunflower/.gitignore sunflower/README.md sunflower/composer.json sunflower/composer.lock sunflower/node_modules sunflower/vendor sunflower/package-lock.json sunflower/package.json sunflower/.travis.yml sunflower/phpcs.xml.dist sunflower/sass sunflower/style.css.map sunflower/.favorites.json",
     "build": "wp-scripts build",
     "start": "wp-scripts start"
   },
   "dependencies": {
-    "@popperjs/core": "^2.6.0",
-    "bootstrap": "^5.0.0-beta2",
+    "@popperjs/core": "^2.11.0",
+    "bootstrap": "^5.1.3",
     "copyfiles": "^2.4.1",
     "fullcalendar": "5.7.2",
     "jquery-datetimepicker": "^2.5.21",

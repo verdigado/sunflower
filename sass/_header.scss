@@ -35,7 +35,7 @@
 }
 
 .topmenu{
-    background: map-get($custom-colors, 'green-800b');
+    background: map-get($custom-colors, 'green-800');
 }
 
 body{
@@ -174,4 +174,12 @@ body{
 #navbar-sticky-detector.header-personal{
     height: 1px;
     background: white;
+}
+
+body.admin-bar {
+    .navbar{
+        &-main.stuck{
+            top: 32px;
+        }
+    }
 }

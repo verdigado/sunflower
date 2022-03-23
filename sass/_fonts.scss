@@ -1,46 +1,61 @@
 @font-face {
     font-family: Arvo;
-    src: url('assets/fonts/Arvo-Regular_201.woff') format('woff'),
+    src: url('assets/fonts/Arvo-Regular_201.woff') format('woff');
+    font-display: swap;
   }
   
   @font-face {
     font-family: ArvoGruen;
-    src: url('assets/fonts/Arvo_Gruen_2015_10.woff') format('woff'),
+    src: url('assets/fonts/Arvo_Gruen_2015_10.woff') format('woff');
+    font-display: swap;
   }
   
   @font-face {
     font-family: PTSans;
     font-style: normal;
     font-weight: 400;
-    src: url('assets/fonts/ptsans_regular.woff') format('woff'),
+    src: url('assets/fonts/ptsans_regular.woff') format('woff');
+    font-display: swap;
   }
   
   @font-face {
     font-family: PTSans;
     font-style: bold;
     font-weight: 700;
-    src: url('assets/fonts/ptsans_bold.woff') format('woff'),
+    src: url('assets/fonts/ptsans_bold.woff') format('woff');
+    font-display: swap;
   }
 
   @font-face {
     font-family: PTSans;
     font-style: italic;
     font-weight: 400;
-    src: url('assets/fonts/ptsans_italic.woff') format('woff'),
+    src: url('assets/fonts/ptsans_italic.woff') format('woff');
+    font-display: swap;
   }
 
   @font-face {
     font-family: PTSans;
     font-style: italic;
     font-weight: 700;
-    src: url('assets/fonts/ptsans_bolditalic.woff') format('woff'),
+    src: url('assets/fonts/ptsans_bolditalic.woff') format('woff');
+    font-display: swap;
   }
 
   @font-face {
     font-family: ForkAwesome;
     font-style: normal;
     font-weight: 400;
-    src: url('assets/fonts/forkawesome-webfont.woff') format('woff'),
+    src: url('assets/fonts/forkawesome-webfont.woff') format('woff');
+    font-display: block;
+  }
+
+  @font-face {
+    font-family: BereitBold;  
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/bereitbold.woff2') format('woff2');
+    font-display: swap;
   }
 
   .arvo{
@@ -63,5 +78,9 @@
     text-rendering: auto;
     line-height: 1;
   }
+  .bereit{
+    font-family: BereitBold !important;
+    font-weight: 500;
+  } 
 
 

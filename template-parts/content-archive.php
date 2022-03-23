@@ -12,24 +12,24 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('bg-white mb-4 has-shadow'); ?>>
     <div class="">
         <div class="">
-            <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+            <a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark">
                 <?php sunflower_post_thumbnail(); ?>
             </a>
         </div>
         <div class="p-45">
             <header class="entry-header mb-2">
                 <?php
-                    $roofline = @get_post_meta( $post->ID, '_sunflower_roofline')[0] ?: false;
-                    if( $roofline ){
-                        printf(' <div class="roofline arvo mb-1">%s</div>', $roofline);
-                    }
+                    $roofline = @get_post_meta($post->ID, '_sunflower_roofline')[0] ?: false;
+                if($roofline ) {
+                    printf(' <div class="roofline arvo mb-1">%s</div>', $roofline);
+                }
                 ?>
                 <?php
                 
-                the_title( '<h2 class="card-title h4 mb-3"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+                the_title('<h2 class="card-title h4 mb-3"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
         
 
-                if ( 'post' === get_post_type() ) :
+                if ('post' === get_post_type() ) :
                     ?>
                     <div class="entry-meta mb-3">
                         <?php
@@ -41,26 +41,26 @@
             </header><!-- .entry-header -->      
 
             <div class="entry-content">
-                <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+                <a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark">
                 <?php
                 the_excerpt(
                     sprintf(
                         wp_kses(
                             /* translators: %s: Name of current post. Only visible to screen readers */
-                            __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'sunflower' ),
+                            __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'sunflower'),
                             array(
                                 'span' => array(
                                     'class' => array(),
                                 ),
                             )
                         ),
-                        wp_kses_post( get_the_title() )
+                        wp_kses_post(get_the_title())
                     )
                 );
 
                 wp_link_pages(
                     array(
-                        'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sunflower' ),
+                        'before' => '<div class="page-links">' . esc_html__('Pages:', 'sunflower'),
                         'after'  => '</div>',
                     )
                 );
@@ -72,7 +72,7 @@
                 <?php sunflower_entry_footer(); ?>
 
                 <div class="d-flex flex-row-reverse">
-                    <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="continue-reading">
+                    <a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark" class="continue-reading">
                     <?php
                         _e('Continue reading', 'sunflower');
                     ?>

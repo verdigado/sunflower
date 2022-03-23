@@ -68,7 +68,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 			}
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ' ', 'list item separator', 'sunflower' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'sunflower' ) );
 
 			if (  $categories_list AND $tags_list ) {
 				echo '<br>';
@@ -158,7 +158,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 				$classes = array('post-thumbnail' );
 
 				the_post_thumbnail(
-					'medium-large',
+					'medium_large',
 					array(
 						'alt' => the_title_attribute(
 							array(

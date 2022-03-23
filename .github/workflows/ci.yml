@@ -45,7 +45,7 @@ jobs:
       - name: save version
         run: echo ${GITHUB_REF##*/} > version.txt
 
-      - name: rsync zipfile, version and release_notes
-        run: rsync -z -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" ../sunflower.zip version.txt release_notes.html tom@sharepicgenerator.de:/var/www/sunflower-theme.de/updateserver/
+      - name: rsync zipfile, version and changelog
+        run: rsync -z -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" ../sunflower.zip version.txt changelog.html tom@sharepicgenerator.de:/var/www/sunflower-theme.de/updateserver/
 
      

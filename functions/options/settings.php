@@ -189,22 +189,40 @@ class SunflowerSettingsPage
         );    
 
         add_settings_field(
+            'sunflower_hide_prev_next', // ID
+            __('hide previous and next links', 'sunflower'), // Title 
+            array( $this, 'sunflower_checkbox_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_layout', // Section   
+            ['sunflower_hide_prev_next', __('hide previous and next links', 'sunflower')]
+        );    
+
+        add_settings_field(
             'sunflower_contact_form_to', // ID
             __('to-field for contact-forms', 'sunflower'), // Title 
             array( $this, 'sunflower_contact_form_to' ), // Callback
             'sunflower-setting-admin', // Page
             'sunflower_layout', // Section   
             ['sunflower_contact_form_to', __('to-field for contact-forms', 'sunflower')]
-        );      
-        
-        // add_settings_field(
-        //     'sunflower_header_layout', // ID
-        //     __('Use this header layout', 'sunflower'), // Title 
-        //     array( $this, 'sunflower_header_layout' ), // Callback
-        //     'sunflower-setting-admin', // Page
-        //     'sunflower_layout', // Section   
-        //     ['sunflower_header_layout', __('Use this header layout', 'sunflower')]
-        // );    
+        );
+
+        add_settings_field(
+            'sunflower_main_menu_item_is_placeholder', // ID
+            __('items in menu', 'sunflower'), // Title
+            array( $this, 'sunflower_checkbox_callback' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_layout', // Section
+            ['sunflower_main_menu_item_is_placeholder', __('items with href=# in the main menu are placeholders for submenu', 'sunflower')]
+        );
+
+        add_settings_field(
+            'sunflower_header_layout', // ID
+            __('Use this header layout', 'sunflower'), // Title 
+            array( $this, 'sunflower_header_layout' ), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_layout', // Section   
+            ['sunflower_header_layout', __('Use this header layout', 'sunflower')]
+        );    
 
 
       

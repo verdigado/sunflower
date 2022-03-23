@@ -1,5 +1,6 @@
 <?php
-function sunflower_add_meta_boxes() {
+function sunflower_add_meta_boxes()
+{
     // see https://developer.wordpress.org/reference/functions/add_meta_box for a full explanation of each property
     add_meta_box(
         "sunflower_meta_box_layout", // div id containing rendered fields
@@ -19,41 +20,44 @@ function sunflower_add_meta_boxes() {
         "high" // placement priority
     );
 }
-add_action( "admin_init", "sunflower_add_meta_boxes" );
+add_action("admin_init", "sunflower_add_meta_boxes");
 
-function save_sunflower_meta_boxes(){
+function save_sunflower_meta_boxes()
+{
     global $post;
 
-    if ( !isset($post->ID ) ) {
+    if (!isset($post->ID) ) {
         return;
     }
 
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
         return;
     }
-    if ( get_post_status( $post->ID ) === 'auto-draft' ) {
+    if (get_post_status($post->ID) === 'auto-draft' ) {
         return;
     }
 
-    update_post_meta( $post->ID, "_sunflower_styled_layout", sanitize_text_field( @$_POST[ "_sunflower_styled_layout" ] ) );    
-    update_post_meta( $post->ID, "_sunflower_roofline", sanitize_text_field( @$_POST[ "_sunflower_roofline" ] ) );
-    update_post_meta( $post->ID, "_sunflower_metadata", @$_POST[ "sunflower-meta-data" ] );
+    update_post_meta($post->ID, "_sunflower_styled_layout", sanitize_text_field(@$_POST[ "_sunflower_styled_layout" ]));    
+    update_post_meta($post->ID, "_sunflower_roofline", sanitize_text_field(@$_POST[ "_sunflower_roofline" ]));
+    update_post_meta($post->ID, "_sunflower_metadata", @$_POST[ "sunflower-meta-data" ]);
 
 
 }
-add_action( 'save_post', 'save_sunflower_meta_boxes' );
+add_action('save_post', 'save_sunflower_meta_boxes');
 
-function sunflower_meta_box_layout(){
+function sunflower_meta_box_layout()
+{
     global $post;
-    $custom = get_post_custom( $post->ID );
+    $custom = get_post_custom($post->ID);
 
 
-    if( isset( $custom['_sunflower_styled_layout'][0]) ){
+    if(isset($custom['_sunflower_styled_layout'][0]) ) {
         $checked = ($custom['_sunflower_styled_layout'][0]) ? 'checked': '';
     } else {
         $checked = '';
     }
-    printf('
+    printf(
+        '
     <div class="components-panel__row">
         <div class="components-base-control__field">
             <span class="components-checkbox-control__input-container">
@@ -63,46 +67,51 @@ function sunflower_meta_box_layout(){
             <div><small>%s</small></div>
         </div>
     </div>',
-    $checked,
-    __('Styled layout', 'sunflower'),
-    __('do not show title, add and remove margins. e.g. for the homepage', 'sunflower')
+        $checked,
+        __('Styled layout', 'sunflower'),
+        __('do not show title, add and remove margins. e.g. for the homepage', 'sunflower')
     );
 
 }
 
-function sunflower_meta_box_metadata(){
+function sunflower_meta_box_metadata()
+{
     global $post;
-    $custom = get_post_custom( $post->ID );
+    $custom = get_post_custom($post->ID);
 
     echo '<div class="">';
-    printf('<h3>%s</h3>',__('Roofline', 'sunflower'));
+    printf('<h3>%s</h3>', __('Roofline', 'sunflower'));
 
     echo '<div><input name="_sunflower_roofline" value="' . @$custom['_sunflower_roofline'][0] .'" class="components-text-control__input">';
     echo '</div></div>';
 
     echo '<div class="">';
-    printf('<h3>%s</h3>',__('Metadata', 'sunflower'));
-    printf('<p>%s</p>',__('use Shift + Enter to prevent line between', 'sunflower'));
+    printf('<h3>%s</h3>', __('Metadata', 'sunflower'));
+    printf('<p>%s</p>', __('use Shift + Enter to prevent line between', 'sunflower'));
 
-    wp_editor( @$custom['_sunflower_metadata'][0], 'sunflower-meta-data', array(
+    wp_editor(
+        @$custom['_sunflower_metadata'][0], 'sunflower-meta-data', array(
         'textarea_rows' => '5',
         'media_buttons' => false
-    ));
+        )
+    );
     echo '</div>';
 
 }
 
-add_filter( 'get_the_archive_title', function ($title) {    
-    if ( is_category() ) {    
-            $title = single_cat_title( '', false );    
-        } elseif ( is_tag() ) {    
-            $title = single_tag_title( '', false );    
-        } elseif ( is_author() ) {    
+add_filter(
+    'get_the_archive_title', function ($title) {    
+        if (is_category() ) {    
+            $title = single_cat_title('', false);    
+        } elseif (is_tag() ) {    
+            $title = single_tag_title('', false);    
+        } elseif (is_author() ) {    
             $title = '<span class="vcard">' . get_the_author() . '</span>' ;    
-        } elseif ( is_tax() ) { //for custom post types
-            $title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
+        } elseif (is_tax() ) { //for custom post types
+            $title = sprintf(__('%1$s'), single_term_title('', false));
         } elseif (is_post_type_archive()) {
-            $title = post_type_archive_title( '', false );
+            $title = post_type_archive_title('', false);
         }
-    return $title;    
-});
+        return $title;    
+    }
+);

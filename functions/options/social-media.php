@@ -89,7 +89,15 @@ class SunflowerSocialMediaSettingsPage
             __('Social Sharers', 'sunflower'), // Title
             array( $this, 'print_section_info_sharers'), // Callback
             'sunflower-setting-social-media-options' // Page
-        );  
+        );
+
+        add_settings_field(
+            'sunflower_open_graph_fallback_image', // ID
+            __('Open graph fallback image', 'sunflower'), // Title
+            array( $this, 'sunflower_open_graph_fallback_image' ), // Callback
+            'sunflower-setting-social-media-options', // Page
+            'sunflower_social_media_sharers' // Section
+        );
 
         add_settings_field(
             'sunflower_sharer_twitter', // ID
@@ -199,6 +207,14 @@ class SunflowerSocialMediaSettingsPage
        Wenn die URL fehlt, wird nichts verlinkt.
 
         </div>';
+    }
+
+    public function sunflower_open_graph_fallback_image(){
+        printf(
+            '<input id="sunflower_open_graph_fallback_image" name="sunflower_social_media_options[sunflower_open_graph_fallback_image]" value="%s">',
+            isset( $this->options['sunflower_open_graph_fallback_image'] ) ? $this->options['sunflower_open_graph_fallback_image'] : ''
+        );
+
     }
 }
 

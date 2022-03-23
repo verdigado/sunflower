@@ -44,6 +44,13 @@ archive-loop article {
 }
 ```
 
+## Sehr lange Menüs scrollbar machen
+```
+.navbar-main.stuck {
+    position: relative;
+}
+```
+
 ## Eigene Klassennamen
  - .has-shadow: erzeugt Schatten
  - .no-link: Keine Linkfarbe
