@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2022-03-04T09:32:59+01:00\n"
-"PO-Revision-Date: 2022-03-04 09:33+0100\n"
+"POT-Creation-Date: 2022-03-23T18:50:49+01:00\n"
+"PO-Revision-Date: 2022-03-23 18:51+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -46,42 +46,42 @@ msgid ""
 "below or a search?"
 msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
 
-#: archive-sunflower_event.php:33
+#: archive-sunflower_event.php:39
 msgid "Events archive"
 msgstr "Vergangene Veranstaltungen"
 
-#: archive-sunflower_event.php:33 functions/events.php:26
+#: archive-sunflower_event.php:39 functions/events.php:29
 #: functions/options/events.php:30 functions/options/events.php:31
 #: functions/options/events.php:209
 msgid "Events"
 msgstr "Termine"
 
-#: archive-sunflower_event.php:45
+#: archive-sunflower_event.php:51
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:47 functions/blocks/next-events.php:18
+#: archive-sunflower_event.php:53 functions/blocks/next-events.php:18
 msgid "all events"
 msgstr "Alle Termine"
 
-#: archive-sunflower_event.php:49
+#: archive-sunflower_event.php:55
 msgid "Archive"
 msgstr "Archiv"
 
-#: archive-sunflower_event.php:55 functions/events.php:179
+#: archive-sunflower_event.php:61 functions/events.php:190
 #: functions/options/events.php:186
 msgid "Map"
 msgstr "Landkarte"
 
-#: archive-sunflower_event.php:119
+#: archive-sunflower_event.php:128
 msgid "more info"
 msgstr "mehr Infos"
 
-#: archive-sunflower_event.php:174 single-sunflower_event.php:105
+#: archive-sunflower_event.php:186 single-sunflower_event.php:113
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: archive-sunflower_event.php:177 single-sunflower_event.php:108
+#: archive-sunflower_event.php:189 single-sunflower_event.php:116
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
@@ -89,9 +89,13 @@ msgstr ""
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: archive-sunflower_event.php:181 single-sunflower_event.php:116
+#: archive-sunflower_event.php:193 single-sunflower_event.php:124
 msgid "Show map"
 msgstr "Kartendaten laden"
+
+#: archive-sunflower_event.php:203
+msgid "calendar in ics-format"
+msgstr "Kalender im ics-Format"
 
 #: archive.php:65 index.php:71 search.php:68 single.php:46
 msgid "previous"
@@ -123,23 +127,23 @@ msgstr ""
 "Speicherung und Verarbeitung Ihrer Daten durch diese Website einverstanden. "
 "Weiteres entnehmen Sie bitte der <a href=\"%s\">Datenschutzerklärung</a>."
 
-#: comments.php:55
+#: comments.php:56
 msgid "One comment"
 msgstr "Ein Kommentar"
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:59
+#: comments.php:60
 msgctxt "context"
 msgid "%1$s commment"
 msgid_plural "%1$s comments"
 msgstr[0] "Ein Kommentar"
 msgstr[1] "%s Kommentare"
 
-#: comments.php:86
+#: comments.php:87
 msgid "Comments are closed."
 msgstr "Keine Kommentare möglich."
 
-#: functions/admin.php:18
+#: functions/admin.php:20
 msgid ""
 "Thank you for using sunflower theme. <a href='admin.php?"
 "page=sunflower_admin'>More information ca be found on the theme's setting "
@@ -148,13 +152,13 @@ msgstr ""
 "Danke, dass Du das Sunflower-Theme nutzt. <a href='admin.php?"
 "page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
-#: functions/admin.php:67 functions/block-patterns.php:11
-#: functions/blocks.php:35 functions/options/settings.php:24
+#: functions/admin.php:77 functions/block-patterns.php:11
+#: functions/blocks.php:41 functions/options/settings.php:24
 #: functions/options/settings.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
 
-#: functions/admin.php:92
+#: functions/admin.php:105
 msgid "Help for sunflowers events"
 msgstr "Hilfe für Sunflower-Termine"
 
@@ -175,109 +179,109 @@ msgstr "Nächste Termine"
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
-#: functions/colors.php:8
+#: functions/colors.php:9
 msgid "Magenta"
 msgstr "Magenta"
 
-#: functions/colors.php:13
+#: functions/colors.php:14
 msgid "Magenta 600"
 msgstr "Magenta 600"
 
-#: functions/colors.php:18
+#: functions/colors.php:19
 msgid "Green"
 msgstr "Grün"
 
-#: functions/colors.php:23
+#: functions/colors.php:24
 msgid "Green 800"
 msgstr "Grün 800"
 
-#: functions/colors.php:28
+#: functions/colors.php:29
 msgid "Green 550"
 msgstr "Grün 550"
 
-#: functions/colors.php:33
+#: functions/colors.php:34
 msgid "White"
 msgstr "Weiß"
 
-#: functions/colors.php:38
+#: functions/colors.php:39
 msgid "Yellow 500"
 msgstr "Gelb 500"
 
-#: functions/colors.php:43
+#: functions/colors.php:44
 msgid "Yellow 600"
 msgstr "Gelb 600"
 
-#: functions/colors.php:48
+#: functions/colors.php:49
 msgid "Blue 500"
 msgstr "Blau 500"
 
-#: functions/colors.php:53
+#: functions/colors.php:54
 msgid "Blue 600"
 msgstr "Blau 600"
 
-#: functions/colors.php:58
+#: functions/colors.php:59
 msgid "Gray 100"
 msgstr "Grau 100"
 
-#: functions/colors.php:63
+#: functions/colors.php:64
 msgid "Black 500"
 msgstr "Schwarz 500"
 
-#: functions/contact-form.php:6
+#: functions/contact-form.php:7
 msgid "Form not sent. Captcha wrong. Please try again."
 msgstr ""
 "Das Formular konnte nicht gesendet werden, weil die Rechnung (Captcha) "
 "falsch ist. Bitte versuchen Sie es noch einmal."
 
-#: functions/contact-form.php:15
+#: functions/contact-form.php:16
 msgid "Thank you. The form has been sent."
 msgstr "Vielen Dank. Das Formular wurde verschickt."
 
-#: functions/contact-form.php:18
+#: functions/contact-form.php:19
 msgid "New contact form"
 msgstr "Neues Kontaktformular"
 
-#: functions/events.php:5
+#: functions/events.php:6
 msgid "Startdate"
 msgstr "Startdatum"
 
-#: functions/events.php:6
+#: functions/events.php:7
 msgid "Enddate"
 msgstr "Enddatum"
 
-#: functions/events.php:7
+#: functions/events.php:8
 msgid "Whole day"
 msgstr "ganztägig"
 
-#: functions/events.php:8
+#: functions/events.php:9
 msgid "Location name"
 msgstr "Veranstaltungsort (Name)"
 
-#: functions/events.php:9
+#: functions/events.php:10
 msgid "Street"
 msgstr "Straße und Hausnr."
 
-#: functions/events.php:10
+#: functions/events.php:11
 msgid "City"
 msgstr "Stadt"
 
-#: functions/events.php:11
+#: functions/events.php:12
 msgid "Webinar"
 msgstr "Webinar"
 
-#: functions/events.php:12
+#: functions/events.php:13
 msgid "Organizer"
 msgstr "organisiert von"
 
-#: functions/events.php:13
+#: functions/events.php:14
 msgid "Organizer URL"
 msgstr "URL der Organisator*in"
 
-#: functions/events.php:27 functions/events.php:70
+#: functions/events.php:30 functions/events.php:76
 msgid "Event"
 msgstr "Termin"
 
-#: functions/events.php:137
+#: functions/events.php:147
 msgid ""
 "This event will be imported by remote ical-calendar. All changes here will "
 "be overwritten."
@@ -285,45 +289,45 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:180 functions/options/events.php:187
+#: functions/events.php:191 functions/options/events.php:187
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/events.php:181
+#: functions/events.php:192
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/events.php:388
+#: functions/events.php:423
 msgid "Event date"
 msgstr "Datum der Veranstaltung"
 
-#: functions/events.php:389
+#: functions/events.php:424
 msgid "Event location"
 msgstr "Ort"
 
-#: functions/metaboxes.php:6 functions/options/settings.php:160
+#: functions/metaboxes.php:7 functions/options/settings.php:160
 msgid "Layout"
 msgstr "Layout"
 
-#: functions/metaboxes.php:15 functions/metaboxes.php:84
+#: functions/metaboxes.php:16 functions/metaboxes.php:89
 msgid "Metadata"
 msgstr "Metadaten"
 
-#: functions/metaboxes.php:67
-msgid "Speziallayout, z.B. für Startseite"
-msgstr "Layout selbst gestalten"
+#: functions/metaboxes.php:71
+msgid "Styled layout"
+msgstr "gestyltes Layout"
 
-#: functions/metaboxes.php:68
+#: functions/metaboxes.php:72
 msgid "do not show title, add and remove margins. e.g. for the homepage"
 msgstr ""
 "versteckt den Titel und fügt Abstände ein bzw. löscht sie anderen Stellen. "
 "Setze diesen Haken z.B. für die Startseite."
 
-#: functions/metaboxes.php:78
+#: functions/metaboxes.php:83
 msgid "Roofline"
 msgstr "Dachzeile"
 
-#: functions/metaboxes.php:85
+#: functions/metaboxes.php:90
 msgid "use Shift + Enter to prevent line between"
 msgstr "Tippe Shift + Enter, um  Zwischenzeile zu verhindern."
 
@@ -438,161 +442,35 @@ msgstr "E-Mail"
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/pictureimport.php:57
+#: functions/pictureimport.php:59
 msgid "An error occurred. Could not import images"
 msgstr "Es ist ein Fehler aufgetreten. Die Bilder wurden nicht importiert."
 
-#: functions/plugin-activation.php:114
-msgid "Install Required Plugins"
-msgstr "Plugins installieren"
-
-#: functions/plugin-activation.php:115
-msgid "Install Plugins"
-msgstr "Plugins installieren"
-
-#: functions/plugin-activation.php:117
-msgid "Installing Plugin: %s"
-msgstr "Installing Plugin: %s"
-
-#: functions/plugin-activation.php:119
-msgid "Updating Plugin: %s"
-msgstr "Updating Plugin: %s"
-
-#: functions/plugin-activation.php:120
-msgid "Something went wrong with the plugin API."
-msgstr "Something went wrong with the plugin API."
-
-#: functions/plugin-activation.php:121
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] "This theme requires the following plugin: %1$s."
-msgstr[1] "This theme requires the following plugins: %1$s."
-
-#: functions/plugin-activation.php:127
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] "Dieses Theme empfiehlt das Plugin %1$s."
-msgstr[1] "Dieses Theme empfiehlt die Plugins %1$s."
-
-#: functions/plugin-activation.php:133
-msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgstr[0] ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgstr[1] ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-
-#: functions/plugin-activation.php:139
-msgid "There is an update available for: %1$s."
-msgid_plural "There are updates available for the following plugins: %1$s."
-msgstr[0] "There is an update available for: %1$s."
-msgstr[1] "There are updates available for the following plugins: %1$s."
-
-#: functions/plugin-activation.php:145
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] "The following required plugin is currently inactive: %1$s."
-msgstr[1] "The following required plugins are currently inactive: %1$s."
-
-#: functions/plugin-activation.php:151
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] "Folgendes empfohlenes Plugin ist inaktiv: %1$s."
-msgstr[1] "Folgende empfohlene Plugins sind inaktiv: %1$s."
-
-#: functions/plugin-activation.php:157
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] "Plugin installieren"
-msgstr[1] "Plugins installieren"
-
-#: functions/plugin-activation.php:162
-msgid "Begin updating plugin"
-msgid_plural "Begin updating plugins"
-msgstr[0] "Begin updating plugin"
-msgstr[1] "Begin updating plugins"
-
-#: functions/plugin-activation.php:167
-msgid "Begin activating plugin"
-msgid_plural "Begin activating plugins"
-msgstr[0] "Plugin aktivieren"
-msgstr[1] "Plugins aktivieren"
-
-#: functions/plugin-activation.php:172
-msgid "Return to Required Plugins Installer"
-msgstr "Return to Required Plugins Installer"
-
-#: functions/plugin-activation.php:173
-msgid "Plugin activated successfully."
-msgstr "Plugin aktiviert."
-
-#: functions/plugin-activation.php:174
-msgid "The following plugin was activated successfully:"
-msgstr "The following plugin was activated successfully:"
-
-#: functions/plugin-activation.php:176
-msgid "No action taken. Plugin %1$s was already active."
-msgstr "No action taken. Plugin %1$s was already active."
-
-#: functions/plugin-activation.php:178
-msgid ""
-"Plugin not activated. A higher version of %s is needed for this theme. "
-"Please update the plugin."
-msgstr ""
-"Plugin not activated. A higher version of %s is needed for this theme. "
-"Please update the plugin."
-
-#: functions/plugin-activation.php:180
-msgid "All plugins installed and activated successfully. %1$s"
-msgstr "All plugins installed and activated successfully. %1$s"
-
-#: functions/plugin-activation.php:181
-msgid "Dismiss this notice"
-msgstr "Hinweis nicht mehr anzeigen"
-
-#: functions/plugin-activation.php:182
-msgid ""
-"There are one or more required or recommended plugins to install, update or "
-"activate."
-msgstr ""
-"There are one or more required or recommended plugins to install, update or "
-"activate."
-
-#: functions/plugin-activation.php:183
-msgid "Please contact the administrator of this site for help."
-msgstr "Please contact the administrator of this site for help."
-
-#: functions/security.php:6
+#: functions/security.php:7
 msgid "Login error. Did you mistype s.th.?"
 msgstr "Loginfehler. Haben Sie sich vertippt?"
 
-#: functions/_s.php:54
+#: functions/_s.php:55
 msgid "Mainmenu"
 msgstr "Hauptmenü"
 
-#: functions/_s.php:55
+#: functions/_s.php:56
 msgid "Topmenu"
 msgstr "Menü am oberen Rand"
 
-#: functions/_s.php:56
+#: functions/_s.php:57
 msgid "Footer Menu 1"
 msgstr "Fußzeilenmenü 1"
 
-#: functions/_s.php:57
+#: functions/_s.php:58
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/_s.php:105
+#: functions/_s.php:108
 msgid "Sidebar"
 msgstr "Seitenleiste"
 
-#: functions/_s.php:107
+#: functions/_s.php:110
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
@@ -600,7 +478,7 @@ msgstr "Widgets hier hinzufügen."
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
 
-#: inc/class-wp-bootstrap-navwalker.php:392
+#: inc/class-wp-bootstrap-navwalker.php:404
 msgid "Add a menu"
 msgstr "Menü erstellen"
 
@@ -632,34 +510,34 @@ msgstr "Sende E-Mail"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
-#: single-sunflower_event.php:49
+#: single-sunflower_event.php:52
 msgid "o'clock"
 msgstr "Uhr"
 
-#: single-sunflower_event.php:68
+#: single-sunflower_event.php:75
 msgid "Link to webinar"
 msgstr "Link zur Online-Teilnahme (Webinar)"
 
-#: single-sunflower_event.php:74 single-sunflower_event.php:76
+#: single-sunflower_event.php:81 single-sunflower_event.php:83
 msgid "organized by"
 msgstr "organisiert von"
 
-#: single-sunflower_event.php:83
+#: single-sunflower_event.php:91
 msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/archive-event.php:58 template-parts/content-archive.php:50
-#: template-parts/content.php:76
+#: template-parts/archive-event.php:58 template-parts/content-archive.php:52
+#: template-parts/content.php:77
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: template-parts/content-archive.php:63 template-parts/content-page.php:31
-#: template-parts/content.php:89
+#: template-parts/content-archive.php:65 template-parts/content-page.php:31
+#: template-parts/content.php:90
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: template-parts/content-archive.php:77
+#: template-parts/content-archive.php:79
 msgid "Continue reading"
 msgstr "weiterlesen"
 
@@ -698,9 +576,13 @@ msgstr ""
 msgid "none"
 msgstr "keine"
 
-#: template-parts/header-standard.php:21 template-parts/header-standard.php:76
+#: template-parts/header-standard.php:23 template-parts/header-standard.php:80
 msgid "Search"
 msgstr "Suche"
+
+#: template-parts/header-standard.php:27
+msgid "show search"
+msgstr "zeige Suche"
 
 #: template-parts/related-posts.php:7
 msgid "Related posts"
@@ -725,6 +607,113 @@ msgstr "Maximale Anzahl angezeigter Termine"
 #: build/index.js:1 src/next-events.js:80
 msgid "Count"
 msgstr "Anzahl"
+
+#~ msgid "Speziallayout, z.B. für Startseite"
+#~ msgstr "Layout selbst gestalten"
+
+#~ msgid "Install Required Plugins"
+#~ msgstr "Plugins installieren"
+
+#~ msgid "Install Plugins"
+#~ msgstr "Plugins installieren"
+
+#~ msgid "Installing Plugin: %s"
+#~ msgstr "Installing Plugin: %s"
+
+#~ msgid "Updating Plugin: %s"
+#~ msgstr "Updating Plugin: %s"
+
+#~ msgid "Something went wrong with the plugin API."
+#~ msgstr "Something went wrong with the plugin API."
+
+#~ msgid "This theme requires the following plugin: %1$s."
+#~ msgid_plural "This theme requires the following plugins: %1$s."
+#~ msgstr[0] "This theme requires the following plugin: %1$s."
+#~ msgstr[1] "This theme requires the following plugins: %1$s."
+
+#~ msgid "This theme recommends the following plugin: %1$s."
+#~ msgid_plural "This theme recommends the following plugins: %1$s."
+#~ msgstr[0] "Dieses Theme empfiehlt das Plugin %1$s."
+#~ msgstr[1] "Dieses Theme empfiehlt die Plugins %1$s."
+
+#~ msgid ""
+#~ "The following plugin needs to be updated to its latest version to ensure "
+#~ "maximum compatibility with this theme: %1$s."
+#~ msgid_plural ""
+#~ "The following plugins need to be updated to their latest version to "
+#~ "ensure maximum compatibility with this theme: %1$s."
+#~ msgstr[0] ""
+#~ "The following plugin needs to be updated to its latest version to ensure "
+#~ "maximum compatibility with this theme: %1$s."
+#~ msgstr[1] ""
+#~ "The following plugins need to be updated to their latest version to "
+#~ "ensure maximum compatibility with this theme: %1$s."
+
+#~ msgid "There is an update available for: %1$s."
+#~ msgid_plural "There are updates available for the following plugins: %1$s."
+#~ msgstr[0] "There is an update available for: %1$s."
+#~ msgstr[1] "There are updates available for the following plugins: %1$s."
+
+#~ msgid "The following required plugin is currently inactive: %1$s."
+#~ msgid_plural "The following required plugins are currently inactive: %1$s."
+#~ msgstr[0] "The following required plugin is currently inactive: %1$s."
+#~ msgstr[1] "The following required plugins are currently inactive: %1$s."
+
+#~ msgid "The following recommended plugin is currently inactive: %1$s."
+#~ msgid_plural ""
+#~ "The following recommended plugins are currently inactive: %1$s."
+#~ msgstr[0] "Folgendes empfohlenes Plugin ist inaktiv: %1$s."
+#~ msgstr[1] "Folgende empfohlene Plugins sind inaktiv: %1$s."
+
+#~ msgid "Begin installing plugin"
+#~ msgid_plural "Begin installing plugins"
+#~ msgstr[0] "Plugin installieren"
+#~ msgstr[1] "Plugins installieren"
+
+#~ msgid "Begin updating plugin"
+#~ msgid_plural "Begin updating plugins"
+#~ msgstr[0] "Begin updating plugin"
+#~ msgstr[1] "Begin updating plugins"
+
+#~ msgid "Begin activating plugin"
+#~ msgid_plural "Begin activating plugins"
+#~ msgstr[0] "Plugin aktivieren"
+#~ msgstr[1] "Plugins aktivieren"
+
+#~ msgid "Return to Required Plugins Installer"
+#~ msgstr "Return to Required Plugins Installer"
+
+#~ msgid "Plugin activated successfully."
+#~ msgstr "Plugin aktiviert."
+
+#~ msgid "The following plugin was activated successfully:"
+#~ msgstr "The following plugin was activated successfully:"
+
+#~ msgid "No action taken. Plugin %1$s was already active."
+#~ msgstr "No action taken. Plugin %1$s was already active."
+
+#~ msgid ""
+#~ "Plugin not activated. A higher version of %s is needed for this theme. "
+#~ "Please update the plugin."
+#~ msgstr ""
+#~ "Plugin not activated. A higher version of %s is needed for this theme. "
+#~ "Please update the plugin."
+
+#~ msgid "All plugins installed and activated successfully. %1$s"
+#~ msgstr "All plugins installed and activated successfully. %1$s"
+
+#~ msgid "Dismiss this notice"
+#~ msgstr "Hinweis nicht mehr anzeigen"
+
+#~ msgid ""
+#~ "There are one or more required or recommended plugins to install, update "
+#~ "or activate."
+#~ msgstr ""
+#~ "There are one or more required or recommended plugins to install, update "
+#~ "or activate."
+
+#~ msgid "Please contact the administrator of this site for help."
+#~ msgstr "Please contact the administrator of this site for help."
 
 #~ msgctxt "list item separator"
 #~ msgid " "
@@ -815,9 +804,6 @@ msgstr "Anzahl"
 
 #~ msgid "How should the thumbnail be displayed on archive pages?"
 #~ msgstr "Wie sollen Vorschaubilder in Übersichtsseiten dargestellt werden?"
-
-#~ msgid "Show sidebar"
-#~ msgstr "Seitenleiste"
 
 #~ msgid "Post thumbnails in archives"
 #~ msgstr "Wie sollen Vorschaubilder in Übersichtsseiten dargestellt werden?"

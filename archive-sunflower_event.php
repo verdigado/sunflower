@@ -7,6 +7,12 @@
  * @package sunflower
  */
 
+if (isset($_GET['format']) AND $_GET['format'] === 'ics' ) {
+    define('SUNFLOWER_ICAL_ALL_EVENTS', true);
+    include_once 'functions/ical.php';
+    die();
+}
+
 get_header();
 
 $is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
@@ -34,7 +40,7 @@ $is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
                                 ?>
                             </h1>
                                 <?php
-                                if($sunflower_events_description = get_sunflower_setting('sunflower_events_description') ) {
+                                if ($sunflower_events_description = get_sunflower_setting('sunflower_events_description') ) {
                                     printf('<p>%s</p>', $sunflower_events_description);
                                 }
                                 ?>
@@ -43,15 +49,15 @@ $is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
                         <div class="filter-button-group mb-5 text-center">
                         <?php if ($is_event_archive) {
                             printf('<a href="?archive=false" class="eventlist" >%s</a>', __('to upcoming events', 'sunflower'));
-                        }else{
+                        } else {
                             printf('<button class="filter filter-active" data-filter="*">%s</button>', __('all events', 'sunflower'));
-                            if(get_sunflower_setting('sunflower_show_event_archive') ) { 
+                            if (get_sunflower_setting('sunflower_show_event_archive') ) { 
                                 printf('<a href="?archive=true" class="eventlist" >%s</a>', __('Archive', 'sunflower'));
                             }
                         }
                         ?>
 
-                        <?php if(get_sunflower_setting('sunflower_show_overall_map') AND !$is_event_archive) { ?>
+                        <?php if (get_sunflower_setting('sunflower_show_overall_map') AND !$is_event_archive) { ?>
                                 <button class="filter" data-filter=".map"><?php _e('Map', 'sunflower'); ?></button>
                         <?php } ?>
 
@@ -64,8 +70,8 @@ $is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
                             ]
                         );
 
-                        if(!$is_event_archive) {
-                            foreach($terms AS $term){
+                        if (!$is_event_archive) {
+                            foreach ($terms AS $term) {
                                 printf('<button class="filter" data-filter=".%s">%s</button>', $term->slug, $term->name);
                             }
                         }
@@ -100,15 +106,15 @@ $is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
                             $_sunflower_event_location_city = @get_post_meta($post->ID, '_sunflower_event_location_city')[0] ?: false;
                             list($weekday, $days, $time ) = sunflower_prepare_event_time_data($post);
                             $location = $_sunflower_event_location_city;
-                            if($_sunflower_event_location_city) {
+                            if ($_sunflower_event_location_city) {
                                 $location .= ', ' . $_sunflower_event_location_city;
                             }
 
-                            if($location) {
+                            if ($location) {
                                 $location = ' | ' . $location;
                             }
 
-                            if($_sunflower_event_lat AND $_sunflower_event_lon) {
+                            if ($_sunflower_event_lat AND $_sunflower_event_lon) {
                                 $map[] = (object) [
                                 'lat' => $_sunflower_event_lat,
                                 'lon' => $_sunflower_event_lon,
@@ -143,7 +149,7 @@ $is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
                         $lowerLon = 90;
                         $upperLon = 0;
 
-                        foreach($map AS $marker){
+                        foreach ($map AS $marker) {
                             printf(
                                 "map.marker.push( { 'lat' : %s, 'lon': %s, 'content': '%s'} );",
                                 $marker->lat,
@@ -191,6 +197,12 @@ $is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
                     </div>
 
                     </div> <!-- event-list -->
+
+                    <?php
+                    if (!$is_event_archive) {
+                        printf('<div class="row"><div class="col-12 text-end"><a href="?format=ics" class="small">%s</a></div></div>', __('calendar in ics-format', 'sunflower'));
+                    }
+                    ?>
 
                 </main><!-- #main -->
             </div>

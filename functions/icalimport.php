@@ -40,9 +40,9 @@ function sunflower_icalimport( $url = false, $auto_categories = false)
     $ids_from_remote = array();
     $count_recurring_events = [];
 
-    foreach ($events as $event){
+    foreach ($events as $event) {
         $uid = $event->uid;
-        echo $event->summary;
+       
         if(isset($event->rrule)) {
             if(isset($count_recurring_events[$uid])) {
                 $count_recurring_events[$uid]++;
