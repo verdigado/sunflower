@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 1.6.1\n"
+"Project-Id-Version: sunflower 1.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-04T09:32:59+01:00\n"
+"POT-Creation-Date: 2022-03-23T18:50:49+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: sunflower\n"
@@ -42,54 +42,58 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
 msgstr ""
 
-#: archive-sunflower_event.php:33
+#: archive-sunflower_event.php:39
 msgid "Events archive"
 msgstr ""
 
-#: archive-sunflower_event.php:33
-#: functions/events.php:26
+#: archive-sunflower_event.php:39
+#: functions/events.php:29
 #: functions/options/events.php:30
 #: functions/options/events.php:31
 #: functions/options/events.php:209
 msgid "Events"
 msgstr ""
 
-#: archive-sunflower_event.php:45
+#: archive-sunflower_event.php:51
 msgid "to upcoming events"
 msgstr ""
 
-#: archive-sunflower_event.php:47
+#: archive-sunflower_event.php:53
 #: functions/blocks/next-events.php:18
 msgid "all events"
 msgstr ""
 
-#: archive-sunflower_event.php:49
+#: archive-sunflower_event.php:55
 msgid "Archive"
 msgstr ""
 
-#: archive-sunflower_event.php:55
-#: functions/events.php:179
+#: archive-sunflower_event.php:61
+#: functions/events.php:190
 #: functions/options/events.php:186
 msgid "Map"
 msgstr ""
 
-#: archive-sunflower_event.php:119
+#: archive-sunflower_event.php:128
 msgid "more info"
 msgstr ""
 
-#: archive-sunflower_event.php:174
-#: single-sunflower_event.php:105
+#: archive-sunflower_event.php:186
+#: single-sunflower_event.php:113
 msgid "Show event location on map"
 msgstr ""
 
-#: archive-sunflower_event.php:177
-#: single-sunflower_event.php:108
+#: archive-sunflower_event.php:189
+#: single-sunflower_event.php:116
 msgid "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
 
-#: archive-sunflower_event.php:181
-#: single-sunflower_event.php:116
+#: archive-sunflower_event.php:193
+#: single-sunflower_event.php:124
 msgid "Show map"
+msgstr ""
+
+#: archive-sunflower_event.php:203
+msgid "calendar in ics-format"
 msgstr ""
 
 #: archive.php:65
@@ -122,35 +126,35 @@ msgstr ""
 msgid "Your mail will not be published. Required fields are marked with a *. For more info see <a href=\"%s\">privacy</a>"
 msgstr ""
 
-#: comments.php:55
+#: comments.php:56
 msgid "One comment"
 msgstr ""
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:59
+#: comments.php:60
 msgctxt "context"
 msgid "%1$s commment"
 msgid_plural "%1$s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:86
+#: comments.php:87
 msgid "Comments are closed."
 msgstr ""
 
-#: functions/admin.php:18
+#: functions/admin.php:20
 msgid "Thank you for using sunflower theme. <a href='admin.php?page=sunflower_admin'>More information ca be found on the theme's setting page</a>."
 msgstr ""
 
-#: functions/admin.php:67
+#: functions/admin.php:77
 #: functions/block-patterns.php:11
-#: functions/blocks.php:35
+#: functions/blocks.php:41
 #: functions/options/settings.php:24
 #: functions/options/settings.php:25
 msgid "Sunflower"
 msgstr ""
 
-#: functions/admin.php:92
+#: functions/admin.php:105
 msgid "Help for sunflowers events"
 msgstr ""
 
@@ -174,151 +178,151 @@ msgstr ""
 msgid "Currently there are no coming events."
 msgstr ""
 
-#: functions/colors.php:8
+#: functions/colors.php:9
 msgid "Magenta"
 msgstr ""
 
-#: functions/colors.php:13
+#: functions/colors.php:14
 msgid "Magenta 600"
 msgstr ""
 
-#: functions/colors.php:18
+#: functions/colors.php:19
 msgid "Green"
 msgstr ""
 
-#: functions/colors.php:23
+#: functions/colors.php:24
 msgid "Green 800"
 msgstr ""
 
-#: functions/colors.php:28
+#: functions/colors.php:29
 msgid "Green 550"
 msgstr ""
 
-#: functions/colors.php:33
+#: functions/colors.php:34
 msgid "White"
 msgstr ""
 
-#: functions/colors.php:38
+#: functions/colors.php:39
 msgid "Yellow 500"
 msgstr ""
 
-#: functions/colors.php:43
+#: functions/colors.php:44
 msgid "Yellow 600"
 msgstr ""
 
-#: functions/colors.php:48
+#: functions/colors.php:49
 msgid "Blue 500"
 msgstr ""
 
-#: functions/colors.php:53
+#: functions/colors.php:54
 msgid "Blue 600"
 msgstr ""
 
-#: functions/colors.php:58
+#: functions/colors.php:59
 msgid "Gray 100"
 msgstr ""
 
-#: functions/colors.php:63
+#: functions/colors.php:64
 msgid "Black 500"
 msgstr ""
 
-#: functions/contact-form.php:6
+#: functions/contact-form.php:7
 msgid "Form not sent. Captcha wrong. Please try again."
 msgstr ""
 
-#: functions/contact-form.php:15
+#: functions/contact-form.php:16
 msgid "Thank you. The form has been sent."
 msgstr ""
 
-#: functions/contact-form.php:18
+#: functions/contact-form.php:19
 msgid "New contact form"
 msgstr ""
 
-#: functions/events.php:5
+#: functions/events.php:6
 msgid "Startdate"
 msgstr ""
 
-#: functions/events.php:6
+#: functions/events.php:7
 msgid "Enddate"
 msgstr ""
 
-#: functions/events.php:7
+#: functions/events.php:8
 msgid "Whole day"
 msgstr ""
 
-#: functions/events.php:8
+#: functions/events.php:9
 msgid "Location name"
 msgstr ""
 
-#: functions/events.php:9
+#: functions/events.php:10
 msgid "Street"
 msgstr ""
 
-#: functions/events.php:10
+#: functions/events.php:11
 msgid "City"
 msgstr ""
 
-#: functions/events.php:11
+#: functions/events.php:12
 msgid "Webinar"
 msgstr ""
 
-#: functions/events.php:12
+#: functions/events.php:13
 msgid "Organizer"
 msgstr ""
 
-#: functions/events.php:13
+#: functions/events.php:14
 msgid "Organizer URL"
 msgstr ""
 
-#: functions/events.php:27
-#: functions/events.php:70
+#: functions/events.php:30
+#: functions/events.php:76
 msgid "Event"
 msgstr ""
 
-#: functions/events.php:137
+#: functions/events.php:147
 msgid "This event will be imported by remote ical-calendar. All changes here will be overwritten."
 msgstr ""
 
-#: functions/events.php:180
+#: functions/events.php:191
 #: functions/options/events.php:187
 msgid "load map"
 msgstr ""
 
-#: functions/events.php:181
+#: functions/events.php:192
 msgid "delete map"
 msgstr ""
 
-#: functions/events.php:388
+#: functions/events.php:423
 msgid "Event date"
 msgstr ""
 
-#: functions/events.php:389
+#: functions/events.php:424
 msgid "Event location"
 msgstr ""
 
-#: functions/metaboxes.php:6
+#: functions/metaboxes.php:7
 #: functions/options/settings.php:160
 msgid "Layout"
 msgstr ""
 
-#: functions/metaboxes.php:15
-#: functions/metaboxes.php:84
+#: functions/metaboxes.php:16
+#: functions/metaboxes.php:89
 msgid "Metadata"
 msgstr ""
 
-#: functions/metaboxes.php:67
+#: functions/metaboxes.php:71
 msgid "Styled layout"
 msgstr ""
 
-#: functions/metaboxes.php:68
+#: functions/metaboxes.php:72
 msgid "do not show title, add and remove margins. e.g. for the homepage"
 msgstr ""
 
-#: functions/metaboxes.php:78
+#: functions/metaboxes.php:83
 msgid "Roofline"
 msgstr ""
 
-#: functions/metaboxes.php:85
+#: functions/metaboxes.php:90
 msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
@@ -449,145 +453,35 @@ msgstr ""
 msgid "Mail"
 msgstr ""
 
-#: functions/pictureimport.php:57
+#: functions/pictureimport.php:59
 msgid "An error occurred. Could not import images"
 msgstr ""
 
-#: functions/plugin-activation.php:114
-msgid "Install Required Plugins"
-msgstr ""
-
-#: functions/plugin-activation.php:115
-msgid "Install Plugins"
-msgstr ""
-
-#: functions/plugin-activation.php:117
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#: functions/plugin-activation.php:119
-msgid "Updating Plugin: %s"
-msgstr ""
-
-#: functions/plugin-activation.php:120
-msgid "Something went wrong with the plugin API."
-msgstr ""
-
-#: functions/plugin-activation.php:121
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions/plugin-activation.php:127
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions/plugin-activation.php:133
-msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
-msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions/plugin-activation.php:139
-msgid "There is an update available for: %1$s."
-msgid_plural "There are updates available for the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions/plugin-activation.php:145
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions/plugin-activation.php:151
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions/plugin-activation.php:157
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions/plugin-activation.php:162
-msgid "Begin updating plugin"
-msgid_plural "Begin updating plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions/plugin-activation.php:167
-msgid "Begin activating plugin"
-msgid_plural "Begin activating plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: functions/plugin-activation.php:172
-msgid "Return to Required Plugins Installer"
-msgstr ""
-
-#: functions/plugin-activation.php:173
-msgid "Plugin activated successfully."
-msgstr ""
-
-#: functions/plugin-activation.php:174
-msgid "The following plugin was activated successfully:"
-msgstr ""
-
-#: functions/plugin-activation.php:176
-msgid "No action taken. Plugin %1$s was already active."
-msgstr ""
-
-#: functions/plugin-activation.php:178
-msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
-msgstr ""
-
-#: functions/plugin-activation.php:180
-msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
-
-#: functions/plugin-activation.php:181
-msgid "Dismiss this notice"
-msgstr ""
-
-#: functions/plugin-activation.php:182
-msgid "There are one or more required or recommended plugins to install, update or activate."
-msgstr ""
-
-#: functions/plugin-activation.php:183
-msgid "Please contact the administrator of this site for help."
-msgstr ""
-
-#: functions/security.php:6
+#: functions/security.php:7
 msgid "Login error. Did you mistype s.th.?"
 msgstr ""
 
-#: functions/_s.php:54
+#: functions/_s.php:55
 msgid "Mainmenu"
 msgstr ""
 
-#: functions/_s.php:55
+#: functions/_s.php:56
 msgid "Topmenu"
 msgstr ""
 
-#: functions/_s.php:56
+#: functions/_s.php:57
 msgid "Footer Menu 1"
 msgstr ""
 
-#: functions/_s.php:57
+#: functions/_s.php:58
 msgid "Footer Menu 2"
 msgstr ""
 
-#: functions/_s.php:105
+#: functions/_s.php:108
 msgid "Sidebar"
 msgstr ""
 
-#: functions/_s.php:107
+#: functions/_s.php:110
 msgid "Add widgets here."
 msgstr ""
 
@@ -595,7 +489,7 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/class-wp-bootstrap-navwalker.php:392
+#: inc/class-wp-bootstrap-navwalker.php:404
 msgid "Add a menu"
 msgstr ""
 
@@ -627,37 +521,37 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: single-sunflower_event.php:49
+#: single-sunflower_event.php:52
 msgid "o'clock"
 msgstr ""
 
-#: single-sunflower_event.php:68
+#: single-sunflower_event.php:75
 msgid "Link to webinar"
 msgstr ""
 
-#: single-sunflower_event.php:74
-#: single-sunflower_event.php:76
+#: single-sunflower_event.php:81
+#: single-sunflower_event.php:83
 msgid "organized by"
 msgstr ""
 
-#: single-sunflower_event.php:83
+#: single-sunflower_event.php:91
 msgid "Download as ics"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58
-#: template-parts/content-archive.php:50
-#: template-parts/content.php:76
+#: template-parts/content-archive.php:52
+#: template-parts/content.php:77
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: template-parts/content-archive.php:63
+#: template-parts/content-archive.php:65
 #: template-parts/content-page.php:31
-#: template-parts/content.php:89
+#: template-parts/content.php:90
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-archive.php:77
+#: template-parts/content-archive.php:79
 msgid "Continue reading"
 msgstr ""
 
@@ -687,9 +581,13 @@ msgstr ""
 msgid "none"
 msgstr ""
 
-#: template-parts/header-standard.php:21
-#: template-parts/header-standard.php:76
+#: template-parts/header-standard.php:23
+#: template-parts/header-standard.php:80
 msgid "Search"
+msgstr ""
+
+#: template-parts/header-standard.php:27
+msgid "show search"
 msgstr ""
 
 #: template-parts/related-posts.php:7
