@@ -19,7 +19,7 @@ for($i = 0; $i < count($tags); $i++){
    
     $output .= read_commits_between_tags($tags[$i], $tags[$i+1]);
        
-    if($tags[$i] == 'v1.0.0' ){
+    if($tags[$i] == 'v1.0.0' ) {
         break;
     }
 }
@@ -32,11 +32,12 @@ file_put_contents('changelog.html', $output);
 echo "..done";
 
 
-function read_commits_between_tags($from, $to){  
+function read_commits_between_tags($from, $to)
+{  
     global $argv;
     exec(sprintf('git log --pretty=format:"%%s" %s...%s', $from, $to), $commits);
 
-    if($from === 'HEAD' ){
+    if($from === 'HEAD' ) {
         $from = (isset($argv[1])) ? $argv[1] : "der neuesten Version";
     }
 
@@ -44,11 +45,12 @@ function read_commits_between_tags($from, $to){
 }
 
 
-function add_commit_messages($commits){
+function add_commit_messages($commits)
+{
     $return = '';
 
     foreach($commits AS $commit){
-        if(preg_match('/^publishing|^Bump|^Merge /', $commit)){
+        if(preg_match('/^publishing|^Bump|^Merge /', $commit)) {
             continue;
         }
 
