@@ -1,0 +1,19 @@
+body.contrast{
+	.topmenu{
+		.navbar-nav .nav-link{
+			color: $white;
+		}
+	}
+
+	.roofline,
+	.cat-links a,
+	.tags-links a,
+	a.event-card article .event-archive-meta{
+		color: $green-800;
+	}
+
+	.metabox{
+		background-color: $green-800;
+	}
+
+}

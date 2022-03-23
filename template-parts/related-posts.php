@@ -2,11 +2,11 @@
     <div class="container related-posts">
         <div class="row">
             <div class="col-12 text-center p-5">
-                <h4 class="h2">
+                <h2>
                     <?php
                         _e('Related posts', 'sunflower');
                     ?>
-                </h4>
+                </h2>
             </div>
 
             <?php
