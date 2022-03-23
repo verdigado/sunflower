@@ -1,9 +1,9 @@
 <?php
-    $sunflower_open_graph_image = get_the_post_thumbnail_url( null, 'medium' ) ?: get_sunflower_setting('sunflower_open_graph_fallback_image') ;
+    $sunflower_open_graph_image = get_the_post_thumbnail_url(null, 'medium') ?: get_sunflower_setting('sunflower_open_graph_fallback_image');
 
-    if( !$sunflower_open_graph_image ){
-        $sunflower_open_graph_image = sunflower_parent_or_child('assets/img/sunflower.svg');
-    }
+if(!$sunflower_open_graph_image ) {
+    $sunflower_open_graph_image = sunflower_parent_or_child('assets/img/sunflower.svg');
+}
 ?>
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="<?php the_permalink(); ?>">

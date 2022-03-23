@@ -1,8 +1,9 @@
 <?php
-add_action('widgets_init', function()
-{
-    return register_widget('sunflower_follow_us');
-});
+add_action(
+    'widgets_init', function () {
+        return register_widget('sunflower_follow_us');
+    }
+);
 
 class sunflower_follow_us extends WP_Widget
 {
@@ -48,8 +49,7 @@ class sunflower_follow_us extends WP_Widget
 
         echo $before_widget;
 
-        if(!empty($title))
-        {
+        if(!empty($title)) {
             echo $before_title . $title . $after_title;
         }
 

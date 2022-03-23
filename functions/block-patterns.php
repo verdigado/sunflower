@@ -1,6 +1,6 @@
 <?php
 
-if( function_exists( 'register_block_pattern_category') ){
+if(function_exists('register_block_pattern_category') ) {
     $dirs = glob(get_template_directory() . '/functions/block-patterns/*', GLOB_ONLYDIR);
 
     foreach($dirs AS $dir){
@@ -8,10 +8,10 @@ if( function_exists( 'register_block_pattern_category') ){
 
         register_block_pattern_category(
             'sunflower-' . $basenameDir,
-            array( 'label' => esc_html__( 'Sunflower', 'sunflower' ) . '-' . ucfirst($basenameDir))
+            array( 'label' => esc_html__('Sunflower', 'sunflower') . '-' . ucfirst($basenameDir))
         );
    
-        $files = glob( $dir . '/*.html' );
+        $files = glob($dir . '/*.html');
         foreach($files AS $file){
             $basenameFile = basename($file, '.html');
 
@@ -20,7 +20,7 @@ if( function_exists( 'register_block_pattern_category') ){
                 array(
                     'title'       => ucfirst($basenameFile),
                     'categories'  => ['sunflower-' . $basenameDir],
-                    'content'     => file_get_contents( $file ),
+                    'content'     => file_get_contents($file),
                 )
             );
         }
