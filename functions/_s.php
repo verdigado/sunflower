@@ -247,3 +247,14 @@ function sunflower_add_unfiltered_html_capability_to_editors( $caps, $cap, $user
 if(sunflower_get_constant('SUNFLOWER_UNFILTERED_HTML')) {
     add_filter('map_meta_cap', 'sunflower_add_unfiltered_html_capability_to_editors', 1, 3);
 }
+
+add_filter(
+    'wp_kses_allowed_html', function ( $allowed_tags, $context ) {
+    
+        $allowed_tags['form'] = array('action' => 1, 'method' => 1, 'id' => 1, 'class' => 1);
+        $allowed_tags['input'] = array('id' => 1, 'class' => 1, 'name' => 1, 'type' => 1, 'value' => 1, 'size' => 1, 'maxlength' => 1, 'required' => 1);
+        $allowed_tags['textarea'] = array('action' => 1, 'method' => 1, 'id' => 1, 'class' => 1, 'name' => 1, 'cols' => 1, 'rows' => 1, 'maxlength' => 1, 'required' => 1);
+
+        return $allowed_tags;
+    }, 10, 2 
+);
