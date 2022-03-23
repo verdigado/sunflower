@@ -310,7 +310,7 @@ msgid "Metadata"
 msgstr "Metadaten"
 
 #: functions/metaboxes.php:67
-msgid "Styled layout"
+msgid "Speziallayout, z.B. für Startseite"
 msgstr "Layout selbst gestalten"
 
 #: functions/metaboxes.php:68
