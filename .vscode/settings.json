@@ -1,0 +1,10 @@
+{
+  "phpcs.enable": true,
+  "phpcs.executablePath": "./vendor/bin/phpcs",
+  "phpcs.standard": "WordPress",
+  "phpcs.showWarnings": true,
+  "phpcs.showSources": true,
+  "phpcs.composerJsonPath": "composer.json",
+  "phpcbf.standard": "WordPress-Core",
+	"phpcbf.executablePath": "./vendor/bin/phpcbf"
+}
