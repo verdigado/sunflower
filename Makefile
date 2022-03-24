@@ -43,6 +43,9 @@ deploy:
 deploy-nightly:
 	make compile-silent bundle upload-nightly
 
+deploy-server-only:
+	make bundle upload activate
+
 childtheme-deploy:
 	rsync ../sunflower-child.zip sharepic:/var/www/sunflower-theme.de/updateserver/
 
