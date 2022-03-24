@@ -8,3 +8,4 @@ documentation/
 build/
 assets/vndr/
 .favorites.json
+.vscode/settings.json
