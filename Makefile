@@ -17,7 +17,8 @@ bundle:
 	npm run build && npm run bundle
 
 make-pot:
-	 wp i18n make-pot . languages/sunflower.pot
+	 wp i18n make-pot . languages/sunflower.pot \
+	 poedit languages/de_DE.po 
 	 //composer make-pot
 
 upload:
