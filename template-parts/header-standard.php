@@ -7,7 +7,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="topmenu-container">
                     <?php
-                        printf('<div class="some-profiles d-flex">%s</div>', get_sunflower_social_media_profiles());
+                        printf('<div class="some-profiles d-flex">%s</div>', '' /*get_sunflower_social_media_profiles()*/);
                     ?>
                         <div class="d-flex">
                             <?php
@@ -31,7 +31,7 @@
                             <button class="show-search me-3" title="<?php _e('show search', 'sunflower'); ?>" aria-label="<?php _e('show search', 'sunflower'); ?>">
                                 <i class="fas fa-search"></i>
                             </button>
-                            <button class="show-contrast" title="<?php _e('increase contrast', 'sunflower'); ?>" aria-label="<?php _e('increase contrast', 'sunflower'); ?>">
+                            <button class="d-none show-contrast" title="<?php _e('increase contrast', 'sunflower'); ?>" aria-label="<?php _e('increase contrast', 'sunflower'); ?>">
                                 <i class="fab fa-accessible-icon"></i>
                             </button>
                         </div>
