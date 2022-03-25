@@ -9,74 +9,81 @@
 
 get_header();
 
-$layout_width = @get_post_meta($post->ID, '_sunflower_styled_layout')[0] ? '' : 'container-narrow';
-$metadata = @get_post_meta($post->ID, '_sunflower_metadata')[0] ?: false;
-$styled_layout = @get_post_meta($post->ID, '_sunflower_styled_layout')[0] ? 'styled-layout' : '';
+$layout_width  = @get_post_meta( $post->ID, '_sunflower_styled_layout' )[0] ? '' : 'container-narrow';
+$metadata      = @get_post_meta( $post->ID, '_sunflower_metadata' )[0] ?: false;
+$styled_layout = @get_post_meta( $post->ID, '_sunflower_styled_layout' )[0] ? 'styled-layout' : '';
 
 ?>
-    <div id="content" class="container <?php echo "$layout_width $styled_layout"; ?>">
-        <div class="row">
-            <div class="col-12">
-                <main id="primary" class="site-main">
+	<div id="content" class="container <?php echo "$layout_width $styled_layout"; ?>">
+		<div class="row">
+			<div class="col-12">
+				<main id="primary" class="site-main">
 
-                    <?php
-                    while ( have_posts() ) :
-                        the_post();
-    
-                        get_template_part('template-parts/content', get_post_type(), ['metadata' => $metadata, 'class' => 'display-single']);
+					<?php
+					while ( have_posts() ) :
+						the_post();
 
-                        // If comments are open or we have at least one comment, load up the comment template.
-                        if (comments_open() || get_comments_number() ) :
-                            comments_template();
-                        endif;
+						get_template_part(
+							'template-parts/content',
+							get_post_type(),
+							array(
+								'metadata' => $metadata,
+								'class'    => 'display-single',
+							)
+						);
 
-                    endwhile; // End of the loop.
-                    ?>
+						// If comments are open or we have at least one comment, load up the comment template.
+						if ( comments_open() || get_comments_number() ) :
+							comments_template();
+						endif;
 
-                </main><!-- #main -->
-            </div>
-        </div>
-            <div class="row sunflower-post-navigation mb-3">
-                <?php
-                
-                if(!get_sunflower_setting('sunflower_hide_prev_next') ) {
-                
-                    $previous = get_previous_post_link(
-                        '<div class="">%link </div>',
-                        '%title <div class="announce">' . __('previous', 'sunflower'). '</div>'
-                    );
+					endwhile; // End of the loop.
+					?>
 
-                    $next = get_next_post_link(
-                        '<div class="">%link </div>',
-                        '%title <div class="announce">' . __('next', 'sunflower'). '</div>'
-                    );
+				</main><!-- #main -->
+			</div>
+		</div>
+			<div class="row sunflower-post-navigation mb-3">
+				<?php
 
-                
-                    if($previous ) {
-                        printf(
-                            '<div class="col-12 col-md-6 mb-2 mb-md-0">%s</div>',
-                            $previous
-                        );
-                    }
+				if ( ! get_sunflower_setting( 'sunflower_hide_prev_next' ) ) {
 
-                    if($next ) {
-                        printf(
-                            '<div class="col-12 col-md-6">%s</div>',
-                            $next
-                        );
-                    }
-                }
-        
-                ?>
-                
-    </div>
+					$previous = get_previous_post_link(
+						'<div class="">%link </div>',
+						'%title <div class="announce">' . __( 'previous', 'sunflower' ) . '</div>'
+					);
+
+					$next = get_next_post_link(
+						'<div class="">%link </div>',
+						'%title <div class="announce">' . __( 'next', 'sunflower' ) . '</div>'
+					);
 
 
-    <?php
-    if(get_sunflower_setting('sunflower_show_related_posts') ) {
-        get_template_part('template-parts/related-posts', '');
-    }
-    ?>
+					if ( $previous ) {
+						printf(
+							'<div class="col-12 col-md-6 mb-2 mb-md-0">%s</div>',
+							$previous
+						);
+					}
+
+					if ( $next ) {
+						printf(
+							'<div class="col-12 col-md-6">%s</div>',
+							$next
+						);
+					}
+				}
+
+				?>
+				
+	</div>
+
+
+	<?php
+	if ( get_sunflower_setting( 'sunflower_show_related_posts' ) ) {
+		get_template_part( 'template-parts/related-posts', '' );
+	}
+	?>
 
 </div>
 <?php

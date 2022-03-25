@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2022-03-24T00:15:27+01:00\n"
-"PO-Revision-Date: 2022-03-24 00:16+0100\n"
+"POT-Creation-Date: 2022-03-25T08:58:34+01:00\n"
+"PO-Revision-Date: 2022-03-25 09:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -97,11 +97,11 @@ msgstr "Kartendaten laden"
 msgid "calendar in ics-format"
 msgstr "Kalender im ics-Format"
 
-#: archive.php:65 index.php:71 search.php:68 single.php:46
+#: archive.php:65 index.php:71 search.php:68 single.php:53
 msgid "previous"
 msgstr "zurück"
 
-#: archive.php:66 index.php:72 search.php:69 single.php:51
+#: archive.php:66 index.php:72 search.php:69 single.php:58
 msgid "next"
 msgstr "vor"
 
@@ -153,7 +153,7 @@ msgstr ""
 "page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
 
 #: functions/admin.php:77 functions/block-patterns.php:11
-#: functions/blocks.php:41 functions/options/settings.php:24
+#: functions/blocks.php:47 functions/options/settings.php:24
 #: functions/options/settings.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
@@ -305,29 +305,39 @@ msgstr "Datum der Veranstaltung"
 msgid "Event location"
 msgstr "Ort"
 
-#: functions/metaboxes.php:7 functions/options/settings.php:160
+#: functions/metaboxes.php:6 functions/options/settings.php:160
 msgid "Layout"
 msgstr "Layout"
 
-#: functions/metaboxes.php:16 functions/metaboxes.php:89
+#: functions/metaboxes.php:15 functions/metaboxes.php:105
 msgid "Metadata"
 msgstr "Metadaten"
 
-#: functions/metaboxes.php:71
+#: functions/metaboxes.php:67
 msgid "Styled layout"
 msgstr "gestyltes Layout"
 
-#: functions/metaboxes.php:72
+#: functions/metaboxes.php:68
 msgid "do not show title, add and remove margins. e.g. for the homepage"
 msgstr ""
 "versteckt den Titel und fügt Abstände ein bzw. löscht sie anderen Stellen. "
 "Setze diesen Haken z.B. für die Startseite."
 
-#: functions/metaboxes.php:83
+#: functions/metaboxes.php:88
+msgid "Hide feature image on single"
+msgstr "Beitragsbild verstecken"
+
+#: functions/metaboxes.php:89
+msgid "Hide feature image on single view, but show it on lists."
+msgstr ""
+"Verstecke das Beitragsbild in der Einzelansicht, aber zeige es in "
+"Listenansichten."
+
+#: functions/metaboxes.php:99
 msgid "Roofline"
 msgstr "Dachzeile"
 
-#: functions/metaboxes.php:90
+#: functions/metaboxes.php:106
 msgid "use Shift + Enter to prevent line between"
 msgstr "Tippe Shift + Enter, um  Zwischenzeile zu verhindern."
 
@@ -528,12 +538,12 @@ msgstr "Download als ics-Datei"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58 template-parts/content-archive.php:52
-#: template-parts/content.php:77
+#: template-parts/content.php:83
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
 #: template-parts/content-archive.php:65 template-parts/content-page.php:31
-#: template-parts/content.php:90
+#: template-parts/content.php:96
 msgid "Pages:"
 msgstr "Seiten:"
 
@@ -576,15 +586,15 @@ msgstr ""
 msgid "none"
 msgstr "keine"
 
-#: template-parts/header-standard.php:23 template-parts/header-standard.php:85
+#: template-parts/header-standard.php:27 template-parts/header-standard.php:88
 msgid "Search"
 msgstr "Suche"
 
-#: template-parts/header-standard.php:27
+#: template-parts/header-standard.php:31
 msgid "show search"
 msgstr "zeige Suche"
 
-#: template-parts/header-standard.php:30
+#: template-parts/header-standard.php:34
 msgid "increase contrast"
 msgstr "Kontrast erhöhen"
 
