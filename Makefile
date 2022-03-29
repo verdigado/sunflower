@@ -22,7 +22,7 @@ make-pot:
 	 //composer make-pot
 
 upload:
-	rsync ../sunflower.zip sharepic:/var/www/sunflower-theme.de/wp-content/themes/
+	rsync --progress ../sunflower.zip sharepic:/var/www/sunflower-theme.de/wp-content/themes/
 
 upload-nightly:
 	rsync --progress ../sunflower.zip sharepic:/var/www/sunflower-theme.de/updateserver/nightly
