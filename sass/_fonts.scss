@@ -58,18 +58,7 @@
     font-display: swap;
   }
 
-  .arvo{
-    font-family: Arvo !important;
-    font-weight: 500;
-  } 
-  .arvogruen{
-    font-family: ArvoGruen !important;
-    font-weight: 500;
-  }
-  .ptsans{
-    font-family: PTSans !important;
-  }
-  .forkawesome{
+ .forkawesome{
     font-family: ForkAwesome !important;
     -webkit-font-smoothing: antialiased;
     display: inline-block;
@@ -78,6 +67,21 @@
     text-rendering: auto;
     line-height: 1;
   }
+
+  .arvo{
+    font-family: Arvo !important;
+    font-weight: 500;
+  } 
+
+  .arvogruen{
+    font-family: ArvoGruen !important;
+    font-weight: 500;
+  }
+
+  .ptsans{
+    font-family: PTSans !important;
+  }
+
   .bereit{
     font-family: BereitBold !important;
     font-weight: 500;

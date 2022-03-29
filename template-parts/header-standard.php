@@ -1,4 +1,4 @@
-<header id="masthead" class="site-header ptsans">
+<header id="masthead" class="site-header">
 	
 		<nav class="navbar navbar-top d-none d-lg-block navbar-expand-lg navbar-dark p-0 topmenu">
 			<div class="container">
@@ -55,7 +55,7 @@
 					<a href="<?php echo get_home_url(); ?>" class="d-block h5 text-white bloginfo-name no-link">
 						<?php bloginfo( 'name' ); ?>
 					</a>
-					<a href="<?php echo get_home_url(); ?>" class="d-block text-white ptsans mb-0 bloginfo-description no-link">
+					<a href="<?php echo get_home_url(); ?>" class="d-block text-white mb-0 bloginfo-description no-link">
 						<?php bloginfo( 'description' ); ?>
 					</a>
 				</div>

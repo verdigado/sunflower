@@ -12,7 +12,7 @@
                     <div class="h5 bloginfo-name">
                         <?php bloginfo('name'); ?>
                     </div>
-                    <div class="ptsans mb-0 bloginfo-description">
+                    <div class="mb-0 bloginfo-description">
                         <?php bloginfo('description'); ?>
                     </div>
                 </div>
