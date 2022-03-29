@@ -27,7 +27,7 @@ extract( $args );
 		<?php
 		$roofline = @get_post_meta( $post->ID, '_sunflower_roofline' )[0] ?: false;
 		if ( $roofline ) {
-			printf( ' <div class="roofline arvogruen">%s</div>', $roofline );
+			printf( ' <div class="roofline roofline-single">%s</div>', $roofline );
 		}
 		?>
 		<?php

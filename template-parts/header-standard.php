@@ -52,7 +52,7 @@
 					?>
 				</a>
 				<div>
-					<a href="<?php echo get_home_url(); ?>" class="d-block h5 text-white arvogruen bloginfo-name no-link">
+					<a href="<?php echo get_home_url(); ?>" class="d-block h5 text-white bloginfo-name no-link">
 						<?php bloginfo( 'name' ); ?>
 					</a>
 					<a href="<?php echo get_home_url(); ?>" class="d-block text-white ptsans mb-0 bloginfo-description no-link">

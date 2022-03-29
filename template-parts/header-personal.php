@@ -9,7 +9,7 @@
                     <img src="<?php echo sunflower_parent_or_child('assets/img/sunflower-dark.svg');?>" class="" alt="Sonnenblume - Logo">
                 </a>
                 <div>
-                    <div class="h5 arvogruen bloginfo-name">
+                    <div class="h5 bloginfo-name">
                         <?php bloginfo('name'); ?>
                     </div>
                     <div class="ptsans mb-0 bloginfo-description">

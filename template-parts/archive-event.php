@@ -28,7 +28,7 @@ foreach($tags AS $tag){
            
         ?>
         <div class="event-archive-meta">
-            <div class="arvo text-uppercase small"><?php echo $weekday; ?></div>
+            <div class="text-uppercase small"><?php echo $weekday; ?></div>
             <div class="date">
                 <time datetime="<?php echo $attribute; ?>">
                     <?php echo $days;?>

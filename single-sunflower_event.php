@@ -35,7 +35,7 @@ get_template_part('template-parts/event', 'json-ld');
 
 $metadata = '';
 $metadata .= sprintf(
-    '<div class="arvo text-uppercase weekday">%s</div>',
+    '<div class="text-uppercase weekday">%s</div>',
     $weekday
 );
 
