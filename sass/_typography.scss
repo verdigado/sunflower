@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 
 .roofline{
-    font-family: Arvo;
+    font-family: $headingFont;
     &-single{
         font-family: ArvoGruen;
     }
@@ -53,7 +53,7 @@ h5, .h5{
 }
 
 h6, .h6{
-    font-family: Arvo;
+    font-family: $headingFont;
     font-weight: bold;
     font-size: 18px;
 }

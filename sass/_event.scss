@@ -10,7 +10,7 @@ a.event-card{
 
         .event-archive-meta{
             color: $primary;
-            font-family: Arvo;
+            font-family: $headingFont;
         }
 
         &:hover{
