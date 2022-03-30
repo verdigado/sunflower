@@ -41,11 +41,11 @@ jQuery(document).ready(function () {
   })
 
   jQuery('.show-contrast').click(function () {
-    jQuery('body').toggleClass('contrast');
-    localStorage.setItem('contrast', document.body.classList.contains('contrast'));
+    jQuery('body').toggleClass('theme--contrast');
+    localStorage.setItem('theme--contrast', document.body.classList.contains('theme--contrast'));
   })
-  if( localStorage.getItem('contrast') === 'true' ){
-      document.body.classList.add('contrast');
+  if( localStorage.getItem('theme--contrast') === 'true' ){
+      document.body.classList.add('theme--contrast');
   }
 
 
