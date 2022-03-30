@@ -71,7 +71,9 @@ body{
     }
 
     &-name{
-        font-family: ArvoGruen;
+        @include themed() {
+            font-family: t('headingFontBold');
+        }
         font-weight: 500;
         font-size: 22px;
         letter-spacing: 1px;

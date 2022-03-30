@@ -1,10 +1,18 @@
 $themes: (
 	default: (
-		color: red
+		color: red,
+    headingFont: Arvo,
+    headingFontBold: ArvoGruen,
+    standardFont: PTSans
 	),
 	contrast: (
-		color: blue
+
 	),
+  verdigado: (
+    headingFont: Sarabun,
+    headingFontBold: Sarabun,
+    standardFont: PTSans
+  )
 );
 
 @mixin themed() {

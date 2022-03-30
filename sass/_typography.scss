@@ -6,9 +6,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 
 .roofline{
-    font-family: $headingFont;
+    @include themed() {
+        font-family: t('headingFont');
+    }
     &-single{
-        font-family: ArvoGruen;
+        @include themed() {
+            font-family: t('headingFontBold');
+        }
     }
     font-weight: 500;
     color: $primary;
@@ -20,40 +24,52 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 
 h1, .h1, 
 .has-huge-font-size{
-    font-family: ArvoGruen;
+    @include themed() {
+        font-family: t('headingFontBold');
+    }
     font-size: 36px;
     line-height: 1.2em;
 }
 
 h2, .h2,
 .has-large-font-size{
-    font-family: ArvoGruen;
+    @include themed() {
+        font-family: t('headingFontBold');
+    }
     font-size: 27px;
     line-height: 1.2em;
 }
 
 h3, .h3,
 .has-medium-font-size{
-    font-family: PTSans;
+    @include themed() {
+        font-family: t('standardFont');
+    }
     font-weight: bold;
     font-size: 25px;
     color: $primary;
 }
 
 h4, .h4{
-    font-family: PTSans;
+    @include themed() {
+        font-family: t('standardFont');
+    }
     font-weight: bold;
     font-size: 25px;
 }
 
 h5, .h5{
-    font-family: PTSans;
+    @include themed() {
+        font-family: t('standardFont');
+    }
     font-weight: bold;
     font-size: 21px;
 }
 
 h6, .h6{
-    font-family: $headingFont;
+    @include themed() {
+        font-family: t('headingFont');
+    }
     font-weight: bold;
     font-size: 18px;
 }

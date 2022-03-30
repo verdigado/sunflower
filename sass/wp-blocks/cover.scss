@@ -1,5 +1,7 @@
 .entry-content>.wp-block-cover{
-    font-family: ArvoGruen;
+    @include themed() {
+        font-family: t('headingFontBold');
+    }
     width: 100vw;
     position: relative;
     left: 50%;

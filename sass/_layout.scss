@@ -5,7 +5,9 @@ html, body {
 }
 
 body{
-    font-family: PTSans;
+    @include themed() {
+        font-family: t('standardFont');
+    }
 }
 
 .container-narrow{
@@ -131,7 +133,9 @@ a.continue-reading,
 }
 button.filter,
 a.eventlist{
-    font-family: PTSans;
+    @include themed() {
+        font-family: t('standardFont');
+    }
     font-weight: bold;
     font-size: 16px;
     color: $black;

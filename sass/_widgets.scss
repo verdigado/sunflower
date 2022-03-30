@@ -24,7 +24,9 @@
     }
 
     &-title{
-        font-family: PTSans;
+        @include themed() {
+            font-family: t('standardFont');
+        }
         font-weight: bold; 
         font-size: 1.3rem;
         color: $white-90;

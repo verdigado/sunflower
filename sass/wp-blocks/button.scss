@@ -3,7 +3,9 @@
     text-transform: uppercase;
     font-size: 1rem;
     border-radius: 0;
-    font-family: 'PTSans';
+    @include themed() {
+        font-family: t('standardFont');
+    }
 
     &:hover{
         background-color:  map-get($custom-colors, 'magenta-600') !important;
