@@ -42,10 +42,12 @@ jQuery(document).ready(function () {
 
   jQuery('.show-contrast').click(function () {
     jQuery('html').toggleClass('theme--contrast');
-    localStorage.setItem('theme--contrast', document.body.classList.contains('theme--contrast'));
+    jQuery('html').toggleClass('theme--default');
+    localStorage.setItem('theme--contrast', jQuery('html').hasClass('theme--contrast'));
   })
   if( localStorage.getItem('theme--contrast') === 'true' ){
       jQuery('html').addClass('theme--contrast');
+      jQuery('html').removeClass('theme--default');
   }
 
 
