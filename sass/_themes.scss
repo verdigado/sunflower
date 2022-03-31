@@ -33,3 +33,34 @@ $themes: (
 @function t($key) {
   @return map-get($theme-map, $key);
 }
+
+.theme--contrast{
+	.topmenu{
+		.navbar-nav .nav-link{
+			color: $white;
+		}
+	}
+
+	.roofline,
+	.cat-links a,
+	.tags-links a,
+	a.event-card article .event-archive-meta{
+		color: $green-800;
+	}
+
+	.metabox{
+		background-color: $green-800;
+	}
+
+}
+
+.theme--verdigado{
+  .topmenu{
+    background-color: #a00057;
+    color: $white;
+  }
+
+  .bloginfo{
+    background: #00354e !important;
+  }
+}
