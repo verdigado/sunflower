@@ -45,9 +45,9 @@ jQuery(document).ready(function () {
     jQuery('html').toggleClass('theme--default');
     localStorage.setItem('theme--contrast', jQuery('html').hasClass('theme--contrast'));
   })
-  if( localStorage.getItem('theme--contrast') === 'true' ){
-      jQuery('html').addClass('theme--contrast');
-      jQuery('html').removeClass('theme--default');
+  if (localStorage.getItem('theme--contrast') === 'true') {
+    jQuery('html').addClass('theme--contrast');
+    jQuery('html').removeClass('theme--default');
   }
 
 
@@ -59,6 +59,17 @@ jQuery(document).ready(function () {
 
     return false;
   })
+
+  jQuery('.wp-block-gallery figure').each(function(){
+    let caption = jQuery('figcaption', this).text();
+    jQuery('a', this).first().attr('data-lightbox','sunflower-gallery');
+    jQuery('a', this).first().attr('data-title', caption);
+  })
+
+    lightbox.option({
+      'albumLabel': 'Bild %1 von %2'
+    })
+
 
 });
 

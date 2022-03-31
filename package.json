@@ -45,7 +45,7 @@
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'",
     "copy-composer": "copyfiles -u 1 vendor/johngrogg/ics-parser/src/ICal/*.php assets/vndr",
-    "copy-node-modules": "copyfiles -u 1 node_modules/jquery-slim/dist/*.min.js node_modules/@popperjs/core/dist/umd/popper.min.js node_modules/bootstrap/dist/js/*.min.js node_modules/@fortawesome/fontawesome-free/webfonts/*.woff* node_modules/leaflet/dist/*.js node_modules/leaflet/dist/*.css node_modules/leaflet/dist/images/* node_modules/jquery-datetimepicker/build/*.min.js node_modules/jquery-datetimepicker/build/*.min.css assets/vndr",
+    "copy-node-modules": "copyfiles -u 1 node_modules/jquery-slim/dist/*.min.js node_modules/@popperjs/core/dist/umd/popper.min.js node_modules/bootstrap/dist/js/*.min.js node_modules/@fortawesome/fontawesome-free/webfonts/*.woff* node_modules/leaflet/dist/*.js node_modules/leaflet/dist/*.css node_modules/leaflet/dist/images/* node_modules/jquery-datetimepicker/build/*.min.js node_modules/jquery-datetimepicker/build/*.min.css node_modules/lightbox2/dist/css/lightbox.min.css node_modules/lightbox2/dist/js/lightbox.min.js node_modules/lightbox2/dist/images/* assets/vndr",
     "bundle": "npm run copy-composer && npm run copy-node-modules && cd ../ && dir-archiver --src sunflower --dest sunflower.zip --exclude sunflower/Makefile sunflower/create-changelog.php sunflower/changelog.html sunflower/documentation sunflower/mkdocs sunflower/announcement.txt sunflower/.DS_Store sunflower/.stylelintrc.json sunflower/.eslintrc sunflower/.git sunflower/.gitattributes sunflower/.github sunflower/.gitignore sunflower/README.md sunflower/composer.json sunflower/composer.lock sunflower/node_modules sunflower/vendor sunflower/package-lock.json sunflower/package.json sunflower/.travis.yml sunflower/phpcs.xml.dist sunflower/sass sunflower/style.css.map sunflower/.favorites.json",
     "build": "wp-scripts build",
     "start": "wp-scripts start"
@@ -56,6 +56,7 @@
     "copyfiles": "^2.4.1",
     "jquery-datetimepicker": "^2.5.21",
     "jquery-slim": "^3.0.0",
-    "leaflet": "^1.7.1"
+    "leaflet": "^1.7.1",
+    "lightbox2": "^2.11.3"
   }
 }

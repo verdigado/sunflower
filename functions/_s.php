@@ -189,6 +189,10 @@ function sunflower_scripts()
         );
     }
 
+	wp_enqueue_style( 'lightbox', get_template_directory_uri() . '/assets/vndr/lightbox2/dist/css/lightbox.min.css', array(), '4.3.0' );
+    wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/assets/vndr/lightbox2/dist/js/lightbox.min.js', array( 'jquery' ), '3.3.0', true );
+
+
 }
 add_action('wp_enqueue_scripts', 'sunflower_scripts');
 
