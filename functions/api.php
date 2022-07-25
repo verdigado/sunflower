@@ -16,3 +16,23 @@ add_filter(
 		return $endpoints;
 	}
 );
+
+add_action(
+	'rest_api_init',
+	function () {
+		if ( is_user_logged_in() ) {
+			return;
+		}
+
+		if ( get_sunflower_setting( 'sunflower_show_author' ) ) {
+			return;
+		}
+
+		$args = array(
+			'get_callback' => function () {
+				return -1;
+			},
+		);
+		register_rest_field( 'post', 'author', $args );
+	}
+);
