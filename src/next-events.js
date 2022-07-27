@@ -27,7 +27,7 @@ registerBlockType( 'sunflower/next-events', {
 
     edit: withSelect( ( select, { attributes } ) => {
         return {
-            tags: select('core').getEntityRecords('taxonomy', 'sunflower_event_tag'),
+            tags: select('core').getEntityRecords('taxonomy', 'sunflower_event_tag', { per_page: -1}),
             posts: select( 'core' ).getEntityRecords( 'postType', 'sunflower_event', { sunflower_event_tag: attributes.tag } ),
         };
     } )( ( { posts, tags, attributes, setAttributes } ) => {
