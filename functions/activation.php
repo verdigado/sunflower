@@ -14,7 +14,7 @@ function sunflower_import_widgets() {
 		return;
 	}
 
-	$sidebars_widgets = array_merge( $options['sidebars_widgets']['data']['infospalte'], $options['sidebars_widgets']['data']['fussleist'] );
+	$sidebars_widgets = array_merge( (array) $options['sidebars_widgets']['data']['infospalte'], (array) $options['sidebars_widgets']['data']['fussleist'] );
 
 	$option = get_option( 'sidebars_widgets' );
 	if ( empty( $option['sidebar-1'] ) ) {
