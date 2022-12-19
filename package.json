@@ -20,7 +20,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@wordpress/scripts": "^19.2.2",
     "dir-archiver": "^1.2.0",
-    "node-sass": "^7.0.0",
+    "node-sass": "^7.0.3",
     "rtlcss": "^3.5.0",
     "stylelint-config-wordpress": "^17.0.0"
   },
