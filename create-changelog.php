@@ -10,51 +10,49 @@ $output = '<!DOCTYPE html>
 <h1>Changelogs</h1>
 ';
 
-exec('git tag', $tags);
-$tags = array_reverse($tags);
+exec( 'git tag', $tags );
+$tags = array_reverse( $tags );
 
-$output .= read_commits_between_tags('HEAD', $tags[0]);
+$output .= read_commits_between_tags( 'HEAD', $tags[0] );
 
-for($i = 0; $i < count($tags); $i++){
-   
-    $output .= read_commits_between_tags($tags[$i], $tags[$i+1]);
-       
-    if($tags[$i] == 'v1.0.0' ) {
-        break;
-    }
+for ( $i = 0; $i < count( $tags ); $i++ ) {
+
+	$output .= read_commits_between_tags( $tags[ $i ], $tags[ $i + 1 ] );
+
+	if ( $tags[ $i ] == 'v1.0.0' ) {
+		break;
+	}
 }
 
 $output .= '</body>
 </html>
 ';
 
-file_put_contents('changelog.html', $output);
-echo "..done";
+file_put_contents( 'changelog.html', $output );
+echo '..done';
 
 
-function read_commits_between_tags($from, $to)
-{  
-    global $argv;
-    exec(sprintf('git log --pretty=format:"%%s" %s...%s', $from, $to), $commits);
+function read_commits_between_tags( $from, $to ) {
+	global $argv;
+	exec( sprintf( 'git log --pretty=format:"%%s" %s...%s', $from, $to ), $commits );
 
-    if($from === 'HEAD' ) {
-        $from = (isset($argv[1])) ? $argv[1] : "der neuesten Version";
-    }
+	if ( $from === 'HEAD' ) {
+		$from = ( isset( $argv[1] ) ) ? $argv[1] : 'der neuesten Version';
+	}
 
-    return sprintf("<h2>Neu in %s</h2>\n<ul>%s</ul>\n\n", $from, add_commit_messages($commits)); 
+	return sprintf( "<h2>Neu in %s</h2>\n<ul>%s</ul>\n\n", $from, add_commit_messages( $commits ) );
 }
 
 
-function add_commit_messages($commits)
-{
-    $return = '';
+function add_commit_messages( $commits ) {
+	$return = '';
 
-    foreach($commits AS $commit){
-        if(preg_match('/^publishing|^Bump|^Merge /', $commit)) {
-            continue;
-        }
+	foreach ( $commits as $commit ) {
+		if ( preg_match( '/^publishing|^Bump|^Merge /', $commit ) ) {
+			continue;
+		}
 
-        $return .= sprintf("<li>%s</li>\n", $commit);
-    }
-    return $return;
+		$return .= sprintf( "<li>%s</li>\n", $commit );
+	}
+	return $return;
 }

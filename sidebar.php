@@ -7,12 +7,12 @@
  * @package sunflower
  */
 
-if (! is_active_sidebar('sidebar-1') ) {
-    return;
+if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	return;
 }
 ?>
 <div class="container-fluid bg-darkgreen p-5">
-    <aside id="secondary" class="widget-area container">
-        <?php dynamic_sidebar('sidebar-1'); ?>
-    </aside>
+	<aside id="secondary" class="widget-area container">
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	</aside>
 </div>

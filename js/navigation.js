@@ -32,25 +32,31 @@
 	}
 
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
-	button.addEventListener( 'click', function() {
-		siteNavigation.classList.toggle( 'toggled' );
+	button.addEventListener(
+		'click',
+		function() {
+			siteNavigation.classList.toggle( 'toggled' );
 
-		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
-			button.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			button.setAttribute( 'aria-expanded', 'true' );
+			if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
+				button.setAttribute( 'aria-expanded', 'false' );
+			} else {
+				button.setAttribute( 'aria-expanded', 'true' );
+			}
 		}
-	} );
+	);
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
-	document.addEventListener( 'click', function( event ) {
-		const isClickInside = siteNavigation.contains( event.target );
+	document.addEventListener(
+		'click',
+		function( event ) {
+			const isClickInside = siteNavigation.contains( event.target );
 
-		if ( ! isClickInside ) {
-			siteNavigation.classList.remove( 'toggled' );
-			button.setAttribute( 'aria-expanded', 'false' );
+			if ( ! isClickInside ) {
+				siteNavigation.classList.remove( 'toggled' );
+				button.setAttribute( 'aria-expanded', 'false' );
+			}
 		}
-	} );
+	);
 
 	// Get all the link elements within the menu.
 	const links = menu.getElementsByTagName( 'a' );
