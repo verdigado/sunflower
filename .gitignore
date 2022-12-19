@@ -9,3 +9,4 @@ build/
 assets/vndr/
 .favorites.json
 .vscode/settings.json
+pa11y.json
