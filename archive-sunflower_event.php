@@ -221,4 +221,5 @@ $is_event_archive = isset( $_GET['archive'] ) && ( $_GET['archive'] == 'true' );
 	?>
 
 <?php
+get_sidebar();
 get_footer();
