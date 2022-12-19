@@ -27,6 +27,7 @@
 								<input class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php _e( 'Search', 'sunflower' ); ?>" aria-label="<?php _e( 'Search', 'sunflower' ); ?>"
 									value="<?php echo get_search_query(); ?>"
 								>
+								<input type="submit" class="d-none" value="<?php _e( 'Search', 'sunflower' ); ?>" aria-label="<?php _e( 'Search', 'sunflower' ); ?>">
 							</form>
 							<button class="show-search me-3" title="<?php _e( 'show search', 'sunflower' ); ?>" aria-label="<?php _e( 'show search', 'sunflower' ); ?>">
 								<i class="fas fa-search"></i>
@@ -95,6 +96,8 @@
 					<input class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php _e( 'Search', 'sunflower' ); ?>" aria-label="<?php _e( 'Search', 'sunflower' ); ?>"
 						value="<?php echo get_search_query(); ?>"
 					>
+					<input type="submit" class="d-none" value="<?php _e( 'Search', 'sunflower' ); ?>" aria-label="<?php _e( 'Search', 'sunflower' ); ?>">
+
 				</form>
 			</div>
 		</div>
