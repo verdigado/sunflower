@@ -46,18 +46,18 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function sunflower_entry_footer($showSharers = false) {
+	function sunflower_entry_footer( $showSharers = false ) {
 
 		?>
 			<div class="d-flex mt-2 mb-2">
-				<?php 
-					if( $showSharers ) {
-						sunflower_the_social_media_sharers(); 
-					}
+				<?php
+				if ( $showSharers ) {
+					sunflower_the_social_media_sharers();
+				}
 				?>
 				<div>
 		<?php
-		
+
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
@@ -70,7 +70,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'sunflower' ) );
 
-			if (  $categories_list AND $tags_list ) {
+			if ( $categories_list and $tags_list ) {
 				echo '<br>';
 			}
 
@@ -89,38 +89,42 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 	}
 endif;
 
-function sunflower_the_social_media_sharers(){
+function sunflower_the_social_media_sharers() {
 	$twitter = $facebook = $mail = false;
-	if(get_sunflower_setting( 'sunflower_sharer_twitter')){
-		$twitter = sprintf('<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-twitter"></i></a>',
-			urlencode(get_the_title()),
+	if ( get_sunflower_setting( 'sunflower_sharer_twitter' ) ) {
+		$twitter = sprintf(
+			'<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-twitter"></i></a>',
+			urlencode( get_the_title() ),
 			get_permalink(),
 			false,
-			__('Share on twitter ', 'sunflower')
+			__( 'Share on twitter ', 'sunflower' )
 		);
 	}
 
-	if(get_sunflower_setting( 'sunflower_sharer_facebook')){
-		$facebook = sprintf("<i class='fab fa-facebook sharer' onclick=\"window.open('https://www.facebook.com/sharer/sharer.php?u=%s', 'sharer', 'width=626,height=436')\" title=\"%s\"></i>",
-			  get_permalink(),
-			__('Share on facebook ', 'sunflower')
-		);
-	}
-
-	if(get_sunflower_setting( 'sunflower_sharer_mail')){
-		$mail = sprintf('<a href="MAILTO:?subject=%s&body=%s" target="_blank title="%s" class="sharer"><i class="fas fa-envelope"></i></a>',
-			urlencode(get_the_title()),
+	if ( get_sunflower_setting( 'sunflower_sharer_facebook' ) ) {
+		$facebook = sprintf(
+			"<i class='fab fa-facebook sharer' onclick=\"window.open('https://www.facebook.com/sharer/sharer.php?u=%s', 'sharer', 'width=626,height=436')\" title=\"%s\"></i>",
 			get_permalink(),
-			__('send mail ', 'sunflower')
+			__( 'Share on facebook ', 'sunflower' )
 		);
 	}
 
-	if( $twitter || $facebook || $mail ){
-		printf('<div class="social-media-sharers mb-5">%s %s %s</div>',
+	if ( get_sunflower_setting( 'sunflower_sharer_mail' ) ) {
+		$mail = sprintf(
+			'<a href="MAILTO:?subject=%s&body=%s" target="_blank title="%s" class="sharer"><i class="fas fa-envelope"></i></a>',
+			urlencode( get_the_title() ),
+			get_permalink(),
+			__( 'send mail ', 'sunflower' )
+		);
+	}
+
+	if ( $twitter || $facebook || $mail ) {
+		printf(
+			'<div class="social-media-sharers mb-5">%s %s %s</div>',
 			$twitter,
 			$facebook,
 			$mail
-	);
+		);
 	}
 }
 
@@ -131,7 +135,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function sunflower_post_thumbnail($styled_layout = false, $caption = false) {
+	function sunflower_post_thumbnail( $styled_layout = false, $caption = false ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -140,32 +144,39 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 
 		if ( is_singular() ) :
 			?>
-			<div class="post-thumbnail<?php if($styled_layout) echo ' mt-1'; ?> ">
-				<?php the_post_thumbnail('null', ['class' => 'w-100 border-radius']); ?>
-      
-      		<?php
-                if($caption) {
-			$caption = get_post(get_post_thumbnail_id())->post_excerpt;
-			if(!empty($caption)) {
-				?><figcaption><?php echo $caption; ?></figcaption><?php
+			<div class="post-thumbnail
+			<?php
+			if ( $styled_layout ) {
+				echo ' mt-1';}
+			?>
+			 ">
+				<?php the_post_thumbnail( 'null', array( 'class' => 'w-100 border-radius' ) ); ?>
+	  
+			<?php
+			if ( $caption ) {
+				$caption = get_post( get_post_thumbnail_id() )->post_excerpt;
+				if ( ! empty( $caption ) ) {
+					?>
+				<figcaption><?php echo $caption; ?></figcaption>
+					<?php
+				}
 			}
-		}
-	    	?>
+			?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
 			<?php
-				$classes = array('post-thumbnail' );
+				$classes = array( 'post-thumbnail' );
 
 				the_post_thumbnail(
 					'medium_large',
 					array(
-						'alt' => the_title_attribute(
+						'alt'   => the_title_attribute(
 							array(
 								'echo' => false,
 							)
 						),
-						'class' => join(' ', $classes)					
+						'class' => join( ' ', $classes ),
 					)
 				);
 			?>

@@ -1,64 +1,61 @@
 <?php
 add_action(
-    'widgets_init', function () {
-        return register_widget('sunflower_follow_us');
-    }
+	'widgets_init',
+	function () {
+		return register_widget( 'sunflower_follow_us' );
+	}
 );
 
-class sunflower_follow_us extends WP_Widget
-{
-    public function __construct()
-    {
-        parent::__construct(
-            'sunflower_follow_us',
-            __('Folge uns auf ...'),
-            array(
-                'description' => __('Show social media profiles defined in sunflower settings')
-            )
-        );
-    }
+class sunflower_follow_us extends WP_Widget {
 
-    public function form($instance)
-    {
-        $defaults = array(
-            'title' => __('Follow us')
-        );
-        $instance = wp_parse_args((array)$instance, $defaults);
+	public function __construct() {
+		parent::__construct(
+			'sunflower_follow_us',
+			__( 'Folge uns auf ...' ),
+			array(
+				'description' => __( 'Show social media profiles defined in sunflower settings' ),
+			)
+		);
+	}
 
-        $title = $instance['title'];
-        
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php echo 'Titel:'; ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
-        </p>
-        <?php
-    }
+	public function form( $instance ) {
+		$defaults = array(
+			'title' => __( 'Follow us' ),
+		);
+		$instance = wp_parse_args( (array) $instance, $defaults );
 
-    public function update($new_instance, $old_instance)
-    {
-        return array(
-            'title' => strip_tags($new_instance['title'])
-        );
-    }
+		$title = $instance['title'];
 
-    public function widget($args, $instance)
-    {
-        extract($args);
-        $title = apply_filters('widget_title', $instance['title']);
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php echo 'Titel:'; ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		</p>
+		<?php
+	}
 
-        echo $before_widget;
+	public function update( $new_instance, $old_instance ) {
+		return array(
+			'title' => strip_tags( $new_instance['title'] ),
+		);
+	}
 
-        if(!empty($title)) {
-            echo $before_title . $title . $after_title;
-        }
+	public function widget( $args, $instance ) {
+		extract( $args );
+		$title = apply_filters( 'widget_title', $instance['title'] );
 
-        $output = '<div class="widget-container">';
-        $output .= get_sunflower_social_media_profiles();
-        $output .= '</div>';
+		echo $before_widget;
 
-        echo $output;
+		if ( ! empty( $title ) ) {
+			echo $before_title . $title . $after_title;
+		}
 
-        echo $after_widget;
-    }
+		$output  = '<div class="widget-container">';
+		$output .= get_sunflower_social_media_profiles();
+		$output .= '</div>';
+
+		echo $output;
+
+		echo $after_widget;
+	}
 }
