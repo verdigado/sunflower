@@ -74,7 +74,7 @@ extract( $args );
 	?>
 
 	<div class="col-12 col-md-10 offset-md-1">
-		<div class="entry-content">
+		<div class="entry-content accordion">
 			<?php
 			the_content(
 				sprintf(

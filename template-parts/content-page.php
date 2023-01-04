@@ -22,7 +22,7 @@ extract( $args );
 	
 	<?php sunflower_post_thumbnail( $styled_layout, true ); ?>
 
-	<div class="entry-content">
+	<div class="entry-content accordion">
 		<?php
 		the_content();
 
