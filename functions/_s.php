@@ -128,17 +128,17 @@ function sunflower_scripts() {
 	}
 
 	wp_enqueue_script(
-		'bootstrap',
-		get_template_directory_uri() . '/assets/vndr/bootstrap/dist/js/bootstrap.min.js',
-		array( 'jquery' ),
+		'popper',
+		get_template_directory_uri() . '/assets/vndr/@popperjs/core/dist/umd/popper.min.js',
+		array( ),
 		_S_VERSION,
 		true
 	);
 
 	wp_enqueue_script(
-		'popper',
-		get_template_directory_uri() . '/assets/vndr/@popperjs/core/dist/umd/popper.min.js',
-		array( 'bootstrap' ),
+		'bootstrap',
+		get_template_directory_uri() . '/assets/vndr/bootstrap/dist/js/bootstrap.min.js',
+		array( 'jquery' ),
 		_S_VERSION,
 		true
 	);
