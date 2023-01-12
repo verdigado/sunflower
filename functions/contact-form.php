@@ -24,7 +24,15 @@ function sunflower_contact_form() {
 
 	$subject = __( 'New contact form', 'sunflower' );
 	$message = sprintf( "Name: %s\nE-Mail:%s\n\n%s", $name, $mail, $message );
-	wp_mail( $to, $subject, $message );
+
+	if ( ! empty( $mail ) ) {
+		$headers = 'Reply-To: ' . $mail;
+	}
+	if ( empty( $headers ) ) {
+		wp_mail( $to, $subject, $message );
+	} else {
+		wp_mail( $to, $subject, $message, $headers );
+	}
 
 	echo json_encode(
 		array(
