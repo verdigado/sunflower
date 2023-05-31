@@ -23,6 +23,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 
 		$ical->initUrl( $url, $username = null, $password = null, $userAgent = null );
 	} catch ( \Exception $e ) {
+		// @TODO Error Log?
 		return false;
 	}
 
@@ -191,7 +192,7 @@ function sunflower_import_icals( $force = false ) {
 		}
 
 		$response        = sunflower_icalimport( $url, $auto_categories );
-		$ids_from_remote = array_merge( $ids_from_remote, $response[0] );
+		$ids_from_remote = is_array($response) ? array_merge( $ids_from_remote, $response[0] ) : $ids_from_remote;
 	}
 
 	$deleted_on_remote = array_diff( sunflower_get_events_having_uid(), $ids_from_remote );
