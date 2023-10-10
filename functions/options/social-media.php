@@ -100,7 +100,7 @@ class SunflowerSocialMediaSettingsPage {
 			array( $this, 'sunflower_checkbox_callback' ), // Callback
 			'sunflower-setting-social-media-options', // Page
 			'sunflower_social_media_sharers', // Section
-			array( 'sunflower_sharer_twitter', __( 'Twitter', 'sunflower' ) )
+			array( 'sunflower_sharer_twitter', __( 'X/Twitter', 'sunflower' ) )
 		);
 
 		add_settings_field(
@@ -177,7 +177,7 @@ class SunflowerSocialMediaSettingsPage {
 	  */
 	public function social_media_profiles_callback( $args ) {
 		$default   = array();
-		$default[] = 'fab fa-twitter;Twitter;';
+		$default[] = 'fab fa-x-twitter;X/Twitter;';
 		$default[] = 'fab fa-facebook;Facebook;';
 		$default[] = 'fab fa-linkedin;LinkedIn;';
 		$default[] = 'fab fa-instagram;Instagram;';

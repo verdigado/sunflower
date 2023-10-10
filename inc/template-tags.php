@@ -93,11 +93,11 @@ function sunflower_the_social_media_sharers() {
 	$twitter = $facebook = $mail = false;
 	if ( get_sunflower_setting( 'sunflower_sharer_twitter' ) ) {
 		$twitter = sprintf(
-			'<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-twitter"></i></a>',
+			'<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-x-twitter"></i></a>',
 			urlencode( get_the_title() ),
 			get_permalink(),
 			false,
-			__( 'Share on twitter ', 'sunflower' )
+			__( 'Share on x/twitter ', 'sunflower' )
 		);
 	}
 

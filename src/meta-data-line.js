@@ -86,7 +86,7 @@ registerBlockType( 'sunflower/meta-data', {
                             options={
                                 [
                                     { value: 'none', label: 'Bitte wählen' },
-                                    { value: 'fab fa-twitter', label: 'Twitter' },
+                                    { value: 'fab fa-x-twitter', label: 'X/Twitter' },
                                     { value: 'fab fa-instagram', label: 'Instragram' },
                                     { value: 'fab fa-facebook-f', label: 'Facebook' },
                                     { value: 'fab fa-youtube', label: 'YouTube' },
