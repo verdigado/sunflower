@@ -5,7 +5,7 @@
 			<div class="d-flex w-100">
 			<div class="container d-flex align-items-center bloginfo">
 				<a class="img-container" href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo sunflower_parent_or_child( 'assets/img/sunflower-dark.svg' ); ?>" class="" alt="Sonnenblume - Logo">
+					<img src="<?php echo sunflower_parent_or_child( 'assets/img/sunflower.svg' ); ?>" class="" alt="Sonnenblume - Logo">
 				</a>
 				<div>
 					<div class="h5 bloginfo-name">
