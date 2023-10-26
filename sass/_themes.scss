@@ -1,12 +1,12 @@
 $themes: (
 	default: (
-    headingFont: Arvo,
-    headingFontBold: ArvoGruen,
+    headingFont: GrueneType,
+    headingFontBold: GrueneType,
     standardFont: PTSans
 	),
 	contrast: (
-    headingFont: Arvo,
-    headingFontBold: ArvoGruen,
+    headingFont: GrueneType,
+    headingFontBold: GrueneType,
     standardFont: PTSans
 	),
   verdigado: (
@@ -45,11 +45,11 @@ $themes: (
 	.cat-links a,
 	.tags-links a,
 	a.event-card article .event-archive-meta{
-		color: $green-800;
+		color: $secondary;
 	}
 
 	.metabox{
-		background-color: $green-800;
+		background-color: $secondary;
 	}
 
 }

@@ -92,10 +92,10 @@
          .navbar-nav{
             .current-menu-parent{
                 a.nav-link{
-                    color: $green-550;
+                    color: $primary;
                 }
                 @include media-breakpoint-up(lg) { 
-                    border-bottom: 3px solid $green-550;
+                    border-bottom: 3px solid $secondary;
                 }
             }
             .nav-link{
@@ -107,7 +107,7 @@
                 margin-right: 0.5rem;
                 margin-left: 0.5rem;
                 &:hover{
-                    color: $green-550;
+                    color: $secondary;
                 };
             }
          }
@@ -176,7 +176,7 @@
 
         ul{
             display: block; 
-            border-radius: 5px;
+            border-radius: 4px;
             margin-right: 0;
             padding-top: 0;
             padding-bottom: 0;
@@ -199,8 +199,8 @@
                     border-bottom: 1px solid $very-light-gray;  
                 }   
                 &:hover{
-                    color: $primary;
-                    background: none;
+                    color: $white;
+                    background: $secondary;
                 }
             } 
         }
@@ -262,7 +262,7 @@
 
             .submenu-opener{
                 flex: auto;               
-                color: $black-500;
+                color: $black;
                 font-size: 18px; 
                 text-align: end;
             }

@@ -41,7 +41,7 @@ header{
 }
 
 .topmenu{
-    background: map-get($custom-colors, 'green-800');
+    background: $secondary;
 }
 
 body{
@@ -55,7 +55,6 @@ body{
 }
 
 .bloginfo{
-    background-image: url('assets/img/background.jpg');
     background-size: cover;
     text-transform: uppercase;
     padding: 27px 0px;

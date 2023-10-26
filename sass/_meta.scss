@@ -3,7 +3,7 @@
         margin-right: 3px;
         &:before{
             content: '#';
-            color: map-get($custom-colors, 'black-500');;
+            color: map-get($custom-colors, 'black');;
         }
     }
 }

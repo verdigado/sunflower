@@ -1,5 +1,16 @@
 $custom-colors: (
-        green-500: #46962b,
+        klee-600: #008939,
+        klee-700: #006E2E,
+        tanne-600: #005437,
+        grashalm-600: #8ABD24,
+        himmel-600: #0BA1DD,
+        neutral-600: #F5F1E9,
+        sun-600: #FFF17A,
+        black: #000000,
+        grey-500: #6B7A80,
+        white: #FFFFFF
+
+        /* green-500: #46962b,
         green: #46962b,
         green-800: #224634,
         magenta :#e6007e,
@@ -10,17 +21,15 @@ $custom-colors: (
         blue-500 :#4cb4e7,
         blue-600: #4097c2,  
         gray-100 :#EFF2ED, 
-        black-500 :#201D1B
+        black-500 :#201D1B */
 );
 
 $very-light-gray: #D6D9D6;
-$green: map-get($custom-colors, 'green-500');
-$green-550: map-get($custom-colors, 'green-550');
-$black-500: map-get($custom-colors, 'black-500');
+
+$primary: map-get($custom-colors, 'klee-600');
+$secondary: map-get($custom-colors, 'tanne-600');
 
 $white-90: rgba(255,255,255,0.9);
-
-$primary: $green;
 
 $dark: #dddddd;
 $darkgray: #333333;
@@ -29,11 +38,11 @@ $very-dark-green: #072415;
 $body-color: #201D1B;
 $sidebar-color: #AFAFAF;
 
-$lightgreen: #EFF2ED;
-$darkgreen: #0A321E;
+$lightgreen: #E5F3EB;
+$darkgreen: #002216;
 
-$border-radius: 10px;
-$border-radius-small: 3px;
+$border-radius: 3px;
+$border-radius-small: 1px;
 
 $container-max-widths: (
         sm: 540px,
