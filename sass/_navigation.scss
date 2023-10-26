@@ -56,15 +56,16 @@
 .sunflower-post-navigation{
     div{
         a{
-            background: $lightgreen;
+            background: none;
             display: block;
             padding: 30px; 
             text-decoration: none;
-            color: $black;
+            color: $secondary;
+            border:1px solid $secondary;
             border-radius: $border-radius;
  
             &:hover{
-                background: $primary;
+                background: $secondary;
                 color: $white;
             }
  
