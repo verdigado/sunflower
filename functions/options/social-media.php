@@ -177,7 +177,7 @@ class SunflowerSocialMediaSettingsPage {
 	  */
 	public function social_media_profiles_callback( $args ) {
 		$default   = array();
-		$default[] = 'fab fa-twitter;Twitter;';
+		$default[] = 'fab fa-x-twitter;Twitter;';
 		$default[] = 'fab fa-facebook;Facebook;';
 		$default[] = 'fab fa-linkedin;LinkedIn;';
 		$default[] = 'fab fa-instagram;Instagram;';

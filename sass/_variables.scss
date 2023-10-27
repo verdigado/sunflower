@@ -15,8 +15,10 @@ $very-light-gray: #D6D9D6;
 
 $primary: map-get($custom-colors, 'klee-600');
 $secondary: map-get($custom-colors, 'tanne-600');
+$white: map-get($custom-colors, 'white');
 
 $white-90: rgba(255,255,255,0.9);
+
 
 $dark: #dddddd;
 $darkgray: #333333;
