@@ -3,14 +3,14 @@ Theme Name: sunflower
 Theme URI: https://sunflower-theme.de
 Author: Tom Rose
 Author URI: https://tom-rose.de
-Description: Theme for german Green party
+Description: Theme for the German Green Party
 Version: 1.8.3
-Tested up to: 5.4
-Requires PHP: 5.6
+Tested up to: 6.3
+Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: sunflower
-Tags: Bündnis 90/ Die Grünen
+Tags: Bündnis 90 / Die Grünen
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
@@ -150,4 +150,3 @@ $fa-font-path : 'assets/vndr/@fortawesome/fontawesome-free/webfonts';
 @import "wp-blocks/styled-layout";
 @import "wp-blocks/table";
 @import "_accordion";
-
