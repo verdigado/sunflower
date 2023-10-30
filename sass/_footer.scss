@@ -5,25 +5,25 @@
     opacity: 0.8;
     justify-content: center;
     align-items: center;
-    background: white;
+    background: $white;
     border-radius: 50%;
     margin: 3px;
     text-decoration: none;
-    
+
     i{
-        color: white;
-        
+        color: $white;
+
     }
 }
 
 .site-footer{
     background-color: $very-dark-green;
-    color: white;
+    color: $white;
     padding: 50px 0;
 
     .social-media-profile{
         i{
-            color: black;
+            color: $black;
         }
     }
 
@@ -33,9 +33,9 @@
             padding-left: 0;
         }
     }
-    
+
     a{
-        color: white;
+        color: $white;
     }
 
     hr{

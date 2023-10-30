@@ -1,11 +1,12 @@
 {
     "extends": [
-        "stylelint-config-wordpress/scss"
+        "@wordpress/stylelint-config/scss"
     ],
     "ignoreFiles": [
         "sass/_normalize.scss"
     ],
     "rules": {
+        "indentation": 4,
         "font-family-no-missing-generic-family-keyword": null,
         "no-descending-specificity": null,
         "block-no-empty": null,
@@ -13,6 +14,5 @@
         "font-family-no-duplicate-names": null,
         "selector-class-pattern": null,
         "function-url-quotes": null
-
     }
 }

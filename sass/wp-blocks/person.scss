@@ -15,7 +15,7 @@
         align-self:start;
         width: 100%;
         height: 100%;
-        background: white;
+        background: $white;
         border-bottom-left-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
     }
@@ -37,7 +37,7 @@
 
         figcaption{
             font-size: $small-font-size;
-            text-align: right;  
+            text-align: right;
         }
     }
 }

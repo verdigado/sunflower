@@ -1,0 +1,50 @@
+# .github/workflows/release.yml
+
+name: Build Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - dev
+      - main
+
+env:
+  NODE_VERSION: 18
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: check theme version against tag
+        run: |
+          THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
+          V="v"
+          echo Version in style.scss: $THEME_VERSION
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install npm packages
+        run: npm ci
+
+      - name: Build CSS
+        run: npm run compile:build
+
+      - name: Build CSS-RTL
+        run: npm run compile:rtl
+
+      - name: Build JS
+        run: npm run build
+
+      - name: run install composer
+        run: composer install
+
+      - name: Make bundle
+        run: npm run bundle

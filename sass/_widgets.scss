@@ -27,7 +27,7 @@
         @include themed() {
             font-family: t('standardFont');
         }
-        font-weight: bold; 
+        font-weight: bold;
         font-size: 1.3rem;
         color: $white-90;
         letter-spacing: 0.3px;
@@ -40,9 +40,9 @@
             padding: 4px;
             border-radius: 0;
             background: none;
-            color: white;
+            color: $white;
         }
-        
+
         label{
             position: relative;
             &:after{
@@ -75,7 +75,7 @@
                 top: 0.8rem;
             }
         }
-        
+
     }
 
     &_recent_entries{
@@ -126,7 +126,7 @@
             height: 30px;
         }
         svg{
-            fill: white;
+            fill: $white;
             width: 20px;
         }
     }
