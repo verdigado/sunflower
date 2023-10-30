@@ -79,7 +79,7 @@ img.post-thumbnail{
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        color: white;
+        color: $white;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -108,7 +108,7 @@ article.post{
     .entry-header{
         &:hover{
            h2 a{
-               color: $green-550;   
+               color: $green-550;
            }
         }
     }
@@ -166,7 +166,7 @@ a.eventlist{
 }
 
 .sunflower-pagination{
-    background: white;
+    background: $white;
     border-radius: $border-radius;
     display: flex;
     align-items: baseline;
@@ -189,7 +189,7 @@ a.eventlist{
 }
 
 input[type="search"]::-webkit-search-cancel-button {
-    -webkit-appearance: none;  
+    -webkit-appearance: none;
     opacity: 0;
     pointer-events: none;
 }
@@ -204,7 +204,7 @@ iframe{
             z-index: 30;
         }
         &:before{
-            content: ""; 
+            content: "";
             position: absolute;
             top: 0;
             left: 0;

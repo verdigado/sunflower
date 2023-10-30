@@ -1,8 +1,8 @@
 .comment{
     &-list{
-       list-style-type: none; 
+       list-style-type: none;
     }
-    
+
     &s-title{
         text-align: center;
         margin: 50px 0;
@@ -10,9 +10,9 @@
 
     .children{
         border-left: 2px solid $primary;
-        margin-bottom: 65px;  
+        margin-bottom: 65px;
         margin-left: 0;
-        @include media-breakpoint-up(md) { 
+        @include media-breakpoint-up(md) {
             margin-left: 1.5em;
         }
 
@@ -21,7 +21,7 @@
     &-body{
         footer{
             display: block;
-            @include media-breakpoint-up(md) { 
+            @include media-breakpoint-up(md) {
                 display: flex;
             }
 
@@ -31,15 +31,15 @@
 
             .comment{
                 &-author{
-                    @include media-breakpoint-up(md) { 
-                        border-right: 1px solid black;
+                    @include media-breakpoint-up(md) {
+                        border-right: 1px solid $black;
                         padding-right: 10px;
                         margin-right: 10px;
                     }
                 }
                 &-metadata{
                     margin-bottom: 10px;
-                    @include media-breakpoint-up(md) { 
+                    @include media-breakpoint-up(md) {
                         margin-bottom: 0;
                     }
                     a{
@@ -73,7 +73,7 @@
         background-color: $white;
         padding: 30px;
         border-radius: $border-radius;
-    
+
 
         label{
             display: block;
@@ -82,7 +82,7 @@
         .comment-form-cookies-consent{
             display: flex;
             align-items: center;
-            
+
             input{
                 width: 50px;
                 height: 50px;
@@ -103,13 +103,13 @@
 
     &-form{
        &-comment{
-          
+
        }
 
        &-author,
        &-email,
        &-url{
-           
+
        }
 
        &-meta{
@@ -117,9 +117,9 @@
        }
 
        &-cookies-consent{
-           
+
            label{
-              
+
            }
        }
     }
@@ -133,7 +133,7 @@
         text-transform: uppercase;
         font-size: 1rem;
         border-radius: 0;
-        color: white;
+        color: $white;
         padding: 10px 30px;
         border: 0;
         font-style: italic;

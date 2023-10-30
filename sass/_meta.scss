@@ -27,12 +27,12 @@
     @include media-breakpoint-up(md) {
         position: absolute;
     }
-    background: $primary;   
+    background: $primary;
     right: 0px;
     top: -50px;
     border-radius: $border-radius;
-    color: white;
-    padding: $grid-gutter-width; 
+    color: $white;
+    padding: $grid-gutter-width;
     z-index: 20;
     text-align: left;
 

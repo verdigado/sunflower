@@ -1,12 +1,12 @@
-@include media-breakpoint-up(lg) { 
+@include media-breakpoint-up(lg) {
     .navbar{
         .nav-item{
             &:hover{
                 .nav-link{
-                    
+
                 }
-                div.dropdown-menu{ 
-                    display: block; 
+                div.dropdown-menu{
+                    display: block;
                 }
             }
         }
@@ -58,43 +58,43 @@
         a{
             background: $lightgreen;
             display: block;
-            padding: 30px; 
+            padding: 30px;
             text-decoration: none;
             color: $black;
             border-radius: $border-radius;
- 
+
             &:hover{
                 background: $primary;
                 color: $white;
             }
- 
+
             .announce{
                 text-align: right;
                 text-transform: uppercase;
                 font-weight: bold;
                 font-style: italic;
-               
+
             }
         }
     }
  }
- 
+
  .navbar{
      padding: 0;
- 
+
      &-main{
          border-bottom: 0;
          box-shadow: 0 1px 20px rgba(0,0,0,.08);
          letter-spacing:    0.3px
      }
- 
+
      &-light{
          .navbar-nav{
             .current-menu-parent{
                 a.nav-link{
                     color: $green-550;
                 }
-                @include media-breakpoint-up(lg) { 
+                @include media-breakpoint-up(lg) {
                     border-bottom: 3px solid $green-550;
                 }
             }
@@ -112,7 +112,7 @@
             }
          }
      }
- 
+
      li{
          margin-right: 10px;
      }
@@ -130,7 +130,7 @@
     }
 }
 
-.navbar-toggler.collapsed>.close, 
+.navbar-toggler.collapsed>.close,
 .navbar-toggler:not(.collapsed)>.open {
     display: none;
 }
@@ -140,13 +140,13 @@
     &-menu{
         border-radius: 0;
         padding:0;
-        display: none; // block for testing 
+        display: none; // block for testing
         background: transparent;
         border: 0;
         &-spacer{
             height: 0px;
             background: none;
-            @include media-breakpoint-up(lg) { 
+            @include media-breakpoint-up(lg) {
                 height: 20px;
             }
         }
@@ -157,10 +157,10 @@
 
         &-level{
             &-0{
-                @include media-breakpoint-up(lg) { 
-                    border: 0;  
+                @include media-breakpoint-up(lg) {
+                    border: 0;
                     box-shadow: 0px 25px 20px rgba(0, 0, 0, 0.1);
-                }  
+                }
             }
             &-1{
                 a{
@@ -175,7 +175,7 @@
         }
 
         ul{
-            display: block; 
+            display: block;
             border-radius: 5px;
             margin-right: 0;
             padding-top: 0;
@@ -183,26 +183,26 @@
             overflow: hidden;
             border: 0;
             list-style-type: none;
-            background: white;
-            padding: 0; 
+            background: $white;
+            padding: 0;
             margin-bottom: -1px;
         li{
             padding: 0px;
             margin-right: 0;
-            a{    
-                font-size: 18px;     
+            a{
+                font-size: 18px;
                 text-transform: none;
                 font-weight: bold;
                 padding-top: 10px;
-                padding-bottom: 10px;   
-                @include media-breakpoint-up(lg) { 
-                    border-bottom: 1px solid $very-light-gray;  
-                }   
+                padding-bottom: 10px;
+                @include media-breakpoint-up(lg) {
+                    border-bottom: 1px solid $very-light-gray;
+                }
                 &:hover{
                     color: $primary;
                     background: none;
                 }
-            } 
+            }
         }
     }
 }
@@ -247,10 +247,10 @@
             display: flex;
             align-items: baseline;
             flex-wrap: wrap;
-            @include media-breakpoint-up(lg) { 
+            @include media-breakpoint-up(lg) {
                 flex-wrap: nowrap;
             }
-           
+
             a{
                 flex-basis: auto;
             }
@@ -258,12 +258,12 @@
             ul li{
                 display: block;
             }
-        
+
 
             .submenu-opener{
-                flex: auto;               
+                flex: auto;
                 color: $black-500;
-                font-size: 18px; 
+                font-size: 18px;
                 text-align: end;
             }
 
