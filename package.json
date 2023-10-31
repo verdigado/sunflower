@@ -18,11 +18,11 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "@wordpress/scripts": "^26.6.5",
+    "@wordpress/scripts": "^26.15.0",
+    "@wordpress/stylelint-config": "^21.27.0",
     "dir-archiver": "^2.1.0",
     "node-sass": "^8.0.0",
-    "rtlcss": "^3.5.0",
-    "@wordpress/stylelint-config": "^21.27.0"
+    "rtlcss": "^3.5.0"
   },
   "rtlcssConfig": {
     "options": {
