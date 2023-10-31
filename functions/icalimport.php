@@ -190,8 +190,10 @@ function sunflower_import_icals( $force = false ) {
 			continue;
 		}
 
-		$response        = sunflower_icalimport( $url, $auto_categories );
-		$ids_from_remote = array_merge( $ids_from_remote, $response[0] );
+		$response = sunflower_icalimport( $url, $auto_categories );
+		if ( !empty( $response ) ) {
+			$ids_from_remote = array_merge( $ids_from_remote, $response[0] );
+		}
 	}
 
 	$deleted_on_remote = array_diff( sunflower_get_events_having_uid(), $ids_from_remote );
