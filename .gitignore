@@ -9,5 +9,5 @@ documentation/
 build/
 assets/vndr/
 .favorites.json
-.vscode/settings.json
+.vscode
 pa11y.json
