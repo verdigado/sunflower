@@ -52,8 +52,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: fail on fork
-          if: github.repository_owner != 'verdigado'
-          run: exit 1
+        if: github.repository_owner != 'verdigado'
+        run: exit 1
 
       - name: Echo debug
         run: |
