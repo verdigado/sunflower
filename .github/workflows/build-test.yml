@@ -34,11 +34,17 @@ jobs:
       - name: Install npm packages
         run: npm ci
 
+      - name: Lint SCSS
+        run: npm run lint:scss
+
       - name: Build CSS
-        run: npm run compile:build
+        run: npm run compile:css
 
       - name: Build CSS-RTL
         run: npm run compile:rtl
+
+      - name: Lint JS
+        run: npm run lint:js
 
       - name: Build JS
         run: npm run build

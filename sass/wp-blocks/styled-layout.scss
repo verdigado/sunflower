@@ -1,17 +1,18 @@
-.styled-layout{
-    .wp-block-group{
+.styled-layout {
+
+    .wp-block-group {
         padding: 100px 10px;
 
-        .wp-block-group__inner-container>h2{
+        .wp-block-group__inner-container > h2 {
             margin-bottom: 70px;
         }
     }
 
-    .site-main{
-        margin-bottom: 0px;
+    .site-main {
+        margin-bottom: 0;
     }
 }
 
-.site-main{
+.site-main {
     margin-bottom: 50px;
 }

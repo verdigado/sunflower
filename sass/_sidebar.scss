@@ -1,15 +1,16 @@
-#secondary{
+#secondary {
     display: flex;
     flex-wrap: wrap;
 
-    section{
-        flex: 1 0 21%; 
+    section {
+        flex: 1 0 21%;
         margin: 0 4% 4% 0;
     }
 
-    @include media-breakpoint-down(md) { 
-        section{
-            flex: 1 0 100%; 
+    @include media-breakpoint-down(md) {
+
+        section {
+            flex: 1 0 100%;
             margin-bottom: 20%;
         }
     }

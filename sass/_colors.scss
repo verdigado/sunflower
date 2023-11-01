@@ -1,9 +1,8 @@
-
-.bg-lightgreen{
+.bg-lightgreen {
     background-color: $lightgreen;
 }
 
-.bg-darkgreen{
+.bg-darkgreen {
     background-color: $darkgreen;
 }
 
@@ -20,4 +19,4 @@
     .has-#{$name}-hover-background-color:hover {
         background-color: $code !important;
     }
-  }
+}

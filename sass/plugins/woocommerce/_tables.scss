@@ -1,87 +1,87 @@
 table.shop_table_responsive {
 
-	thead {
-		display: none;
-	}
+    thead {
+        display: none;
+    }
 
-	tbody {
+    tbody {
 
-		th {
-			display: none;
-		}
-	}
+        th {
+            display: none;
+        }
+    }
 
-	tr {
+    tr {
 
-		td {
-			display: block;
-			text-align: right;
-			clear: both;
+        td {
+            display: block;
+            text-align: right;
+            clear: both;
 
-			&::before {
-				content: attr(data-title) ": ";
-				float: left;
-			}
+            &::before {
+                content: attr(data-title) ": ";
+                float: left;
+            }
 
-			&.product-remove {
+            &.product-remove {
 
-				a {
-					text-align: left;
-				}
+                a {
+                    text-align: left;
+                }
 
-				&::before {
-					display: none;
-				}
-			}
+                &::before {
+                    display: none;
+                }
+            }
 
-			&.actions,
-			&.download-actions {
+            &.actions,
+            &.download-actions {
 
-				&::before {
-					display: none;
-				}
-			}
+                &::before {
+                    display: none;
+                }
+            }
 
-			&.download-actions {
+            &.download-actions {
 
-				.button {
-					display: block;
-					text-align: center;
-				}
-			}
-		}
-	}
+                .button {
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 48em) {
 
-	table.shop_table_responsive {
+    table.shop_table_responsive {
 
-		thead {
-			display: table-header-group;
-		}
+        thead {
+            display: table-header-group;
+        }
 
-		tbody {
+        tbody {
 
-			th {
-				display: table-cell;
-			}
-		}
+            th {
+                display: table-cell;
+            }
+        }
 
-		tr {
+        tr {
 
-			th,
-			td {
-				text-align: left;
-			}
+            th,
+            td {
+                text-align: left;
+            }
 
-			td {
-				display: table-cell;
+            td {
+                display: table-cell;
 
-				&::before {
-					display: none;
-				}
-			}
-		}
-	}
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
 }

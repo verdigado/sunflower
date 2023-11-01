@@ -13,6 +13,8 @@
         "no-duplicate-selectors": null,
         "font-family-no-duplicate-names": null,
         "selector-class-pattern": null,
-        "function-url-quotes": null
+        "function-url-quotes": null,
+        "declaration-property-unit-allowed-list":  null,
+        "scss/no-global-function-names": null
     }
 }

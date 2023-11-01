@@ -1,4 +1,4 @@
-.social-media-profile{
+.social-media-profile {
     width: 40px;
     height: 40px;
     display: flex;
@@ -10,43 +10,45 @@
     margin: 3px;
     text-decoration: none;
 
-    i{
+    i {
         color: $white;
 
     }
 }
 
-.site-footer{
+.site-footer {
     background-color: $very-dark-green;
     color: $white;
     padding: 50px 0;
 
-    .social-media-profile{
-        i{
+    .social-media-profile {
+
+        i {
             color: $black;
         }
     }
 
-    .navbar-nav{
+    .navbar-nav {
         flex-wrap: wrap;
-        .nav-link{
+
+        .nav-link {
             padding-left: 0;
         }
     }
 
-    a{
+    a {
         color: $white;
     }
 
-    hr{
+    hr {
         opacity: 0.6;
     }
 }
 
-.site-info{
+.site-info {
     color: $white-90;
 
-    a{
+    a {
         color: $white-90;
     }
 }

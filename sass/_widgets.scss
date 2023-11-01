@@ -1,41 +1,44 @@
-.widget{
+.widget {
     margin-bottom: 5rem;
     color: $lightgreen;
 
-    ul{
+    ul {
         list-style-type: none;
         padding-left: 0;
         position: relative;
 
-        li{
+        li {
             border-bottom: 1px solid $sidebar-color;
             padding: 0.75rem 0;
             position: relative;
         }
 
-        a{
+        a {
             color: $white-90;
             text-decoration: none;
 
-            &:hover{
+            &:hover {
                 color: $primary;
             }
         }
     }
 
-    &-title{
+    &-title {
+
         @include themed() {
-            font-family: t('standardFont');
+            font-family: t("standardFont");
         }
-        font-weight: bold;
+
+        font-weight: 700;
         font-size: 1.3rem;
         color: $white-90;
         letter-spacing: 0.3px;
     }
 
-    &_search{
+    &_search {
+
         input,
-        input:focus{
+        input:focus {
             border: 1px solid $sidebar-color;
             padding: 4px;
             border-radius: 0;
@@ -43,11 +46,12 @@
             color: $white;
         }
 
-        label{
+        label {
             position: relative;
-            &:after{
+
+            &::after {
                 content: "\f002";
-                font-family: 'Font Awesome 5 Free';
+                font-family: "Font Awesome 5 Free";
                 font-weight: 900;
                 position: absolute;
                 top: 5px;
@@ -55,20 +59,22 @@
             }
         }
 
-        input[type=submit]{
+        input[type="submit"] {
             display: none;
         }
     }
 
-    &_categories{
-        li{
-            a{
+    &_categories {
+
+        li {
+
+            a {
                 display: block;
             }
 
-            &:after{
+            &::after {
                 content: "\f054";
-                font-family: 'Font Awesome 5 Free';
+                font-family: "Font Awesome 5 Free";
                 font-weight: 900;
                 position: absolute;
                 right: 1rem;
@@ -78,21 +84,23 @@
 
     }
 
-    &_recent_entries{
-        .post-date{
-        display: block;
-        font-style: italic;
-        font-size: 90%;
-        margin-top: 0.2rem;
-     }
+    &_recent_entries {
+
+        .post-date {
+            display: block;
+            font-style: italic;
+            font-size: 90%;
+            margin-top: 0.2rem;
+        }
 
     }
 
-    .tagcloud{
+    .tagcloud {
+
         display: flex;
         flex-wrap: wrap;
 
-        a{
+        a {
             font-size: 80% !important;
             text-decoration: none;
             color: inherit;
@@ -101,31 +109,35 @@
             padding: 0.3rem 0.5rem;
             margin: 0 0.3rem 0.5rem 0;
 
-            &:hover{
+            &:hover {
                 background-color: $white;
                 color: $sidebar-color;
             }
         }
     }
 
-    &_archive{
-        select{
+    &_archive {
+
+        select {
             border: 1px solid $sidebar-color;
             padding: 0.2rem;
         }
     }
 
-    &_sunflower_follow_us{
-        .widget-container{
+    &_sunflower_follow_us {
+
+        .widget-container {
             display: flex;
             flex-wrap: wrap;
         }
-        .social-media-profile{
+
+        .social-media-profile {
             background-color: $sidebar-color;
             width: 30px;
             height: 30px;
         }
-        svg{
+
+        svg {
             fill: $white;
             width: 20px;
         }
