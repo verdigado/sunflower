@@ -1,24 +1,27 @@
-#content{
-    .entry-content p a{
+#content {
+
+    .entry-content p a {
         text-decoration: none;
-        &:hover{
+
+        &:hover {
             text-decoration: underline;
         }
     }
 }
 
-.opacity{
-    &-0{
+.opacity {
+
+    &-0 {
         opacity: 0 !important;
     }
 }
 
-.border-radius{
+.border-radius {
     border-radius: $border-radius;
 }
 
 
-.full-width{
+.full-width {
     width: 100vw;
     position: relative;
     left: 50%;
@@ -27,31 +30,33 @@
     margin-right: -50vw;
 }
 
-.text-left{
+.text-left {
     text-align: left;
 }
 
-.no-link{
+.no-link {
     color: inherit;
     text-decoration: none;
-    &:hover{
+
+    &:hover {
         color: $primary;
     }
-    a{
+
+    a {
         color: inherit;
-        text-decoration: none; 
+        text-decoration: none;
     }
 }
 
-.p-45{
+.p-45 {
     padding: 2.25rem !important;
 }
 
-.has-shadow{
+.has-shadow {
     box-shadow: 0 1px 20px rgba(0, 0, 0, 0.04);
 }
 
-.max-800{
+.max-800 {
     max-width: 800px;
     margin: auto;
 }

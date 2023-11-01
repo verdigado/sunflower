@@ -101,41 +101,40 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------- */
 @import "utilities/alignments";
 
-
 /* Fontawesome
 --------------------------------------------- */
-$fa-font-path : 'assets/vndr/@fortawesome/fontawesome-free/webfonts';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
+$fa-font-path : "assets/vndr/@fortawesome/fontawesome-free/webfonts";
+
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands";
 
 /* Bootstrap
 --------------------------------------------- */
-@import "_variables";
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 /* Custom
 --------------------------------------------- */
-@import "_themes";
-@import "_forkawesome";
-@import "_typography";
-@import "_generic";
-@import "_header";
-@import "_widgets";
-@import "_fonts";
-@import "_layout";
-@import "_footer";
-@import "_event";
-@import "_navigation";
-@import "_archives";
-@import "_meta";
-@import "_colors";
-@import "_single";
-@import "_sidebar";
-@import "_comments";
-
-@import "wp-blocks/_blocks";
+@import "themes";
+@import "forkawesome";
+@import "typography";
+@import "generic";
+@import "header";
+@import "widgets";
+@import "fonts";
+@import "layout";
+@import "footer";
+@import "event";
+@import "navigation";
+@import "archives";
+@import "meta";
+@import "colors";
+@import "single";
+@import "sidebar";
+@import "comments";
+@import "wp-blocks/blocks";
 @import "wp-blocks/cover";
 @import "wp-blocks/group";
 @import "wp-blocks/file";
@@ -149,4 +148,4 @@ $fa-font-path : 'assets/vndr/@fortawesome/fontawesome-free/webfonts';
 @import "wp-blocks/pullquote";
 @import "wp-blocks/styled-layout";
 @import "wp-blocks/table";
-@import "_accordion";
+@import "accordion";

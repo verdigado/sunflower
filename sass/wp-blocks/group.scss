@@ -1,8 +1,8 @@
-.wp-block-group{
+.wp-block-group {
 
     padding: 0;
-    
-    &.has-background{
+
+    &.has-background {
         width: 100vw;
         position: relative;
         left: 50%;
@@ -12,27 +12,27 @@
         display: flex;
         justify-content: center;
 
-        .wp-block-group__inner-container{
-           max-width: 100%;
-        } 
-
-        @include media-breakpoint-up(md) { 
-            .wp-block-group__inner-container{
-                max-width: 1155px;
-             } 
+        .wp-block-group__inner-container {
+            max-width: 100%;
         }
 
+        @include media-breakpoint-up(md) {
 
+            .wp-block-group__inner-container {
+                max-width: 1155px;
+            }
+        }
 
     }
 
-    &__inner-container{
-        max-width: map-get($container-max-widths, 'xl');
-    } 
+    &__inner-container {
+        max-width: map-get($container-max-widths, "xl");
+    }
 }
 
-.d-flex{
-    .wp-block-group__inner-container{
+.d-flex {
+
+    .wp-block-group__inner-container {
         display: flex !important;
     }
 }

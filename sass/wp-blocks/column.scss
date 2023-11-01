@@ -1,23 +1,27 @@
-.wp-block-columns{
+.wp-block-columns {
     margin-bottom: 0;
 }
 
-.wp-block-column{
+.wp-block-column {
     margin-bottom: 50px;
 }
 
-.wp-block-column{
-    img{
+.wp-block-column {
+
+    img {
         width: 100%;
         object-fit: cover;
         border-radius: $border-radius;
     }
 }
 
-@include media-breakpoint-up(sm) { 
-    .same-height{
-        .wp-block-column{
-            img{
+@include media-breakpoint-up(sm) {
+
+    .same-height {
+
+        .wp-block-column {
+
+            img {
                 max-height: 200px;
             }
         }
@@ -25,16 +29,19 @@
 }
 
 
-@include media-breakpoint-up(xl) { 
-    .same-height{
-        .wp-block-column{
-            img{
+@include media-breakpoint-up(xl) {
+
+    .same-height {
+
+        .wp-block-column {
+
+            img {
                 max-height: 230px;
             }
         }
     }
 
-    .wp-block-column{
-        margin-bottom: 0px;
+    .wp-block-column {
+        margin-bottom: 0;
     }
 }

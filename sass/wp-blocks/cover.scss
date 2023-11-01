@@ -1,7 +1,9 @@
-.entry-content>.wp-block-cover{
+.entry-content > .wp-block-cover {
+
     @include themed() {
-        font-family: t('headingFontBold');
+        font-family: t("headingFontBold");
     }
+
     width: 100vw;
     position: relative;
     left: 50%;
@@ -9,13 +11,14 @@
     margin-left: -50vw;
     margin-right: -50vw;
 
-    .wp-block-cover__inner-container{
-        max-width: map-get($container-max-widths, 'xl');
-    } 
+    .wp-block-cover__inner-container {
+        max-width: map-get($container-max-widths, "xl");
+    }
 }
 
-.wp-block-column{
-    .wp-block-cover{
+.wp-block-column {
+
+    .wp-block-cover {
         overflow: hidden;
         border-radius: $border-radius;
     }

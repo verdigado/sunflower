@@ -1,66 +1,61 @@
 $themes: (
-	default: (
-    headingFont: Arvo,
-    headingFontBold: ArvoGruen,
-    standardFont: PTSans
-	),
-	contrast: (
-    headingFont: Arvo,
-    headingFontBold: ArvoGruen,
-    standardFont: PTSans
-	),
-  verdigado: (
-    headingFont: Sarabun,
-    headingFontBold: Sarabun,
-    standardFont: PTSans
-  )
+    default: ( "headingFont": "Arvo", "headingFontBold": "ArvoGruen", "standardFont": "PTSans" ),
+    contrast: ( "headingFont": "Arvo", "headingFontBold": "ArvoGruen", "standardFont": "PTSans"	),
+    verdigado: ( "headingFont": "Sarabun", "headingFontBold": "Sarabun", "standardFont": "PTSans" )
 );
 
 @mixin themed() {
-  @each $theme, $map in $themes {
-    .theme--#{$theme} & {
-      $theme-map: () !global;
-      @each $key, $submap in $map {
-        $value: map-get(map-get($themes, $theme), '#{$key}');
-        $theme-map: map-merge($theme-map, ($key: $value)) !global;
-      }
-      @content;
-      $theme-map: null !global;
+
+    @each $theme, $map in $themes {
+        .theme--#{$theme} & {
+            $theme-map: () !global;
+
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), "#{$key}");
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+
+            @content;
+            $theme-map: null !global;
+        }
     }
-  }
 }
 
 @function t($key) {
-  @return map-get($theme-map, $key);
+
+    @return map-get($theme-map, $key);
 }
 
-.theme--contrast{
-	.topmenu{
-		.navbar-nav .nav-link{
-			color: $white;
-		}
-	}
+.theme--contrast {
 
-	.roofline,
-	.cat-links a,
-	.tags-links a,
-	a.event-card article .event-archive-meta{
-		color: $green-800;
-	}
+    .topmenu {
 
-	.metabox{
-		background-color: $green-800;
-	}
+        .navbar-nav .nav-link {
+            color: $white;
+        }
+    }
+
+    .roofline,
+    .cat-links a,
+    .tags-links a,
+    a.event-card article .event-archive-meta {
+        color: $green-800;
+    }
+
+    .metabox {
+        background-color: $green-800;
+    }
 
 }
 
-.theme--verdigado{
-  .topmenu{
-    background-color: #a00057;
-    color: $white;
-  }
+.theme--verdigado {
 
-  .bloginfo{
-    background: #00354e !important;
-  }
+    .topmenu {
+        background-color: #a00057;
+        color: $white;
+    }
+
+    .bloginfo {
+        background: #00354e !important;
+    }
 }

@@ -1,134 +1,140 @@
-.comment{
-    &-list{
-       list-style-type: none;
+.comment {
+
+    &-list {
+        list-style-type: none;
     }
 
-    &s-title{
+    &s-title {
         text-align: center;
         margin: 50px 0;
     }
 
-    .children{
+    .children {
         border-left: 2px solid $primary;
         margin-bottom: 65px;
         margin-left: 0;
+
         @include media-breakpoint-up(md) {
             margin-left: 1.5em;
         }
 
     }
 
-    &-body{
-        footer{
+    &-body {
+
+        footer {
             display: block;
+
             @include media-breakpoint-up(md) {
                 display: flex;
             }
 
-            .says{
+            .says {
                 display: none;
             }
 
-            .comment{
-                &-author{
+            .comment {
+
+                &-author {
+
                     @include media-breakpoint-up(md) {
                         border-right: 1px solid $black;
                         padding-right: 10px;
                         margin-right: 10px;
                     }
                 }
-                &-metadata{
+
+                &-metadata {
                     margin-bottom: 10px;
+
                     @include media-breakpoint-up(md) {
                         margin-bottom: 0;
                     }
-                    a{
-                        color:inherit;
+
+                    a {
+                        color: inherit;
                         text-decoration: none;
                     }
                 }
             }
         }
 
-        .reply{
+        .reply {
             text-align: right;
         }
-        .comment-reply-link{
+
+        .comment-reply-link {
             font-style: italic;
             text-transform: uppercase;
             color: $black;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
         }
     }
 
-    &-reply{
-        &-title{
+    &-reply {
+
+        &-title {
             text-align: center;
         }
     }
 
 
-    &-respond{
+    &-respond {
+
         background-color: $white;
         padding: 30px;
         border-radius: $border-radius;
 
 
-        label{
+        label {
             display: block;
         }
 
-        .comment-form-cookies-consent{
+        .comment-form-cookies-consent {
             display: flex;
             align-items: center;
 
-            input{
+            input {
                 width: 50px;
                 height: 50px;
                 margin-right: 1em;
             }
-            label{
+
+            label {
                 display: inline;
                 font-size: 15px;
             }
         }
 
-        input[type=url],
-        input[type=text],
-        input[type=email]{
+        input[type="url"],
+        input[type="text"],
+        input[type="email"] {
             width: 100%;
         }
     }
 
-    &-form{
-       &-comment{
+    &-form {
 
-       }
+        &-comment {}
 
-       &-author,
-       &-email,
-       &-url{
+        &-author,
+        &-email,
+        &-url {}
 
-       }
+        &-meta {}
 
-       &-meta{
+        &-cookies-consent {
 
-       }
-
-       &-cookies-consent{
-
-           label{
-
-           }
-       }
+            label {}
+        }
     }
 }
 
-.form-submit{
+.form-submit {
     text-align: right;
 
-    input{
+    input {
         background-color: #46962b;
         text-transform: uppercase;
         font-size: 1rem;
@@ -140,6 +146,6 @@
     }
 }
 
-.comments-area{
+.comments-area {
     min-height: 100px;
 }

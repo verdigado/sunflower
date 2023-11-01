@@ -1,43 +1,47 @@
-.wp-block-sunflower-meta-data{
-    a{
+.wp-block-sunflower-meta-data {
+
+    a {
         color: inherit;
-        margin-right: 1.0em;
-        &:hover{
+        margin-right: 1em;
+
+        &:hover {
             color: $primary;
         }
     }
 }
 
-.latest-posts{
-    article{
+.latest-posts {
+
+    article {
         border-radius: $border-radius;
         margin-bottom: 10px;
-        .post-thumbnail{
-            img{
+
+        .post-thumbnail {
+
+            img {
                 border-radius: $border-radius $border-radius 0 0;
             }
         }
     }
 
-    .entry{
-        &-header{
+    .entry {
+
+        &-header {
             padding-bottom: 0 !important;
         }
-        
-        &-content{
-            a{
+
+        &-content {
+
+            a {
                 color: $body-color;
                 text-decoration: none;
             }
         }
     }
 
-    
+
 }
 
-.wp-block-sunflower-accordion:last-of-type{
+.wp-block-sunflower-accordion:last-of-type {
     margin-bottom: 50px;
 }
-
-
-

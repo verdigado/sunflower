@@ -1,15 +1,16 @@
-.wp-block-button__link{
+.wp-block-button__link {
     background-color: $primary;
     color: $white !important;
     text-transform: uppercase;
     font-size: 1rem;
     border-radius: 0;
+
     @include themed() {
-        font-family: t('standardFont');
+        font-family: t("standardFont");
     }
 
-    &:hover{
-        background-color:  map-get($custom-colors, 'magenta-600') !important;
+    &:hover {
+        background-color: map-get($custom-colors, "magenta-600") !important;
         color: $white !important;
     }
 }
