@@ -10,7 +10,7 @@ env:
   NODE_VERSION: 18
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -44,27 +44,9 @@ jobs:
       - name: Make bundle
         run: npm run bundle
 
-  build-zip:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
       - name: fail on fork
         if: github.repository_owner != 'verdigado'
         run: exit 1
-
-      - name: Echo debug
-        run: |
-          echo "sunflower-${{ github.ref_name }}.zip"
-          ls -la
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Make bundle
-        run: npm run bundle
 
       - name: Rename ZIP file
         run: |
@@ -76,12 +58,6 @@ jobs:
           artifacts: "sunflower-${{ github.ref_name }}.zip"
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build-zip
-    steps:
-      - uses: actions/checkout@v4
 
       - name: Provide deploy_key
         env:
@@ -96,4 +72,33 @@ jobs:
         run: echo ${GITHUB_REF##*/} > version.txt
 
       - name: rsync zipfile, version and changelog
-        run: rsync -z -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" ../sunflower-${{ github.ref_name }}.zip version.txt github-ci@wordpress05.gcms.verdigado.net:/var/www/updateserver/
+        run: rsync -a -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" ../sunflower-${{ github.ref_name }}.zip version.txt github-ci@wordpress05.gcms.verdigado.net:/var/www/updateserver/
+
+  mkdocs:
+    runs-on: ubuntu-latest
+    needs: build-deploy
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: mkdocs build
+        uses: Tiryoh/actions-mkdocs@v0
+        with:
+          mkdocs_version: 'latest' # option
+          # mkdocs_version: '1.1' # option
+          # requirements: 'requirements.txt' # option
+          configfile: 'mkdocs/mkdocs.yml' # option
+
+      - name: Provide deploy_key
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir "$HOME/.ssh"
+          echo "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
+          file "$HOME/.ssh/id_rsa"
+          chmod 600 "$HOME/.ssh/id_rsa"
+
+      - name: save version
+        run: echo ${GITHUB_REF##*/} > version.txt
+
+      - name: rsync documentation
+        run: rsync -a -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_rsa" --delete documentation github-ci@wordpress05.gcms.verdigado.net:/var/www/documentation/
