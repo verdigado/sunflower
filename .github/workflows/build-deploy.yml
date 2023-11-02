@@ -86,7 +86,7 @@ jobs:
         run: |
             rsync -a sunflower-${{ github.ref_name }}.zip version.txt changelog.html production:/var/www/updateserver/
             THEME_VERSION=$(cat version.txt | sed -e 's/^v//')
-            ssh production "cd /var/www && wp post get $PAGEID --field=content | sed -e 's/<version>[^<]*/<version>$THEME_VERSION/g' > /tmp/content-$PAGEID.txt"
+            ssh production "cd /var/www && wp post get $PAGEID --field=content | sed -e 's/<version>[^<]*/<version>$THEME_VERSION/g | sed -E 's/\/updateserver\/(.*)\.zip/\/updateserver\/sunflower-$THEME_VERSION.zip/g' > /tmp/content-$PAGEID.txt"
             ssh production "cd /var/www && wp post update $PAGEID - < /tmp/content-$PAGEID.txt && wp option update blogdescription 'Demoseite für das WordPress-Theme Sunflower $THEME_VERSION' --url=sunflower-theme.de/demo && wp option update blogname 'Sunflower $THEME_VERSION'"
 
   mkdocs:
@@ -124,4 +124,4 @@ jobs:
         run: echo ${GITHUB_REF##*/} > version.txt
 
       - name: rsync documentation
-        run: rsync -a --delete documentation production:/var/www/documentation/
+        run: rsync -a --delete documentation production:/var/www/
