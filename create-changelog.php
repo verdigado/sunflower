@@ -40,7 +40,7 @@ function read_commits_between_tags( $from, $to ) {
 		$from = ( isset( $argv[1] ) ) ? $argv[1] : 'der neuesten Version';
 	}
 
-	return sprintf( "<h2>Neu in %s</h2>\n<ul>%s</ul>\n\n", $from, add_commit_messages( $commits ) );
+	return sprintf( "<h2>Neu in %s</h2>\n<ul>\n%s</ul>\n\n", $from, add_commit_messages( $commits ) );
 }
 
 

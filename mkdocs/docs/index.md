@@ -3,7 +3,8 @@
 Dies ist die Anleitung für das Sunflower-WordPress-Theme.
 
 ## Voraussetzungen
-* WordPress 5
+* WordPress 6
+* PHP 7.4 oder 8.2
 
 ## Features
 * einfacher Umzug von Urwahl3000

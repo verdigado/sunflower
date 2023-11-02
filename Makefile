@@ -6,7 +6,7 @@ stop:
 
 compile:
 	npm run compile:css
-	
+
 compile-silent:
 	npm run compile:build
 
@@ -18,7 +18,7 @@ bundle:
 
 make-pot:
 	 wp i18n make-pot . languages/sunflower.pot \
-	 poedit languages/de_DE.po 
+	 poedit languages/de_DE.po
 	 //composer make-pot
 
 upload:
@@ -30,16 +30,8 @@ upload-nightly:
 activate:
 	ssh sharepic "cd /var/www/sunflower-theme.de/wp-content/themes/ && wp theme install sunflower.zip --force"
 
-VERSION = $(shell grep Version style.css | cut -d: -f2)
-DATE = $(shell date)
-announce:
-	ssh sharepic "cd /var/www/sunflower-theme.de && wp option update blogdescription 'Demoseite für das WordPress-Theme Sunflower $(VERSION)' --url=sunflower-theme.de/demo && wp option update blogname 'Sunflower $(VERSION)' && wp post update 1952 -" < announcement.txt
-
-get:
-	ssh sharepic "cd /var/www/sunflower-theme.de && wp post get 1952 --field=post_content" | sed -e 's/<version>[^<]*/<version>$(VERSION)/g' | sed -e 's/<date>[^<]*/<date>$(DATE)/g' > announcement.txt
-
 deploy:
-	git push && make compile-silent bundle upload activate get announce
+	git push && make compile-silent bundle upload activate
 
 deploy-nightly:
 	make compile-silent bundle upload-nightly
@@ -51,7 +43,7 @@ childtheme-deploy:
 	rsync ../sunflower-child.zip sharepic:/var/www/sunflower-theme.de/updateserver/
 
 publish:
-	@echo "Latest tag was: " 
+	@echo "Latest tag was: "
 	@git describe --tags --abbrev=0
 	@read -p "which version do you want to publish now (start with number, NO v): " newversion; \
 	sed -i  "s/Version.*/Version:\ $$newversion/" "sass/style.scss" && \
@@ -74,7 +66,7 @@ mkdocs-deploy:
 js:
 	npm run build
 
-js-watch: 
+js-watch:
 	npm run start
 
 remote-create-dump:
@@ -101,7 +93,7 @@ sync-db:
 
 remote-create-homepage-txt:
 	ssh sharepic "cd /var/www/sunflower-theme.de/dumps && wp post get 37 --url=sunflower-theme.de/demo --field=content > homepage.txt"
-	
+
 changelog:
 	php create-changelog.php
 
