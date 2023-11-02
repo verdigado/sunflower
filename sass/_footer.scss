@@ -38,6 +38,10 @@
 
     a {
         color: $white;
+
+		&:hover {
+			color: $primary;
+		}
     }
 
     hr {

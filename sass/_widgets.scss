@@ -13,15 +13,15 @@
             position: relative;
         }
 
-        a {
-            color: $white-90;
-            text-decoration: none;
-
-            &:hover {
-                color: $primary;
-            }
-        }
     }
+
+	a {
+		color: $white;
+
+		&:hover {
+			color: $primary;
+		}
+	}
 
     &-title {
 
@@ -51,7 +51,7 @@
 
             &::after {
                 content: "\f002";
-                font-family: "Font Awesome 5 Free";
+                font-family: "Font Awesome 6 Free";
                 font-weight: 900;
                 position: absolute;
                 top: 5px;
@@ -74,7 +74,7 @@
 
             &::after {
                 content: "\f054";
-                font-family: "Font Awesome 5 Free";
+                font-family: "Font Awesome 6 Free";
                 font-weight: 900;
                 position: absolute;
                 right: 1rem;
