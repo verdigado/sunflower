@@ -78,13 +78,16 @@ jobs:
           END
 
       - name: save version
-        run: echo ${GITHUB_REF##*/} > version.txt
+        run: echo ${{ github.ref_name }} > version.txt
+
+      - name: save version
+        run: echo ${{ github.ref_name }} > version.txt
 
       - name: rsync zipfile, version and changelog
         env:
             PAGEID: 1952
         run: |
-            rsync -a sunflower-${{ github.ref_name }}.zip version.txt production:/var/www/updateserver/
+            rsync -a sunflower-${{ github.ref_name }}.zip version.txt sunflower/changelog.html production:/var/www/updateserver/
             THEME_VERSION=$(cat version.txt | sed -e 's/^v//')
             ssh production "cd /var/www && wp post get $PAGEID --field=content | sed -e 's/<version>[^<]*/<version>$THEME_VERSION/g' > /tmp/content-$PAGEID.txt"
             ssh production "cd /var/www && wp post update $PAGEID - < /tmp/content-$PAGEID.txt && wp option update blogdescription 'Demoseite für das WordPress-Theme Sunflower $THEME_VERSION' --url=sunflower-theme.de/demo && wp option update blogname 'Sunflower $THEME_VERSION'"
