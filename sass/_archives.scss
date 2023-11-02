@@ -1,20 +1,24 @@
-.archive{
-    a{
+.archive {
+
+    a {
         text-decoration: none;
     }
-    article{
+
+    article {
         border-radius: $border-radius;
         overflow: hidden;
     }
 
-    .page-header{
+    .page-header {
         padding-top: 80px;
         padding-bottom: 80px;
     }
 
-    &-loop{
-        .entry-content{
-            a{
+    &-loop {
+
+        .entry-content {
+
+            a {
                 color: $body-color;
             }
         }

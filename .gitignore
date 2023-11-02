@@ -3,10 +3,11 @@ bundle*
 vendor/
 style.css
 style.css.map
+style-rtl.css
 announcement.txt
 documentation/
 build/
 assets/vndr/
 .favorites.json
-.vscode/settings.json
+.vscode
 pa11y.json

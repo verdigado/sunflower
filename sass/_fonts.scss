@@ -1,79 +1,83 @@
 @font-face {
-  font-family: 'GrueneType';
-  src: url('assets/fonts/GrueneType-BlackCondensedItalic.eot');
-  src: url('assets/fonts/GrueneType-BlackCondensedItalic.eot?#iefix') format('embedded-opentype'),
-      url('assets/fonts/GrueneType-BlackCondensedItalic.woff2') format('woff2'),
-      url('assets/fonts/GrueneType-BlackCondensedItalic.woff') format('woff'),
-      url('assets/fonts/GrueneType-BlackCondensedItalic.ttf') format('truetype'),
-      url('assets/fonts/GrueneType-BlackCondensedItalic.svg#GrueneType-BlackCondensedItalic') format('svg');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
+    font-family: GrueneType;
+    src: url("assets/fonts/GrueneType-BlackCondensedItalic.eot");
+    src:
+        url("assets/fonts/GrueneType-BlackCondensedItalic.eot?#iefix") format("embedded-opentype"),
+        url("assets/fonts/GrueneType-BlackCondensedItalic.woff2") format("woff2"),
+        url("assets/fonts/GrueneType-BlackCondensedItalic.woff") format("woff"),
+        url("assets/fonts/GrueneType-BlackCondensedItalic.ttf") format("truetype"),
+        url("assets/fonts/GrueneType-BlackCondensedItalic.svg#GrueneType-BlackCondensedItalic") format("svg");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'PTSans';
-  src: url('assets/fonts/PTSans-Regular.eot');
-  src: url('assets/fonts/PTSans-Regular.eot?#iefix') format('embedded-opentype'),
-      url('assets/fonts/PTSans-Regular.woff2') format('woff2'),
-      url('assets/fonts/PTSans-Regular.woff') format('woff'),
-      url('assets/fonts/PTSans-Regular.ttf') format('truetype'),
-      url('assets/fonts/PTSans-Regular.svg#PTSans-Regular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: PTSans;
+    src: url("assets/fonts/PTSans-Regular.eot");
+    src:
+        url("assets/fonts/PTSans-Regular.eot?#iefix") format("embedded-opentype"),
+        url("assets/fonts/PTSans-Regular.woff2") format("woff2"),
+        url("assets/fonts/PTSans-Regular.woff") format("woff"),
+        url("assets/fonts/PTSans-Regular.ttf") format("truetype"),
+        url("assets/fonts/PTSans-Regular.svg#PTSans-Regular") format("svg");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'PTSans';
-  src: url('assets/fonts/PTSans-Bold.eot');
-  src: url('assets/fonts/PTSans-Bold.eot?#iefix') format('embedded-opentype'),
-      url('assets/fonts/PTSans-Bold.woff2') format('woff2'),
-      url('assets/fonts/PTSans-Bold.woff') format('woff'),
-      url('assets/fonts/PTSans-Bold.ttf') format('truetype'),
-      url('assets/fonts/PTSans-Bold.svg#PTSans-Bold') format('svg');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
+    font-family: PTSans;
+    src: url("assets/fonts/PTSans-Bold.eot");
+    src:
+        url("assets/fonts/PTSans-Bold.eot?#iefix") format("embedded-opentype"),
+        url("assets/fonts/PTSans-Bold.woff2") format("woff2"),
+        url("assets/fonts/PTSans-Bold.woff") format("woff"),
+        url("assets/fonts/PTSans-Bold.ttf") format("truetype"),
+        url("assets/fonts/PTSans-Bold.svg#PTSans-Bold") format("svg");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: ForkAwesome;
-  font-style: normal;
-  font-weight: 400;
-  src: url('assets/fonts/forkawesome-webfont.woff') format('woff');
-  font-display: block;
+    font-family: ForkAwesome;
+    font-style: normal;
+    font-weight: 400;
+    src: url("assets/fonts/forkawesome-webfont.woff") format("woff");
+    font-display: block;
 }
 
 @font-face {
-	font-family: Sarabun;
-	src: url('assets/fonts/sarabun-v12-latin-regular.woff') format('woff');
-	font-display: swap;
+    font-family: Sarabun;
+    src: url("assets/fonts/sarabun-v12-latin-regular.woff") format("woff");
+    font-display: swap;
 }
 
-
-.forkawesome{
-  font-family: ForkAwesome !important;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1;
+.forkawesome {
+    font-family: ForkAwesome !important;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
 }
 
-.gruenetype{
-  font-family: GrueneType !important;
-  font-weight: 500;
-} 
-
-.ptsans{
-  font-family: PTSans !important;
+.gruenetype {
+    font-family: GrueneType !important;
+    font-weight: 500;
 }
 
-.bereit{
-  font-family: BereitBold !important;
-  font-weight: 500;
-} 
+.ptsans {
+    font-family: PTSans !important;
+}
 
+.ptsans {
+    font-family: PTSans !important;
+}
 
+.bereit {
+    font-family: BereitBold !important;
+    font-weight: 500;
+}

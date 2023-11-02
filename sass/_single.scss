@@ -1,27 +1,27 @@
-.display-single{
-    >.entry{
-        &-header{
+.display-single {
+
+    >.entry {
+
+        &-header {
             text-align: center;
             background: $secondary;
             color: $white;
             padding: 100px 0 85px 0;
         }
 
-        &-title{
+        &-title {
             margin-bottom: 50px;
         }
 
-        &-content{
-           
-        }
+        &-content {}
     }
 
-    >.post-thumbnail{
+    >.post-thumbnail {
         position: relative;
         margin-top: -35px;
         margin-bottom: 50px;
-      
-        figcaption{
+
+        figcaption {
             position: relative;
             width: unset;
             color: inherit;
@@ -35,12 +35,12 @@
 }
 
 .post,
-.page{
+.page {
     margin: 0;
 }
 
 
-header.has-no-post-thumbnail{
+header.has-no-post-thumbnail {
     margin-bottom: 50px;
 }
 

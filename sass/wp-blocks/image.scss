@@ -1,14 +1,15 @@
-.wp-block-image{
+.wp-block-image {
     margin-bottom: 0;
     border-radius: $border-radius;
 
-    &:not(.is-style-rounded){
-        img{
+    &:not(.is-style-rounded) {
+
+        img {
             border-radius: $border-radius;
         }
     }
 
-    figcaption{
+    figcaption {
         position: relative;
         width: unset;
         color: inherit;

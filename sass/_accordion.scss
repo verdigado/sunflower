@@ -1,18 +1,20 @@
-.c-accordion{
-    &__title{
+.c-accordion {
+
+    &__title {
 
         font-size: 25px;
         font-family: PTSans !important;
 
-        &:before{
+        &::before {
             display: none !important;
         }
-        &:after{
+
+        &::after {
+
             content: ">";
             padding-left: 1em;
-            font-weight: bold;
-            position:relative;
+            font-weight: 700;
+            position: relative;
         }
     }
 }
- 
