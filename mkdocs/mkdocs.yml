@@ -43,4 +43,3 @@ plugins:
   - search:
       lang: en
 dev_addr: '0.0.0.0:8080' # local only
-

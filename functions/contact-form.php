@@ -23,7 +23,7 @@ function sunflower_contact_form() {
 	$to       = get_sunflower_setting( 'sunflower_contact_form_to' ) ?: get_option( 'admin_email' );
 
 	$subject = __( 'New contact form', 'sunflower' );
-	$message = sprintf( "Name: %s\nE-Mail:%s\n\n%s", $name, $mail, $message );
+	$message = sprintf( "Name: %s\nE-Mail: %s\n\n%s", $name, $mail, $message );
 
 	if ( ! empty( $mail ) ) {
 		$headers = 'Reply-To: ' . $mail;

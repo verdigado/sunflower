@@ -35,14 +35,7 @@ Fertig.
 - thumbnail mit ``ffmpeg -i input.mp4 -ss 00:00:01.000 -vframes 1 output.png``
 
 ## Publishing
-``make publish``
 
-or
-1. edit version in style.scss
-1. git add . && git commit
-1. git tag -a v0.1.9 -m "message"
-1 .git push --follow-tags
-4. increment version in style.scss and add beta, nightly-build, etc.
+Das Deployment läuft über GitHub Actions. Beim Erstellen eines Releases wird das CSS und JavaScript gebaut und das ZIP-Archiv gepackt und auf dem Updateserver https://sunflower-theme.de kopiert.
 
-
-
+Wichtig: Vor dem Release die Versions-Nummer in `sass/style.scss` anpassen!

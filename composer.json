@@ -15,8 +15,8 @@
         }
     ],
     "require": {
-        "php": ">=7.4",
-        "johngrogg/ics-parser": "^2.2"
+        "php": "^7.4 | ^8.1",
+        "johngrogg/ics-parser": "^3.3"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
