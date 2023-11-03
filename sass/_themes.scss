@@ -1,7 +1,7 @@
 $themes: (
-    default: ( "headingFont": "Arvo", "headingFontBold": "ArvoGruen", "standardFont": "PTSans" ),
-    contrast: ( "headingFont": "Arvo", "headingFontBold": "ArvoGruen", "standardFont": "PTSans"	),
-    verdigado: ( "headingFont": "Sarabun", "headingFontBold": "Sarabun", "standardFont": "PTSans" )
+    default: ("headingFont": "GrueneType", "headingFontBold": "GrueneType", "standardFont": "PTSans"),
+    contrast: ("headingFont": "GrueneType", "headingFontBold": "GrueneType", "standardFont": "PTSans"),
+    verdigado: ("headingFont": "Sarabun", "headingFontBold": "Sarabun", "standardFont": "PTSans")
 );
 
 @mixin themed() {
@@ -39,11 +39,11 @@ $themes: (
     .cat-links a,
     .tags-links a,
     a.event-card article .event-archive-meta {
-        color: $green-800;
+        color: $secondary;
     }
 
     .metabox {
-        background-color: $green-800;
+        background-color: $secondary;
     }
 
 }

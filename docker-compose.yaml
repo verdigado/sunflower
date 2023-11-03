@@ -1,0 +1,44 @@
+version: '3.2'
+
+services:
+  mariadb:
+    image: mariadb
+    restart: unless-stopped
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - default
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: password
+
+  wp:
+    depends_on:
+      - mariadb
+    image: wordpress:php7.4
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:80:80
+      - 127.0.0.1:443:443
+    networks:
+      - default
+    volumes:
+      - ./:/var/www/html/wp-content/themes/sunflower
+      # - ./docker/mu-plugins:/var/www/html/wp-content/mu-plugins
+      # - ./docker/.htaccess:/var/www/html/.htaccess
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: true
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEFAULT_THEME', 'sunflower' );
+
+volumes:
+  mariadb_data:
+
+networks:
+  default: 

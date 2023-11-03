@@ -8,18 +8,18 @@
         position: relative;
 
         li {
-            border-bottom: 1px solid $sidebar-color;
+            border-bottom: 1px solid map-get($custom-colors, "grey-500");
             padding: 0.75rem 0;
             position: relative;
         }
 
-        a {
-            color: $white-90;
-            text-decoration: none;
+    }
 
-            &:hover {
-                color: $primary;
-            }
+    a {
+        color: $white;
+
+        &:hover {
+            color: $primary;
         }
     }
 
@@ -31,7 +31,7 @@
 
         font-weight: 700;
         font-size: 1.3rem;
-        color: $white-90;
+        color: $white;
         letter-spacing: 0.3px;
     }
 
@@ -39,11 +39,11 @@
 
         input,
         input:focus {
-            border: 1px solid $sidebar-color;
+            border: 1px solid map-get($custom-colors, "grey-500");
             padding: 4px;
-            border-radius: 0;
+            border-radius: 2px;
             background: none;
-            color: $white;
+            color: map-get($custom-colors, "grey-500");
         }
 
         label {
@@ -51,7 +51,7 @@
 
             &::after {
                 content: "\f002";
-                font-family: "Font Awesome 5 Free";
+                font-family: "Font Awesome 6 Free";
                 font-weight: 900;
                 position: absolute;
                 top: 5px;
@@ -74,7 +74,7 @@
 
             &::after {
                 content: "\f054";
-                font-family: "Font Awesome 5 Free";
+                font-family: "Font Awesome 6 Free";
                 font-weight: 900;
                 position: absolute;
                 right: 1rem;

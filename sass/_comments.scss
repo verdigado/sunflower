@@ -135,14 +135,14 @@
     text-align: right;
 
     input {
-        background-color: #46962b;
+        background-color: $secondary;
         text-transform: uppercase;
         font-size: 1rem;
-        border-radius: 0;
+        border-radius: 4px;
         color: $white;
         padding: 10px 30px;
         border: 0;
-        font-style: italic;
+        font-style: normal;
     }
 }
 

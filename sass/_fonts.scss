@@ -1,44 +1,42 @@
 @font-face {
-    font-family: Arvo;
-    src: url("assets/fonts/Arvo-Regular_201.woff") format("woff");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: ArvoGruen;
-    src: url("assets/fonts/Arvo_Gruen_2015_10.woff") format("woff");
+    font-family: GrueneType;
+    src: url("assets/fonts/GrueneType-BlackCondensedItalic.eot");
+    src:
+        url("assets/fonts/GrueneType-BlackCondensedItalic.eot?#iefix") format("embedded-opentype"),
+        url("assets/fonts/GrueneType-BlackCondensedItalic.woff2") format("woff2"),
+        url("assets/fonts/GrueneType-BlackCondensedItalic.woff") format("woff"),
+        url("assets/fonts/GrueneType-BlackCondensedItalic.ttf") format("truetype"),
+        url("assets/fonts/GrueneType-BlackCondensedItalic.svg#GrueneType-BlackCondensedItalic") format("svg");
+    font-weight: 900;
+    font-style: italic;
     font-display: swap;
 }
 
 @font-face {
     font-family: PTSans;
+    src: url("assets/fonts/PTSans-Regular.eot");
+    src:
+        url("assets/fonts/PTSans-Regular.eot?#iefix") format("embedded-opentype"),
+        url("assets/fonts/PTSans-Regular.woff2") format("woff2"),
+        url("assets/fonts/PTSans-Regular.woff") format("woff"),
+        url("assets/fonts/PTSans-Regular.ttf") format("truetype"),
+        url("assets/fonts/PTSans-Regular.svg#PTSans-Regular") format("svg");
+    font-weight: 400;
     font-style: normal;
-    font-weight: 400;
-    src: url("assets/fonts/ptsans_regular.woff") format("woff");
     font-display: swap;
 }
 
 @font-face {
     font-family: PTSans;
-    font-style: bold;
+    src: url("assets/fonts/PTSans-Bold.eot");
+    src:
+        url("assets/fonts/PTSans-Bold.eot?#iefix") format("embedded-opentype"),
+        url("assets/fonts/PTSans-Bold.woff2") format("woff2"),
+        url("assets/fonts/PTSans-Bold.woff") format("woff"),
+        url("assets/fonts/PTSans-Bold.ttf") format("truetype"),
+        url("assets/fonts/PTSans-Bold.svg#PTSans-Bold") format("svg");
     font-weight: 700;
-    src: url("assets/fonts/ptsans_bold.woff") format("woff");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: PTSans;
-    font-style: italic;
-    font-weight: 400;
-    src: url("assets/fonts/ptsans_italic.woff") format("woff");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: PTSans;
-    font-style: italic;
-    font-weight: 700;
-    src: url("assets/fonts/ptsans_bolditalic.woff") format("woff");
+    font-style: normal;
     font-display: swap;
 }
 
@@ -51,19 +49,10 @@
 }
 
 @font-face {
-    font-family: BereitBold;
-    font-style: normal;
-    font-weight: 400;
-    src: url("assets/fonts/bereitbold.woff2") format("woff2");
-    font-display: swap;
-}
-
-@font-face {
     font-family: Sarabun;
     src: url("assets/fonts/sarabun-v12-latin-regular.woff") format("woff");
     font-display: swap;
 }
-
 
 .forkawesome {
     font-family: ForkAwesome !important;
@@ -75,14 +64,13 @@
     line-height: 1;
 }
 
-.arvo {
-    font-family: Arvo !important;
+.gruenetype {
+    font-family: GrueneType !important;
     font-weight: 500;
 }
 
-.arvogruen {
-    font-family: ArvoGruen !important;
-    font-weight: 500;
+.ptsans {
+    font-family: PTSans !important;
 }
 
 .ptsans {

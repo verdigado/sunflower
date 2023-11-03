@@ -3,14 +3,14 @@
     color: $white !important;
     text-transform: uppercase;
     font-size: 1rem;
-    border-radius: 0;
+    border-radius: 3px;
 
     @include themed() {
         font-family: t("standardFont");
     }
 
     &:hover {
-        background-color: map-get($custom-colors, "magenta-600") !important;
+        background-color: $secondary !important;
         color: $white !important;
     }
 }

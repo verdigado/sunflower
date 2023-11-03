@@ -118,7 +118,7 @@ article.post {
         &:hover {
 
             h2 a {
-                color: $green-550;
+                color: $primary;
             }
         }
     }
@@ -231,7 +231,7 @@ iframe {
             right: 0;
             z-index: 20;
             opacity: 0.3;
-            background-color: $black-500;
+            background-color: $black;
         }
     }
 }

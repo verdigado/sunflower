@@ -49,7 +49,7 @@ header {
 }
 
 .topmenu {
-    background: map-get($custom-colors, "green-800");
+    background: $secondary;
 }
 
 body {
@@ -59,12 +59,11 @@ body {
     &.page,
     &.archive,
     &.blog {
-        background-color: $lightgreen;
+        background-color: $white;
     }
 }
 
 .bloginfo {
-    background-image: url("assets/img/background.jpg");
     background-size: cover;
     text-transform: uppercase;
     padding: 27px 0;
@@ -74,7 +73,7 @@ body {
     }
 
     img {
-        max-width: 55px;
+        width: 55px;
         margin-right: 7px;
         background: transparent;
     }
