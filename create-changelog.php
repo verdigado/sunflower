@@ -19,7 +19,7 @@ for ( $i = 0; $i < count( $tags ); $i++ ) {
 
 	$output .= read_commits_between_tags( $tags[ $i ], $tags[ $i + 1 ] );
 
-	if ( $tags[ $i ] == 'v1.0.0' ) {
+	if ( $tags[ $i ] == 'v1.7.0' ) {
 		break;
 	}
 }
