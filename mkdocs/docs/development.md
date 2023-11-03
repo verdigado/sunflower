@@ -39,3 +39,9 @@ Fertig.
 Das Deployment läuft über GitHub Actions. Beim Erstellen eines Releases wird das CSS und JavaScript gebaut und das ZIP-Archiv gepackt und auf dem Updateserver https://sunflower-theme.de kopiert.
 
 Wichtig: Vor dem Release die Versions-Nummer in `sass/style.scss` anpassen!
+
+Dazu kann man den Schritt `publish` des Makefiles nutzen:
+
+`make publish`
+
+Dadurch wird ein neuer Branch `deploy` angelegt, die Versions-Nummer in `sass/style.scss` gesetzt, das Changelog aktualisiert und der Branch gepusht.

@@ -48,10 +48,11 @@ publish:
 	@read -p "which version do you want to publish now (start with number, NO v): " newversion; \
 	sed -i  "s/Version.*/Version:\ $$newversion/" "sass/style.scss" && \
 	php create-changelog.php $$newversion && \
+    git checkout -B deploy && \
 	git add sass/style.scss changelog.html && git commit -m "publishing version $$newversion" && \
-	git tag "v$$newversion"
-	git push && git push --tags
-	make deploy
+    git push
+#	git tag "v$$newversion"
+#	git push && git push --tags
 
 
 mkdocs-serve:
