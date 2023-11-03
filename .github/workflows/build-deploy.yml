@@ -124,4 +124,4 @@ jobs:
         run: echo ${GITHUB_REF##*/} > version.txt
 
       - name: rsync documentation
-        run: rsync -a --delete documentation production:/var/www/
+        run: rsync -a --delete documentation/* production:/var/www/documentation/
