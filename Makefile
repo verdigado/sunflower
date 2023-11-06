@@ -50,7 +50,7 @@ publish:
 	php create-changelog.php $$newversion && \
 	git checkout -B deploy && \
 	git add sass/style.scss changelog.html && git commit -m "publishing version $$newversion" && \
-	git push
+	git push --set-upstream origin deploy
 #	git tag "v$$newversion"
 #	git push && git push --tags
 
