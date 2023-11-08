@@ -1,21 +1,22 @@
 $custom-colors: (
-    klee-600: #008939,
+    klee: #008939,
     klee-700: #006e2e,
-    tanne-600: #005437,
-    tanne-800: #003221,
-    grashalm-600: #8abd24,
-    himmel-600: #0ba1dd,
-    neutral-600: #f5f1e9,
-    sun-600: #fff17a,
+    tanne: #005437,
+    sonne: #fff17a,
+    sand: #f5f1e9,
+    grashalm: #8abd24,
+    himmel: #0ba1dd,
+    neutral: #f5f1e9,
     black: #000,
+    black-500: #201d1b,
     grey-500: #6b7a80,
     white: #fff
 );
 
 $very-light-gray: #d6d9d6;
 
-$primary: map-get($custom-colors, "klee-600");
-$secondary: map-get($custom-colors, "tanne-600");
+$primary: map-get($custom-colors, "klee");
+$secondary: map-get($custom-colors, "tanne");
 $white: map-get($custom-colors, "white");
 
 $black: map-get($custom-colors, "black");
