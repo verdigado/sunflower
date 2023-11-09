@@ -60,7 +60,7 @@ function sunflower_getIcalDate( $timestamp, $withTime = false ) {
 }
 
 function sunflower_getEventInIcs( $post ) {
-	 $_sunflower_event_from           = @get_post_meta( $post->ID, '_sunflower_event_from' )[0] ?: false;
+	$_sunflower_event_from            = @get_post_meta( $post->ID, '_sunflower_event_from' )[0] ?: false;
 	$_sunflower_event_from            = strToTime( $_sunflower_event_from );
 	$_sunflower_event_until           = @get_post_meta( $post->ID, '_sunflower_event_until' )[0] ?: false;
 	$_sunflower_event_until           = strToTime( $_sunflower_event_until );
@@ -73,10 +73,10 @@ function sunflower_getEventInIcs( $post ) {
 	$until = ( $_sunflower_event_until ) ? sunflower_getIcalDate( $_sunflower_event_until, ! $_sunflower_event_whole_day ) : sunflower_getIcalDate( 3600 + $_sunflower_event_from, ! $_sunflower_event_whole_day );
 
 	$now         = sunflower_getIcalDate( strToTime( 'now' ), true );
-	$summary     = get_the_title();
+	$summary     = sunflower_textfold ( 'SUMMARY:' . html_entity_decode( get_the_title() ) );
 	$proid       = parse_url( get_bloginfo( 'url' ), PHP_URL_HOST );
 	$uid         = md5( uniqid( mt_rand(), true ) ) . '@' . $proid;
-	$description = get_the_excerpt();
+	$description = sunflower_textfold ( 'DESCRIPTION:' . wp_strip_all_tags ( get_the_content() ) );
 	$location    = join(
 		', ',
 		array_diff(
@@ -93,8 +93,8 @@ function sunflower_getEventInIcs( $post ) {
 BEGIN:VEVENT\r
 UID:$uid\r
 LOCATION:$location\r
-SUMMARY:$summary\r
-DESCRIPTION:$description\r
+$summary\r
+$description\r
 CLASS:PUBLIC\r
 DTSTART:$from\r
 DTEND:$until\r
@@ -103,4 +103,20 @@ END:VEVENT\r
 ICALEVENT;
 
 	return $event;
+}
+
+/*
+ * This folds the text line for SUMMARY and DESCRIPTION
+ *
+ * Reference: https://www.kanzaki.com/docs/ical/text.html
+ **/
+function sunflower_textfold( $text ) {
+
+    // replace ",", ";" and "\"
+    $searchandreplace = [',' => '\,', ';' => '\;', '\\' => '\\\\' ];
+    $text = strtr($text, $searchandreplace);
+    // remove empty lines and replace all new lines with "\n\n"
+    $text = preg_replace('/\s*(\n)/', '\n\n', $text);
+    // fold all lines after 75 signs
+    return rtrim(chunk_split( $text, 75, "\r\n "), "\r\n " );
 }
