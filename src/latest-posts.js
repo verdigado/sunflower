@@ -7,7 +7,7 @@ import {
 	ToggleControl,
 	SelectControl
 } from '@wordpress/components';
- 
+
 registerBlockType( 'sunflower/latest-posts', {
     apiVersion: 2,
     title: 'Neueste Beiträge (Sunflower)',
@@ -27,7 +27,7 @@ registerBlockType( 'sunflower/latest-posts', {
 			default: ''
 		},
     },
- 
+
     edit: (props)  => {
         const blockProps = useBlockProps();
 
@@ -41,13 +41,13 @@ registerBlockType( 'sunflower/latest-posts', {
 
         const get_wp_categories = ( input ) => {
             let categories = new Array();
-            wp.data.select('core').getEntityRecords('taxonomy', 'category').forEach(element => {
+            wp.data.select('core').getEntityRecords('taxonomy', 'category')?.forEach(element => {
                 categories.push( element.slug );
             });
 
             return categories;
         };
-    
+
         const onChangeCategories = ( input ) => {
             props.setAttributes( { categories: input === undefined ? '' : input } );
         };
@@ -67,12 +67,12 @@ registerBlockType( 'sunflower/latest-posts', {
 
         return (
             <div { ...blockProps }>
-                { 
-                    <span> 
-                        Zeige die neuesten Beiträge an. Titel, Kategorien und Anzahl kannst Du rechts einstellen. 
-                        Hier klicken für eine Liste aller Kategorien. 
+                {
+                    <span>
+                        Zeige die neuesten Beiträge an. Titel, Kategorien und Anzahl kannst Du rechts einstellen.
+                        Hier klicken für eine Liste aller Kategorien.
                         <ul>
-                            {get_wp_categories().map((category, i) => {     
+                            {get_wp_categories().map((category, i) => {
                                 return(<li>{category}</li>);
                             })}
                         </ul>
@@ -104,11 +104,11 @@ registerBlockType( 'sunflower/latest-posts', {
                             onChange={ onChangeCount }
                         />
                     </PanelBody>
-                 
+
                  </InspectorControls>
                 }
             </div>
         )
- 
+
     },
 } )
