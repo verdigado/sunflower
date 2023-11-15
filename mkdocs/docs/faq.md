@@ -20,7 +20,7 @@ Sie erscheinen dann automatisch in der Fußzeile.
 ## Ich wünsche mir ein neues Feature, das es nicht gibt
 Neue Features kannst Du auf der
 
-* [Projektseite bei gitbub](https://github.com/codeispoetry/sunflower/issues) oder
+* [Projektseite bei gitbub](https://github.com/verdigado/sunflower/issues) oder
 * im Chatkanal auf [Chatbegrünung](https://chatbegruenung.de/channel/sunflower-wordpress)
 
 melden.

@@ -13,8 +13,8 @@ Wenn Du bisher Termine verwendet hast, musst Du diesen Punkt im Menü ersetzen. 
 Du kannst die bisherige Startseite so lassen oder eine neue, besonders schöne Startseite anlegen. Mehr dazu gibt es
 [auf unter Startseite](homepage.md)
 
-## Beiträge und Seiten 
-Beiträge und Seiten werden automatisch übernommen. [Wenn es zu Fehlern kommt, melde sie bitte unter https://github.com/codeispoetry/sunflower/issues](https://github.com/codeispoetry/sunflower/issues)
+## Beiträge und Seiten
+Beiträge und Seiten werden automatisch übernommen. [Wenn es zu Fehlern kommt, melde sie bitte unter https://github.com/verdigado/sunflower/issues](https://github.com/verdigado/sunflower/issues)
 
 ## Termine
 Termine werden zum Großteil aus Urwahl3000 automatish importiert.
