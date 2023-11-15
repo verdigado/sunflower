@@ -4,17 +4,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2022-03-25T08:58:34+01:00\n"
-"PO-Revision-Date: 2022-03-25 09:02+0100\n"
+"POT-Creation-Date: 2023-11-15T16:06:31+00:00\n"
+"PO-Revision-Date: 2023-11-15 17:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
-"X-Domain: sunflower\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Domain: sunflower\n"
 
 #. Theme Name of the theme
 msgid "sunflower"
@@ -25,16 +25,16 @@ msgid "https://sunflower-theme.de"
 msgstr "https://sunflower-theme.de"
 
 #. Description of the theme
-msgid "Theme for german Green party"
-msgstr "WordPress Theme für Bündnis 90/ Die Grünen"
+msgid "Theme for the German Green Party"
+msgstr "WordPress Theme für BÜNDNIS 90/DIE GRÜNEN"
 
 #. Author of the theme
-msgid "Tom Rose"
-msgstr "Tom Rose"
+msgid "verdigado eG"
+msgstr "verdigado eG"
 
 #. Author URI of the theme
-msgid "https://tom-rose.de"
-msgstr "https://tom-rose.de"
+msgid "https://verdigado.com"
+msgstr ""
 
 #: 404.php:19
 msgid "Oops! That page can&rsquo;t be found."
@@ -50,38 +50,38 @@ msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
 msgid "Events archive"
 msgstr "Vergangene Veranstaltungen"
 
-#: archive-sunflower_event.php:39 functions/events.php:29
-#: functions/options/events.php:30 functions/options/events.php:31
-#: functions/options/events.php:209
+#: archive-sunflower_event.php:39 functions/events.php:26
+#: functions/options/events.php:28 functions/options/events.php:29
+#: functions/options/events.php:206
 msgid "Events"
 msgstr "Termine"
 
-#: archive-sunflower_event.php:51
+#: archive-sunflower_event.php:52
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:53 functions/blocks/next-events.php:18
+#: archive-sunflower_event.php:54 functions/blocks/next-events.php:19
 msgid "all events"
 msgstr "Alle Termine"
 
-#: archive-sunflower_event.php:55
+#: archive-sunflower_event.php:56
 msgid "Archive"
 msgstr "Archiv"
 
-#: archive-sunflower_event.php:61 functions/events.php:190
-#: functions/options/events.php:186
+#: archive-sunflower_event.php:62 functions/events.php:184
+#: functions/options/events.php:182
 msgid "Map"
 msgstr "Landkarte"
 
-#: archive-sunflower_event.php:128
+#: archive-sunflower_event.php:129
 msgid "more info"
 msgstr "mehr Infos"
 
-#: archive-sunflower_event.php:186 single-sunflower_event.php:113
+#: archive-sunflower_event.php:187 single-sunflower_event.php:122
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: archive-sunflower_event.php:189 single-sunflower_event.php:116
+#: archive-sunflower_event.php:190 single-sunflower_event.php:125
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
@@ -89,11 +89,11 @@ msgstr ""
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: archive-sunflower_event.php:193 single-sunflower_event.php:124
+#: archive-sunflower_event.php:194 single-sunflower_event.php:133
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: archive-sunflower_event.php:203
+#: archive-sunflower_event.php:204
 msgid "calendar in ics-format"
 msgstr "Kalender im ics-Format"
 
@@ -109,15 +109,16 @@ msgstr "vor"
 msgid "Comment article"
 msgstr "Artikel kommentieren"
 
-#: comments.php:29
+#: comments.php:30
 msgid "comment article"
 msgstr "Artikel kommentieren"
 
-#: comments.php:30
+#: comments.php:31
 msgid "send"
 msgstr "abschicken"
 
-#: comments.php:33
+#. translators: %s is replaced with privacy link
+#: comments.php:35
 msgid ""
 "Your mail will not be published. Required fields are marked with a *. For "
 "more info see <a href=\"%s\">privacy</a>"
@@ -127,161 +128,166 @@ msgstr ""
 "Speicherung und Verarbeitung Ihrer Daten durch diese Website einverstanden. "
 "Weiteres entnehmen Sie bitte der <a href=\"%s\">Datenschutzerklärung</a>."
 
-#: comments.php:56
+#: comments.php:58
 msgid "One comment"
 msgstr "Ein Kommentar"
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:60
+#: comments.php:62
 msgctxt "context"
 msgid "%1$s commment"
 msgid_plural "%1$s comments"
 msgstr[0] "Ein Kommentar"
 msgstr[1] "%s Kommentare"
 
-#: comments.php:87
+#: comments.php:89
 msgid "Comments are closed."
 msgstr "Keine Kommentare möglich."
 
-#: functions/admin.php:20
+#. translators: %1$s and %2$s are replaced with string
+#: functions/admin.php:22
 msgid ""
-"Thank you for using sunflower theme. <a href='admin.php?"
-"page=sunflower_admin'>More information ca be found on the theme's setting "
-"page</a>."
+"Thank you for using sunflower theme. Sunflower is %1$s and maintained by "
+"%2$s."
 msgstr ""
-"Danke, dass Du das Sunflower-Theme nutzt. <a href='admin.php?"
-"page=sunflower_admin'>Mehr Infos gibt es auf der Einstellungsseite</a>."
+"Danke, dass Du das Sunflower-Theme nutzt. Sunflower ist %1$s und wird von "
+"%2$s entwickelt."
 
-#: functions/admin.php:77 functions/block-patterns.php:11
-#: functions/blocks.php:47 functions/options/settings.php:24
-#: functions/options/settings.php:25
+#: functions/admin.php:25
+msgid ""
+"<a href='admin.php?page=sunflower_admin'>More information can be found on "
+"the theme's settings page</a>."
+msgstr ""
+"<a href='admin.php?page=sunflower_admin'>Mehr Infos gibt es auf der "
+"Sunflower-Einstellungsseite</a>."
+
+#: functions/admin.php:81 functions/block-patterns.php:11
+#: functions/blocks.php:46 functions/options/settings.php:22
+#: functions/options/settings.php:23
 msgid "Sunflower"
 msgstr "Sunflower"
 
-#: functions/admin.php:105
+#: functions/admin.php:106
 msgid "Help for sunflowers events"
 msgstr "Hilfe für Sunflower-Termine"
 
-#: functions/blocks/latest-posts.php:89 functions/blocks/latest-posts.php:111
+#: functions/blocks/latest-posts.php:86 functions/blocks/latest-posts.php:108
 msgid "to archive"
 msgstr "Zum Blog-Archiv"
 
-#: functions/blocks/latest-posts.php:99
+#: functions/blocks/latest-posts.php:96
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: functions/blocks/next-events.php:16 build/index.js:1 src/next-events.js:13
-#: src/next-events.js:56
+#: functions/blocks/next-events.php:17 build/index.js:506 build/index.js:553
+#: src/next-events.js:13 src/next-events.js:56 build/index.js:439
+#: build/index.js:482
 msgid "Next events"
 msgstr "Nächste Termine"
 
-#: functions/blocks/next-events.php:44
+#: functions/blocks/next-events.php:43
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
-#: functions/colors.php:9
-msgid "Magenta"
-msgstr "Magenta"
+#: functions/colors.php:8
+msgid "Himmel"
+msgstr ""
 
-#: functions/colors.php:14
-msgid "Magenta 600"
-msgstr "Magenta 600"
+#: functions/colors.php:13
+msgid "Tanne"
+msgstr ""
 
-#: functions/colors.php:19
-msgid "Green"
-msgstr "Grün"
+#: functions/colors.php:18
+msgid "Klee"
+msgstr ""
 
-#: functions/colors.php:24
-msgid "Green 800"
-msgstr "Grün 800"
+#: functions/colors.php:23
+msgid "Klee-700"
+msgstr ""
 
-#: functions/colors.php:29
-msgid "Green 550"
-msgstr "Grün 550"
+#: functions/colors.php:28
+msgid "Grashalm"
+msgstr ""
 
-#: functions/colors.php:34
+#: functions/colors.php:33
 msgid "White"
 msgstr "Weiß"
 
-#: functions/colors.php:39
-msgid "Yellow 500"
-msgstr "Gelb 500"
+#: functions/colors.php:38
+msgid "Sonne"
+msgstr ""
 
-#: functions/colors.php:44
-msgid "Yellow 600"
-msgstr "Gelb 600"
+#: functions/colors.php:43
+msgid "Sand"
+msgstr ""
 
-#: functions/colors.php:49
-msgid "Blue 500"
-msgstr "Blau 500"
-
-#: functions/colors.php:54
-msgid "Blue 600"
-msgstr "Blau 600"
-
-#: functions/colors.php:59
-msgid "Gray 100"
+#: functions/colors.php:48
+#, fuzzy
+#| msgid "Gray 100"
+msgid "Gray"
 msgstr "Grau 100"
 
-#: functions/colors.php:64
-msgid "Black 500"
+#: functions/colors.php:53
+#, fuzzy
+#| msgid "Black 500"
+msgid "Black"
 msgstr "Schwarz 500"
 
-#: functions/contact-form.php:7
+#: functions/contact-form.php:9
 msgid "Form not sent. Captcha wrong. Please try again."
 msgstr ""
 "Das Formular konnte nicht gesendet werden, weil die Rechnung (Captcha) "
 "falsch ist. Bitte versuchen Sie es noch einmal."
 
-#: functions/contact-form.php:16
+#: functions/contact-form.php:22
 msgid "Thank you. The form has been sent."
 msgstr "Vielen Dank. Das Formular wurde verschickt."
 
-#: functions/contact-form.php:19
+#: functions/contact-form.php:25
 msgid "New contact form"
 msgstr "Neues Kontaktformular"
 
-#: functions/events.php:6
+#: functions/events.php:5
 msgid "Startdate"
 msgstr "Startdatum"
 
-#: functions/events.php:7
+#: functions/events.php:6
 msgid "Enddate"
 msgstr "Enddatum"
 
-#: functions/events.php:8
+#: functions/events.php:7
 msgid "Whole day"
 msgstr "ganztägig"
 
-#: functions/events.php:9
+#: functions/events.php:8
 msgid "Location name"
 msgstr "Veranstaltungsort (Name)"
 
-#: functions/events.php:10
+#: functions/events.php:9
 msgid "Street"
 msgstr "Straße und Hausnr."
 
-#: functions/events.php:11
+#: functions/events.php:10
 msgid "City"
 msgstr "Stadt"
 
-#: functions/events.php:12
+#: functions/events.php:11
 msgid "Webinar"
 msgstr "Webinar"
 
-#: functions/events.php:13
+#: functions/events.php:12
 msgid "Organizer"
 msgstr "organisiert von"
 
-#: functions/events.php:14
+#: functions/events.php:13
 msgid "Organizer URL"
 msgstr "URL der Organisator*in"
 
-#: functions/events.php:30 functions/events.php:76
+#: functions/events.php:27 functions/events.php:74
 msgid "Event"
 msgstr "Termin"
 
-#: functions/events.php:147
+#: functions/events.php:140
 msgid ""
 "This event will be imported by remote ical-calendar. All changes here will "
 "be overwritten."
@@ -289,23 +295,23 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:191 functions/options/events.php:187
+#: functions/events.php:185 functions/options/events.php:183
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/events.php:192
+#: functions/events.php:186
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/events.php:423
+#: functions/events.php:411
 msgid "Event date"
 msgstr "Datum der Veranstaltung"
 
-#: functions/events.php:424
+#: functions/events.php:412
 msgid "Event location"
 msgstr "Ort"
 
-#: functions/metaboxes.php:6 functions/options/settings.php:160
+#: functions/metaboxes.php:6 functions/options/settings.php:155
 msgid "Layout"
 msgstr "Layout"
 
@@ -341,154 +347,153 @@ msgstr "Dachzeile"
 msgid "use Shift + Enter to prevent line between"
 msgstr "Tippe Shift + Enter, um  Zwischenzeile zu verhindern."
 
-#: functions/options/events.php:45 functions/options/settings.php:60
+#: functions/options/events.php:42 functions/options/settings.php:56
 msgid "About Sunflower"
 msgstr "Über Sunflower"
 
-#: functions/options/events.php:97 functions/options/events.php:119
-#: functions/options/settings.php:112 functions/options/social-media.php:47
+#: functions/options/events.php:93 functions/options/events.php:114
+#: functions/options/settings.php:107 functions/options/social-media.php:44
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
-#: functions/options/events.php:216
+#: functions/options/events.php:213
 msgid "Description shown on the events page"
 msgstr "Beschreibung für die Termineseite"
 
-#: functions/options/events.php:224
+#: functions/options/events.php:221
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options/events.php:232 functions/options/events.php:236
+#: functions/options/events.php:229 functions/options/events.php:233
 msgid "Rectify time zone"
 msgstr "Zeitzone korrigieren"
 
-#: functions/options/events.php:241 functions/options/events.php:245
+#: functions/options/events.php:238 functions/options/events.php:242
 msgid "Show overall map"
 msgstr "Übersichtskarte zeigen"
 
-#: functions/options/events.php:250 functions/options/events.php:254
+#: functions/options/events.php:247 functions/options/events.php:251
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
-#: functions/options/events.php:259
+#: functions/options/events.php:256
 msgid "Zoom-level of overall map"
 msgstr "Zoomlevel für Übersichtskarte"
 
-#: functions/options/settings.php:36 functions/options/settings.php:37
+#: functions/options/settings.php:33 functions/options/settings.php:34
 msgid "First steps"
 msgstr "Erste Schritte"
 
-#: functions/options/settings.php:45 functions/options/settings.php:46
+#: functions/options/settings.php:42 functions/options/settings.php:43
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: functions/options/settings.php:167
+#: functions/options/settings.php:162
 msgid "Excerpt length (words)"
 msgstr "Anzahl der Wörter im Vorschautext"
 
-#: functions/options/settings.php:175 functions/options/settings.php:179
+#: functions/options/settings.php:170 functions/options/settings.php:174
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options/settings.php:184 functions/options/settings.php:188
+#: functions/options/settings.php:179 functions/options/settings.php:183
 msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
-#: functions/options/settings.php:193 functions/options/settings.php:197
+#: functions/options/settings.php:188 functions/options/settings.php:192
 msgid "hide previous and next links"
 msgstr "Verstecke vor- und zurück-Links"
 
-#: functions/options/settings.php:202 functions/options/settings.php:206
+#: functions/options/settings.php:197 functions/options/settings.php:201
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/settings.php:211
+#: functions/options/settings.php:206
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/settings.php:215
+#: functions/options/settings.php:210
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/settings.php:220 functions/options/settings.php:224
+#: functions/options/settings.php:215 functions/options/settings.php:219
 msgid "Use this header layout"
 msgstr "Layout für den Header"
 
-#: functions/options/settings.php:263 functions/options/social-media.php:164
+#: functions/options/settings.php:254 functions/options/social-media.php:156
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
-#: functions/options/social-media.php:29 functions/options/social-media.php:30
+#: functions/options/social-media.php:27 functions/options/social-media.php:28
 msgid "Social Media"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options/social-media.php:73 functions/options/social-media.php:81
+#: functions/options/social-media.php:69 functions/options/social-media.php:76
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options/social-media.php:89
+#: functions/options/social-media.php:84
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options/social-media.php:96
+#: functions/options/social-media.php:91
 msgid "Open graph fallback image"
 msgstr "Fallback-Bild für Open-Graph-Tag"
 
-#: functions/options/social-media.php:104
-#: functions/options/social-media.php:108
+#: functions/options/social-media.php:99 functions/options/social-media.php:103
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options/social-media.php:113
-#: functions/options/social-media.php:117
+#: functions/options/social-media.php:108
+#: functions/options/social-media.php:112
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options/social-media.php:122
+#: functions/options/social-media.php:117
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options/social-media.php:126
+#: functions/options/social-media.php:121
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/pictureimport.php:59
+#: functions/pictureimport.php:57
 msgid "An error occurred. Could not import images"
 msgstr "Es ist ein Fehler aufgetreten. Die Bilder wurden nicht importiert."
 
-#: functions/security.php:7
+#: functions/security.php:8
 msgid "Login error. Did you mistype s.th.?"
 msgstr "Loginfehler. Haben Sie sich vertippt?"
 
-#: functions/_s.php:55
+#: functions/_s.php:54
 msgid "Mainmenu"
 msgstr "Hauptmenü"
 
-#: functions/_s.php:56
+#: functions/_s.php:55
 msgid "Topmenu"
 msgstr "Menü am oberen Rand"
 
-#: functions/_s.php:57
+#: functions/_s.php:56
 msgid "Footer Menu 1"
 msgstr "Fußzeilenmenü 1"
 
-#: functions/_s.php:58
+#: functions/_s.php:57
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/_s.php:108
+#: functions/_s.php:111
 msgid "Sidebar"
 msgstr "Seitenleiste"
 
-#: functions/_s.php:110
+#: functions/_s.php:113
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
-#: header.php:29
+#: header.php:31
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
 
-#: inc/class-wp-bootstrap-navwalker.php:404
+#: inc/class-wp-bootstrap-navwalker.php:400
 msgid "Add a menu"
 msgstr "Menü erstellen"
 
@@ -503,15 +508,15 @@ msgctxt "list item separator"
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:99
+#: inc/template-tags.php:100
 msgid "Share on twitter "
 msgstr "Auf Twitter teilen"
 
-#: inc/template-tags.php:106
+#: inc/template-tags.php:108
 msgid "Share on facebook "
 msgstr "Auf Facebook teilen"
 
-#: inc/template-tags.php:114
+#: inc/template-tags.php:117
 msgid "send mail "
 msgstr "Sende E-Mail"
 
@@ -524,15 +529,15 @@ msgstr "Suchergebnisse für „%s“"
 msgid "o'clock"
 msgstr "Uhr"
 
-#: single-sunflower_event.php:75
+#: single-sunflower_event.php:78
 msgid "Link to webinar"
 msgstr "Link zur Online-Teilnahme (Webinar)"
 
-#: single-sunflower_event.php:81 single-sunflower_event.php:83
+#: single-sunflower_event.php:84 single-sunflower_event.php:86
 msgid "organized by"
 msgstr "organisiert von"
 
-#: single-sunflower_event.php:91
+#: single-sunflower_event.php:93
 msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
@@ -586,15 +591,16 @@ msgstr ""
 msgid "none"
 msgstr "keine"
 
-#: template-parts/header-standard.php:27 template-parts/header-standard.php:88
+#: template-parts/header-standard.php:27 template-parts/header-standard.php:30
+#: template-parts/header-standard.php:96 template-parts/header-standard.php:99
 msgid "Search"
 msgstr "Suche"
 
-#: template-parts/header-standard.php:31
+#: template-parts/header-standard.php:32
 msgid "show search"
 msgstr "zeige Suche"
 
-#: template-parts/header-standard.php:34
+#: template-parts/header-standard.php:35
 msgid "increase contrast"
 msgstr "Kontrast erhöhen"
 
@@ -602,247 +608,22 @@ msgstr "Kontrast erhöhen"
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
 
-#: build/index.js:1 src/next-events.js:14
+#: build/index.js:507 src/next-events.js:14 build/index.js:440
 msgid "show next events"
 msgstr "zeige nächste Termine"
 
-#: build/index.js:1 src/next-events.js:53
+#: build/index.js:553 src/next-events.js:53 build/index.js:479
 msgid "Loading"
 msgstr "lade"
 
-#: build/index.js:1 src/next-events.js:54
+#: build/index.js:553 src/next-events.js:54 build/index.js:480
 msgid "No Events"
 msgstr "Keine Termine"
 
-#: build/index.js:1 src/next-events.js:58
+#: build/index.js:553 src/next-events.js:58 build/index.js:484
 msgid "Maximum events shown"
 msgstr "Maximale Anzahl angezeigter Termine"
 
-#: build/index.js:1 src/next-events.js:80
+#: build/index.js:569 src/next-events.js:80 build/index.js:506
 msgid "Count"
 msgstr "Anzahl"
-
-#~ msgid "Speziallayout, z.B. für Startseite"
-#~ msgstr "Layout selbst gestalten"
-
-#~ msgid "Install Required Plugins"
-#~ msgstr "Plugins installieren"
-
-#~ msgid "Install Plugins"
-#~ msgstr "Plugins installieren"
-
-#~ msgid "Installing Plugin: %s"
-#~ msgstr "Installing Plugin: %s"
-
-#~ msgid "Updating Plugin: %s"
-#~ msgstr "Updating Plugin: %s"
-
-#~ msgid "Something went wrong with the plugin API."
-#~ msgstr "Something went wrong with the plugin API."
-
-#~ msgid "This theme requires the following plugin: %1$s."
-#~ msgid_plural "This theme requires the following plugins: %1$s."
-#~ msgstr[0] "This theme requires the following plugin: %1$s."
-#~ msgstr[1] "This theme requires the following plugins: %1$s."
-
-#~ msgid "This theme recommends the following plugin: %1$s."
-#~ msgid_plural "This theme recommends the following plugins: %1$s."
-#~ msgstr[0] "Dieses Theme empfiehlt das Plugin %1$s."
-#~ msgstr[1] "Dieses Theme empfiehlt die Plugins %1$s."
-
-#~ msgid ""
-#~ "The following plugin needs to be updated to its latest version to ensure "
-#~ "maximum compatibility with this theme: %1$s."
-#~ msgid_plural ""
-#~ "The following plugins need to be updated to their latest version to "
-#~ "ensure maximum compatibility with this theme: %1$s."
-#~ msgstr[0] ""
-#~ "The following plugin needs to be updated to its latest version to ensure "
-#~ "maximum compatibility with this theme: %1$s."
-#~ msgstr[1] ""
-#~ "The following plugins need to be updated to their latest version to "
-#~ "ensure maximum compatibility with this theme: %1$s."
-
-#~ msgid "There is an update available for: %1$s."
-#~ msgid_plural "There are updates available for the following plugins: %1$s."
-#~ msgstr[0] "There is an update available for: %1$s."
-#~ msgstr[1] "There are updates available for the following plugins: %1$s."
-
-#~ msgid "The following required plugin is currently inactive: %1$s."
-#~ msgid_plural "The following required plugins are currently inactive: %1$s."
-#~ msgstr[0] "The following required plugin is currently inactive: %1$s."
-#~ msgstr[1] "The following required plugins are currently inactive: %1$s."
-
-#~ msgid "The following recommended plugin is currently inactive: %1$s."
-#~ msgid_plural ""
-#~ "The following recommended plugins are currently inactive: %1$s."
-#~ msgstr[0] "Folgendes empfohlenes Plugin ist inaktiv: %1$s."
-#~ msgstr[1] "Folgende empfohlene Plugins sind inaktiv: %1$s."
-
-#~ msgid "Begin installing plugin"
-#~ msgid_plural "Begin installing plugins"
-#~ msgstr[0] "Plugin installieren"
-#~ msgstr[1] "Plugins installieren"
-
-#~ msgid "Begin updating plugin"
-#~ msgid_plural "Begin updating plugins"
-#~ msgstr[0] "Begin updating plugin"
-#~ msgstr[1] "Begin updating plugins"
-
-#~ msgid "Begin activating plugin"
-#~ msgid_plural "Begin activating plugins"
-#~ msgstr[0] "Plugin aktivieren"
-#~ msgstr[1] "Plugins aktivieren"
-
-#~ msgid "Return to Required Plugins Installer"
-#~ msgstr "Return to Required Plugins Installer"
-
-#~ msgid "Plugin activated successfully."
-#~ msgstr "Plugin aktiviert."
-
-#~ msgid "The following plugin was activated successfully:"
-#~ msgstr "The following plugin was activated successfully:"
-
-#~ msgid "No action taken. Plugin %1$s was already active."
-#~ msgstr "No action taken. Plugin %1$s was already active."
-
-#~ msgid ""
-#~ "Plugin not activated. A higher version of %s is needed for this theme. "
-#~ "Please update the plugin."
-#~ msgstr ""
-#~ "Plugin not activated. A higher version of %s is needed for this theme. "
-#~ "Please update the plugin."
-
-#~ msgid "All plugins installed and activated successfully. %1$s"
-#~ msgstr "All plugins installed and activated successfully. %1$s"
-
-#~ msgid "Dismiss this notice"
-#~ msgstr "Hinweis nicht mehr anzeigen"
-
-#~ msgid ""
-#~ "There are one or more required or recommended plugins to install, update "
-#~ "or activate."
-#~ msgstr ""
-#~ "There are one or more required or recommended plugins to install, update "
-#~ "or activate."
-
-#~ msgid "Please contact the administrator of this site for help."
-#~ msgstr "Please contact the administrator of this site for help."
-
-#~ msgctxt "list item separator"
-#~ msgid " "
-#~ msgstr ","
-
-#~ msgid "Upcoming events"
-#~ msgstr "Kommende Veranstaltungen"
-
-#, fuzzy
-#~| msgid "Show events archive"
-#~ msgid "Show event archive"
-#~ msgstr "Vergangene Veranstaltungen anzeigen"
-
-#~ msgid "News"
-#~ msgstr "Aktuelles"
-
-#~ msgid "events"
-#~ msgstr "termine"
-
-#~ msgid "sunflower_event"
-#~ msgstr "sunflower_event"
-
-#~ msgid "Show title"
-#~ msgstr "Titel anzeigen"
-
-#~ msgid "Layout wide"
-#~ msgstr "breites Layout"
-
-#~ msgid "Lightgray"
-#~ msgstr "Hellgrau"
-
-#~ msgid " events were new/updated"
-#~ msgstr "Termine sind neu/ wurden erneuert"
-
-#~ msgid "complete URL of profile"
-#~ msgstr "Komplette URL des Profils"
-
-#~ msgctxt "post author"
-#~ msgid " | %s"
-#~ msgstr "Autor*in"
-
-#~ msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-#~ msgstr "Kommentiere <span class=\"screen-reader-text\"> bei %s</span>"
-
-#~ msgid "http://underscores.me/"
-#~ msgstr "http://underscores.me/"
-
-#~ msgid "Most Used Categories"
-#~ msgstr "Häufige Kategorien"
-
-#~ msgid "Try looking in the monthly archives. %1$s"
-#~ msgstr "Try looking in the monthly archives. %1$s"
-
-#~ msgid "Miscellaneous"
-#~ msgstr "Verschiedenes"
-
-#~ msgid "One thought on &ldquo;%1$s&rdquo;"
-#~ msgstr "Ein Kommentar zu &ldquo;%1$s&rdquo;"
-
-#~ msgctxt "comments title"
-#~ msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-#~ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-#~ msgstr[0] "%1$s Kommentar zu &ldquo;%2$s&rdquo;"
-#~ msgstr[1] "%1$s Kommentare zu &ldquo;%2$s&rdquo;"
-
-#~ msgid "from"
-#~ msgstr "ab"
-
-#~ msgid "Person"
-#~ msgstr "Person"
-
-#, fuzzy
-#~| msgid "Show all"
-#~ msgid "show all"
-#~ msgstr "alles anzeigen"
-
-#~ msgid "Next:"
-#~ msgstr "Vor:"
-
-#~ msgid "Theme default"
-#~ msgstr "Voreinstellung des Themes"
-
-#~ msgid "complete image"
-#~ msgstr "ganzes Bild"
-
-#~ msgid "full area"
-#~ msgstr "volle Fläche"
-
-#~ msgid "How should the thumbnail be displayed on archive pages?"
-#~ msgstr "Wie sollen Vorschaubilder in Übersichtsseiten dargestellt werden?"
-
-#~ msgid "Post thumbnails in archives"
-#~ msgstr "Wie sollen Vorschaubilder in Übersichtsseiten dargestellt werden?"
-
-#~ msgid "Please choose"
-#~ msgstr "Bitte wähle"
-
-#~ msgctxt "post author"
-#~ msgid "by %s"
-#~ msgstr "von %s"
-
-#~ msgid "Edit <span class=\"screen-reader-text\">%s</span>"
-#~ msgstr "Bearbeiten  <span class=\"screen-reader-text\">%s</span>"
-
-#~ msgid "Edit content<span class=\"screen-reader-text\">%s</span>"
-#~ msgstr "Inhalt bearbeiten  <span class=\"screen-reader-text\">%s</span>"
-
-#~ msgid "Posted in %1$s"
-#~ msgstr "Veröffentlicht unter %1$s"
-
-#~ msgid "Tagged %1$s"
-#~ msgstr "Schlagwörter: %1$s"
-
-#~ msgid "Enter your settings below:"
-#~ msgstr "Lege Deine Einstellungen hier fest:"
-
-#~ msgid "Proudly powered by %s"
-#~ msgstr "Präsentiert von"
