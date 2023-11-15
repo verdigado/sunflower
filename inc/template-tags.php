@@ -83,7 +83,7 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 		?>
 				</div>
 			</div>
-		<div> 
+		<div>
 
 		<?php
 	}
@@ -91,13 +91,13 @@ endif;
 
 function sunflower_the_social_media_sharers() {
 	$twitter = $facebook = $mail = false;
-	if ( get_sunflower_setting( 'sunflower_sharer_twitter' ) ) {
+	if ( get_sunflower_setting( 'sunflower_sharer_twitter' ) ||  get_sunflower_setting( 'sunflower_sharer_x_twitter' )) {
 		$twitter = sprintf(
 			'<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-x-twitter"></i></a>',
 			urlencode( get_the_title() ),
 			get_permalink(),
 			false,
-			__( 'Share on twitter ', 'sunflower' )
+			__( 'Share on X (Twitter) ', 'sunflower' )
 		);
 	}
 
@@ -105,7 +105,7 @@ function sunflower_the_social_media_sharers() {
 		$facebook = sprintf(
 			"<i class='fab fa-facebook sharer' onclick=\"window.open('https://www.facebook.com/sharer/sharer.php?u=%s', 'sharer', 'width=626,height=436')\" title=\"%s\"></i>",
 			get_permalink(),
-			__( 'Share on facebook ', 'sunflower' )
+			__( 'Share on Facebook ', 'sunflower' )
 		);
 	}
 
@@ -151,7 +151,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 			?>
 			 ">
 				<?php the_post_thumbnail( 'null', array( 'class' => 'w-100 border-radius' ) ); ?>
-	  
+
 			<?php
 			if ( $caption ) {
 				$caption = get_post( get_post_thumbnail_id() )->post_excerpt;

@@ -503,9 +503,9 @@ msgctxt "list item separator"
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:99
-msgid "Share on twitter "
-msgstr "Auf Twitter teilen"
+#: inc/template-tags.php:100
+msgid "Share on X (Twitter) "
+msgstr "Auf X (Twitter) teilen"
 
 #: inc/template-tags.php:106
 msgid "Share on facebook "

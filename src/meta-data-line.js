@@ -14,7 +14,7 @@ import {
 } from '@wordpress/components';
 
 
- 
+
 registerBlockType( 'sunflower/meta-data', {
     apiVersion: 2,
     title: 'Metadaten-Zeile',
@@ -43,9 +43,9 @@ registerBlockType( 'sunflower/meta-data', {
                 url
             },
         } = props;
- 
+
         const blockProps = useBlockProps();
- 
+
         const onChangeAlignment = ( newAlignment ) => {
             props.setAttributes( { alignment: newAlignment === undefined ? 'none' : newAlignment } );
         };
@@ -64,8 +64,8 @@ registerBlockType( 'sunflower/meta-data', {
 
         const { InspectorControls } = wp.blockEditor;
         const { PanelBody } = wp.components;
- 
-        
+
+
         return (
             <div {...blockProps}>
                 {
@@ -86,12 +86,14 @@ registerBlockType( 'sunflower/meta-data', {
                             options={
                                 [
                                     { value: 'none', label: 'Bitte wählen' },
+                                    { value: 'fab fa-x-twitter', label: 'X (Twitter)' },
                                     { value: 'fab fa-twitter', label: 'Twitter' },
                                     { value: 'fab fa-instagram', label: 'Instragram' },
                                     { value: 'fab fa-facebook-f', label: 'Facebook' },
+                                    { value: 'fab fa-mastodon', label: 'Mastodon' },
                                     { value: 'fab fa-youtube', label: 'YouTube' },
                                     { value: 'fas fa-envelope', label: 'E-Mail' },
-                                    { value: 'fas fa-globe', label: 'Website' },   
+                                    { value: 'fas fa-globe', label: 'Website' },
                                 ]
                             }
                             onChange={ onChangeIconSelect }
@@ -111,17 +113,17 @@ registerBlockType( 'sunflower/meta-data', {
                             onChange={ onChangeUrl }
                         />
                     </PanelBody>
-                 
+
                  </InspectorControls>
                 }
-        
+
                 <i class={ props.attributes.icon }></i>
             </div>
         );
     },
     save: ( props ) => {
         const blockProps = useBlockProps.save();
- 
+
         return (
             <div {...blockProps}>
                 <a href={ props.attributes.url } target="_blank" rel="noopener">
