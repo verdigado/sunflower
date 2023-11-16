@@ -14,10 +14,21 @@ add_action( 'admin_bar_menu', 'sunflower_admin_bar', 999 );
 
 function sunflower_notice() {   ?>
 	<div class="notice notice-info notice-large sunflower-plugins is-dismissible">
-		<p><?php _e( "Thank you for using sunflower theme. <a href='admin.php?page=sunflower_admin'>More information ca be found on the theme's setting page</a>.", 'sunflower' ); ?></p>
+		<p><?php
+            $linkgithub = "<a href='https://github.com/verdigado/sunflower' target='_blank'>open source</a>";
+            $linkverdigado = "<a href='https://www.verdigado.com/' target='_blank' title='verdigado eG'>
+                <img src='" . get_template_directory_uri() . "/assets/img/verdigado-logo.png' alt='Logo of verdigado eG' /></a>";
+            /* translators: %1$s and %2$s are replaced with string */
+            echo sprintf( __( 'Thank you for using sunflower theme. Sunflower is %1$s and maintained by %2$s.', 'sunflower' ),
+                $linkgithub, $linkverdigado );
+            echo '<br />';
+            _e( "<a href='admin.php?page=sunflower_admin'>More information can be found on the theme's settings page</a>.", 'sunflower' );
+        ?>
+        </p>
 	</div>
 	<?php
 }
+
 if ( empty( get_option( 'sunflower-plugins-dismissed' ) ) ) {
 	add_action( 'admin_notices', 'sunflower_notice' );
 }
@@ -53,14 +64,14 @@ function sunflower_admin() {
 add_action( 'admin_init', 'sunflower_admin' );
 
 function sunflower_admin_style() {
-	wp_enqueue_style( 'sunflower-admin-fontawesome', get_template_directory_uri() . '/assets/css/admin-fontawesome.css' );
 	wp_enqueue_style( 'sunflower-admin-styles', get_template_directory_uri() . '/assets/css/admin.css' );
 }
 
  add_action( 'admin_enqueue_scripts', 'sunflower_admin_style' );
 
 function sunflower_change_admin_footer() {
-	echo '<span id="footer-note">Programmiert von <a href="https://sunflower-theme.de/" target="_blank">Tom Rose</a>.</span>';
+	echo '<span id="footer-note"><a href="https://sunflower-theme.de/" target="_blank">Sunflower</a> wurde programmiert von <a href="https://github.com/codeispoetry" target="_blank">Tom Rose</a> für <a href="https://www.verdigado.com/" target="_blank">
+    <img src="' . get_template_directory_uri() . '/assets/img/verdigado-logo.png" /></a></span>';
 }
 add_filter( 'admin_footer_text', 'sunflower_change_admin_footer' );
 
@@ -124,4 +135,3 @@ function sunflower_fix_event_location() {
 	set_transient( $transient, array( $lon, $lat ) );
 }
 add_action( 'wp_ajax_sunflower_fix_event_location', 'sunflower_fix_event_location' );
-

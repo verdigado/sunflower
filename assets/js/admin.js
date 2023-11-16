@@ -19,12 +19,20 @@ function sunflowerDeleteLeaflet() {
 	jQuery( '#_sunflower_event_lat' ).val( '' );
 	jQuery( '#_sunflower_event_lon' ).val( '' );
 	jQuery( '#_sunflower_event_zoom' ).val( '' );
+    jQuery( '#leaflet' ).hide();
+    jQuery( '#sunflowerShowMap' ).show();
 }
 
 var marker;
+var leaflet = null;
 function sunflowerShowLeaflet( lat, lon, zoom, showMarker ) {
-	const leaflet = L.map( 'leaflet' ).setView( [ lat, lon ], zoom );
-	L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    if (leaflet) {
+        jQuery( '#leaflet' ).show();
+        // do not initalize again
+        return;
+    }
+    leaflet = L.map( 'leaflet' ).setView( [ lat, lon ], zoom );
+    L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
 		attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
 	} ).addTo( leaflet );
@@ -33,8 +41,8 @@ function sunflowerShowLeaflet( lat, lon, zoom, showMarker ) {
 
 	if( showMarker ){
 		sunflowerSetMarker( lat, lon, leaflet.getZoom(), marker );
-	}else{
-		jQuery('#sunflower-location-row').show();
+	} else{
+		jQuery( '#sunflower-location-row' ).show();
 	}
 
 	leaflet.addEventListener( 'click', function( ev ) {
