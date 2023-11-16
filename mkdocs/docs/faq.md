@@ -13,14 +13,14 @@ Du kannst auch das [WordPress-Plugin Free Images](https://wordpress.org/plugins/
 3. Suche ein Bild aus und lade es in Deine Mediathek
 4. Nutze das Bild an jeder beliebigen Stelle in WordPress
 
-## Wie kann ich Soziale Plattformen wie Instagram, Twitter und Facebook verlinken?
-Gehe dazu in die Sunflower-Eintellungen und trage die kompletten Webadressen Deiner Profile ein. 
+## Wie kann ich Soziale Plattformen wie Instagram, X (Twitter) und Facebook verlinken?
+Gehe dazu in die Sunflower-Eintellungen und trage die kompletten Webadressen Deiner Profile ein.
 Sie erscheinen dann automatisch in der Fußzeile.
 
 ## Ich wünsche mir ein neues Feature, das es nicht gibt
 Neue Features kannst Du auf der
 
-* [Projektseite bei gitbub](https://github.com/codeispoetry/sunflower/issues) oder 
+* [Projektseite bei gitbub](https://github.com/verdigado/sunflower/issues) oder
 * im Chatkanal auf [Chatbegrünung](https://chatbegruenung.de/channel/sunflower-wordpress)
 
 melden.
@@ -29,7 +29,7 @@ melden.
 [Mehr zum Datenschutz gibt es auf einer Unterseite.](privacy.md)
 
 ## Manche Begriffe sind auf Handys zu lang
-Manche Begriffe sind auf Handys zu lang. Sunflower bricht mitten im Wort in eine neue Zeile um, damit das Layout nicht zerschossen wird. Diese Bruchstelle kannst Du selbst definieren, indem Du an die gewünschte Sollbruchstelle ein `&shy;` einträgst. Das ist das ein bedingtes oder weiches Trennzeichen. Wenn nötig, wird an dieser Stelle umgebrochen. Wenn nicht, erscheint an dieser Stelle nichts. 
+Manche Begriffe sind auf Handys zu lang. Sunflower bricht mitten im Wort in eine neue Zeile um, damit das Layout nicht zerschossen wird. Diese Bruchstelle kannst Du selbst definieren, indem Du an die gewünschte Sollbruchstelle ein `&shy;` einträgst. Das ist das ein bedingtes oder weiches Trennzeichen. Wenn nötig, wird an dieser Stelle umgebrochen. Wenn nicht, erscheint an dieser Stelle nichts.
 
 Um `&shy;` einzutragen, gehe wie folgt vor:
 Variante 1:
@@ -38,7 +38,7 @@ Variante 1:
 
 oder Variante 2:
 
-- gehe unter Optionen auf 'in HTML bearbeiten' 
+- gehe unter Optionen auf 'in HTML bearbeiten'
 - füge es dann ein
 - und wechsle danach wieder in den visuelle Editor
 

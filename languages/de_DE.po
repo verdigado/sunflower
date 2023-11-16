@@ -509,8 +509,8 @@ msgid ", "
 msgstr ", "
 
 #: inc/template-tags.php:100
-msgid "Share on twitter "
-msgstr "Auf Twitter teilen"
+msgid "Share on X (Twitter) "
+msgstr "Auf X (Twitter) teilen"
 
 #: inc/template-tags.php:108
 msgid "Share on facebook "

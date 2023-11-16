@@ -104,6 +104,15 @@ class SunflowerSocialMediaSettingsPage {
 		);
 
 		add_settings_field(
+			'sunflower_sharer_x_twitter', // ID
+			__( 'Twitter', 'sunflower' ), // Title
+			array( $this, 'sunflower_checkbox_callback' ), // Callback
+			'sunflower-setting-social-media-options', // Page
+			'sunflower_social_media_sharers', // Section
+			array( 'sunflower_sharer_x_twitter', __( 'X (Twitter)', 'sunflower' ) )
+		);
+
+        add_settings_field(
 			'sunflower_sharer_facebook', // ID
 			__( 'Facebook', 'sunflower' ), // Title
 			array( $this, 'sunflower_checkbox_callback' ), // Callback
@@ -121,7 +130,16 @@ class SunflowerSocialMediaSettingsPage {
 			array( 'sunflower_sharer_mail', __( 'Mail', 'sunflower' ) )
 		);
 
-	}
+        add_settings_field(
+			'sunflower_sharer_mastodon', // ID
+			__( 'Mastodon', 'sunflower' ), // Title
+			array( $this, 'sunflower_checkbox_callback' ), // Callback
+			'sunflower-setting-social-media-options', // Page
+			'sunflower_social_media_sharers', // Section
+			array( 'sunflower_sharer_mastodon', __( 'Mastodon', 'sunflower' ) )
+		);
+
+    }
 
 	/**
 	 * Sanitize each setting field as needed
@@ -177,14 +195,15 @@ class SunflowerSocialMediaSettingsPage {
 	  */
 	public function social_media_profiles_callback( $args ) {
 		$default   = array();
-		$default[] = 'fab fa-x-twitter;Twitter;';
+		$default[] = 'fab fa-x-twitter;X (Twitter);';
+		$default[] = 'fab fa-twitter;Twitter;';
 		$default[] = 'fab fa-facebook;Facebook;';
 		$default[] = 'fab fa-linkedin;LinkedIn;';
 		$default[] = 'fab fa-instagram;Instagram;';
 		$default[] = 'fab fa-youtube;YouTube;';
 		$default[] = 'fas fa-globe;Webseite;';
-		$default[] = 'forkawesome fa-peertube;PeerTube;';
-		$default[] = 'forkawesome fa-mastodon;Mastodon;';
+		$default[] = 'fab fa-peertube;PeerTube;';
+		$default[] = 'fab fa-mastodon;Mastodon;';
 
 		printf(
 			'<textarea style="white-space: pre-wrap;width: 90%%;height:18em;" id="sunflower_social_media_profiles" name="sunflower_social_media_options[sunflower_social_media_profiles]">%s</textarea>',
