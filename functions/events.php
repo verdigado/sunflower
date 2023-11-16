@@ -175,9 +175,10 @@ function sunflower_event_meta_box() {
 
 	printf(
 		'%1$s
-        <div>
-            <button id="sunflowerShowMap" onClick="sunflowerShowLeaflet( %4$s, %5$s, %6$s, true );">%2$s</button>
-            <button id="sunflowerDeleteMap">%3$s</button>
+        <div class="components-flex components-h-stack">
+            <button id="sunflowerShowMap" class="components-button is-primary" onClick="sunflowerShowLeaflet( %4$s, %5$s, %6$s, true );">%2$s</button>
+            <br />
+            <button id="sunflowerDeleteMap" class="components-button is-secondary is-destructive" >%3$s</button>
         </div>
         <div id="leaflet" style="height:270px"></div>',
 		__( 'Map', 'sunflower' ),
