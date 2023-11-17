@@ -10,18 +10,14 @@ $output = '<!DOCTYPE html>
 <h1>Changelogs</h1>
 ';
 
-exec( 'git tag', $tags );
-$tags = array_reverse( $tags );
+exec( 'git tag -l --sort=-creatordate --format="%(creatordate:short);%(refname:short)" | head -n 10', $tags );
 
-$output .= read_commits_between_tags( 'HEAD', $tags[0] );
+$output .= read_commits_between_tags( ['', 'HEAD'], explode(';', $tags[0]) );
 
-for ( $i = 0; $i < count( $tags ); $i++ ) {
+for ( $i = 0; $i < count( $tags ) - 1; $i++ ) {
 
-	$output .= read_commits_between_tags( $tags[ $i ], $tags[ $i + 1 ] );
+	$output .= read_commits_between_tags( explode(';', $tags[ $i ]), explode(';', $tags[ $i + 1 ]) );
 
-	if ( $tags[ $i ] == 'v1.7.0' ) {
-		break;
-	}
 }
 
 $output .= '</body>
@@ -34,13 +30,17 @@ echo '..done';
 
 function read_commits_between_tags( $from, $to ) {
 	global $argv;
-	exec( sprintf( 'git log --pretty=format:"%%s" %s...%s', $from, $to ), $commits );
+	exec( sprintf( 'git log --pretty=format:"%%s" %s...%s', $from[1], $to[1] ), $commits );
 
-	if ( $from === 'HEAD' ) {
-		$from = ( isset( $argv[1] ) ) ? $argv[1] : 'der neuesten Version';
-	}
+	if ( $from[1] === 'HEAD' ) {
+		$from_str = ( isset( $argv[1] ) ) ? $argv[1] : 'der neuesten Version';
+        $time = date('Y-m-d');
+	} else {
+        $from_str = $from[1];
+        $time = $from[0];
+    }
 
-	return sprintf( "<h2>Neu in %s</h2>\n<ul>\n%s</ul>\n\n", $from, add_commit_messages( $commits ) );
+	return sprintf( "<h2>Neu in %s (%s)</h2>\n<ul>\n%s</ul>\n\n", $from_str, $time, add_commit_messages( $commits ) );
 }
 
 
