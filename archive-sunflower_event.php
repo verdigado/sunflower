@@ -201,7 +201,7 @@ $is_event_archive = isset( $_GET['archive'] ) && ( $_GET['archive'] == 'true' );
 
 					<?php
 					if ( ! $is_event_archive ) {
-						printf( '<div class="row"><div class="col-12 text-end"><a href="?format=ics" class="small">%s</a></div></div>', __( 'calendar in ics-format', 'sunflower' ) );
+						printf( '<div class="row"><div class="col-12 text-end"><a href="?format=ics" class="small calendar-download">%s</a></div></div>', __( 'calendar in ics-format', 'sunflower' ) );
 					}
 					?>
 
