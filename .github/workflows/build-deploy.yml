@@ -21,7 +21,7 @@ jobs:
           THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
           V="v"
           echo Version in style.scss: $THEME_VERSION
-          if [ "$V$THEME_VERSION" != "${{ github.ref_name }}" ]; then exit 1; fi
+          if [ "$V$THEME_VERSION" != "${{ github.event.release.tag_name }}" ]; then exit 1; fi
 
       - uses: actions/setup-node@v3
         with:
@@ -51,12 +51,12 @@ jobs:
 
       - name: Rename ZIP file
         run: |
-          mv ../sunflower.zip sunflower-${{ github.ref_name }}.zip
+          mv ../sunflower.zip sunflower-${{ github.event.release.tag_name }}.zip
 
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "sunflower-${{ github.ref_name }}.zip"
+          artifacts: "sunflower-${{ github.event.release.tag_name }}.zip"
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -78,13 +78,13 @@ jobs:
           END
 
       - name: save version
-        run: echo ${{ github.ref_name }} > version.txt
+        run: echo ${{ github.event.release.tag_name }} > version.txt
 
       - name: rsync zipfile, version and changelog
         env:
             PAGEID: 1952
         run: |
-            rsync -a sunflower-${{ github.ref_name }}.zip version.txt changelog.html production:/var/www/updateserver/
+            rsync -a sunflower-${{ github.event.release.tag_name }}.zip version.txt changelog.html production:/var/www/updateserver/
             THEME_VERSION=$(cat version.txt | sed -e 's/^v//')
             ssh production "cd /var/www && wp post get $PAGEID --field=content | sed -e 's/<version>[^<]*/<version>$THEME_VERSION/g' | sed -E 's/\/updateserver\/(.*)\.zip/\/updateserver\/sunflower-v$THEME_VERSION.zip/g' > /tmp/content-$PAGEID.txt"
             ssh production "cd /var/www && wp post update $PAGEID - < /tmp/content-$PAGEID.txt && wp option update blogdescription 'Demoseite für das WordPress-Theme Sunflower $THEME_VERSION' --url=sunflower-theme.de/demo && wp option update blogname 'Sunflower $THEME_VERSION' && wp menu item update 147 --url=https://sunflower-theme.de/demo --link=https://sunflower-theme.de/updateserver/sunflower-v$THEME_VERSIONI.zip"
