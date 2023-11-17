@@ -203,7 +203,7 @@ function sunflower_event_field( $id, $config, $value ) {
 	switch ( $type ) {
 		case 'checkbox':
 			printf(
-				'%2$s<input class="%4$s" type="checkbox" name="%1$s" id="%1$s"  %3$s value="checked"><br>',
+				'<div><span><input class="%4$s" type="checkbox" name="%1$s" id="%1$s"  %3$s value="checked"></span><label for="%1$s">%2$s</label></div>',
 				$id,
 				$label,
 				( $value ) ?: '',
