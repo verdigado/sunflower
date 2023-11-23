@@ -54,10 +54,12 @@
 				if(jQuery('.navbar-toggler').hasClass('collapsed')){
 					window.setTimeout(() => {
 						jQuery('.navbar > .container').add('nowrap');
+                        jQuery('body').removeClass('navbar-open');
 					}, 100);
 				}else{
 					jQuery('.navbar > .container').removeClass('nowrap');
-				}
+                    jQuery('body').addClass('navbar-open');
+                }
 			})
 		})
   </script>
