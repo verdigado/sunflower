@@ -1,7 +1,7 @@
 <?php /* must be outside of masthead for stickness */ ?>
 	<div id="navbar-sticky-detector" class="header-personal"></div>
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white header-personal">
-		<div class="container nowrap">
+		<div class="container">
 			<div class="d-flex w-100">
 			<div class="container d-flex align-items-center bloginfo">
 				<a class="img-container" href="<?php echo get_home_url(); ?>">
@@ -16,7 +16,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-times close"></i>
 				<i class="fas fa-bars open"></i>
@@ -53,13 +53,11 @@
 			jQuery('.navbar-toggler').click(function(){
 				if(jQuery('.navbar-toggler').hasClass('collapsed')){
 					window.setTimeout(() => {
-						jQuery('.navbar > .container').add('nowrap');
                         jQuery('body').removeClass('navbar-open');
 					}, 100);
 				}else{
-					jQuery('.navbar > .container').removeClass('nowrap');
                     jQuery('body').addClass('navbar-open');
-                }
+				}
 			})
 		})
   </script>
