@@ -56,13 +56,13 @@ class SunflowerSettingsPage {
 			<h1><?php _e( 'About Sunflower', 'sunflower' ); ?></h1>
 			<h2>Erste Schritte</h2>
 			<a href="https://sunflower-theme.de/documentation/" target="_blank">Eine ausführliche Dokumentation gibt es unter https://sunflower-theme.de/documentation/</a>
-		
+
 
 			<h2>Umzug von Urwahl3000</h2>
-	   
+
 			Widgets, Menüs und Termine werden automatisch importiert.<br>
 			<a href="https://sunflower-theme.de/documentation/urwahl3000" target="_blank">
-			Hier gibt es mehr Info über den Umzug von Urwahl3000</a>. 
+			Hier gibt es mehr Info über den Umzug von Urwahl3000</a>.
 
 			<h2>Einstellungen</h2>
 			Bitte siehe links im Menü, welche Unterpunkte es gibt.
@@ -75,8 +75,8 @@ class SunflowerSettingsPage {
 				printf( '<a href="upload.php">Es wurden %d Bilder importiert. Sieh sie Dir in der Mediathek an</a>', $count );
 			} else {
 				?>
-				Wir haben eine Auswahl an Muster-Bildern zusammengestellt, die Du Dir in Deine Mediathek 
-				herunterladen kannst. Du darfst diese Bilder ohne Quellenangabe nutzen. 
+				Wir haben eine Auswahl an Muster-Bildern zusammengestellt, die Du Dir in Deine Mediathek
+				herunterladen kannst. Du darfst diese Bilder ohne Quellenangabe nutzen.
 				Hier siehst Du die Bilder, die du importieren kannst:
 				<div style="margin-bottom:1em">
 					<img src="https://sunflower-theme.de/updateserver/images/thumbnails.jpg" alt="Thumbnails">
@@ -134,7 +134,7 @@ class SunflowerSettingsPage {
 					</tr>
 				</tbody>
 			</table>
-			
+
 
 		</div>
 		<?php
@@ -330,4 +330,3 @@ function get_sunflower_setting( $option ) {
 
 	return $options[ $option ];
 }
-

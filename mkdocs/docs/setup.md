@@ -12,7 +12,7 @@ Für die Startseite kannst Du die Musterinhalte der Demoseite verwenden. [mehr](
 
 ## Musterbilder
 Das Theme bietet eine Reihe von Platzhalter- und Musterbilder an, die Du frei verwenden darfst.
-Du kannst sie mit nur einem KLick in Deine WordPress-Mediathek importieren. Gehe dazu in die Sunflower-Einstellungen
+Du kannst sie mit nur einem Klick in Deine WordPress-Mediathek importieren. Gehe dazu in die Sunflower-Einstellungen
 und klicke auf den entsprechenden Import-Button.
 Folgende Bilder gibt es aktuell:
 ![d](https://sunflower-theme.de/updateserver/images/thumbnails.jpg)
