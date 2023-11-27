@@ -202,7 +202,8 @@ class SunflowerSocialMediaSettingsPage {
 		$default[] = 'fab fa-instagram;Instagram;';
 		$default[] = 'fab fa-youtube;YouTube;';
 		$default[] = 'fas fa-globe;Webseite;';
-		$default[] = 'fab fa-peertube;PeerTube;';
+		$default[] = 'forkawesome fa-peertube;PeerTube;';
+		$default[] = 'forkawesome fa-pixelfed;Pixelfed;';
 		$default[] = 'fab fa-mastodon;Mastodon;';
 
 		printf(
