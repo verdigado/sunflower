@@ -111,6 +111,10 @@ $fa-font-path : "assets/vndr/@fortawesome/fontawesome-free/webfonts";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/solid";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/brands";
 
+/* Fork Awesome for some extra icons (pixelfed, peertube)
+--------------------------------------------- */
+@import "forkawesome";
+
 /* Bootstrap
 --------------------------------------------- */
 @import "variables";

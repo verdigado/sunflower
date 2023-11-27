@@ -41,9 +41,33 @@
 }
 
 @font-face {
+    font-family: ForkAwesome;
+    font-style: normal;
+    font-weight: 400;
+    src: url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.eot");
+    src:
+        url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.eot?#iefix") format("embedded-opentype"),
+        url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.woff2") format("woff2"),
+        url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.woff") format("woff"),
+        url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.ttf") format("truetype"),
+        url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.svg#forkawesomeregular") format("svg");
+    font-display: block;
+}
+
+@font-face {
     font-family: Sarabun;
     src: url("assets/fonts/sarabun-v12-latin-regular.woff") format("woff");
     font-display: swap;
+}
+
+.forkawesome {
+    font-family: ForkAwesome !important;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
 }
 
 .gruenetype {
