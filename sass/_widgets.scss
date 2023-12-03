@@ -143,3 +143,33 @@
         }
     }
 }
+
+.widget {
+
+    &_search {
+
+        .wp-block-search__button-outside {
+
+            label {
+
+                &.wp-block-search__label {
+
+                    @include themed() {
+                        font-family: t("standardFont");
+                    }
+
+                    font-weight: 700;
+                    font-size: 1.3rem;
+                    color: $white;
+                    letter-spacing: 0.3px;
+
+                }
+
+                &::after {
+                    content: "";
+                }
+            }
+        }
+    }
+
+}
