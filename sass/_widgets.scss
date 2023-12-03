@@ -8,7 +8,7 @@
         position: relative;
 
         li {
-            border-bottom: 1px solid map-get($custom-colors, "gray");
+            border-bottom: 1px solid $gray-500;
             padding: 0.75rem 0;
             position: relative;
         }
@@ -39,11 +39,11 @@
 
         input,
         input:focus {
-            border: 1px solid map-get($custom-colors, "gray");
+            border: 1px solid $gray-500;
             padding: 4px;
             border-radius: 2px;
             background: none;
-            color: map-get($custom-colors, "gray");
+            color: $gray-500;
         }
 
         label {
