@@ -13,7 +13,6 @@ import {
 } from '@wordpress/components';
 
 
- 
 registerBlockType( 'sunflower/accordion', {
     apiVersion: 2,
     title: 'Akkordion',
@@ -49,7 +48,7 @@ registerBlockType( 'sunflower/accordion', {
             setAttributes,
             clientId,
         } = props;
- 
+
         const blockProps = useBlockProps();
 
         props.setAttributes( { blockId: clientId } );
@@ -62,13 +61,13 @@ registerBlockType( 'sunflower/accordion', {
         const onChangeHeadline = ( newHeadline ) => {
             props.setAttributes( { headline: newHeadline } );
         };
- 
+
         const { InspectorControls } = wp.blockEditor;
         const { PanelBody } = wp.components;
-  
+
         return (
             <div {...blockProps}>
-        
+
                 <TextControl
                     tagName="p"
                     label="Klickbarer Text, der die Sektion öffnet"
@@ -90,12 +89,25 @@ registerBlockType( 'sunflower/accordion', {
                 <div class="accordion-item">
 
                     <h4 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={'.sacc' + props.attributes.blockId} aria-expanded="false" aria-controls={'.sacc' + props.attributes.blockId}>
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target={'#sacc-' + props.attributes.blockId}
+                            aria-expanded="false"
+                            aria-controls={'sacc-' + props.attributes.blockId}
+                            id={'saccid-' + props.attributes.blockId}
+                        >
                         { props.attributes.headline }
                         </button>
                     </h4>
 
-                    <div class={'accordion-collapse collapse sacc' + props.attributes.blockId} aria-labelledby={'.sacc' + props.attributes.blockId}>
+                    <div
+                        id={'sacc-' + props.attributes.blockId}
+                        role="region"
+                        class={'accordion-collapse collapse'}
+                        aria-labelledby={'saccid-' + props.attributes.blockId}
+                    >
                         <div class="accordion-body">
                             <RichText.Content
                                 className={ `sunflower-accordion` }
