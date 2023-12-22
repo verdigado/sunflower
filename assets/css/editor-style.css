@@ -23,11 +23,6 @@
     font-style: normal;
     font-display: swap; }
 
-@font-face {
-    font-family: Sarabun;
-    src: url("../fonts/sarabun-v12-latin-regular.woff") format("woff");
-    font-display: swap; }
-
 body {
     font-family: "PTSans";
     font-size: 1.1875rem;
@@ -117,13 +112,39 @@ h1,h2,h3,h4 {
     font-family: "GrueneType";
 }
 @media (min-width: 768px) {
-    h1, .h1, .h1, .has-huge-font-size {
+    h1,
+    .h1,
+    .has-huge-font-size {
         font-size: 45px;
         line-height: 1.3em;
     }
-        h2, .h2, .h2, .has-large-font-size {
+
+    h2,
+    .h2,
+    .has-large-font-size {
         font-size: 31px;
         line-height: 1.3em;
+    }
+
+    h3,
+    .h3,
+    .has-medium-font-size {
+        font-size: 27px;
+    }
+
+    h4,
+    .h4 {
+        font-size: 27px;
+    }
+
+    h5,
+    .h5 {
+        font-size: 25px;
+    }
+
+    h6,
+    .h6 {
+        font-size: 22px;
     }
 }
 

@@ -1,6 +1,6 @@
 .wp-block-button__link {
     background-color: $primary;
-    color: $white !important;
+    color: $white;
     text-transform: uppercase;
     font-size: 1rem;
     border-radius: 3px;
@@ -10,7 +10,11 @@
     }
 
     &:hover {
-        background-color: $secondary !important;
-        color: $white !important;
+        background-color: $secondary;
+    }
+
+    &:hover,
+    &:visited {
+        color: $white;
     }
 }
