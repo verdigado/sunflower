@@ -113,6 +113,11 @@
                 }
             }
 
+            .menu-item.menu-item-has-children:has(li.menu-item.current-menu-parent) {
+	            > a.nav-link {		
+                	color: $primary;
+                }
+
             .nav-link {
                 color: $body-color;
                 font-size: 18px;
