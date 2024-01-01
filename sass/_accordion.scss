@@ -10,16 +10,16 @@
 		background-color: var(--bs-primary);
 
         &::before {
-            display: none !important;
+                display: none !important;
         }
 
         &::after {
-            content: ">";
-            padding-left: 1em;
-            font-weight: 700;
-            position:absolute;
-            right: var(--wp--preset--spacing--40);
-            color: var(--wp--preset--color--white);
+                content: ">";
+                padding-left: 1em;
+                font-weight: 700;
+                position: absolute;
+                right: var(--wp--preset--spacing--40);
+                color: var(--wp--preset--color--white);
         }
     }
 }
