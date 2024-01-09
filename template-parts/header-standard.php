@@ -1,5 +1,5 @@
 <header id="masthead" class="site-header">
-	
+
 		<nav class="navbar navbar-top d-none d-lg-block navbar-expand-lg navbar-dark p-0 topmenu">
 			<div class="container">
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topmenu-container" aria-controls="topmenu-container" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,16 +42,17 @@
 
 		<div class="container-fluid bloginfo bg-primary">
 			<div class="container d-flex align-items-center">
-				<a class="img-container" href="<?php echo get_home_url(); ?>">
-				
+				<div class="img-container">
 					<?php
 					if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 						the_custom_logo();
 					} else {
-						printf( '<img src="%s" class="" alt="Logo">', sunflower_parent_or_child( 'assets/img/sunflower.svg' ) );
+						echo '<a href="<?php echo get_home_url(); ?>">';
+							printf( '<img src="%s" class="" alt="Logo">', sunflower_parent_or_child( 'assets/img/sunflower.svg' ) );
+						echo '</a>';
 					}
 					?>
-				</a>
+				</div>
 				<div>
 					<a href="<?php echo get_home_url(); ?>" class="d-block h5 text-white bloginfo-name no-link">
 						<?php bloginfo( 'name' ); ?>
@@ -91,7 +92,7 @@
 					)
 				);
 				?>
-				
+
 				<form class="form-inline my-2 mb-2 search d-block d-lg-none" action="<?php bloginfo( 'url' ); ?>">
 					<input class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php _e( 'Search', 'sunflower' ); ?>" aria-label="<?php _e( 'Search', 'sunflower' ); ?>"
 						value="<?php echo get_search_query(); ?>"

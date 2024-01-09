@@ -4,9 +4,17 @@
 		<div class="container">
 			<div class="d-flex w-100">
 			<div class="container d-flex align-items-center bloginfo">
-				<a class="img-container" href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo sunflower_parent_or_child( 'assets/img/sunflower.svg' ); ?>" class="" alt="Sonnenblume - Logo">
-				</a>
+				<div class="img-container">
+					<?php
+					if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
+						the_custom_logo();
+					} else {
+						echo '<a href="<?php echo get_home_url(); ?>">';
+							printf( '<img src="%s" class="" alt="Logo">', sunflower_parent_or_child( 'assets/img/sunflower.svg' ) );
+						echo '</a>';
+					}
+					?>
+				</div>
 				<div>
 					<div class="h5 bloginfo-name">
 						<?php bloginfo( 'name' ); ?>
@@ -51,11 +59,11 @@
 	<script>
 		jQuery(document).ready( function (){
 			jQuery('.navbar-toggler').click(function(){
-				if(jQuery('.navbar-toggler').hasClass('collapsed')){
+				if(jQuery('.navbar-toggler').hasClass('collapsed')) {
 					window.setTimeout(() => {
                         jQuery('body').removeClass('navbar-open');
 					}, 100);
-				}else{
+				} else{
                     jQuery('body').addClass('navbar-open');
 				}
 			})
