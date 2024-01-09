@@ -42,13 +42,13 @@ class SunflowerEventSettingsPage {
 			<h1><?php _e( 'About Sunflower', 'sunflower' ); ?></h1>
 			<h2>Erste Schritte</h2>
 			<a href="https://sunflower-theme.de/documentation/" target="_blank">Eine ausführliche Dokumentation gibt es unter https://sunflower-theme.de/documentation/</a>
-		
+
 
 			<h2>Umzug von Urwahl3000</h2>
-	   
+
 			Widgets, Menüs und Termine werden automatisch importiert.<br>
 			<a href="https://sunflower-theme.de/documentation/urwahl3000" target="_blank">
-			Hier gibt es mehr Info über den Umzug von Urwahl3000</a>. 
+			Hier gibt es mehr Info über den Umzug von Urwahl3000</a>.
 
 			<h2>Einstellungen</h2>
 			Bitte siehe links im Menü, welche Unterpunkte es gibt.
@@ -61,8 +61,8 @@ class SunflowerEventSettingsPage {
 				printf( '<a href="upload.php">Es wurden %d Bilder importiert. Sieh sie Dir in der Mediathek an</a>', $count );
 			} else {
 				?>
-				Wir haben eine Auswahl an Muster-Bildern zusammengestellt, die Du Dir in Deine Mediathek 
-				herunterladen kannst. Du darfst diese Bilder ohne Quellenangabe nutzen. 
+				Wir haben eine Auswahl an Muster-Bildern zusammengestellt, die Du Dir in Deine Mediathek
+				herunterladen kannst. Du darfst diese Bilder ohne Quellenangabe nutzen.
 				Hier siehst Du die Bilder, die du importieren kannst:
 				<div style="margin-bottom:1em">
 					<img src="https://sunflower-theme.de/updateserver/images/thumbnails.jpg" alt="Thumbnails">
@@ -146,22 +146,19 @@ class SunflowerEventSettingsPage {
 			<input type="hidden" name="_sunflower_event_lon" id="_sunflower_event_lon">
 
 			<div id="sunflower-location-row" style="display:none">
-				Bearbeite die Geo-Markierung für: 
+				Bearbeite die Geo-Markierung für:
 				<select name="sunflower_location" id="sunflower-location">
 					<option value="">bitte wählen</option>
 				<?php
 					global $wpdb;
-					$prefix = 'sunflower_geocache_';
+					$transients = $wpdb->get_results( "SELECT * FROM $wpdb->options WHERE option_name LIKE '_transient_sunflower_geocache_%'" );
 
-					$transients = $wpdb->get_results( "SELECT * FROM $wpdb->options WHERE option_name LIKE '_transient_${prefix}%'" );
+					foreach ( $transients as $transient ) {
+						$location = preg_replace( "/_transient_sunflower_geocache_/", '', $transient->option_name );
 
-				foreach ( $transients as $transient ) {
-					$location = preg_replace( "/_transient_${prefix}/", '', $transient->option_name );
-
-					list($lon, $lat) = unserialize( $transient->option_value );
-					printf( '<option value="%s;%s">%s</option>', $lat, $lon, $location );
-
-				}
+						list($lon, $lat) = unserialize( $transient->option_value );
+						printf( '<option value="%s;%s">%s</option>', $lat, $lon, $location );
+					}
 
 				?>
 				</select>
@@ -324,7 +321,7 @@ class SunflowerEventSettingsPage {
 			isset( $this->options['sunflower_ical_urls'] ) ? $this->options['sunflower_ical_urls'] : ''
 		);
 		echo '<div><a href="https://sunflower-theme.de/documentation/events/" target="_blank">Mehr zu den Einstellungen in der Dokumenation</a><br>
-        Importierte Termine dürfen nicht im WordPress-Backend bearbeitet werden, weil Änderungen beim nächsten 
+        Importierte Termine dürfen nicht im WordPress-Backend bearbeitet werden, weil Änderungen beim nächsten
         Import überschrieben werden.<br>
         Jede URL muss mit http:// oder https:// beginnen. Automatische Kategorien pro Kalender bitte mit ; anfügen.
 

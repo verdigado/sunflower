@@ -81,10 +81,9 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 		}
 
 		?>
+
 				</div>
 			</div>
-		<div>
-
 		<?php
 	}
 endif;
