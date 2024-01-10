@@ -250,10 +250,6 @@ class SunflowerSettingsPage {
 	public function print_section_info() {
 	}
 
-	public function print_section_info_sharers() {
-		_e( 'Show share buttons on single page', 'sunflower' );
-	}
-
 	public function sunflower_checkbox_callback( $args ) {
 		$field = $args[0];
 		$label = $args[1];

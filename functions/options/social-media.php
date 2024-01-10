@@ -95,17 +95,8 @@ class SunflowerSocialMediaSettingsPage {
 		);
 
 		add_settings_field(
-			'sunflower_sharer_twitter', // ID
-			__( 'Twitter', 'sunflower' ), // Title
-			array( $this, 'sunflower_checkbox_callback' ), // Callback
-			'sunflower-setting-social-media-options', // Page
-			'sunflower_social_media_sharers', // Section
-			array( 'sunflower_sharer_twitter', __( 'Twitter', 'sunflower' ) )
-		);
-
-		add_settings_field(
 			'sunflower_sharer_x_twitter', // ID
-			__( 'Twitter', 'sunflower' ), // Title
+			__( 'X (Twitter)', 'sunflower' ), // Title
 			array( $this, 'sunflower_checkbox_callback' ), // Callback
 			'sunflower-setting-social-media-options', // Page
 			'sunflower_social_media_sharers', // Section
@@ -128,15 +119,6 @@ class SunflowerSocialMediaSettingsPage {
 			'sunflower-setting-social-media-options', // Page
 			'sunflower_social_media_sharers', // Section
 			array( 'sunflower_sharer_mail', __( 'Mail', 'sunflower' ) )
-		);
-
-        add_settings_field(
-			'sunflower_sharer_mastodon', // ID
-			__( 'Mastodon', 'sunflower' ), // Title
-			array( $this, 'sunflower_checkbox_callback' ), // Callback
-			'sunflower-setting-social-media-options', // Page
-			'sunflower_social_media_sharers', // Section
-			array( 'sunflower_sharer_mastodon', __( 'Mastodon', 'sunflower' ) )
 		);
 
     }
@@ -171,7 +153,7 @@ class SunflowerSocialMediaSettingsPage {
 	}
 
 	public function print_section_info_sharers() {
-		_e( 'Show share buttons on single page', 'sunflower' );
+		_e( 'Show share buttons on single post page', 'sunflower' );
 	}
 
 	public function sunflower_checkbox_callback( $args ) {
