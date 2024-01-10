@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2023-11-15T16:06:31+00:00\n"
-"PO-Revision-Date: 2023-11-15 17:11+0100\n"
+"POT-Creation-Date: 2024-01-10T13:39:17+00:00\n"
+"PO-Revision-Date: 2024-01-10 14:52+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Domain: sunflower\n"
 
 #. Theme Name of the theme
@@ -52,7 +52,7 @@ msgstr "Vergangene Veranstaltungen"
 
 #: archive-sunflower_event.php:39 functions/events.php:26
 #: functions/options/events.php:28 functions/options/events.php:29
-#: functions/options/events.php:206
+#: functions/options/events.php:203
 msgid "Events"
 msgstr "Termine"
 
@@ -69,7 +69,7 @@ msgid "Archive"
 msgstr "Archiv"
 
 #: archive-sunflower_event.php:62 functions/events.php:184
-#: functions/options/events.php:182
+#: functions/options/events.php:179
 msgid "Map"
 msgstr "Landkarte"
 
@@ -179,9 +179,8 @@ msgstr "Zum Blog-Archiv"
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: functions/blocks/next-events.php:17 build/index.js:506 build/index.js:553
-#: src/next-events.js:13 src/next-events.js:56 build/index.js:439
-#: build/index.js:482
+#: functions/blocks/next-events.php:17 build/index.js:1 src/next-events.js:13
+#: src/next-events.js:56
 msgid "Next events"
 msgstr "Nächste Termine"
 
@@ -295,7 +294,7 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:185 functions/options/events.php:183
+#: functions/events.php:185 functions/options/events.php:180
 msgid "load map"
 msgstr "Kartendaten laden"
 
@@ -356,27 +355,27 @@ msgstr "Über Sunflower"
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
-#: functions/options/events.php:213
+#: functions/options/events.php:210
 msgid "Description shown on the events page"
 msgstr "Beschreibung für die Termineseite"
 
-#: functions/options/events.php:221
+#: functions/options/events.php:218
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options/events.php:229 functions/options/events.php:233
+#: functions/options/events.php:226 functions/options/events.php:230
 msgid "Rectify time zone"
 msgstr "Zeitzone korrigieren"
 
-#: functions/options/events.php:238 functions/options/events.php:242
+#: functions/options/events.php:235 functions/options/events.php:239
 msgid "Show overall map"
 msgstr "Übersichtskarte zeigen"
 
-#: functions/options/events.php:247 functions/options/events.php:251
+#: functions/options/events.php:244 functions/options/events.php:248
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
-#: functions/options/events.php:256
+#: functions/options/events.php:253
 msgid "Zoom-level of overall map"
 msgstr "Zoomlevel für Übersichtskarte"
 
@@ -421,8 +420,8 @@ msgid "Use this header layout"
 msgstr "Layout für den Header"
 
 #: functions/options/settings.php:254 functions/options/social-media.php:156
-msgid "Show share buttons on single page"
-msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
+msgid "Show share buttons on single post page"
+msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 
 #: functions/options/social-media.php:27 functions/options/social-media.php:28
 msgid "Social Media"
@@ -441,8 +440,8 @@ msgid "Open graph fallback image"
 msgstr "Fallback-Bild für Open-Graph-Tag"
 
 #: functions/options/social-media.php:99 functions/options/social-media.php:103
-msgid "Twitter"
-msgstr "Twitter"
+msgid "X (Twitter)"
+msgstr "X (Twitter)"
 
 #: functions/options/social-media.php:108
 #: functions/options/social-media.php:112
@@ -481,11 +480,11 @@ msgstr "Fußzeilenmenü 1"
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/_s.php:111
+#: functions/_s.php:110
 msgid "Sidebar"
 msgstr "Seitenleiste"
 
-#: functions/_s.php:113
+#: functions/_s.php:112
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
@@ -508,15 +507,17 @@ msgctxt "list item separator"
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:100
+#: inc/template-tags.php:99
 msgid "Share on X (Twitter) "
 msgstr "Auf X (Twitter) teilen"
 
-#: inc/template-tags.php:108
-msgid "Share on facebook "
+#: inc/template-tags.php:107
+#, fuzzy
+#| msgid "Share on facebook "
+msgid "Share on Facebook "
 msgstr "Auf Facebook teilen"
 
-#: inc/template-tags.php:117
+#: inc/template-tags.php:116
 msgid "send mail "
 msgstr "Sende E-Mail"
 
@@ -592,7 +593,7 @@ msgid "none"
 msgstr "keine"
 
 #: template-parts/header-standard.php:27 template-parts/header-standard.php:30
-#: template-parts/header-standard.php:96 template-parts/header-standard.php:99
+#: template-parts/header-standard.php:97 template-parts/header-standard.php:100
 msgid "Search"
 msgstr "Suche"
 
@@ -608,22 +609,22 @@ msgstr "Kontrast erhöhen"
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
 
-#: build/index.js:507 src/next-events.js:14 build/index.js:440
+#: build/index.js:1 src/next-events.js:14
 msgid "show next events"
 msgstr "zeige nächste Termine"
 
-#: build/index.js:553 src/next-events.js:53 build/index.js:479
+#: build/index.js:1 src/next-events.js:53
 msgid "Loading"
 msgstr "lade"
 
-#: build/index.js:553 src/next-events.js:54 build/index.js:480
+#: build/index.js:1 src/next-events.js:54
 msgid "No Events"
 msgstr "Keine Termine"
 
-#: build/index.js:553 src/next-events.js:58 build/index.js:484
+#: build/index.js:1 src/next-events.js:58
 msgid "Maximum events shown"
 msgstr "Maximale Anzahl angezeigter Termine"
 
-#: build/index.js:569 src/next-events.js:80 build/index.js:506
+#: build/index.js:1 src/next-events.js:80
 msgid "Count"
 msgstr "Anzahl"
