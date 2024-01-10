@@ -18,14 +18,26 @@ Folgende Bilder gibt es aktuell:
 ![d](https://sunflower-theme.de/updateserver/images/thumbnails.jpg)
 
 ## Social-Media-Profile
-Du kannst beliebige Social-Media-Profile in beliebiger Reihenfolge im Footer anzeigen. Trage dazu in den Sunflower-Einstellungen die Profile in folgendem Format ein:
-Fontawesome-Klasse;Title-Attribut;URl
 
-- Den korrekten Klassennamen findest Du bei [Fontawesome](https://fontawesome.com/icons?d=gallery&p=2&m=free)
-- Das title-Attribut wird beim Hovern mit der Maus angezeigt
-- die URL ist die komplette Adresse Deines Social-Media-Profiles, beginnend mit http(s)
+### Icons in der Fußleiste
+
+Du kannst beliebige Social-Media-Profile in beliebiger Reihenfolge in der Fußzeile der Webseite anzeigen. Trage dazu in den Sunflower-Einstellungen die Profile in folgendem Format ein:
+
+```
+Fontawesome-Klasse;Title-Attribut;URL
+```
+
+- den korrekten Klassennamen findest Du bei [Fontawesome](https://fontawesome.com/icons?d=gallery&p=2&m=free)
+- das title-Attribut wird beim Hovern mit der Maus angezeigt
+- die URL ist die komplette Adresse Deines Social-Media-Profiles, beginnend mit `https://`
 
 Zeilen ohne URL werden nicht berücksichtigt, Du kannst sie als Muster gerne behalten.
+
+### Teile in Sozialen Medien
+
+In der Einzelansicht von Beiträgen kannst Du Icons zum Teilen via X (Twitter), Facebook und per E-Mail anzeigen.
+
+Das ist unabhängig davon, ob Du auf den Platformen selbst einen Account hast.
 
 ## Automatische Updates aktivieren
 
