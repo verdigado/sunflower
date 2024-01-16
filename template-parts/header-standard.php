@@ -47,7 +47,7 @@
 					if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 						the_custom_logo();
 					} else {
-						echo '<a href="<?php echo get_home_url(); ?>">';
+						echo '<a href="' . get_home_url() . '">';
 							printf( '<img src="%s" class="" alt="Logo">', sunflower_parent_or_child( 'assets/img/sunflower.svg' ) );
 						echo '</a>';
 					}
