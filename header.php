@@ -18,7 +18,8 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="shortcut icon" href="<?php echo sunflower_parent_or_child( 'assets/img/sunflower.svg' ); ?>">
+	<link rel="icon" href="<?php echo sunflower_parent_or_child( 'assets/img/sunflower.svg' ); ?>" type="image/svg+xml" sizes="any">
+	<link rel="icon" href="<?php echo sunflower_parent_or_child( 'assets/img/favicon-48x48.png' ); ?>" type="image/png" sizes="48x48">
 	<?php
 	get_template_part( 'template-parts/open-graph' );
 	?>
