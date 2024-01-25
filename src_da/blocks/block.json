@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/example-static",
+	"version": "0.1.0",
+	"title": "Neueste Beiträge (Sunflower) [neu]",
+	"category": "widgets",
+	"description": "Sunflower: Display a list of your most recent posts.",
+	"icon": "smiley",
+	"textdomain": "default",
+	"attributes": {
+		"categories": {
+			"type": "array",
+			"items": {
+				"type": "object"
+			}
+		},
+        "count": {
+			"type": "string",
+			"default": ""
+		},
+        "title": {
+			"type": "string",
+			"default": ""
+		},
+		"selectedAuthor": {
+			"type": "number"
+		},
+		"postsToShow": {
+			"type": "number",
+			"default": 5
+		}
+    },
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

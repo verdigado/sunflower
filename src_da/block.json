@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sunflower/latest-posts",
+	"title": "Neueste Beiträge (Sunflower) [neu]",
+	"category": "widgets",
+	"description": "Sunflower: Display a list of your most recent posts.",
+	"keywords": [ "recent posts" ],
+	"textdomain": "default",
+	"attributes": {
+		"categories": {
+			"type": "array",
+			"items": {
+				"type": "object"
+			}
+		},
+        "count": {
+			"type": "number",
+			"default": "6"
+		},
+        "title": {
+			"type": "string",
+			"default": "HollaX"
+		},
+		"style": {
+			"type": "string",
+            "enum": [ "list", "wide", "full" ],
+            "default": "list"
+		}
+	},
+	"supports": {
+		"align": [ "center", "wide", "full" ],
+		"html": false,
+		"color": {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true,
+				"link": true
+			}
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalFontStyle": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		}
+	},
+	"editorStyle": "wp-block-latest-posts-editor",
+    "editorScript": "file:./latest-posts.js",
+	"style": "wp-block-latest-posts"
+}

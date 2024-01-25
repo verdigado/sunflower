@@ -1,0 +1,92 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ @import "../../sass/variables";
+
+ @import "../../node_modules/bootstrap/scss/bootstrap";
+
+.wp-block-sunflower-latest-posts {
+
+    // color: white;
+    border: 2px solid #005437;
+    // background: #005437;
+    padding: 30px 20px 20px 30px;
+    background-image: url('/assets/img/sunflower.svg');
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    background-size: 32px;
+
+    .roofline {
+        font-family: GrueneType;
+        color: $primary;
+    }
+
+    article.post h2 a,
+    article.post .h2 a {
+        color: $black-500;
+        text-decoration: none;
+    }
+
+    article.post .entry-header:hover h2 a,
+    article.post .entry-header:hover .h2 a {
+        color: $primary;
+    }
+
+    .updated:not(.published) {
+        display: none;
+    }
+
+    .card-title.h4 {
+        font-family: PTSans;
+        margin: 0 0 1rem 0;
+    }
+
+    .entry-content a,
+    .tags-links a,
+    .cat-links a {
+        text-decoration: none;
+    }
+
+    .cat-links a,
+    .tags-links a {
+        color: $primary;
+    }
+
+    .tags-links a::before {
+        content: "#";
+    }
+
+    .entry-content a {
+        color: $black-500;
+    }
+
+    .small {
+        font-size: 0.9375rem;
+    }
+
+
+    .flex-row-reverse {
+        flex-direction: row-reverse !important;
+
+        a.continue-reading, .continue-reading {
+            padding-top: 10px;
+            display: block;
+            font-weight: 700;
+            font-style: italic;
+            color: $black-500;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+    }
+    .d-flex {
+        display: flex !important;
+    }
+
+    .p-45 {
+        padding: 2.25rem !important;
+    }
+}

@@ -23,11 +23,6 @@
     font-style: normal;
     font-display: swap; }
 
-@font-face {
-    font-family: Sarabun;
-    src: url("../fonts/sarabun-v12-latin-regular.woff") format("woff");
-    font-display: swap; }
-
 body {
     font-family: "PTSans";
     font-size: 1.1875rem;
@@ -72,7 +67,7 @@ body {
     margin: 0;
 }
 
-.wp-block-sunflower-contact-form,
+/* .wp-block-sunflower-contact-form,
 .wp-block-sunflower-next-events,
 .wp-block-sunflower-latest-posts{
     color: white;
@@ -83,7 +78,7 @@ body {
     background-repeat: no-repeat;
     background-position: 2px 2px;
     background-size: 32px;
-}
+} */
 
 .sunflower-admin-hint {
     text-align: center;

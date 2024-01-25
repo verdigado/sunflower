@@ -1,3 +1,4 @@
+import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps } from '@wordpress/block-editor';
 import {
@@ -8,26 +9,9 @@ import {
 	SelectControl
 } from '@wordpress/components';
 
-registerBlockType( 'sunflower/latest-posts', {
-    apiVersion: 2,
-    title: 'Neueste Beiträge (Sunflower)',
-    icon: 'admin-post',
-    category: 'sunflower-blocks',
-    attributes: {
-        categories: {
-			type: 'string',
-			default: ''
-		},
-        count: {
-			type: 'string',
-			default: ''
-		},
-        title: {
-			type: 'string',
-			default: ''
-		},
-    },
+import metadata from './block.json';
 
+registerBlockType( metadata, {
     edit: (props)  => {
         const blockProps = useBlockProps();
 
@@ -35,7 +19,8 @@ registerBlockType( 'sunflower/latest-posts', {
             attributes: {
                 categories,
                 count,
-                title
+                title,
+                style
             },
         } = props;
 
@@ -60,6 +45,9 @@ registerBlockType( 'sunflower/latest-posts', {
             props.setAttributes( { title: input === undefined ? '' : input } );
         };
 
+        const onChangeStyle = ( style ) => {
+            props.setAttributes( { style: input === undefined ? '' : style } );
+        };
 
         const { InspectorControls } = wp.blockEditor;
         const { PanelBody } = wp.components;
@@ -102,6 +90,24 @@ registerBlockType( 'sunflower/latest-posts', {
                             help="Wieviele Beiträge sollen angezeigt werden"
                             value={ count }
                             onChange={ onChangeCount }
+                        />
+
+                        <SelectControl
+                            key="style"
+                            label="Style"
+                            help="Wie soll's aussehen?"
+                            options={ [
+                                {
+                                    label: __( 'DESC', 'advanced-posts-blocks' ),
+                                    value: 'list',
+                                },
+                                {
+                                    label: __( 'ASC', 'advanced-posts-blocks' ),
+                                    value: 'kachel',
+                                },
+                            ] }
+                            value={ style }
+                            onChange={ onChangeStyle }
                         />
                     </PanelBody>
 
