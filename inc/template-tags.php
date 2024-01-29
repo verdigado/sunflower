@@ -110,7 +110,7 @@ function sunflower_the_social_media_sharers() {
 
 	if ( get_sunflower_setting( 'sunflower_sharer_mail' ) ) {
 		$mail = sprintf(
-			'<a href="MAILTO:?subject=%s&body=%s" target="_blank title="%s" class="sharer"><i class="fas fa-envelope"></i></a>',
+			'<a href="MAILTO:?subject=%s&body=%s" target="_blank" title="%s" class="sharer"><i class="fas fa-envelope"></i></a>',
 			urlencode( get_the_title() ),
 			get_permalink(),
 			__( 'send mail ', 'sunflower' )
