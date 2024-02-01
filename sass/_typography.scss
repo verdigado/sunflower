@@ -49,6 +49,7 @@ h1,
 
     font-size: 36px;
     line-height: 1.2em;
+    color: $secondary;
 }
 
 h2,
@@ -61,6 +62,7 @@ h2,
 
     font-size: 27px;
     line-height: 1.2em;
+    color: $secondary;
 }
 
 h3,
@@ -73,7 +75,7 @@ h3,
 
     font-weight: 700;
     font-size: 25px;
-    color: $primary;
+    color: $secondary;
 }
 
 h4,
@@ -102,7 +104,7 @@ h6,
 .h6 {
 
     @include themed() {
-        font-family: t("headingFont");
+        font-family: t("standardFont");
     }
 
     font-weight: 700;
