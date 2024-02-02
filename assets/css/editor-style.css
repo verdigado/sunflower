@@ -36,9 +36,12 @@ body {
     margin-bottom: 10px;
 }
 
+.wp-block-media-text.person .h4,
 .wp-block-media-text.person .person-name {
     font-size: 27px;
     font-weight: 700;
+    font-family: "GrueneType";
+    margin-bottom: 1rem;
 }
 
 .d-flex .wp-block-group__inner-container {
