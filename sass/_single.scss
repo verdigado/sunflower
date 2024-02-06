@@ -7,6 +7,7 @@
             background: $white;
             color: $secondary;
             padding: 15px 0;
+
             @include media-breakpoint-up(md) {
                 padding: 65px 0;
             }
@@ -44,7 +45,7 @@
 
 
 header.has-no-post-thumbnail {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 body.page .entry-header {
