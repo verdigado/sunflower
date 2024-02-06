@@ -6,7 +6,11 @@
             text-align: center;
             background: $white;
             color: $secondary;
-            padding: 100px 0 85px 0;
+            padding: 15px 0;
+
+            @include media-breakpoint-up(md) {
+                padding: 65px 0;
+            }
         }
 
         &-title {
@@ -41,7 +45,7 @@
 
 
 header.has-no-post-thumbnail {
-    margin-bottom: 50px;
+    margin-bottom: 0;
 }
 
 body.page .entry-header {

@@ -30,17 +30,17 @@
 .metabox {
 
     @include media-breakpoint-up(md) {
-        position: absolute;
+        position: relative;
     }
 
     background: $primary;
-    right: 0;
-    top: -50px;
     border-radius: $border-radius;
     color: $white;
     padding: $grid-gutter-width;
     z-index: 20;
     text-align: left;
+    height: fit-content;
+    margin-bottom: 20px;
 
     &-spacer {
         display: none;
