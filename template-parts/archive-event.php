@@ -24,17 +24,17 @@ foreach ( $tags as $tag ) {
 		 list($weekday, $days, $time ) = sunflower_prepare_event_time_data( $post );
 
 			$from      = strToTime( get_post_meta( $post->ID, '_sunflower_event_from' )[0] );
-			$attribute = date( 'Y-m-d', $from );
+			$attribute = date( 'Y-m-d H:i', $from );
 
 		?>
 		<div class="event-archive-meta">
 			<div class="text-uppercase small"><?php echo $weekday; ?></div>
 			<div class="date">
 				<time datetime="<?php echo $attribute; ?>">
-					<?php echo $days; ?>
+					<?php echo $days . (!empty($time) ? ' <span class="small">' . $time . ' ' . __( "o'clock", 'sunflower' ) . '</span>' : ''); ?>
 				</time>
 			</div>
-			<div class="small">
+			<div class="fst-italic small">
 				<?php
 					echo join( ' | ', $tag_list );
 				?>
@@ -44,11 +44,11 @@ foreach ( $tags as $tag ) {
 		<div class="mt-2">
 			<header class="entry-header pt-2 pb-2">
 				<?php
-					the_title( '<strong class="h5">', '</strong>' );
+					the_title( '<strong class="h2">', '</strong>' );
 				?>
 			</header><!-- .entry-header -->
 
-		
+
 			<div class="entry-content">
 				<?php
 				the_excerpt(
@@ -69,7 +69,7 @@ foreach ( $tags as $tag ) {
 			</div><!-- .entry-content -->
 
 		</div>
-		
+
 	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
 </a>

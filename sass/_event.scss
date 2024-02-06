@@ -9,11 +9,13 @@ a.event-card {
         height: 100%;
 
         .event-archive-meta {
-            color: $primary;
+            color: $darkgray;
 
             @include themed() {
-                font-family: t("headingFont");
+                font-family: t("standardFont");
             }
+
+            border-bottom: 1px solid $lightgray;
         }
 
         &:hover {
