@@ -5,16 +5,21 @@
         font-size: 25px;
         font-family: PTSans !important;
 
+        color: var(--wp--preset--color--white);
+        padding: var(--wp--preset--spacing--20);
+        background-color: var(--bs-primary);
+
         &::before {
             display: none !important;
         }
 
         &::after {
-
             content: ">";
             padding-left: 1em;
             font-weight: 700;
-            position: relative;
+            position: absolute;
+            right: var(--wp--preset--spacing--40);
+            color: var(--wp--preset--color--white);
         }
     }
 }
