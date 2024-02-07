@@ -1,25 +1,84 @@
+// accordion block of the accordion-blocks plugin
 .c-accordion {
 
     &__title {
 
-        font-size: 25px;
+        font-size: 1.1875rem;
         font-family: PTSans !important;
 
         color: var(--wp--preset--color--white);
-        padding: var(--wp--preset--spacing--20);
+        padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
         background-color: var(--bs-primary);
+        border-radius: 6px;
 
         &::before {
             display: none !important;
         }
 
         &::after {
-            content: ">";
-            padding-left: 1em;
+            content: "";
+            width: 1.25rem;
+            height: 1.25rem;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-size: 1.25rem;
+            transition: transform 0.2s ease-in-out;
             font-weight: 700;
-            position: absolute;
-            right: var(--wp--preset--spacing--40);
+            right: var(--wp--preset--spacing--50);
             color: var(--wp--preset--color--white);
+        }
+
+        &--button {
+
+            &:hover,
+            &:focus {
+                background-color: var(--bs-primary);
+                color: var(--wp--preset--color--white);
+            }
+        }
+
+    }
+}
+
+.is-open {
+
+    &.c-accordion {
+
+        &__item {
+            border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 6px;
+        }
+
+    }
+
+    >.c-accordion {
+
+        &__title {
+
+            background-color: var(--bs-secondary);
+            color: var(--wp--preset--color--white);
+
+            &::after {
+                content: "";
+                transform: rotate(-180deg);
+                top: auto;
+            }
+
+        }
+
+        &__content {
+            padding: 16px 20px;
         }
     }
 }
+
+// add styles to sunflower accordion. Most settings must be changed in
+// _variables.scss to be applied by the bootstrap accordion.
+.wp-block-sunflower-accordion {
+
+    .accordion-item {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+}
+

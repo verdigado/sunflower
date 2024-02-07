@@ -30,7 +30,7 @@ $darkgray: #333;
 $lightgray: #aeb2ad;
 $very-light-gray: #d6d9d6;
 
-$body-color: #201d1b;
+// $body-color: #201d1b;
 $sidebar-color: #afafaf;
 
 $lightgreen: #e5f3eb;
@@ -47,3 +47,15 @@ $container-max-widths: (
 
 $font-size-base: 1.1875rem;
 $small-font-size: 15px;
+
+$primary-text-emphasis: $white;
+
+$accordion-button-color: #fff;
+$accordion-button-active-color: #fff;
+
+$accordion-icon-active-color: #fff;
+$accordion-icon-color: #fff;
+$accordion-button-active-bg: $secondary;
+$accordion-button-bg: #008939;
+
+$accordion-border-radius: 6px;
