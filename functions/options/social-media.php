@@ -192,7 +192,7 @@ class SunflowerSocialMediaSettingsPage {
 			'<textarea style="white-space: pre-wrap;width: 90%%;height:18em;" id="sunflower_social_media_profiles" name="sunflower_social_media_options[sunflower_social_media_profiles]">%s</textarea>',
 			( isset( $this->options['sunflower_social_media_profiles'] ) && $this->options['sunflower_social_media_profiles'] != '' ) ? $this->options['sunflower_social_media_profiles'] : join( "\n", $default )
 		);
-		echo '<div><a href="https://sunflower-theme.de/documentation/setup/#social-media-profile" target="_blank">Mehr zu den Einstellungen in der Dokumenation</a> und
+		echo '<div><a href="https://sunflower-theme.de/documentation/setup/#social-media-profile" target="_blank">Mehr zu den Einstellungen in der Dokumentation</a> und
         <a href="https://fontawesome.com/icons?d=gallery&p=2&m=free" target="_blank">alle möglichen Icons bei Fontawesome</a>.<br>
        Pro Zeile ein Social-Media-Profil<br>
        Format: Fontawesome-Klasse; Title-Attribut; URL<br>
