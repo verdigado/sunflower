@@ -27,6 +27,7 @@ function sunflower_import_events() {
 	$events = new WP_Query(
 		array(
 			'post_type' => 'termine',
+            'posts_per_page' => '-1', // import all events
 		)
 	);
 
@@ -63,5 +64,9 @@ function sunflower_import_events() {
 
 		update_post_meta( $id, '_sunflower_event_from', germanDate2intDate( $meta['_wpcal_from'][0] ) );
 		update_post_meta( $id, '_sunflower_event_until', germanDate2intDate( $meta['_bis'][0] ) );
+
+        if ( $meta['_thumbnail_id'][0] ) {
+			update_post_meta( $id, '_thumbnail_id', $meta['_thumbnail_id'][0] );
+		}
 	}
 }
