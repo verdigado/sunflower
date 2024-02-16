@@ -10,6 +10,7 @@
         padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
         background-color: var(--bs-primary);
         border-radius: 6px;
+        margin-bottom: 6px;
 
         &::before {
             display: none !important;
@@ -48,6 +49,7 @@
             border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
             border-radius: 6px;
+            margin-bottom: 6px;
         }
 
     }
@@ -79,6 +81,7 @@
 
     .accordion-item {
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        margin-bottom: 6px;
     }
 }
 
