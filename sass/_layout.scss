@@ -12,8 +12,20 @@ body {
     }
 }
 
-.container-narrow {
-    max-width: 900px;
+@include media-breakpoint-up(lg) {
+
+    .container-narrow {
+        max-width: 900px;
+
+    }
+}
+
+.site-main {
+    margin-bottom: 50px;
+
+    .page-header h1 {
+        color: $secondary;
+    }
 }
 
 .post-edit-link {
@@ -246,3 +258,4 @@ iframe {
         }
     }
 }
+

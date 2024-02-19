@@ -94,9 +94,9 @@ $metadata .= sprintf(
 );
 
 ?>
-	<div id="content" class="container">
+	<div id="content" class="container container-narrow">
 		<div class="row">
-			<div class="col-12 col-md-10 offset-md-1">
+			<div class="col-12">
 				<main id="primary" class="site-main">
 					<?php
 
@@ -125,9 +125,9 @@ $metadata .= sprintf(
 							<?php _e( 'If you click the button, the content will be downloaded from openstreetmap.', 'sunflower' ); ?>
 								</div>
 
-								<button class="wp-block-button__link no-border-radius show-leaflet" 
+								<button class="wp-block-button__link no-border-radius show-leaflet"
 									data-lat="<?php echo $_sunflower_event_lat; ?>"
-									data-lon="<?php echo $_sunflower_event_lon; ?>" 
+									data-lon="<?php echo $_sunflower_event_lon; ?>"
 									data-zoom="<?php echo $_sunflower_event_zoom; ?>"
 								>
 							<?php _e( 'Show map', 'sunflower' ); ?>
