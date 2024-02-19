@@ -54,8 +54,12 @@
     }
 
     .date {
-        font-size: 200%;
+        font-size: 150%;
         font-weight: 700;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 200%;
+        }
     }
 
     .time {

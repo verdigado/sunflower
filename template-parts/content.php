@@ -23,7 +23,7 @@ extract( $args );
 	<header class="entry-header full-width <?php echo ( $show_post_thumbnail ) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
 		<div class="container">
 			<div class="row position-relative">
-				<div class="col-12 offset-md-1 col-md-10">
+				<div class="col-12">
 		<?php
 		$roofline = @get_post_meta( $post->ID, '_sunflower_roofline' )[0] ?: false;
 		if ( $roofline ) {
