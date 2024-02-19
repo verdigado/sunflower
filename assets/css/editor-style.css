@@ -85,7 +85,7 @@ body {
 
 .sunflower-admin-hint {
     text-align: center;
-    background: #e6007e;
+    background-color: #e6007e;
     padding: 10px;
     color: white;
     font-size: 200%;
@@ -111,9 +111,50 @@ body {
     width: 100%;
 }
 
-h1,h2,h3,h4 {
+.no-link {
+	color: inherit;
+	text-decoration: none;
+}
+
+.no-link:hover {
+	color: #008939;
+}
+
+.no-link a {
+	color: inherit;
+	text-decoration: none;
+}
+
+h1.wp-block, h2.wp-block {
     font-family: "GrueneType";
 }
+
+h1, .h1,
+.h1,
+.has-huge-font-size {
+	font-size: 36px;
+	line-height: 1.2em;
+	color: #005437;
+}
+
+h2,
+.h2,
+.h2,
+.has-large-font-size {
+	font-size: 27px;
+	line-height: 1.2em;
+	color: #005437;
+}
+
+h3,
+.h3,
+.h3,
+.has-medium-font-size {
+	font-weight: 700;
+	font-size: 25px;
+	color: #005437;
+}
+
 @media (min-width: 768px) {
     h1,
     .h1,

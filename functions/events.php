@@ -268,6 +268,12 @@ function sunflower_load_event_admin_scripts() {
 		'1.0.0'
 	);
 
+	wp_enqueue_style(
+		'sunflower-editor-style',
+		get_template_directory_uri() . '/assets/css/editor-style.css',
+		array(),
+		'1.0.0'
+	);
 }
 add_action( 'admin_enqueue_scripts', 'sunflower_load_event_admin_scripts' );
 
