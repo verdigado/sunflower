@@ -5,6 +5,24 @@ header {
     }
 }
 
+
+body.admin-bar {
+
+    .navbar {
+
+        &-main.stuck {
+
+            @include media-breakpoint-up(sm) {
+                top: 47px;
+            }
+
+            @include media-breakpoint-up(md) {
+                top: 32px;
+            }
+        }
+    }
+}
+
 .navbar {
 
     &-main {
@@ -15,6 +33,7 @@ header {
     &-main.stuck {
         position: fixed;
         width: 100%;
+
         top: 0;
         z-index: 5000;
 
@@ -25,8 +44,9 @@ header {
 
     &-brand {
         opacity: 0;
-        width: 50px;
         margin-left: 0.5rem;
+
+        padding: 2px;
 
         @include media-breakpoint-up(md) {
             margin-left: 0;
@@ -95,7 +115,6 @@ body {
         letter-spacing: 0.2px;
         line-height: 1.3em;
     }
-
 
     @include media-breakpoint-up(md) {
         padding-left: 12px;
@@ -202,14 +221,4 @@ body {
 #navbar-sticky-detector.header-personal {
     height: 1px;
     background: $white;
-}
-
-body.admin-bar {
-
-    .navbar {
-
-        &-main.stuck {
-            top: 32px;
-        }
-    }
 }

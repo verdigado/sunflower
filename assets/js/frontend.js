@@ -4,22 +4,13 @@ const stickyElement = document.querySelector('.navbar-main');
 
 
 const observer = new IntersectionObserver(
-  ([e]) => {
-    stickyElement.classList.toggle('stuck', e.intersectionRatio < 1);
-
-    let h = jQuery('.navbar-main').height();
-    if (jQuery('body.admin-bar').length) {
-      h += 32;
+    ([e]) => {
+        stickyElement.classList.toggle('stuck', ! e.isIntersecting);
+    },
+    {  root: null,
+       rootMargin: "0px",
+       threshold: [0,  1]
     }
-
-    if (e.intersectionRatio < 1) {
-      jQuery('#content').css('margin-top', h);
-    } else {
-      jQuery('#content').css('margin-top', 0);
-    }
-
-  },
-  { threshold: [0, 1] }
 );
 
 observer.observe(stickyDetector);
