@@ -30,7 +30,9 @@ $darkgray: #333;
 $lightgray: #aeb2ad;
 $very-light-gray: #d6d9d6;
 
-// $body-color: #201d1b;
+// $body-color is $gray-900 by default and set by BS
+$body-color: #212529;
+
 $sidebar-color: #afafaf;
 
 $lightgreen: #e5f3eb;

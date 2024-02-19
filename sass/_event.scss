@@ -2,11 +2,14 @@ a.event-card {
     color: $body-color !important;
     text-decoration: none;
 
-
     article {
         background-color: $white;
         border-radius: $border-radius;
         height: 100%;
+
+        h2 {
+            color: $secondary;
+        }
 
         .event-archive-meta {
             color: $darkgray;
