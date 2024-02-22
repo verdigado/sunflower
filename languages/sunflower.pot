@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.0.4\n"
+"Project-Id-Version: sunflower 2.0.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-01-10T13:39:17+00:00\n"
+"POT-Creation-Date: 2024-02-22T20:46:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: sunflower\n"
@@ -152,7 +152,21 @@ msgstr ""
 msgid "<a href='admin.php?page=sunflower_admin'>More information can be found on the theme's settings page</a>."
 msgstr ""
 
-#: functions/admin.php:81
+#: functions/admin.php:38
+msgid "PHP Version End of Life"
+msgstr ""
+
+#. translators: %1$s and %2$s are replaced with string
+#: functions/admin.php:44
+msgid ""
+"<p>You are using PHP <strong>%1$s</strong> which <a href=\"https://www.php.net/supported-versions.php\">is not supported</a> anymore!</p>\n"
+"                <p>Please note, that Sunflower theme <strong>will require at least PHP 8.2+</strong> as of release 2.1.0. <br />\n"
+"                If you want to continue receiving updates, you must update your server or contact your\n"
+"                web hosting service.</p>\n"
+"                <p>If you are looking for a web hosting service with attitute, have look at %2$s.</p>"
+msgstr ""
+
+#: functions/admin.php:107
 #: functions/block-patterns.php:11
 #: functions/blocks.php:46
 #: functions/options/settings.php:22
@@ -160,7 +174,7 @@ msgstr ""
 msgid "Sunflower"
 msgstr ""
 
-#: functions/admin.php:106
+#: functions/admin.php:132
 msgid "Help for sunflowers events"
 msgstr ""
 
@@ -290,11 +304,11 @@ msgstr ""
 msgid "delete map"
 msgstr ""
 
-#: functions/events.php:411
+#: functions/events.php:417
 msgid "Event date"
 msgstr ""
 
-#: functions/events.php:412
+#: functions/events.php:418
 msgid "Event location"
 msgstr ""
 
@@ -418,11 +432,6 @@ msgstr ""
 msgid "Use this header layout"
 msgstr ""
 
-#: functions/options/settings.php:254
-#: functions/options/social-media.php:156
-msgid "Show share buttons on single post page"
-msgstr ""
-
 #: functions/options/social-media.php:27
 #: functions/options/social-media.php:28
 msgid "Social Media"
@@ -459,6 +468,10 @@ msgstr ""
 msgid "Mail"
 msgstr ""
 
+#: functions/options/social-media.php:156
+msgid "Show share buttons on single post page"
+msgstr ""
+
 #: functions/pictureimport.php:57
 msgid "An error occurred. Could not import images"
 msgstr ""
@@ -491,7 +504,7 @@ msgstr ""
 msgid "Add widgets here."
 msgstr ""
 
-#: header.php:31
+#: header.php:32
 msgid "Skip to content"
 msgstr ""
 
@@ -528,6 +541,7 @@ msgid "Search Results for: %s"
 msgstr ""
 
 #: single-sunflower_event.php:52
+#: template-parts/archive-event.php:34
 msgid "o'clock"
 msgstr ""
 
@@ -547,13 +561,13 @@ msgstr ""
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58
 #: template-parts/content-archive.php:52
-#: template-parts/content.php:83
+#: template-parts/content.php:75
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
 #: template-parts/content-archive.php:65
 #: template-parts/content-page.php:31
-#: template-parts/content.php:96
+#: template-parts/content.php:88
 msgid "Pages:"
 msgstr ""
 

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2024-01-10T13:39:17+00:00\n"
-"PO-Revision-Date: 2024-01-10 14:52+0100\n"
+"POT-Creation-Date: 2024-02-22T20:46:43+00:00\n"
+"PO-Revision-Date: 2024-02-22 21:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -161,13 +161,40 @@ msgstr ""
 "<a href='admin.php?page=sunflower_admin'>Mehr Infos gibt es auf der "
 "Sunflower-Einstellungsseite</a>."
 
-#: functions/admin.php:81 functions/block-patterns.php:11
+#: functions/admin.php:38
+msgid "PHP Version End of Life"
+msgstr "PHP Version veraltet"
+
+#. translators: %1$s and %2$s are replaced with string
+#: functions/admin.php:44
+msgid ""
+"<p>You are using PHP <strong>%1$s</strong> which <a href=\"https://www.php."
+"net/supported-versions.php\">is not supported</a> anymore!</p>\n"
+"                <p>Please note, that Sunflower theme <strong>will require at "
+"least PHP 8.2+</strong> as of release 2.1.0. <br />\n"
+"                If you want to continue receiving updates, you must update "
+"your server or contact your\n"
+"                web hosting service.</p>\n"
+"                <p>If you are looking for a web hosting service with "
+"attitute, have look at %2$s.</p>"
+msgstr ""
+"<p>Ihr nutzt PHP <strong>%1$s</strong>. Diese Version wird <a href=\"https://"
+"www.php.net/supported-versions.php\">nicht mehr unterstützt</a>!</p>\n"
+"                <p>Bitte beachtet, dass das Sunflower Theme ab Version 2.1.0 "
+"<strong>mindestens PHP 8.2+ erfordert</strong>. <br />\n"
+"                Wenn ihr weiterhin Aktualisierungen erhalten wollt, dann "
+"müsst ihr euren Server aktualisieren bzw. euren Web-Hosting Anbieter "
+"ansprechen.</p>\n"
+"                <p>Wenn ihr auf der Suche nach einem Web-Hosting Anbieter "
+"mit Haltung seid, schaut doch mal bei  %2$s vorbei.</p>"
+
+#: functions/admin.php:107 functions/block-patterns.php:11
 #: functions/blocks.php:46 functions/options/settings.php:22
 #: functions/options/settings.php:23
 msgid "Sunflower"
 msgstr "Sunflower"
 
-#: functions/admin.php:106
+#: functions/admin.php:132
 msgid "Help for sunflowers events"
 msgstr "Hilfe für Sunflower-Termine"
 
@@ -302,11 +329,11 @@ msgstr "Kartendaten laden"
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/events.php:411
+#: functions/events.php:417
 msgid "Event date"
 msgstr "Datum der Veranstaltung"
 
-#: functions/events.php:412
+#: functions/events.php:418
 msgid "Event location"
 msgstr "Ort"
 
@@ -419,10 +446,6 @@ msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 msgid "Use this header layout"
 msgstr "Layout für den Header"
 
-#: functions/options/settings.php:254 functions/options/social-media.php:156
-msgid "Show share buttons on single post page"
-msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
-
 #: functions/options/social-media.php:27 functions/options/social-media.php:28
 msgid "Social Media"
 msgstr "Profile in Sozialen Medien"
@@ -456,6 +479,10 @@ msgstr "E-Mail"
 msgid "Mail"
 msgstr "E-Mail"
 
+#: functions/options/social-media.php:156
+msgid "Show share buttons on single post page"
+msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
+
 #: functions/pictureimport.php:57
 msgid "An error occurred. Could not import images"
 msgstr "Es ist ein Fehler aufgetreten. Die Bilder wurden nicht importiert."
@@ -488,7 +515,7 @@ msgstr "Seitenleiste"
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
-#: header.php:31
+#: header.php:32
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
 
@@ -512,10 +539,8 @@ msgid "Share on X (Twitter) "
 msgstr "Auf X (Twitter) teilen"
 
 #: inc/template-tags.php:107
-#, fuzzy
-#| msgid "Share on facebook "
 msgid "Share on Facebook "
-msgstr "Auf Facebook teilen"
+msgstr "Auf Facebook teilen "
 
 #: inc/template-tags.php:116
 msgid "send mail "
@@ -526,7 +551,7 @@ msgstr "Sende E-Mail"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
-#: single-sunflower_event.php:52
+#: single-sunflower_event.php:52 template-parts/archive-event.php:34
 msgid "o'clock"
 msgstr "Uhr"
 
@@ -544,12 +569,12 @@ msgstr "Download als ics-Datei"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58 template-parts/content-archive.php:52
-#: template-parts/content.php:83
+#: template-parts/content.php:75
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
 #: template-parts/content-archive.php:65 template-parts/content-page.php:31
-#: template-parts/content.php:96
+#: template-parts/content.php:88
 msgid "Pages:"
 msgstr "Seiten:"
 
