@@ -162,7 +162,8 @@ h3,
 
 
 @media (min-width: 768px) {
-    h1,
+    .wrap h1,
+    h1
     .h1,
     .has-huge-font-size {
         font-size: 45px;
@@ -241,4 +242,14 @@ h3,
 p a {
     color: #008939;
     text-decoration: none;
+}
+
+.notice .h3 {
+    font-size: 120%;
+    margin: 3px 0 0 0;
+}
+
+.notice p {
+    font-size: 90%;
+    padding: 0;
 }

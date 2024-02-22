@@ -33,6 +33,32 @@ if ( empty( get_option( 'sunflower-plugins-dismissed' ) ) ) {
 	add_action( 'admin_notices', 'sunflower_notice' );
 }
 
+function sunflower_notice_php() {   ?>
+	<div class="notice notice-error update-nag sunflower-plugins is-dismissible">
+        <p class="h3"><?php __( 'PHP Version End of Life', 'sunflower' ) ?></p>
+		<p><?php
+            $phpversion = "Current PHP version: " . phpversion();
+            $linkverdigado = "<a href='https://www.verdigado.com/' target='_blank' title='verdigado eG'>
+                <img src='" . get_template_directory_uri() . "/assets/img/verdigado-logo.png' alt='Logo of verdigado eG' /></a>";
+            /* translators: %1$s and %2$s are replaced with string */
+            echo sprintf( __( '<p>You are using PHP <strong>%1$s</strong> which <a href="https://www.php.net/supported-versions.php">is not supported</a> anymore!</p>
+                <p>Please note, that Sunflower theme <strong>will require at least PHP 8.2+</strong> as of release 2.1.0. <br />
+                If you want to continue receiving updates, you must update your server or contact your
+                web hosting service.</p>
+                <p>If you are looking for a web hosting service with attitute, have look at %2$s.</p>', 'sunflower' ),
+                phpversion(), $linkverdigado );
+        ?>
+        </p>
+	</div>
+	<?php
+}
+
+if ( empty( get_option( 'sunflower-plugins-php-82-dismissed' ) ) ) {
+    if (version_compare(phpversion(), '8.2', '<')) {
+	    add_action( 'admin_notices', 'sunflower_notice_php' );
+    }
+}
+
 function sunflower_load_admin_scripts() {
 	wp_enqueue_script(
 		'sunflower-admin',
