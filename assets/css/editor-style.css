@@ -125,7 +125,11 @@ body {
 	text-decoration: none;
 }
 
-h1.wp-block, h2.wp-block {
+h1.wp-block,
+h2.wp-block,
+h3.wp-block,
+.h1,
+.h2 {
     font-family: "GrueneType";
 }
 
@@ -134,7 +138,6 @@ h1, .h1,
 .has-huge-font-size {
 	font-size: 36px;
 	line-height: 1.2em;
-	color: #005437;
 }
 
 h2,
@@ -143,7 +146,6 @@ h2,
 .has-large-font-size {
 	font-size: 27px;
 	line-height: 1.2em;
-	color: #005437;
 }
 
 h3,
@@ -152,8 +154,12 @@ h3,
 .has-medium-font-size {
 	font-weight: 700;
 	font-size: 25px;
+}
+
+.has-white-background-color .h1, .h2, .h3 {
 	color: #005437;
 }
+
 
 @media (min-width: 768px) {
     h1,
@@ -224,6 +230,7 @@ h3,
     object-fit: cover;
     border-radius: 3px;
 }
+
 .wp-block-image img {
     box-sizing: border-box;
     height: auto;

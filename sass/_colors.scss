@@ -4,8 +4,8 @@
 
 .bg-darkgreen {
     background-color: $darkgreen;
+    color: $white;
 }
-
 
 @each $name, $code in $custom-colors {
     .has-#{$name}-color {
