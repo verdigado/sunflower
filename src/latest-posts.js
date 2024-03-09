@@ -18,6 +18,10 @@ registerBlockType( 'sunflower/latest-posts', {
 			type: 'string',
 			default: ''
 		},
+        excludedCategories: {
+			type: 'string',
+			default: ''
+		},
         count: {
 			type: 'string',
 			default: ''
@@ -34,6 +38,7 @@ registerBlockType( 'sunflower/latest-posts', {
         const {
             attributes: {
                 categories,
+                excludedCategories,
                 count,
                 title
             },
@@ -50,6 +55,10 @@ registerBlockType( 'sunflower/latest-posts', {
 
         const onChangeCategories = ( input ) => {
             props.setAttributes( { categories: input === undefined ? '' : input } );
+        };
+
+        const onChangeExcludedCategories = ( input ) => {
+            props.setAttributes( { excludedCategories: input === undefined ? '' : input } );
         };
 
         const onChangeCount = ( input ) => {
@@ -98,11 +107,19 @@ registerBlockType( 'sunflower/latest-posts', {
                         />
 
                         <TextControl
+                            label="Ausgeschlossene Kategorien"
+                            help="Kategorie-Slug(URL) eintragen. Mehrere mit Komma trennen."
+                            value={ excludedCategories }
+                            onChange={ onChangeExcludedCategories }
+                        />
+
+                        <TextControl
                             label="Anzahl"
                             help="Wieviele Beiträge sollen angezeigt werden"
                             value={ count }
                             onChange={ onChangeCount }
                         />
+
                     </PanelBody>
 
                  </InspectorControls>
