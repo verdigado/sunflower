@@ -7,8 +7,13 @@ add_filter( 'update_themes_sunflower-theme.de', 'update_theme_sunflower', 10, 3 
 
 function update_theme_sunflower( $transient, $theme_data, $theme_slug )
 {
+	// Include an unmodified $wp_version.
+	require ABSPATH . WPINC . '/version.php';
+	$php_version = PHP_VERSION;
+
     $request = array(
         'version' => $theme_data['Version'],
+		'php' => $php_version,
         'url' => get_bloginfo('url')
     );
     // Start checking for an update
