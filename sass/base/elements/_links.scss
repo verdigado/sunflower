@@ -12,7 +12,12 @@ a {
     }
 
     &:focus {
-        outline: thin dotted;
+        outline: auto;
+    }
+
+    &:focus-visible {
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem #000;
     }
 
     &:hover,

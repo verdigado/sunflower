@@ -102,7 +102,6 @@ img.post-thumbnail {
         justify-content: center;
         align-items: center;
         margin-right: 3px;
-        text-decoration: none;
         font-size: 16px;
         cursor: pointer;
 
@@ -199,7 +198,7 @@ a.eventlist {
     align-items: baseline;
     font-size: 80%;
 
-    > * {
+    >* {
         padding: 20px 30px;
         display: block;
     }
@@ -230,7 +229,7 @@ iframe {
 
     &-has-background-dim {
 
-        > * {
+        >* {
             z-index: 30;
         }
 
@@ -250,12 +249,15 @@ iframe {
 
 .related-posts {
 
+    a {
+        text-decoration: none;
+    }
+
     .entry-content {
 
         a {
-            text-decoration: none;
             color: $body-color;
         }
     }
-}
 
+}
