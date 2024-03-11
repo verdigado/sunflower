@@ -16,6 +16,10 @@
         border-radius: $border-radius;
         margin-bottom: 10px;
 
+        a {
+            text-decoration: none;
+        }
+
         .post-thumbnail {
 
             img {
@@ -34,7 +38,6 @@
 
             a {
                 color: $body-color;
-                text-decoration: none;
             }
         }
     }

@@ -8,7 +8,6 @@
     background: $white;
     border-radius: 50%;
     margin: 3px;
-    text-decoration: none;
 
     i {
         color: $white;
@@ -29,8 +28,28 @@
         }
     }
 
+    a {
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:focus {
+            color: $white-90;
+            text-decoration: none;
+
+        }
+
+        &:focus-visible {
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem #fff;
+        }
+
+    }
+
     .navbar-nav {
         flex-wrap: wrap;
+
 
         .nav-link {
             padding-left: 0;
@@ -41,19 +60,11 @@
         color: $white;
 
         &:hover {
-            color: $primary;
+            color: $white;
         }
     }
 
     hr {
         opacity: 0.6;
-    }
-}
-
-.site-info {
-    color: $white-90;
-
-    a {
-        color: $white-90;
     }
 }

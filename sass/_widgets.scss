@@ -1,6 +1,5 @@
 .widget {
     margin-bottom: 5rem;
-    color: $lightgreen;
 
     ul {
         list-style-type: none;
@@ -19,7 +18,7 @@
         color: $white;
 
         &:hover {
-            color: $primary;
+            color: $white;
         }
     }
 
@@ -135,7 +134,7 @@
 
             &:hover {
                 background-color: $white;
-                color: $sidebar-color;
+                color: $secondary;
             }
         }
     }

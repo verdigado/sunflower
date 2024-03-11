@@ -5,6 +5,11 @@
 .bg-darkgreen {
     background-color: $darkgreen;
     color: $white;
+
+    a:focus-visible {
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem #fff;
+    }
 }
 
 @each $name, $code in $custom-colors {
@@ -19,4 +24,13 @@
     .has-#{$name}-hover-background-color:hover {
         background-color: $code !important;
     }
+}
+
+.has-white-color.has-tanne-background-color {
+
+    a:focus-visible {
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem #fff;
+    }
+
 }
