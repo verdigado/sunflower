@@ -23,13 +23,15 @@
 
 .topmenu {
 
+    background: $secondary;
+
     .search {
 
         input {
             background: none;
             color: $white;
             border-radius: 0;
-            border-color: $navbar-dark-color;
+            border-color: $white;
             width: 0;
             padding-left: 15px;
             border-width: 0;
@@ -41,7 +43,7 @@
             }
 
             &:focus {
-                border-color: $navbar-dark-color;
+                border-color: $white;
                 outline: none;
                 box-shadow: none;
             }
@@ -52,16 +54,21 @@
     li {
 
         a {
-            color: $navbar-dark-color;
+            color: $white-90;
         }
     }
 
     button {
-        color: $navbar-dark-color;
+        color: $white-90;
         border: 0;
         background: none;
-        padding: 0;
+        padding: 0 10px;
     }
+
+    form input::placeholder {
+        color: $very-light-gray;
+    }
+
 }
 
 .sunflower-post-navigation {

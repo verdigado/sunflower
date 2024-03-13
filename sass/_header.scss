@@ -28,6 +28,17 @@ body.admin-bar {
     &-main {
         border-bottom: 1px solid $darkgray;
         transition: 0.3s;
+
+        .nav {
+
+            &-item {
+
+                a {
+                    color: $black;
+                }
+            }
+        }
+
     }
 
     &-main.stuck {
@@ -40,6 +51,7 @@ body.admin-bar {
         .navbar-brand {
             opacity: 1;
         }
+
     }
 
     &-brand {
@@ -56,20 +68,6 @@ body.admin-bar {
             height: 33px;
         }
     }
-}
-
-.nav {
-
-    &-item {
-
-        a {
-            color: $black;
-        }
-    }
-}
-
-.topmenu {
-    background: $secondary;
 }
 
 body {
