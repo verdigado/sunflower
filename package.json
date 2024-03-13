@@ -58,7 +58,7 @@
     "jquery-datetimepicker": "^2.5.21",
     "jquery-slim": "^3.0.0",
     "leaflet": "^1.9.3",
-    "lightbox2": "^2.11.3",
-    "pa11y": "^5.3.1"
+    "lightbox2": "^2.11.4",
+    "pa11y": "^7.0"
   }
 }
