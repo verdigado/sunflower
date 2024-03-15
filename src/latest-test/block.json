@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "sunflower/latest-posts",
-	"title": "Latest Posts (Sunflower)",
+	"name": "sunflower/latest-test",
+	"title": "Latest test (Sunflower)",
 	"category": "widgets",
-	"description": "Sunflower: Display a list of your most recent posts.",
-	"keywords": [ "sunflower recent posts" ],
+	"description": "Sunflower: Display a list of your most recent test.",
+	"keywords": [ "sunflower recent test" ],
 	"textdomain": "sunflower",
 	"attributes": {
         "categories": {

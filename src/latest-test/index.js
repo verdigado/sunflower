@@ -1,5 +1,5 @@
-import { __ } from '@wordpress/i18n';
-import { registerBlockType, registerBlockVariation } from '@wordpress/blocks';
+import { __, _x } from '@wordpress/i18n';
+import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps } from '@wordpress/block-editor';
 // import { registerBlockExtension } from '@10up/block-components';
 
@@ -27,7 +27,6 @@ const { name } = json;
 
 registerBlockType( name,
     {
-        // title: __( 'Latest Posts (Sunflower)', 'sunflower' ),
         edit: Edit,
     }
 );

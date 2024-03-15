@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2023-11-15T16:06:31+00:00\n"
-"PO-Revision-Date: 2023-11-15 17:11+0100\n"
+"POT-Creation-Date: 2024-03-14T16:04:44+00:00\n"
+"PO-Revision-Date: 2024-03-14 17:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Domain: sunflower\n"
 
 #. Theme Name of the theme
@@ -60,7 +60,7 @@ msgstr "Termine"
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:54 functions/blocks/next-events.php:19
+#: archive-sunflower_event.php:54 src_da/blocks/next-events.php:19
 msgid "all events"
 msgstr "Alle Termine"
 
@@ -104,6 +104,21 @@ msgstr "zurück"
 #: archive.php:66 index.php:72 search.php:69 single.php:58
 msgid "next"
 msgstr "vor"
+
+#: build/example-static/render.php:90 build/example-static/render.php:112
+#: build/latest-posts/render.php:90 build/latest-posts/render.php:112
+#: build/latest-test/render.php:90 build/latest-test/render.php:112
+#: src/example-static/render.php:90 src/example-static/render.php:112
+#: src/latest-posts/render.php:90 src/latest-posts/render.php:112
+#: src/latest-test/render.php:90 src/latest-test/render.php:112
+msgid "to archive"
+msgstr "Zum Blog-Archiv"
+
+#: build/example-static/render.php:100 build/latest-posts/render.php:100
+#: build/latest-test/render.php:100 src/example-static/render.php:100
+#: src/latest-posts/render.php:100 src/latest-test/render.php:100
+msgid "No posts found"
+msgstr "Keine Beiträge gefunden"
 
 #: comments.php:25
 msgid "Comment article"
@@ -162,7 +177,7 @@ msgstr ""
 "Sunflower-Einstellungsseite</a>."
 
 #: functions/admin.php:81 functions/block-patterns.php:11
-#: functions/blocks.php:46 functions/options/settings.php:22
+#: functions/blocks.php:175 functions/options/settings.php:22
 #: functions/options/settings.php:23
 msgid "Sunflower"
 msgstr "Sunflower"
@@ -170,24 +185,6 @@ msgstr "Sunflower"
 #: functions/admin.php:106
 msgid "Help for sunflowers events"
 msgstr "Hilfe für Sunflower-Termine"
-
-#: functions/blocks/latest-posts.php:86 functions/blocks/latest-posts.php:108
-msgid "to archive"
-msgstr "Zum Blog-Archiv"
-
-#: functions/blocks/latest-posts.php:96
-msgid "No posts found"
-msgstr "Keine Beiträge gefunden"
-
-#: functions/blocks/next-events.php:17 build/index.js:506 build/index.js:553
-#: src/next-events.js:13 src/next-events.js:56 build/index.js:439
-#: build/index.js:482
-msgid "Next events"
-msgstr "Nächste Termine"
-
-#: functions/blocks/next-events.php:43
-msgid "Currently there are no coming events."
-msgstr "Derzeit sind keine Veranstaltungen geplant."
 
 #: functions/colors.php:8
 msgid "Himmel"
@@ -420,7 +417,7 @@ msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 msgid "Use this header layout"
 msgstr "Layout für den Header"
 
-#: functions/options/settings.php:254 functions/options/social-media.php:156
+#: functions/options/settings.php:254 functions/options/social-media.php:174
 msgid "Show share buttons on single page"
 msgstr "Welche Teilen-Buttons sollen auf einer Einzelseite gezeigt werden?"
 
@@ -441,21 +438,33 @@ msgid "Open graph fallback image"
 msgstr "Fallback-Bild für Open-Graph-Tag"
 
 #: functions/options/social-media.php:99 functions/options/social-media.php:103
+#: functions/options/social-media.php:108
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions/options/social-media.php:108
 #: functions/options/social-media.php:112
+#, fuzzy
+#| msgid "Twitter"
+msgid "X (Twitter)"
+msgstr "Twitter"
+
+#: functions/options/social-media.php:117
+#: functions/options/social-media.php:121
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options/social-media.php:117
+#: functions/options/social-media.php:126
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options/social-media.php:121
+#: functions/options/social-media.php:130
 msgid "Mail"
 msgstr "E-Mail"
+
+#: functions/options/social-media.php:135
+#: functions/options/social-media.php:139
+msgid "Mastodon"
+msgstr ""
 
 #: functions/pictureimport.php:57
 msgid "An error occurred. Could not import images"
@@ -481,11 +490,11 @@ msgstr "Fußzeilenmenü 1"
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/_s.php:111
+#: functions/_s.php:110
 msgid "Sidebar"
 msgstr "Seitenleiste"
 
-#: functions/_s.php:113
+#: functions/_s.php:112
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
@@ -513,7 +522,9 @@ msgid "Share on X (Twitter) "
 msgstr "Auf X (Twitter) teilen"
 
 #: inc/template-tags.php:108
-msgid "Share on facebook "
+#, fuzzy
+#| msgid "Share on facebook "
+msgid "Share on Facebook "
 msgstr "Auf Facebook teilen"
 
 #: inc/template-tags.php:117
@@ -540,6 +551,15 @@ msgstr "organisiert von"
 #: single-sunflower_event.php:93
 msgid "Download as ics"
 msgstr "Download als ics-Datei"
+
+#: src_da/blocks/next-events.php:17 src_da/blocks/sunf/next-events.js:13
+#: src_da/blocks/sunf/next-events.js:56
+msgid "Next events"
+msgstr "Nächste Termine"
+
+#: src_da/blocks/next-events.php:43
+msgid "Currently there are no coming events."
+msgstr "Derzeit sind keine Veranstaltungen geplant."
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58 template-parts/content-archive.php:52
@@ -608,22 +628,75 @@ msgstr "Kontrast erhöhen"
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
 
-#: build/index.js:507 src/next-events.js:14 build/index.js:440
+#: build/latest-posts/edit.js:265 build/latest-posts/index.js:135
+#: src/latest-posts/edit.js:130 build/latest-posts/edit.js:186
+#: build/latest-posts/index.js:130
+msgid "DESC"
+msgstr "Absteigend"
+
+#: build/latest-posts/edit.js:268 build/latest-posts/index.js:138
+#: build/latest-test/index.js:138 src/latest-posts/edit.js:134
+#: src/latest-test/edit.js:134 build/latest-posts/edit.js:190
+#: build/latest-posts/index.js:134 build/latest-test/index.js:134
+msgid "ASC"
+msgstr "Aufsteigend"
+
+#: src_da/blocks/sunf/next-events.js:14
 msgid "show next events"
 msgstr "zeige nächste Termine"
 
-#: build/index.js:553 src/next-events.js:53 build/index.js:479
+#: src_da/blocks/sunf/next-events.js:53
 msgid "Loading"
 msgstr "lade"
 
-#: build/index.js:553 src/next-events.js:54 build/index.js:480
+#: src_da/blocks/sunf/next-events.js:54
 msgid "No Events"
 msgstr "Keine Termine"
 
-#: build/index.js:553 src/next-events.js:58 build/index.js:484
+#: src_da/blocks/sunf/next-events.js:58
 msgid "Maximum events shown"
 msgstr "Maximale Anzahl angezeigter Termine"
 
-#: build/index.js:569 src/next-events.js:80 build/index.js:506
+#: src_da/blocks/sunf/next-events.js:80
 msgid "Count"
 msgstr "Anzahl"
+
+#: build/latest-posts/block.json src/latest-posts/block.json
+msgctxt "block title"
+msgid "Latest Posts (Sunflower)"
+msgstr "Neueste Beiträge (Sunflower) [zwei]"
+
+#: build/latest-posts/block.json src/latest-posts/block.json
+msgctxt "block description"
+msgid "Sunflower: Display a list of your most recent posts."
+msgstr ""
+
+#: build/latest-posts/block.json src/latest-posts/block.json
+#, fuzzy
+#| msgid "Sunflower Settings"
+msgctxt "block keyword"
+msgid "sunflower recent posts"
+msgstr "Sunflower Einstellungen"
+
+#: build/latest-test/block.json src/latest-test/block.json
+#, fuzzy
+#| msgctxt "block title"
+#| msgid "Latest Posts (Sunflower)"
+msgctxt "block title"
+msgid "Latest test (Sunflower)"
+msgstr "Neueste Beiträge (Sunflower) [drei]"
+
+#: build/latest-test/block.json src/latest-test/block.json
+msgctxt "block description"
+msgid "Sunflower: Display a list of your most recent test."
+msgstr ""
+
+#: build/latest-test/block.json src/latest-test/block.json
+#, fuzzy
+#| msgid "Sunflower Settings"
+msgctxt "block keyword"
+msgid "sunflower recent test"
+msgstr "Sunflower Einstellungen"
+
+#~ msgid "Latest Posts (Sunflower)"
+#~ msgstr "Neueste Beiträge (Sunflower) [eins]"

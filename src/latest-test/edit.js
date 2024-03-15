@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __, _x } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -85,7 +85,7 @@ export default function Edit(props) {
             {
                 <>
                 <ServerSideRender
-                  block={ "sunflower/latest-posts" }
+                  block={ "sunflower/latest-test" }
                   attributes={ {
                     categories: categories,
                     count: count,
@@ -127,7 +127,7 @@ export default function Edit(props) {
                         help="Wie soll's aussehen?"
                         options={ [
                             {
-                                label: __( 'DESC', 'sunflower' ),
+                                label: _x( 'DESC', 'sunflower' ),
                                 value: 'list',
                             },
                             {
