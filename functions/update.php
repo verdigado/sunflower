@@ -34,6 +34,7 @@ function update_theme_sunflower($transient, $theme_data, $theme_slug)
         $response['version'] = $response['new_version'] ?? $theme_data['Version'];
         return $response;
     }
+
     // No update is available.
     $item = [
         'theme' => $theme_slug,

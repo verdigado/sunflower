@@ -154,7 +154,7 @@ class SunflowerEventSettingsPage
 					<option value="">bitte wählen</option>
 				<?php
                 global $wpdb;
-        $transients = $wpdb->get_results(sprintf('SELECT * FROM %s WHERE option_name LIKE \'_transient_sunflower_geocache_%%\'', $wpdb->options));
+        $transients = $wpdb->get_results(sprintf("SELECT * FROM %s WHERE option_name LIKE '_transient_sunflower_geocache_%%'", $wpdb->options));
 
         foreach ($transients as $transient) {
             $location = preg_replace("/_transient_sunflower_geocache_/", '', (string) $transient->option_name);

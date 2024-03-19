@@ -114,9 +114,11 @@ function save_sunflower_event_meta_boxes()
         if (! in_array($id, $intoTransients)) {
             continue;
         }
+
         if (! $value) {
             continue;
         }
+
         set_transient($id, $value);
     }
 }

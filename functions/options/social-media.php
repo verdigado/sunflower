@@ -229,6 +229,7 @@ function get_sunflower_social_media_profiles()
         if (! isset($url)) {
             continue;
         }
+
         if ($url === '') {
             continue;
         }

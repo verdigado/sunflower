@@ -154,7 +154,8 @@ function sunfloer_setup_help_tab()
                 'content' => '<strong>Sunflower-Termine.</strong>
         <p>Du kannst Termine hier anlegen oder einen iCal-Kalender importieren. Mehr Infos dazu gibt es auf
         <a href="https://sunflower-theme.de/documentation/events/" target="_blank">https://sunflower-theme.de/documentation/events/</a></p>
-    ', ]
+    ',
+            ]
         );
     }
 }

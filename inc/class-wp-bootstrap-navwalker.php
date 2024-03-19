@@ -554,7 +554,7 @@ if (! class_exists('WP_Bootstrap_Navwalker')) {
         private function wrap_for_screen_reader($text = '')
         {
             if ($text) {
-                $text = '<span class="sr-only">' . $text . '</span>';
+                return '<span class="sr-only">' . $text . '</span>';
             }
 
             return $text;

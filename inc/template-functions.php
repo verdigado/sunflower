@@ -36,9 +36,11 @@ function sunflower_pingback_header()
     if (! is_singular()) {
         return;
     }
+
     if (! pings_open()) {
         return;
     }
+
     printf('<link rel="pingback" href="%s">', esc_url(get_bloginfo('pingback_url')));
 }
 

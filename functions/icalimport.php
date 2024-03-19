@@ -118,9 +118,11 @@ function sunflower_icalimport($url = false, $auto_categories = false)
         if ($categories === '') {
             continue;
         }
+
         if ($categories === '0') {
             continue;
         }
+
         wp_set_post_terms($id, $categories, 'sunflower_event_tag');
     }
 

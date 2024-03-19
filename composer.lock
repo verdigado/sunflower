@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "caa32e6d31d52907fe217660586d237f",
+    "content-hash": "3311f6dfbd268d4073c6c5d30c61b089",
     "packages": [
         {
             "name": "johngrogg/ics-parser",
@@ -3340,7 +3340,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.1"
+        "php": "^8.2"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"

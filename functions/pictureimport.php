@@ -58,6 +58,7 @@ function sunflower_import_one_picture($url)
             echo __('An error occurred. Could not import images', 'sunflower');
             return false;
         }
+
         $filename = $results['file'];
         // Full path to the file
         $local_url = $results['url'];
@@ -77,5 +78,6 @@ function sunflower_import_one_picture($url)
 
         return true;
     }
+
     return false;
 }
