@@ -45,6 +45,8 @@ https://chatbegruenung.de/channel/sunflower-wordpress
 - `composer lint:wpcs` : checks all PHP files against [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
 - `composer lint:php` : checks all PHP files for syntax errors.
 - `composer make-pot` : generates a .pot file in the `languages/` directory.
+- `vendor/bin/rector`: run rector with provided `rector.php`.
+- `vendor/bin/ecs`: run ecs with provided `ecs.php`.
 - `npm run compile:css` : compiles SASS files to css.
 - `npm run compile:rtl` : generates an RTL stylesheet.
 - `npm run watch` : watches all SASS files and recompiles them to css when they change.
