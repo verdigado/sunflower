@@ -1,20 +1,32 @@
 <?php
 
+function map_slug_list_to_ids( $categoryList ) {
+	$categories = array_map( 'trim', explode( ',', $categoryList ) );
+	return array_map(
+		fn( $value ) => $value->term_id,
+		array_map( 'get_category_by_slug', $categories )
+	);
+}
+
 function sunflower_latest_posts_render( $block_attributes, $content ) {
 	 $wp_query_args = array(
 		 'post_type' => 'post',
 		 'order'     => 'DESC',
 	 );
 
-	 $url_category_name = '';
 	 $link              = false;
 
 	 if ( isset( $block_attributes['categories'] ) and $block_attributes['categories'] != '' ) {
-		 $wp_query_args['category_name'] = $block_attributes['categories'];
-		 $url_category_name              = '&category_name=' . $block_attributes['categories'];
+ 		 $categoriesIds = map_slug_list_to_ids( $block_attributes['categories'] );
+		 $wp_query_args['cat'] = $categoriesIds;
+ 
+		 // archive button only links to first category
+		 $link = get_category_link( $categoriesIds[0] );
+	 }
 
-		 $categories = explode( ',', $block_attributes['categories'] );
-		 $link       = get_category_link( get_category_by_slug( trim( $categories[0] ) ) );
+	 if ( isset( $block_attributes['excludedCategories'] ) and $block_attributes['excludedCategories'] != '' ) {
+		 $categoriesIds = map_slug_list_to_ids( $block_attributes['excludedCategories'] );
+		 $wp_query_args['category__not_in'] = $categoriesIds;
 	 }
 
 	 if ( ! $link or $link == '' ) {
