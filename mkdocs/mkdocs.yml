@@ -41,8 +41,10 @@ extra_css:
 use_directory_urls: true
 plugins:
   - search:
-      lang: en
+  - glightbox:
 dev_addr: '0.0.0.0:8080' # local only
 markdown_extensions:
   - admonition
   - tables
+  - attr_list
+  - md_in_html

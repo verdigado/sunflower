@@ -23,8 +23,8 @@ function sunflower_notice()
             $linkgithub = "<a href='https://github.com/verdigado/sunflower' target='_blank'>open source</a>";
     $linkverdigado = "<a href='https://www.verdigado.com/' target='_blank' title='verdigado eG'>
                 <img src='" . get_template_directory_uri() . "/assets/img/verdigado-logo.png' alt='Logo of verdigado eG' /></a>";
-    /* translators: %1$s and %2$s are replaced with string */
     echo sprintf(
+        /* translators: %1$s and %2$s are replaced with links */
         __('Thank you for using sunflower theme. Sunflower is %1$s and maintained by %2$s.', 'sunflower'),
         $linkgithub,
         $linkverdigado
@@ -49,8 +49,9 @@ function sunflower_notice_php()
             $phpversion = "Current PHP version: " . phpversion();
     $linkverdigado = "<a href='https://www.verdigado.com/' target='_blank' title='verdigado eG'>
                 <img src='" . get_template_directory_uri() . "/assets/img/verdigado-logo.png' alt='Logo of verdigado eG' /></a>";
-    /* translators: %1$s and %2$s are replaced with string */
+
     echo sprintf(
+        /* translators: %1$s is replace with current PHP version and %2$s is replaced with link */
         __('<p>You are using PHP <strong>%1$s</strong> which <a href="https://www.php.net/supported-versions.php">is not supported</a> anymore!</p>
                 <p>Please note, that Sunflower theme <strong>will require at least PHP 8.2+</strong> as of release 2.1.0. <br />
                 If you want to continue receiving updates, you must update your server or contact your
@@ -75,9 +76,10 @@ function sunflower_load_admin_scripts()
         'sunflower-admin',
         get_template_directory_uri() . '/assets/js/admin.js',
         ['jquery'],
-        '1.0.0',
+        _S_VERSION,
         true
     );
+
     wp_localize_script(
         'sunflower-admin',
         'sunflower',

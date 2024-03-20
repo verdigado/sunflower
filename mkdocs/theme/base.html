@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
 <head>
   {%- block site_meta %}
   <meta charset="utf-8">
@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="{{ 'css/theme.css'|url }}" />
   <link rel="stylesheet" href="{{ 'css/theme_extra.css'|url }}" />
   {%- if config.theme.highlightjs %}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="{{ 'css/highlight.min.css'|url }}" />
   {%- endif %}
   {%- for path in config['extra_css'] %}
   <link href="{{ path|url }}" rel="stylesheet" />
@@ -39,32 +39,21 @@
     var mkdocs_page_url = {{ page.abs_url|tojson|safe }};
   </script>
   {% endif %}
-  <script src="{{ 'js/jquery-2.1.1.min.js'|url }}" defer></script>
-  <script src="{{ 'js/modernizr-2.8.3.min.js'|url }}" defer></script>
+  <script src="{{ 'js/jquery-3.7.1.min.js'|url }}"></script>
   {%- if config.theme.highlightjs %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  {%- for lang in config.theme.hljs_languages %}
+  <script src="{{ 'js/highlight.min.js'|url }}"></script>
+  <script defer>
+    $(document).ready(function() {
+       $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+    });
+    </script>
+    {%- for lang in config.theme.hljs_languages %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{lang}}.min.js"></script>
   {%- endfor %}
-  <script>hljs.initHighlightingOnLoad();</script>
   {%- endif %}
   {%- endblock %}
 
   {%- block extrahead %} {% endblock %}
-
-  {%- block analytics %}
-  {% if config.google_analytics %}
-  <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', '{{ config.google_analytics[0] }}', '{{ config.google_analytics[1] }}');
-      ga('send', 'pageview');
-  </script>
-  {% endif %}
-  {%- endblock %}
 </head>
 
 <body class="wy-body-for-nav" role="document">

@@ -12,6 +12,7 @@ return ECSConfig::configure()
     ->withPaths([
         __DIR__ . '/functions',
         __DIR__ . '/inc',
+        __DIR__ . '/template-parts',
     ])
 
     // add a single rule

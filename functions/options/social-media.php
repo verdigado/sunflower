@@ -91,7 +91,7 @@ class SunflowerSocialMediaSettingsPage
 
         add_settings_field(
             'sunflower_open_graph_fallback_image', // ID
-            __('Open graph fallback image', 'sunflower'), // Title
+            __('Open Graph Fallback Image', 'sunflower'), // Title
             $this->sunflower_open_graph_fallback_image(...), // Callback
             'sunflower-setting-social-media-options', // Page
             'sunflower_social_media_sharers' // Section
@@ -209,10 +209,32 @@ class SunflowerSocialMediaSettingsPage
 
     public function sunflower_open_graph_fallback_image(): void
     {
+        // add media selector button
+        wp_enqueue_media();
+        wp_enqueue_script(
+            'sunflower-admin-media',
+            get_template_directory_uri() . '/assets/js/admin-media.js',
+            ['jquery', 'jquery-ui-tabs', 'media-upload'],
+            _S_VERSION
+        );
+        wp_localize_script( 'sunflower-admin-media', 'texts', array(
+            'select_image'	=> __('Select Open Graph Fallback Image', 'sunflower'),
+        ) );
+
         printf(
-            '<input id="sunflower_open_graph_fallback_image" name="sunflower_social_media_options[sunflower_open_graph_fallback_image]" value="%s">',
+            '<input type="text" id="sunflower_open_graph_fallback_image" name="sunflower_social_media_options[sunflower_open_graph_fallback_image]" size="%s" value="%s">',
+            min(strlen($this->options['sunflower_open_graph_fallback_image']), 120),
             $this->options['sunflower_open_graph_fallback_image'] ?? ''
         );
+
+        printf(
+            '<input type="button" id="sunflower_open_graph_fallback_image_button" class="button" value="%s"" />', __('Open Media Library', 'sunflower')
+        );
+
+        printf(
+            '<br /><span class="sunflower-help">%s</span>', __('This fallback image will be used when sharing pages and posts and no featured image has been selected.', 'sunflower')
+        );
+
     }
 }
 
