@@ -49,6 +49,11 @@ jobs:
       - name: Build JS
         run: npm run build
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+
       - name: run install composer
         run: composer install
 
