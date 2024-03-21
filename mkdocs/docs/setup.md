@@ -35,9 +35,19 @@ Zeilen ohne URL werden nicht berücksichtigt, Du kannst sie als Muster gerne beh
 
 ### Teile in Sozialen Medien
 
-In der Einzelansicht von Beiträgen kannst Du Icons zum Teilen via X (Twitter), Facebook und per E-Mail anzeigen.
+In der Einzelansicht von Beiträgen kannst Du Icons zum Teilen via X (Twitter), Facebook und per E-Mail anzeigen. Ein Klick auf die Icons öffnet dann das jeweilige Soziale Netz und Du kannst den Beitrag dort teilen. Das ist unabhängig davon, ob Du auf den Platformen selbst einen Account hast.
 
-Das ist unabhängig davon, ob Du auf den Platformen selbst einen Account hast.
+Im Falle von E-Mail wird Dein Email-Programm geöffnet.
+
+Du kannst auch einfach die URL des Beitrags kopieren und ihn im Netzwerk Deiner Wahl posten. Meist versucht das Netzwerk, das Beitragsbild er holen um den Post attraktiver zu machen. Hast Du kein Beitragsbild vergeben, kannst Du ein Standard-Bild für solche Fälle festlegen. Ansonsten wählt das *Sunflower* ein Bild für Dich aus.
+
+`Sunflower -> Profile in Sozialen Medien -> Teile in Sozialen Medien`
+
+<figure markdown="span">
+  ![Screenshot vom Einstellungs-Menü](images/open-graph-default-image.png){ width="" }
+  <figcaption>Sunflower-Einstellungen: Teile in Sozialen Medien</figcaption>
+</figure>
+
 
 ## Automatische Updates aktivieren
 
@@ -47,8 +57,8 @@ Gehe dazu in
 
 ### Single Instanz
 
-Design -> Themes -> Sunflower ("Theme Details") -> Automatische Aktualisierungen aktivieren
+`Design -> Themes -> Sunflower ("Theme Details") -> Automatische Aktualisierungen aktivieren`
 
 ### Multi-Site Instanz
 
-Dashboard -> Netzwerkverwaltung -> Themes -> Automatische Aktualisierungen aktivieren
+`Dashboard -> Netzwerkverwaltung -> Themes -> Automatische Aktualisierungen aktivieren`

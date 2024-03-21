@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 0.0.1\n"
+"Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2024-02-22T20:46:43+00:00\n"
-"PO-Revision-Date: 2024-02-22 21:48+0100\n"
+"POT-Creation-Date: 2024-03-20T19:05:05+00:00\n"
+"PO-Revision-Date: 2024-03-20 20:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -50,9 +50,9 @@ msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
 msgid "Events archive"
 msgstr "Vergangene Veranstaltungen"
 
-#: archive-sunflower_event.php:39 functions/events.php:26
-#: functions/options/events.php:28 functions/options/events.php:29
-#: functions/options/events.php:203
+#: archive-sunflower_event.php:39 functions/events.php:28
+#: functions/options/events.php:30 functions/options/events.php:31
+#: functions/options/events.php:206
 msgid "Events"
 msgstr "Termine"
 
@@ -60,7 +60,7 @@ msgstr "Termine"
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:54 functions/blocks/next-events.php:19
+#: archive-sunflower_event.php:54 functions/blocks/next-events.php:20
 msgid "all events"
 msgstr "Alle Termine"
 
@@ -68,8 +68,8 @@ msgstr "Alle Termine"
 msgid "Archive"
 msgstr "Archiv"
 
-#: archive-sunflower_event.php:62 functions/events.php:184
-#: functions/options/events.php:179
+#: archive-sunflower_event.php:62 functions/events.php:201
+#: functions/options/events.php:182
 msgid "Map"
 msgstr "Landkarte"
 
@@ -144,8 +144,8 @@ msgstr[1] "%s Kommentare"
 msgid "Comments are closed."
 msgstr "Keine Kommentare möglich."
 
-#. translators: %1$s and %2$s are replaced with string
-#: functions/admin.php:22
+#. translators: %1$s and %2$s are replaced with links
+#: functions/admin.php:28
 msgid ""
 "Thank you for using sunflower theme. Sunflower is %1$s and maintained by "
 "%2$s."
@@ -153,7 +153,7 @@ msgstr ""
 "Danke, dass Du das Sunflower-Theme nutzt. Sunflower ist %1$s und wird von "
 "%2$s entwickelt."
 
-#: functions/admin.php:25
+#: functions/admin.php:33
 msgid ""
 "<a href='admin.php?page=sunflower_admin'>More information can be found on "
 "the theme's settings page</a>."
@@ -161,12 +161,12 @@ msgstr ""
 "<a href='admin.php?page=sunflower_admin'>Mehr Infos gibt es auf der "
 "Sunflower-Einstellungsseite</a>."
 
-#: functions/admin.php:38
+#: functions/admin.php:47
 msgid "PHP Version End of Life"
 msgstr "PHP Version veraltet"
 
-#. translators: %1$s and %2$s are replaced with string
-#: functions/admin.php:44
+#. translators: %1$s is replace with current PHP version and %2$s is replaced with link
+#: functions/admin.php:55
 msgid ""
 "<p>You are using PHP <strong>%1$s</strong> which <a href=\"https://www.php."
 "net/supported-versions.php\">is not supported</a> anymore!</p>\n"
@@ -188,30 +188,30 @@ msgstr ""
 "                <p>Wenn ihr auf der Suche nach einem Web-Hosting Anbieter "
 "mit Haltung seid, schaut doch mal bei  %2$s vorbei.</p>"
 
-#: functions/admin.php:107 functions/block-patterns.php:11
-#: functions/blocks.php:46 functions/options/settings.php:22
-#: functions/options/settings.php:23
+#: functions/admin.php:128 functions/block-patterns.php:12
+#: functions/blocks.php:45 functions/options/settings.php:24
+#: functions/options/settings.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
 
-#: functions/admin.php:132
+#: functions/admin.php:155
 msgid "Help for sunflowers events"
 msgstr "Hilfe für Sunflower-Termine"
 
-#: functions/blocks/latest-posts.php:86 functions/blocks/latest-posts.php:108
+#: functions/blocks/latest-posts.php:84 functions/blocks/latest-posts.php:106
 msgid "to archive"
 msgstr "Zum Blog-Archiv"
 
-#: functions/blocks/latest-posts.php:96
+#: functions/blocks/latest-posts.php:94
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: functions/blocks/next-events.php:17 build/index.js:1 src/next-events.js:13
+#: functions/blocks/next-events.php:18 build/index.js:1 src/next-events.js:13
 #: src/next-events.js:56
 msgid "Next events"
 msgstr "Nächste Termine"
 
-#: functions/blocks/next-events.php:43
+#: functions/blocks/next-events.php:39
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
@@ -219,101 +219,101 @@ msgstr "Derzeit sind keine Veranstaltungen geplant."
 msgid "Himmel"
 msgstr ""
 
-#: functions/colors.php:13
+#: functions/colors.php:12
 msgid "Tanne"
 msgstr ""
 
-#: functions/colors.php:18
+#: functions/colors.php:16
 msgid "Klee"
 msgstr ""
 
-#: functions/colors.php:23
+#: functions/colors.php:20
 msgid "Klee-700"
 msgstr ""
 
-#: functions/colors.php:28
+#: functions/colors.php:24
 msgid "Grashalm"
 msgstr ""
 
-#: functions/colors.php:33
+#: functions/colors.php:28
 msgid "White"
 msgstr "Weiß"
 
-#: functions/colors.php:38
+#: functions/colors.php:32
 msgid "Sonne"
 msgstr ""
 
-#: functions/colors.php:43
+#: functions/colors.php:36
 msgid "Sand"
 msgstr ""
 
-#: functions/colors.php:48
+#: functions/colors.php:40
 #, fuzzy
 #| msgid "Gray 100"
 msgid "Gray"
 msgstr "Grau 100"
 
-#: functions/colors.php:53
+#: functions/colors.php:44
 #, fuzzy
 #| msgid "Black 500"
 msgid "Black"
 msgstr "Schwarz 500"
 
-#: functions/contact-form.php:9
+#: functions/contact-form.php:11
 msgid "Form not sent. Captcha wrong. Please try again."
 msgstr ""
 "Das Formular konnte nicht gesendet werden, weil die Rechnung (Captcha) "
 "falsch ist. Bitte versuchen Sie es noch einmal."
 
-#: functions/contact-form.php:22
+#: functions/contact-form.php:24
 msgid "Thank you. The form has been sent."
 msgstr "Vielen Dank. Das Formular wurde verschickt."
 
-#: functions/contact-form.php:25
+#: functions/contact-form.php:27
 msgid "New contact form"
 msgstr "Neues Kontaktformular"
 
-#: functions/events.php:5
+#: functions/events.php:6
 msgid "Startdate"
 msgstr "Startdatum"
 
-#: functions/events.php:6
+#: functions/events.php:7
 msgid "Enddate"
 msgstr "Enddatum"
 
-#: functions/events.php:7
+#: functions/events.php:8
 msgid "Whole day"
 msgstr "ganztägig"
 
-#: functions/events.php:8
+#: functions/events.php:9
 msgid "Location name"
 msgstr "Veranstaltungsort (Name)"
 
-#: functions/events.php:9
+#: functions/events.php:10
 msgid "Street"
 msgstr "Straße und Hausnr."
 
-#: functions/events.php:10
+#: functions/events.php:11
 msgid "City"
 msgstr "Stadt"
 
-#: functions/events.php:11
+#: functions/events.php:12
 msgid "Webinar"
 msgstr "Webinar"
 
-#: functions/events.php:12
+#: functions/events.php:13
 msgid "Organizer"
 msgstr "organisiert von"
 
-#: functions/events.php:13
+#: functions/events.php:14
 msgid "Organizer URL"
 msgstr "URL der Organisator*in"
 
-#: functions/events.php:27 functions/events.php:74
+#: functions/events.php:29 functions/events.php:80
 msgid "Event"
 msgstr "Termin"
 
-#: functions/events.php:140
+#: functions/events.php:158
 msgid ""
 "This event will be imported by remote ical-calendar. All changes here will "
 "be overwritten."
@@ -321,169 +321,186 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:185 functions/options/events.php:180
+#: functions/events.php:202 functions/options/events.php:183
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/events.php:186
+#: functions/events.php:203
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/events.php:417
+#: functions/events.php:434
 msgid "Event date"
 msgstr "Datum der Veranstaltung"
 
-#: functions/events.php:418
+#: functions/events.php:435
 msgid "Event location"
 msgstr "Ort"
 
-#: functions/metaboxes.php:6 functions/options/settings.php:155
+#: functions/metaboxes.php:8 functions/options/settings.php:161
 msgid "Layout"
 msgstr "Layout"
 
-#: functions/metaboxes.php:15 functions/metaboxes.php:105
+#: functions/metaboxes.php:17 functions/metaboxes.php:113
 msgid "Metadata"
 msgstr "Metadaten"
 
-#: functions/metaboxes.php:67
+#: functions/metaboxes.php:74
 msgid "Styled layout"
 msgstr "gestyltes Layout"
 
-#: functions/metaboxes.php:68
+#: functions/metaboxes.php:75
 msgid "do not show title, add and remove margins. e.g. for the homepage"
 msgstr ""
 "versteckt den Titel und fügt Abstände ein bzw. löscht sie anderen Stellen. "
 "Setze diesen Haken z.B. für die Startseite."
 
-#: functions/metaboxes.php:88
+#: functions/metaboxes.php:96
 msgid "Hide feature image on single"
 msgstr "Beitragsbild verstecken"
 
-#: functions/metaboxes.php:89
+#: functions/metaboxes.php:97
 msgid "Hide feature image on single view, but show it on lists."
 msgstr ""
 "Verstecke das Beitragsbild in der Einzelansicht, aber zeige es in "
 "Listenansichten."
 
-#: functions/metaboxes.php:99
+#: functions/metaboxes.php:107
 msgid "Roofline"
 msgstr "Dachzeile"
 
-#: functions/metaboxes.php:106
+#: functions/metaboxes.php:114
 msgid "use Shift + Enter to prevent line between"
-msgstr "Tippe Shift + Enter, um  Zwischenzeile zu verhindern."
+msgstr "Wähle SHIFT + ENTER, um  Zwischenzeile zu verhindern"
 
-#: functions/options/events.php:42 functions/options/settings.php:56
+#: functions/options/events.php:45 functions/options/settings.php:59
 msgid "About Sunflower"
 msgstr "Über Sunflower"
 
-#: functions/options/events.php:93 functions/options/events.php:114
-#: functions/options/settings.php:107 functions/options/social-media.php:44
+#: functions/options/events.php:97 functions/options/events.php:119
+#: functions/options/settings.php:111 functions/options/social-media.php:46
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
-#: functions/options/events.php:210
+#: functions/options/events.php:213
 msgid "Description shown on the events page"
 msgstr "Beschreibung für die Termineseite"
 
-#: functions/options/events.php:218
+#: functions/options/events.php:221
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options/events.php:226 functions/options/events.php:230
+#: functions/options/events.php:229 functions/options/events.php:233
 msgid "Rectify time zone"
 msgstr "Zeitzone korrigieren"
 
-#: functions/options/events.php:235 functions/options/events.php:239
+#: functions/options/events.php:238 functions/options/events.php:242
 msgid "Show overall map"
 msgstr "Übersichtskarte zeigen"
 
-#: functions/options/events.php:244 functions/options/events.php:248
+#: functions/options/events.php:247 functions/options/events.php:251
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
-#: functions/options/events.php:253
+#: functions/options/events.php:256
 msgid "Zoom-level of overall map"
 msgstr "Zoomlevel für Übersichtskarte"
 
-#: functions/options/settings.php:33 functions/options/settings.php:34
+#: functions/options/settings.php:35 functions/options/settings.php:36
 msgid "First steps"
 msgstr "Erste Schritte"
 
-#: functions/options/settings.php:42 functions/options/settings.php:43
+#: functions/options/settings.php:44 functions/options/settings.php:45
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: functions/options/settings.php:162
+#: functions/options/settings.php:168
 msgid "Excerpt length (words)"
 msgstr "Anzahl der Wörter im Vorschautext"
 
-#: functions/options/settings.php:170 functions/options/settings.php:174
+#: functions/options/settings.php:176 functions/options/settings.php:180
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options/settings.php:179 functions/options/settings.php:183
+#: functions/options/settings.php:185 functions/options/settings.php:189
 msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
-#: functions/options/settings.php:188 functions/options/settings.php:192
+#: functions/options/settings.php:194 functions/options/settings.php:198
 msgid "hide previous and next links"
 msgstr "Verstecke vor- und zurück-Links"
 
-#: functions/options/settings.php:197 functions/options/settings.php:201
+#: functions/options/settings.php:203 functions/options/settings.php:207
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/settings.php:206
+#: functions/options/settings.php:212
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/settings.php:210
+#: functions/options/settings.php:216
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/settings.php:215 functions/options/settings.php:219
+#: functions/options/settings.php:221 functions/options/settings.php:225
 msgid "Use this header layout"
 msgstr "Layout für den Header"
 
-#: functions/options/social-media.php:27 functions/options/social-media.php:28
+#: functions/options/social-media.php:29 functions/options/social-media.php:30
 msgid "Social Media"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options/social-media.php:69 functions/options/social-media.php:76
+#: functions/options/social-media.php:72 functions/options/social-media.php:79
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options/social-media.php:84
+#: functions/options/social-media.php:87
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options/social-media.php:91
-msgid "Open graph fallback image"
+#: functions/options/social-media.php:94
+msgid "Open Graph Fallback Image"
 msgstr "Fallback-Bild für Open-Graph-Tag"
 
-#: functions/options/social-media.php:99 functions/options/social-media.php:103
+#: functions/options/social-media.php:102
+#: functions/options/social-media.php:106
 msgid "X (Twitter)"
 msgstr "X (Twitter)"
 
-#: functions/options/social-media.php:108
-#: functions/options/social-media.php:112
+#: functions/options/social-media.php:111
+#: functions/options/social-media.php:115
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options/social-media.php:117
+#: functions/options/social-media.php:120
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options/social-media.php:121
+#: functions/options/social-media.php:124
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options/social-media.php:156
+#: functions/options/social-media.php:161
 msgid "Show share buttons on single post page"
 msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 
-#: functions/pictureimport.php:57
+#: functions/options/social-media.php:221
+msgid "Select Open Graph Fallback Image"
+msgstr "Fallback-Bild für Open-Graph-Tag wählen"
+
+#: functions/options/social-media.php:231
+msgid "Open Media Library"
+msgstr "Mediathek öffnen"
+
+#: functions/options/social-media.php:235
+msgid ""
+"This fallback image will be used when sharing pages and posts and no "
+"featured image has been selected."
+msgstr ""
+"Dieses Fallback-Bild wird beim Teilen von Seiten oder Beiträgen verwendet, "
+"wenn kein Beitragsbild ausgewählt wurde."
+
+#: functions/pictureimport.php:58
 msgid "An error occurred. Could not import images"
 msgstr "Es ist ein Fehler aufgetreten. Die Bilder wurden nicht importiert."
 
@@ -491,27 +508,27 @@ msgstr "Es ist ein Fehler aufgetreten. Die Bilder wurden nicht importiert."
 msgid "Login error. Did you mistype s.th.?"
 msgstr "Loginfehler. Haben Sie sich vertippt?"
 
-#: functions/_s.php:54
+#: functions/_s.php:55
 msgid "Mainmenu"
 msgstr "Hauptmenü"
 
-#: functions/_s.php:55
+#: functions/_s.php:56
 msgid "Topmenu"
 msgstr "Menü am oberen Rand"
 
-#: functions/_s.php:56
+#: functions/_s.php:57
 msgid "Footer Menu 1"
 msgstr "Fußzeilenmenü 1"
 
-#: functions/_s.php:57
+#: functions/_s.php:58
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/_s.php:110
+#: functions/_s.php:106
 msgid "Sidebar"
 msgstr "Seitenleiste"
 
-#: functions/_s.php:112
+#: functions/_s.php:108
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
@@ -519,7 +536,7 @@ msgstr "Widgets hier hinzufügen."
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
 
-#: inc/class-wp-bootstrap-navwalker.php:400
+#: inc/class-wp-bootstrap-navwalker.php:414
 msgid "Add a menu"
 msgstr "Menü erstellen"
 
@@ -534,15 +551,15 @@ msgctxt "list item separator"
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:99
+#: inc/template-tags.php:102
 msgid "Share on X (Twitter) "
 msgstr "Auf X (Twitter) teilen"
 
-#: inc/template-tags.php:107
+#: inc/template-tags.php:110
 msgid "Share on Facebook "
 msgstr "Auf Facebook teilen "
 
-#: inc/template-tags.php:116
+#: inc/template-tags.php:119
 msgid "send mail "
 msgstr "Sende E-Mail"
 

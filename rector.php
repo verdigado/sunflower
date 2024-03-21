@@ -9,6 +9,7 @@ return RectorConfig::configure()
     ->withPaths([
         __DIR__ . '/functions',
         __DIR__ . '/inc',
+        __DIR__ . '/template-parts',
     ])
     // uncomment to reach your current PHP version
     ->withPhpSets(php82: true)
