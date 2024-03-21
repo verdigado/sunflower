@@ -217,24 +217,25 @@ class SunflowerSocialMediaSettingsPage
             ['jquery', 'jquery-ui-tabs', 'media-upload'],
             _S_VERSION
         );
-        wp_localize_script( 'sunflower-admin-media', 'texts', array(
-            'select_image'	=> __('Select Open Graph Fallback Image', 'sunflower'),
-        ) );
+        wp_localize_script('sunflower-admin-media', 'texts', [
+            'select_image' => __('Select Open Graph Fallback Image', 'sunflower'),
+        ]);
 
         printf(
             '<input type="text" id="sunflower_open_graph_fallback_image" name="sunflower_social_media_options[sunflower_open_graph_fallback_image]" size="%s" value="%s">',
-            min(strlen($this->options['sunflower_open_graph_fallback_image']), 120),
+            min(strlen((string) $this->options['sunflower_open_graph_fallback_image']), 120),
             $this->options['sunflower_open_graph_fallback_image'] ?? ''
         );
 
         printf(
-            '<input type="button" id="sunflower_open_graph_fallback_image_button" class="button" value="%s"" />', __('Open Media Library', 'sunflower')
+            '<input type="button" id="sunflower_open_graph_fallback_image_button" class="button" value="%s"" />',
+            __('Open Media Library', 'sunflower')
         );
 
         printf(
-            '<br /><span class="sunflower-help">%s</span>', __('This fallback image will be used when sharing pages and posts and no featured image has been selected.', 'sunflower')
+            '<br /><span class="sunflower-help">%s</span>',
+            __('This fallback image will be used when sharing pages and posts and no featured image has been selected.', 'sunflower')
         );
-
     }
 }
 
