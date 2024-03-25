@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2024-03-20T19:05:05+00:00\n"
-"PO-Revision-Date: 2024-03-20 20:07+0100\n"
+"POT-Creation-Date: 2024-03-25T12:12:21+00:00\n"
+"PO-Revision-Date: 2024-03-25 13:15+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -51,8 +51,8 @@ msgid "Events archive"
 msgstr "Vergangene Veranstaltungen"
 
 #: archive-sunflower_event.php:39 functions/events.php:28
-#: functions/options/events.php:30 functions/options/events.php:31
-#: functions/options/events.php:206
+#: functions/options/events.php:26 functions/options/events.php:27
+#: functions/options/events.php:130
 msgid "Events"
 msgstr "Termine"
 
@@ -69,19 +69,19 @@ msgid "Archive"
 msgstr "Archiv"
 
 #: archive-sunflower_event.php:62 functions/events.php:201
-#: functions/options/events.php:182
+#: functions/options/events.php:106
 msgid "Map"
 msgstr "Landkarte"
 
-#: archive-sunflower_event.php:129
+#: archive-sunflower_event.php:128
 msgid "more info"
 msgstr "mehr Infos"
 
-#: archive-sunflower_event.php:187 single-sunflower_event.php:122
+#: archive-sunflower_event.php:185 single-sunflower_event.php:122
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: archive-sunflower_event.php:190 single-sunflower_event.php:125
+#: archive-sunflower_event.php:188 single-sunflower_event.php:125
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
@@ -89,19 +89,19 @@ msgstr ""
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: archive-sunflower_event.php:194 single-sunflower_event.php:133
+#: archive-sunflower_event.php:192 single-sunflower_event.php:133
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: archive-sunflower_event.php:204
+#: archive-sunflower_event.php:202
 msgid "calendar in ics-format"
 msgstr "Kalender im ics-Format"
 
-#: archive.php:65 index.php:71 search.php:68 single.php:53
+#: archive.php:65 index.php:70 search.php:68 single.php:53
 msgid "previous"
 msgstr "zurück"
 
-#: archive.php:66 index.php:72 search.php:69 single.php:58
+#: archive.php:66 index.php:71 search.php:69 single.php:58
 msgid "next"
 msgstr "vor"
 
@@ -128,19 +128,19 @@ msgstr ""
 "Speicherung und Verarbeitung Ihrer Daten durch diese Website einverstanden. "
 "Weiteres entnehmen Sie bitte der <a href=\"%s\">Datenschutzerklärung</a>."
 
-#: comments.php:58
+#: comments.php:57
 msgid "One comment"
 msgstr "Ein Kommentar"
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:62
+#: comments.php:61
 msgctxt "context"
 msgid "%1$s commment"
 msgid_plural "%1$s comments"
 msgstr[0] "Ein Kommentar"
 msgstr[1] "%s Kommentare"
 
-#: comments.php:89
+#: comments.php:88
 msgid "Comments are closed."
 msgstr "Keine Kommentare möglich."
 
@@ -189,8 +189,8 @@ msgstr ""
 "mit Haltung seid, schaut doch mal bei  %2$s vorbei.</p>"
 
 #: functions/admin.php:128 functions/block-patterns.php:12
-#: functions/blocks.php:45 functions/options/settings.php:24
-#: functions/options/settings.php:25
+#: functions/blocks.php:45 functions/options/first-steps.php:24
+#: functions/options/first-steps.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
 
@@ -321,7 +321,7 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:202 functions/options/events.php:183
+#: functions/events.php:202 functions/options/events.php:107
 msgid "load map"
 msgstr "Kartendaten laden"
 
@@ -337,7 +337,7 @@ msgstr "Datum der Veranstaltung"
 msgid "Event location"
 msgstr "Ort"
 
-#: functions/metaboxes.php:8 functions/options/settings.php:161
+#: functions/metaboxes.php:8 functions/options/settings.php:92
 msgid "Layout"
 msgstr "Layout"
 
@@ -373,126 +373,137 @@ msgstr "Dachzeile"
 msgid "use Shift + Enter to prevent line between"
 msgstr "Wähle SHIFT + ENTER, um  Zwischenzeile zu verhindern"
 
-#: functions/options/events.php:45 functions/options/settings.php:59
-msgid "About Sunflower"
-msgstr "Über Sunflower"
-
-#: functions/options/events.php:97 functions/options/events.php:119
-#: functions/options/settings.php:111 functions/options/social-media.php:46
+#: functions/options/events.php:43 functions/options/settings.php:43
+#: functions/options/social-media.php:42
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
-#: functions/options/events.php:213
+#: functions/options/events.php:137
 msgid "Description shown on the events page"
 msgstr "Beschreibung für die Termineseite"
 
-#: functions/options/events.php:221
+#: functions/options/events.php:145
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options/events.php:229 functions/options/events.php:233
+#: functions/options/events.php:153 functions/options/events.php:157
 msgid "Rectify time zone"
 msgstr "Zeitzone korrigieren"
 
-#: functions/options/events.php:238 functions/options/events.php:242
+#: functions/options/events.php:162 functions/options/events.php:166
 msgid "Show overall map"
 msgstr "Übersichtskarte zeigen"
 
-#: functions/options/events.php:247 functions/options/events.php:251
+#: functions/options/events.php:171 functions/options/events.php:175
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
-#: functions/options/events.php:256
+#: functions/options/events.php:180
 msgid "Zoom-level of overall map"
 msgstr "Zoomlevel für Übersichtskarte"
 
-#: functions/options/settings.php:35 functions/options/settings.php:36
+#: functions/options/first-steps.php:35 functions/options/first-steps.php:36
 msgid "First steps"
 msgstr "Erste Schritte"
 
-#: functions/options/settings.php:44 functions/options/settings.php:45
+#: functions/options/first-steps.php:53
+msgid "About Sunflower"
+msgstr "Über Sunflower"
+
+#: functions/options/first-steps.php:121
+msgid "Activate Theme"
+msgstr "Theme aktivieren"
+
+#: functions/options/first-steps.php:128
+msgid "Sunflower Terms of Use"
+msgstr "Sunflower Nutzungsbedingungen"
+
+#: functions/options/first-steps.php:132
+msgid "Accept Terms of Use"
+msgstr "Nutzungsbedingungen akzeptieren"
+
+#: functions/options/settings.php:26 functions/options/settings.php:27
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: functions/options/settings.php:168
+#: functions/options/settings.php:99
 msgid "Excerpt length (words)"
 msgstr "Anzahl der Wörter im Vorschautext"
 
-#: functions/options/settings.php:176 functions/options/settings.php:180
+#: functions/options/settings.php:107 functions/options/settings.php:111
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options/settings.php:185 functions/options/settings.php:189
+#: functions/options/settings.php:116 functions/options/settings.php:120
 msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
-#: functions/options/settings.php:194 functions/options/settings.php:198
+#: functions/options/settings.php:125 functions/options/settings.php:129
 msgid "hide previous and next links"
 msgstr "Verstecke vor- und zurück-Links"
 
-#: functions/options/settings.php:203 functions/options/settings.php:207
+#: functions/options/settings.php:134 functions/options/settings.php:138
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/settings.php:212
+#: functions/options/settings.php:143
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/settings.php:216
+#: functions/options/settings.php:147
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/settings.php:221 functions/options/settings.php:225
+#: functions/options/settings.php:152 functions/options/settings.php:156
 msgid "Use this header layout"
 msgstr "Layout für den Header"
 
-#: functions/options/social-media.php:29 functions/options/social-media.php:30
+#: functions/options/social-media.php:25 functions/options/social-media.php:26
 msgid "Social Media"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options/social-media.php:72 functions/options/social-media.php:79
+#: functions/options/social-media.php:68 functions/options/social-media.php:75
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options/social-media.php:87
+#: functions/options/social-media.php:83
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options/social-media.php:94
+#: functions/options/social-media.php:90
 msgid "Open Graph Fallback Image"
 msgstr "Fallback-Bild für Open-Graph-Tag"
 
-#: functions/options/social-media.php:102
-#: functions/options/social-media.php:106
+#: functions/options/social-media.php:98 functions/options/social-media.php:102
 msgid "X (Twitter)"
 msgstr "X (Twitter)"
 
+#: functions/options/social-media.php:107
 #: functions/options/social-media.php:111
-#: functions/options/social-media.php:115
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options/social-media.php:120
+#: functions/options/social-media.php:116
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options/social-media.php:124
+#: functions/options/social-media.php:120
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options/social-media.php:161
+#: functions/options/social-media.php:157
 msgid "Show share buttons on single post page"
 msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 
-#: functions/options/social-media.php:221
+#: functions/options/social-media.php:217
 msgid "Select Open Graph Fallback Image"
 msgstr "Fallback-Bild für Open-Graph-Tag wählen"
 
-#: functions/options/social-media.php:231
+#: functions/options/social-media.php:228
 msgid "Open Media Library"
 msgstr "Mediathek öffnen"
 
-#: functions/options/social-media.php:235
+#: functions/options/social-media.php:233
 msgid ""
 "This fallback image will be used when sharing pages and posts and no "
 "featured image has been selected."
@@ -532,7 +543,7 @@ msgstr "Seitenleiste"
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
-#: header.php:32
+#: header.php:37
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
 
@@ -568,7 +579,7 @@ msgstr "Sende E-Mail"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
-#: single-sunflower_event.php:52 template-parts/archive-event.php:34
+#: single-sunflower_event.php:50 template-parts/archive-event.php:34
 msgid "o'clock"
 msgstr "Uhr"
 
@@ -585,17 +596,17 @@ msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/archive-event.php:58 template-parts/content-archive.php:52
-#: template-parts/content.php:75
+#: template-parts/archive-event.php:58 template-parts/content-archive.php:53
+#: template-parts/content.php:76
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: template-parts/content-archive.php:65 template-parts/content-page.php:31
-#: template-parts/content.php:88
+#: template-parts/content-archive.php:66 template-parts/content-page.php:32
+#: template-parts/content.php:89
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: template-parts/content-archive.php:79
+#: template-parts/content-archive.php:80
 msgid "Continue reading"
 msgstr "weiterlesen"
 
@@ -630,20 +641,21 @@ msgstr ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 
-#: template-parts/event-json-ld.php:16
+#: template-parts/event-json-ld.php:14
 msgid "none"
 msgstr "keine"
 
-#: template-parts/header-standard.php:27 template-parts/header-standard.php:30
-#: template-parts/header-standard.php:97 template-parts/header-standard.php:100
+#: template-parts/header-standard.php:28 template-parts/header-standard.php:31
+#: template-parts/header-standard.php:102
+#: template-parts/header-standard.php:105
 msgid "Search"
 msgstr "Suche"
 
-#: template-parts/header-standard.php:32
+#: template-parts/header-standard.php:33
 msgid "show search"
 msgstr "zeige Suche"
 
-#: template-parts/header-standard.php:35
+#: template-parts/header-standard.php:36
 msgid "increase contrast"
 msgstr "Kontrast erhöhen"
 

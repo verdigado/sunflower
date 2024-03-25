@@ -1,12 +1,12 @@
 === sunflower ===
 
-Contributors: automattic
+Contributors: verdigado
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
-Requires at least: 4.5
+Requires at least: 6.2
 Tested up to: 6.3
-Requires PHP: 7.4
-Stable tag: 1.0.0
+Requires PHP: 8.2
+Stable tag: 2.1.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -23,6 +23,12 @@ Theme for German Green Party
 3. Click Activate to use your new theme right away.
 
 == Frequently Asked Questions ==
+
+== License ==
+
+This theme is licensed under the GPL-2.0-or-later license. See the LICENSE file for more details.
+
+The logo files in `assets/img` are registered trademarks and may only be used by divisions of the German Green Party.
 
 == Credits ==
 

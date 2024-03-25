@@ -13,17 +13,17 @@
 							<?php
 					            wp_nav_menu(
 					                [
-        'theme_location' => 'topmenu',
+                                        'theme_location' => 'topmenu',
 					                    'menu_id' => 'topmenu',
-					                    'depth' => 1,
 					                    // 1 = no dropdowns, 2 = with dropdowns.
+					                    'depth' => 1,
 					                    'container' => false,
 					                    'menu_class' => 'navbar-nav small',
 					                    'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
 					                    'walker' => new WP_Bootstrap_Navwalker(),
-    ]
+                                    ]
 					            );
-					?>
+					        ?>
 							<form class="form-inline my-2 my-md-0 search d-flex" action="<?php bloginfo('url'); ?>">
 								<input class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php _e('Search', 'sunflower'); ?>" aria-label="<?php _e('Search', 'sunflower'); ?>"
 									value="<?php echo get_search_query(); ?>"
@@ -49,7 +49,10 @@
 					    the_custom_logo();
 					} else {
 					    echo '<a href="' . get_home_url() . '" rel="home" aria-current="page" title="' , get_bloginfo('name') . '">';
-					    printf('<img src="%s" class="" alt="Logo">', sunflower_parent_or_child('assets/img/sunflower.svg'));
+                        $options = get_option('sunflower_first_steps_options');
+                        if (($options['sunflower_terms_of_use'] ?? false) == true) {
+					        printf('<img src="%s" class="" alt="Logo">', sunflower_parent_or_child('assets/img/sunflower.svg'));
+                        }
 					    echo '</a>';
 					}
 					?>
@@ -80,10 +83,10 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="mainmenu-container">
-			<?php
+			    <?php
                 wp_nav_menu(
                     [
-        'theme_location' => 'mainmenu',
+                        'theme_location' => 'mainmenu',
                         'menu_id' => 'mainmenu',
                         'depth' => 4,
                         // 1 = no dropdowns, 2 = with dropdowns.
@@ -91,9 +94,9 @@
                         'menu_class' => 'navbar-nav mr-auto',
                         'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
                         'walker' => new WP_Bootstrap_Navwalker(),
-    ]
+                    ]
                 );
-					?>
+                ?>
 
 				<form class="form-inline my-2 mb-2 search d-block d-lg-none" action="<?php bloginfo('url'); ?>">
 					<input class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php _e('Search', 'sunflower'); ?>" aria-label="<?php _e('Search', 'sunflower'); ?>"

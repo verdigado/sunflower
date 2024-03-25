@@ -1,9 +1,5 @@
 <?php
 
-if (is_admin()) {
-    $my_settings_page = new SunflowerEventSettingsPage();
-}
-
 class SunflowerEventSettingsPage
 {
     /**
@@ -17,7 +13,7 @@ class SunflowerEventSettingsPage
     public function __construct()
     {
         add_action('admin_menu', $this->sunflower_add_plugin_page(...));
-        add_action('admin_init', $this->sunflower_page_init(...));
+        add_action('admin_init', $this->sunflower_event_page_init(...));
     }
 
     /**
@@ -36,78 +32,6 @@ class SunflowerEventSettingsPage
     }
 
     /**
-     * Admin page callback
-     */
-    public function create_sunflower_admin_page(): void
-    {
-        ?>
-		<div class="wrap">
-			<h1><?php _e('About Sunflower', 'sunflower'); ?></h1>
-			<h2>Erste Schritte</h2>
-			<a href="https://sunflower-theme.de/documentation/" target="_blank">Eine ausführliche Dokumentation gibt es unter https://sunflower-theme.de/documentation/</a>
-
-
-			<h2>Umzug von Urwahl3000</h2>
-
-			Widgets, Menüs und Termine werden automatisch importiert.<br>
-			<a href="https://sunflower-theme.de/documentation/urwahl3000" target="_blank">
-			Hier gibt es mehr Info über den Umzug von Urwahl3000</a>.
-
-			<h2>Einstellungen</h2>
-			Bitte siehe links im Menü, welche Unterpunkte es gibt.
-
-			<h2>Import von Muster-Bildern</h2>
-			<?php
-
-            if (isset($_GET['pictureimport'])) {
-                $count = sunflower_import_all_pictures();
-                printf('<a href="upload.php">Es wurden %d Bilder importiert. Sieh sie Dir in der Mediathek an</a>', $count);
-            } else {
-                ?>
-				Wir haben eine Auswahl an Muster-Bildern zusammengestellt, die Du Dir in Deine Mediathek
-				herunterladen kannst. Du darfst diese Bilder ohne Quellenangabe nutzen.
-				Hier siehst Du die Bilder, die du importieren kannst:
-				<div style="margin-bottom:1em">
-					<img src="https://sunflower-theme.de/updateserver/images/thumbnails.jpg" alt="Thumbnails">
-				</div>
-				<div>
-					<a href="admin.php?page=sunflower_admin&pictureimport=1" class="button button-primary">
-						Bilder in Mediathek importieren</a>
-				</div>
-				<div>
-				Der Import kann einige Minuten dauern. Bitte warte so lange, und klicke nirgendwo hin.
-			</div>
-				<?php
-            }
-        ?>
-
-		</div>
-		<?php
-    }
-
-    /**
-     * Options page callback
-     */
-    public function create_sunflower_settings_page(): void
-    {
-        // Set class property
-        $this->options = get_option('sunflower_events_options');
-        ?>
-		<div class="wrap">
-			<h1><?php _e('Sunflower Settings', 'sunflower'); ?></h1>
-			<form method="post" action="options.php">
-			<?php
-                // This prints out all hidden setting fields
-                settings_fields('sunflower_events_option_group');
-        do_settings_sections('sunflower-setting-admin');
-        submit_button();
-        ?>
-			</form>
-		</div>
-		<?php
-    }
-
-    /**
      * Events Options page callback
      */
     public function create_sunflower_events_options_page(): void
@@ -121,9 +45,9 @@ class SunflowerEventSettingsPage
 			<?php
                 // This prints out all hidden setting fields
                 settings_fields('sunflower_events_option_group');
-        do_settings_sections('sunflower-setting-events');
-        submit_button();
-        ?>
+                do_settings_sections('sunflower-setting-events');
+                submit_button();
+            ?>
 			</form>
 
 			<h2>Kalenderimport</h2>
@@ -191,9 +115,9 @@ class SunflowerEventSettingsPage
     }
 
     /**
-     * Register and add settings
+     * Register and add event settings
      */
-    public function sunflower_page_init(): void
+    public function sunflower_event_page_init(): void
     {
         register_setting(
             'sunflower_events_option_group', // Option group
@@ -258,6 +182,7 @@ class SunflowerEventSettingsPage
             'sunflower-setting-events', // Page
             'sunflower-setting-events' // Section
         );
+
     }
 
     /**
@@ -342,4 +267,9 @@ class SunflowerEventSettingsPage
         );
         echo '<div>1 (ganze Welt) bis 19 (einzelne Straße), Zoomlevel für die Übersichtskarte für Termine</div>';
     }
+
+}
+
+if (is_admin()) {
+    $my_settings_page = new SunflowerEventSettingsPage();
 }
