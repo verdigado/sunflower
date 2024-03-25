@@ -18,8 +18,13 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="icon" href="<?php echo sunflower_parent_or_child('assets/img/sunflower.svg'); ?>" type="image/svg+xml" sizes="any">
-	<link rel="icon" href="<?php echo sunflower_parent_or_child('assets/img/favicon-48x48.png'); ?>" type="image/png" sizes="48x48">
+    <?php
+        $options = get_option('sunflower_first_steps_options');
+        if (($options['sunflower_terms_of_use'] ?? false) == true) {
+            printf('<link rel="icon" href="%s" type="image/svg+xml" sizes="any">', sunflower_parent_or_child('assets/img/sunflower.svg'));
+            printf('<link rel="icon" href="%s" type="image/png" sizes="48x48">', sunflower_parent_or_child('assets/img/favicon-48x48.png'));
+        }
+    ?>
 	<?php
     get_template_part('template-parts/open-graph');
 ?>

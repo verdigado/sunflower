@@ -1,8 +1,4 @@
 <?php
-if (is_admin()) {
-    $my_settings_page = new SunflowerSocialMediaSettingsPage();
-}
-
 class SunflowerSocialMediaSettingsPage
 {
     /**
@@ -16,7 +12,7 @@ class SunflowerSocialMediaSettingsPage
     public function __construct()
     {
         add_action('admin_menu', $this->sunflower_add_plugin_page(...));
-        add_action('admin_init', $this->sunflower_page_init(...));
+        add_action('admin_init', $this->sunflower_social_media_page_init(...));
     }
 
     /**
@@ -48,18 +44,18 @@ class SunflowerSocialMediaSettingsPage
 			<?php
                 // This prints out all hidden setting fields
                 settings_fields('sunflower_social_media_option_group');
-        do_settings_sections('sunflower-setting-social-media-options');
-        submit_button();
-        ?>
+                do_settings_sections('sunflower-setting-social-media-options');
+                submit_button();
+            ?>
 			</form>
 		</div>
 		<?php
     }
 
     /**
-     * Register and add settings
+     * Register and add social media settings
      */
-    public function sunflower_page_init(): void
+    public function sunflower_social_media_page_init(): void
     {
         register_setting(
             'sunflower_social_media_option_group', // Option group
@@ -78,8 +74,8 @@ class SunflowerSocialMediaSettingsPage
             'sunflower_social_media_profiles',
             __('Social Media Profiles', 'sunflower'), // Title
             $this->social_media_profiles_callback(...),
-            'sunflower-setting-social-media-options',
-            'sunflower_social_media'
+            'sunflower-setting-social-media-options', // Page
+            'sunflower_social_media' // Section
         );
 
         add_settings_section(
@@ -233,10 +229,14 @@ class SunflowerSocialMediaSettingsPage
         );
 
         printf(
-            '<br /><span class="sunflower-help">%s</span>',
+            '<p class="sunflower-help">%s</p>',
             __('This fallback image will be used when sharing pages and posts and no featured image has been selected.', 'sunflower')
         );
     }
+}
+
+if (is_admin()) {
+    $my_settings_page = new SunflowerSocialMediaSettingsPage();
 }
 
 function get_sunflower_social_media_profiles()

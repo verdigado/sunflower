@@ -1,10 +1,31 @@
 # Einrichtung
 
-[Hinweise zum Umzug von Urwahl3000](urwahl3000.md)
+Nach der Installation des Themes musst Du einige Einstellungen vornehmen. Dafür findest Du im Dashboard einen Menü-Punkt "Sunflower":
 
-Nach der Installation des Themes musst/solltest Du einige Einstellungen vornehmen.
+<figure markdown="span">
+  ![Screenshot vom Sunflower-Menü](images/sunflower-menu-dashboard.png){ width="" }
+  <figcaption>Das Sunflower-Menü im Dashboard</figcaption>
+</figure>
 
-## Menüs
+
+## Erste Schritte
+
+###  Theme aktivieren
+
+Um die Sonnenblume als Logo und Icon nutzen zu können, musst Du Dir die Nutzungsbedingungen durchlesen und akzeptieren. Andernsfalls wird die Sonnenblume nicht angezeigt. Du kannst das Theme trotzdem nutzen und Dein eigenes Logo verwenden.
+
+<figure markdown="span">
+  ![Screenshot vom Sunflower-Menü](images/sunflower-terms-of-use.png){ width="" }
+  <figcaption>Das Sunflower-Menü im Dashboard</figcaption>
+</figure>
+
+### Umzug von Urwahl 3000
+
+Hier gibt es ausführlichere Hinweise zum [Umzug von Urwahl3000](urwahl3000.md).
+
+## Einstellungen
+
+### Menüs
 Lege zunächst das Hauptmenü und ggf. auch die weiteren Menüs an und lege deren Positionen fest. [mehr](menus.md)
 
 ## Startseite
