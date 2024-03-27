@@ -74,7 +74,7 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 				<div class="row">
 					<div class="col-12 mt-4 mb-4">
 						<hr>
-					</div>    
+					</div>
 				</div>
 
 				<?php
@@ -109,8 +109,8 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 			<div class="row">
 				<div class="col-8 col-md-10">
 					<p class="small">
-						<?php bloginfo('name'); ?> benutzt das<br>freie 
-						grüne Theme <a href="https://sunflower-theme.de" target="_blank">sunflower</a> &dash; ein 
+						<?php bloginfo('name'); ?> benutzt das<br>freie
+						grüne Theme <a href="https://sunflower-theme.de" target="_blank">sunflower</a> &dash; ein
 						Angebot der <a href="https://verdigado.com/" target="_blank">verdigado eG</a>.
 					</p>
 				</div>
@@ -122,7 +122,10 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 if (has_custom_logo()) {
     printf('<img src="%s" class="img-fluid" alt="Logo %s">', esc_url($logo[0]), get_bloginfo('name'));
 } else {
-    printf('<img src="%s" class="img-fluid" alt="Logo Bündnis 90/Die Grünen">', sunflower_parent_or_child('assets/img/logo-diegruenen.png'));
+    $options = get_option('sunflower_first_steps_options');
+    if (($options['sunflower_terms_of_use'] ?? false) == true) {
+        printf('<img src="%s" class="img-fluid" alt="Logo Bündnis 90/Die Grünen">', sunflower_parent_or_child('assets/img/logo-diegruenen.png'));
+    }
 }
 ?>
 				</div>

@@ -13,5 +13,8 @@ function sunflower_get_site_icon_url_defaults($url, $size, $blog_id)
     return sunflower_parent_or_child('assets/img/favicon.ico');
 }
 
-// add the filter
-add_filter("get_site_icon_url", "sunflower_get_site_icon_url_defaults", 10, 3);
+$options = get_option('sunflower_first_steps_options');
+if (($options['sunflower_terms_of_use'] ?? false) == true) {
+    // add the filter
+    add_filter("get_site_icon_url", "sunflower_get_site_icon_url_defaults", 10, 3);
+}
