@@ -74,9 +74,13 @@
 	<div id="navbar-sticky-detector"></div>
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white">
 		<div class="container">
-			<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
-				<img src="<?php echo sunflower_parent_or_child('assets/img/sunflower.svg'); ?>" alt="Sonnenblume - Logo" title="<?php bloginfo('name'); ?>">
-			</a>
+            <a class="navbar-brand" href="<?php echo get_home_url(); ?>">
+                <?php
+                    if (($options['sunflower_terms_of_use'] ?? false) == true) {
+                        printf('<img src="%s" class="" alt="Sonnenblume - Logo" title="%s">', sunflower_parent_or_child('assets/img/sunflower.svg'), get_bloginfo('name'));
+                    }
+                ?>
+            </a>
 			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-times close"></i>
 				<i class="fas fa-bars open"></i>
