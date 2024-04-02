@@ -161,6 +161,9 @@ function sunflower_scripts()
         _S_VERSION,
         true
     );
+    wp_localize_script('sunflower-admin-media', 'texts', [
+        'select_image' => __('Select Open Graph Fallback Image', 'sunflower'),
+    ]);
 
     wp_localize_script(
         'frontend',
@@ -170,6 +173,9 @@ function sunflower_scripts()
             'privacy_policy_url' => get_privacy_policy_url(),
             'theme_url' => get_template_directory_uri(),
             'maps_marker' => sunflower_parent_or_child('assets/img/marker.png'),
+            'texts' => [
+                'readmore' => __('Continue reading', 'sunflower')
+            ]
         ]
     );
 

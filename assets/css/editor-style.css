@@ -253,3 +253,58 @@ p a {
     font-size: 90%;
     padding: 0;
 }
+
+
+/* customize RSS block */
+.wp-block-rss {
+    padding: unset;
+}
+
+.wp-block-rss .wp-block-rss__item {
+    border-radius: 3px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 20px rgba(0, 84, 55, 0.09);
+    padding: 2.25rem !important;
+}
+
+.wp-block-rss .wp-block-rss__item a {
+    text-decoration: none;
+}
+
+.wp-block-rss .wp-block-rss__item-title {
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 1rem;
+}
+
+.theme--default .wp-block-rss .wp-block-rss__item-title {
+    font-family: PTSans;
+}
+
+.theme--contrast .wp-block-rss .wp-block-rss__item-title {
+    font-family: PTSans;
+}
+
+@media (min-width: 768px) {
+
+    .wp-block-rss .wp-block-rss__item-title {
+        font-size: 27px;
+    }
+}
+
+.wp-block-rss .wp-block-rss__item-title a {
+    color: #212529;
+}
+
+.wp-block-rss .wp-block-rss__item time {
+    margin-bottom: 1rem !important;
+    font-size: unset;
+}
+
+.wp-block-rss .entry-header {
+    padding-bottom: 0 !important;
+}
+
+.wp-block-rss .entry-content a {
+    color: #212529;
+}

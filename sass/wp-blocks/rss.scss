@@ -1,0 +1,53 @@
+.wp-block-rss {
+    padding: unset;
+
+    .wp-block-rss__item {
+        border-radius: $border-radius;
+        margin-bottom: 10px;
+        box-shadow: 0 1px 20px rgba(0, 84, 55, 0.09);
+        padding: 2.25rem !important;
+
+        a {
+            text-decoration: none;
+        }
+
+        &-title {
+
+            @include themed() {
+                font-family: t("standardFont");
+            }
+
+            font-weight: 700;
+            font-size: 25px;
+            margin-bottom: 1rem;
+
+            @include media-breakpoint-up(md) {
+                font-size: 27px;
+            }
+
+
+            a {
+                color: $body-color;
+            }
+        }
+
+        time {
+            margin-bottom: 1rem !important;
+            font-size: unset;
+        }
+    }
+
+    .entry {
+
+        &-header {
+            padding-bottom: 0 !important;
+        }
+
+        &-content {
+
+            a {
+                color: $body-color;
+            }
+        }
+    }
+}
