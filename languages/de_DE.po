@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2024-03-20T19:05:05+00:00\n"
-"PO-Revision-Date: 2024-03-20 20:07+0100\n"
+"POT-Creation-Date: 2024-04-03T13:55:45+00:00\n"
+"PO-Revision-Date: 2024-04-03 15:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -73,15 +73,15 @@ msgstr "Archiv"
 msgid "Map"
 msgstr "Landkarte"
 
-#: archive-sunflower_event.php:129
+#: archive-sunflower_event.php:128
 msgid "more info"
 msgstr "mehr Infos"
 
-#: archive-sunflower_event.php:187 single-sunflower_event.php:122
+#: archive-sunflower_event.php:185 single-sunflower_event.php:122
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: archive-sunflower_event.php:190 single-sunflower_event.php:125
+#: archive-sunflower_event.php:188 single-sunflower_event.php:125
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
@@ -89,19 +89,19 @@ msgstr ""
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: archive-sunflower_event.php:194 single-sunflower_event.php:133
+#: archive-sunflower_event.php:192 single-sunflower_event.php:133
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: archive-sunflower_event.php:204
+#: archive-sunflower_event.php:202
 msgid "calendar in ics-format"
 msgstr "Kalender im ics-Format"
 
-#: archive.php:65 index.php:71 search.php:68 single.php:53
+#: archive.php:65 index.php:70 search.php:68 single.php:53
 msgid "previous"
 msgstr "zurück"
 
-#: archive.php:66 index.php:72 search.php:69 single.php:58
+#: archive.php:66 index.php:71 search.php:69 single.php:58
 msgid "next"
 msgstr "vor"
 
@@ -128,19 +128,19 @@ msgstr ""
 "Speicherung und Verarbeitung Ihrer Daten durch diese Website einverstanden. "
 "Weiteres entnehmen Sie bitte der <a href=\"%s\">Datenschutzerklärung</a>."
 
-#: comments.php:58
+#: comments.php:57
 msgid "One comment"
 msgstr "Ein Kommentar"
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:62
+#: comments.php:61
 msgctxt "context"
 msgid "%1$s commment"
 msgid_plural "%1$s comments"
 msgstr[0] "Ein Kommentar"
 msgstr[1] "%s Kommentare"
 
-#: comments.php:89
+#: comments.php:88
 msgid "Comments are closed."
 msgstr "Keine Kommentare möglich."
 
@@ -206,7 +206,7 @@ msgstr "Zum Blog-Archiv"
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: functions/blocks/next-events.php:18 build/index.js:1 src/next-events.js:13
+#: functions/blocks/next-events.php:18 src/next-events.js:13
 #: src/next-events.js:56
 msgid "Next events"
 msgstr "Nächste Termine"
@@ -484,15 +484,15 @@ msgstr "E-Mail"
 msgid "Show share buttons on single post page"
 msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 
-#: functions/options/social-media.php:221
+#: functions/options/social-media.php:221 functions/_s.php:165
 msgid "Select Open Graph Fallback Image"
 msgstr "Fallback-Bild für Open-Graph-Tag wählen"
 
-#: functions/options/social-media.php:231
+#: functions/options/social-media.php:232
 msgid "Open Media Library"
 msgstr "Mediathek öffnen"
 
-#: functions/options/social-media.php:235
+#: functions/options/social-media.php:237
 msgid ""
 "This fallback image will be used when sharing pages and posts and no "
 "featured image has been selected."
@@ -532,6 +532,10 @@ msgstr "Seitenleiste"
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
+#: functions/_s.php:177 template-parts/content-archive.php:80
+msgid "Continue reading"
+msgstr "weiterlesen"
+
 #: header.php:32
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
@@ -568,7 +572,7 @@ msgstr "Sende E-Mail"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
-#: single-sunflower_event.php:52 template-parts/archive-event.php:34
+#: single-sunflower_event.php:50 template-parts/archive-event.php:34
 msgid "o'clock"
 msgstr "Uhr"
 
@@ -585,19 +589,15 @@ msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/archive-event.php:58 template-parts/content-archive.php:52
-#: template-parts/content.php:75
+#: template-parts/archive-event.php:58 template-parts/content-archive.php:53
+#: template-parts/content.php:76
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: template-parts/content-archive.php:65 template-parts/content-page.php:31
-#: template-parts/content.php:88
+#: template-parts/content-archive.php:66 template-parts/content-page.php:32
+#: template-parts/content.php:89
 msgid "Pages:"
 msgstr "Seiten:"
-
-#: template-parts/content-archive.php:79
-msgid "Continue reading"
-msgstr "weiterlesen"
 
 #: template-parts/content-no-events.php:14 template-parts/content-none.php:14
 msgid "Nothing Found"
@@ -630,20 +630,20 @@ msgstr ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 
-#: template-parts/event-json-ld.php:16
+#: template-parts/event-json-ld.php:14
 msgid "none"
 msgstr "keine"
 
-#: template-parts/header-standard.php:27 template-parts/header-standard.php:30
-#: template-parts/header-standard.php:97 template-parts/header-standard.php:100
+#: template-parts/header-standard.php:28 template-parts/header-standard.php:31
+#: template-parts/header-standard.php:99 template-parts/header-standard.php:102
 msgid "Search"
 msgstr "Suche"
 
-#: template-parts/header-standard.php:32
+#: template-parts/header-standard.php:33
 msgid "show search"
 msgstr "zeige Suche"
 
-#: template-parts/header-standard.php:35
+#: template-parts/header-standard.php:36
 msgid "increase contrast"
 msgstr "Kontrast erhöhen"
 
@@ -651,22 +651,27 @@ msgstr "Kontrast erhöhen"
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
 
-#: build/index.js:1 src/next-events.js:14
+#: src/next-events.js:14
 msgid "show next events"
 msgstr "zeige nächste Termine"
 
-#: build/index.js:1 src/next-events.js:53
+#: src/next-events.js:53
 msgid "Loading"
 msgstr "lade"
 
-#: build/index.js:1 src/next-events.js:54
+#: src/next-events.js:54
 msgid "No Events"
 msgstr "Keine Termine"
 
-#: build/index.js:1 src/next-events.js:58
+#: src/next-events.js:58
 msgid "Maximum events shown"
 msgstr "Maximale Anzahl angezeigter Termine"
 
-#: build/index.js:1 src/next-events.js:80
+#: src/next-events.js:80
 msgid "Count"
 msgstr "Anzahl"
+
+#: functions/blocks.php:79 build/accordion/block.json
+msgctxt "block title"
+msgid "Accordion (Sunflower)"
+msgstr "Akkordeon (Sunflower)"

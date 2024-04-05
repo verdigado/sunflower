@@ -74,14 +74,3 @@
         }
     }
 }
-
-// add styles to sunflower accordion. Most settings must be changed in
-// _variables.scss to be applied by the bootstrap accordion.
-.wp-block-sunflower-accordion {
-
-    .accordion-item {
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-        margin-bottom: 6px;
-    }
-}
-

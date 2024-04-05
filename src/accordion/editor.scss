@@ -1,0 +1,61 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Try to style the editor accordion like in the frontend without bootstrap
+ */
+
+@import "../../sass/variables";
+
+.wp-block-sunflower-accordion {
+
+    .accordion-item {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        margin-bottom: 6px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+        h4.accordion-header {
+            margin: 0;
+        }
+
+        .accordion-button {
+            position: relative;
+            width: 100%;
+            padding: 1rem 1.25rem;
+            font-size: 1.1875rem;
+            text-align: left;
+            background-color: $secondary;
+            border: 0;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            overflow-anchor: none;
+
+            input[type="text"] {
+                color: #fff;
+                background-color: $secondary;
+                padding: 2px;
+                border: none;
+                font-size: 19px;
+                font-family: PTSans;
+                font-weight: 400;
+
+                &:focus-visible {
+                    border: 1px solid #ccc;
+                }
+
+                &::placeholder {
+                    color: #fff;
+                    opacity: 0.7;
+                }
+            }
+
+
+        }
+
+        .accordion-body {
+            padding: 16px 20px;
+        }
+
+    }
+
+}

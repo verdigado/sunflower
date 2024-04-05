@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-03-20T19:05:05+00:00\n"
+"POT-Creation-Date: 2024-04-03T13:55:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: sunflower\n"
@@ -73,38 +73,38 @@ msgstr ""
 msgid "Map"
 msgstr ""
 
-#: archive-sunflower_event.php:129
+#: archive-sunflower_event.php:128
 msgid "more info"
 msgstr ""
 
-#: archive-sunflower_event.php:187
+#: archive-sunflower_event.php:185
 #: single-sunflower_event.php:122
 msgid "Show event location on map"
 msgstr ""
 
-#: archive-sunflower_event.php:190
+#: archive-sunflower_event.php:188
 #: single-sunflower_event.php:125
 msgid "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
 
-#: archive-sunflower_event.php:194
+#: archive-sunflower_event.php:192
 #: single-sunflower_event.php:133
 msgid "Show map"
 msgstr ""
 
-#: archive-sunflower_event.php:204
+#: archive-sunflower_event.php:202
 msgid "calendar in ics-format"
 msgstr ""
 
 #: archive.php:65
-#: index.php:71
+#: index.php:70
 #: search.php:68
 #: single.php:53
 msgid "previous"
 msgstr ""
 
 #: archive.php:66
-#: index.php:72
+#: index.php:71
 #: search.php:69
 #: single.php:58
 msgid "next"
@@ -127,19 +127,19 @@ msgstr ""
 msgid "Your mail will not be published. Required fields are marked with a *. For more info see <a href=\"%s\">privacy</a>"
 msgstr ""
 
-#: comments.php:58
+#: comments.php:57
 msgid "One comment"
 msgstr ""
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:62
+#: comments.php:61
 msgctxt "context"
 msgid "%1$s commment"
 msgid_plural "%1$s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:89
+#: comments.php:88
 msgid "Comments are closed."
 msgstr ""
 
@@ -188,7 +188,6 @@ msgid "No posts found"
 msgstr ""
 
 #: functions/blocks/next-events.php:18
-#: build/index.js:1
 #: src/next-events.js:13
 #: src/next-events.js:56
 msgid "Next events"
@@ -473,14 +472,15 @@ msgid "Show share buttons on single post page"
 msgstr ""
 
 #: functions/options/social-media.php:221
+#: functions/_s.php:165
 msgid "Select Open Graph Fallback Image"
 msgstr ""
 
-#: functions/options/social-media.php:231
+#: functions/options/social-media.php:232
 msgid "Open Media Library"
 msgstr ""
 
-#: functions/options/social-media.php:235
+#: functions/options/social-media.php:237
 msgid "This fallback image will be used when sharing pages and posts and no featured image has been selected."
 msgstr ""
 
@@ -514,6 +514,11 @@ msgstr ""
 
 #: functions/_s.php:108
 msgid "Add widgets here."
+msgstr ""
+
+#: functions/_s.php:177
+#: template-parts/content-archive.php:80
+msgid "Continue reading"
 msgstr ""
 
 #: header.php:32
@@ -552,7 +557,7 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: single-sunflower_event.php:52
+#: single-sunflower_event.php:50
 #: template-parts/archive-event.php:34
 msgid "o'clock"
 msgstr ""
@@ -572,19 +577,15 @@ msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58
-#: template-parts/content-archive.php:52
-#: template-parts/content.php:75
+#: template-parts/content-archive.php:53
+#: template-parts/content.php:76
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: template-parts/content-archive.php:65
-#: template-parts/content-page.php:31
-#: template-parts/content.php:88
+#: template-parts/content-archive.php:66
+#: template-parts/content-page.php:32
+#: template-parts/content.php:89
 msgid "Pages:"
-msgstr ""
-
-#: template-parts/content-archive.php:79
-msgid "Continue reading"
 msgstr ""
 
 #: template-parts/content-no-events.php:14
@@ -609,22 +610,22 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/event-json-ld.php:16
+#: template-parts/event-json-ld.php:14
 msgid "none"
 msgstr ""
 
-#: template-parts/header-standard.php:27
-#: template-parts/header-standard.php:30
-#: template-parts/header-standard.php:97
-#: template-parts/header-standard.php:100
+#: template-parts/header-standard.php:28
+#: template-parts/header-standard.php:31
+#: template-parts/header-standard.php:99
+#: template-parts/header-standard.php:102
 msgid "Search"
 msgstr ""
 
-#: template-parts/header-standard.php:32
+#: template-parts/header-standard.php:33
 msgid "show search"
 msgstr ""
 
-#: template-parts/header-standard.php:35
+#: template-parts/header-standard.php:36
 msgid "increase contrast"
 msgstr ""
 
@@ -632,27 +633,28 @@ msgstr ""
 msgid "Related posts"
 msgstr ""
 
-#: build/index.js:1
 #: src/next-events.js:14
 msgid "show next events"
 msgstr ""
 
-#: build/index.js:1
 #: src/next-events.js:53
 msgid "Loading"
 msgstr ""
 
-#: build/index.js:1
 #: src/next-events.js:54
 msgid "No Events"
 msgstr ""
 
-#: build/index.js:1
 #: src/next-events.js:58
 msgid "Maximum events shown"
 msgstr ""
 
-#: build/index.js:1
 #: src/next-events.js:80
 msgid "Count"
 msgstr ""
+
+
+#: functions/blocks.php:79 build/accordion/block.json
+msgctxt "block title"
+msgid "Accordion (Sunflower)"
+msgstr "Akkordeon (Sunflower)"

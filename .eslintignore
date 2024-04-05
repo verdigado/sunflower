@@ -1,0 +1,3 @@
+# Files and folders related to build/test tools
+/build
+/node_modules
