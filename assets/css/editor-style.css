@@ -71,8 +71,7 @@ body {
 }
 
 .wp-block-sunflower-contact-form,
-.wp-block-sunflower-next-events,
-.wp-block-sunflower-latest-posts{
+.wp-block-sunflower-next-events{
     color: white;
     border: 2px solid #f5f1e9;
     background: #005437;

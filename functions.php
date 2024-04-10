@@ -9,7 +9,6 @@ require_once __DIR__ . '/functions/excerpts.php';
 require_once __DIR__ . '/functions/admin.php';
 require_once __DIR__ . '/functions/metaboxes.php';
 require_once __DIR__ . '/functions/blocks.php';
-require_once __DIR__ . '/functions/blocks/latest-posts.php';
 require_once __DIR__ . '/functions/blocks/next-events.php';
 require_once __DIR__ . '/functions/colors.php';
 require_once __DIR__ . '/functions/update.php';

@@ -1,0 +1,150 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Try to style the editor accordion like in the frontend without bootstrap
+ */
+
+@import "../../sass/variables";
+
+.wp-block-sunflower-latest-posts {
+
+    list-style: none;
+    padding: 0;
+
+    a {
+        text-decoration: none;
+        color: $primary;
+    }
+
+    article {
+        border-radius: 3px;
+        margin-bottom: 10px;
+
+        .entry-header {
+
+            .roofline {
+                font-family: GrueneType;
+                font-weight: 500;
+                color: #008939;
+                text-transform: uppercase;
+                font-size: 17px;
+                letter-spacing: 0.05em;
+                margin-bottom: 30px;
+            }
+        }
+
+        h2.card-title a,
+        .entry-content a,
+        .continue-reading {
+            color: $body-color;
+        }
+
+        .continue-reading {
+            padding-top: 10px;
+            display: block;
+            font-weight: 700;
+            font-style: italic;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .tags-links a::before {
+            content: "#";
+        }
+
+        .post-thumbnail {
+            width: 100%;
+
+            img {
+                border-radius: 3px 3px 0 0;
+            }
+        }
+
+    }
+
+}
+
+.sunflower-sidebar-help {
+
+    ul {
+        list-style: disc;
+        padding-left: 20px;
+        line-height: 1;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+}
+// add used bootstrap classes to backend editor
+
+@media (min-width: 768px) {
+
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 50% !important;
+    }
+}
+
+.col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+
+    > * {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        margin-top: var(--bs-gutter-y);
+    }
+}
+
+.p-45 {
+    padding: 2.25rem !important;
+}
+
+.border-radius {
+    border-radius: 3px;
+}
+
+.bg-primary {
+    background-color: $primary;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mt-2 {
+    margin-top: 0.5rem !important;
+}
+
+small,
+.small {
+    font-size: 0.9375rem;
+}
+
+.text-center {
+    text-align: center !important;
+}

@@ -23,18 +23,18 @@ function sunflower_block_enqueue()
         ]
     );
 
-    register_block_type(
-        'sunflower/latest-posts',
-        [
-            'apiVersion' => 2,
-            'editor_script' => 'sunflower-blocks',
-            'render_callback' => 'sunflower_latest_posts_render',
-        ]
-    );
+    // register_block_type(
+    //     'sunflower/latest-posts',
+    //     [
+    //         'apiVersion' => 2,
+    //         'editor_script' => 'sunflower-blocks',
+    //         'render_callback' => 'sunflower_latest_posts_render',
+    //     ]
+    // );
 }
 
 add_action('init', 'sunflower_block_enqueue');
-add_action('admin_enqueue_scripts', 'sunflower_block_enqueue_backend');
+// add_action('admin_enqueue_scripts', 'sunflower_block_enqueue_backend');
 
 function sunflower_block_category($categories, $post)
 {
@@ -64,9 +64,13 @@ if (version_compare($wp_version, '5.8', '>=')) {
 function sunflower_blocks_init() {
 
     register_block_type( get_template_directory() . '/build/accordion' );
-
     wp_set_script_translations( 'sunflower-accordion-editor-script', 'sunflower-accordion',
         get_template_directory() . '/languages');
+
+    register_block_type( get_template_directory() . '/build/latest-posts' );
+    wp_set_script_translations( 'sunflower-latest-posts-editor-script', 'sunflower-latest-posts',
+        get_template_directory() . '/languages');
+
 
 }
 add_action( 'init', 'sunflower_blocks_init' );
@@ -76,4 +80,5 @@ add_action( 'after_setup_theme', 'sunflower_blocks_load_textdomain' );
 function sunflower_blocks_load_textdomain() {
     load_textdomain( 'sunflower-accordion', get_template_directory() . '/languages/sunflower-accordion-de_DE.mo' );
     load_theme_textdomain( 'sunflower-accordion', get_template_directory() . '/languages' );
+    load_theme_textdomain( 'sunflower-latest-posts', get_template_directory() . '/languages' );
 }

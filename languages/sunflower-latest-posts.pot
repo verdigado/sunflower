@@ -1,0 +1,81 @@
+# Copyright (C) 2024 verdigado eG
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: sunflower 2.0.9\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-latest-posts\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-04-10T07:54:36+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.9.0\n"
+"X-Domain: sunflower-latest-posts\n"
+
+#. Theme Name of the theme
+msgid "sunflower"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://sunflower-theme.de"
+msgstr ""
+
+#. Description of the theme
+msgid "Theme for the German Green Party"
+msgstr ""
+
+#. Author of the theme
+msgid "verdigado eG"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://verdigado.com"
+msgstr ""
+
+#: build/latest-posts/render.php:109
+#: build/latest-posts/index.js:228
+#: build/latest-posts/index.js:212
+msgid "to archive"
+msgstr ""
+
+#: build/latest-posts/index.js:208
+#: build/latest-posts/index.js:159
+msgid "Title of the block section"
+msgstr ""
+
+#: build/latest-posts/index.js:213
+#: build/latest-posts/index.js:172
+msgid "Comma separated list of category slugs to be shown. Leave empty for all."
+msgstr ""
+
+#: build/latest-posts/index.js:218
+#: build/latest-posts/index.js:182
+msgid "The following category slugs are available:"
+msgstr ""
+
+#: build/latest-posts/index.js:222
+#: build/latest-posts/index.js:195
+msgid "Number of posts to be shown"
+msgstr ""
+
+#: build/latest-posts/index.js:226
+#: build/latest-posts/index.js:204
+msgid "Archive Text"
+msgstr ""
+
+#: build/latest-posts/index.js:227
+#: build/latest-posts/index.js:208
+msgid "Link label of the archive link"
+msgstr ""
+
+#: build/latest-posts/block.json
+msgctxt "block title"
+msgid "Latest Posts (Sunflower)"
+msgstr ""
+
+#: build/latest-posts/block.json
+msgctxt "block description"
+msgid "Show Latest Posts in Sunflower Design"
+msgstr ""
