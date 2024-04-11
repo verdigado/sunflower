@@ -50,6 +50,28 @@ body.admin-bar {
 
         .navbar-brand {
             opacity: 1;
+            margin-left: 0.5rem;
+            height: 100px;
+            width: 100px;
+            background-color: $secondary;
+            padding: 22px;
+
+            @include media-breakpoint-up(md) {
+                margin-left: 0;
+            }
+            @include media-breakpoint-down(sm) {
+                height: 52px;
+                width: 52px;
+                padding:10px;
+            }
+
+            img {
+                height: 56px;
+                display: block;
+                @include media-breakpoint-down(sm) {
+                    height: 32px;
+                }
+            }
         }
 
     }
@@ -65,7 +87,7 @@ body.admin-bar {
         }
 
         img {
-            height: 33px;
+            height: 60px;
         }
     }
 }
