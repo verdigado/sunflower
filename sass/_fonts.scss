@@ -21,7 +21,7 @@
         url("assets/fonts/PTSans-Regular.woff") format("woff"),
         url("assets/fonts/PTSans-Regular.ttf") format("truetype"),
         url("assets/fonts/PTSans-Regular.svg#PTSans-Regular") format("svg");
-    font-weight: 400;
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
@@ -35,8 +35,36 @@
         url("assets/fonts/PTSans-Bold.woff") format("woff"),
         url("assets/fonts/PTSans-Bold.ttf") format("truetype"),
         url("assets/fonts/PTSans-Bold.svg#PTSans-Bold") format("svg");
-    font-weight: 700;
+    font-weight: bold;
     font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: PTSans;
+    src: url("assets/fonts/PTSans-BoldItalic.eot");
+    src:
+        url("assets/fonts/PTSans-BoldItalic.eot?#iefix") format("embedded-opentype"),
+        url("assets/fonts/PTSans-BoldItalic.woff2") format("woff2"),
+        url("assets/fonts/PTSans-BoldItalic.woff") format("woff"),
+        url("assets/fonts/PTSans-BoldItalic.ttf") format("truetype"),
+        url("assets/fonts/PTSans-BoldItalic.svg#PTSans-BoldItalic") format("svg");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: PTSans;
+    src: url("assets/fonts/PTSans-Italic.eot");
+    src:
+        url("assets/fonts/PTSans-Italic.eot?#iefix") format("embedded-opentype"),
+        url("assets/fonts/PTSans-Italic.woff2") format("woff2"),
+        url("assets/fonts/PTSans-Italic.woff") format("woff"),
+        url("assets/fonts/PTSans-Italic.ttf") format("truetype"),
+        url("assets/fonts/PTSans-Italic.svg#PTSans-Italic") format("svg");
+    font-weight: normal;
+    font-style: italic;
     font-display: swap;
 }
 
