@@ -163,10 +163,13 @@ h6,
 .textbalken {
     z-index: 0;
     width: fit-content;
-    margin: auto;
     line-height: 150%;
     position: relative;
     padding: 0px !important;
+}
+
+.has-text-align-center.textbalken{
+    margin: auto;
 }
 
 .textbalken::after {
