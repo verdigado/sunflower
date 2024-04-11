@@ -159,3 +159,36 @@ h6,
     }
 
 }
+
+.textbalken {
+    z-index: 0;
+    width: fit-content;
+    margin: auto;
+    line-height: 150%;
+    position: relative;
+    padding: 0px !important;
+}
+
+.textbalken::after {
+	background: inherit;
+	content: '';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transform: skew(-12deg);
+}
+
+.textbalken::before {
+	background: inherit;
+	content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -20px;
+    z-index: -1;
+    transform: skew(-12deg);
+}
