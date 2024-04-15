@@ -8,7 +8,7 @@
         url("assets/fonts/GrueneType-BlackCondensedItalic.ttf") format("truetype"),
         url("assets/fonts/GrueneType-BlackCondensedItalic.svg#GrueneType-BlackCondensedItalic") format("svg");
     font-weight: 900;
-    font-style: normal;
+    font-style: 400;
     font-display: swap;
 }
 
@@ -21,8 +21,8 @@
         url("assets/fonts/PTSans-Regular.woff") format("woff"),
         url("assets/fonts/PTSans-Regular.ttf") format("truetype"),
         url("assets/fonts/PTSans-Regular.svg#PTSans-Regular") format("svg");
-    font-weight: normal;
-    font-style: normal;
+    font-weight: 400;
+    font-style: 400;
     font-display: swap;
 }
 
@@ -35,8 +35,8 @@
         url("assets/fonts/PTSans-Bold.woff") format("woff"),
         url("assets/fonts/PTSans-Bold.ttf") format("truetype"),
         url("assets/fonts/PTSans-Bold.svg#PTSans-Bold") format("svg");
-    font-weight: bold;
-    font-style: normal;
+    font-weight: 700;
+    font-style: 400;
     font-display: swap;
 }
 
@@ -49,7 +49,7 @@
         url("assets/fonts/PTSans-BoldItalic.woff") format("woff"),
         url("assets/fonts/PTSans-BoldItalic.ttf") format("truetype"),
         url("assets/fonts/PTSans-BoldItalic.svg#PTSans-BoldItalic") format("svg");
-    font-weight: bold;
+    font-weight: 700;
     font-style: italic;
     font-display: swap;
 }
@@ -63,14 +63,14 @@
         url("assets/fonts/PTSans-Italic.woff") format("woff"),
         url("assets/fonts/PTSans-Italic.ttf") format("truetype"),
         url("assets/fonts/PTSans-Italic.svg#PTSans-Italic") format("svg");
-    font-weight: normal;
+    font-weight: 400;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
     font-family: ForkAwesome;
-    font-style: normal;
+    font-style: 400;
     font-weight: 400;
     src: url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.eot");
     src:
@@ -86,8 +86,8 @@
     font-family: ForkAwesome !important;
     -webkit-font-smoothing: antialiased;
     display: inline-block;
-    font-style: normal;
-    font-variant: normal;
+    font-style: 400;
+    font-variant: 400;
     text-rendering: auto;
     line-height: 1;
 }
