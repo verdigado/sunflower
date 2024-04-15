@@ -59,15 +59,17 @@ body.admin-bar {
             @include media-breakpoint-up(md) {
                 margin-left: 0;
             }
+
             @include media-breakpoint-down(sm) {
                 height: 52px;
                 width: 52px;
-                padding:10px;
+                padding: 10px;
             }
 
             img {
                 height: 56px;
                 display: block;
+
                 @include media-breakpoint-down(sm) {
                     height: 32px;
                 }
@@ -194,7 +196,7 @@ body {
             width: 95px;
             display: flex;
             justify-content: center;
-            align-items:center;
+            align-items: center;
 
             @include media-breakpoint-down(sm) {
                 height: 55px;
