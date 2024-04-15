@@ -165,16 +165,15 @@ h6,
     width: fit-content;
     line-height: 150%;
     position: relative;
-    padding: 0px !important;
 }
 
-.has-text-align-center.textbalken{
+.has-text-align-center.textbalken {
     margin: auto;
 }
 
 .textbalken::after {
-	background: inherit;
-	content: '';
+    background: inherit;
+    content: "";
     position: absolute;
     top: 0;
     right: -20px;
@@ -185,8 +184,8 @@ h6,
 }
 
 .textbalken::before {
-	background: inherit;
-	content: '';
+    background: inherit;
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
