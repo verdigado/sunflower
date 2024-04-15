@@ -1,26 +1,23 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "sunflower/latest-posts",
+	"name": "sunflower/next-events",
 	"version": "2.1.0",
-	"title": "Latest Posts (Sunflower)",
+	"title": "Next Events (Sunflower)",
 	"category": "sunflower-blocks",
-	"icon": "admin-post",
-	"description": "Show Latest Posts in Sunflower Design",
+	"icon": "calendar-alt",
+	"description": "Show Next Events in Sunflower Design",
 	"example": {},
     "attributes": {
         "title": {
             "type": "string"
 		},
-        "archiveText": {
-            "type": "string"
-        },
-		"categories": {
-			"type": "array"
+        "tag": {
+            "type": "array"
 		},
         "count": {
             "type": "number",
-			"default": 6
+            "default": 3
 		},
 		"blockLayout": {
 			"type": "string",
@@ -34,7 +31,7 @@
 	"supports": {
 		"html": false
 	},
-	"textdomain": "sunflower-latest-posts",
+	"textdomain": "sunflower-next-events",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
     "render": "file:./render.php"

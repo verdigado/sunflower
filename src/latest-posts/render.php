@@ -8,20 +8,13 @@ $is_grid = false;
 if ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'] ) {
     $is_grid = true;
 }
-
-$wp_query_args = array(
-    'post_type' => 'post',
-    'order'     => 'DESC',
-);
+$count = isset($attributes['count']) ? (int) $attributes['count'] : 6;
 
 $url_category_name = '';
 $link              = false;
 
-if ( isset( $attributes['categories'] ) and $attributes['categories'] != '' ) {
-    $wp_query_args['category_name'] = $attributes['categories'];
-    $url_category_name              = '&category_name=' . $attributes['categories'];
-
-    $categories = explode( ',', $attributes['categories'] );
+if ( isset( $attributes['categories'] ) and !empty( $attributes['categories'] ) ) {
+    $categories = $attributes['categories'];
     $link       = get_category_link( get_category_by_slug( trim( $categories[0] ) ) );
 }
 
@@ -38,15 +31,8 @@ if ( ! $link or $link == '' ) {
     }
 }
 
-// set maximum amount of posts per page
-if ( isset( $attributes['count'] ) and $attributes['count'] != '' ) {
-    $wp_query_args['posts_per_page'] = (int) $attributes['count'];
-} else {
-    $wp_query_args['posts_per_page'] = 6;
-}
-
 // fetch posts for given parameters
-$posts = new WP_Query( $wp_query_args );
+$posts = sunflower_get_latest_posts($count, $categories);
 
 if ( isset( $attributes['title'] ) ) {
     $title = sprintf( '<h2 class="text-center h1">%s</h2>', $attributes['title'] );
@@ -55,7 +41,6 @@ if ( isset( $attributes['title'] ) ) {
 }
 
 $classes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classnames ) ) );
-
 
 $list_items = sprintf(
     '<div %s>
@@ -101,7 +86,7 @@ $list_items .= sprintf(
     </a>
 ',
     $link,
-    ($attributes['archiveText'] ?? '') ?:  __( 'to archive', 'sunflower-latest-posts' )
+    ($attributes['archiveText'] ?? '') ?: __( 'to archive', 'sunflower-latest-posts' )
 );
 
 $list_items .= '</div></div></div></div>';

@@ -1,0 +1,121 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Try to style the editor accordion like in the frontend without bootstrap
+ */
+
+@import "../../sass/variables";
+
+.wp-block-sunflower-next-events {
+
+    list-style: none;
+    padding: 0;
+
+    a {
+        text-decoration: none;
+        color: $body-color;
+
+        &.event-card article {
+            background-color: #fff;
+            border-radius: 3px;
+            height: 100%;
+            .event-archive-meta {
+                color: #333;
+            }
+            .date {
+                font-weight: 700;
+                font-size: 25px;
+            }
+        }
+    }
+
+}
+
+.wp-block-group.has-background {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    display: flex;
+    justify-content: center;
+}
+.sunflower-has-background-dim {
+    > * {
+        z-index: 30;
+}
+}
+@media (min-width: 768px) {
+    .wp-block-group.has-background .wp-block-group__inner-container {
+        max-width: 1155px;
+    }
+}
+.next-events {
+    background-image: url(../../assets/img/sunflower1.jpg);
+    background-size: cover;
+    background-position: top;
+}
+.sunflower-has-background-dim::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 20;
+    opacity: 0.3;
+    background-color: #000;
+}
+// add used bootstrap classes to backend editor
+
+.col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+
+    > * {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        margin-top: var(--bs-gutter-y);
+    }
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+@media (min-width: 992px) {
+
+    .col-lg-4 {
+        flex: 0 0 auto;
+        width: 33.33333%;
+    }
+}

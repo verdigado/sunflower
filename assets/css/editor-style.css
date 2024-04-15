@@ -70,8 +70,7 @@ body {
     margin: 0;
 }
 
-.wp-block-sunflower-contact-form,
-.wp-block-sunflower-next-events{
+.wp-block-sunflower-contact-form {
     color: white;
     border: 2px solid #f5f1e9;
     background: #005437;

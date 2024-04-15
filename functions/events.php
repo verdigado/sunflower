@@ -290,21 +290,39 @@ function sunflower_load_event_admin_scripts()
 
 add_action('admin_enqueue_scripts', 'sunflower_load_event_admin_scripts');
 
+function isNumericArray(array $array) {
+    foreach ($array as $a => $b) {
+        if (!is_numeric($b)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 /**
  * @param int        $number
- * @param null|int[] $tagIds Array of sunflower_event_tag IDs
+ * @param null|int[]|string[] $tagIds Array of sunflower_event_tag IDs
  *
  * @return WP_Query
  */
 function sunflower_get_next_events($number = -1, $tagIds = null)
 {
     $taxQuery = null;
+
     if ($tagIds) {
-        $taxQuery = [[
-            'taxonomy' => 'sunflower_event_tag',
-            'field' => 'id',
-            'terms' => $tagIds,
-        ]];
+        if (isNumericArray($tagIds)) {
+            $taxQuery = [[
+                'taxonomy' => 'sunflower_event_tag',
+                'field' => 'id',
+                'terms' => $tagIds,
+            ]];
+        } else {
+            $taxQuery = [[
+                'taxonomy' => 'sunflower_event_tag',
+                'field' => 'slug',
+                'terms' => $tagIds,
+            ]];
+        }
     }
 
     return new WP_Query(

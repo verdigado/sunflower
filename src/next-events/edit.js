@@ -18,19 +18,17 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	TextControl,
-	RangeControl,
-	PanelBody,
 	FormTokenField,
+	PanelBody,
+	RangeControl,
 	ToolbarGroup,
 	Disabled,
+	TextControl,
 } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import { grid, list } from '@wordpress/icons';
-import { useEntityRecords } from '@wordpress/core-data';
 import { useState, useEffect } from '@wordpress/element';
-
-const EMPTY_ARRAY = [];
+import { useEntityRecords } from '@wordpress/core-data';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -39,6 +37,8 @@ const EMPTY_ARRAY = [];
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+
+const EMPTY_ARRAY = [];
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -56,60 +56,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		className: 'row',
 	} );
 
-	const { title, categories, count, archiveText, blockLayout } = attributes;
-
-	const [ categoriesFormSuggestions, setCategoriesFormSuggestions ] =
-		useState( EMPTY_ARRAY );
-	const [ categoriesFormValue, setCategoriesFormValue ] =
-		useState( EMPTY_ARRAY );
-
-	const query = { per_page: -1, context: 'view' };
-
-	const { records: allCategories, hasResolved } = useEntityRecords(
-		'taxonomy',
-		'category',
-		query
-	);
-
-	useEffect( () => {
-		if ( ! hasResolved ) return;
-
-		setCategoriesFormSuggestions(
-			allCategories.map( ( category ) => category.name )
-		);
-		setCategoriesFormValue(
-			allCategories
-				.filter( () =>
-					attributes.categories?.includes( categories.slug )
-				)
-				.map( ( category ) => category.name )
-		);
-	}, [ allCategories, hasResolved, categories, attributes.categories ] );
-
-	const onChangeCategories = ( formCategories ) => {
-		setAttributes( {
-			categories: formCategories.map(
-				( categoryName ) =>
-					allCategories
-						.filter(
-							( category ) => category.name === categoryName
-						)
-						.map( ( category ) => category.slug )[ 0 ]
-			),
-		} );
-	};
-
-	const onChangeCount = ( value ) => {
-		setAttributes( { count: value } );
-	};
-
-	const onChangeTitle = ( input ) => {
-		setAttributes( { title: input === undefined ? '' : input } );
-	};
-
-	const onChangeArchiveText = ( input ) => {
-		setAttributes( { archiveText: input === undefined ? '' : input } );
-	};
+	const { title, tag, count, blockLayout } = attributes;
 
 	const toolbarControls = [
 		{
@@ -126,6 +73,52 @@ export default function Edit( { attributes, setAttributes } ) {
 		},
 	];
 
+	const [ tagFormSuggestions, setTagFormSuggestions ] =
+		useState( EMPTY_ARRAY );
+	const [ tagFormValue, setTagFormValue ] = useState( EMPTY_ARRAY );
+
+	const query = { per_page: -1, context: 'view' };
+	const { records: allTags, hasResolved } = useEntityRecords(
+		'taxonomy',
+		'sunflower_event_tag',
+		query
+	);
+
+	useEffect( () => {
+		if ( ! hasResolved ) return;
+
+		setTagFormSuggestions( allTags.map( () => tag.name ) );
+		// accept tags as ids (pre 2.1.0) and slugs
+		setTagFormValue(
+			allTags
+				.filter(
+					() =>
+						attributes.tag?.includes( tag.id ) ||
+						attributes.tag?.includes( tag.slug )
+				)
+				.map( () => tag.name )
+		);
+	}, [ allTags, hasResolved, tag, attributes.tag ] );
+
+	const onChangeTitle = ( input ) => {
+		setAttributes( { title: input === undefined ? '' : input } );
+	};
+
+	const onChangeTag = ( formTags ) => {
+		setAttributes( {
+			tag: formTags.map(
+				( tagName ) =>
+					allTags
+						.filter( () => tag.name === tagName )
+						.map( () => tag.slug )[ 0 ]
+			),
+		} );
+	};
+
+	const onChangeCount = ( value ) => {
+		setAttributes( { count: value } );
+	};
+
 	return (
 		<div { ...blockProps }>
 			{
@@ -135,14 +128,13 @@ export default function Edit( { attributes, setAttributes } ) {
 					</BlockControls>
 					<Disabled>
 						<ServerSideRender
-							block={ 'sunflower/latest-posts' }
+							block={ 'sunflower/next-events' }
 							attributes={ {
 								title,
 								blockLayout,
-								categories,
+								tag,
 								count,
-								archiveText,
-								categoriesFormValue,
+								tagFormValue,
 							} }
 						/>
 					</Disabled>
@@ -150,7 +142,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			}
 			{
 				<InspectorControls>
-					<PanelBody title={ __( 'Settings' ) }>
+					<PanelBody title={ __( 'Filter' ) } initialOpen>
 						<TextControl
 							label={ __( 'Title' ) }
 							help={ __(
@@ -158,15 +150,19 @@ export default function Edit( { attributes, setAttributes } ) {
 								'sunflower-latest-posts'
 							) }
 							value={ title }
+							placeholder={ __(
+								'Next events',
+								'sunflower-next-events'
+							) }
 							onChange={ onChangeTitle }
 						/>
 
 						<FormTokenField
 							hasResolved={ hasResolved }
-							label={ __( 'Categories' ) }
-							value={ categoriesFormValue }
-							onChange={ onChangeCategories }
-							suggestions={ categoriesFormSuggestions }
+							label={ __( 'Tags' ) }
+							value={ tagFormValue }
+							onChange={ onChangeTag }
+							suggestions={ tagFormSuggestions }
 						/>
 
 						<RangeControl
@@ -179,23 +175,6 @@ export default function Edit( { attributes, setAttributes } ) {
 							onChange={ onChangeCount }
 							min={ 1 }
 							max={ 20 }
-						/>
-
-						<TextControl
-							label={ __(
-								'Archive Text',
-								'sunflower-latest-posts'
-							) }
-							help={ __(
-								'Link label of the archive link',
-								'sunflower-latest-posts'
-							) }
-							placeholder={ __(
-								'to archive',
-								'sunflower-latest-posts'
-							) }
-							value={ archiveText }
-							onChange={ onChangeArchiveText }
 						/>
 					</PanelBody>
 				</InspectorControls>

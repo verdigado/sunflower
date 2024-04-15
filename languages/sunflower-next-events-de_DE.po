@@ -1,0 +1,53 @@
+# Copyright (C) 2024 verdigado eG
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: sunflower 2.0.9\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-next-"
+"events\n"
+"POT-Creation-Date: 2024-04-15T13:17:31+00:00\n"
+"PO-Revision-Date: 2024-04-15 15:35+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Domain: sunflower-next-events\n"
+
+#. Theme Name of the theme
+msgid "sunflower"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://sunflower-theme.de"
+msgstr "Nächste Termine"
+
+#. Description of the theme
+msgid "Theme for the German Green Party"
+msgstr ""
+
+#. Author of the theme
+msgid "verdigado eG"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://verdigado.com"
+msgstr ""
+
+#: build/next-events/render.php:21 build/next-events/index.js:262
+#: build/next-events/index.js:213
+msgid "Next events"
+msgstr "Nächste Termine"
+
+#: build/next-events/block.json
+msgctxt "block title"
+msgid "Next Events (Sunflower)"
+msgstr "Nächste Termine (Sunflower)"
+
+#: build/next-events/block.json
+msgctxt "block description"
+msgid "Show Next Events in Sunflower Design"
+msgstr "Zeige die nächsten Termine im Sunflower-Design"
