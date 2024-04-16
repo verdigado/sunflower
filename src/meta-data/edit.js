@@ -68,7 +68,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						<a
 							href={ url }
 							target="_blank"
-							className={ (url === '#' || url === '') ? 'text-danger' : 'text-ok' }
+							className={
+								url === '#' || url === ''
+									? 'text-danger'
+									: 'text-ok'
+							}
 							rel="noopener noreferrer"
 						>
 							<i className={ icon }></i>
@@ -80,7 +84,10 @@ export default function Edit( { attributes, setAttributes } ) {
 				<InspectorControls>
 					<PanelBody title={ __( 'Settings' ) }>
 						<SelectControl
-							label={ __( 'Predefined Icons', 'sunflower-meta-data') }
+							label={ __(
+								'Predefined Icons',
+								'sunflower-meta-data'
+							) }
 							value={ iconSelect }
 							options={ [
 								{ value: 'none', label: 'Bitte wählen' },
@@ -106,15 +113,24 @@ export default function Edit( { attributes, setAttributes } ) {
 						/>
 
 						<TextControl
-							label={ __( 'Selected Icon', 'sunflower-meta-data') }
-							help={ __( 'All icons can be found at https://fontawesome.com/icons?d=gallery&m=free', 'sunflower-meta-data') }
+							label={ __(
+								'Selected Icon',
+								'sunflower-meta-data'
+							) }
+							help={ __(
+								'All icons can be found at https://fontawesome.com/icons?d=gallery&m=free',
+								'sunflower-meta-data'
+							) }
 							value={ icon }
 							onChange={ onChangeIcon }
 						/>
 
 						<TextControl
 							label="URL"
-							help={ __( 'Target URL the Icon is linked to', 'sunflower-meta-data') }
+							help={ __(
+								'Target URL the Icon is linked to',
+								'sunflower-meta-data'
+							) }
 							value={ url }
 							onChange={ onChangeUrl }
 						/>
