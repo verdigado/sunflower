@@ -61,24 +61,9 @@ body {
     margin-right: 1em;
 }
 
-.wp-block-sunflower-contact-form {
-    background-color: #f5f1e9;
-    border: 2px dotted #005437;
-    padding: 10px;
-}
+
 .wp-block-sunflower-meta-data p.rich-text {
     margin: 0;
-}
-
-.wp-block-sunflower-contact-form {
-    color: white;
-    border: 2px solid #f5f1e9;
-    background: #005437;
-    padding: 30px 20px 20px 30px;
-    background-image: url('../img/sunflower.svg');
-    background-repeat: no-repeat;
-    background-position: 2px 2px;
-    background-size: 32px;
 }
 
 .sunflower-admin-hint {

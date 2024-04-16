@@ -20,11 +20,12 @@ function sunflower_contact_form()
     $message = sanitize_textarea_field($_POST['message']);
     $name = sanitize_text_field($_POST['name']);
     $mail = sanitize_email($_POST['mail']);
+    $title = sanitize_text_field($_POST['title']);
 
-    $response = __('Thank you. The form has been sent.', 'sunflower');
+    $response = __('Thank you. The form has been sent.', 'sunflower-contact-form');
     $to = get_sunflower_setting('sunflower_contact_form_to') ?: get_option('admin_email');
 
-    $subject = __('New contact form', 'sunflower');
+    $subject = __('New Message from', 'sunflower-contact-form') . ' ' . ($title ?: __('Contact Form', 'sunflower-contact-form'));
     $message = sprintf("Name: %s\nE-Mail: %s\n\n%s", $name, $mail, $message);
 
     if (! empty($mail)) {

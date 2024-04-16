@@ -1,0 +1,75 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Try to style the editor accordion like in the frontend without bootstrap
+ */
+
+@import "../../sass/variables";
+
+.wp-block-sunflower-contact-form {
+
+    .comment {
+        &-respond {
+
+            background-color: $white;
+            padding: 30px;
+            border-radius: $border-radius;
+
+            label {
+                display: block;
+            }
+        }
+    }
+
+    .form-submit {
+        text-align: right;
+    }
+
+    .form-submit input {
+        background-color: $secondary;
+        text-transform: uppercase;
+        font-size: 1rem;
+        border-radius: 4px;
+        color: #fff;
+        padding: 10px 30px;
+        border: 0;
+        font-style: normal;
+    }
+
+}
+
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1* var(--bs-gutter-y));
+    margin-right: calc(-0.5* var(--bs-gutter-x));
+    margin-left: calc(-0.5* var(--bs-gutter-x));
+
+    > * {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        margin-top: var(--bs-gutter-y);
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+
+small,
+.small {
+    font-size: 0.9375rem;
+}

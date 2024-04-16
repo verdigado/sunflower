@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sunflower/contact-form",
+	"version": "2.1.0",
+	"title": "Contact Form (Sunflower)",
+	"category": "sunflower-blocks",
+	"icon": "feedback",
+	"description": "Simple Contact Form",
+	"example": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+		}
+    },
+	"supports": {
+		"html": false
+	},
+	"textdomain": "sunflower-contact-form",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+    "render": "file:./render.php"
+}

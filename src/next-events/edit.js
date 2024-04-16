@@ -87,16 +87,16 @@ export default function Edit( { attributes, setAttributes } ) {
 	useEffect( () => {
 		if ( ! hasResolved ) return;
 
-		setTagFormSuggestions( allTags.map( () => tag.name ) );
+		setTagFormSuggestions( allTags.map( ( atag ) => atag.name ) );
 		// accept tags as ids (pre 2.1.0) and slugs
 		setTagFormValue(
 			allTags
 				.filter(
-					() =>
-						attributes.tag?.includes( tag.id ) ||
-						attributes.tag?.includes( tag.slug )
+					( atag ) =>
+						attributes.tag?.includes( atag.id ) ||
+						attributes.tag?.includes( atag.slug )
 				)
-				.map( () => tag.name )
+				.map( ( atag ) => atag.name )
 		);
 	}, [ allTags, hasResolved, tag, attributes.tag ] );
 
@@ -109,8 +109,8 @@ export default function Edit( { attributes, setAttributes } ) {
 			tag: formTags.map(
 				( tagName ) =>
 					allTags
-						.filter( () => tag.name === tagName )
-						.map( () => tag.slug )[ 0 ]
+						.filter( ( atag ) => atag.name === tagName )
+						.map( ( atag ) => atag.slug )[ 0 ]
 			),
 		} );
 	};
