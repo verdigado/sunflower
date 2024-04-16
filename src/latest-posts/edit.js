@@ -18,12 +18,12 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	TextControl,
+	Disabled,
+	FormTokenField,
 	RangeControl,
 	PanelBody,
-	FormTokenField,
+	TextControl,
 	ToolbarGroup,
-	Disabled,
 } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import { grid, list } from '@wordpress/icons';

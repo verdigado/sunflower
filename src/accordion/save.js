@@ -17,7 +17,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  * @param {Object} props.attributes
  * @return {Element} Element to render.
  */
-export default function save( { attributes } ) {
+export default function Save( { attributes } ) {
 	const blockProps = useBlockProps.save();
 	return (
 		<div { ...blockProps }>

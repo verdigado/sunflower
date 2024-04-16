@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sunflower/meta-data",
+	"version": "2.1.0",
+	"title": "Metadata Line (Sunflower)",
+	"category": "sunflower-blocks",
+	"icon": "info-outline",
+	"description": "Metadata Line",
+	"example": {},
+    "attributes": {
+        "icon": {
+			"type": "string",
+			"default": "fas fa-clock"
+		},
+        "url": {
+			"type": "string",
+			"default": "#"
+		}
+    },
+	"supports": {
+		"html": false
+	},
+	"textdomain": "sunflower-meta-data",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
+}

@@ -19,9 +19,11 @@
             background-color: #fff;
             border-radius: 3px;
             height: 100%;
+
             .event-archive-meta {
                 color: #333;
             }
+
             .date {
                 font-weight: 700;
                 font-size: 25px;
@@ -41,21 +43,27 @@
     display: flex;
     justify-content: center;
 }
+
 .sunflower-has-background-dim {
+
     > * {
         z-index: 30;
+    }
 }
-}
+
 @media (min-width: 768px) {
+
     .wp-block-group.has-background .wp-block-group__inner-container {
         max-width: 1155px;
     }
 }
+
 .next-events {
     background-image: url(../../assets/img/sunflower1.jpg);
     background-size: cover;
     background-position: top;
 }
+
 .sunflower-has-background-dim::before {
     content: "";
     position: absolute;
@@ -112,6 +120,7 @@
         width: 50%;
     }
 }
+
 @media (min-width: 992px) {
 
     .col-lg-4 {
