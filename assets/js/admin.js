@@ -1,8 +1,11 @@
 /* eslint-disable no-undef */
 jQuery( document ).on( 'click', '.sunflower-plugins .notice-dismiss', function() {
+	var id = jQuery(this).parent().attr('id');
 	jQuery.ajax( {
 		url: ajaxurl,
+		method: "POST",
 		data: {
+			id: id,
 			action: 'sunflower_plugins_dismiss',
 		},
 	} );
@@ -93,3 +96,21 @@ function sunflowerFixLocationDelete(){
 		},
 	} );
 }
+
+
+// show / hide help text for terms of use
+jQuery(function($) {
+    // hide help text if checkbox is already checked
+    if ($('#sunflower_terms_of_use').is(':checked')) {
+        $('#help-sunflower-terms-condition').hide();
+    }
+
+    // hide help text if checkbox get's checked
+    $('#sunflower_terms_of_use:checkbox').on("change", function() {
+        if ($('#sunflower_terms_of_use').is(':checked')) {
+            $('#help-sunflower-terms-condition').hide();
+        } else {
+            $('#help-sunflower-terms-condition').show();
+        }
+    });
+});

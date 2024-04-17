@@ -1,5 +1,5 @@
 
-jQuery(document).ready(function($) {
+jQuery(function($) {
 
     // Images
     var file_frame;

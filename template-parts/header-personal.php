@@ -10,10 +10,13 @@
                         the_custom_logo();
                     } else {
                         echo '<a href="' . get_home_url() . '" rel="home" aria-current="page" title="' , get_bloginfo('name') . '">';
-                        printf('<img src="%s" class="" alt="Logo">', sunflower_parent_or_child('assets/img/sunflower.svg'));
+                        $options = get_option('sunflower_first_steps_options');
+                        if (($options['sunflower_terms_of_use'] ?? false) == true) {
+					        printf('<img src="%s" class="" alt="Logo">', sunflower_parent_or_child('assets/img/sunflower.svg'));
+                        }
                         echo '</a>';
                     }
-?>
+                    ?>
 				</div>
 				<div>
 					<div class="h5 bloginfo-name">
@@ -46,13 +49,13 @@
                         'walker' => new WP_Bootstrap_Navwalker(),
                     ]
                 );
-?>
+            ?>
 			</div>
 
 			<div class="social-media-profiles d-none d-md-flex">
 				<?php
-    echo get_sunflower_social_media_profiles();
-?>
+                    echo get_sunflower_social_media_profiles();
+                ?>
 			</div>
 		</div>
 	</nav>
