@@ -244,19 +244,6 @@ function sunflower_get_constant($constant)
     return constant($constant);
 }
 
-function sunflower_add_unfiltered_html_capability_to_editors($caps, $cap, $user_id)
-{
-    if ('unfiltered_html' === $cap && user_can($user_id, 'editor')) {
-        return ['unfiltered_html'];
-    }
-
-    return $caps;
-}
-
-if (sunflower_get_constant('SUNFLOWER_UNFILTERED_HTML')) {
-    add_filter('map_meta_cap', 'sunflower_add_unfiltered_html_capability_to_editors', 1, 3);
-}
-
 add_filter(
     'wp_kses_allowed_html',
     static function ($allowed_tags, $context) {
