@@ -77,7 +77,10 @@ export default function Edit( { attributes, setAttributes } ) {
 								'sunflower-contact-form'
 							) }
 							value={ title }
-							placeholder={ __('Contact Form', 'sunflower-contact-form') }
+							placeholder={ __(
+								'Contact Form',
+								'sunflower-contact-form'
+							) }
 							onChange={ onChangeTitle }
 						/>
 					</PanelBody>

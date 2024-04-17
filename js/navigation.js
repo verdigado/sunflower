@@ -75,6 +75,7 @@
 	 * Sets or removes .focus class on an element.
 	 */
 	function toggleFocus() {
+		/* eslint-disable-next-line no-undef */
 		if ( event.type === 'focus' || event.type === 'blur' ) {
 			let self = this;
 			// Move up through the ancestors of the current link until we hit .nav-menu.
@@ -86,9 +87,10 @@
 				self = self.parentNode;
 			}
 		}
-
+		/* eslint-disable-next-line no-undef */
 		if ( event.type === 'touchstart' ) {
 			const menuItem = this.parentNode;
+			/* eslint-disable-next-line no-undef */
 			event.preventDefault();
 			for ( const link of menuItem.parentNode.children ) {
 				if ( menuItem !== link ) {

@@ -38,5 +38,5 @@ registerBlockType( metadata.name, {
 	 */
 	save: Save,
 
-	deprecated
+	deprecated,
 } );
