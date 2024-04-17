@@ -1,8 +1,11 @@
 /* eslint-disable no-undef */
 jQuery( document ).on( 'click', '.sunflower-plugins .notice-dismiss', function() {
+	var id = jQuery(this).parent().attr('id');
 	jQuery.ajax( {
 		url: ajaxurl,
+		method: "POST",
 		data: {
+			id: id,
 			action: 'sunflower_plugins_dismiss',
 		},
 	} );

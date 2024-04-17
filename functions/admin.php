@@ -18,7 +18,7 @@ add_action('admin_bar_menu', 'sunflower_admin_bar', 999);
 
 function sunflower_notice()
 {   ?>
-	<div class="notice notice-info notice-large sunflower-plugins is-dismissible">
+	<div id="sunflower-plugins" class="notice notice-info notice-large sunflower-plugins is-dismissible">
 		<p><?php
             $linkgithub = "<a href='https://github.com/verdigado/sunflower' target='_blank'>open source</a>";
     $linkverdigado = "<a href='https://www.verdigado.com/' target='_blank' title='verdigado eG'>
@@ -43,8 +43,8 @@ if (empty(get_option('sunflower-plugins-dismissed'))) {
 
 function sunflower_notice_php()
 {   ?>
-	<div class="notice notice-error update-nag sunflower-plugins is-dismissible">
-        <p class="h3"><?php __('PHP Version End of Life', 'sunflower') ?></p>
+	<div id="sunflower-plugins-php-82" class="notice notice-error update-nag sunflower-plugins is-dismissible">
+        <p class="h3"><?php echo __('PHP Version End of Life', 'sunflower') ?></p>
 		<p><?php
             $phpversion = "Current PHP version: " . phpversion();
     $linkverdigado = "<a href='https://www.verdigado.com/' target='_blank' title='verdigado eG'>
@@ -70,6 +70,27 @@ if (empty(get_option('sunflower-plugins-php-82-dismissed')) && version_compare(p
     add_action('admin_notices', 'sunflower_notice_php');
 }
 
+
+
+function sunflower_notice_terms()
+{   ?>
+	<div id="sunflower-notice-terms" class="notice notice-error update-nag sunflower-plugins is-dismissible">
+        <p class="h3"><?php echo __('New Terms and Use Settings', 'sunflower') ?></p>
+		<p>
+            <?php echo __("There is a new option on the <a href='admin.php?page=sunflower_admin'>Sunflower->First Steps</a> page.<br />
+            If you continue to use the sunflower icons in menue, footer and as favicon, please read and accept the terms of use.", 'sunflower');
+            ?>
+        </p>
+	</div>
+	<?php
+}
+
+$first_steps_options = get_option('sunflower_first_steps_options') ?? [];
+if (empty(get_option('sunflower-notice-terms-dismissed')) && ($first_steps_options['sunflower_terms_of_use'] ?? false) !== 'checked') {
+    add_action('admin_notices', 'sunflower_notice_terms');
+}
+
+
 function sunflower_load_admin_scripts()
 {
     wp_enqueue_script(
@@ -92,9 +113,22 @@ function sunflower_load_admin_scripts()
 
 add_action('admin_enqueue_scripts', 'sunflower_load_admin_scripts');
 
+/**
+ *
+ * Update Dismissed option of the given option.
+ *
+ * The option id is send via ajax-call from admin.js
+ *
+ */
 function sunflower_update_notice()
 {
-    update_option('sunflower-plugins-dismissed', 1);
+    $id = $_POST['id'] ?? '';
+    if (! empty($id) ) {
+        $dissmiss_option = $id . '-dismissed';
+    } else {
+        $dissmiss_option = 'sunflower-plugins-dismissed';
+    }
+    update_option($dissmiss_option, 1);
 }
 
 add_action('wp_ajax_sunflower_plugins_dismiss', 'sunflower_update_notice');
