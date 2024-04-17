@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sunflower/accordion",
+	"version": "2.1.0",
+	"title": "Accordion Item (Sunflower)",
+	"category": "sunflower-blocks",
+	"icon": "menu-alt3",
+	"description": "Sunflower: Simple Accordion Item Block Element",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+    "attributes": {
+        "content": {
+            "type": "string",
+            "source": "html",
+            "selector": "p"
+        },
+        "headline": {
+            "type": "string"
+        },
+        "blockId": {
+            "type": "string"
+        }
+    },
+	"textdomain": "sunflower-accordion",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
+}

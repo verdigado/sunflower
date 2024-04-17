@@ -3,9 +3,30 @@
 ## Sprachdateien
 - Erzeuge mit `make make-pot` ein neues Template-File
 - Öffne `languages/de_DE.po` mit PoEdit
-- Gehe dort auf *Katalog -> Aus POT-Datei aktualisieren*
+- Gehe dort auf `Übersetzung -> aus POT-Datei aktualisieren`
 - Erstelle die Übersetzungen
 - Klicke auf *Speichern*
+
+### Sprachdateien für eigene Blöcke
+
+Um für einen eigenen Block eine Sprachdatei zu erstellen bzw. zu aktualisieren muss man wie folgt vorgehen.
+
+Beispiel Block `sunflower-accordion`:
+
+1. im Sunflower-Root-Verzeichnis eine neue POT-Datei erstellen:
+
+```
+wp i18n make-pot . languages/sunflower-accordion.pot --slug=sunflower-accordion --domain=sunflower-accordion --exclude=node_modules,src
+```
+
+2. Die vorhandene Datei `languages/sunflower-accordion-de_DE.po` öffnet und mit der erstellten POT-Datei aktualisieren (`Übersetzung -> aus POT-Datei aktualisieren`).
+3. Aus den PO-Dateien JSON-Dateien erstellen für die Texte in JavaScript-Dateien:
+
+```
+wp i18n make-json languages/ --no-purge
+```
+
+Für die Nutzung im Editor wird für die JavaScript-Komponente eine Datei `sunflower-accordion-de_DE-31a766b993e67ee3f8daefdd7b73b26d.json` erstellt. Der Hash im Dateinamen wird aus dem Dateinamen und Pfad der JavaScript-Datei gebildet.
 
 ## Dokumentation
 - Starte `make mkdocs-serve` *mkdocs*

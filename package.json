@@ -18,9 +18,13 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.4.2",
-    "@wordpress/scripts": "^26.19.0",
-    "@wordpress/stylelint-config": "^21.27.0",
+    "@wordpress/data": "^9.25.0",
+    "@wordpress/i18n": "^4.3.1",
+    "@wordpress/icons": "^9.46.0",
+    "@wordpress/scripts": "^27.5.0",
+    "@wordpress/stylelint-config": "^21.37.0",
     "dir-archiver": "^2.1.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
     "node-sass": "^9.0.0",
     "rtlcss": "^3.5.0"
   },
@@ -42,13 +46,16 @@
     "compile:css": "node-sass sass/style.scss -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "compile:build": "node-sass sass/style.scss -o ./",
     "compile:rtl": "rtlcss style.css style-rtl.css",
-    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
-    "lint:js": "wp-scripts lint-js 'js/*.js'",
+    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss' 'src/**/*.scss'",
+    "lint:js": "wp-scripts lint-js 'js/*.js' 'src/**/*.js'",
+    "lint:jsa": "wp-scripts lint-js",
     "copy-composer": "copyfiles -u 1 vendor/johngrogg/ics-parser/src/ICal/*.php assets/vndr",
-    "copy-node-modules": "copyfiles -u 1 node_modules/jquery-slim/dist/*.min.js node_modules/@popperjs/core/dist/umd/popper.min.js node_modules/bootstrap/dist/js/*.min.js node_modules/@fortawesome/fontawesome-free/webfonts/* node_modules/fork-awesome/fonts/* node_modules/leaflet/dist/*.js node_modules/leaflet/dist/*.css node_modules/leaflet/dist/images/* node_modules/jquery-datetimepicker/build/*.min.js node_modules/jquery-datetimepicker/build/*.min.css node_modules/lightbox2/dist/css/lightbox.min.css node_modules/lightbox2/dist/js/lightbox.min.js node_modules/lightbox2/dist/images/* assets/vndr",
+    "copy-node-modules": "copyfiles -u 1 node_modules/jquery-slim/dist/*.min.js node_modules/@popperjs/core/dist/umd/popper.min.js node_modules/bootstrap/dist/js/*.min.js node_modules/@fortawesome/fontawesome-free/webfonts/* node_modules/fork-awesome/fonts/* node_modules/leaflet/dist/*.js node_modules/leaflet/dist/*.css node_modules/leaflet/dist/images/* node_modules/jquery-datetimepicker/build/*.min.js node_modules/jquery-datetimepicker/build/*.min.css node_modules/lightbox2/dist/css/lightbox.min.css node_modules/lightbox2/dist/js/lightbox.min.js node_modules/lightbox2/dist/images/* node_modules/masonry-layout/dist/masonry.pkgd.min.js assets/vndr",
     "bundle": "npm run copy-composer && npm run copy-node-modules && cd ../ && dir-archiver --src sunflower --dest sunflower.zip --includebasedir true --exclude Makefile create-changelog.php changelog.html documentation mkdocs .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map .favorites.json",
     "build": "wp-scripts build",
-    "start": "wp-scripts start"
+    "start": "wp-scripts start",
+    "format": "wp-scripts format",
+    "packages-update": "wp-scripts packages-update"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.0",
@@ -59,6 +66,7 @@
     "jquery-slim": "^3.0.0",
     "leaflet": "^1.9.3",
     "lightbox2": "^2.11.4",
+    "masonry-layout": "^4.2.2",
     "pa11y": "^7.0"
   }
 }

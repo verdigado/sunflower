@@ -12,7 +12,7 @@ on:
       - main
 
 env:
-  NODE_VERSION: 18
+  NODE_VERSION: 20
 
 jobs:
   build:
@@ -27,7 +27,7 @@ jobs:
           V="v"
           echo Version in style.scss: $THEME_VERSION
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 

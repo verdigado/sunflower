@@ -7,7 +7,7 @@ on:
     types: [published]
 
 env:
-  NODE_VERSION: 18
+  NODE_VERSION: 20
 
 jobs:
   build-deploy:
@@ -23,7 +23,7 @@ jobs:
           echo Version in style.scss: $THEME_VERSION
           if [ "$V$THEME_VERSION" != "${{ github.event.release.tag_name }}" ]; then exit 1; fi
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 

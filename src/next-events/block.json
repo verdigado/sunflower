@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sunflower/next-events",
+	"version": "2.1.0",
+	"title": "Next Events (Sunflower)",
+	"category": "sunflower-blocks",
+	"icon": "calendar-alt",
+	"description": "Show Next Events in Sunflower Design",
+	"example": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+		},
+        "tag": {
+            "type": "array"
+		},
+        "count": {
+            "type": "number",
+            "default": 3
+		},
+		"blockLayout": {
+			"type": "string",
+			"default": "grid"
+		},
+		"excerptLength": {
+			"type": "number",
+			"default": 55
+		}
+    },
+	"supports": {
+		"html": false
+	},
+	"textdomain": "sunflower-next-events",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+    "render": "file:./render.php"
+}
