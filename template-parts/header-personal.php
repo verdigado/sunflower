@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="d-flex w-100">
 			<div class="container d-flex align-items-center bloginfo">
-				<div class="img-container">
+				<div class="img-container <?php if (has_custom_logo()) { echo 'custom-logo'; } else { echo 'sunflower-logo'; }?>">
 					<?php
                     if (function_exists('the_custom_logo') && has_custom_logo()) {
                         the_custom_logo();
@@ -12,7 +12,7 @@
                         echo '<a href="' . get_home_url() . '" rel="home" aria-current="page" title="' , get_bloginfo('name') . '">';
                         $options = get_option('sunflower_first_steps_options');
                         if (($options['sunflower_terms_of_use'] ?? false) == true) {
-					        printf('<img src="%s" class="" alt="Logo">', sunflower_parent_or_child('assets/img/sunflower.svg'));
+					        printf('<img src="%s" class="sunflower-logo" alt="Logo">', sunflower_parent_or_child('assets/img/sunflower.svg'));
                         }
                         echo '</a>';
                     }

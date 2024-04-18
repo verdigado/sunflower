@@ -43,7 +43,7 @@
 
 		<div class="container-fluid bloginfo bg-primary">
 			<div class="container d-flex align-items-center">
-				<div class="img-container">
+				<div class="img-container <?php if (has_custom_logo()) { echo 'custom-logo'; } else { echo 'sunflower-logo'; }?>">
 					<?php
 					if (function_exists('the_custom_logo') && has_custom_logo()) {
 					    the_custom_logo();
@@ -74,13 +74,13 @@
 	<div id="navbar-sticky-detector"></div>
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white">
 		<div class="container">
-            <a class="navbar-brand" href="<?php echo get_home_url(); ?>">
-                <?php
-                    if (($options['sunflower_terms_of_use'] ?? false) == true) {
-                        printf('<img src="%s" class="" alt="Sonnenblume - Logo" title="%s">', sunflower_parent_or_child('assets/img/sunflower.svg'), get_bloginfo('name'));
-                    }
-                ?>
-            </a>
+			<?php
+				$options = get_option('sunflower_first_steps_options');
+				if (($options['sunflower_terms_of_use'] ?? false) == true) {
+					printf('<a class="navbar-brand" href="%s">', get_home_url());
+					printf('<img src="%s" class="sunflower-logo" alt="Sonnenblume - Logo" title="%s"></a>', sunflower_parent_or_child('assets/img/sunflower.svg'), get_bloginfo('name'));
+				}
+			?>
 			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-times close"></i>
 				<i class="fas fa-bars open"></i>

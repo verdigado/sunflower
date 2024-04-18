@@ -190,8 +190,11 @@ body {
         }
 
         .img-container {
+
+            &.sunflower-logo {
+                background-color: $secondary;
+            }
             margin-right: 0.25rem;
-            background-color: $secondary;
             height: 95px;
             width: 95px;
             display: flex;
