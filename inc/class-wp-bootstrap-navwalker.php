@@ -82,23 +82,7 @@ if (! class_exists('WP_Bootstrap_Navwalker')) {
                 $labelledby = 'aria-labelledby="' . esc_attr(end($matches[2])) . '"';
             }
 
-            $spacer = ($depth == 0) ? '<div class="dropdown-menu-spacer"></div>' : '';
-
-            $output .= sprintf('%s%s<div %s>%s<ul %s role="menu">%s', $n, $indent, $class_names, $spacer, $labelledby, $n);
-        }
-
-        public function end_lvl(&$output, $depth = 0, $args = null): void
-        {
-            if (isset($args->item_spacing) && 'discard' === $args->item_spacing) {
-                $t = '';
-                $n = '';
-            } else {
-                $t = "\t";
-                $n = "\n";
-            }
-
-            $indent = str_repeat($t, $depth);
-            $output .= sprintf('%s</ul></div>%s', $indent, $n);
+            $output .= sprintf('%s%s<div %s><ul %s>%s', $n, $indent, $class_names, $labelledby, $n);
         }
 
         /**
@@ -211,7 +195,7 @@ if (! class_exists('WP_Bootstrap_Navwalker')) {
             if (isset($args->has_children) && $args->has_children && 0 === $depth && $args->depth > 1) {
                 $item_has_children = true;
                 $atts['href'] = empty($item->url) ? '#' : $item->url;
-                // $atts['data-bs-toggle']   = 'dropdown';
+                $atts['data-bs-toggle']   = 'dropdown';
                 $atts['aria-haspopup'] = 'true';
                 $atts['aria-expanded'] = 'false';
                 $atts['class'] = 'dropdown-toggle nav-link';

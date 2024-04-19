@@ -171,3 +171,13 @@ function addRssReadMore() {
 
     });
 }
+
+// make parent item of dropdowm menu clickable which is not intended by Bootstrap
+jQuery(".dropdown .dropdown-toggle").on("click", function () {
+	var dropdownOpen = jQuery(this).hasClass('show');
+	// open parent menu only on second click/touch which will close the dropdown menu
+	if (!dropdownOpen) {
+		window.location = jQuery(this).attr("href");
+	}
+	return false;
+});
