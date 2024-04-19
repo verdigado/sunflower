@@ -50,7 +50,8 @@ function sunflower_icalimport($url = false, $auto_categories = false)
     foreach ($events as $event) {
         $uid = $event->uid;
 
-        if (isset($event->rrule)) {
+        // modified instances of a recurring event, RECURRENCE-ID is set but no RRULE
+        if (isset($event->rrule) || isset($event->recurrence_id)) {
             if (isset($count_recurring_events[$uid])) {
                 ++$count_recurring_events[$uid];
             } else {
