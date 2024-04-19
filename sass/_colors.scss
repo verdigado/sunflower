@@ -7,8 +7,7 @@
     color: $white;
 
     a:focus-visible {
-        outline: 0;
-        box-shadow: 0 0 0 0.25rem #fff;
+        outline: #fff solid 2px;
     }
 }
 
@@ -29,8 +28,7 @@
 .has-white-color.has-tanne-background-color {
 
     a:focus-visible {
-        outline: 0;
-        box-shadow: 0 0 0 0.25rem #fff;
+        outline: #fff solid 2px;
     }
 
 }

@@ -4,20 +4,23 @@
 
         .nav-item {
 
-            &:hover {
+            /* open the dropdown menu on hover only on desktop with
+             * mouse pointer
+             */
+            @media (hover: hover) {
 
-                .nav-link {}
+                &:hover {
 
-                div.dropdown-menu {
-                    display: block;
+                    div.dropdown-menu {
+                        display: block;
 
-                    ul {
-                        border-radius: 0;
+                        ul {
+                            border-radius: 0;
+                        }
                     }
                 }
             }
         }
-
     }
 }
 
@@ -55,7 +58,12 @@
 
         a {
             color: $white-90;
+
+            &:focus-visible {
+                outline: #fff solid 2px;
+            }
         }
+
     }
 
     button {
@@ -63,6 +71,10 @@
         border: 0;
         background: none;
         padding: 0 10px;
+
+        &:focus-visible {
+            outline: #fff solid 2px;
+        }
     }
 
     form input::placeholder {
@@ -159,6 +171,11 @@
 
                 &:hover {
                     color: $secondary;
+                }
+
+                &:focus-visible {
+                    outline: $secondary solid 2px;
+                    box-shadow: none;
                 }
             }
         }
@@ -265,6 +282,10 @@
                         color: $white;
                         background: $secondary;
                     }
+
+                    &:focus-visible {
+                        outline-offset: -3px;
+                    }
                 }
             }
         }
@@ -297,6 +318,7 @@
             margin-right: 2em;
         }
     }
+
 }
 
 .dropdown-toggle {
@@ -338,6 +360,10 @@
             .dropdown-menu {
                 flex: 100%;
                 top: 100%;
+
+                > ul {
+                    margin-top: 20px;
+                }
             }
 
         }
