@@ -222,7 +222,11 @@ h6,
     width: 200px;
     height: 200px;
     font-size: 30pt;
-    font-family: GrueneType !important;
+
+    @include themed() {
+        font-family: t("headingFontBold");
+    }
+
     padding: 8pt;
     border-radius: 50%;
     line-height: 100%;
