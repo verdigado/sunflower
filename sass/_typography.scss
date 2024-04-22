@@ -160,38 +160,38 @@ h6,
 
 }
 
-.textbalken {
+.has-background.textbalken {
     z-index: 0;
     width: fit-content;
     line-height: 150%;
     position: relative;
-    padding: 0 !important;
-}
+    padding: 0;
 
-.has-text-align-center.textbalken {
-    margin: auto;
-}
+    &.has-text-align-center {
+        margin: auto;
+    }
 
-.textbalken::after {
-    background: inherit;
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -20px;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    transform: skew(-12deg);
-}
+    &::after {
+        background: inherit;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -20px;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        transform: skew(-12deg);
+    }
 
-.textbalken::before {
-    background: inherit;
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: -20px;
-    z-index: -1;
-    transform: skew(-12deg);
+    &::before {
+        background: inherit;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: -20px;
+        z-index: -1;
+        transform: skew(-12deg);
+    }
 }
