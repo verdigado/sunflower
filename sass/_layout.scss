@@ -77,6 +77,8 @@ img.post-thumbnail {
     &-content {
         margin: 0;
         word-wrap: break-word;
+        hyphens: auto;
+        hyphenate-limit-chars: auto 3 4;
     }
 }
 
