@@ -201,7 +201,7 @@ h6,
 
     &.links-eins {
         left: 1em;
-        margin-top: -0.5rem !important;
+        margin-top: -0.5rem;
 
         @include media-breakpoint-down(md) {
             left: 0.5em;
@@ -210,7 +210,7 @@ h6,
 
     &.links-zwei {
         left: 3em;
-        margin-top: -0.5rem !important;
+        margin-top: -0.5rem;
 
         @include media-breakpoint-down(md) {
             left: 2.5em;
