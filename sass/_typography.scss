@@ -217,3 +217,32 @@ h6,
         }
     }
 }
+
+.stoerer {
+    width: 200px;
+    height: 200px;
+    font-size: 30pt;
+    font-family: GrueneType !important;
+    padding: 8pt;
+    border-radius: 50%;
+    line-height: 100%;
+    color: $white;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    background: map-get($custom-colors, "himmel");
+    -moz-transform: rotate(-7deg); /* Firefox 3.6 Firefox 4 */
+    -webkit-transform: rotate(-7deg); /* Safari */
+    -o-transform: rotate(-7deg); /* Opera */
+    -ms-transform: rotate(-7deg); /* IE9 */
+    transform: rotate(-7deg); /* W3C */
+    position: relative;
+    left: 20rem;
+    top: 5rem;
+
+    @include media-breakpoint-down(md) {
+        left: 8rem;
+        top: 2rem;
+    }
+}
+
