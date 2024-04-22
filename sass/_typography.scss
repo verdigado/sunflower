@@ -198,4 +198,22 @@ h6,
         z-index: -1;
         transform: skew(-12deg);
     }
+
+    &.links-eins {
+        left: 1em;
+        margin-top: -0.5rem !important;
+
+        @include media-breakpoint-down(md) {
+            left: 0.5em;
+        }
+    }
+
+    &.links-zwei {
+        left: 3em;
+        margin-top: -0.5rem !important;
+
+        @include media-breakpoint-down(md) {
+            left: 2.5em;
+        }
+    }
 }
