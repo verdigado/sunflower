@@ -67,7 +67,19 @@ if ($_sunflower_event_location_city) {
 if ($location !== []) {
     $metadata .= sprintf(
         '<div class="mt-2 mb-2">%s</div>',
-        implode('<br>', $location)
+        implode('<br>',
+            array_map( function($locline) {
+                if (filter_var($locline, FILTER_VALIDATE_URL)) {
+                    return sprintf(
+                        '<i class="fa-solid fa-location-dot"></i><a href="%s" class="location" target="_blank">%s</a>',
+                        $locline,
+                        __('Location Link', 'sunflower')
+                    );
+                } else {
+                    return $locline;
+                }
+            }, $location)
+        )
     );
 }
 
