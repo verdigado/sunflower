@@ -67,5 +67,10 @@
 
     a {
         color: $white;
+
+        &.location {
+            margin-left: 5px;
+        }
     }
+
 }

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2024-04-17T10:22:22+00:00\n"
-"PO-Revision-Date: 2024-04-17 12:24+0200\n"
+"POT-Creation-Date: 2024-04-22T10:57:50+00:00\n"
+"PO-Revision-Date: 2024-04-22 13:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -17,22 +17,27 @@ msgstr ""
 "X-Domain: sunflower\n"
 
 #. Theme Name of the theme
+#: style.css
 msgid "sunflower"
 msgstr "sunflower"
 
 #. Theme URI of the theme
+#: style.css
 msgid "https://sunflower-theme.de"
 msgstr "https://sunflower-theme.de"
 
 #. Description of the theme
+#: style.css
 msgid "Theme for the German Green Party"
 msgstr "WordPress Theme für BÜNDNIS 90/DIE GRÜNEN"
 
 #. Author of the theme
+#: style.css
 msgid "verdigado eG"
 msgstr "verdigado eG"
 
 #. Author URI of the theme
+#: style.css
 msgid "https://verdigado.com"
 msgstr ""
 
@@ -77,11 +82,11 @@ msgstr "Landkarte"
 msgid "more info"
 msgstr "mehr Infos"
 
-#: archive-sunflower_event.php:185 single-sunflower_event.php:122
+#: archive-sunflower_event.php:185 single-sunflower_event.php:134
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: archive-sunflower_event.php:188 single-sunflower_event.php:125
+#: archive-sunflower_event.php:188 single-sunflower_event.php:137
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
@@ -89,7 +94,7 @@ msgstr ""
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: archive-sunflower_event.php:192 single-sunflower_event.php:133
+#: archive-sunflower_event.php:192 single-sunflower_event.php:145
 msgid "Show map"
 msgstr "Kartendaten laden"
 
@@ -212,13 +217,13 @@ msgstr ""
 "            Wenn Du weiterhin die Sonnenblume im Menü, im Footer und als "
 "Favicon nutzen möchtest, lese und akzeptiere die Nutzungsbedingungen."
 
-#: functions/admin.php:157 functions/block-patterns.php:12
+#: functions/admin.php:162 functions/block-patterns.php:12
 #: functions/blocks.php:9 functions/options/first-steps.php:24
 #: functions/options/first-steps.php:25
 msgid "Sunflower"
 msgstr "Sunflower"
 
-#: functions/admin.php:184
+#: functions/admin.php:189
 msgid "Help for sunflowers events"
 msgstr "Hilfe für Sunflower-Termine"
 
@@ -550,7 +555,7 @@ msgstr "weiterlesen"
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
 
-#: inc/class-wp-bootstrap-navwalker.php:414
+#: inc/class-wp-bootstrap-navwalker.php:398
 msgid "Add a menu"
 msgstr "Menü erstellen"
 
@@ -586,15 +591,19 @@ msgstr "Suchergebnisse für „%s“"
 msgid "o'clock"
 msgstr "Uhr"
 
-#: single-sunflower_event.php:78
+#: single-sunflower_event.php:76
+msgid "Location Link"
+msgstr "Link zum Ort"
+
+#: single-sunflower_event.php:90
 msgid "Link to webinar"
 msgstr "Link zur Online-Teilnahme (Webinar)"
 
-#: single-sunflower_event.php:84 single-sunflower_event.php:86
+#: single-sunflower_event.php:96 single-sunflower_event.php:98
 msgid "organized by"
 msgstr "organisiert von"
 
-#: single-sunflower_event.php:93
+#: single-sunflower_event.php:105
 msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
@@ -645,8 +654,8 @@ msgid "none"
 msgstr "keine"
 
 #: template-parts/header-standard.php:28 template-parts/header-standard.php:31
-#: template-parts/header-standard.php:106
-#: template-parts/header-standard.php:109
+#: template-parts/header-standard.php:107
+#: template-parts/header-standard.php:110
 msgid "Search"
 msgstr "Suche"
 
@@ -662,32 +671,38 @@ msgstr "Kontrast erhöhen"
 msgid "Related posts"
 msgstr "Ähnliche Beiträge"
 
+#: build/index.js:515 build/index.js:562 build/index.js:455 build/index.js:498
+msgid "Next events"
+msgstr "Nächste Termine"
+
+#: build/index.js:516 build/index.js:456
+msgid "show next events"
+msgstr "zeige nächste Termine"
+
+#: build/index.js:562 build/index.js:495
+msgid "Loading"
+msgstr "lade"
+
+#: build/index.js:562 build/index.js:496
+msgid "No Events"
+msgstr "Keine Termine"
+
+#: build/index.js:562 build/index.js:500
+msgid "Maximum events shown"
+msgstr "Maximale Anzahl angezeigter Termine"
+
+#: build/index.js:578 build/index.js:522
+msgid "Count"
+msgstr "Anzahl"
+
 #~ msgid "to archive"
 #~ msgstr "Zum Blog-Archiv"
-
-#~ msgid "Next events"
-#~ msgstr "Nächste Termine"
 
 #~ msgid "Thank you. The form has been sent."
 #~ msgstr "Vielen Dank. Das Formular wurde verschickt."
 
 #~ msgid "New contact form"
 #~ msgstr "Neues Kontaktformular"
-
-#~ msgid "show next events"
-#~ msgstr "zeige nächste Termine"
-
-#~ msgid "Loading"
-#~ msgstr "lade"
-
-#~ msgid "No Events"
-#~ msgstr "Keine Termine"
-
-#~ msgid "Maximum events shown"
-#~ msgstr "Maximale Anzahl angezeigter Termine"
-
-#~ msgid "Count"
-#~ msgstr "Anzahl"
 
 #~ msgctxt "block title"
 #~ msgid "Accordion (Sunflower)"
