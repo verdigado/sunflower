@@ -6,6 +6,10 @@
     margin-bottom: 50px;
 }
 
+:where(.wp-block-columns.no-gap.is-layout-flex) {
+    gap: 0 !important;
+}
+
 .wp-block-column {
 
     img {
