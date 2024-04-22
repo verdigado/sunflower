@@ -129,6 +129,7 @@ h2,
 .has-large-font-size {
 	font-size: 27px;
 	line-height: 1.2em;
+	font-family: "GrueneType";
 }
 
 h3,
@@ -293,37 +294,38 @@ p a {
 }
 
 /* add textbalken */
-.textbalken {
-    z-index: 0;
-    width: fit-content;
-    line-height: 150%;
-    position: relative;
+.has-background.textbalken {
+	z-index: 0;
+	width: fit-content;
+	line-height: 150%;
+	position: relative;
+	padding: 0;
 }
 
-.has-text-align-center.textbalken {
-    margin: auto;
+.has-background.textbalken.has-text-align-center {
+	margin: auto;
 }
 
-.textbalken::after {
-    background: inherit;
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -20px;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    transform: skew(-12deg);
+.has-background.textbalken::after {
+	background: inherit;
+	content: "";
+	position: absolute;
+	top: 0;
+	right: -20px;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	transform: skew(-12deg);
 }
 
-.textbalken::before {
-    background: inherit;
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: -20px;
-    z-index: -1;
-    transform: skew(-12deg);
+.has-background.textbalken::before {
+	background: inherit;
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: -20px;
+	z-index: -1;
+	transform: skew(-12deg);
 }
