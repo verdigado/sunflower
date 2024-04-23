@@ -76,6 +76,36 @@ body.admin-bar {
             }
         }
 
+        .button-highlight-stuck {
+            @include media-breakpoint-down(md) {
+                display:block;
+                background-color: $secondary;
+                cursor: pointer;
+                padding: 0rem 0.5rem;
+                margin: 0.2rem;
+                border-radius: 9999px;
+                order: 0;
+
+                &:hover {
+                    background-color: map-get($custom-colors, "sonne");
+                    border-bottom: 4px solid $white;
+                }
+
+                a {
+                    color: $white;
+                    font-size: 18px;
+                    padding: 11px 0 7px 0;
+                    margin-right: 0.5rem;
+                    margin-left: 0.5rem;
+                    text-transform: uppercase;
+
+                    &:hover {
+                        color: $black;
+                    }
+                }
+            }
+        }
+
     }
 
     &-brand {
@@ -91,6 +121,10 @@ body.admin-bar {
         img {
             height: 60px;
         }
+    }
+
+    .button-highlight-stuck {
+        display:none;
     }
 }
 

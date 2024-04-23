@@ -81,6 +81,32 @@
 					printf('<img src="%s" class="sunflower-logo" alt="Sonnenblume - Logo" title="%s"></a>', sunflower_parent_or_child('assets/img/sunflower.svg'), get_bloginfo('name'));
 				}
 			?>
+            <?php
+                function output_highlight_button_if_exists() {
+                    // Stelle sicher, dass das Menü existiert
+                    if (has_nav_menu('mainmenu')) {
+                        // Hole das Menü-Objekt
+                        $menu_locations = get_nav_menu_locations();
+                        $menu_id = $menu_locations['mainmenu'];
+                        $menu_items = wp_get_nav_menu_items($menu_id);
+
+                        // Durchsuche die Menü-Elemente nach der Klasse
+                        foreach ($menu_items as $menu_item) {
+                            // Überprüfe, ob das Element die Klasse enthält
+                            if (in_array('button-highlight', $menu_item->classes)) {
+                                // Gibt den Link des ersten gefundenen Elements aus und beendet die Funktion
+                                echo '<a href="' . esc_url($menu_item->url) . '">' . esc_html($menu_item->title) . '</a>';
+                                return;
+                            }
+                        }
+                    }
+                    // Kein Element gefunden, keine Ausgabe
+                }
+                ?>
+
+                <div class="button-highlight-stuck">
+                    <?php output_highlight_button_if_exists(); ?>
+                </div>
 			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-times close"></i>
 				<i class="fas fa-bars open"></i>
