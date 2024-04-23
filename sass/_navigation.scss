@@ -145,6 +145,7 @@
                 margin: 0.2rem;
                 border-radius: 9999px;
                 order: 0;
+                white-space: nowrap;
 
                 &:hover {
                     background-color: map-get($custom-colors, "sonne");
