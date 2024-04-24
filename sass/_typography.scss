@@ -167,6 +167,10 @@ h6,
     position: relative;
     padding: 0;
 
+    @include themed() {
+        font-family: t("headingFont");
+    }
+
     &.has-text-align-center {
         margin: auto;
     }
