@@ -18,9 +18,11 @@ h1, h2, h3 {
    border: 1px solid #eef4f8;
 }
 
-.caption-text{
-   color: #e50064;
-   font-size: 12pt;
+.caption-text {
+    color: #ffffff;
+    font-size: 12pt;
+    font-weight: bold;
+    text-decoration: underline 4px #e50064;
 }
 
 .rst-versions .rst-current-version {
@@ -109,4 +111,8 @@ hr {
 
 .btn-neutral:hover {
     background-color: #a00057 !important;
+}
+
+footer {
+    color: #00354e;
 }
