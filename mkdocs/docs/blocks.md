@@ -8,4 +8,8 @@
 - Wählen in den Block-Einstellungen die Farbeinstellungen aus
 
 ## Vorlagen
-Es gibt auch Vorlagen für typische Szenarien wie z.B. die Startseite.
+Es gibt auch Vorlagen für typische Szenarien wie z.B. die Startseite und Kandidirenden Seite. Du findest sie beim Erstellen einer neuen Seite in den Vorlagen:
+<figure markdown="span">
+  ![Screenshot vom Sunflower-Menü](images/pattern.png){ width="" }
+  <figcaption>Vorlage in Seite laden</figcaption>
+</figure>
