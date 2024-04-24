@@ -124,6 +124,7 @@
     &-light {
 
         .navbar-nav {
+            align-items: center;
 
             > .nav-item {
 
@@ -133,6 +134,30 @@
 
                     @include media-breakpoint-up(lg) {
                         border-bottom: 4px solid $secondary;
+                    }
+                }
+            }
+
+            .button-highlight {
+                background-color: $secondary;
+                cursor: pointer;
+                padding: 0 0.5rem;
+                margin: 0.2rem;
+                border-radius: 9999px;
+                order: 0;
+                white-space: nowrap;
+                max-height: 4em;
+
+                &:hover {
+                    background-color: map-get($custom-colors, "sonne");
+                    border-bottom: 4px solid $white;
+                }
+
+                a.nav-link {
+                    color: $white;
+
+                    &:hover {
+                        color: $black;
                     }
                 }
             }

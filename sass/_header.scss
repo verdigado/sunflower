@@ -76,6 +76,34 @@ body.admin-bar {
             }
         }
 
+        .button-highlight-stuck {
+
+            @include media-breakpoint-down(md) {
+                display: block;
+                background-color: $secondary;
+                border-radius: 9999px;
+                padding: 0.2rem 0.5rem;
+
+                &:hover {
+                    background-color: map-get($custom-colors, "sonne");
+                    border-bottom: 4px solid $white;
+                }
+
+                a {
+                    color: $white;
+                    font-size: 14px;
+                    padding: 11px 0 7px 0;
+                    margin-right: 0.5rem;
+                    margin-left: 0.5rem;
+                    text-transform: uppercase;
+
+                    &:hover {
+                        color: $black;
+                    }
+                }
+            }
+        }
+
     }
 
     &-brand {
@@ -91,6 +119,10 @@ body.admin-bar {
         img {
             height: 60px;
         }
+    }
+
+    .button-highlight-stuck {
+        display: none;
     }
 }
 
