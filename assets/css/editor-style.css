@@ -295,37 +295,102 @@ p a {
 
 /* add textbalken */
 .has-background.textbalken {
-	z-index: 0;
-	width: fit-content;
-	line-height: 150%;
-	position: relative;
-	padding: 0;
+    z-index: 0;
+    width: fit-content;
+    line-height: 150%;
+    position: relative;
+    padding: 0;
 }
 
 .has-background.textbalken.has-text-align-center {
-	margin: auto;
+    margin: auto;
 }
 
 .has-background.textbalken::after {
-	background: inherit;
-	content: "";
-	position: absolute;
-	top: 0;
-	right: -20px;
-	bottom: 0;
-	left: 0;
-	z-index: -1;
-	transform: skew(-12deg);
+    background: inherit;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -20px;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transform: skew(-12deg);
 }
 
 .has-background.textbalken::before {
-	background: inherit;
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: -20px;
-	z-index: -1;
-	transform: skew(-12deg);
+    background: inherit;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -20px;
+    z-index: -1;
+    transform: skew(-12deg);
+}
+
+.has-background.textbalken.links-eins {
+    left: 1em;
+    margin-top: -0.5rem !important;
+}
+
+@media (max-width: 767.98px) {
+
+    .has-background.textbalken.links-eins {
+        left: 0.5em;
+    }
+}
+
+.has-background.textbalken.links-zwei {
+    left: 3em;
+    margin-top: -0.5rem !important;
+}
+
+@media (max-width: 767.98px) {
+
+    .has-background.textbalken.links-zwei {
+        left: 2.5em;
+    }
+}
+
+.stoerer {
+    width: 200px;
+    height: 200px;
+    font-size: 30pt;
+    font-family: GrueneType !important;
+    padding: 8pt;
+    border-radius: 50%;
+    line-height: 100%;
+    color: #fff;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    background: #0ba1dd;
+    -moz-transform: rotate(-7deg);
+
+    /* Firefox 3.6 Firefox 4 */
+    -webkit-transform: rotate(-7deg);
+
+    /* Safari */
+    -o-transform: rotate(-7deg);
+
+    /* Opera */
+    -ms-transform: rotate(-7deg);
+
+    /* IE9 */
+    transform: rotate(-7deg);
+
+    /* W3C */
+    position: relative;
+    left: 20rem;
+    top: 5rem;
+}
+
+@media (max-width: 767.98px) {
+
+    .stoerer {
+        left: 8rem;
+        top: 2rem;
+    }
 }
