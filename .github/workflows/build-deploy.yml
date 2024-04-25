@@ -45,7 +45,9 @@ jobs:
           php-version: 8.2
 
       - name: run install composer
-        run: composer install
+        run: |
+          composer install
+          cd lib && composer install
 
       - name: Make bundle
         run: npm run bundle
