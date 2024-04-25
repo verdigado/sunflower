@@ -35,7 +35,7 @@ https://chatbegruenung.de/channel/sunflower-wordpress
  - compile the theme with the following commands:
     ```sh
     npm run compile:css
-    npm run copy-composer
+    npm run composer-lib
     npm run copy-node-modules
     npm run build
     ```
