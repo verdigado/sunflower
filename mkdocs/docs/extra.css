@@ -7,7 +7,11 @@ h1, h2, h3 {
 }
 
 .wy-side-nav-search {
-   background-color: #008939;
+   background-color: #005437;
+   background-image: url("img/Sonnenblume_Logo.svg");
+   background-repeat: no-repeat;
+   background-size: 150px;
+   background-position: 12.8em -3.7em;
 }
 
 .wy-side-nav-search input[type=text]{
@@ -26,7 +30,7 @@ h1, h2, h3 {
 }
 
 .rst-versions .rst-current-version {
-    background-color: #008939;
+    background-color: #005437;
 }
 
 .wy-nav-side {
