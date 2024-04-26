@@ -14,12 +14,12 @@
 function sunflower_body_classes($classes)
 {
     // Adds a class of hfeed to non-singular pages.
-    if (! is_singular()) {
+    if (!is_singular()) {
         $classes[] = 'hfeed';
     }
 
     // Adds a class of no-sidebar when there is no sidebar present.
-    if (! is_active_sidebar('sidebar-1')) {
+    if (!is_active_sidebar('sidebar-1')) {
         $classes[] = 'no-sidebar';
     }
 
@@ -33,11 +33,11 @@ add_filter('body_class', 'sunflower_body_classes');
  */
 function sunflower_pingback_header()
 {
-    if (! is_singular()) {
+    if (!is_singular()) {
         return;
     }
 
-    if (! pings_open()) {
+    if (!pings_open()) {
         return;
     }
 

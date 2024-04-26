@@ -7,7 +7,7 @@ $next_events = sunflower_get_next_events($count, $tag);
 $classes = $attributes['className'] ?? '';
 
 $is_grid = false;
-if ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'] ) {
+if (isset($attributes['blockLayout']) && 'grid' === $attributes['blockLayout']) {
     $is_grid = true;
 }
 
@@ -18,8 +18,7 @@ $return = sprintf(
                         <div class="wp-block-button text-center mb-5"><a class="wp-block-button__link no-border-radius" href="%s" rel="">%s</a></div>
                     <div class="row">',
     $classes,
-    ($attributes['title'] ?? '') ?: __('Next events', 'sunflower-next-events')
-    ,
+    ($attributes['title'] ?? '') ?: __('Next events', 'sunflower-next-events'),
     get_post_type_archive_link('sunflower_event'),
     __('all events', 'sunflower')
 );

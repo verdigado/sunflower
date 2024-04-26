@@ -30,7 +30,7 @@ function sunflower_notice()
         $linkverdigado
     );
     echo '<br />';
-    _e("<a href='admin.php?page=sunflower_admin'>More information can be found on the theme's settings page</a>.", 'sunflower');
+    esc_html_e("<a href='admin.php?page=sunflower_admin'>More information can be found on the theme's settings page</a>.", 'sunflower');
     ?>
         </p>
 	</div>
@@ -79,7 +79,7 @@ function sunflower_notice_terms()
 		<p>
             <?php echo __("There is a new option on the <a href='admin.php?page=sunflower_admin'>Sunflower->First Steps</a> page.<br />
             If you continue to use the sunflower icons in menue, footer and as favicon, please read and accept the terms of use.", 'sunflower');
-            ?>
+    ?>
         </p>
 	</div>
 	<?php
@@ -114,20 +114,15 @@ function sunflower_load_admin_scripts()
 add_action('admin_enqueue_scripts', 'sunflower_load_admin_scripts');
 
 /**
- *
  * Update Dismissed option of the given option.
  *
  * The option id is send via ajax-call from admin.js
- *
  */
 function sunflower_update_notice()
 {
     $id = $_POST['id'] ?? '';
-    if (! empty($id) ) {
-        $dissmiss_option = $id . '-dismissed';
-    } else {
-        $dissmiss_option = 'sunflower-plugins-dismissed';
-    }
+    $dissmiss_option = empty($id) ? 'sunflower-plugins-dismissed' : $id . '-dismissed';
+
     update_option($dissmiss_option, 1);
 }
 

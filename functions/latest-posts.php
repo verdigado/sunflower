@@ -33,5 +33,4 @@ function sunflower_get_latest_posts($number = -1, $tagIds = null)
             'order' => 'DESC',
         ]
     );
-
 }

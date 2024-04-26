@@ -4,7 +4,7 @@ $proid = parse_url((string) get_bloginfo('url'), PHP_URL_HOST);
 $filename = preg_replace('/[^a-zA-Z0-9]/', '-', (string) get_the_title()) . '.ics';
 
 $event = '';
-if (! defined('SUNFLOWER_ICAL_ALL_EVENTS')) {
+if (!defined('SUNFLOWER_ICAL_ALL_EVENTS')) {
     $event = sunflower_getEventInIcs($post) . "\n";
 } else {
     $filename = preg_replace('/[^a-zA-Z0-9]/', '-', $proid . '_events') . '.ics';
@@ -73,8 +73,8 @@ function sunflower_getEventInIcs($post)
     $_sunflower_event_location_street = @get_post_meta($post->ID, '_sunflower_event_location_street')[0] ?: false;
     $_sunflower_event_location_city = @get_post_meta($post->ID, '_sunflower_event_location_city')[0] ?: false;
 
-    $from = sunflower_getIcalDate($_sunflower_event_from, ! $_sunflower_event_whole_day);
-    $until = ($_sunflower_event_until) ? sunflower_getIcalDate($_sunflower_event_until, ! $_sunflower_event_whole_day) : sunflower_getIcalDate(3600 + $_sunflower_event_from, ! $_sunflower_event_whole_day);
+    $from = sunflower_getIcalDate($_sunflower_event_from, !$_sunflower_event_whole_day);
+    $until = ($_sunflower_event_until) ? sunflower_getIcalDate($_sunflower_event_until, !$_sunflower_event_whole_day) : sunflower_getIcalDate(3600 + $_sunflower_event_from, !$_sunflower_event_whole_day);
 
     $now = sunflower_getIcalDate(strToTime('now'), true);
     $summary = sunflower_textfold('SUMMARY:' . html_entity_decode((string) get_the_title()));

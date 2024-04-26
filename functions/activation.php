@@ -50,7 +50,7 @@ function sunflower_import_events()
         }
 
         $id = wp_insert_post((array) $post, true);
-        if (! is_int($id)) {
+        if (!is_int($id)) {
             echo 'Could not copy post';
             return false;
         }

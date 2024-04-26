@@ -7,20 +7,21 @@
  * @package sunflower
  */
 
-if (isset($_GET['format']) && $_GET['format'] === 'ics') {
-    define('SUNFLOWER_ICAL_ALL_EVENTS', true);
-    include_once __DIR__ . '/functions/ical.php';
-    die();
+if ( isset( $_GET['format'] ) && 'ics' === $_GET['format'] ) {
+	check_admin_referer( 'event_ics_' . $post->ID, 'sunflower_nonce' );
+	define( 'SUNFLOWER_ICAL_ALL_EVENTS', true );
+	include_once __DIR__ . '/functions/ical.php';
+	die();
 }
 
 get_header();
 
-$is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
+$sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['archive'] );
 ?>
 	<?php
-    // Prepare map data
-    $map = [];
-?>
+	// Prepare map data.
+	$sunflower_map = array();
+	?>
 	<script>
 		const map = {};
 		map.marker = [];
@@ -31,112 +32,112 @@ $is_event_archive = isset($_GET['archive']) && ($_GET['archive'] == 'true');
 		<div class="row">
 			<div class="col-12">
 				<main id="primary" class="site-main">
-					<?php if (have_posts()) : ?>
+					<?php if ( have_posts() ) : ?>
 
 						<header class="page-header text-center">
 							<h1 class="page-title">
 								<?php
-                            ($is_event_archive) ? _e('Events archive', 'sunflower') : _e('Events', 'sunflower');
-					    ?>
+								( $sunflower_is_event_archive ) ? esc_html_e( 'Events archive', 'sunflower' ) : esc_html_e( 'Events', 'sunflower' );
+								?>
 							</h1>
 								<?php
-					    if ($sunflower_events_description = get_sunflower_setting('sunflower_events_description')) {
-					        printf('<p>%s</p>', $sunflower_events_description);
-					    }
-					    ?>
+								$sunflower_events_description = get_sunflower_setting( 'sunflower_events_description' ) ?? '';
+								if ( $sunflower_events_description ) {
+									printf( '<p>%s</p>', wp_kses_post( $sunflower_events_description ) );
+								}
+								?>
 						</header><!-- .page-header -->
 
 						<div class="filter-button-group mb-5 text-center">
 						<?php
-                        if ($is_event_archive) {
-                            printf('<a href="?archive=false" class="eventlist" >%s</a>', __('to upcoming events', 'sunflower'));
-                        } else {
-                            printf('<button class="filter filter-active" data-filter="*">%s</button>', __('all events', 'sunflower'));
-                            if (get_sunflower_setting('sunflower_show_event_archive')) {
-                                printf('<a href="?archive=true" class="eventlist" >%s</a>', __('Archive', 'sunflower'));
-                            }
-                        }
-                        ?>
+						if ( $sunflower_is_event_archive ) {
+							printf( '<a href="?archive=false" class="eventlist" >%s</a>', esc_html__( 'to upcoming events', 'sunflower' ) );
+						} else {
+							printf( '<button class="filter filter-active" data-filter="*">%s</button>', esc_html__( 'all events', 'sunflower' ) );
+							if ( get_sunflower_setting( 'sunflower_show_event_archive' ) ) {
+								printf( '<a href="?archive=true" class="eventlist" >%s</a>', esc_html__( 'Archive', 'sunflower' ) );
+							}
+						}
+						?>
 
-						<?php if (get_sunflower_setting('sunflower_show_overall_map') && ! $is_event_archive) { ?>
-								<button class="filter" data-filter=".map"><?php _e('Map', 'sunflower'); ?></button>
-						<?php }
+						<?php if ( get_sunflower_setting( 'sunflower_show_overall_map' ) && ! $sunflower_is_event_archive ) { ?>
+								<button class="filter" data-filter=".map"><?php esc_html_e( 'Map', 'sunflower' ); ?></button>
+							<?php
+						}
 						?>
 
 
 						<?php
-                            $terms = get_terms(
-                                [
-                                    'taxonomy' => 'sunflower_event_tag',
-                                    'hide_empty' => true,
-                                ]
-                            );
+							$sunflower_terms = get_terms(
+								array(
+									'taxonomy'   => 'sunflower_event_tag',
+									'hide_empty' => true,
+								)
+							);
 
-                        if (! $is_event_archive) {
-                            foreach ($terms as $term) {
-                                printf('<button class="filter" data-filter=".%s">%s</button>', $term->slug, $term->name);
-                            }
-                        }
-                        ?>
+						if ( ! $sunflower_is_event_archive ) {
+							foreach ( $sunflower_terms as $sunflower_term ) {
+								printf( '<button class="filter" data-filter=".%s">%s</button>', esc_attr( $sunflower_term->slug ), esc_attr( $sunflower_term->name ) );
+							}
+						}
+						?>
 						</div>
 
 						<div class="row event-list">
 						<?php
 
-// $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+						$sunflower_ordered_posts = ( $sunflower_is_event_archive ) ? sunflower_get_past_events() : sunflower_get_next_events();
 
-$ordered_posts = ($is_event_archive) ? sunflower_get_past_events() : sunflower_get_next_events();
+						/* Start the Loop */
+						while ( $sunflower_ordered_posts->have_posts() ) {
+							$sunflower_ordered_posts->the_post();
 
-/* Start the Loop */
-while ($ordered_posts->have_posts()) :
-    $ordered_posts->the_post();
+							/*
+							* Include the Post-Type-specific template for the content.
+							* If you want to override this in a child theme, then include a file
+							* called content-___.php (where ___ is the Post Type name) and that will be used instead.
+							*/
 
-    /*
-    * Include the Post-Type-specific template for the content.
-    * If you want to override this in a child theme, then include a file
-    * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-    */
+							echo '<div class="col-12 col-md-6 col-lg-4 mb-3">';
+							get_template_part( 'template-parts/archive', 'event' );
 
-    echo '<div class="col-12 col-md-6 col-lg-4 mb-3">';
-    get_template_part('template-parts/archive', 'event');
+							$sunflower_event_lon                                   = get_post_meta( $post->ID, '_sunflower_event_lon', true ) ?? false;
+							$sunflower_event_lat                                   = get_post_meta( $post->ID, '_sunflower_event_lat', true ) ?? false;
+							$sunflower_event_location_name                         = get_post_meta( $post->ID, '_sunflower_event_location_name', true ) ?? false;
+							$sunflower_event_location_city                         = get_post_meta( $post->ID, '_sunflower_event_location_city', true ) ?? false;
+							[$sunflower_weekday, $sunflower_days, $sunflower_time] = sunflower_prepare_event_time_data( $post );
+							$sunflower_location                                    = $sunflower_event_location_city;
+							if ( $sunflower_event_location_city ) {
+								$sunflower_location .= ', ' . $sunflower_event_location_city;
+							}
 
-    $_sunflower_event_lon = @get_post_meta($post->ID, '_sunflower_event_lon')[0] ?: false;
-    $_sunflower_event_lat = @get_post_meta($post->ID, '_sunflower_event_lat')[0] ?: false;
-    $_sunflower_event_location_name = @get_post_meta($post->ID, '_sunflower_event_location_name')[0] ?: false;
-    $_sunflower_event_location_city = @get_post_meta($post->ID, '_sunflower_event_location_city')[0] ?: false;
-    [$weekday, $days, $time] = sunflower_prepare_event_time_data($post);
-    $location = $_sunflower_event_location_city;
-    if ($_sunflower_event_location_city) {
-        $location .= ', ' . $_sunflower_event_location_city;
-    }
+							if ( $sunflower_location ) {
+								$sunflower_location = ' | ' . $sunflower_location;
+							}
 
-    if ($location) {
-        $location = ' | ' . $location;
-    }
+							if ( $sunflower_event_lat && $sunflower_event_lon ) {
+								$sunflower_map[] = (object) array(
+									'lat'     => $sunflower_event_lat,
+									'lon'     => $sunflower_event_lon,
+									'content' => sprintf(
+										'<div class="leaflet-marker"><strong>%s</strong><div>%s%s</div><div>%s</div><a href="%s">%s</a></div>',
+										get_the_title(),
+										$sunflower_days,
+										$sunflower_location,
+										get_the_excerpt(),
+										get_permalink(),
+										__( 'more info', 'sunflower' )
+									),
+								);
+							}
 
-    if ($_sunflower_event_lat && $_sunflower_event_lon) {
-        $map[] = (object) [
-            'lat' => $_sunflower_event_lat,
-            'lon' => $_sunflower_event_lon,
-            'content' => sprintf(
-                '<div class="leaflet-marker"><strong>%s</strong><div>%s%s</div><div>%s</div><a href="%s">%s</a></div>',
-                get_the_title(),
-                $days,
-                $location,
-                get_the_excerpt(),
-                get_permalink(),
-                __('more info', 'sunflower')
-            ),
-        ];
-    }
+							echo '</div>';
+						}
 
-    echo '</div>';
-
-endwhile;
 
 else :
 
-    get_template_part('template-parts/content', 'no-events');
+	get_template_part( 'template-parts/content', 'no-events' );
 
 endif;
 ?>
@@ -144,36 +145,36 @@ endif;
 					<script>
 
 						<?php
-    $lowerLat = 90;
-$upperLat = 0;
-$lowerLon = 90;
-$upperLon = 0;
+						$sunflower_lower_lat = 90;
+						$sunflower_upper_lat = 0;
+						$sunflower_lower_lon = 90;
+						$sunflower_upper_lon = 0;
 
-foreach ($map as $marker) {
-    printf(
-        "map.marker.push( { 'lat' : %s, 'lon': %s, 'content': '%s'} );",
-        $marker->lat,
-        $marker->lon,
-        $marker->content
-    );
+						foreach ( $sunflower_map as $sunflower_marker ) {
+							printf(
+								"map.marker.push( { 'lat' : %s, 'lon': %s, 'content': '%s'} );",
+								esc_attr( $sunflower_marker->lat ),
+								esc_attr( $sunflower_marker->lon ),
+								esc_attr( $sunflower_marker->content )
+							);
 
-    $lowerLat = min($lowerLat, $marker->lat);
-    $upperLat = max($upperLat, $marker->lat);
-    $lowerLon = min($lowerLon, $marker->lon);
-    $upperLon = max($upperLon, $marker->lon);
-}
+							$sunflower_lower_lat = min( $sunflower_lower_lat, $sunflower_marker->lat );
+							$sunflower_upper_lat = max( $sunflower_upper_lat, $sunflower_marker->lat );
+							$sunflower_lower_lon = min( $sunflower_lower_lon, $sunflower_marker->lon );
+							$sunflower_upper_lon = max( $sunflower_upper_lon, $sunflower_marker->lon );
+						}
 
-$centerLat = ($lowerLat + $upperLat) / 2;
-$centerLon = ($lowerLon + $upperLon) / 2;
-$zoom = get_sunflower_setting('sunflower_zoom') ?: 6;
-printf(
-    "map.center = { 'lat': %s, 'lon': %s, 'zoom': %s };",
-    $centerLat,
-    $centerLon,
-    $zoom
-);
+						$sunflower_center_lat = ( $sunflower_lower_lat + $sunflower_upper_lat ) / 2;
+						$sunflower_center_lon = ( $sunflower_lower_lon + $sunflower_upper_lon ) / 2;
+						$sunflower_zoom       = get_sunflower_setting( 'sunflower_zoom' ) ?? 6;
+						printf(
+							"map.center = { 'lat': %s, 'lon': %s, 'zoom': %s };",
+							esc_attr( $sunflower_center_lat ),
+							esc_attr( $sunflower_center_lon ),
+							esc_attr( $sunflower_zoom )
+						);
 
-?>
+						?>
 
 					</script>
 
@@ -182,14 +183,14 @@ printf(
 							<div class="before-loading text-center">
 								<i class="fas fa-map-marker-alt mb-3"></i>
 								<div class="h5 mb-3">
-									<?php _e('Show event location on map', 'sunflower'); ?>
+									<?php esc_html_e( 'Show event location on map', 'sunflower' ); ?>
 								</div>
 								<div class="mb-3">
-									<?php _e('If you click the button, the content will be downloaded from openstreetmap.', 'sunflower'); ?>
+									<?php esc_html_e( 'If you click the button, the content will be downloaded from openstreetmap.', 'sunflower' ); ?>
 								</div>
 
 								<button class="wp-block-button__link no-border-radius show-leaflet-all">
-									<?php _e('Show map', 'sunflower'); ?>
+									<?php esc_html_e( 'Show map', 'sunflower' ); ?>
 								</button>
 							</div>
 						</div>
@@ -198,10 +199,10 @@ printf(
 					</div> <!-- event-list -->
 
 					<?php
-                    if (! $is_event_archive) {
-                        printf('<div class="row"><div class="col-12 text-end"><a href="?format=ics" class="small calendar-download">%s</a></div></div>', __('calendar in ics-format', 'sunflower'));
-                    }
-?>
+					if ( ! $sunflower_is_event_archive ) {
+						printf( '<div class="row"><div class="col-12 text-end"><a href="?format=ics" class="small calendar-download">%s</a></div></div>', esc_html__( 'calendar in ics-format', 'sunflower' ) );
+					}
+					?>
 
 				</main><!-- #main -->
 			</div>
@@ -209,14 +210,14 @@ printf(
 </div>
 
 <?php
-    wp_enqueue_script(
-        'filter-custom',
-        get_template_directory_uri() . '/assets/js/filter.js',
-        null,
-        '3.2.1',
-        true
-    );
-?>
+	wp_enqueue_script(
+		'filter-custom',
+		get_template_directory_uri() . '/assets/js/filter.js',
+		null,
+		'3.2.1',
+		true
+	);
+	?>
 
 <?php
 get_sidebar();

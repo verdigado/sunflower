@@ -7,13 +7,13 @@
  * @package sunflower
  */
 
-if (! defined('_S_VERSION')) {
+if (!defined('_S_VERSION')) {
     $theme_data = wp_get_theme(get_option('template'));
     $theme_version = $theme_data->Version;
     define('_S_VERSION', $theme_version);
 }
 
-if (! function_exists('sunflower_setup')) :
+if (!function_exists('sunflower_setup')) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -174,8 +174,8 @@ function sunflower_scripts()
             'theme_url' => get_template_directory_uri(),
             'maps_marker' => sunflower_parent_or_child('assets/img/marker.png'),
             'texts' => [
-                'readmore' => __('Continue reading', 'sunflower')
-            ]
+                'readmore' => __('Continue reading', 'sunflower'),
+            ],
         ]
     );
 
@@ -237,7 +237,7 @@ add_action('after_setup_theme', 'register_navwalker');
 
 function sunflower_get_constant($constant)
 {
-    if (! defined($constant)) {
+    if (!defined($constant)) {
         return false;
     }
 

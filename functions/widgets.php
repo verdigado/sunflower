@@ -48,7 +48,7 @@ class sunflower_follow_us extends WP_Widget
 
         echo $before_widget;
 
-        if (! empty($title)) {
+        if (!empty($title)) {
             echo $before_title . $title . $after_title;
         }
 

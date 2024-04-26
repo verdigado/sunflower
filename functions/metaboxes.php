@@ -28,7 +28,7 @@ function save_sunflower_meta_boxes()
 {
     global $post;
 
-    if (! isset($post->ID)) {
+    if (!isset($post->ID)) {
         return;
     }
 

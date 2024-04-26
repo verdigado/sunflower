@@ -1,7 +1,7 @@
 <?php
+
 include WP_CONTENT_DIR . '/themes/sunflower/lib/vendor/autoload.php';
 
-use Sabre\VObject\Component\VEvent;
 use Sabre\VObject\ParseException;
 use Sabre\VObject\Reader;
 
@@ -12,11 +12,12 @@ function sunflower_icalimport($url = false, $auto_categories = false)
             file_get_contents($url),
             Reader::OPTION_FORGIVING
         );
-    } catch (ParseException $e) {
+    } catch (ParseException $parseException) {
         // Rethrow the exception to abstract the type
-        return $e->getMessage();
+        return $parseException->getMessage();
     }
-    $timezone = new \DateTimeZone( get_option( 'timezone_string' ) );
+
+    $timezone = new \DateTimeZone(get_option('timezone_string'));
 
     $time_range_history = sunflower_get_constant('SUNFLOWER_EVENT_TIME_RANGE_BACK') ?: '0 months';
     $time_range_future = sunflower_get_constant('SUNFLOWER_EVENT_TIME_RANGE') ?: '6 months';
@@ -24,6 +25,7 @@ function sunflower_icalimport($url = false, $auto_categories = false)
 
     $timeRangeStart = new \DateTime();
     $timeRangeStart->setTimestamp(strtotime('-' . $time_range_history));
+
     $timeRangeStop = new \DateTime();
     $timeRangeStop->setTimestamp(strtotime((string) $time_range_future));
 
@@ -44,12 +46,11 @@ function sunflower_icalimport($url = false, $auto_categories = false)
     $ids_from_remote = [];
     $count_recurring_events = [];
 
-    foreach ($allEvents as $event) {
-
-        $uid = $event->UID->getValue();
+    foreach ($allEvents as $allEvent) {
+        $uid = $allEvent->UID->getValue();
 
         // modified instances of a recurring event, RECURRENCE-ID is set but no RRULE
-        if (isset($event->RRULE) || isset($event->{'RECURRENCE-ID'})) {
+        if (isset($allEvent->RRULE) || isset($allEvent->{'RECURRENCE-ID'})) {
             if (isset($count_recurring_events[$uid])) {
                 ++$count_recurring_events[$uid];
             } else {
@@ -60,7 +61,7 @@ function sunflower_icalimport($url = false, $auto_categories = false)
                 continue;
             }
 
-            $uid .= '_' . $event->DTSTART->getValue();
+            $uid .= '_' . $allEvent->DTSTART->getValue();
         }
 
         // is this event already imported
@@ -72,21 +73,21 @@ function sunflower_icalimport($url = false, $auto_categories = false)
             ++$updated_events;
         }
 
-        $post_content = sprintf('<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->', nl2br((string) $event->DESCRIPTION));
+        $post_content = sprintf('<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->', nl2br((string) $allEvent->DESCRIPTION));
 
-        if (isset($event->URL) && filter_var((string) $event->URL, FILTER_VALIDATE_URL)) {
-            $post_content .= sprintf('<!-- wp:paragraph --><p>%1$s: <a href="%1$s" target="_blank">%1$s</a></p><!-- /wp:paragraph -->', __( 'More Information', 'sunflower' ),  (string) $event->URL);
+        if (isset($allEvent->URL) && filter_var((string) $allEvent->URL, FILTER_VALIDATE_URL)) {
+            $post_content .= sprintf('<!-- wp:paragraph --><p>%1$s: <a href="%1$s" target="_blank">%1$s</a></p><!-- /wp:paragraph -->', __('More Information', 'sunflower'), (string) $allEvent->URL);
         }
 
         $post = [
             'ID' => $wp_id,
             'post_type' => 'sunflower_event',
-            'post_title' => $event->SUMMARY->getValue(),
+            'post_title' => $allEvent->SUMMARY->getValue(),
             'post_content' => $post_content,
             'post_status' => 'publish',
         ];
         $id = wp_insert_post((array) $post, true);
-        if (! is_int($id)) {
+        if (!is_int($id)) {
             echo 'Could not copy post';
             return false;
         }
@@ -100,15 +101,15 @@ function sunflower_icalimport($url = false, $auto_categories = false)
         }
 
         // write start and end time to event post metadata
-        update_post_meta($id, '_sunflower_event_from', $event->DTSTART->getDateTime($timezoneFix)->setTimezone($timezone)->format('Y-m-d H:i'));
-        update_post_meta($id, '_sunflower_event_until', $event->DTEND->getDateTime($timezoneFix)->setTimezone($timezone)->format('Y-m-d H:i'));
+        update_post_meta($id, '_sunflower_event_from', $allEvent->DTSTART->getDateTime($timezoneFix)->setTimezone($timezone)->format('Y-m-d H:i'));
+        update_post_meta($id, '_sunflower_event_until', $allEvent->DTEND->getDateTime($timezoneFix)->setTimezone($timezone)->format('Y-m-d H:i'));
         update_post_meta($id, '_sunflower_event_uid', $uid);
 
-        if (isset($event->LOCATION)) {
-            update_post_meta($id, '_sunflower_event_location_name', (string) $event->LOCATION);
+        if (isset($allEvent->LOCATION)) {
+            update_post_meta($id, '_sunflower_event_location_name', (string) $allEvent->LOCATION);
 
-            if (! filter_var((string) $event->LOCATION, FILTER_VALIDATE_URL)) {
-                $coordinates = sunflower_geocode((string) $event->LOCATION);
+            if (!filter_var((string) $allEvent->LOCATION, FILTER_VALIDATE_URL)) {
+                $coordinates = sunflower_geocode((string) $allEvent->LOCATION);
                 if ($coordinates) {
                     [$lon, $lat] = $coordinates;
                     update_post_meta($id, '_sunflower_event_lat', $lat);
@@ -119,7 +120,7 @@ function sunflower_icalimport($url = false, $auto_categories = false)
             }
         }
 
-        $categories = $event->CATEGORIES ?? '';
+        $categories = $allEvent->CATEGORIES ?? '';
         $categories .= ($auto_categories) ? ',' . $auto_categories : '';
         if ($categories === '') {
             continue;
@@ -181,11 +182,11 @@ function sunflower_get_events_having_uid()
 add_action('init', 'sunflower_import_icals');
 function sunflower_import_icals($force = false)
 {
-    if (! $force && get_transient('sunflower_ical_imported')) {
+    if (!$force && get_transient('sunflower_ical_imported')) {
         return false;
     }
 
-    if (! get_sunflower_setting('sunflower_ical_urls')) {
+    if (!get_sunflower_setting('sunflower_ical_urls')) {
         return false;
     }
 
@@ -201,12 +202,12 @@ function sunflower_import_icals($force = false)
         $url = trim($info[0]);
         $auto_categories = $info[1] ?? false;
 
-        if (! filter_var($url, FILTER_VALIDATE_URL)) {
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
             continue;
         }
 
         $response = sunflower_icalimport($url, $auto_categories);
-        if (! empty($response)) {
+        if (!empty($response)) {
             $ids_from_remote = array_merge($ids_from_remote, $response[0]);
         }
     }

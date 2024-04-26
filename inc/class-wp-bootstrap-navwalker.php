@@ -18,7 +18,7 @@
  */
 
 /* Check if Class Exists. */
-if (! class_exists('WP_Bootstrap_Navwalker')) {
+if (!class_exists('WP_Bootstrap_Navwalker')) {
     /**
      * WP_Bootstrap_Navwalker class.
      *
@@ -195,7 +195,7 @@ if (! class_exists('WP_Bootstrap_Navwalker')) {
             if (isset($args->has_children) && $args->has_children && 0 === $depth && $args->depth > 1) {
                 $item_has_children = true;
                 $atts['href'] = empty($item->url) ? '#' : $item->url;
-                $atts['data-bs-toggle']   = 'dropdown';
+                $atts['data-bs-toggle'] = 'dropdown';
                 $atts['aria-haspopup'] = 'true';
                 $atts['aria-expanded'] = 'false';
                 $atts['class'] = 'dropdown-toggle nav-link';
@@ -221,7 +221,7 @@ if (! class_exists('WP_Bootstrap_Navwalker')) {
             // Build a string of html containing all the atts for the item.
             $attributes = '';
             foreach ($atts as $attr => $value) {
-                if (! empty($value)) {
+                if (!empty($value)) {
                     $value = ('href' === $attr) ? esc_url($value) : esc_attr($value);
                     $attributes .= ' ' . $attr . '="' . $value . '"';
                 }
@@ -336,14 +336,14 @@ if (! class_exists('WP_Bootstrap_Navwalker')) {
          */
         public function display_element($element, &$children_elements, $max_depth, $depth, $args, &$output): void
         {
-            if (! $element) {
+            if (!$element) {
                 return;
             }
 
             $id_field = $this->db_fields['id'];
             // Display this element.
             if (is_object($args[0])) {
-                $args[0]->has_children = ! empty($children_elements[$element->$id_field]);
+                $args[0]->has_children = !empty($children_elements[$element->$id_field]);
             }
 
             parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
@@ -408,6 +408,8 @@ if (! class_exists('WP_Bootstrap_Navwalker')) {
                     return $fallback_output;
                 }
             }
+
+            return null;
         }
 
         /**
@@ -471,9 +473,9 @@ if (! class_exists('WP_Bootstrap_Navwalker')) {
         {
             $linkmod_type = '';
             // Loop through array of linkmod classes to handle their $atts.
-            if (! empty($linkmod_classes)) {
+            if (!empty($linkmod_classes)) {
                 foreach ($linkmod_classes as $linkmod_class) {
-                    if (! empty($linkmod_class)) {
+                    if (!empty($linkmod_class)) {
                         // check for special class types and set a flag for them.
                         if ('dropdown-header' === $linkmod_class) {
                             $linkmod_type = 'dropdown-header';
@@ -501,9 +503,9 @@ if (! class_exists('WP_Bootstrap_Navwalker')) {
          */
         private function update_atts_for_linkmod_type($atts = [], $linkmod_classes = [])
         {
-            if (! empty($linkmod_classes)) {
+            if (!empty($linkmod_classes)) {
                 foreach ($linkmod_classes as $linkmod_class) {
-                    if (! empty($linkmod_class)) {
+                    if (!empty($linkmod_class)) {
                         // update $atts with a space and the extra classname...
                         // so long as it's not a sr-only class.
                         if ('sr-only' !== $linkmod_class) {

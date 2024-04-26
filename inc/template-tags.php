@@ -7,7 +7,7 @@
  * @package sunflower
  */
 
-if (! function_exists('sunflower_posted_on')) :
+if (!function_exists('sunflower_posted_on')) :
     /**
      * Prints HTML with meta information for the current post-date/time.
      */
@@ -30,7 +30,7 @@ if (! function_exists('sunflower_posted_on')) :
     }
 endif;
 
-if (! function_exists('sunflower_posted_by')) :
+if (!function_exists('sunflower_posted_by')) :
     /**
      * Prints HTML with meta information for the current author.
      */
@@ -42,7 +42,7 @@ if (! function_exists('sunflower_posted_by')) :
     }
 endif;
 
-if (! function_exists('sunflower_entry_footer')) :
+if (!function_exists('sunflower_entry_footer')) :
     /**
      * Prints HTML with meta information for the categories, tags and comments.
      */
@@ -130,7 +130,7 @@ function sunflower_the_social_media_sharers()
     }
 }
 
-if (! function_exists('sunflower_post_thumbnail')) :
+if (!function_exists('sunflower_post_thumbnail')) :
     /**
      * Displays an optional post thumbnail.
      *
@@ -139,7 +139,7 @@ if (! function_exists('sunflower_post_thumbnail')) :
      */
     function sunflower_post_thumbnail($styled_layout = false, $caption = false)
     {
-        if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
+        if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
             return;
         }
 
@@ -161,7 +161,7 @@ if (! function_exists('sunflower_post_thumbnail')) :
 			<?php
             if ($caption) {
                 $caption = get_post(get_post_thumbnail_id())->post_excerpt;
-                if (! empty($caption)) {
+                if (!empty($caption)) {
                     ?>
 				<figcaption><?php echo $caption; ?></figcaption>
 					<?php
@@ -193,7 +193,7 @@ if (! function_exists('sunflower_post_thumbnail')) :
     }
 endif;
 
-if (! function_exists('wp_body_open')) :
+if (!function_exists('wp_body_open')) :
     /**
      * Shim for sites older than 5.2.
      *

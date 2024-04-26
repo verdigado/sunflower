@@ -40,14 +40,14 @@ class SunflowerEventSettingsPage
         $this->options = get_option('sunflower_events_options');
         ?>
 		<div class="wrap">
-			<h1><?php _e('Sunflower Settings', 'sunflower'); ?></h1>
+			<h1><?php esc_html_e('Sunflower Settings', 'sunflower'); ?></h1>
 			<form method="post" action="options.php">
 			<?php
                 // This prints out all hidden setting fields
                 settings_fields('sunflower_events_option_group');
-                do_settings_sections('sunflower-setting-events');
-                submit_button();
-            ?>
+        do_settings_sections('sunflower-setting-events');
+        submit_button();
+        ?>
 			</form>
 
 			<h2>Kalenderimport</h2>
@@ -182,7 +182,6 @@ class SunflowerEventSettingsPage
             'sunflower-setting-events', // Page
             'sunflower-setting-events' // Section
         );
-
     }
 
     /**
@@ -267,7 +266,6 @@ class SunflowerEventSettingsPage
         );
         echo '<div>1 (ganze Welt) bis 19 (einzelne Straße), Zoomlevel für die Übersichtskarte für Termine</div>';
     }
-
 }
 
 if (is_admin()) {

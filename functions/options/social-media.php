@@ -39,14 +39,14 @@ class SunflowerSocialMediaSettingsPage
         $this->options = get_option('sunflower_social_media_options');
         ?>
 		<div class="wrap">
-			<h1><?php _e('Sunflower Settings', 'sunflower'); ?></h1>
+			<h1><?php esc_html_e('Sunflower Settings', 'sunflower'); ?></h1>
 			<form method="post" action="options.php">
 			<?php
                 // This prints out all hidden setting fields
                 settings_fields('sunflower_social_media_option_group');
-                do_settings_sections('sunflower-setting-social-media-options');
-                submit_button();
-            ?>
+        do_settings_sections('sunflower-setting-social-media-options');
+        submit_button();
+        ?>
 			</form>
 		</div>
 		<?php
@@ -154,7 +154,7 @@ class SunflowerSocialMediaSettingsPage
 
     public function print_section_info_sharers(): void
     {
-        _e('Show share buttons on single post page', 'sunflower');
+        esc_html_e('Show share buttons on single post page', 'sunflower');
     }
 
     public function sunflower_checkbox_callback($args): void
@@ -249,7 +249,7 @@ function get_sunflower_social_media_profiles()
     foreach ($lines as $line) {
         $line = trim($line);
         @[$class, $title, $url] = explode(';', $line);
-        if (! isset($url)) {
+        if (!isset($url)) {
             continue;
         }
 

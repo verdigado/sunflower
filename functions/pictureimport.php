@@ -27,7 +27,7 @@ function sunflower_import_one_picture($url)
     // Download file to temp dir
     $temp_file = download_url($url, $timeout_seconds);
 
-    if (! is_wp_error($temp_file)) {
+    if (!is_wp_error($temp_file)) {
         // Array based on $_FILE as seen in PHP file uploads
         $file = [
             'name' => basename((string) $url),
@@ -53,7 +53,7 @@ function sunflower_import_one_picture($url)
         // Move the temporary file into the uploads directory
         $results = wp_handle_sideload($file, $overrides);
 
-        if (! empty($results['error'])) {
+        if (!empty($results['error'])) {
             // print_r($results);
             echo __('An error occurred. Could not import images', 'sunflower');
             return false;

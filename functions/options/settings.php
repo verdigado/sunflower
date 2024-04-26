@@ -20,7 +20,6 @@ class SunflowerSettingsPage
      */
     public function sunflower_add_plugin_page(): void
     {
-
         add_submenu_page(
             'sunflower_admin',
             __('Settings', 'sunflower'),
@@ -40,14 +39,14 @@ class SunflowerSettingsPage
         $this->options = get_option('sunflower_options');
         ?>
 		<div class="wrap">
-			<h1><?php _e('Sunflower Settings', 'sunflower'); ?></h1>
+			<h1><?php esc_html_e('Sunflower Settings', 'sunflower'); ?></h1>
 			<form method="post" action="options.php">
 			<?php
                 // This prints out all hidden setting fields
                 settings_fields('sunflower_option_group');
-                do_settings_sections('sunflower-setting-admin');
-                submit_button();
-            ?>
+        do_settings_sections('sunflower-setting-admin');
+        submit_button();
+        ?>
 			</form>
 
 			<table class="form-table" role="presentation">
@@ -57,9 +56,9 @@ class SunflowerSettingsPage
 						<td>
 
 						<?php
-                    if (isset($_GET['flush_permalinks'])) {
-                        flush_rewrite_rules();
-                        ?>
+                if (isset($_GET['flush_permalinks'])) {
+                    flush_rewrite_rules();
+                    ?>
 							Die Permalinkstruktur wurde neu eingelesen.
 						<?php } else { ?>
 							<p>Falls der Link für die Termineseite fehlerhaft ist, kannst Du die Permalinkstruktur neu einlesen. </p><br>
@@ -155,7 +154,16 @@ class SunflowerSettingsPage
             'sunflower_layout', // Section
             ['sunflower_header_layout', __('Use this header layout', 'sunflower')]
         );
-    }
+
+        add_settings_field(
+            'sunflower_header_social_media', // ID
+            __('Show social media icons in header', 'sunflower'), // Title
+            $this->sunflower_header_social_media(...), // Callback
+            'sunflower-setting-admin', // Page
+            'sunflower_layout', // Section
+            ['sunflower_header_social_media', __('Show social media icons in header', 'sunflower')]
+        );
+	}
 
     /**
      * Sanitize each setting field as needed
@@ -236,6 +244,28 @@ class SunflowerSettingsPage
 
         echo '</select>';
     }
+
+	/**
+	 * Show social media icons in header, too.
+	 *
+	 * @params Array $args The forms argument.
+	 */
+    public function sunflower_header_social_media($args): void
+    {
+        $field = $args[0];
+        $label = $args[1];
+
+        printf(
+            '<label>
+                    <input type="checkbox" id="%1$s" name="sunflower_options[%1$s]" value="checked" %2$s />
+                    %3$s
+                </label>',
+            $field,
+            isset($this->options[$field]) ? 'checked' : '',
+            $label
+        );
+    }
+
 }
 
 if (is_admin()) {
@@ -246,7 +276,7 @@ function get_sunflower_setting($option)
 {
     $options = get_option('sunflower_options');
 
-    if (! is_array($options)) {
+    if (!is_array($options)) {
         $options = [];
     }
 
@@ -260,7 +290,7 @@ function get_sunflower_setting($option)
         $options = array_merge($options, $sunflower_events_options);
     }
 
-    if (! isset($options[$option])) {
+    if (!isset($options[$option])) {
         return false;
     }
 

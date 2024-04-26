@@ -70,13 +70,13 @@
 	the wiki:
 	https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties
 	-->
-	<config name="minimum_supported_wp_version" value="4.9"/>
+	<config name="minimum_supported_wp_version" value="6.3"/>
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="my-textdomain"/>
-				<element value="library-textdomain"/>
+				<element value="sunflower"/>
+				<element value="default"/>
 			</property>
 		</properties>
 	</rule>
@@ -84,9 +84,14 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="my_prefix"/>
+				<element value="sunflower"/>
 			</property>
 		</properties>
 	</rule>
 
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="is_theme" value="true"/>
+		</properties>
+	</rule>
 </ruleset>

@@ -20,47 +20,62 @@ add_filter('block_categories_all', 'sunflower_block_category', 10, 2);
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function sunflower_blocks_init() {
+function sunflower_blocks_init()
+{
+    register_block_type(get_template_directory() . '/build/accordion');
+    wp_set_script_translations(
+        'sunflower-accordion-editor-script',
+        'sunflower-accordion',
+        get_template_directory() . '/languages'
+    );
 
-    register_block_type( get_template_directory() . '/build/accordion' );
-    wp_set_script_translations( 'sunflower-accordion-editor-script', 'sunflower-accordion',
-        get_template_directory() . '/languages');
+    register_block_type(get_template_directory() . '/build/latest-posts');
+    wp_set_script_translations(
+        'sunflower-latest-posts-editor-script',
+        'sunflower-latest-posts',
+        get_template_directory() . '/languages'
+    );
 
-    register_block_type( get_template_directory() . '/build/latest-posts' );
-    wp_set_script_translations( 'sunflower-latest-posts-editor-script', 'sunflower-latest-posts',
-        get_template_directory() . '/languages');
+    register_block_type(get_template_directory() . '/build/meta-data');
+    wp_set_script_translations(
+        'sunflower-meta-data-editor-script',
+        'sunflower-meta-data',
+        get_template_directory() . '/languages'
+    );
 
-    register_block_type( get_template_directory() . '/build/meta-data' );
-    wp_set_script_translations( 'sunflower-meta-data-editor-script', 'sunflower-meta-data',
-        get_template_directory() . '/languages');
+    register_block_type(get_template_directory() . '/build/next-events');
+    wp_set_script_translations(
+        'sunflower-next-events-editor-script',
+        'sunflower-next-events',
+        get_template_directory() . '/languages'
+    );
 
-    register_block_type( get_template_directory() . '/build/next-events' );
-    wp_set_script_translations( 'sunflower-next-events-editor-script', 'sunflower-next-events',
-        get_template_directory() . '/languages');
-
-    register_block_type( get_template_directory() . '/build/contact-form' );
-    wp_set_script_translations( 'sunflower-contact-form-editor-script', 'sunflower-contact-form',
-        get_template_directory() . '/languages');
-
-
+    register_block_type(get_template_directory() . '/build/contact-form');
+    wp_set_script_translations(
+        'sunflower-contact-form-editor-script',
+        'sunflower-contact-form',
+        get_template_directory() . '/languages'
+    );
 }
-add_action( 'init', 'sunflower_blocks_init' );
+
+add_action('init', 'sunflower_blocks_init');
 
 
-add_action( 'after_setup_theme', 'sunflower_blocks_load_textdomain' );
-function sunflower_blocks_load_textdomain() {
-    load_textdomain( 'sunflower-accordion', get_template_directory() . '/languages/sunflower-accordion-de_DE.mo' );
-    load_theme_textdomain( 'sunflower-accordion', get_template_directory() . '/languages' );
+add_action('after_setup_theme', 'sunflower_blocks_load_textdomain');
+function sunflower_blocks_load_textdomain()
+{
+    load_textdomain('sunflower-accordion', get_template_directory() . '/languages/sunflower-accordion-de_DE.mo');
+    load_theme_textdomain('sunflower-accordion', get_template_directory() . '/languages');
 
-    load_textdomain( 'sunflower-latest-posts', get_template_directory() . '/languages/sunflower-latest-posts-de_DE.mo' );
-    load_theme_textdomain( 'sunflower-latest-posts', get_template_directory() . '/languages' );
+    load_textdomain('sunflower-latest-posts', get_template_directory() . '/languages/sunflower-latest-posts-de_DE.mo');
+    load_theme_textdomain('sunflower-latest-posts', get_template_directory() . '/languages');
 
-    load_textdomain( 'sunflower-next-events', get_template_directory() . '/languages/sunflower-next-events-de_DE.mo' );
-    load_theme_textdomain( 'sunflower-next-events', get_template_directory() . '/languages' );
+    load_textdomain('sunflower-next-events', get_template_directory() . '/languages/sunflower-next-events-de_DE.mo');
+    load_theme_textdomain('sunflower-next-events', get_template_directory() . '/languages');
 
-    load_textdomain( 'sunflower-contact-form', get_template_directory() . '/languages/sunflower-contact-form-de_DE.mo' );
-    load_theme_textdomain( 'sunflower-contact-form', get_template_directory() . '/languages' );
+    load_textdomain('sunflower-contact-form', get_template_directory() . '/languages/sunflower-contact-form-de_DE.mo');
+    load_theme_textdomain('sunflower-contact-form', get_template_directory() . '/languages');
 
-    load_textdomain( 'sunflower-meta-data', get_template_directory() . '/languages/sunflower-meta-data-de_DE.mo' );
-    load_theme_textdomain( 'sunflower-meta-data', get_template_directory() . '/languages' );
+    load_textdomain('sunflower-meta-data', get_template_directory() . '/languages/sunflower-meta-data-de_DE.mo');
+    load_theme_textdomain('sunflower-meta-data', get_template_directory() . '/languages');
 }

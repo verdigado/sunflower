@@ -7,107 +7,107 @@
  * @package sunflower
  */
 
-$styled_layout = (bool) @get_post_meta($post->ID, '_sunflower_styled_layout')[0];
-if ('sunflower_event' === get_post_type()) {
-    $styled_layout = false;
+$sunflower_styled_layout = (bool) get_post_meta( $post->ID, '_sunflower_styled_layout', true ) ?? false;
+if ( 'sunflower_event' === get_post_type() ) {
+	$sunflower_styled_layout = false;
 }
 
-$show_post_thumbnail = has_post_thumbnail() && ! @get_post_meta($post->ID, '_sunflower_hide_feature_image')[0];
-$metadata = false;
-$class = false;
-extract($args);
+$sunflower_show_post_thumbnail = has_post_thumbnail() && ! get_post_meta( $post->ID, '_sunflower_hide_feature_image', true );
+$sunflower_metadata            = $args['metadata'] ?? '';
+$sunflower_class               = $args['class'] ?? '';
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class($class); ?>>
-	<?php if (! $styled_layout) { ?>
-	<header class="entry-header full-width <?php echo ($show_post_thumbnail) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
+<article id="post-<?php the_ID(); ?>" <?php post_class( $sunflower_class ); ?>>
+	<?php if ( ! $sunflower_styled_layout ) { ?>
+	<header class="entry-header full-width <?php echo ( $sunflower_show_post_thumbnail ) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
 		<div class="container">
 			<div class="row position-relative">
 				<div class="col-12">
 		<?php
-        $roofline = @get_post_meta($post->ID, '_sunflower_roofline')[0] ?: false;
-	    if ($roofline) {
-	        printf(' <div class="roofline roofline-single">%s</div>', $roofline);
-	    }
-	    ?>
+		$sunflower_roofline = get_post_meta( $post->ID, '_sunflower_roofline', true );
+		if ( $sunflower_roofline ) {
+			printf( ' <div class="roofline roofline-single">%s</div>', esc_attr( $sunflower_roofline ) );
+		}
+		?>
 		<?php
-	    if (is_singular()) :
-	        the_title('<h1 class="entry-title">', '</h1>');
-	    else :
-	        the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
-	    endif;
+		if ( is_singular() ) :
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		else :
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		endif;
 
-	    if ('post' === get_post_type()) :
-	        ?>
+		if ( 'post' === get_post_type() ) :
+			?>
 						<div class="entry-meta mb-3">
 						<?php
-	        sunflower_posted_on();
+						sunflower_posted_on();
 
-	        if (get_sunflower_setting('sunflower_show_author')) {
-	            sunflower_posted_by();
-	        }
-	        ?>
+						if ( get_sunflower_setting( 'sunflower_show_author' ) ) {
+							sunflower_posted_by();
+						}
+						?>
 						</div><!-- .entry-meta -->
-					<?php endif;
-	    ?>
+					<?php
+					endif;
+		?>
 					</div>
 
 			</div>
 		</div>
 	</header><!-- .entry-header -->
-<?php
+		<?php
 	}
-?>
+	?>
 
 	<?php
-if ($show_post_thumbnail) {
-    sunflower_post_thumbnail($styled_layout, true);
-}
-?>
+	if ( $sunflower_show_post_thumbnail ) {
+		sunflower_post_thumbnail( $sunflower_styled_layout, true );
+	}
+	?>
 
-    <div class="row">
-        <div class="order-1 <?php echo ($metadata) ? 'col-md-9' : 'col-md-12'; ?>">
-            <div class="entry-content accordion">
-                <?php
-            the_content(
-                sprintf(
-                    wp_kses(
-                        /* translators: %s: Name of current post. Only visible to screen readers */
-                        __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'sunflower'),
-                        [
-                            'span' => [
-                                'class' => [],
-                            ],
-                        ]
-                    ),
-                    wp_kses_post(get_the_title())
-                )
-            );
+	<div class="row">
+		<div class="order-1 <?php echo ( $sunflower_metadata ) ? 'col-md-9' : 'col-md-12'; ?>">
+			<div class="entry-content accordion">
+				<?php
+				the_content(
+					sprintf(
+						wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+							__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'sunflower' ),
+							array(
+								'span' => array(
+									'class' => array(),
+								),
+							)
+						),
+						wp_kses_post( get_the_title() )
+					)
+				);
 
-wp_link_pages(
-    [
-        'before' => '<div class="page-links">' . esc_html__('Pages:', 'sunflower'),
-        'after' => '</div>',
-    ]
-);
-?>
-            </div><!-- .entry-content -->
+				wp_link_pages(
+					array(
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sunflower' ),
+						'after'  => '</div>',
+					)
+				);
+				?>
+			</div><!-- .entry-content -->
 
-        </div><!-- .col-md-9 -->
-        <?php
-        if ($metadata) {
-            printf(
-                '<div class="col-md-3 order-md-1 metabox small">%s</div>',
-                $metadata
-            );
-        }
-?>
-    </div>
+		</div><!-- .col-md-9 -->
+		<?php
+		if ( $sunflower_metadata ) {
+			printf(
+				'<div class="col-md-3 order-md-1 metabox small">%s</div>',
+				wp_kses_post( $sunflower_metadata )
+			);
+		}
+		?>
+	</div>
 
-    <div class="row">
-        <footer class="entry-footer mt-4">
-            <?php sunflower_entry_footer(true); ?>
-        </footer><!-- .entry-footer -->
-    </div>
+	<div class="row">
+		<footer class="entry-footer mt-4">
+			<?php sunflower_entry_footer( true ); ?>
+		</footer><!-- .entry-footer -->
+	</div>
 
 </article><!-- #post-<?php the_ID(); ?> -->

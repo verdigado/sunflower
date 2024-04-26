@@ -1,4 +1,9 @@
 <?php
+/**
+ * Include all function files.
+ *
+ * @package sunflower
+ */
 
 require_once __DIR__ . '/functions/_s.php';
 require_once __DIR__ . '/functions/options/first-steps.php';

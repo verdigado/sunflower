@@ -28,7 +28,7 @@ function sunflower_contact_form()
     $subject = __('New Message from', 'sunflower-contact-form') . ' ' . ($title ?: __('Contact Form', 'sunflower-contact-form'));
     $message = sprintf("Name: %s\nE-Mail: %s\n\n%s", $name, $mail, $message);
 
-    if (! empty($mail)) {
+    if (!empty($mail)) {
         $headers = 'Reply-To: ' . $mail;
     }
 

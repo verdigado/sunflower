@@ -38,7 +38,6 @@ class SunflowerFirstStepsPage
             'sunflower_admin',
             $this->create_sunflower_admin_page(...)
         );
-
     }
 
     /**
@@ -50,7 +49,7 @@ class SunflowerFirstStepsPage
 
         ?>
 		<div class="wrap">
-			<h1><?php _e('About Sunflower', 'sunflower'); ?></h1>
+			<h1><?php esc_html_e('About Sunflower', 'sunflower'); ?></h1>
 
 			<h2>Erste Schritte</h2>
             <div class="notice-info sunflower-settings">
@@ -62,9 +61,9 @@ class SunflowerFirstStepsPage
 			<?php
                 // This prints out all hidden setting fields
                 settings_fields('sunflower_first_steps_option_group');
-                do_settings_sections('sunflower_admin');
-                submit_button();
-            ?>
+        do_settings_sections('sunflower_admin');
+        submit_button();
+        ?>
 			</form>
 
             <h2>Umzug von Urwahl3000</h2>
@@ -79,11 +78,11 @@ class SunflowerFirstStepsPage
 			<h2>Import von Muster-Bildern</h2>
 			<?php
 
-            if (isset($_GET['pictureimport'])) {
-                $count = sunflower_import_all_pictures();
-                printf('<a href="upload.php">Es wurden %d Bilder importiert. Sieh sie Dir in der Mediathek an</a>', $count);
-            } else {
-                ?>
+        if (isset($_GET['pictureimport'])) {
+            $count = sunflower_import_all_pictures();
+            printf('<a href="upload.php">Es wurden %d Bilder importiert. Sieh sie Dir in der Mediathek an</a>', $count);
+        } else {
+            ?>
 				Wir haben eine Auswahl an Muster-Bildern zusammengestellt, die Du Dir in Deine Mediathek
 				herunterladen kannst. Du darfst diese Bilder ohne Quellenangabe nutzen.
 				Hier siehst Du die Bilder, die du importieren kannst:
@@ -98,7 +97,7 @@ class SunflowerFirstStepsPage
 				Der Import kann einige Minuten dauern. Bitte warte so lange, und klicke nirgendwo hin.
 			</div>
 				<?php
-            }
+        }
         ?>
 
 		</div>
@@ -131,7 +130,6 @@ class SunflowerFirstStepsPage
             'sunflower-first-steps', // Section
             ['sunflower_terms_of_use', __('Accept Terms of Use', 'sunflower')]       // args
         );
-
     }
 
     /**
@@ -191,7 +189,6 @@ class SunflowerFirstStepsPage
             werden muss. Auch hier besteht ein Widerrufsvorbehalt zugunsten des Bundesverbandes.'
         );
     }
-
 }
 
 if (is_admin()) {
