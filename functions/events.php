@@ -105,6 +105,16 @@ add_action( 'admin_init', 'sunflower_add_event_meta_boxes' );
 function sunflower_save_event_meta_boxes() {
 	global $post;
 
+	// Do not save, if nonce is invalid.
+	if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'update-post_' . $post->ID ) ) {
+		return;
+	}
+
+	// Ignore other post types.
+	if ( 'sunflower_event' !== $post->post_type ) {
+		return;
+	}
+
 	$sunflower_event_fields = sunflower_get_event_fields();
 
 	if ( ! isset( $post->ID ) ) {
@@ -137,7 +147,7 @@ function sunflower_save_event_meta_boxes() {
 	}
 }
 
-add_action( 'save_post', 'sunflower_save_event_meta_boxes' );
+add_action( 'save_post', 'sunflower_save_event_meta_boxes', 10, 2 );
 
 /**
  * Transform date from German format to YYYY-MM-DD HH:mm
@@ -154,7 +164,9 @@ function sunflower_german_date2int_date( $german_date ) {
 }
 
 /**
- * Transform date format from YYYY-MM-DD HH:mm into DD.MM.YYYY HH:mm
+ * Transform date format from "YYYY-MM-DD HH:mm" into DD.MM.YYYY HH:mm
+ *
+ * @param int $int_date The date in format "YYYY-MM-DD HH:mm".
  */
 function sunflower_int_date2german_date( $int_date ) {
 	if ( ! $int_date ) {
@@ -232,9 +244,9 @@ function sunflower_event_meta_box() {
 /**
  * Render Event metadata fields
  *
- * @params int $id
- * @params array $config
- * @params string $value
+ * @param int    $id The form field id.
+ * @param array  $config The field configuration.
+ * @param string $value The field value.
  */
 function sunflower_event_field( $id, $config, $value ) {
 	$sunflower_label = $config[0];
@@ -268,6 +280,9 @@ function sunflower_event_field( $id, $config, $value ) {
 	};
 }
 
+/**
+ * Load the required JavaScript files.
+ */
 function sunflower_load_event_admin_scripts() {
 	wp_enqueue_script(
 		'sunflower-datetimepicker',
@@ -319,6 +334,8 @@ add_action( 'admin_enqueue_scripts', 'sunflower_load_event_admin_scripts' );
 
 /**
  * Helper function to check if array has only numeric values
+ *
+ * @param array $value Array of elements which are either numeric or strings.
  */
 function sunflower_is_numeric_array( array $value ) {
 	foreach ( $value as $a => $b ) {
@@ -331,8 +348,10 @@ function sunflower_is_numeric_array( array $value ) {
 }
 
 /**
- * @param int                 $number
- * @param null|int[]|string[] $tag_ids Array of sunflower_event_tag IDs
+ * Get the next events.
+ *
+ * @param int                 $number The amount of events to fetch.
+ * @param null|int[]|string[] $tag_ids Array of sunflower_event_tag IDs.
  *
  * @return WP_Query
  */
@@ -379,6 +398,11 @@ function sunflower_get_next_events( $number = -1, $tag_ids = null ) {
 	);
 }
 
+/**
+ * Get past events.
+ *
+ * @param int $number The number of events to fetch.
+ */
 function sunflower_get_past_events( $number = -1 ) {
 	return new WP_Query(
 		array(
@@ -400,7 +424,9 @@ function sunflower_get_past_events( $number = -1 ) {
 }
 
 /**
+ * Prepare the event times for output.
  *
+ * @param \WP_post $post The post object.
  */
 function sunflower_prepare_event_time_data( $post ) {
 	$_sunflower_event_from = get_post_meta( $post->ID, '_sunflower_event_from', true ) ?? false;
