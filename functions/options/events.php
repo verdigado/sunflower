@@ -40,7 +40,7 @@ class SunflowerEventSettingsPage
         $this->options = get_option('sunflower_events_options');
         ?>
 		<div class="wrap">
-			<h1><?php esc_html_e('Sunflower Settings', 'sunflower'); ?></h1>
+			<h1><?php esc_attr_e('Sunflower Settings', 'sunflower'); ?></h1>
 			<form method="post" action="options.php">
 			<?php
                 // This prints out all hidden setting fields
@@ -71,7 +71,7 @@ class SunflowerEventSettingsPage
 			<h2>Korrektur der Marker auf Landkarten von importierten Terminen</h2>
 			<input type="hidden" name="_sunflower_event_lat" id="_sunflower_event_lat">
 			<input type="hidden" name="_sunflower_event_lon" id="_sunflower_event_lon">
-
+			<?php wp_nonce_field( 'sunflower_location' ); ?>
 			<div id="sunflower-location-row" style="display:none">
 				Bearbeite die Geo-Markierung für:
 				<select name="sunflower_location" id="sunflower-location">

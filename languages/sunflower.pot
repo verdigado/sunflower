@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-22T11:07:37+00:00\n"
+"POT-Creation-Date: 2024-04-27T19:07:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -47,79 +47,77 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
 msgstr ""
 
-#: archive-sunflower_event.php:39
+#: archive-sunflower_event.php:40
 msgid "Events archive"
 msgstr ""
 
-#: archive-sunflower_event.php:39
-#: functions/events.php:28
+#: archive-sunflower_event.php:40
+#: functions/events.php:36
 #: functions/options/events.php:26
 #: functions/options/events.php:27
 #: functions/options/events.php:130
 msgid "Events"
 msgstr ""
 
-#: archive-sunflower_event.php:52
+#: archive-sunflower_event.php:54
 msgid "to upcoming events"
 msgstr ""
 
-#: archive-sunflower_event.php:54
-#: build/next-events/render.php:24
+#: archive-sunflower_event.php:56
+#: build/next-events/render.php:23
 msgid "all events"
 msgstr ""
 
-#: archive-sunflower_event.php:56
+#: archive-sunflower_event.php:58
 msgid "Archive"
 msgstr ""
 
-#: archive-sunflower_event.php:62
-#: functions/events.php:201
+#: archive-sunflower_event.php:64
+#: functions/events.php:235
 #: functions/options/events.php:106
 msgid "Map"
 msgstr ""
 
-#: archive-sunflower_event.php:128
+#: archive-sunflower_event.php:129
 msgid "more info"
 msgstr ""
 
-#: archive-sunflower_event.php:185
-#: single-sunflower_event.php:134
+#: archive-sunflower_event.php:186
+#: single-sunflower_event.php:140
 msgid "Show event location on map"
 msgstr ""
 
-#: archive-sunflower_event.php:188
-#: single-sunflower_event.php:137
+#: archive-sunflower_event.php:189
+#: single-sunflower_event.php:143
 msgid "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
 
-#: archive-sunflower_event.php:192
-#: single-sunflower_event.php:145
+#: archive-sunflower_event.php:193
+#: single-sunflower_event.php:151
 msgid "Show map"
 msgstr ""
 
-#: archive-sunflower_event.php:202
+#: archive-sunflower_event.php:203
 msgid "calendar in ics-format"
 msgstr ""
 
-#: archive.php:65
-#: index.php:70
-#: search.php:68
-#: single.php:53
+#: archive.php:56
+#: search.php:60
+#: single.php:54
 msgid "previous"
 msgstr ""
 
-#: archive.php:66
-#: index.php:71
-#: search.php:69
-#: single.php:58
+#: archive.php:57
+#: search.php:61
+#: single.php:59
 msgid "next"
 msgstr ""
 
-#: build/latest-posts/render.php:77
+#: build/latest-posts/render.php:70
 msgid "No posts found"
 msgstr ""
 
-#: build/next-events/render.php:48
+#: build/next-events/render.php:47
 msgid "Currently there are no coming events."
 msgstr ""
 
@@ -140,37 +138,41 @@ msgstr ""
 msgid "Your mail will not be published. Required fields are marked with a *. For more info see <a href=\"%s\">privacy</a>"
 msgstr ""
 
-#: comments.php:57
+#: comments.php:56
 msgid "One comment"
 msgstr ""
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:61
+#: comments.php:60
 msgctxt "context"
 msgid "%1$s commment"
 msgid_plural "%1$s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:88
+#: comments.php:87
 msgid "Comments are closed."
 msgstr ""
 
+#: functions/admin.php:24
+msgid "Sunflower Settings Page"
+msgstr ""
+
 #. translators: %1$s and %2$s are replaced with links
-#: functions/admin.php:28
+#: functions/admin.php:47
 msgid "Thank you for using sunflower theme. Sunflower is %1$s and maintained by %2$s."
 msgstr ""
 
-#: functions/admin.php:33
-msgid "<a href='admin.php?page=sunflower_admin'>More information can be found on the theme's settings page</a>."
+#: functions/admin.php:53
+msgid "More information can be found on the sunflower theme settings page"
 msgstr ""
 
-#: functions/admin.php:47
+#: functions/admin.php:69
 msgid "PHP Version End of Life"
 msgstr ""
 
 #. translators: %1$s is replace with current PHP version and %2$s is replaced with link
-#: functions/admin.php:55
+#: functions/admin.php:78
 msgid ""
 "<p>You are using PHP <strong>%1$s</strong> which <a href=\"https://www.php.net/supported-versions.php\">is not supported</a> anymore!</p>\n"
 "                <p>Please note, that Sunflower theme <strong>will require at least PHP 8.2+</strong> as of release 2.1.0. <br />\n"
@@ -179,17 +181,17 @@ msgid ""
 "                <p>If you are looking for a web hosting service with attitute, have look at %2$s.</p>"
 msgstr ""
 
-#: functions/admin.php:78
+#: functions/admin.php:105
 msgid "New Terms and Use Settings"
 msgstr ""
 
-#: functions/admin.php:80
+#: functions/admin.php:108
 msgid ""
 "There is a new option on the <a href='admin.php?page=sunflower_admin'>Sunflower->First Steps</a> page.<br />\n"
 "            If you continue to use the sunflower icons in menue, footer and as favicon, please read and accept the terms of use."
 msgstr ""
 
-#: functions/admin.php:162
+#: functions/admin.php:182
 #: functions/block-patterns.php:12
 #: functions/blocks.php:9
 #: functions/options/first-steps.php:24
@@ -197,7 +199,7 @@ msgstr ""
 msgid "Sunflower"
 msgstr ""
 
-#: functions/admin.php:189
+#: functions/admin.php:206
 msgid "Help for sunflowers events"
 msgstr ""
 
@@ -245,70 +247,74 @@ msgstr ""
 msgid "Form not sent. Captcha wrong. Please try again."
 msgstr ""
 
-#: functions/events.php:6
+#: functions/events.php:13
 msgid "Startdate"
 msgstr ""
 
-#: functions/events.php:7
+#: functions/events.php:14
 msgid "Enddate"
 msgstr ""
 
-#: functions/events.php:8
+#: functions/events.php:15
 msgid "Whole day"
 msgstr ""
 
-#: functions/events.php:9
+#: functions/events.php:16
 msgid "Location name"
 msgstr ""
 
-#: functions/events.php:10
+#: functions/events.php:17
 msgid "Street"
 msgstr ""
 
-#: functions/events.php:11
+#: functions/events.php:18
 msgid "City"
 msgstr ""
 
-#: functions/events.php:12
+#: functions/events.php:19
 msgid "Webinar"
 msgstr ""
 
-#: functions/events.php:13
+#: functions/events.php:20
 msgid "Organizer"
 msgstr ""
 
-#: functions/events.php:14
+#: functions/events.php:21
 msgid "Organizer URL"
 msgstr ""
 
-#: functions/events.php:29
-#: functions/events.php:80
+#: functions/events.php:37
+#: functions/events.php:92
 msgid "Event"
 msgstr ""
 
-#: functions/events.php:158
+#: functions/events.php:192
 msgid "This event will be imported by remote ical-calendar. All changes here will be overwritten."
 msgstr ""
 
-#: functions/events.php:202
+#: functions/events.php:236
 #: functions/options/events.php:107
 msgid "load map"
 msgstr ""
 
-#: functions/events.php:203
+#: functions/events.php:237
 msgid "delete map"
 msgstr ""
 
-#: functions/events.php:452
+#: functions/events.php:511
 msgid "Event date"
 msgstr ""
 
-#: functions/events.php:453
+#: functions/events.php:512
 msgid "Event location"
 msgstr ""
 
+#: functions/icalimport.php:79
+msgid "More Information"
+msgstr ""
+
 #: functions/metaboxes.php:8
-#: functions/options/settings.php:92
+#: functions/options/settings.php:91
 msgid "Layout"
 msgstr ""
 
@@ -342,7 +348,7 @@ msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
 #: functions/options/events.php:43
-#: functions/options/settings.php:43
+#: functions/options/settings.php:42
 #: functions/options/social-media.php:42
 msgid "Sunflower Settings"
 msgstr ""
@@ -379,62 +385,67 @@ msgstr ""
 msgid "First steps"
 msgstr ""
 
-#: functions/options/first-steps.php:53
+#: functions/options/first-steps.php:52
 msgid "About Sunflower"
 msgstr ""
 
-#: functions/options/first-steps.php:121
+#: functions/options/first-steps.php:120
 msgid "Activate Theme"
 msgstr ""
 
-#: functions/options/first-steps.php:128
+#: functions/options/first-steps.php:127
 msgid "Sunflower Terms of Use"
 msgstr ""
 
-#: functions/options/first-steps.php:132
+#: functions/options/first-steps.php:131
 msgid "Accept Terms of Use"
 msgstr ""
 
+#: functions/options/settings.php:25
 #: functions/options/settings.php:26
-#: functions/options/settings.php:27
 msgid "Settings"
 msgstr ""
 
-#: functions/options/settings.php:99
+#: functions/options/settings.php:98
 msgid "Excerpt length (words)"
 msgstr ""
 
-#: functions/options/settings.php:107
-#: functions/options/settings.php:111
+#: functions/options/settings.php:106
+#: functions/options/settings.php:110
 msgid "show related posts"
 msgstr ""
 
-#: functions/options/settings.php:116
-#: functions/options/settings.php:120
+#: functions/options/settings.php:115
+#: functions/options/settings.php:119
 msgid "show author of posts"
 msgstr ""
 
-#: functions/options/settings.php:125
-#: functions/options/settings.php:129
+#: functions/options/settings.php:124
+#: functions/options/settings.php:128
 msgid "hide previous and next links"
 msgstr ""
 
-#: functions/options/settings.php:134
-#: functions/options/settings.php:138
+#: functions/options/settings.php:133
+#: functions/options/settings.php:137
 msgid "to-field for contact-forms"
 msgstr ""
 
-#: functions/options/settings.php:143
+#: functions/options/settings.php:142
 msgid "items in menu"
 msgstr ""
 
-#: functions/options/settings.php:147
+#: functions/options/settings.php:146
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr ""
 
-#: functions/options/settings.php:152
-#: functions/options/settings.php:156
+#: functions/options/settings.php:151
+#: functions/options/settings.php:155
 msgid "Use this header layout"
+msgstr ""
+
+#: functions/options/settings.php:160
+#: functions/options/settings.php:164
+msgid "Show social media icons in header"
 msgstr ""
 
 #: functions/options/social-media.php:25
@@ -523,11 +534,11 @@ msgid "Add widgets here."
 msgstr ""
 
 #: functions/_s.php:177
-#: template-parts/content-archive.php:80
+#: template-parts/content-archive.php:81
 msgid "Continue reading"
 msgstr ""
 
-#: header.php:37
+#: header.php:36
 msgid "Skip to content"
 msgstr ""
 
@@ -563,37 +574,37 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: single-sunflower_event.php:50
+#: single-sunflower_event.php:52
 #: template-parts/archive-event.php:34
 msgid "o'clock"
 msgstr ""
 
-#: single-sunflower_event.php:76
+#: single-sunflower_event.php:80
 msgid "Location Link"
 msgstr ""
 
-#: single-sunflower_event.php:90
+#: single-sunflower_event.php:96
 msgid "Link to webinar"
 msgstr ""
 
-#: single-sunflower_event.php:96
-#: single-sunflower_event.php:98
+#: single-sunflower_event.php:102
+#: single-sunflower_event.php:104
 msgid "organized by"
 msgstr ""
 
-#: single-sunflower_event.php:105
+#: single-sunflower_event.php:111
 msgid "Download as ics"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/archive-event.php:58
-#: template-parts/content-archive.php:53
+#: template-parts/content-archive.php:54
 #: template-parts/content.php:76
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: template-parts/content-archive.php:66
-#: template-parts/content-page.php:32
+#: template-parts/content-archive.php:67
+#: template-parts/content-page.php:31
 #: template-parts/content.php:89
 msgid "Pages:"
 msgstr ""
@@ -620,57 +631,25 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/event-json-ld.php:14
+#: template-parts/event-json-ld.php:20
 msgid "none"
 msgstr ""
 
-#: template-parts/header-standard.php:28
-#: template-parts/header-standard.php:31
-#: template-parts/header-standard.php:107
-#: template-parts/header-standard.php:110
+#: template-parts/header-standard.php:40
+#: template-parts/header-standard.php:43
+#: template-parts/header-standard.php:153
+#: template-parts/header-standard.php:156
 msgid "Search"
 msgstr ""
 
-#: template-parts/header-standard.php:33
+#: template-parts/header-standard.php:45
 msgid "show search"
 msgstr ""
 
-#: template-parts/header-standard.php:36
+#: template-parts/header-standard.php:48
 msgid "increase contrast"
 msgstr ""
 
-#: template-parts/related-posts.php:7
+#: template-parts/related-posts.php:15
 msgid "Related posts"
-msgstr ""
-
-#: build/index.js:515
-#: build/index.js:562
-#: build/index.js:455
-#: build/index.js:498
-msgid "Next events"
-msgstr ""
-
-#: build/index.js:516
-#: build/index.js:456
-msgid "show next events"
-msgstr ""
-
-#: build/index.js:562
-#: build/index.js:495
-msgid "Loading"
-msgstr ""
-
-#: build/index.js:562
-#: build/index.js:496
-msgid "No Events"
-msgstr ""
-
-#: build/index.js:562
-#: build/index.js:500
-msgid "Maximum events shown"
-msgstr ""
-
-#: build/index.js:578
-#: build/index.js:522
-msgid "Count"
 msgstr ""
