@@ -22,17 +22,19 @@ body.admin-bar {
         }
 
     }
-	.sunflower-icon {
 
-		.ab-item {
+    .sunflower-icon {
 
-			&::before {
-				content: url("assets/img/sunflower.svg");
-				width: 20px;
-				height: 20px;
-			}
-		}
-	}
+        .ab-item {
+
+            &::before {
+
+                content: url("assets/img/sunflower.svg");
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
 }
 
 .navbar {
