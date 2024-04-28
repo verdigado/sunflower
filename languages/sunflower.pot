@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-28T10:15:25+00:00\n"
+"POT-Creation-Date: 2024-04-28T18:25:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -53,9 +53,9 @@ msgstr ""
 
 #: archive-sunflower_event.php:40
 #: functions/events.php:36
-#: functions/options/events.php:24
-#: functions/options/events.php:25
-#: functions/options/events.php:126
+#: functions/options/class-sunflowereventsettingspage.php:34
+#: functions/options/class-sunflowereventsettingspage.php:35
+#: functions/options/class-sunflowereventsettingspage.php:136
 msgid "Events"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 
 #: archive-sunflower_event.php:64
 #: functions/events.php:235
-#: functions/options/events.php:103
+#: functions/options/class-sunflowereventsettingspage.php:113
 msgid "Map"
 msgstr ""
 
@@ -293,7 +293,7 @@ msgid "This event will be imported by remote ical-calendar. All changes here wil
 msgstr ""
 
 #: functions/events.php:236
-#: functions/options/events.php:104
+#: functions/options/class-sunflowereventsettingspage.php:114
 msgid "load map"
 msgstr ""
 
@@ -347,6 +347,43 @@ msgstr ""
 msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
+#: functions/options/class-sunflowereventsettingspage.php:50
+#: functions/options/settings.php:39
+#: functions/options/social-media.php:39
+msgid "Sunflower Settings"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:70
+msgid "Import calendars now"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:143
+msgid "Description shown on the events page"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:151
+msgid "URLs of iCal calendars, one per row"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:159
+#: functions/options/class-sunflowereventsettingspage.php:163
+msgid "Rectify time zone"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:168
+#: functions/options/class-sunflowereventsettingspage.php:172
+msgid "Show overall map"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:177
+#: functions/options/class-sunflowereventsettingspage.php:181
+msgid "Show events archive"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:186
+msgid "Zoom-level of overall map"
+msgstr ""
+
 #: functions/options/class-sunflowerfirststepspage.php:44
 #: functions/options/class-sunflowerfirststepspage.php:45
 msgid "First steps"
@@ -376,39 +413,6 @@ msgstr ""
 
 #: functions/options/class-sunflowerfirststepspage.php:139
 msgid "Accept Terms of Use"
-msgstr ""
-
-#: functions/options/events.php:40
-#: functions/options/settings.php:39
-#: functions/options/social-media.php:39
-msgid "Sunflower Settings"
-msgstr ""
-
-#: functions/options/events.php:133
-msgid "Description shown on the events page"
-msgstr ""
-
-#: functions/options/events.php:141
-msgid "URLs of iCal calendars, one per row"
-msgstr ""
-
-#: functions/options/events.php:149
-#: functions/options/events.php:153
-msgid "Rectify time zone"
-msgstr ""
-
-#: functions/options/events.php:158
-#: functions/options/events.php:162
-msgid "Show overall map"
-msgstr ""
-
-#: functions/options/events.php:167
-#: functions/options/events.php:171
-msgid "Show events archive"
-msgstr ""
-
-#: functions/options/events.php:176
-msgid "Zoom-level of overall map"
 msgstr ""
 
 #: functions/options/settings.php:95

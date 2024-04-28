@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2024-04-28T10:15:25+00:00\n"
-"PO-Revision-Date: 2024-04-28 12:16+0200\n"
+"POT-Creation-Date: 2024-04-28T18:07:08+00:00\n"
+"PO-Revision-Date: 2024-04-28 20:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -56,8 +56,9 @@ msgid "Events archive"
 msgstr "Vergangene Veranstaltungen"
 
 #: archive-sunflower_event.php:40 functions/events.php:36
-#: functions/options/events.php:24 functions/options/events.php:25
-#: functions/options/events.php:126
+#: functions/options/class-sunflowereventsettingspage.php:34
+#: functions/options/class-sunflowereventsettingspage.php:35
+#: functions/options/class-sunflowereventsettingspage.php:137
 msgid "Events"
 msgstr "Termine"
 
@@ -74,7 +75,7 @@ msgid "Archive"
 msgstr "Archiv"
 
 #: archive-sunflower_event.php:64 functions/events.php:235
-#: functions/options/events.php:103
+#: functions/options/class-sunflowereventsettingspage.php:114
 msgid "Map"
 msgstr "Landkarte"
 
@@ -326,7 +327,8 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:236 functions/options/events.php:104
+#: functions/events.php:236
+#: functions/options/class-sunflowereventsettingspage.php:115
 msgid "load map"
 msgstr "Kartendaten laden"
 
@@ -361,8 +363,8 @@ msgstr "gestyltes Layout"
 #: functions/metaboxes.php:75
 msgid "do not show title, add and remove margins. e.g. for the homepage"
 msgstr ""
-"versteckt den Titel und fügt Abstände ein bzw. löscht sie anderen Stellen. "
-"Setze diesen Haken z.B. für die Startseite."
+"versteckt den Titel und fügt Abstände ein bzw. löscht sie an anderen "
+"Stellen. Setze diesen Haken z.B. für die Startseite."
 
 #: functions/metaboxes.php:96
 msgid "Hide feature image on single"
@@ -381,6 +383,42 @@ msgstr "Dachzeile"
 #: functions/metaboxes.php:114
 msgid "use Shift + Enter to prevent line between"
 msgstr "Wähle SHIFT + ENTER, um  Zwischenzeile zu verhindern"
+
+#: functions/options/class-sunflowereventsettingspage.php:50
+#: functions/options/settings.php:39 functions/options/social-media.php:39
+msgid "Sunflower Settings"
+msgstr "Sunflower Einstellungen"
+
+#: functions/options/class-sunflowereventsettingspage.php:70
+msgid "Import calendars now"
+msgstr "Kalender jetzt importieren"
+
+#: functions/options/class-sunflowereventsettingspage.php:144
+msgid "Description shown on the events page"
+msgstr "Beschreibung für die Termineseite"
+
+#: functions/options/class-sunflowereventsettingspage.php:152
+msgid "URLs of iCal calendars, one per row"
+msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
+
+#: functions/options/class-sunflowereventsettingspage.php:160
+#: functions/options/class-sunflowereventsettingspage.php:164
+msgid "Rectify time zone"
+msgstr "Zeitzone korrigieren"
+
+#: functions/options/class-sunflowereventsettingspage.php:169
+#: functions/options/class-sunflowereventsettingspage.php:173
+msgid "Show overall map"
+msgstr "Übersichtskarte zeigen"
+
+#: functions/options/class-sunflowereventsettingspage.php:178
+#: functions/options/class-sunflowereventsettingspage.php:182
+msgid "Show events archive"
+msgstr "Vergangene Veranstaltungen anzeigen"
+
+#: functions/options/class-sunflowereventsettingspage.php:187
+msgid "Zoom-level of overall map"
+msgstr "Zoomlevel für Übersichtskarte"
 
 #: functions/options/class-sunflowerfirststepspage.php:44
 #: functions/options/class-sunflowerfirststepspage.php:45
@@ -411,35 +449,6 @@ msgstr "Sunflower Nutzungsbedingungen"
 #: functions/options/class-sunflowerfirststepspage.php:139
 msgid "Accept Terms of Use"
 msgstr "Nutzungsbedingungen akzeptieren"
-
-#: functions/options/events.php:40 functions/options/settings.php:39
-#: functions/options/social-media.php:39
-msgid "Sunflower Settings"
-msgstr "Sunflower Einstellungen"
-
-#: functions/options/events.php:133
-msgid "Description shown on the events page"
-msgstr "Beschreibung für die Termineseite"
-
-#: functions/options/events.php:141
-msgid "URLs of iCal calendars, one per row"
-msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
-
-#: functions/options/events.php:149 functions/options/events.php:153
-msgid "Rectify time zone"
-msgstr "Zeitzone korrigieren"
-
-#: functions/options/events.php:158 functions/options/events.php:162
-msgid "Show overall map"
-msgstr "Übersichtskarte zeigen"
-
-#: functions/options/events.php:167 functions/options/events.php:171
-msgid "Show events archive"
-msgstr "Vergangene Veranstaltungen anzeigen"
-
-#: functions/options/events.php:176
-msgid "Zoom-level of overall map"
-msgstr "Zoomlevel für Übersichtskarte"
 
 #: functions/options/settings.php:95
 msgid "Excerpt length (words)"
@@ -475,7 +484,7 @@ msgstr "Layout für den Header"
 
 #: functions/options/settings.php:157 functions/options/settings.php:161
 msgid "Show social media icons in header"
-msgstr ""
+msgstr "Social-Media Icons im Header anzeigen"
 
 #: functions/options/social-media.php:23 functions/options/social-media.php:24
 msgid "Social Media"
