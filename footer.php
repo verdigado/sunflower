@@ -123,7 +123,7 @@ $sunflower_social_media_profiles = get_sunflower_social_media_profiles();
 						printf( '<img src="%s" class="img-fluid" alt="Logo %s">', esc_url( $sunflower_logo[0] ), esc_attr( get_bloginfo( 'name' ) ) );
 					} else {
 						$sunflower_options = get_option( 'sunflower_first_steps_options' );
-						if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === true ) {
+						if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
 							printf( '<img src="%s" class="img-fluid" alt="Logo BÜNDNIS 90/DIE GRÜNEN">', esc_attr( sunflower_parent_or_child( 'assets/img/logo-diegruenen.png' ) ) );
 						}
 					}

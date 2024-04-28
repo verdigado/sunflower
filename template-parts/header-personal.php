@@ -26,7 +26,7 @@
 					} else {
 						echo '<a href="' . esc_url( get_home_url() ) . '" rel="home" aria-current="page" title="', esc_attr( get_bloginfo( 'name' ) ) . '">';
 						$sunflower_options = get_option( 'sunflower_first_steps_options' );
-						if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === true ) {
+						if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
 							printf( '<img src="%s" class="sunflower-logo" alt="Logo">', esc_attr( sunflower_parent_or_child( 'assets/img/sunflower.svg' ) ) );
 						}
 

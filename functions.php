@@ -6,7 +6,7 @@
  */
 
 require_once __DIR__ . '/functions/_s.php';
-require_once __DIR__ . '/functions/options/first-steps.php';
+require_once __DIR__ . '/functions/options/class-sunflowerfirststepspage.php';
 require_once __DIR__ . '/functions/options/settings.php';
 require_once __DIR__ . '/functions/options/social-media.php';
 require_once __DIR__ . '/functions/options/events.php';

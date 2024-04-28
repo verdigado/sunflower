@@ -19,7 +19,7 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php
 		$sunflower_options = get_option( 'sunflower_first_steps_options' );
-	if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === true ) {
+	if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
 		printf( '<link rel="icon" href="%s" type="image/svg+xml" sizes="any">', esc_attr( sunflower_parent_or_child( 'assets/img/sunflower.svg' ) ) );
 		printf( '<link rel="icon" href="%s" type="image/png" sizes="48x48">', esc_attr( sunflower_parent_or_child( 'assets/img/favicon-48x48.png' ) ) );
 	}

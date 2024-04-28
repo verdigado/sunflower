@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-27T19:07:44+00:00\n"
+"POT-Creation-Date: 2024-04-28T10:15:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -53,9 +53,9 @@ msgstr ""
 
 #: archive-sunflower_event.php:40
 #: functions/events.php:36
-#: functions/options/events.php:26
-#: functions/options/events.php:27
-#: functions/options/events.php:130
+#: functions/options/events.php:24
+#: functions/options/events.php:25
+#: functions/options/events.php:126
 msgid "Events"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 
 #: archive-sunflower_event.php:64
 #: functions/events.php:235
-#: functions/options/events.php:106
+#: functions/options/events.php:103
 msgid "Map"
 msgstr ""
 
@@ -159,20 +159,20 @@ msgid "Sunflower Settings Page"
 msgstr ""
 
 #. translators: %1$s and %2$s are replaced with links
-#: functions/admin.php:47
+#: functions/admin.php:48
 msgid "Thank you for using sunflower theme. Sunflower is %1$s and maintained by %2$s."
 msgstr ""
 
-#: functions/admin.php:53
+#: functions/admin.php:54
 msgid "More information can be found on the sunflower theme settings page"
 msgstr ""
 
-#: functions/admin.php:69
+#: functions/admin.php:73
 msgid "PHP Version End of Life"
 msgstr ""
 
 #. translators: %1$s is replace with current PHP version and %2$s is replaced with link
-#: functions/admin.php:78
+#: functions/admin.php:83
 msgid ""
 "<p>You are using PHP <strong>%1$s</strong> which <a href=\"https://www.php.net/supported-versions.php\">is not supported</a> anymore!</p>\n"
 "                <p>Please note, that Sunflower theme <strong>will require at least PHP 8.2+</strong> as of release 2.1.0. <br />\n"
@@ -181,25 +181,25 @@ msgid ""
 "                <p>If you are looking for a web hosting service with attitute, have look at %2$s.</p>"
 msgstr ""
 
-#: functions/admin.php:105
+#: functions/admin.php:112
 msgid "New Terms and Use Settings"
 msgstr ""
 
-#: functions/admin.php:108
+#: functions/admin.php:116
 msgid ""
 "There is a new option on the <a href='admin.php?page=sunflower_admin'>Sunflower->First Steps</a> page.<br />\n"
 "            If you continue to use the sunflower icons in menue, footer and as favicon, please read and accept the terms of use."
 msgstr ""
 
-#: functions/admin.php:182
+#: functions/admin.php:217
 #: functions/block-patterns.php:12
 #: functions/blocks.php:9
-#: functions/options/first-steps.php:24
-#: functions/options/first-steps.php:25
+#: functions/options/class-sunflowerfirststepspage.php:33
+#: functions/options/class-sunflowerfirststepspage.php:34
 msgid "Sunflower"
 msgstr ""
 
-#: functions/admin.php:206
+#: functions/admin.php:244
 msgid "Help for sunflowers events"
 msgstr ""
 
@@ -293,7 +293,7 @@ msgid "This event will be imported by remote ical-calendar. All changes here wil
 msgstr ""
 
 #: functions/events.php:236
-#: functions/options/events.php:107
+#: functions/options/events.php:104
 msgid "load map"
 msgstr ""
 
@@ -314,7 +314,7 @@ msgid "More Information"
 msgstr ""
 
 #: functions/metaboxes.php:8
-#: functions/options/settings.php:91
+#: functions/options/settings.php:88
 msgid "Layout"
 msgstr ""
 
@@ -347,157 +347,162 @@ msgstr ""
 msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
-#: functions/options/events.php:43
-#: functions/options/settings.php:42
-#: functions/options/social-media.php:42
-msgid "Sunflower Settings"
-msgstr ""
-
-#: functions/options/events.php:137
-msgid "Description shown on the events page"
-msgstr ""
-
-#: functions/options/events.php:145
-msgid "URLs of iCal calendars, one per row"
-msgstr ""
-
-#: functions/options/events.php:153
-#: functions/options/events.php:157
-msgid "Rectify time zone"
-msgstr ""
-
-#: functions/options/events.php:162
-#: functions/options/events.php:166
-msgid "Show overall map"
-msgstr ""
-
-#: functions/options/events.php:171
-#: functions/options/events.php:175
-msgid "Show events archive"
-msgstr ""
-
-#: functions/options/events.php:180
-msgid "Zoom-level of overall map"
-msgstr ""
-
-#: functions/options/first-steps.php:35
-#: functions/options/first-steps.php:36
+#: functions/options/class-sunflowerfirststepspage.php:44
+#: functions/options/class-sunflowerfirststepspage.php:45
 msgid "First steps"
 msgstr ""
 
-#: functions/options/first-steps.php:52
+#: functions/options/class-sunflowerfirststepspage.php:60
 msgid "About Sunflower"
 msgstr ""
 
-#: functions/options/first-steps.php:120
-msgid "Activate Theme"
-msgstr ""
-
-#: functions/options/first-steps.php:127
-msgid "Sunflower Terms of Use"
-msgstr ""
-
-#: functions/options/first-steps.php:131
-msgid "Accept Terms of Use"
-msgstr ""
-
-#: functions/options/settings.php:25
-#: functions/options/settings.php:26
+#: functions/options/class-sunflowerfirststepspage.php:83
+#: functions/options/settings.php:23
+#: functions/options/settings.php:24
 msgid "Settings"
 msgstr ""
 
-#: functions/options/settings.php:98
+#: functions/options/class-sunflowerfirststepspage.php:102
+msgid "Import Images to Media"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:128
+msgid "Activate Theme"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:135
+msgid "Sunflower Terms of Use"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:139
+msgid "Accept Terms of Use"
+msgstr ""
+
+#: functions/options/events.php:40
+#: functions/options/settings.php:39
+#: functions/options/social-media.php:39
+msgid "Sunflower Settings"
+msgstr ""
+
+#: functions/options/events.php:133
+msgid "Description shown on the events page"
+msgstr ""
+
+#: functions/options/events.php:141
+msgid "URLs of iCal calendars, one per row"
+msgstr ""
+
+#: functions/options/events.php:149
+#: functions/options/events.php:153
+msgid "Rectify time zone"
+msgstr ""
+
+#: functions/options/events.php:158
+#: functions/options/events.php:162
+msgid "Show overall map"
+msgstr ""
+
+#: functions/options/events.php:167
+#: functions/options/events.php:171
+msgid "Show events archive"
+msgstr ""
+
+#: functions/options/events.php:176
+msgid "Zoom-level of overall map"
+msgstr ""
+
+#: functions/options/settings.php:95
 msgid "Excerpt length (words)"
 msgstr ""
 
-#: functions/options/settings.php:106
-#: functions/options/settings.php:110
+#: functions/options/settings.php:103
+#: functions/options/settings.php:107
 msgid "show related posts"
 msgstr ""
 
-#: functions/options/settings.php:115
-#: functions/options/settings.php:119
+#: functions/options/settings.php:112
+#: functions/options/settings.php:116
 msgid "show author of posts"
 msgstr ""
 
-#: functions/options/settings.php:124
-#: functions/options/settings.php:128
+#: functions/options/settings.php:121
+#: functions/options/settings.php:125
 msgid "hide previous and next links"
 msgstr ""
 
-#: functions/options/settings.php:133
-#: functions/options/settings.php:137
+#: functions/options/settings.php:130
+#: functions/options/settings.php:134
 msgid "to-field for contact-forms"
 msgstr ""
 
-#: functions/options/settings.php:142
+#: functions/options/settings.php:139
 msgid "items in menu"
 msgstr ""
 
-#: functions/options/settings.php:146
+#: functions/options/settings.php:143
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr ""
 
-#: functions/options/settings.php:151
-#: functions/options/settings.php:155
+#: functions/options/settings.php:148
+#: functions/options/settings.php:152
 msgid "Use this header layout"
 msgstr ""
 
-#: functions/options/settings.php:160
-#: functions/options/settings.php:164
+#: functions/options/settings.php:157
+#: functions/options/settings.php:161
 msgid "Show social media icons in header"
 msgstr ""
 
-#: functions/options/social-media.php:25
-#: functions/options/social-media.php:26
+#: functions/options/social-media.php:23
+#: functions/options/social-media.php:24
 msgid "Social Media"
 msgstr ""
 
-#: functions/options/social-media.php:68
-#: functions/options/social-media.php:75
+#: functions/options/social-media.php:64
+#: functions/options/social-media.php:71
 msgid "Social Media Profiles"
 msgstr ""
 
-#: functions/options/social-media.php:83
+#: functions/options/social-media.php:79
 msgid "Social Sharers"
 msgstr ""
 
-#: functions/options/social-media.php:90
+#: functions/options/social-media.php:86
 msgid "Open Graph Fallback Image"
 msgstr ""
 
+#: functions/options/social-media.php:94
 #: functions/options/social-media.php:98
-#: functions/options/social-media.php:102
 msgid "X (Twitter)"
 msgstr ""
 
+#: functions/options/social-media.php:103
 #: functions/options/social-media.php:107
-#: functions/options/social-media.php:111
 msgid "Facebook"
 msgstr ""
 
-#: functions/options/social-media.php:116
+#: functions/options/social-media.php:112
 msgid "mail"
 msgstr ""
 
-#: functions/options/social-media.php:120
+#: functions/options/social-media.php:116
 msgid "Mail"
 msgstr ""
 
-#: functions/options/social-media.php:157
+#: functions/options/social-media.php:150
 msgid "Show share buttons on single post page"
 msgstr ""
 
-#: functions/options/social-media.php:217
+#: functions/options/social-media.php:210
 #: functions/_s.php:165
 msgid "Select Open Graph Fallback Image"
 msgstr ""
 
-#: functions/options/social-media.php:228
+#: functions/options/social-media.php:222
 msgid "Open Media Library"
 msgstr ""
 
-#: functions/options/social-media.php:233
+#: functions/options/social-media.php:227
 msgid "This fallback image will be used when sharing pages and posts and no featured image has been selected."
 msgstr ""
 
