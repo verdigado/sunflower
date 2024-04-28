@@ -14,7 +14,7 @@
 
 ?>
 <?php
-$sunflower_social_media_profiles = get_sunflower_social_media_profiles();
+$sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 ?>
 
 	<footer id="colophon" class="site-footer">

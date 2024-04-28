@@ -7,7 +7,7 @@
  * @package sunflower
  */
 
-$sunflower_open_graph_image = get_the_post_thumbnail_url( null, 'medium' ) ? get_the_post_thumbnail_url( null, 'medium' ) : get_sunflower_setting( 'sunflower_open_graph_fallback_image' );
+$sunflower_open_graph_image = get_the_post_thumbnail_url( null, 'medium' ) ? get_the_post_thumbnail_url( null, 'medium' ) : sunflower_get_setting( 'sunflower_open_graph_fallback_image' );
 
 // If still empty, take the default image.
 if ( ! $sunflower_open_graph_image ) {

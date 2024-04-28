@@ -48,7 +48,7 @@ $sunflower_styled_layout = get_post_meta( $post->ID, '_sunflower_styled_layout',
 			<div class="row sunflower-post-navigation mb-3">
 				<?php
 
-				if ( ! get_sunflower_setting( 'sunflower_hide_prev_next' ) ) {
+				if ( ! sunflower_get_setting( 'sunflower_hide_prev_next' ) ) {
 					$sunflower_previous = get_previous_post_link(
 						'<div class="">%link </div>',
 						'%title <div class="announce">' . __( 'previous', 'sunflower' ) . '</div>'
@@ -80,7 +80,7 @@ $sunflower_styled_layout = get_post_meta( $post->ID, '_sunflower_styled_layout',
 
 
 	<?php
-	if ( get_sunflower_setting( 'sunflower_show_related_posts' ) ) {
+	if ( sunflower_get_setting( 'sunflower_show_related_posts' ) ) {
 		get_template_part( 'template-parts/related-posts', '' );
 	}
 	?>

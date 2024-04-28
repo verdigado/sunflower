@@ -23,7 +23,7 @@ function sunflower_contact_form()
     $title = sanitize_text_field($_POST['title']);
 
     $response = __('Thank you. The form has been sent.', 'sunflower-contact-form');
-    $to = get_sunflower_setting('sunflower_contact_form_to') ?: get_option('admin_email');
+    $to = sunflower_get_setting('sunflower_contact_form_to') ?: get_option('admin_email');
 
     $subject = __('New Message from', 'sunflower-contact-form') . ' ' . ($title ?: __('Contact Form', 'sunflower-contact-form'));
     $message = sprintf("Name: %s\nE-Mail: %s\n\n%s", $name, $mail, $message);

@@ -96,7 +96,7 @@ function sunflower_icalimport($url = false, $auto_categories = false)
         $ids_from_remote[] = $id;
 
         $timezoneFix = null;
-        if (get_sunflower_setting('sunflower_fix_time_zone_error')) {
+        if (sunflower_get_setting('sunflower_fix_time_zone_error')) {
             $timezoneFix = $timezone;
         }
 
@@ -186,14 +186,14 @@ function sunflower_import_icals($force = false)
         return false;
     }
 
-    if (!get_sunflower_setting('sunflower_ical_urls')) {
+    if (!sunflower_get_setting('sunflower_ical_urls')) {
         return false;
     }
 
     $import_every_n_hour = sunflower_get_constant('SUNFLOWER_EVENT_IMPORT_EVERY_N_HOUR') ?: 3;
     set_transient('sunflower_ical_imported', 1, $import_every_n_hour * 3600);
 
-    $lines = explode("\n", (string) get_sunflower_setting('sunflower_ical_urls'));
+    $lines = explode("\n", (string) sunflower_get_setting('sunflower_ical_urls'));
 
     $ids_from_remote = [];
     foreach ($lines as $line) {

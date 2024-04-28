@@ -1,8 +1,19 @@
 <?php
+/**
+ * Class for the Sunflower social media settings page.
+ *
+ * @package sunflower
+ */
+
+/**
+ * The class itself.
+ */
 class SunflowerSocialMediaSettingsPage {
 
 	/**
 	 * Holds the values to be used in the fields callbacks
+	 *
+	 * @var $options
 	 */
 	private $options;
 
@@ -32,14 +43,14 @@ class SunflowerSocialMediaSettingsPage {
 	 * Social Media Profiles page callback
 	 */
 	public function create_sunflower_social_media_page(): void {
-		// Set class property
+		// Set class properties from options.
 		$this->options = get_option( 'sunflower_social_media_options' );
 		?>
 		<div class="wrap">
 			<h1><?php esc_html_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
 			<form method="post" action="options.php">
 			<?php
-				// This prints out all hidden setting fields
+				// This prints out all hidden setting fields.
 				settings_fields( 'sunflower_social_media_option_group' );
 			do_settings_sections( 'sunflower-setting-social-media-options' );
 			submit_button();
@@ -54,65 +65,65 @@ class SunflowerSocialMediaSettingsPage {
 	 */
 	public function sunflower_social_media_page_init(): void {
 		register_setting(
-			'sunflower_social_media_option_group', // Option group
-			'sunflower_social_media_options', // Option name
-			$this->sanitize( ... ) // Sanitize
+			'sunflower_social_media_option_group',
+			'sunflower_social_media_options',
+			$this->sanitize( ... )
 		);
 
 		add_settings_section(
-			'sunflower_social_media', // ID
-			__( 'Social Media Profiles', 'sunflower' ), // Title
-			$this->print_section_info( ... ), // Callback
-			'sunflower-setting-social-media-options' // Page
+			'sunflower_social_media',
+			__( 'Social Media Profiles', 'sunflower' ),
+			$this->print_section_info( ... ),
+			'sunflower-setting-social-media-options'
 		);
 
 		add_settings_field(
 			'sunflower_social_media_profiles',
-			__( 'Social Media Profiles', 'sunflower' ), // Title
+			__( 'Social Media Profiles', 'sunflower' ),
 			$this->social_media_profiles_callback( ... ),
-			'sunflower-setting-social-media-options', // Page
-			'sunflower_social_media' // Section
+			'sunflower-setting-social-media-options',
+			'sunflower_social_media'
 		);
 
 		add_settings_section(
-			'sunflower_social_media_sharers', // ID
-			__( 'Social Sharers', 'sunflower' ), // Title
-			$this->print_section_info_sharers( ... ), // Callback
-			'sunflower-setting-social-media-options' // Page
+			'sunflower_social_media_sharers',
+			__( 'Social Sharers', 'sunflower' ),
+			$this->print_section_info_sharers( ... ),
+			'sunflower-setting-social-media-options'
 		);
 
 		add_settings_field(
-			'sunflower_open_graph_fallback_image', // ID
-			__( 'Open Graph Fallback Image', 'sunflower' ), // Title
-			$this->sunflower_open_graph_fallback_image( ... ), // Callback
-			'sunflower-setting-social-media-options', // Page
-			'sunflower_social_media_sharers' // Section
+			'sunflower_open_graph_fallback_image',
+			__( 'Open Graph Fallback Image', 'sunflower' ),
+			$this->sunflower_open_graph_fallback_image( ... ),
+			'sunflower-setting-social-media-options',
+			'sunflower_social_media_sharers'
 		);
 
 		add_settings_field(
-			'sunflower_sharer_x_twitter', // ID
-			__( 'X (Twitter)', 'sunflower' ), // Title
-			$this->sunflower_checkbox_callback( ... ), // Callback
-			'sunflower-setting-social-media-options', // Page
-			'sunflower_social_media_sharers', // Section
+			'sunflower_sharer_x_twitter',
+			__( 'X (Twitter)', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-social-media-options',
+			'sunflower_social_media_sharers',
 			array( 'sunflower_sharer_x_twitter', __( 'X (Twitter)', 'sunflower' ) )
 		);
 
 		add_settings_field(
-			'sunflower_sharer_facebook', // ID
-			__( 'Facebook', 'sunflower' ), // Title
-			$this->sunflower_checkbox_callback( ... ), // Callback
-			'sunflower-setting-social-media-options', // Page
-			'sunflower_social_media_sharers', // Section
+			'sunflower_sharer_facebook',
+			__( 'Facebook', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-social-media-options',
+			'sunflower_social_media_sharers',
 			array( 'sunflower_sharer_facebook', __( 'Facebook', 'sunflower' ) )
 		);
 
 		add_settings_field(
-			'sunflower_sharer_mail', // ID
-			__( 'mail', 'sunflower' ), // Title
-			$this->sunflower_checkbox_callback( ... ), // Callback
-			'sunflower-setting-social-media-options', // Page
-			'sunflower_social_media_sharers', // Section
+			'sunflower_sharer_mail',
+			__( 'mail', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-social-media-options',
+			'sunflower_social_media_sharers',
 			array( 'sunflower_sharer_mail', __( 'Mail', 'sunflower' ) )
 		);
 	}
@@ -120,19 +131,19 @@ class SunflowerSocialMediaSettingsPage {
 	/**
 	 * Sanitize each setting field as needed
 	 *
-	 * @param array $input Contains all settings fields as array keys
+	 * @param array $input Contains all settings fields as array keys.
 	 */
 	public function sanitize( $input ) {
 		$new_input = array();
 
-		// Sanitize everything
+		// Sanitize everything element of the input array.
 		foreach ( $input as $key => $value ) {
 			if ( isset( $input[ $key ] ) ) {
 				$new_input[ $key ] = sanitize_text_field( $value );
 			}
 		}
 
-		// Sanitize special values
+		// Sanitize special values.
 		if ( isset( $input['sunflower_social_media_profiles'] ) ) {
 			$new_input['sunflower_social_media_profiles'] = sanitize_textarea_field( $input['sunflower_social_media_profiles'] );
 		}
@@ -146,10 +157,18 @@ class SunflowerSocialMediaSettingsPage {
 	public function print_section_info() {
 	}
 
+	/**
+	 * Show info text about share buttons
+	 */
 	public function print_section_info_sharers(): void {
 		esc_html_e( 'Show share buttons on single post page', 'sunflower' );
 	}
 
+	/**
+	 * Checkbox callback
+	 *
+	 * @param array $args The field arguments.
+	 */
 	public function sunflower_checkbox_callback( $args ): void {
 		$field = $args[0];
 		$label = $args[1];
@@ -159,16 +178,16 @@ class SunflowerSocialMediaSettingsPage {
                     <input type="checkbox" id="%1$s" name="sunflower_social_media_options[%1$s]" value="checked" %2$s />
                     %3$s
                 </label>',
-			$field,
+			esc_attr( $field ),
 			isset( $this->options[ $field ] ) ? 'checked' : '',
-			$label
+			esc_attr( $label )
 		);
 	}
 
 	/**
 	 * Get the settings option array and print one of its values
 	 */
-	public function social_media_profiles_callback( $args ): void {
+	public function social_media_profiles_callback(): void {
 		$default   = array();
 		$default[] = 'fab fa-x-twitter;X (Twitter);';
 		$default[] = 'fab fa-twitter;Twitter;';
@@ -183,7 +202,7 @@ class SunflowerSocialMediaSettingsPage {
 
 		printf(
 			'<textarea style="white-space: pre-wrap;width: 90%%;height:18em;" id="sunflower_social_media_profiles" name="sunflower_social_media_options[sunflower_social_media_profiles]">%s</textarea>',
-			( isset( $this->options['sunflower_social_media_profiles'] ) && $this->options['sunflower_social_media_profiles'] != '' ) ? $this->options['sunflower_social_media_profiles'] : implode( "\n", $default )
+			( isset( $this->options['sunflower_social_media_profiles'] ) && ! empty( $this->options['sunflower_social_media_profiles'] ) ) ? esc_attr( $this->options['sunflower_social_media_profiles'] ) : esc_attr( implode( "\n", $default ) )
 		);
 		echo '<div><a href="https://sunflower-theme.de/documentation/setup/#social-media-profile" target="_blank">Mehr zu den Einstellungen in der Dokumentation</a> und
         <a href="https://fontawesome.com/icons?d=gallery&p=2&m=free" target="_blank">alle möglichen Icons bei Fontawesome</a>.<br>
@@ -194,14 +213,18 @@ class SunflowerSocialMediaSettingsPage {
         </div>';
 	}
 
+	/**
+	 * Field for open graph fallback image with media selection.
+	 */
 	public function sunflower_open_graph_fallback_image(): void {
-		// add media selector button
+		// Add media selector button.
 		wp_enqueue_media();
 		wp_enqueue_script(
 			'sunflower-admin-media',
 			get_template_directory_uri() . '/assets/js/admin-media.js',
 			array( 'jquery', 'jquery-ui-tabs', 'media-upload' ),
-			_S_VERSION
+			_S_VERSION,
+			array( 'in_footer' => true )
 		);
 		wp_localize_script(
 			'sunflower-admin-media',
@@ -213,50 +236,22 @@ class SunflowerSocialMediaSettingsPage {
 
 		printf(
 			'<input type="text" id="sunflower_open_graph_fallback_image" name="sunflower_social_media_options[sunflower_open_graph_fallback_image]" size="%s" value="%s">',
-			min( strlen( (string) $this->options['sunflower_open_graph_fallback_image'] ), 120 ),
-			$this->options['sunflower_open_graph_fallback_image'] ?? ''
+			esc_attr( min( strlen( (string) $this->options['sunflower_open_graph_fallback_image'] ), 120 ) ),
+			esc_attr( $this->options['sunflower_open_graph_fallback_image'] ?? '' )
 		);
 
 		printf(
 			'<input type="button" id="sunflower_open_graph_fallback_image_button" class="button" value="%s"" />',
-			__( 'Open Media Library', 'sunflower' )
+			esc_attr__( 'Open Media Library', 'sunflower' )
 		);
 
 		printf(
 			'<p class="sunflower-help">%s</p>',
-			__( 'This fallback image will be used when sharing pages and posts and no featured image has been selected.', 'sunflower' )
+			esc_attr__( 'This fallback image will be used when sharing pages and posts and no featured image has been selected.', 'sunflower' )
 		);
 	}
 }
 
 if ( is_admin() ) {
-	$my_settings_page = new SunflowerSocialMediaSettingsPage();
-}
-
-function get_sunflower_social_media_profiles() {
-	$profiles = block_core_social_link_services();
-
-	$return = '';
-
-	$lines = explode( "\n", (string) get_sunflower_setting( 'sunflower_social_media_profiles' ) );
-	foreach ( $lines as $line ) {
-		$line                   = trim( $line );
-		@[$class, $title, $url] = explode( ';', $line );
-		if ( ! isset( $url ) ) {
-			continue;
-		}
-
-		if ( $url === '' ) {
-			continue;
-		}
-
-		$return .= sprintf(
-			'<a href="%1$s" target="_blank" title="%3$s" class="social-media-profile" rel="me"><i class="%2$s"></i></a>',
-			$url,
-			$class,
-			$title
-		);
-	}
-
-	return $return;
+	$sunflower_settings_page = new SunflowerSocialMediaSettingsPage();
 }

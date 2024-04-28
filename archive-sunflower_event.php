@@ -41,7 +41,7 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 								?>
 							</h1>
 								<?php
-								$sunflower_events_description = get_sunflower_setting( 'sunflower_events_description' ) ?? '';
+								$sunflower_events_description = sunflower_get_setting( 'sunflower_events_description' ) ?? '';
 								if ( $sunflower_events_description ) {
 									printf( '<p>%s</p>', wp_kses_post( $sunflower_events_description ) );
 								}
@@ -54,13 +54,13 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 							printf( '<a href="?archive=false" class="eventlist" >%s</a>', esc_html__( 'to upcoming events', 'sunflower' ) );
 						} else {
 							printf( '<button class="filter filter-active" data-filter="*">%s</button>', esc_html__( 'all events', 'sunflower' ) );
-							if ( get_sunflower_setting( 'sunflower_show_event_archive' ) ) {
+							if ( sunflower_get_setting( 'sunflower_show_event_archive' ) ) {
 								printf( '<a href="?archive=true" class="eventlist" >%s</a>', esc_html__( 'Archive', 'sunflower' ) );
 							}
 						}
 						?>
 
-						<?php if ( get_sunflower_setting( 'sunflower_show_overall_map' ) && ! $sunflower_is_event_archive ) { ?>
+						<?php if ( sunflower_get_setting( 'sunflower_show_overall_map' ) && ! $sunflower_is_event_archive ) { ?>
 								<button class="filter" data-filter=".map"><?php esc_html_e( 'Map', 'sunflower' ); ?></button>
 							<?php
 						}
@@ -166,7 +166,7 @@ endif;
 
 						$sunflower_center_lat = ( $sunflower_lower_lat + $sunflower_upper_lat ) / 2;
 						$sunflower_center_lon = ( $sunflower_lower_lon + $sunflower_upper_lon ) / 2;
-						$sunflower_zoom       = get_sunflower_setting( 'sunflower_zoom' ) ?? 6;
+						$sunflower_zoom       = sunflower_get_setting( 'sunflower_zoom' ) ?? 6;
 						printf(
 							"map.center = { 'lat': %s, 'lon': %s, 'zoom': %s };",
 							esc_attr( $sunflower_center_lat ),

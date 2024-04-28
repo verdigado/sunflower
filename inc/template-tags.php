@@ -93,7 +93,7 @@ function sunflower_the_social_media_sharers()
     $twitter = false;
     $facebook = false;
     $mail = false;
-    if (get_sunflower_setting('sunflower_sharer_twitter') || get_sunflower_setting('sunflower_sharer_x_twitter')) {
+    if (sunflower_get_setting('sunflower_sharer_twitter') || sunflower_get_setting('sunflower_sharer_x_twitter')) {
         $twitter = sprintf(
             '<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-x-twitter"></i></a>',
             urlencode((string) get_the_title()),
@@ -103,7 +103,7 @@ function sunflower_the_social_media_sharers()
         );
     }
 
-    if (get_sunflower_setting('sunflower_sharer_facebook')) {
+    if (sunflower_get_setting('sunflower_sharer_facebook')) {
         $facebook = sprintf(
             "<i class='fab fa-facebook sharer' onclick=\"window.open('https://www.facebook.com/sharer/sharer.php?u=%s', 'sharer', 'width=626,height=436')\" title=\"%s\"></i>",
             get_permalink(),
@@ -111,7 +111,7 @@ function sunflower_the_social_media_sharers()
         );
     }
 
-    if (get_sunflower_setting('sunflower_sharer_mail')) {
+    if (sunflower_get_setting('sunflower_sharer_mail')) {
         $mail = sprintf(
             '<a href="MAILTO:?subject=%s&body=%s" target="_blank" title="%s" class="sharer"><i class="fas fa-envelope"></i></a>',
             urlencode((string) get_the_title()),

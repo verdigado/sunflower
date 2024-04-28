@@ -53,7 +53,7 @@ class sunflower_follow_us extends WP_Widget
         }
 
         $output = '<div class="widget-container">';
-        $output .= get_sunflower_social_media_profiles();
+        $output .= sunflower_get_social_media_profiles();
         $output .= '</div>';
 
         echo $output;

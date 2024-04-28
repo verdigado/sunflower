@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-28T18:25:44+00:00\n"
+"POT-Creation-Date: 2024-04-28T19:20:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -314,7 +314,7 @@ msgid "More Information"
 msgstr ""
 
 #: functions/metaboxes.php:8
-#: functions/options/settings.php:88
+#: functions/options/class-sunflowersettingspage.php:103
 msgid "Layout"
 msgstr ""
 
@@ -348,7 +348,7 @@ msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
 #: functions/options/class-sunflowereventsettingspage.php:50
-#: functions/options/settings.php:39
+#: functions/options/class-sunflowersettingspage.php:50
 #: functions/options/social-media.php:39
 msgid "Sunflower Settings"
 msgstr ""
@@ -394,8 +394,8 @@ msgid "About Sunflower"
 msgstr ""
 
 #: functions/options/class-sunflowerfirststepspage.php:83
-#: functions/options/settings.php:23
-#: functions/options/settings.php:24
+#: functions/options/class-sunflowersettingspage.php:34
+#: functions/options/class-sunflowersettingspage.php:35
 msgid "Settings"
 msgstr ""
 
@@ -415,45 +415,49 @@ msgstr ""
 msgid "Accept Terms of Use"
 msgstr ""
 
-#: functions/options/settings.php:95
+#: functions/options/class-sunflowersettingspage.php:75
+msgid "Reimport permalink structure"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:110
 msgid "Excerpt length (words)"
 msgstr ""
 
-#: functions/options/settings.php:103
-#: functions/options/settings.php:107
+#: functions/options/class-sunflowersettingspage.php:118
+#: functions/options/class-sunflowersettingspage.php:122
 msgid "show related posts"
 msgstr ""
 
-#: functions/options/settings.php:112
-#: functions/options/settings.php:116
+#: functions/options/class-sunflowersettingspage.php:127
+#: functions/options/class-sunflowersettingspage.php:131
 msgid "show author of posts"
 msgstr ""
 
-#: functions/options/settings.php:121
-#: functions/options/settings.php:125
+#: functions/options/class-sunflowersettingspage.php:136
+#: functions/options/class-sunflowersettingspage.php:140
 msgid "hide previous and next links"
 msgstr ""
 
-#: functions/options/settings.php:130
-#: functions/options/settings.php:134
+#: functions/options/class-sunflowersettingspage.php:145
+#: functions/options/class-sunflowersettingspage.php:149
 msgid "to-field for contact-forms"
 msgstr ""
 
-#: functions/options/settings.php:139
+#: functions/options/class-sunflowersettingspage.php:154
 msgid "items in menu"
 msgstr ""
 
-#: functions/options/settings.php:143
+#: functions/options/class-sunflowersettingspage.php:158
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr ""
 
-#: functions/options/settings.php:148
-#: functions/options/settings.php:152
+#: functions/options/class-sunflowersettingspage.php:163
+#: functions/options/class-sunflowersettingspage.php:167
 msgid "Use this header layout"
 msgstr ""
 
-#: functions/options/settings.php:157
-#: functions/options/settings.php:161
+#: functions/options/class-sunflowersettingspage.php:172
+#: functions/options/class-sunflowersettingspage.php:176
 msgid "Show social media icons in header"
 msgstr ""
 

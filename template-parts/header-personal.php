@@ -71,8 +71,8 @@
 
 			<?php
 				$sunflower_social_media_icons = '';
-			if ( get_sunflower_setting( 'sunflower_header_social_media' ) ) {
-				$sunflower_social_media_icons = get_sunflower_social_media_profiles();
+			if ( sunflower_get_setting( 'sunflower_header_social_media' ) ) {
+				$sunflower_social_media_icons = sunflower_get_social_media_profiles();
 			}
 				printf( '<div class="social-media-profiles d-none d-md-flex">%s</div>', wp_kses_post( $sunflower_social_media_icons ) );
 			?>

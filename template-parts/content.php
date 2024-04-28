@@ -42,7 +42,7 @@ $sunflower_class               = $args['class'] ?? '';
 						<?php
 						sunflower_posted_on();
 
-						if ( get_sunflower_setting( 'sunflower_show_author' ) ) {
+						if ( sunflower_get_setting( 'sunflower_show_author' ) ) {
 							sunflower_posted_by();
 						}
 						?>

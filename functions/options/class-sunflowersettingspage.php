@@ -1,8 +1,19 @@
 <?php
+/**
+ * Class for the Sunflower settings page.
+ *
+ * @package sunflower
+ */
+
+/**
+ * The class itself.
+ */
 class SunflowerSettingsPage {
 
 	/**
 	 * Holds the values to be used in the fields callbacks
+	 *
+	 * @var $options
 	 */
 	private $options;
 
@@ -32,14 +43,14 @@ class SunflowerSettingsPage {
 	 * Options page callback
 	 */
 	public function create_sunflower_settings_page(): void {
-		// Set class property
+		// Set class properties from options.
 		$this->options = get_option( 'sunflower_options' );
 		?>
 		<div class="wrap">
 			<h1><?php esc_html_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
 			<form method="post" action="options.php">
 			<?php
-				// This prints out all hidden setting fields
+				// This prints out all hidden setting fields.
 				settings_fields( 'sunflower_option_group' );
 			do_settings_sections( 'sunflower-setting-admin' );
 			submit_button();
@@ -53,17 +64,17 @@ class SunflowerSettingsPage {
 						<td>
 
 						<?php
-						if ( isset( $_GET['flush_permalinks'] ) ) {
+						if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( $_GET['_wpnonce'], 'sunflower_options-flushpermalinks' ) && isset( $_GET['flush_permalinks'] ) ) {
 							flush_rewrite_rules();
 							?>
 							Die Permalinkstruktur wurde neu eingelesen.
 								<?php } else { ?>
 							<p>Falls der Link für die Termineseite fehlerhaft ist, kannst Du die Permalinkstruktur neu einlesen. </p><br>
-							<a href="admin.php?page=sunflower_settings&flush_permalinks=1" class="button button-primary">Permalinkstruktur neu einlesen </a>
 							<?php
+								$sunflower_flushpermalinks_url = wp_nonce_url( 'admin.php?page=sunflower_settings&flush_permalinks=1', 'sunflower_options-flushpermalinks' );
+								printf( '<a href="%s" class="button button-primary">%s</a>', esc_html( $sunflower_flushpermalinks_url ), esc_attr__( 'Reimport permalink structure', 'sunflower' ) );
 								}
 								?>
-
 						</td>
 					</tr>
 				</tbody>
@@ -78,86 +89,86 @@ class SunflowerSettingsPage {
 	 */
 	public function sunflower_settings_page_init(): void {
 		register_setting(
-			'sunflower_option_group', // Option group
-			'sunflower_options', // Option name
-			$this->sanitize( ... ) // Sanitize
+			'sunflower_option_group',
+			'sunflower_options',
+			$this->sanitize( ... )
 		);
 
 		add_settings_section(
-			'sunflower_layout', // ID
-			__( 'Layout', 'sunflower' ), // Title
-			$this->print_section_info( ... ), // Callback
-			'sunflower-setting-admin' // Page
+			'sunflower_layout',
+			__( 'Layout', 'sunflower' ),
+			$this->print_section_info( ... ),
+			'sunflower-setting-admin'
 		);
 
 		add_settings_field(
-			'excerps_length', // ID
-			__( 'Excerpt length (words)', 'sunflower' ), // Title
-			$this->excerpt_length_callback( ... ), // Callback
-			'sunflower-setting-admin', // Page
-			'sunflower_layout' // Section
+			'excerps_length',
+			__( 'Excerpt length (words)', 'sunflower' ),
+			$this->excerpt_length_callback( ... ),
+			'sunflower-setting-admin',
+			'sunflower_layout'
 		);
 
 		add_settings_field(
-			'sunflower_show_related_posts', // ID
-			__( 'show related posts', 'sunflower' ), // Title
-			$this->sunflower_checkbox_callback( ... ), // Callback
-			'sunflower-setting-admin', // Page
-			'sunflower_layout', // Section
+			'sunflower_show_related_posts',
+			__( 'show related posts', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-admin',
+			'sunflower_layout',
 			array( 'sunflower_show_related_posts', __( 'show related posts', 'sunflower' ) )
 		);
 
 		add_settings_field(
-			'sunflower_show_author', // ID
-			__( 'show author of posts', 'sunflower' ), // Title
-			$this->sunflower_checkbox_callback( ... ), // Callback
-			'sunflower-setting-admin', // Page
-			'sunflower_layout', // Section
+			'sunflower_show_author',
+			__( 'show author of posts', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-admin',
+			'sunflower_layout',
 			array( 'sunflower_show_author', __( 'show author of posts', 'sunflower' ) )
 		);
 
 		add_settings_field(
-			'sunflower_hide_prev_next', // ID
-			__( 'hide previous and next links', 'sunflower' ), // Title
-			$this->sunflower_checkbox_callback( ... ), // Callback
-			'sunflower-setting-admin', // Page
-			'sunflower_layout', // Section
+			'sunflower_hide_prev_next',
+			__( 'hide previous and next links', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-admin',
+			'sunflower_layout',
 			array( 'sunflower_hide_prev_next', __( 'hide previous and next links', 'sunflower' ) )
 		);
 
 		add_settings_field(
-			'sunflower_contact_form_to', // ID
-			__( 'to-field for contact-forms', 'sunflower' ), // Title
-			$this->sunflower_contact_form_to( ... ), // Callback
-			'sunflower-setting-admin', // Page
-			'sunflower_layout', // Section
+			'sunflower_contact_form_to',
+			__( 'to-field for contact-forms', 'sunflower' ),
+			$this->sunflower_contact_form_to( ... ),
+			'sunflower-setting-admin',
+			'sunflower_layout',
 			array( 'sunflower_contact_form_to', __( 'to-field for contact-forms', 'sunflower' ) )
 		);
 
 		add_settings_field(
-			'sunflower_main_menu_item_is_placeholder', // ID
-			__( 'items in menu', 'sunflower' ), // Title
-			$this->sunflower_checkbox_callback( ... ), // Callback
-			'sunflower-setting-admin', // Page
-			'sunflower_layout', // Section
+			'sunflower_main_menu_item_is_placeholder',
+			__( 'items in menu', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-admin',
+			'sunflower_layout',
 			array( 'sunflower_main_menu_item_is_placeholder', __( 'items with href=# in the main menu are placeholders for submenu', 'sunflower' ) )
 		);
 
 		add_settings_field(
-			'sunflower_header_layout', // ID
-			__( 'Use this header layout', 'sunflower' ), // Title
-			$this->sunflower_header_layout( ... ), // Callback
-			'sunflower-setting-admin', // Page
-			'sunflower_layout', // Section
+			'sunflower_header_layout',
+			__( 'Use this header layout', 'sunflower' ),
+			$this->sunflower_header_layout( ... ),
+			'sunflower-setting-admin',
+			'sunflower_layout',
 			array( 'sunflower_header_layout', __( 'Use this header layout', 'sunflower' ) )
 		);
 
 		add_settings_field(
-			'sunflower_header_social_media', // ID
-			__( 'Show social media icons in header', 'sunflower' ), // Title
-			$this->sunflower_header_social_media( ... ), // Callback
-			'sunflower-setting-admin', // Page
-			'sunflower_layout', // Section
+			'sunflower_header_social_media',
+			__( 'Show social media icons in header', 'sunflower' ),
+			$this->sunflower_header_social_media( ... ),
+			'sunflower-setting-admin',
+			'sunflower_layout',
 			array( 'sunflower_header_social_media', __( 'Show social media icons in header', 'sunflower' ) )
 		);
 	}
@@ -165,21 +176,21 @@ class SunflowerSettingsPage {
 	/**
 	 * Sanitize each setting field as needed
 	 *
-	 * @param array $input Contains all settings fields as array keys
+	 * @param array $input Contains all settings fields as array keys.
 	 */
 	public function sanitize( $input ) {
 		$new_input = array();
 
-		// Sanitize everything
+		// Sanitize everything element of the input array.
 		foreach ( $input as $key => $value ) {
 			if ( isset( $input[ $key ] ) ) {
 				$new_input[ $key ] = sanitize_text_field( $value );
 			}
 		}
 
-		// Sanitize special values
+		// Sanitize special values.
 		if ( isset( $input['excerpt_length'] ) ) {
-			$new_input['excerpt_length'] = absint( $input['excerpt_length'] ) ?: '';
+			$new_input['excerpt_length'] = absint( $input['excerpt_length'] ) ?? '';
 		}
 
 		return $new_input;
@@ -191,6 +202,11 @@ class SunflowerSettingsPage {
 	public function print_section_info() {
 	}
 
+	/**
+	 * Checkbox callback
+	 *
+	 * @param array $args The field arguments.
+	 */
 	public function sunflower_checkbox_callback( $args ): void {
 		$field = $args[0];
 		$label = $args[1];
@@ -200,12 +216,15 @@ class SunflowerSettingsPage {
                     <input type="checkbox" id="%1$s" name="sunflower_options[%1$s]" value="checked" %2$s />
                     %3$s
                 </label>',
-			$field,
+			esc_attr( $field ),
 			isset( $this->options[ $field ] ) ? 'checked' : '',
-			$label
+			esc_attr( $label )
 		);
 	}
 
+	/**
+	 * Excerpt length field
+	 */
 	public function excerpt_length_callback(): void {
 		printf(
 			'<input type="text" id="excerpt_length" name="sunflower_options[excerpt_length]" value="%s" />',
@@ -213,6 +232,9 @@ class SunflowerSettingsPage {
 		);
 	}
 
+	/**
+	 * Contact form field "to"
+	 */
 	public function sunflower_contact_form_to(): void {
 		printf(
 			'<input type="email" id="sunflower_contact_form_to" name="sunflower_options[sunflower_contact_form_to]" value="%s" />',
@@ -220,16 +242,19 @@ class SunflowerSettingsPage {
 		);
 	}
 
+	/**
+	 * Header layout variant field
+	 */
 	public function sunflower_header_layout(): void {
 		echo '<select id="sunflower_header_layout" name="sunflower_options[sunflower_header_layout]">';
 
 		$options = array( 'standard', 'personal' );
 		foreach ( $options as $option ) {
-			$selected = ( isset( $this->options['sunflower_header_layout'] ) && $this->options['sunflower_header_layout'] == $option ) ? 'selected' : '';
+			$selected = ( isset( $this->options['sunflower_header_layout'] ) && $this->options['sunflower_header_layout'] === $option ) ? 'selected' : '';
 			printf(
 				'<option value="%1$s" %2$s>%1$s</option>',
-				$option,
-				$selected
+				esc_attr( $option ),
+				esc_attr( $selected )
 			);
 		}
 
@@ -239,7 +264,7 @@ class SunflowerSettingsPage {
 	/**
 	 * Show social media icons in header, too.
 	 *
-	 * @params Array $args The forms argument.
+	 * @param Array $args The forms argument.
 	 */
 	public function sunflower_header_social_media( $args ): void {
 		$field = $args[0];
@@ -250,41 +275,13 @@ class SunflowerSettingsPage {
                     <input type="checkbox" id="%1$s" name="sunflower_options[%1$s]" value="checked" %2$s />
                     %3$s
                 </label>',
-			$field,
+			esc_attr( $field ),
 			isset( $this->options[ $field ] ) ? 'checked' : '',
-			$label
+			esc_attr( $label )
 		);
 	}
 }
 
 if ( is_admin() ) {
-	$my_settings_page = new SunflowerSettingsPage();
-}
-
-function get_sunflower_setting( $option ) {
-	$options = get_option( 'sunflower_options' );
-
-	if ( ! is_array( $options ) ) {
-		$options = array();
-	}
-
-	$sunflower_social_media_options = get_option( 'sunflower_social_media_options' );
-	if ( is_array( $sunflower_social_media_options ) ) {
-		$options = array_merge( $options, $sunflower_social_media_options );
-	}
-
-	$sunflower_events_options = get_option( 'sunflower_events_options' );
-	if ( is_array( $sunflower_events_options ) ) {
-		$options = array_merge( $options, $sunflower_events_options );
-	}
-
-	if ( ! isset( $options[ $option ] ) ) {
-		return false;
-	}
-
-	if ( empty( $options[ $option ] ) ) {
-		return false;
-	}
-
-	return $options[ $option ];
+	$sunflower_settings_page = new SunflowerSettingsPage();
 }
