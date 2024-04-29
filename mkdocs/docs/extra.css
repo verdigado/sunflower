@@ -41,6 +41,17 @@ h1, h2, h3 {
     color: #FFFFFF;
 }
 
+.wy-menu-vertical a:hover {
+    color: #ffffff;
+    background-color: transparent;
+    background-image: linear-gradient(to bottom right,transparent 0 50%,#00432C 50% 100%),linear-gradient(#00432C,#00432C),linear-gradient(to top left,transparent 50%,#00432C 50%);
+    background-size: calc(calc(0.8em / 100* 22.5)) calc(0.8em),calc(100% - calc(0.8em / 100* 22.5) * 2 + .5px) 0.8em,calc(calc(0.8em / 100* 22.5)) 0.8em;
+    background-position: 0 100%,bottom,100% 100%;
+    background-repeat: no-repeat;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
 .wy-menu-vertical li span.toctree-expand {
     color: #F5F1E9;
 }
@@ -100,7 +111,6 @@ h1, h2, h3 {
     background-size: calc(calc(0.8em / 100* 22.5)) calc(0.8em),calc(100% - calc(0.8em / 100* 22.5) * 2 + .5px) 0.8em,calc(calc(0.8em / 100* 22.5)) 0.8em;
     background-position: 0 100%,bottom,100% 100%;
     background-repeat: no-repeat;
-    color: inherit;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
@@ -124,6 +134,11 @@ hr {
 
 .btn-neutral:hover {
     background-color: #005437 !important;
+    background-image: none !important;
+}
+
+.btn-neutral a:hover{
+    color: red;
 }
 
 footer {
