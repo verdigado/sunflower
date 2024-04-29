@@ -20,6 +20,20 @@ body.admin-bar {
                 top: 32px;
             }
         }
+
+    }
+
+    .sunflower-icon {
+
+        .ab-item {
+
+            &::before {
+
+                content: url("assets/img/sunflower.svg");
+                width: 20px;
+                height: 20px;
+            }
+        }
     }
 }
 

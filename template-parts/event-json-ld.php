@@ -1,85 +1,95 @@
 <?php
-$_sunflower_event_location_name = @get_post_meta($post->ID, '_sunflower_event_location_name')[0] ?: false;
-$_sunflower_event_location_street = @get_post_meta($post->ID, '_sunflower_event_location_street')[0] ?: false;
-$_sunflower_event_location_city = @get_post_meta($post->ID, '_sunflower_event_location_city')[0] ?: false;
-$_sunflower_event_webinar = @get_post_meta($post->ID, '_sunflower_event_webinar')[0] ?: false;
-$_sunflower_event_from = @get_post_meta($post->ID, '_sunflower_event_from')[0] ?: false;
-$_sunflower_event_until = @get_post_meta($post->ID, '_sunflower_event_until')[0] ?: false;
-$_sunflower_event_organizer_name = @get_post_meta($post->ID, '_sunflower_event_organizer')[0] ?: false;
-$_sunflower_event_organizer_url = @get_post_meta($post->ID, '_sunflower_event_organizer_url')[0] ?: false;
+/**
+ * Template part for providing events in json-ld format
+ *
+ * @package sunflower
+ */
 
-$jsonld = [];
-$jsonld['image'] = get_the_post_thumbnail_url() ?: false;
+$sunflower_event_location_name   = get_post_meta( $post->ID, '_sunflower_event_location_name', true ) ?? false;
+$sunflower_event_location_street = get_post_meta( $post->ID, '_sunflower_event_location_street', true ) ?? false;
+$sunflower_event_location_city   = get_post_meta( $post->ID, '_sunflower_event_location_city', true ) ?? false;
+$sunflower_event_webinar         = get_post_meta( $post->ID, '_sunflower_event_webinar', true ) ?? false;
+$sunflower_event_from            = get_post_meta( $post->ID, '_sunflower_event_from', true ) ?? false;
+$sunflower_event_until           = get_post_meta( $post->ID, '_sunflower_event_until', true ) ?? false;
+$sunflower_event_organizer_name  = get_post_meta( $post->ID, '_sunflower_event_organizer', true ) ?? false;
+$sunflower_event_organizer_url   = get_post_meta( $post->ID, '_sunflower_event_organizer_url', true ) ?? false;
 
-$location = sprintf('"location": "%s"', __('none', 'sunflower'));
-if ($_sunflower_event_location_name) {
-    $location = '"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",';
-    $location .= sprintf(
-        '"location": {		
-        "@type": "Place",
-        "name": "%s",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "%s",
-          "addressLocality": "%s"
-        }
-      }',
-        $_sunflower_event_location_name,
-        $_sunflower_event_location_street,
-        $_sunflower_event_location_city
-    );
+$sunflower_jsonld          = array();
+$sunflower_jsonld['image'] = get_the_post_thumbnail_url() ?? false;
+
+$sunflower_location = sprintf( '"location": "%s"', __( 'none', 'sunflower' ) );
+if ( $sunflower_event_location_name ) {
+	$sunflower_location  = '"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",';
+	$sunflower_location .= sprintf(
+		'"location": {
+		"@type": "Place",
+		"name": "%s",
+		"address": {
+		  "@type": "PostalAddress",
+		  "streetAddress": "%s",
+		  "addressLocality": "%s"
+		}
+	  }',
+		$sunflower_event_location_name,
+		$sunflower_event_location_street,
+		$sunflower_event_location_city
+	);
 }
 
-if ($_sunflower_event_webinar) {
-    $location = '"eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",';
-    $location .= sprintf(
-        '"location": {
-        "@type": "VirtualLocation",
-        "url": "%s"
-      }',
-        $_sunflower_event_webinar
-    );
+if ( $sunflower_event_webinar ) {
+	$sunflower_location  = '"eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",';
+	$sunflower_location .= sprintf(
+		'"location": {
+		"@type": "VirtualLocation",
+		"url": "%s"
+	  }',
+		$sunflower_event_webinar
+	);
 }
 
-function getJsonldDate($input)
-{
-    return preg_replace('/ /', 'T', (string) $input);
+/**
+ * Get the given date in format for json-ld
+ *
+ * @param string $input The event date string.
+ */
+function sunflower_get_jsonld_date( $input ) {
+	return preg_replace( '/ /', 'T', (string) $input );
 }
 ?>
 
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "<?php echo esc_attr(get_the_title()); ?>",
-  "description": "<?php echo esc_attr(get_the_excerpt()); ?>",
-  <?php
-    if ($jsonld['image']) {
-        printf('"image": "%s",', $jsonld['image']);
-    }
-?>
-  "startDate": "<?php echo getJsonldDate($_sunflower_event_from); ?>",
-  <?php
-if ($_sunflower_event_until) {
-    printf('"endDate": "%s",', getJsonldDate($_sunflower_event_until));
-}
+	"@context": "https://schema.org",
+	"@type": "Event",
+	"name": "<?php echo esc_attr( get_the_title() ); ?>",
+	"description": "<?php echo esc_attr( get_the_excerpt() ); ?>",
+	<?php
+	if ( $sunflower_jsonld['image'] ) {
+		printf( '"image": "%s",', esc_url( $sunflower_jsonld['image'] ) );
+	}
+	?>
+	"startDate": "<?php echo esc_attr( sunflower_get_jsonld_date( $sunflower_event_from ) ); ?>",
+	<?php
+	if ( $sunflower_event_until ) {
+		printf( '"endDate": "%s",', esc_attr( sunflower_get_jsonld_date( $sunflower_event_until ) ) );
+	}
 
-if ($_sunflower_event_organizer_name) {
-    printf(
-        '"organizer": {		
-	    "@type": "Organization",
-	    "name": "%s",
-	    "url": "%s"
+	if ( $sunflower_event_organizer_name ) {
+		printf(
+			'"organizer": {
+		"@type": "Organization",
+		"name": "%s",
+		"url": "%s"
 	},',
-        $_sunflower_event_organizer_name,
-        $_sunflower_event_organizer_url
-    );
-}
+			esc_attr( $sunflower_event_organizer_name ),
+			esc_attr( $sunflower_event_organizer_url )
+		);
+	}
 
-echo $location;
-?>
-  
- 
+	echo wp_kses_post( $sunflower_location );
+	?>
+
+
 }
 </script>

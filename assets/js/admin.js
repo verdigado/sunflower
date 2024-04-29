@@ -1,15 +1,18 @@
 /* eslint-disable no-undef */
-jQuery( document ).on( 'click', '.sunflower-plugins .notice-dismiss', function() {
-	var id = jQuery(this).parent().attr('id');
-	jQuery.ajax( {
-		url: ajaxurl,
-		method: "POST",
-		data: {
-			id: id,
-			action: 'sunflower_plugins_dismiss',
-		},
+jQuery(function($) {
+	$(document).on( 'click', '.sunflower-plugins .notice-dismiss', function() {
+		jQuery.ajax( {
+			url: ajaxurl,
+			method: "POST",
+			data: {
+				id: $(this).parent().attr('id'),
+				_wpnonce: $('#_wpnonce').val(),
+				action: 'sunflower_plugins_dismiss',
+			},
+		} );
 	} );
-} );
+});
+
 
 jQuery( document ).ready( function() {
 	jQuery( '#sunflowerDeleteMap' ).click( () => sunflowerDeleteLeaflet( ) );
@@ -72,6 +75,7 @@ function sunflowerSetMarker( lat, lon, zoom, marker ) {
 		method: "POST",
 		data: {
 			action: 'sunflower_fix_event_location',
+			_wpnonce: jQuery('#_wpnonce').val(),
 			lat: lat,
 			lon: lon,
 			transient: jQuery( "#sunflower-location option:selected" ).text(),
