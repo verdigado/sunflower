@@ -1,6 +1,7 @@
 site_name: Sunflower
 nav:
   - Einleitung: index.md
+  - Änderungsprotokoll: changelog.md
   - Besonderheiten: specials.md
   - Einrichtung:
     - Einrichtung: setup.md
