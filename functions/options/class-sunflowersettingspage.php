@@ -124,7 +124,7 @@ class SunflowerSettingsPage {
 			$this->sunflower_checkbox_callback( ... ),
 			'sunflower-setting-admin',
 			'sunflower_layout',
-			array( 'sunflower_show_author', __( 'show author of posts', 'sunflower' ) )
+			array( 'sunflower_show_author', __( 'Show post author on post details and via REST api.', 'sunflower' ) )
 		);
 
 		add_settings_field(

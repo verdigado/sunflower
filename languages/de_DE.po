@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2024-04-28T19:20:39+00:00\n"
-"PO-Revision-Date: 2024-04-28 21:21+0200\n"
+"POT-Creation-Date: 2024-04-29T07:41:29+00:00\n"
+"PO-Revision-Date: 2024-04-29 09:42+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -349,7 +349,7 @@ msgid "More Information"
 msgstr "Weitere Informationen"
 
 #: functions/metaboxes.php:8
-#: functions/options/class-sunflowersettingspage.php:103
+#: functions/options/class-sunflowersettingspage.php:99
 msgid "Layout"
 msgstr "Layout"
 
@@ -387,7 +387,7 @@ msgstr "Wähle SHIFT + ENTER, um  Zwischenzeile zu verhindern"
 
 #: functions/options/class-sunflowereventsettingspage.php:50
 #: functions/options/class-sunflowersettingspage.php:50
-#: functions/options/social-media.php:39
+#: functions/options/class-sunflowersocialmediasettingspage.php:50
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
 
@@ -457,94 +457,101 @@ msgstr "Nutzungsbedingungen akzeptieren"
 msgid "Reimport permalink structure"
 msgstr "Permalinkstruktur neu einlesen"
 
-#: functions/options/class-sunflowersettingspage.php:110
+#: functions/options/class-sunflowersettingspage.php:106
 msgid "Excerpt length (words)"
 msgstr "Anzahl der Wörter im Vorschautext"
 
+#: functions/options/class-sunflowersettingspage.php:114
 #: functions/options/class-sunflowersettingspage.php:118
-#: functions/options/class-sunflowersettingspage.php:122
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options/class-sunflowersettingspage.php:127
-#: functions/options/class-sunflowersettingspage.php:131
+#: functions/options/class-sunflowersettingspage.php:123
 msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
+#: functions/options/class-sunflowersettingspage.php:127
+msgid "Show post author on post details and via REST api."
+msgstr "Zeige den/die Autor*in im Beitrag und über die REST-API."
+
+#: functions/options/class-sunflowersettingspage.php:132
 #: functions/options/class-sunflowersettingspage.php:136
-#: functions/options/class-sunflowersettingspage.php:140
 msgid "hide previous and next links"
 msgstr "Verstecke vor- und zurück-Links"
 
+#: functions/options/class-sunflowersettingspage.php:141
 #: functions/options/class-sunflowersettingspage.php:145
-#: functions/options/class-sunflowersettingspage.php:149
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/class-sunflowersettingspage.php:154
+#: functions/options/class-sunflowersettingspage.php:150
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/class-sunflowersettingspage.php:158
+#: functions/options/class-sunflowersettingspage.php:154
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
+#: functions/options/class-sunflowersettingspage.php:159
 #: functions/options/class-sunflowersettingspage.php:163
-#: functions/options/class-sunflowersettingspage.php:167
 msgid "Use this header layout"
 msgstr "Layout für den Header"
 
+#: functions/options/class-sunflowersettingspage.php:168
 #: functions/options/class-sunflowersettingspage.php:172
-#: functions/options/class-sunflowersettingspage.php:176
 msgid "Show social media icons in header"
 msgstr "Social-Media Icons im Header anzeigen"
 
-#: functions/options/social-media.php:23 functions/options/social-media.php:24
+#: functions/options/class-sunflowersocialmediasettingspage.php:34
+#: functions/options/class-sunflowersocialmediasettingspage.php:35
 msgid "Social Media"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options/social-media.php:64 functions/options/social-media.php:71
+#: functions/options/class-sunflowersocialmediasettingspage.php:75
+#: functions/options/class-sunflowersocialmediasettingspage.php:82
 msgid "Social Media Profiles"
 msgstr "Profile in Sozialen Medien"
 
-#: functions/options/social-media.php:79
+#: functions/options/class-sunflowersocialmediasettingspage.php:90
 msgid "Social Sharers"
 msgstr "Teile in Sozialen Medien"
 
-#: functions/options/social-media.php:86
+#: functions/options/class-sunflowersocialmediasettingspage.php:97
 msgid "Open Graph Fallback Image"
 msgstr "Fallback-Bild für Open-Graph-Tag"
 
-#: functions/options/social-media.php:94 functions/options/social-media.php:98
+#: functions/options/class-sunflowersocialmediasettingspage.php:105
+#: functions/options/class-sunflowersocialmediasettingspage.php:109
 msgid "X (Twitter)"
 msgstr "X (Twitter)"
 
-#: functions/options/social-media.php:103
-#: functions/options/social-media.php:107
+#: functions/options/class-sunflowersocialmediasettingspage.php:114
+#: functions/options/class-sunflowersocialmediasettingspage.php:118
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/options/social-media.php:112
+#: functions/options/class-sunflowersocialmediasettingspage.php:123
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options/social-media.php:116
+#: functions/options/class-sunflowersocialmediasettingspage.php:127
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options/social-media.php:150
+#: functions/options/class-sunflowersocialmediasettingspage.php:164
 msgid "Show share buttons on single post page"
 msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 
-#: functions/options/social-media.php:210 functions/_s.php:165
+#: functions/options/class-sunflowersocialmediasettingspage.php:233
+#: functions/_s.php:165
 msgid "Select Open Graph Fallback Image"
 msgstr "Fallback-Bild für Open-Graph-Tag wählen"
 
-#: functions/options/social-media.php:222
+#: functions/options/class-sunflowersocialmediasettingspage.php:245
 msgid "Open Media Library"
 msgstr "Mediathek öffnen"
 
-#: functions/options/social-media.php:227
+#: functions/options/class-sunflowersocialmediasettingspage.php:250
 msgid ""
 "This fallback image will be used when sharing pages and posts and no "
 "featured image has been selected."
