@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-29T07:41:29+00:00\n"
+"POT-Creation-Date: 2024-04-30T12:48:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -101,19 +101,21 @@ msgstr ""
 msgid "calendar in ics-format"
 msgstr ""
 
-#: archive.php:56
-#: search.php:60
+#: archive.php:69
+#: index.php:76
+#: search.php:73
 #: single.php:54
 msgid "previous"
 msgstr ""
 
-#: archive.php:57
-#: search.php:61
+#: archive.php:70
+#: index.php:77
+#: search.php:74
 #: single.php:59
 msgid "next"
 msgstr ""
 
-#: build/latest-posts/render.php:70
+#: build/latest-posts/render.php:72
 msgid "No posts found"
 msgstr ""
 
@@ -203,47 +205,7 @@ msgstr ""
 msgid "Help for sunflowers events"
 msgstr ""
 
-#: functions/colors.php:8
-msgid "Himmel"
-msgstr ""
-
-#: functions/colors.php:12
-msgid "Tanne"
-msgstr ""
-
-#: functions/colors.php:16
-msgid "Klee"
-msgstr ""
-
-#: functions/colors.php:20
-msgid "Klee-700"
-msgstr ""
-
-#: functions/colors.php:24
-msgid "Grashalm"
-msgstr ""
-
-#: functions/colors.php:28
-msgid "White"
-msgstr ""
-
-#: functions/colors.php:32
-msgid "Sonne"
-msgstr ""
-
-#: functions/colors.php:36
-msgid "Sand"
-msgstr ""
-
-#: functions/colors.php:40
-msgid "Gray"
-msgstr ""
-
-#: functions/colors.php:44
-msgid "Black"
-msgstr ""
-
-#: functions/contact-form.php:11
+#: functions/contact-form.php:10
 msgid "Form not sent. Captcha wrong. Please try again."
 msgstr ""
 
@@ -309,41 +271,41 @@ msgstr ""
 msgid "Event location"
 msgstr ""
 
-#: functions/icalimport.php:79
+#: functions/icalimport.php:78
 msgid "More Information"
 msgstr ""
 
-#: functions/metaboxes.php:8
+#: functions/metaboxes.php:7
 #: functions/options/class-sunflowersettingspage.php:99
 msgid "Layout"
 msgstr ""
 
-#: functions/metaboxes.php:17
-#: functions/metaboxes.php:113
+#: functions/metaboxes.php:16
+#: functions/metaboxes.php:109
 msgid "Metadata"
 msgstr ""
 
-#: functions/metaboxes.php:74
+#: functions/metaboxes.php:71
 msgid "Styled layout"
 msgstr ""
 
-#: functions/metaboxes.php:75
+#: functions/metaboxes.php:72
 msgid "do not show title, add and remove margins. e.g. for the homepage"
 msgstr ""
 
-#: functions/metaboxes.php:96
+#: functions/metaboxes.php:93
 msgid "Hide feature image on single"
 msgstr ""
 
-#: functions/metaboxes.php:97
+#: functions/metaboxes.php:94
 msgid "Hide feature image on single view, but show it on lists."
 msgstr ""
 
-#: functions/metaboxes.php:107
+#: functions/metaboxes.php:103
 msgid "Roofline"
 msgstr ""
 
-#: functions/metaboxes.php:114
+#: functions/metaboxes.php:110
 msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
@@ -505,7 +467,7 @@ msgid "Show share buttons on single post page"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:233
-#: functions/_s.php:165
+#: functions/_s.php:164
 msgid "Select Open Graph Fallback Image"
 msgstr ""
 
@@ -517,7 +479,7 @@ msgstr ""
 msgid "This fallback image will be used when sharing pages and posts and no featured image has been selected."
 msgstr ""
 
-#: functions/pictureimport.php:58
+#: functions/pictureimport.php:67
 msgid "An error occurred. Could not import images"
 msgstr ""
 
@@ -525,27 +487,27 @@ msgstr ""
 msgid "Login error. Did you mistype s.th.?"
 msgstr ""
 
-#: functions/_s.php:55
+#: functions/_s.php:54
 msgid "Mainmenu"
 msgstr ""
 
-#: functions/_s.php:56
+#: functions/_s.php:55
 msgid "Topmenu"
 msgstr ""
 
-#: functions/_s.php:57
+#: functions/_s.php:56
 msgid "Footer Menu 1"
 msgstr ""
 
-#: functions/_s.php:58
+#: functions/_s.php:57
 msgid "Footer Menu 2"
 msgstr ""
 
-#: functions/_s.php:106
+#: functions/_s.php:103
 msgid "Sidebar"
 msgstr ""
 
-#: functions/_s.php:108
+#: functions/_s.php:105
 msgid "Add widgets here."
 msgstr ""
 
@@ -558,30 +520,30 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/class-wp-bootstrap-navwalker.php:398
+#: inc/class-wp-bootstrap-navwalker.php:403
 msgid "Add a menu"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:64
+#: inc/template-tags.php:73
 msgid ", "
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:71
+#: inc/template-tags.php:80
 msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:102
+#: inc/template-tags.php:113
 msgid "Share on X (Twitter) "
 msgstr ""
 
-#: inc/template-tags.php:110
+#: inc/template-tags.php:121
 msgid "Share on Facebook "
 msgstr ""
 
-#: inc/template-tags.php:119
+#: inc/template-tags.php:130
 msgid "send mail "
 msgstr ""
 
@@ -668,4 +630,64 @@ msgstr ""
 
 #: template-parts/related-posts.php:15
 msgid "Related posts"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Himmel"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Tanne"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Klee"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Klee-700"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Grashalm"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sonne"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sand"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Black"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "PT Sans"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "GrueneType"
 msgstr ""
