@@ -1,53 +1,58 @@
 <?php
+/**
+ * Render the Sunflower next events block.
+ *
+ * @package sunflower
+ */
 
-$tag         = $attributes['tag'] ?? '';
-$count       = isset( $attributes['count'] ) ? (int) $attributes['count'] : 3;
-$next_events = sunflower_get_next_events( $count, $tag );
+$sunflower_tag         = $attributes['tag'] ?? '';
+$sunflower_count       = isset( $attributes['count'] ) ? (int) $attributes['count'] : 3;
+$sunflower_next_events = sunflower_get_next_events( $sunflower_count, $sunflower_tag );
 
-$classes = $attributes['className'] ?? '';
+$sunflower_classes = $attributes['className'] ?? '';
 
-$is_grid = false;
+$sunflower_is_grid = false;
 if ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'] ) {
-	$is_grid = true;
+	$sunflower_is_grid = true;
 }
 
-$return = sprintf(
+$sunflower_return = sprintf(
 	' <div class="wp-block-group sunflower-has-background-dim has-background next-events %s">
                     <div class="wp-block-group__inner-container">
                         <h2 class="text-center h1 text-white">%s</h2>
                         <div class="wp-block-button text-center mb-5"><a class="wp-block-button__link no-border-radius" href="%s" rel="">%s</a></div>
                     <div class="row">',
-	$classes,
-	( $attributes['title'] ?? '' ) ?: __( 'Next events', 'sunflower-next-events' ),
+	$sunflower_classes,
+	( $attributes['title'] ?? '' ) ? ( $attributes['title'] ?? '' ) : __( 'Next events', 'sunflower-next-events' ),
 	get_post_type_archive_link( 'sunflower_event' ),
 	__( 'all events', 'sunflower' )
 );
 
 ob_start();
 
-if ( $is_grid ) {
-	$cols = match ( $next_events->post_count ) {
+if ( $sunflower_is_grid ) {
+	$sunflower_cols = match ( $sunflower_next_events->post_count ) {
 		1 => '',
 		2 => 'col-md-6',
 		default => 'col-md-6 col-lg-4',
 	};
 } else {
-	$cols = '';
+	$sunflower_cols = '';
 }
 
-while ( $next_events->have_posts() ) {
-	$next_events->the_post();
+while ( $sunflower_next_events->have_posts() ) {
+	$sunflower_next_events->the_post();
 
-	printf( '<div class="col-12 %s mb-4">', $cols );
+	printf( '<div class="col-12 %s mb-4">', esc_attr( $sunflower_cols ) );
 	get_template_part( 'template-parts/archive', 'event' );
 	echo '</div>';
 }
 
-if ( $next_events->post_count === 0 ) {
-	printf( '<div class="col-12 text-center h4 text-white">%s</div>', __( 'Currently there are no coming events.', 'sunflower' ) );
+if ( 0 === $sunflower_next_events->post_count ) {
+	printf( '<div class="col-12 text-center h4 text-white">%s</div>', esc_attr__( 'Currently there are no coming events.', 'sunflower' ) );
 }
 
-$return .= ob_get_contents();
+$sunflower_return .= ob_get_contents();
 ob_end_clean();
 
-echo $return . '</div></div></div>';
+echo wp_kses_post( $sunflower_return ) . '</div></div></div>';

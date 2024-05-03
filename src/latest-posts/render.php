@@ -1,78 +1,81 @@
 <?php
+/**
+ * Render the Sunflower latest posts block.
+ *
+ * @package sunflower
+ */
 
-$classnames   = array();
-$classnames[] = 'has-background';
-$classnames[] = 'latest-posts';
+$sunflower_classnames   = array();
+$sunflower_classnames[] = 'has-background';
+$sunflower_classnames[] = 'latest-posts';
 
-$is_grid = false;
+$sunflower_is_grid = false;
 if ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'] ) {
-	$is_grid = true;
+	$sunflower_is_grid = true;
 }
 
-$count = isset( $attributes['count'] ) ? (int) $attributes['count'] : 6;
+$sunflower_count = isset( $attributes['count'] ) ? (int) $attributes['count'] : 6;
 
-$url_category_name = '';
-$link              = false;
+$sunflower_link = false;
 
-$categories = array();
+$sunflower_categories = array();
 if ( isset( $attributes['categories'] ) && ! empty( $attributes['categories'] ) ) {
-	$categories = $attributes['categories'];
-	$link       = get_category_link( get_category_by_slug( trim( (string) $categories[0] ) ) );
+	$sunflower_categories = $attributes['categories'];
+	$sunflower_link       = get_category_link( get_category_by_slug( trim( (string) $sunflower_categories[0] ) ) );
 }
 
-if ( ! $link || $link == '' ) {
-	if ( $page_for_posts = get_option( 'page_for_posts' ) ) {
-		$link = get_permalink( $page_for_posts );
+if ( ! $sunflower_link || '' === $sunflower_link ) {
+	$sunflower_page_for_posts = get_option( 'page_for_posts' );
+	if ( $sunflower_page_for_posts ) {
+		$sunflower_link = get_permalink( $sunflower_page_for_posts );
 	} elseif ( 'page' === get_option( 'show_on_front' ) ) {
-		$link = home_url() . '?post_type=post';
+		$sunflower_link = home_url() . '?post_type=post';
 	} else {
-		$link = home_url();
+		$sunflower_link = home_url();
 	}
 }
 
-// fetch posts for given parameters
-$posts = sunflower_get_latest_posts( $count, $categories );
+// Fetch posts for given parameters.
+$sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories );
 
-$title = isset( $attributes['title'] ) ? sprintf( '<h2 class="text-center h1">%s</h2>', $attributes['title'] ) : '';
+$sunflower_title = isset( $attributes['title'] ) ? sprintf( '<h2 class="text-center h1">%s</h2>', $attributes['title'] ) : '';
 
-$classes = get_block_wrapper_attributes(
+$sunflower_classes = get_block_wrapper_attributes(
 	array(
-		'class' => implode( ' ', $classnames ),
+		'class' => implode( ' ', $sunflower_classnames ),
 	)
 );
 
-$list_items = sprintf(
+$sunflower_list_items = sprintf(
 	'<div %s>
         <div class="wp-block-group__inner-container">
             %s
                 <div class="row" data-masonry=\'{"percentPosition": true }\' >',
-	$classes,
-	$title
+	$sunflower_classes,
+	$sunflower_title
 );
 
-$columns = array( '', '' );
-$i       = 0;
-$cssCol  = $is_grid == true ? 'col-md-6' : 'col-12';
+$sunflower_css_col = true === $sunflower_is_grid ? 'col-md-6' : 'col-12';
 
-while ( $posts->have_posts() ) {
-	$posts->the_post();
+while ( $sunflower_posts->have_posts() ) {
+	$sunflower_posts->the_post();
 	ob_start();
 	get_template_part( 'template-parts/content', 'archive' );
 
-	$article = ob_get_clean();
+	$sunflower_article = ob_get_clean();
 
-	$list_items .= sprintf(
+	$sunflower_list_items .= sprintf(
 		'<div class="%1$s">%2$s</div>',
-		$cssCol,
-		$article
+		$sunflower_css_col,
+		$sunflower_article
 	);
 }
 
-if ( $posts->post_count == 0 ) {
-	$list_items = sprintf( '<div class="col-12 text-center pb-4">%s</div><div class="col-12">', __( 'No posts found', 'sunflower' ) );
+if ( 0 === $sunflower_posts->post_count ) {
+	$sunflower_list_items = sprintf( '<div class="col-12 text-center pb-4">%s</div><div class="col-12">', __( 'No posts found', 'sunflower' ) );
 }
 
-$list_items .= sprintf(
+$sunflower_list_items .= sprintf(
 	'
     <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s" rel="">
         <div class="p-45 row ">
@@ -80,10 +83,10 @@ $list_items .= sprintf(
         </div>
     </a>
 ',
-	$link,
-	( $attributes['archiveText'] ?? '' ) ?: __( 'to archive', 'sunflower-latest-posts' )
+	$sunflower_link,
+	( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'to archive', 'sunflower-latest-posts' )
 );
 
-$list_items .= '</div></div></div></div>';
+$sunflower_list_items .= '</div></div></div></div>';
 
-echo $list_items;
+echo wp_kses_post( $sunflower_list_items );

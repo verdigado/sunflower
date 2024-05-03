@@ -79,7 +79,11 @@
 		<properties>
 			<property name="text_domain" type="array">
 				<element value="sunflower"/>
+				<element value="sunflower-accordion"/>
 				<element value="sunflower-contact-form"/>
+				<element value="sunflower-latest-posts"/>
+				<element value="sunflower-meta-data"/>
+				<element value="sunflower-next-events"/>
 				<element value="default"/>
 			</property>
 		</properties>
