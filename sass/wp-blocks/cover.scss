@@ -4,13 +4,14 @@
         font-family: t("headingFontBold");
     }
 
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    // padding: 25px;
+    padding-left: 20vw;
+    padding-right: 20vw;
 
+    &.wp-block-group-is-layout-flow,
     .wp-block-cover__inner-container {
         max-width: map-get($container-max-widths, "xl");
     }

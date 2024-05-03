@@ -1,19 +1,24 @@
 <?php
+/**
+ * Excerpt related functions.
+ *
+ * @package sunflower
+ */
 
-function sunflower_excerpt_length( $length ) {
-	return sunflower_get_setting( 'excerpt_length' ) ?: 30;
+/**
+ * Get the length of the excerpt from settings.
+ */
+function sunflower_excerpt_length() {
+	return sunflower_get_setting( 'excerpt_length' ) ? sunflower_get_setting( 'excerpt_length' ) : 30;
 }
 
 add_filter( 'excerpt_length', 'sunflower_excerpt_length', 900 );
 
-function modify_read_more_link() {
+/**
+ * Change read_more link text.
+ */
+function sunflower_read_more_link() {
 	return '…';
 }
 
-add_filter( 'excerpt_more', 'modify_read_more_link', 910 );
-
-function sunflower_excerpt( $excerpt ) {
-	return preg_replace( '/\–(.*?)$/', '$1', (string) $excerpt );
-}
-
-add_filter( 'get_the_excerpt', 'sunflower_excerpt', 920 );
+add_filter( 'excerpt_more', 'sunflower_read_more_link', 910 );

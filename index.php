@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying search results pages
+ * The template for displaying archive pages
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package sunflower
  */
@@ -13,16 +13,18 @@ get_header();
 		<div class="row">
 			<div class="col-12">
 				<main id="primary" class="site-main archive">
-
 					<?php if ( have_posts() ) : ?>
 
-						<header class="page-header text-center">
-							<h1 class="page-title">
+						<header class="page-header mb-5 text-center">
 						<?php
-						/* translators: %s: search query. */
-						printf( esc_html__( 'Search Results for: %s', 'sunflower' ), '<span>' . get_search_query() . '</span>' );
+						if ( is_home() ) {
+							printf( '<h1 class="page-title">%s</h1>', esc_attr( get_bloginfo( 'name' ) ) );
+							printf( '<div class="archive-description">%s</div>', esc_attr( get_bloginfo( 'description' ) ) );
+						} else {
+							the_archive_title( '<h1 class="page-title">', '</h1>' );
+							the_archive_description( '<div class="archive-description">', '</div>' );
+						}
 						?>
-							</h1>
 						</header><!-- .page-header -->
 
 						<?php
@@ -67,6 +69,7 @@ get_header();
 								?>
 						</div>
 
+
 						<?php
 
 						$sunflower_args = array(
@@ -79,12 +82,12 @@ get_header();
 							wp_kses_post( paginate_links( $sunflower_args ) )
 						);
 
-					else :
+		else :
 
-						get_template_part( 'template-parts/content', 'none' );
+			get_template_part( 'template-parts/content', 'none' );
 
-					endif;
-					?>
+		endif;
+?>
 
 				</main><!-- #main -->
 			</div>

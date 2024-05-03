@@ -60,7 +60,6 @@ function sunflower_blocks_init() {
 
 add_action( 'init', 'sunflower_blocks_init' );
 
-
 add_action( 'after_setup_theme', 'sunflower_blocks_load_textdomain' );
 function sunflower_blocks_load_textdomain() {
 	load_textdomain( 'sunflower-accordion', get_template_directory() . '/languages/sunflower-accordion-de_DE.mo' );

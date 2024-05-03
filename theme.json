@@ -1,0 +1,132 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": false,
+		"color": {
+			"palette": [
+				{
+					"color": "#0BA1DD",
+					"name": "Himmel",
+					"slug": "himmel"
+				},
+				{
+					"color": "#005437",
+					"name": "Tanne",
+					"slug": "tanne"
+				},
+				{
+					"color": "#008939",
+					"name": "Klee",
+					"slug": "klee"
+				},
+				{
+					"color": "#006E2E",
+					"name": "Klee-700",
+					"slug": "klee-700"
+				},
+				{
+					"color": "#8ABD24",
+					"name": "Grashalm",
+					"slug": "grashalm"
+				},
+				{
+					"color": "#ffffff",
+					"name": "White",
+					"slug": "white"
+				},
+				{
+					"color": "#FFF17A",
+					"name": "Sonne",
+					"slug": "sonne"
+				},
+				{
+					"color": "#F5F1E9",
+					"name": "Sand",
+					"slug": "sand"
+				},
+				{
+					"color": "#EFF2ED",
+					"name": "Gray",
+					"slug": "gray"
+				},
+				{
+					"color": "#201D1B",
+					"name": "Black",
+					"slug": "black"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "900px",
+			"wideSize": "1200px",
+			"allowCustomContentAndWideSize": true
+		},
+		"typography": {
+			"dropCap": false,
+			"fluid": true,
+			"fontFamilies": [
+				{
+					"fontFace": [
+						{
+							"fontFamily": "PT Sans",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/PTSans-Regular.woff2"
+							]
+						},
+						{
+							"fontFamily": "PT Sans",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/PTSans-Italic.woff2"
+							]
+						},
+						{
+							"fontFamily": "PT Sans",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "700",
+							"src": [
+								"file:./assets/fonts/PTSans-Bold.woff2"
+							]
+						},
+						{
+							"fontFamily": "PT Sans",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "700",
+							"src": [
+								"file:./assets/fonts/PTSans-BoldItalic.woff2"
+							]
+						}
+					],
+					"fontFamily": "\"PT Sans\", sans-serif",
+					"name": "PT Sans",
+					"slug": "pt-sans"
+				},
+				{
+					"fontFace": [
+						{
+							"fontDisplay": "block",
+							"fontFamily": "GrueneType",
+							"fontStretch": "normal",
+							"fontStyle": "bold",
+							"fontWeight": "900",
+							"src": [
+								"file:./assets/fonts/GrueneType-BlackCondensedItalic.woff2"
+							]
+						}
+					],
+					"fontFamily": "'GruenType', sans-serif",
+					"name": "GrueneType",
+					"slug": "gruenetype"
+				}
+			]
+		}
+	}
+}

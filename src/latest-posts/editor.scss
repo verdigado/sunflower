@@ -31,11 +31,23 @@
                 letter-spacing: 0.05em;
                 margin-bottom: 30px;
             }
+
+            time.updated {
+                display: none;
+            }
+        }
+
+        .entry-footer {
+
+            a {
+                text-decoration: none;
+            }
         }
 
         h2.card-title a,
         .entry-content a,
         .continue-reading {
+            text-decoration: none;
             color: $body-color;
         }
 
@@ -62,6 +74,81 @@
 
     }
 
+
+    .col-12 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+
+    .row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * var(--bs-gutter-y));
+        margin-right: calc(-0.5 * var(--bs-gutter-x));
+        margin-left: calc(-0.5 * var(--bs-gutter-x));
+
+        > * {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+            padding-right: calc(var(--bs-gutter-x) * 0.5);
+            padding-left: calc(var(--bs-gutter-x) * 0.5);
+            margin-top: var(--bs-gutter-y);
+        }
+    }
+
+    @media (min-width: 768px) {
+
+        .col-md-6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+    }
+
+    .p-45 {
+        padding: 2.25rem !important;
+    }
+
+    .border-radius {
+        border-radius: 3px;
+    }
+
+    .bg-primary {
+        background-color: $primary;
+    }
+
+    .text-white {
+        color: #fff;
+    }
+
+    .flex-row-reverse {
+        flex-direction: row-reverse !important;
+    }
+
+    .d-flex {
+        display: flex !important;
+    }
+
+    .mb-2 {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .mt-2 {
+        margin-top: 0.5rem !important;
+    }
+
+    small,
+    .small {
+        font-size: 0.9375rem;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
 }
 
 .sunflower-sidebar-help {
@@ -76,76 +163,3 @@
 }
 
 // add used bootstrap classes to backend editor
-
-@media (min-width: 768px) {
-
-    .col-md-6 {
-        flex: 0 0 auto;
-        width: 50%;
-    }
-}
-
-.col-12 {
-    flex: 0 0 auto;
-    width: 100%;
-}
-
-.row {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: calc(-1 * var(--bs-gutter-y));
-    margin-right: calc(-0.5 * var(--bs-gutter-x));
-    margin-left: calc(-0.5 * var(--bs-gutter-x));
-
-    > * {
-        flex-shrink: 0;
-        width: 100%;
-        max-width: 100%;
-        padding-right: calc(var(--bs-gutter-x) * 0.5);
-        padding-left: calc(var(--bs-gutter-x) * 0.5);
-        margin-top: var(--bs-gutter-y);
-    }
-}
-
-.p-45 {
-    padding: 2.25rem !important;
-}
-
-.border-radius {
-    border-radius: 3px;
-}
-
-.bg-primary {
-    background-color: $primary;
-}
-
-.text-white {
-    color: #fff;
-}
-
-.flex-row-reverse {
-    flex-direction: row-reverse !important;
-}
-
-.d-flex {
-    display: flex !important;
-}
-
-.mb-2 {
-    margin-bottom: 0.5rem !important;
-}
-
-.mt-2 {
-    margin-top: 0.5rem !important;
-}
-
-small,
-.small {
-    font-size: 0.9375rem;
-}
-
-.text-center {
-    text-align: center !important;
-}

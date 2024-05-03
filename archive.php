@@ -48,7 +48,20 @@ get_header();
 						?>
 
 						<div class="archive-loop row" data-masonry='{"percentPosition": true }'>
-								<?php echo wp_kses_post( $sunflower_list_items ); ?>
+								<?php
+								echo wp_kses(
+									$sunflower_list_items,
+									array_merge(
+										wp_kses_allowed_html( 'post' ),
+										array(
+											'time' => array(
+												'class'    => true,
+												'datetime' => true,
+											),
+										)
+									)
+								);
+								?>
 						</div>
 						<?php
 
