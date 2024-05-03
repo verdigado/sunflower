@@ -1,12 +1,16 @@
 .styled-layout {
 
     .wp-block-group {
-        padding: 100px 10px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        position: relative;
 
         @include media-breakpoint-down(md) {
-            padding: 50px 10px;
+            padding-top: 50px;
+            padding-bottom: 50px;
         }
 
+        &.wp-block-group-is-layout-flow > h2,
         .wp-block-group__inner-container > h2 {
             margin-bottom: 70px;
         }

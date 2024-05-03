@@ -58,8 +58,9 @@
 			]
 		},
 		"layout": {
-			"contentSize": "860px",
-			"wideSize": "1200px"
+			"contentSize": "900px",
+			"wideSize": "1200px",
+			"allowCustomContentAndWideSize": true
 		},
 		"typography": {
 			"dropCap": false,

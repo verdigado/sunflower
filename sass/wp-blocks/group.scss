@@ -4,25 +4,26 @@
 
     &.has-background {
         width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+        align-content: center;
+        flex-direction: column;
 
-        .wp-block-group__inner-container {
-            max-width: 100%;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        padding-left: 5vw;
+        padding-right: 5vw;
+
+        @include media-breakpoint-up(lg) {
+            padding-left: 10vw;
+            padding-right: 10vw;
         }
 
-        @include media-breakpoint-up(md) {
-
-            .wp-block-group__inner-container {
-                max-width: 1155px;
-            }
+        @include media-breakpoint-up(xl) {
+            padding-left: 20vw;
+            padding-right: 20vw;
         }
-
     }
 
     &__inner-container {
