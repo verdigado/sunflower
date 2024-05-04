@@ -108,6 +108,7 @@ jQuery('#sunflower-contact-form').on('submit', function (e) {
         method: "POST",
         data: {
             action: 'sunflower_contact_form',
+			_wpnonce: jQuery('#_wpnonce').val(),
             message: jQuery('#message').val(),
             name: jQuery('#name').val(),
             mail: jQuery('#mail').val(),
