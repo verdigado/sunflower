@@ -5,7 +5,7 @@
  * @package sunflower
  */
 
-require_once __DIR__ . '/functions/_s.php';
+require_once __DIR__ . '/functions/s.php';
 require_once __DIR__ . '/functions/options/class-sunflowerfirststepspage.php';
 require_once __DIR__ . '/functions/options/class-sunflowersettingspage.php';
 require_once __DIR__ . '/functions/options/class-sunflowersocialmediasettingspage.php';
