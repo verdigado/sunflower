@@ -9,6 +9,7 @@ Hier findest du eine Liste, über Änderungen, die mit den verschiedenen Version
 * **Logo im Header** - wir haben die beiden Header angepasst, damit die Sonnenblumme auf dem grünen Hintergrund erscheint.
 * **RSS-Block überarbeitet** - damit sehen Einbindungen über einen RSS-Feed besser aus.
 * **Vorlage für Kandidierende** - wir haben zu den Wahlen eine Vorlage geschaffen, die du dir in deine Seite reinladen kannst. [Die Anleitung dazu, findest du hier](/blocks/#vorlagen)
+* **Neuste Beiträge (Sunflower)** - du kannst nun bequem zwischen einer Kachel- und Listenansicht auswählen. [Wie das geht, haben wir hier beschrieben.](/blocks/#neuste-beitrage-sunflower)
 * **Terminblock Anpassungen** - der Terminblock wurde Übersetzt und eine Silbentrennung für Texte hinzugefügt.
 * PT Sans ist nun auch in kursiver Schrift möglich.
 * Font-Awesome Update - dadurch stehen nun auch Bluesky und Threads Icons zur Verfügung
