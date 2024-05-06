@@ -10,7 +10,8 @@
 	"example": {},
     "attributes": {
         "title": {
-            "type": "string"
+            "type": "string",
+			"default": ""
 		},
         "archiveText": {
             "type": "string"
