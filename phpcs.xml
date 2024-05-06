@@ -26,7 +26,7 @@
 
 	<!-- Exclude the build components. -->
 	<exclude-pattern>/build/*</exclude-pattern>
-	<exclude-pattern>/style.css</exclude-pattern>
+	<exclude-pattern>/*.css</exclude-pattern>
 
 	<!-- Exclude mkdocs directory. -->
 	<exclude-pattern>/mkdocs/*</exclude-pattern>
