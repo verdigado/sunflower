@@ -18,6 +18,9 @@
 		"categories": {
 			"type": "array"
 		},
+		"excludedCategories": {
+			"type": "array"
+		},
         "count": {
             "type": "number",
 			"default": 6

@@ -56,11 +56,20 @@ export default function Edit( { attributes, setAttributes } ) {
 		className: 'row',
 	} );
 
-	const { title, categories, count, archiveText, blockLayout } = attributes;
+	const {
+		title,
+		categories,
+		excludedCategories,
+		count,
+		archiveText,
+		blockLayout,
+	} = attributes;
 
 	const [ categoriesFormSuggestions, setCategoriesFormSuggestions ] =
 		useState( EMPTY_ARRAY );
 	const [ categoriesFormValue, setCategoriesFormValue ] =
+		useState( EMPTY_ARRAY );
+	const [ excludedCategoriesFormValue, setExcludedCategoriesFormValue ] =
 		useState( EMPTY_ARRAY );
 
 	const query = { per_page: -1, context: 'view' };
@@ -79,16 +88,45 @@ export default function Edit( { attributes, setAttributes } ) {
 		);
 		setCategoriesFormValue(
 			allCategories
-				.filter( () =>
-					attributes.categories?.includes( categories.slug )
+				.filter( ( acategory ) =>
+					attributes.categories?.includes( acategory.slug )
 				)
-				.map( ( category ) => category.name )
+				.map( ( acategory ) => acategory.name )
 		);
-	}, [ allCategories, hasResolved, categories, attributes.categories ] );
+		setExcludedCategoriesFormValue(
+			allCategories
+				.filter( ( excludedCategory ) =>
+					attributes.excludedCategories?.includes(
+						excludedCategory.slug
+					)
+				)
+				.map( ( excludedCategory ) => excludedCategory.name )
+		);
+	}, [
+		allCategories,
+		hasResolved,
+		categories,
+		excludedCategories,
+		attributes.categories,
+		attributes.excludedCategories,
+	] );
 
 	const onChangeCategories = ( formCategories ) => {
 		setAttributes( {
 			categories: formCategories.map(
+				( categoryName ) =>
+					allCategories
+						.filter(
+							( category ) => category.name === categoryName
+						)
+						.map( ( category ) => category.slug )[ 0 ]
+			),
+		} );
+	};
+
+	const onChangeExcludedCategories = ( formExcludedCategories ) => {
+		setAttributes( {
+			excludedCategories: formExcludedCategories.map(
 				( categoryName ) =>
 					allCategories
 						.filter(
@@ -140,9 +178,11 @@ export default function Edit( { attributes, setAttributes } ) {
 								title,
 								blockLayout,
 								categories,
+								excludedCategories,
 								count,
 								archiveText,
 								categoriesFormValue,
+								excludedCategoriesFormValue,
 							} }
 						/>
 					</Disabled>
@@ -166,6 +206,17 @@ export default function Edit( { attributes, setAttributes } ) {
 							label={ __( 'Categories' ) }
 							value={ categoriesFormValue }
 							onChange={ onChangeCategories }
+							suggestions={ categoriesFormSuggestions }
+						/>
+
+						<FormTokenField
+							hasResolved={ hasResolved }
+							label={ __(
+								'Excluded Categories',
+								'sunflower-latest-posts'
+							) }
+							value={ excludedCategoriesFormValue }
+							onChange={ onChangeExcludedCategories }
 							suggestions={ categoriesFormSuggestions }
 						/>
 

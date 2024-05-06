@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: sunflower 2.0.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-latest-"
 "posts\n"
-"POT-Creation-Date: 2024-04-15T13:17:39+00:00\n"
-"PO-Revision-Date: 2024-04-15 15:18+0200\n"
+"POT-Creation-Date: 2024-05-06T11:53:09+00:00\n"
+"PO-Revision-Date: 2024-05-06 13:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -18,45 +18,54 @@ msgstr ""
 "X-Domain: sunflower-latest-posts\n"
 
 #. Theme Name of the theme
+#: style.css
 msgid "sunflower"
 msgstr ""
 
 #. Theme URI of the theme
+#: style.css
 msgid "https://sunflower-theme.de"
 msgstr ""
 
 #. Description of the theme
+#: style.css
 msgid "Theme for the German Green Party"
 msgstr ""
 
 #. Author of the theme
+#: style.css
 msgid "verdigado eG"
 msgstr ""
 
 #. Author URI of the theme
+#: style.css
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/latest-posts/render.php:89 build/latest-posts/index.js:304
-#: build/latest-posts/index.js:275
+#: build/latest-posts/render.php:92 build/latest-posts/index.js:322
+#: build/latest-posts/index.js:309
 msgid "to archive"
 msgstr "zum Blog-Archiv"
 
-#: build/latest-posts/index.js:285 build/next-events/index.js:260
-#: build/latest-posts/index.js:238 build/next-events/index.js:208
+#: build/latest-posts/index.js:297 build/next-events/index.js:260
+#: build/latest-posts/index.js:264 build/next-events/index.js:208
 msgid "Title of the block section"
 msgstr "Titel des Beitrags-Blocks"
 
-#: build/latest-posts/index.js:296 build/next-events/index.js:272
-#: build/latest-posts/index.js:256 build/next-events/index.js:230
+#: build/latest-posts/index.js:308 build/latest-posts/index.js:282
+msgid "Excluded Categories"
+msgstr "Ausgeschlossene Kategorien"
+
+#: build/latest-posts/index.js:314 build/next-events/index.js:272
+#: build/latest-posts/index.js:290 build/next-events/index.js:230
 msgid "Number of posts to be shown"
 msgstr "Anzahl der Beiträge, die angezeigt werden sollen"
 
-#: build/latest-posts/index.js:302 build/latest-posts/index.js:267
+#: build/latest-posts/index.js:320 build/latest-posts/index.js:301
 msgid "Archive Text"
 msgstr "Blog-Archiv Link"
 
-#: build/latest-posts/index.js:303 build/latest-posts/index.js:271
+#: build/latest-posts/index.js:321 build/latest-posts/index.js:305
 msgid "Link label of the archive link"
 msgstr "Link Text für den Archiv-Link"
 
@@ -69,3 +78,63 @@ msgstr "Neueste Beiträge (Sunflower)"
 msgctxt "block description"
 msgid "Show Latest Posts in Sunflower Design"
 msgstr "Zeige die letzten Beiträge im Sunflower-Design"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Himmel"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Tanne"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Klee"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Klee-700"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Grashalm"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sonne"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sand"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Black"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "PT Sans"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "GrueneType"
+msgstr ""
