@@ -8,16 +8,16 @@
 	"icon": "info-outline",
 	"description": "Metadata Line",
 	"example": {},
-    "attributes": {
-        "icon": {
+	"attributes": {
+		"icon": {
 			"type": "string",
 			"default": "fas fa-clock"
 		},
-        "url": {
+		"url": {
 			"type": "string",
 			"default": "#"
 		}
-    },
+	},
 	"supports": {
 		"html": false
 	},
