@@ -5,8 +5,16 @@
  * @package sunflower
  */
 
+/**
+ * Include required classes to access local files.
+ */
+require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';
+require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php';
+
+
 if ( function_exists( 'register_block_pattern_category' ) ) {
 	$sunflower_dirs = glob( get_template_directory() . '/functions/block-patterns/*', GLOB_ONLYDIR );
+	$filesystem     = new WP_Filesystem_Direct( true );
 
 	foreach ( $sunflower_dirs as $sunflower_dir ) {
 		$sunflower_basename_dir = basename( $sunflower_dir );
@@ -27,7 +35,7 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 				array(
 					'title'      => ucfirst( $sunflower_basename_file ),
 					'categories' => array( 'sunflower-' . $sunflower_basename_dir ),
-					'content'    => wp_remote_retrieve_body( wp_remote_get( $sunflower_file ) ),
+					'content'    => $filesystem->get_contents( $sunflower_file ),
 				)
 			);
 		}
