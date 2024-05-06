@@ -28,6 +28,25 @@ Im Bild ist die Rasteransicht ausgewählt. Links daneben siehst du den Button f�
 
 Die Einstellungen für den Block siehst du bei der Auswahl des Blocks an der rechten Seite. Wenn du ihn nicht siehst, dann wähle den Block aus und stele sicher, dass im oberen Rechten Abschnitt auch Block (nicht Seite) ausgewählt ist. Dort befinden sich nun weitere Einstellmöglichkeiten für diesen Block.
 
+## Nächste Termine (Sunflower)
+Der Block *Nächste Termine (Sunflower)* wurde übersetzt. innerhlab des Blocks gibt es nun ebenfalls eine Silbentrennung des Textes. Dies fördert die Benutzerfreundlichkeit.
+
+### Raster- vs. Listenansicht
+Auch in diesem Block kannst du die Ansicht der nächsten Termine steuern.
+
+<figure markdown="span">
+  ![Screenshot von Einstellung der Ansicht der nächsten Termine (Sunflower) Block](images/naechste-termine-einstellung-ansicht.png){ width="" }
+  <figcaption>Ansicht umstellen</figcaption>
+</figure>
+
+Im Bild ist die Listenansicht ausgewählt. rechts daneben siehst du den Button für die Rasteransicht.
+
+### Einstellungen
+<figure markdown="span">
+  ![Screenshot von Einstellung der nächsten Termine (Sunflower) Blocks](images/naechste-termine-einstellung.png){ width="" }
+  <figcaption>Einstellmöglichkeiten für die nächste Termine (Sunflower)</figcaption>
+</figure>
+
 ## Vorlagen
 Es gibt auch Vorlagen für typische Szenarien wie z.B. die Startseite und Kandidirenden Seite. Du findest sie beim Erstellen einer neuen Seite in den Vorlagen:
 <figure markdown="span">
