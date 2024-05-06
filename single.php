@@ -10,8 +10,8 @@
 get_header();
 
 $sunflower_layout_width  = get_post_meta( $post->ID, '_sunflower_styled_layout', true ) ? '' : 'container-narrow';
-$sunflower_metadata      = get_post_meta( $post->ID, '_sunflower_metadata', true ) ?? false;
 $sunflower_styled_layout = get_post_meta( $post->ID, '_sunflower_styled_layout', true ) ? 'styled-layout' : '';
+$sunflower_metadata      = get_post_meta( $post->ID, '_sunflower_metadata', true ) ?? false;
 
 ?>
 	<div id="content" class="container <?php printf( '%s %s', esc_attr( $sunflower_layout_width ), esc_attr( $sunflower_styled_layout ) ); ?>">

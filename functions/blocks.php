@@ -1,6 +1,16 @@
 <?php
+/**
+ * Method for registring Sunflower blocks.
+ *
+ * @package sunflower
+ */
 
-function sunflower_block_category( $categories, $post ) {
+/**
+ * Add Sunflower block category.
+ *
+ * @param array $categories The block categories.
+ */
+function sunflower_block_category( $categories ) {
 	return array_merge(
 		$categories,
 		array(
@@ -60,7 +70,9 @@ function sunflower_blocks_init() {
 
 add_action( 'init', 'sunflower_blocks_init' );
 
-add_action( 'after_setup_theme', 'sunflower_blocks_load_textdomain' );
+/**
+ * Add the block language files.
+ */
 function sunflower_blocks_load_textdomain() {
 	load_textdomain( 'sunflower-accordion', get_template_directory() . '/languages/sunflower-accordion-de_DE.mo' );
 	load_theme_textdomain( 'sunflower-accordion', get_template_directory() . '/languages' );
@@ -77,3 +89,5 @@ function sunflower_blocks_load_textdomain() {
 	load_textdomain( 'sunflower-meta-data', get_template_directory() . '/languages/sunflower-meta-data-de_DE.mo' );
 	load_theme_textdomain( 'sunflower-meta-data', get_template_directory() . '/languages' );
 }
+
+add_action( 'after_setup_theme', 'sunflower_blocks_load_textdomain' );

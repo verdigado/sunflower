@@ -223,7 +223,7 @@ class SunflowerSocialMediaSettingsPage {
 			'sunflower-admin-media',
 			get_template_directory_uri() . '/assets/js/admin-media.js',
 			array( 'jquery', 'jquery-ui-tabs', 'media-upload' ),
-			_S_VERSION,
+			SUNFLOWER_VERSION,
 			array( 'in_footer' => true )
 		);
 		wp_localize_script(

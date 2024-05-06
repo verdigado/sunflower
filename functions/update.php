@@ -1,12 +1,18 @@
 <?php
+/**
+ * Check for updates from Sunflower update server.
+ *
+ * @package sunflower
+ */
 
-/**/
-// TEMP: Enable update check on every request. Normally you don't need this! This is for testing only!
-// set_site_transient('update_themes', null);
-
-add_filter( 'update_themes_sunflower-theme.de', 'update_theme_sunflower', 10, 3 );
-
-function update_theme_sunflower( $transient, $theme_data, $theme_slug ) {
+/**
+ * Send update request to update server specified in $theme_data['UpdateURI'].
+ *
+ * @param Array  $transient The theme update data with the latest details. Default false.
+ * @param Array  $theme_data Theme data array.
+ * @param string $theme_slug  The theme slug - 'sunflower' our case.
+ */
+function sunflower_update_theme( $transient, $theme_data, $theme_slug ) {
 	// Include an unmodified $wp_version.
 	require ABSPATH . WPINC . '/version.php';
 	$php_version = PHP_VERSION;
@@ -16,19 +22,19 @@ function update_theme_sunflower( $transient, $theme_data, $theme_slug ) {
 		'php'     => $php_version,
 		'url'     => get_bloginfo( 'url' ),
 	);
-	// Start checking for an update
+	// Start checking for an update.
 	$send_for_check = array(
 		'body' => array(
-			'request' => serialize( $request ),
+			'request' => serialize( $request ), // phpcs:ignore
 		),
 	);
 	$raw_response   = wp_remote_post( $theme_data['UpdateURI'], $send_for_check );
 
-	if ( ! is_wp_error( $raw_response ) && ( $raw_response['response']['code'] == 200 ) ) {
-		$response = unserialize( $raw_response['body'] );
+	if ( ! is_wp_error( $raw_response ) && ( 200 === $raw_response['response']['code'] ) ) {
+		$response = unserialize( $raw_response['body'] ); // phpcs:ignore
 	}
 
-	// Feed the update data into WP updater
+	// Feed the update data into WP updater.
 	if ( ! empty( $response ) ) {
 		$response['version'] = $response['new_version'] ?? $theme_data['Version'];
 		return $response;
@@ -43,3 +49,5 @@ function update_theme_sunflower( $transient, $theme_data, $theme_slug ) {
 
 	return $item;
 }
+
+add_filter( 'update_themes_sunflower-theme.de', 'sunflower_update_theme', 10, 3 );

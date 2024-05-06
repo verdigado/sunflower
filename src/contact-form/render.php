@@ -15,6 +15,7 @@ if ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) {
 <div class="comment-respond mb-5">
 	<?php printf( '<h2 id="contact-form-title" class="text-center h1">%s</h2>', esc_attr( $sunflower_title ) ); ?>
 	<form id="sunflower-contact-form" method="post" class="row">
+	<?php wp_nonce_field( 'sunflower_contact_form' ); ?>
 
 	<div class="col-12 col-md-6">
 		<p class="comment-form-comment">

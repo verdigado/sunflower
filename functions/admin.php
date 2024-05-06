@@ -138,7 +138,7 @@ function sunflower_load_admin_scripts() {
 		'sunflower-admin',
 		get_template_directory_uri() . '/assets/js/admin.js',
 		array( 'jquery' ),
-		_S_VERSION,
+		SUNFLOWER_VERSION,
 		true
 	);
 

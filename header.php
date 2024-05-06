@@ -11,7 +11,7 @@
 
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?> class="<?php the_sunflower_theme(); ?>">
+<html <?php language_attributes(); ?> class="<?php sunflower_theme_class(); ?>">
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">

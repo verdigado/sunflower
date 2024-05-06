@@ -55,7 +55,7 @@ function sunflower_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function sunflower_customize_preview_js() {
-	wp_enqueue_script( 'sunflower-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
+	wp_enqueue_script( 'sunflower-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), SUNFLOWER_VERSION, true );
 }
 
 add_action( 'customize_preview_init', 'sunflower_customize_preview_js' );

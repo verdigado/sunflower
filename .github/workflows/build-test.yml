@@ -53,11 +53,21 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
+          tools: cs2pr
 
       - name: run install composer
         run: |
             composer install
             cd lib && composer install
+
+      - name: Run PHPCS checks
+        id: phpcs
+        continue-on-error: true
+        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml .
+
+      - name: Show PHPCS results in PR
+        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
+        run: cs2pr ./phpcs-report.xml
 
       - name: Make bundle
         run: npm run bundle

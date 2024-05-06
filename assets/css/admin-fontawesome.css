@@ -7,7 +7,7 @@
  * Copyright 2023 Fonticons, Inc.
  */
 
- .fa {
+.fa {
 	font-family: var(--fa-style-family, "Font Awesome 6 Free");
 	font-weight: var(--fa-style, 900);
 }

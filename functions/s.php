@@ -1,16 +1,16 @@
 <?php
 /**
- * sunflower functions and definitions
+ * Sunflower functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package sunflower
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
-	$theme_data    = wp_get_theme( get_option( 'template' ) );
-	$theme_version = $theme_data->Version;
-	define( '_S_VERSION', $theme_version );
+if ( ! defined( 'SUNFLOWER_VERSION' ) ) {
+	$sunflower_theme_data    = wp_get_theme( get_option( 'template' ) );
+	$sunflower_theme_version = $sunflower_theme_data->version;
+	define( 'SUNFLOWER_VERSION', $sunflower_theme_version );
 }
 
 if ( ! function_exists( 'sunflower_setup' ) ) :
@@ -117,7 +117,7 @@ add_action( 'widgets_init', 'sunflower_widgets_init' );
  * Enqueue scripts and styles.
  */
 function sunflower_scripts() {
-	wp_enqueue_style( 'sunflower-style', get_template_directory_uri() . '/style.css', array(), _S_VERSION );
+	wp_enqueue_style( 'sunflower-style', get_template_directory_uri() . '/style.css', array(), SUNFLOWER_VERSION );
 	wp_style_add_data( 'sunflower-style', 'rtl', 'replace' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -128,7 +128,7 @@ function sunflower_scripts() {
 		'popper',
 		get_template_directory_uri() . '/assets/vndr/@popperjs/core/dist/umd/popper.min.js',
 		array(),
-		_S_VERSION,
+		SUNFLOWER_VERSION,
 		true
 	);
 
@@ -136,23 +136,15 @@ function sunflower_scripts() {
 		'bootstrap',
 		get_template_directory_uri() . '/assets/vndr/bootstrap/dist/js/bootstrap.min.js',
 		array( 'jquery' ),
-		_S_VERSION,
+		SUNFLOWER_VERSION,
 		true
 	);
-
-	// wp_enqueue_script(
-	// 'jquery-slim',
-	// get_template_directory_uri() . '/assets/vndr/jquery-slim/dist/jquery.slim.min.js',
-	// null,
-	// _S_VERSION,
-	// true
-	// );
 
 	wp_enqueue_script(
 		'frontend',
 		get_template_directory_uri() . '/assets/js/frontend.js',
 		null,
-		_S_VERSION,
+		SUNFLOWER_VERSION,
 		true
 	);
 	wp_localize_script(
@@ -177,12 +169,12 @@ function sunflower_scripts() {
 		)
 	);
 
-	if ( 'sunflower_event' == get_post_type() ) {
+	if ( 'sunflower_event' === get_post_type() ) {
 		wp_enqueue_script(
 			'sunflower-leaflet',
 			get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.js',
 			null,
-			_S_VERSION,
+			SUNFLOWER_VERSION,
 			true
 		);
 
@@ -190,7 +182,7 @@ function sunflower_scripts() {
 			'sunflower-leaflet',
 			get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.css',
 			array(),
-			_S_VERSION
+			SUNFLOWER_VERSION
 		);
 	}
 
@@ -226,12 +218,17 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * Register Custom Navigation Walker
  */
-function register_navwalker() {
+function sunflower_register_navwalker() {
 	include_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 }
 
-add_action( 'after_setup_theme', 'register_navwalker' );
+add_action( 'after_setup_theme', 'sunflower_register_navwalker' );
 
+/**
+ * Return constant if defined
+ *
+ * @param string $constant The constant to check.
+ */
 function sunflower_get_constant( $constant ) {
 	if ( ! defined( $constant ) ) {
 		return false;
@@ -242,7 +239,7 @@ function sunflower_get_constant( $constant ) {
 
 add_filter(
 	'wp_kses_allowed_html',
-	static function ( $allowed_tags, $context ) {
+	static function ( $allowed_tags, $context ) { // phpcs:ignore
 		$allowed_tags['form']     = array(
 			'action' => 1,
 			'method' => 1,

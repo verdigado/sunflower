@@ -1,42 +1,58 @@
 <?php
+/**
+ * Methods for importing ics calendar files.
+ *
+ * @package sunflower
+ */
 
+/**
+ * Load class namespaces.
+ */
 require WP_CONTENT_DIR . '/themes/sunflower/lib/vendor/autoload.php';
 
 use Sabre\VObject\ParseException;
 use Sabre\VObject\Reader;
 
+/**
+ * The import function.
+ *
+ * @param string|boolean $url The URL to the ics-file.
+ * @param boolean        $auto_categories Additional categories to add to every imported event.
+ */
 function sunflower_icalimport( $url = false, $auto_categories = false ) {
 	try {
 		$vcalendar = Reader::read(
-			file_get_contents( $url ),
-			Reader::OPTION_FORGIVING
+			wp_remote_retrieve_body(
+				wp_remote_get( ( $url ) ),
+				Reader::OPTION_FORGIVING
+			)
 		);
-	} catch ( ParseException $parseException ) {
-		// Rethrow the exception to abstract the type
-		return $parseException->getMessage();
+	} catch ( ParseException $parse_exception ) {
+		// Rethrow the exception to abstract the type.
+		return $parse_exception->getMessage();
 	}
 
 	$timezone = new \DateTimeZone( get_option( 'timezone_string' ) );
 
-	$time_range_history   = sunflower_get_constant( 'SUNFLOWER_EVENT_TIME_RANGE_BACK' ) ?: '0 months';
-	$time_range_future    = sunflower_get_constant( 'SUNFLOWER_EVENT_TIME_RANGE' ) ?: '6 months';
-	$recurring_events_max = (int) sunflower_get_constant( 'SUNFLOWER_EVENT_RECURRING_EVENTS' ) ?: 10;
+	$time_range_history   = sunflower_get_constant( 'SUNFLOWER_EVENT_TIME_RANGE_BACK' ) ? sunflower_get_constant( 'SUNFLOWER_EVENT_TIME_RANGE_BACK' ) : '0 months';
+	$time_range_future    = sunflower_get_constant( 'SUNFLOWER_EVENT_TIME_RANGE' ) ? sunflower_get_constant( 'SUNFLOWER_EVENT_TIME_RANGE' ) : '6 months';
+	$recurring_events_max = (int) sunflower_get_constant( 'SUNFLOWER_EVENT_RECURRING_EVENTS' ) ? (int) sunflower_get_constant( 'SUNFLOWER_EVENT_RECURRING_EVENTS' ) : 10;
 
-	$timeRangeStart = new \DateTime();
-	$timeRangeStart->setTimestamp( strtotime( '-' . $time_range_history ) );
+	$time_range_start = new \DateTime();
+	$time_range_start->setTimestamp( strtotime( '-' . $time_range_history ) );
 
-	$timeRangeStop = new \DateTime();
-	$timeRangeStop->setTimestamp( strtotime( (string) $time_range_future ) );
+	$time_range_stop = new \DateTime();
+	$time_range_stop->setTimestamp( strtotime( (string) $time_range_future ) );
 
-	// expand RRULE events to new vCalendar which has all events in the given time range
-	$newVCalendar = $vcalendar->expand( $timeRangeStart, $timeRangeStop );
+	// expand RRULE events to new vCalendar which has all events in the given time range.
+	$new_vcalendar = $vcalendar->expand( $time_range_start, $time_range_stop );
 
-	$allEvents = array();
-	if ( is_iterable( $newVCalendar->VEVENT ) ) {
-		foreach ( $newVCalendar->VEVENT as $event ) {
-			// limit to events in the given time range
-			if ( $event->isInTimeRange( $timeRangeStart, $timeRangeStop ) ) {
-				$allEvents[] = $event;
+	$all_events = array();
+	if ( is_iterable( $new_vcalendar->VEVENT ) ) { // phpcs:ignore
+		foreach ( $new_vcalendar->VEVENT as $event ) { // phpcs:ignore
+			// Limit to events in the given time range.
+			if ( $event->isInTimeRange( $time_range_start, $time_range_stop ) ) {
+				$all_events[] = $event;
 			}
 		}
 	}
@@ -45,11 +61,11 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 	$ids_from_remote        = array();
 	$count_recurring_events = array();
 
-	foreach ( $allEvents as $allEvent ) {
-		$uid = $allEvent->UID->getValue();
+	foreach ( $all_events as $event ) {
+		$uid = $event->UID->getValue(); // phpcs:ignore
 
-		// modified instances of a recurring event, RECURRENCE-ID is set but no RRULE
-		if ( isset( $allEvent->RRULE ) || isset( $allEvent->{'RECURRENCE-ID'} ) ) {
+		// modified instances of a recurring event, RECURRENCE-ID is set but no RRULE.
+		if ( isset( $event->RRULE ) || isset( $event->{'RECURRENCE-ID'} ) ) { // phpcs:ignore
 			if ( isset( $count_recurring_events[ $uid ] ) ) {
 				++$count_recurring_events[ $uid ];
 			} else {
@@ -60,10 +76,10 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 				continue;
 			}
 
-			$uid .= '_' . $allEvent->DTSTART->getValue();
+			$uid .= '_' . $event->DTSTART->getValue(); // phpcs:ignore
 		}
 
-		// is this event already imported
+		// Is this event already imported.
 		$is_imported = sunflower_get_event_by_uid( $uid );
 		$wp_id       = 0;
 		if ( $is_imported->have_posts() ) {
@@ -72,16 +88,16 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			++$updated_events;
 		}
 
-		$post_content = sprintf( '<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->', nl2br( (string) $allEvent->DESCRIPTION ) );
+		$post_content = sprintf( '<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->', nl2br( (string) $event->DESCRIPTION ) ); // phpcs:ignore
 
-		if ( isset( $allEvent->URL ) && filter_var( (string) $allEvent->URL, FILTER_VALIDATE_URL ) ) {
-			$post_content .= sprintf( '<!-- wp:paragraph --><p>%1$s: <a href="%1$s" target="_blank">%1$s</a></p><!-- /wp:paragraph -->', __( 'More Information', 'sunflower' ), (string) $allEvent->URL );
+		if ( isset( $event->URL ) && filter_var( (string) $event->URL, FILTER_VALIDATE_URL ) ) { // phpcs:ignore
+			$post_content .= sprintf( '<!-- wp:paragraph --><p>%1$s: <a href="%1$s" target="_blank">%1$s</a></p><!-- /wp:paragraph -->', __( 'More Information', 'sunflower' ), (string) $event->URL ); // phpcs:ignore
 		}
 
 		$post = array(
 			'ID'           => $wp_id,
 			'post_type'    => 'sunflower_event',
-			'post_title'   => $allEvent->SUMMARY->getValue(),
+			'post_title'   => $event->SUMMARY->getValue(), // phpcs:ignore
 			'post_content' => $post_content,
 			'post_status'  => 'publish',
 		);
@@ -91,55 +107,58 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			return false;
 		}
 
-		// save all event post ids from imported ics ressources
+		// Save all event post ids from imported ics ressources.
 		$ids_from_remote[] = $id;
 
-		$timezoneFix = null;
+		$timezone_fix = null;
 		if ( sunflower_get_setting( 'sunflower_fix_time_zone_error' ) ) {
-			$timezoneFix = $timezone;
+			$timezone_fix = $timezone;
 		}
 
-		// write start and end time to event post metadata
-		update_post_meta( $id, '_sunflower_event_from', $allEvent->DTSTART->getDateTime( $timezoneFix )->setTimezone( $timezone )->format( 'Y-m-d H:i' ) );
-		update_post_meta( $id, '_sunflower_event_until', $allEvent->DTEND->getDateTime( $timezoneFix )->setTimezone( $timezone )->format( 'Y-m-d H:i' ) );
+		// Write start and end time to event post metadata.
+		update_post_meta( $id, '_sunflower_event_from', $event->DTSTART->getDateTime( $timezone_fix )->setTimezone( $timezone )->format( 'Y-m-d H:i' ) ); // phpcs:ignore
+		update_post_meta( $id, '_sunflower_event_until', $event->DTEND->getDateTime( $timezone_fix )->setTimezone( $timezone )->format( 'Y-m-d H:i' ) ); // phpcs:ignore
 		update_post_meta( $id, '_sunflower_event_uid', $uid );
 
-		if ( isset( $allEvent->LOCATION ) ) {
-			update_post_meta( $id, '_sunflower_event_location_name', (string) $allEvent->LOCATION );
+		if ( isset( $event->LOCATION ) ) { // phpcs:ignore
+			update_post_meta( $id, '_sunflower_event_location_name', (string) $event->LOCATION ); // phpcs:ignore
 
-			if ( ! filter_var( (string) $allEvent->LOCATION, FILTER_VALIDATE_URL ) ) {
-				$coordinates = sunflower_geocode( (string) $allEvent->LOCATION );
+			if ( ! filter_var( (string) $event->LOCATION, FILTER_VALIDATE_URL ) ) { // phpcs:ignore
+				$coordinates = sunflower_geocode( (string) $event->LOCATION ); // phpcs:ignore
 				if ( $coordinates ) {
 					[$lon, $lat] = $coordinates;
 					update_post_meta( $id, '_sunflower_event_lat', $lat );
 					update_post_meta( $id, '_sunflower_event_lon', $lon );
-					$zoom = sunflower_get_constant( 'SUNFLOWER_EVENT_IMPORTED_ZOOM' ) ?: 12;
+					$zoom = sunflower_get_constant( 'SUNFLOWER_EVENT_IMPORTED_ZOOM' ) ? sunflower_get_constant( 'SUNFLOWER_EVENT_IMPORTED_ZOOM' ) : 12;
 					update_post_meta( $id, '_sunflower_event_zoom', $zoom );
 				}
 			}
 		}
 
-		$categories  = $allEvent->CATEGORIES ?? '';
+		$categories  = $event->CATEGORIES ?? ''; // phpcs:ignore
 		$categories .= ( $auto_categories ) ? ',' . $auto_categories : '';
-		if ( $categories === '' ) {
+		if ( '' === $categories ) {
 			continue;
 		}
 
-		if ( $categories === '0' ) {
+		if ( '0' === $categories ) {
 			continue;
 		}
 
 		wp_set_post_terms( $id, $categories, 'sunflower_event_tag' );
 	}
 
-	return array( $ids_from_remote, count( $allEvents ) - $updated_events, $updated_events );
+	return array( $ids_from_remote, count( $all_events ) - $updated_events, $updated_events );
 }
 
+/**
+ * Get post type "sunflower_event" for given uid.
+ *
+ * @param int $uid The uid of the sunflower event.
+ */
 function sunflower_get_event_by_uid( $uid ) {
 	return new WP_Query(
 		array(
-			// 'paged' => $paged,
-			// 'nopaging'        => true,
 			'post_type'  => 'sunflower_event',
 			'meta_key'   => '_sunflower_event_uid',
 			'orderby'    => 'meta_value',
@@ -154,10 +173,12 @@ function sunflower_get_event_by_uid( $uid ) {
 	);
 }
 
+/**
+ * Get all sunflower events with an uid set.
+ */
 function sunflower_get_events_having_uid() {
 	$events_with_uid = new WP_Query(
 		array(
-			// 'paged' => $paged,
 			'nopaging'   => true,
 			'post_type'  => 'sunflower_event',
 			'meta_key'   => '_sunflower_event_uid',
@@ -180,7 +201,11 @@ function sunflower_get_events_having_uid() {
 	return $ids;
 }
 
-add_action( 'init', 'sunflower_import_icals' );
+/**
+ * Run the import job.
+ *
+ * @param boolean $force Force the import even if transient time is not past.
+ */
 function sunflower_import_icals( $force = false ) {
 	if ( ! $force && get_transient( 'sunflower_ical_imported' ) ) {
 		return false;
@@ -190,7 +215,7 @@ function sunflower_import_icals( $force = false ) {
 		return false;
 	}
 
-	$import_every_n_hour = sunflower_get_constant( 'SUNFLOWER_EVENT_IMPORT_EVERY_N_HOUR' ) ?: 3;
+	$import_every_n_hour = sunflower_get_constant( 'SUNFLOWER_EVENT_IMPORT_EVERY_N_HOUR' ) ? sunflower_get_constant( 'SUNFLOWER_EVENT_IMPORT_EVERY_N_HOUR' ) : 3;
 	set_transient( 'sunflower_ical_imported', 1, $import_every_n_hour * 3600 );
 
 	$lines = explode( "\n", (string) sunflower_get_setting( 'sunflower_ical_urls' ) );
@@ -219,20 +244,29 @@ function sunflower_import_icals( $force = false ) {
 	}
 }
 
+add_action( 'init', 'sunflower_import_icals' );
+
+
+/**
+ * Make georeferencing via nominatim for unknown locations.
+ *
+ * @param string $location The location as human readable string.
+ */
 function sunflower_geocode( $location ) {
 	static $i  = 0;
 	$transient = sprintf( 'sunflower_geocache_%s', $location );
 
-	if ( $cached = get_transient( $transient ) ) {
+	$cached = get_transient( $transient );
+	if ( $cached ) {
 		return $cached;
 	}
 
 	if ( $i > 3 ) {
-		// download 3 geodata per import
+		// Download 3 geodata per import.
 		return false;
 	}
 
-	$url     = sprintf( 'https://nominatim.openstreetmap.org/search?q=%s&format=geocodejson', urlencode( (string) $location ) );
+	$url     = sprintf( 'https://nominatim.openstreetmap.org/search?q=%s&format=geocodejson', rawurlencode( (string) $location ) );
 	$opts    = array(
 		'http' => array(
 			'method' => 'GET',
@@ -242,7 +276,7 @@ function sunflower_geocode( $location ) {
 	);
 	$context = stream_context_create( $opts );
 
-	$json = json_decode( file_get_contents( $url, false, $context ) );
+	$json = json_decode( wp_remote_retrieve_body( wp_remote_get( $url, false, $context ) ) );
 
 	$lonlat = isset( $json->features[0] ) ? $json->features[0]->geometry->coordinates : false;
 

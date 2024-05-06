@@ -1,6 +1,13 @@
 <?php
+/**
+ * Methods for Sunflower placeholder menu
+ *
+ * @package sunflower
+ */
 
-add_action( 'wp_footer', 'sunflower_add_menu_item_is_placeholder_script' );
+/**
+ * Render placeholder menu if option is set.
+ */
 function sunflower_add_menu_item_is_placeholder_script() {
 	if ( ! sunflower_get_setting( 'sunflower_main_menu_item_is_placeholder' ) ) {
 		return;
@@ -14,3 +21,5 @@ function sunflower_add_menu_item_is_placeholder_script() {
 	</script>
 	<?php
 }
+
+add_action( 'wp_footer', 'sunflower_add_menu_item_is_placeholder_script' );

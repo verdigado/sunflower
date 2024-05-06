@@ -5,7 +5,10 @@
  * @package sunflower
  */
 
-require_once __DIR__ . '/functions/_s.php';
+/**
+ * Include all sub-function files.
+ */
+require_once __DIR__ . '/functions/s.php';
 require_once __DIR__ . '/functions/options/class-sunflowerfirststepspage.php';
 require_once __DIR__ . '/functions/options/class-sunflowersettingspage.php';
 require_once __DIR__ . '/functions/options/class-sunflowersocialmediasettingspage.php';
@@ -16,7 +19,6 @@ require_once __DIR__ . '/functions/admin.php';
 require_once __DIR__ . '/functions/metaboxes.php';
 require_once __DIR__ . '/functions/blocks.php';
 require_once __DIR__ . '/functions/update.php';
-require_once __DIR__ . '/functions/widgets.php';
 require_once __DIR__ . '/functions/block-patterns.php';
 require_once __DIR__ . '/functions/related-posts.php';
 require_once __DIR__ . '/functions/activation.php';
