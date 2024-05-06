@@ -13,6 +13,7 @@
 
 	<!-- Exclude the Composer Vendor directory. -->
 	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/assets/vndr/*</exclude-pattern>
 
 	<!-- Exclude the Node Modules directory. -->
 	<exclude-pattern>/node_modules/*</exclude-pattern>
@@ -22,6 +23,13 @@
 
 	<!-- Exclude all Javascript files. -->
 	<exclude-pattern>*.js</exclude-pattern>
+
+	<!-- Exclude the build components. -->
+	<exclude-pattern>/build/*</exclude-pattern>
+	<exclude-pattern>/style.css</exclude-pattern>
+
+	<!-- Exclude mkdocs directory. -->
+	<exclude-pattern>/mkdocs/*</exclude-pattern>
 
 	<!-- Include the WordPress-Extra standard. -->
 	<rule ref="WordPress-Extra">

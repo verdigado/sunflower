@@ -1,24 +1,29 @@
 <?php
+/**
+ * Methods for the ical export.
+ *
+ * @package sunflower
+ */
 
-$proid    = parse_url( (string) get_bloginfo( 'url' ), PHP_URL_HOST );
-$filename = preg_replace( '/[^a-zA-Z0-9]/', '-', (string) get_the_title() ) . '.ics';
+$sunflower_prodid   = wp_parse_url( (string) get_bloginfo( 'url' ), PHP_URL_HOST );
+$sunflower_filename = preg_replace( '/[^a-zA-Z0-9]/', '-', (string) get_the_title() ) . '.ics';
 
-$event = '';
+$sunflower_event = '';
 if ( ! defined( 'SUNFLOWER_ICAL_ALL_EVENTS' ) ) {
-	$event = sunflower_getEventInIcs( $post ) . "\n";
+	$sunflower_event = sunflower_get_event_in_ics( $post ) . "\n";
 } else {
-	$filename = preg_replace( '/[^a-zA-Z0-9]/', '-', $proid . '_events' ) . '.ics';
-	$posts    = sunflower_get_next_events();
-	while ( $posts->have_posts() ) {
-		$posts->the_post();
-		$event .= sunflower_getEventInIcs( $post ) . "\n";
+	$sunflower_filename = preg_replace( '/[^a-zA-Z0-9]/', '-', $sunflower_prodid . '_events' ) . '.ics';
+	$sunflower_posts    = sunflower_get_next_events();
+	while ( $sunflower_posts->have_posts() ) {
+		$sunflower_posts->the_post();
+		$sunflower_event .= sunflower_get_event_in_ics( $post ) . "\n";
 	}
 }
 
-$ical = <<<"ICAL"
+$sunflower_ical = <<<"ICAL"
 BEGIN:VCALENDAR\r
 VERSION:2.0\r
-PRODID:{$proid}\r
+PRODID:{$sunflower_prodid}\r
 METHOD:PUBLISH\r
 BEGIN:VTIMEZONE\r
 TZID:Europe/Berlin\r
@@ -38,7 +43,7 @@ DTSTART:19701025T030000\r
 RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10\r
 END:STANDARD\r
 END:VTIMEZONE\r
-{$event}END:VCALENDAR\r
+{$sunflower_event}END:VCALENDAR\r
 ICAL;
 
 header( 'Pragma: public' );
@@ -48,38 +53,49 @@ header( 'Cache-Control: private', false );
 header( 'Content-Type: application/force-download' );
 header( 'Content-Type: application/octet-stream' );
 header( 'Content-Type: application/download' );
-header( sprintf( 'Content-Disposition: attachment; filename="%s";', $filename ) );
+header( sprintf( 'Content-Disposition: attachment; filename="%s";', $sunflower_filename ) );
 header( 'Content-Description: File Transfer' );
 header( 'Content-Transfer-Encoding: binary' );
 
-echo $ical;
+echo wp_kses_post( $sunflower_ical );
 die();
 
-function sunflower_getIcalDate( $timestamp, $withTime = false ) {
-	return date( 'Ymd' . ( $withTime ? '\THis' : '' ), $timestamp );
+/**
+ * Get the date string for ical.
+ *
+ * @param int     $timestamp The unix timestamp.
+ * @param boolean $with_time Show time or not.
+ */
+function sunflower_get_ical_date( $timestamp, $with_time = false ) {
+	return gmdate( 'Ymd' . ( $with_time ? '\THis' : '' ), $timestamp );
 }
 
-function sunflower_getEventInIcs( $post ) {
-	$_sunflower_event_from = @get_post_meta( $post->ID, '_sunflower_event_from' )[0] ?: false;
+/**
+ * Get the ics metadata from sunflower event.
+ *
+ * @param WP_Post $post The post object.
+ */
+function sunflower_get_event_in_ics( $post ) {
+	$_sunflower_event_from = get_post_meta( $post->ID, '_sunflower_event_from', true ) ?? false;
 	$_sunflower_event_from = strToTime( (string) $_sunflower_event_from );
 
-	$_sunflower_event_until = @get_post_meta( $post->ID, '_sunflower_event_until' )[0] ?: false;
+	$_sunflower_event_until = get_post_meta( $post->ID, '_sunflower_event_until', true ) ?? false;
 	$_sunflower_event_until = strToTime( (string) $_sunflower_event_until );
 
-	$_sunflower_event_whole_day       = @get_post_meta( $post->ID, '_sunflower_event_whole_day' )[0] ?: false;
-	$_sunflower_event_location_name   = @get_post_meta( $post->ID, '_sunflower_event_location_name' )[0] ?: false;
-	$_sunflower_event_location_street = @get_post_meta( $post->ID, '_sunflower_event_location_street' )[0] ?: false;
-	$_sunflower_event_location_city   = @get_post_meta( $post->ID, '_sunflower_event_location_city' )[0] ?: false;
+	$_sunflower_event_whole_day       = get_post_meta( $post->ID, '_sunflower_event_whole_day', true ) ?? false;
+	$_sunflower_event_location_name   = get_post_meta( $post->ID, '_sunflower_event_location_name', true ) ?? false;
+	$_sunflower_event_location_street = get_post_meta( $post->ID, '_sunflower_event_location_street', true ) ?? false;
+	$_sunflower_event_location_city   = get_post_meta( $post->ID, '_sunflower_event_location_city', true ) ?? false;
 
-	$from  = sunflower_getIcalDate( $_sunflower_event_from, ! $_sunflower_event_whole_day );
-	$until = ( $_sunflower_event_until ) ? sunflower_getIcalDate( $_sunflower_event_until, ! $_sunflower_event_whole_day ) : sunflower_getIcalDate( 3600 + $_sunflower_event_from, ! $_sunflower_event_whole_day );
+	$from  = sunflower_get_ical_date( $_sunflower_event_from, ! $_sunflower_event_whole_day );
+	$until = ( $_sunflower_event_until ) ? sunflower_get_ical_date( $_sunflower_event_until, ! $_sunflower_event_whole_day ) : sunflower_get_ical_date( 3600 + $_sunflower_event_from, ! $_sunflower_event_whole_day );
 
-	$now         = sunflower_getIcalDate( strToTime( 'now' ), true );
-	$summary     = sunflower_textfold( 'SUMMARY:' . html_entity_decode( (string) get_the_title() ) );
-	$proid       = parse_url( (string) get_bloginfo( 'url' ), PHP_URL_HOST );
-	$uid         = md5( uniqid( mt_rand(), true ) ) . '@' . $proid;
-	$description = sunflower_textfold( 'DESCRIPTION:' . wp_strip_all_tags( get_the_content() ) );
-	$location    = implode(
+	$now              = sunflower_get_ical_date( strToTime( 'now' ), true );
+	$summary          = sunflower_textfold( 'SUMMARY:' . html_entity_decode( (string) get_the_title() ) );
+	$sunflower_prodid = wp_parse_url( (string) get_bloginfo( 'url' ), PHP_URL_HOST );
+	$uid              = md5( uniqid( wp_rand(), true ) ) . '@' . $sunflower_prodid;
+	$description      = sunflower_textfold( 'DESCRIPTION:' . wp_strip_all_tags( get_the_content() ) );
+	$location         = implode(
 		', ',
 		array_diff(
 			array( $_sunflower_event_location_name, $_sunflower_event_location_street, $_sunflower_event_location_city ),
@@ -101,21 +117,23 @@ END:VEVENT\r
 ICALEVENT;
 }
 
-/*
+/**
  * This folds the text line for SUMMARY and DESCRIPTION
  *
  * Reference: https://www.kanzaki.com/docs/ical/text.html
- **/
+ *
+ * @param string $text The text to fold.
+ */
 function sunflower_textfold( $text ) {
-	// replace ",", ";" and "\"
+	// Replace ",", ";" and "\".
 	$searchandreplace = array(
 		','  => '\,',
 		';'  => '\;',
 		'\\' => '\\\\',
 	);
 	$text             = strtr( $text, $searchandreplace );
-	// remove empty lines and replace all new lines with "\n\n"
+	// Remove empty lines and replace all new lines with "\n\n".
 	$text = preg_replace( '/\s*(\n)/', '\n\n', $text );
-	// fold all lines after 75 signs
+	// Fold all lines after 75 signs.
 	return rtrim( chunk_split( (string) $text, 75, "\r\n " ), "\r\n " );
 }

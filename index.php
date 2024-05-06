@@ -87,7 +87,7 @@ get_header();
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif;
-?>
+		?>
 
 				</main><!-- #main -->
 			</div>
