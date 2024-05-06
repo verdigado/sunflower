@@ -53,6 +53,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
+          tools: cs2pr
 
       - name: run install composer
         run: |
