@@ -8,17 +8,17 @@
 	"icon": "calendar-alt",
 	"description": "Show Next Events in Sunflower Design",
 	"example": {},
-    "attributes": {
-        "title": {
-            "type": "string",
+	"attributes": {
+		"title": {
+			"type": "string",
 			"default": ""
 		},
-        "tag": {
-            "type": "array"
+		"tag": {
+			"type": "array"
 		},
-        "count": {
-            "type": "number",
-            "default": 3
+		"count": {
+			"type": "number",
+			"default": 3
 		},
 		"blockLayout": {
 			"type": "string",
@@ -28,12 +28,12 @@
 			"type": "number",
 			"default": 55
 		}
-    },
+	},
 	"supports": {
 		"html": false
 	},
 	"textdomain": "sunflower-next-events",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-    "render": "file:./render.php"
+	"render": "file:./render.php"
 }

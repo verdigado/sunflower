@@ -11,19 +11,19 @@
 	"supports": {
 		"html": false
 	},
-    "attributes": {
-        "content": {
-            "type": "string",
-            "source": "html",
-            "selector": "p"
-        },
-        "headline": {
-            "type": "string"
-        },
-        "blockId": {
-            "type": "string"
-        }
-    },
+	"attributes": {
+		"content": {
+			"type": "string",
+			"source": "html",
+			"selector": "p"
+		},
+		"headline": {
+			"type": "string"
+		},
+		"blockId": {
+			"type": "string"
+		}
+	},
 	"textdomain": "sunflower-accordion",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css"

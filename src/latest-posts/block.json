@@ -8,22 +8,23 @@
 	"icon": "admin-post",
 	"description": "Show Latest Posts in Sunflower Design",
 	"example": {},
-    "attributes": {
-        "title": {
-            "type": "string",
+	"attributes": {
+		"title": {
+			"type": "string",
 			"default": ""
 		},
-        "archiveText": {
-            "type": "string"
-        },
+		"archiveText": {
+			"type": "string",
+			"default": ""
+		},
 		"categories": {
 			"type": "array"
 		},
 		"excludedCategories": {
 			"type": "array"
 		},
-        "count": {
-            "type": "number",
+		"count": {
+			"type": "number",
 			"default": 6
 		},
 		"blockLayout": {
@@ -34,12 +35,12 @@
 			"type": "number",
 			"default": 55
 		}
-    },
+	},
 	"supports": {
 		"html": false
 	},
 	"textdomain": "sunflower-latest-posts",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-    "render": "file:./render.php"
+	"render": "file:./render.php"
 }

@@ -55,7 +55,6 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 			<div className="accordion-item">
 				<h4 className="accordion-header">
 					<TextControl
-						tagName="p"
 						className="accordion-button"
 						hideLabelFromVision="true"
 						label={ __(
@@ -72,7 +71,6 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				</h4>
 				<div className="accordion-body">
 					<RichText
-						tagName="p"
 						onChange={ onChangeContent }
 						value={ attributes.content }
 						placeholder={ __(
