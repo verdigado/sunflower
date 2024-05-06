@@ -24,6 +24,11 @@ if ( isset( $attributes['categories'] ) && ! empty( $attributes['categories'] ) 
 	$sunflower_link       = get_category_link( get_category_by_slug( trim( (string) $sunflower_categories[0] ) ) );
 }
 
+$sunflower_excluded_categories = array();
+if ( isset( $attributes['excludedCategories'] ) && ! empty( $attributes['excludedCategories'] ) ) {
+	$sunflower_excluded_categories = $attributes['excludedCategories'];
+}
+
 if ( ! $sunflower_link || '' === $sunflower_link ) {
 	$sunflower_page_for_posts = get_option( 'page_for_posts' );
 	if ( $sunflower_page_for_posts ) {
@@ -36,7 +41,7 @@ if ( ! $sunflower_link || '' === $sunflower_link ) {
 }
 
 // Fetch posts for given parameters.
-$sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories );
+$sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories, $sunflower_excluded_categories );
 
 $sunflower_title = isset( $attributes['title'] ) ? sprintf( '<h2 class="text-center h1">%s</h2>', $attributes['title'] ) : '';
 

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-30T12:48:29+00:00\n"
+"POT-Creation-Date: 2024-05-06T11:45:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -64,7 +64,7 @@ msgid "to upcoming events"
 msgstr ""
 
 #: archive-sunflower_event.php:56
-#: build/next-events/render.php:23
+#: build/next-events/render.php:28
 msgid "all events"
 msgstr ""
 
@@ -115,11 +115,11 @@ msgstr ""
 msgid "next"
 msgstr ""
 
-#: build/latest-posts/render.php:72
+#: build/latest-posts/render.php:80
 msgid "No posts found"
 msgstr ""
 
-#: build/next-events/render.php:47
+#: build/next-events/render.php:52
 msgid "Currently there are no coming events."
 msgstr ""
 
@@ -194,8 +194,8 @@ msgid ""
 msgstr ""
 
 #: functions/admin.php:217
-#: functions/block-patterns.php:12
-#: functions/blocks.php:9
+#: functions/block-patterns.php:17
+#: functions/blocks.php:19
 #: functions/options/class-sunflowerfirststepspage.php:33
 #: functions/options/class-sunflowerfirststepspage.php:34
 msgid "Sunflower"
@@ -205,7 +205,7 @@ msgstr ""
 msgid "Help for sunflowers events"
 msgstr ""
 
-#: functions/contact-form.php:10
+#: functions/contact-form.php:24
 msgid "Form not sent. Captcha wrong. Please try again."
 msgstr ""
 
@@ -271,41 +271,41 @@ msgstr ""
 msgid "Event location"
 msgstr ""
 
-#: functions/icalimport.php:78
+#: functions/icalimport.php:94
 msgid "More Information"
 msgstr ""
 
-#: functions/metaboxes.php:7
+#: functions/metaboxes.php:15
 #: functions/options/class-sunflowersettingspage.php:99
 msgid "Layout"
 msgstr ""
 
-#: functions/metaboxes.php:16
-#: functions/metaboxes.php:109
+#: functions/metaboxes.php:24
+#: functions/metaboxes.php:131
 msgid "Metadata"
 msgstr ""
 
-#: functions/metaboxes.php:71
+#: functions/metaboxes.php:90
 msgid "Styled layout"
 msgstr ""
 
-#: functions/metaboxes.php:72
+#: functions/metaboxes.php:91
 msgid "do not show title, add and remove margins. e.g. for the homepage"
 msgstr ""
 
-#: functions/metaboxes.php:93
+#: functions/metaboxes.php:112
 msgid "Hide feature image on single"
 msgstr ""
 
-#: functions/metaboxes.php:94
+#: functions/metaboxes.php:113
 msgid "Hide feature image on single view, but show it on lists."
 msgstr ""
 
-#: functions/metaboxes.php:103
+#: functions/metaboxes.php:125
 msgid "Roofline"
 msgstr ""
 
-#: functions/metaboxes.php:110
+#: functions/metaboxes.php:132
 msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
@@ -467,7 +467,7 @@ msgid "Show share buttons on single post page"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:233
-#: functions/_s.php:164
+#: functions/s.php:154
 msgid "Select Open Graph Fallback Image"
 msgstr ""
 
@@ -483,37 +483,37 @@ msgstr ""
 msgid "An error occurred. Could not import images"
 msgstr ""
 
-#: functions/security.php:8
-msgid "Login error. Did you mistype s.th.?"
-msgstr ""
-
-#: functions/_s.php:54
+#: functions/s.php:54
 msgid "Mainmenu"
 msgstr ""
 
-#: functions/_s.php:55
+#: functions/s.php:55
 msgid "Topmenu"
 msgstr ""
 
-#: functions/_s.php:56
+#: functions/s.php:56
 msgid "Footer Menu 1"
 msgstr ""
 
-#: functions/_s.php:57
+#: functions/s.php:57
 msgid "Footer Menu 2"
 msgstr ""
 
-#: functions/_s.php:103
+#: functions/s.php:103
 msgid "Sidebar"
 msgstr ""
 
-#: functions/_s.php:105
+#: functions/s.php:105
 msgid "Add widgets here."
 msgstr ""
 
-#: functions/_s.php:177
+#: functions/s.php:167
 #: template-parts/content-archive.php:81
 msgid "Continue reading"
+msgstr ""
+
+#: functions/security.php:13
+msgid "Login error. Did you mistype s.th.?"
 msgstr ""
 
 #: header.php:36

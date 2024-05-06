@@ -6,23 +6,30 @@
  */
 
 /**
- * Get the latest posts for given tag ids.
+ * Get the latest posts for given category ids.
  *
  * @param int                 $number The amount of posts to fetch. -1 for all.
- * @param null|int[]|string[] $tag_ids Array of sunflower_event_tag IDs.
+ * @param null|int[]|string[] $category_ids Array of category IDs.
+ * @param null|string[]       $exclude_ids Array of category IDs to exclude posts.
  *
  * @return WP_Query
  */
-function sunflower_get_latest_posts( $number = -1, $tag_ids = null ) {
+function sunflower_get_latest_posts( $number = -1, $category_ids = null, $exclude_ids = null ) {
 	$tax_query = null;
 
-	if ( $tag_ids ) {
-		if ( isIntArray( $tag_ids ) ) {
+	if ( $category_ids || $exclude_ids ) {
+		if ( sunflower_is_numeric_array( $category_ids ) ) {
 			$tax_query = array(
 				array(
 					'taxonomy' => 'category',
 					'field'    => 'id',
-					'terms'    => $tag_ids,
+					'terms'    => $category_ids,
+				),
+				array(
+					'taxonomy' => 'category',
+					'field'    => 'slug',
+					'operator' => 'NOT IN',
+					'terms'    => $exclude_ids,
 				),
 			);
 		} else {
@@ -30,7 +37,13 @@ function sunflower_get_latest_posts( $number = -1, $tag_ids = null ) {
 				array(
 					'taxonomy' => 'category',
 					'field'    => 'slug',
-					'terms'    => $tag_ids,
+					'terms'    => $category_ids,
+				),
+				array(
+					'taxonomy' => 'category',
+					'field'    => 'slug',
+					'operator' => 'NOT IN',
+					'terms'    => $exclude_ids,
 				),
 			);
 		}
