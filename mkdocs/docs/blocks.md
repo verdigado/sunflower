@@ -47,6 +47,9 @@ Im Bild ist die Listenansicht ausgewählt. rechts daneben siehst du den Button f
   <figcaption>Einstellmöglichkeiten für die nächste Termine (Sunflower)</figcaption>
 </figure>
 
+## RSS-Block
+Wi rhaben den RSS Block angepasst. Darüber könntest du Beiträge einer anderen Gliederung z.B. auf deiner Seite mit anzeigen lassen. Dafür nutze einfach den entsprechenden RSS-Link der Seite und füge ihn ein. So kannst du von unterschiedlichen Gliederungen die neusten News anzeigen lassen und direkt auf deren Seite verlinken.
+
 ## Vorlagen
 Es gibt auch Vorlagen für typische Szenarien wie z.B. die Startseite und Kandidirenden Seite. Du findest sie beim Erstellen einer neuen Seite in den Vorlagen:
 <figure markdown="span">
