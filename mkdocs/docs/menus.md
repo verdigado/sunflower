@@ -8,6 +8,9 @@ Position "Hauptmenü" zuweisen.
 - Setze bei *Erweiterte Menüeigenschaften anzeigen* den Haken für *Linkziel*
 - Nun siehst Du bei jedem Menüeintrag die Einstellung *Link in einem neuen Tab öffnen*
 
+## Wie setze ich die Sonneblume auf grünen Hintergrund?
+Das passiert automatisch: Wir haben die Header angepasst. Solange du das Logo der Grünen bestätigt hast, wird die Sonnenblume nun auch auf dem grünen Hintergrund angezeigt. Wenn du ein eigenes Logo eingebunden hast, ist der Hintergrund natrülich weiß.
+
 ## Wie setze ich einen Highlight-Button?
 - Für den Highlight-Button musst du im Backend an die Stelle gehen, an den du dein Menü bearbeiten kannst.
 - Stelle sicher, dass du beim bearbeiten eines Menüpunktes eine Optionale CSS-Klasse hinterlegen kannst.
