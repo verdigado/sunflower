@@ -95,6 +95,10 @@ export default function Edit( { attributes, setAttributes } ) {
 									value: 'fab fa-x-twitter',
 									label: 'X (Twitter)',
 								},
+								{
+									value: 'fab fa-bluesky',
+									label: 'Bluesky',
+								},
 								{ value: 'fab fa-twitter', label: 'Twitter' },
 								{
 									value: 'fab fa-instagram',
@@ -103,6 +107,10 @@ export default function Edit( { attributes, setAttributes } ) {
 								{
 									value: 'fab fa-facebook-f',
 									label: 'Facebook',
+								},
+								{
+									value: 'fab fa-threads',
+									label: 'Threads',
 								},
 								{ value: 'fab fa-mastodon', label: 'Mastodon' },
 								{ value: 'fab fa-youtube', label: 'YouTube' },
