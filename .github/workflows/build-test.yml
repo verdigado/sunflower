@@ -59,5 +59,13 @@ jobs:
             composer install
             cd lib && composer install
 
+      - name: Run PHPCS checks
+        id: phpcs
+        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml
+
+      - name: Show PHPCS results in PR
+        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
+        run: cs2pr ./phpcs-report.xml
+
       - name: Make bundle
         run: npm run bundle
