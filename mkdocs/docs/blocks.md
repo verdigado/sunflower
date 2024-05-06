@@ -12,8 +12,9 @@ Das Sunflower Theme liefert einige eigene Blöcke mit sich. Unter anderem den Ne
 
 ### Raster- vs. Listenansicht
 Seit dem Release von 2.1 kannst du die Ansicht beim Sunflowerblock umstellen. Dafür musst du nur im Block oben über den Button die Ansicht einstellen. Es ist eine reine gestalterische und geschmackliche Frage, wie du die neusten Beiträge angezeigt haben möchtest. Direkt durch das Umstellen der Einstellung siehst du im Backend, wie die Darstellung aussieht.
+
 <figure markdown="span">
-  ![Screenshot vom Sunflower-Menü](images/neuste-beitraege-ansicht-umstellen.png){ width="" }
+  ![Screenshot von Einstellung der Ansicht Neuste Beiträge (Sunflower) Block](images/neuste-beitraege-ansicht-umstellen.png){ width="" }
   <figcaption>Ansicht umstellen</figcaption>
 </figure>
 
@@ -21,7 +22,7 @@ Im Bild ist die Rasteransicht ausgewählt. Links daneben siehst du den Button f�
 
 ### Einstellungen
 <figure markdown="span">
-  ![Screenshot vom Sunflower-Menü](images/neuste-beitraege-einstellungen.png){ width="" }
+  ![Screenshot von Einstellung des Neuste Beiträge (Sunflower) Blocks](images/neuste-beitraege-einstellungen.png){ width="" }
   <figcaption>Einstellmöglichkeiten für die Neusten Beiträge (Sunflower)</figcaption>
 </figure>
 
