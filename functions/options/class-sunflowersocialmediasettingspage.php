@@ -194,6 +194,7 @@ class SunflowerSocialMediaSettingsPage {
 		$default[] = 'fab fa-bluesky;Bluesky;';
 		$default[] = 'fab fa-facebook-f;Facebook;';
 		$default[] = 'fab fa-threads;Threads;';
+		$default[] = 'fab fa-tiktok;TikTok;';
 		$default[] = 'fab fa-linkedin;LinkedIn;';
 		$default[] = 'fab fa-instagram;Instagram;';
 		$default[] = 'fab fa-youtube;YouTube;';

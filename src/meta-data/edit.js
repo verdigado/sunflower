@@ -112,6 +112,10 @@ export default function Edit( { attributes, setAttributes } ) {
 									value: 'fab fa-threads',
 									label: 'Threads',
 								},
+								{
+									value: 'fab fa-tiktok',
+									label: 'TikTok',
+								},
 								{ value: 'fab fa-mastodon', label: 'Mastodon' },
 								{ value: 'fab fa-youtube', label: 'YouTube' },
 								{ value: 'fas fa-envelope', label: 'E-Mail' },
