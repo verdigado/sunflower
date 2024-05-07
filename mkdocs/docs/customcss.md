@@ -59,3 +59,4 @@ archive-loop article {
 |`.no-link`     | Keine Linkfarbe |
 |`.same-height` | damit in Spalten alle Bilder gleich hoch sind |
 |`.max-800`     | erwingt Maximalbreite |
+|`.no-gap`      | löscht den Abstand zwischen 2 Spalten |

@@ -1,6 +1,7 @@
 site_name: Sunflower
 nav:
   - Einleitung: index.md
+  - Änderungsprotokoll: changelog.md
   - Besonderheiten: specials.md
   - Einrichtung:
     - Einrichtung: setup.md
@@ -13,6 +14,7 @@ nav:
     - Termine: events.md
     - Anträge & Beschlüsse: proposals.md
     - Accordions: accordion.md
+    - Typografie: typography.md
   - Allgemeines:
     - Häufige Fragen: faq.md
     - Datenschutz: privacy.md
