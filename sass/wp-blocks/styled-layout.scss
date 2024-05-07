@@ -3,7 +3,6 @@
     .wp-block-group {
         padding-top: 100px;
         padding-bottom: 100px;
-        position: relative;
 
         @include media-breakpoint-down(md) {
             padding-top: 50px;
