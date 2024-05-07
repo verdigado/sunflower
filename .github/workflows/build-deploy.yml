@@ -107,7 +107,7 @@ jobs:
         with:
           mkdocs_version: 'latest' # option
           # mkdocs_version: '1.1' # option
-          # requirements: 'requirements.txt' # option
+          requirements: 'mkdocs/requirements.txt' # option
           configfile: 'mkdocs/mkdocs.yml' # option
 
       - name: Provide deploy_key
