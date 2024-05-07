@@ -117,7 +117,7 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 				<div class="col-4 col-md-2">
 
 					<?php
-					$sunflower_logo = esc_url( wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' ) );
+					$sunflower_logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
 
 					if ( has_custom_logo() ) {
 						printf( '<img src="%s" class="img-fluid" alt="Logo %s">', esc_url( $sunflower_logo[0] ), esc_attr( get_bloginfo( 'name' ) ) );
