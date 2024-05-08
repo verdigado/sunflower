@@ -15,7 +15,7 @@ Gehe im Element auf *Erweitert*. Dort findest du das Feld *Zusätzliche CSS-Klas
 Gebe dem Element eine Hintergrundfarbe und Textfarbe mit. So stellst du einen Textbalken mit deinen Farben zusammen.
 <figure markdown="span">
   ![Screenshot vom Sunflower-Menü](images/element-text-color-and-background-color.png){ width="" }
-  <figcaption>Textfarbe und Hintergrndfarbe einstellen</figcaption>
+  <figcaption>Textfarbe und Hintergrundfarbe einstellen</figcaption>
 </figure>
 
 ## Wie rücke ich mehrere Textbalken ein?
