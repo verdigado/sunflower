@@ -78,13 +78,13 @@ function sunflower_get_social_media_profiles() {
 
 	$lines = explode( "\n", (string) sunflower_get_setting( 'sunflower_social_media_profiles' ) );
 	foreach ( $lines as $line ) {
-		$line                  = trim( $line );
-		[$class, $title, $url] = explode( ';', $line );
-		if ( ! isset( $url ) ) {
-			continue;
-		}
+		$line         = trim( $line );
+		$some_profile = explode( ';', $line );
+		$class        = $some_profile[0] ?? false;
+		$title        = $some_profile[1] ?? false;
+		$url          = $some_profile[2] ?? false;
 
-		if ( '' === $url ) {
+		if ( false === $url || empty( $url ) ) {
 			continue;
 		}
 
