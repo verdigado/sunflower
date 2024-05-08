@@ -66,7 +66,7 @@ if ( $sunflower_event_location_city ) {
 	$sunflower_location[] = $sunflower_event_location_city;
 }
 
-if ( ! is_array( $sunflower_location ) ) {
+if ( is_array( $sunflower_location ) ) {
 	$sunflower_metadata .= sprintf(
 		'<div class="mt-2 mb-2">%s</div>',
 		implode(
