@@ -18,6 +18,11 @@ function sunflower_get_latest_posts( $number = -1, $category_ids = null, $exclud
 	$tax_query = null;
 
 	if ( $category_ids || $exclude_ids ) {
+		// In sunflower < 2.1.0, category_ids is a comma separated string.
+		if ( ! is_array( $category_ids ) ) {
+			$category_ids = explode( ',', $category_ids );
+		}
+
 		if ( sunflower_is_numeric_array( $category_ids ) ) {
 			$tax_query = array(
 				array(
