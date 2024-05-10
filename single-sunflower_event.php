@@ -9,7 +9,6 @@
 
 $sunflower_ics_link = wp_nonce_url( home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics', 'event_ics_' . $post->ID, 'sunflower_nonce' );
 
-
 if ( isset( $_GET['format'] ) && 'ics' === $_GET['format'] ) {
 	check_admin_referer( 'event_ics_' . $post->ID, 'sunflower_nonce' );
 	include_once __DIR__ . '/functions/ical.php';
@@ -26,6 +25,10 @@ $sunflower_event_organizer_url   = get_post_meta( $post->ID, '_sunflower_event_o
 $sunflower_event_lon  = get_post_meta( $post->ID, '_sunflower_event_lon', true ) ?? false;
 $sunflower_event_lat  = get_post_meta( $post->ID, '_sunflower_event_lat', true ) ?? false;
 $sunflower_event_zoom = get_post_meta( $post->ID, '_sunflower_event_zoom', true ) ?? false;
+$sunflower_zoom       = sunflower_get_setting( 'sunflower_zoom' ) ? sunflower_get_setting( 'sunflower_zoom' ) : 11;
+if ( ! $sunflower_event_zoom ) {
+	$sunflower_event_zoom = $sunflower_zoom;
+}
 
 get_header();
 
@@ -140,7 +143,7 @@ $sunflower_metadata .= sprintf(
 							<?php esc_html_e( 'Show event location on map', 'sunflower' ); ?>
 								</div>
 								<div class="mb-3">
-							<?php esc_html_e( 'If you click the button, the content will be downloaded from openstreetmap.', 'sunflower' ); ?>
+							<?php echo wp_kses_post( __( 'If you click the button, the content will be downloaded from openstreetmap.', 'sunflower' ) ); ?>
 								</div>
 
 								<button class="wp-block-button__link no-border-radius show-leaflet"
