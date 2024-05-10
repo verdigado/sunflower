@@ -1,28 +1,29 @@
+/* eslint-disable no-undef */
+jQuery( function ( $ ) {
+	// Images
+	let fileFrameFieldId;
 
-jQuery(function($) {
+	// limit to one image only
+	const fileFrame = ( wp.media.frames.fileFrame = wp.media( {
+		title: texts.select_image,
+		multiple: false,
+	} ) );
 
-    // Images
-    var file_frame;
-    var file_frame_field_id;
+	fileFrame.on( 'select', function () {
+		const image = fileFrame.state().get( 'selection' ).first().toJSON();
+		$( '#' + fileFrameFieldId ).val( image.url );
+	} );
 
-    // limit to one image only
-    file_frame = wp.media.frames.file_frame = wp.media({
-        title: texts.select_image,
-        multiple: false
-    });
-
-    file_frame.on("select", function() {
-        var image = file_frame.state().get("selection").first().toJSON();
-        $("#"+file_frame_field_id).val(image.url);
-    });
-
-    // open media library
-    $('#sunflower_open_graph_fallback_image_button').on('click', function(event) {
-        event.preventDefault();
-        file_frame_field_id='sunflower_open_graph_fallback_image';
-        if (file_frame) {
-            file_frame.open();
-        }
-    });
-
-});
+	// open media library
+	$( '#sunflower_open_graph_fallback_image_button' ).on(
+		'click',
+		function ( event ) {
+			event.preventDefault();
+			fileFrameFieldId = 'sunflower_open_graph_fallback_image';
+			if ( fileFrame ) {
+				fileFrame.open();
+			}
+		}
+	);
+} );
+/* eslint-enable no-undef */
