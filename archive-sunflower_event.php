@@ -211,9 +211,9 @@ endif;
 <?php
 	wp_enqueue_script(
 		'filter-custom',
-		get_template_directory_uri() . '/assets/js/filter.js',
+		get_template_directory_uri() . '/assets/js/event-filter.js',
 		null,
-		'3.2.1',
+		SUNFLOWER_VERSION,
 		true
 	);
 	?>
