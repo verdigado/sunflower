@@ -7,8 +7,7 @@
  * @package sunflower
  */
 
-if ( isset( $_GET['format'] ) && 'ics' === $_GET['format'] ) {
-	check_admin_referer( 'event_ics_' . $post->ID, 'sunflower_nonce' );
+if ( isset( $_GET['format'] ) && 'ics' === $_GET['format'] ) { // phpcs:ignore
 	define( 'SUNFLOWER_ICAL_ALL_EVENTS', true );
 	include_once __DIR__ . '/functions/ical.php';
 	die();
@@ -16,7 +15,7 @@ if ( isset( $_GET['format'] ) && 'ics' === $_GET['format'] ) {
 
 get_header();
 
-$sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['archive'] );
+$sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['archive'] ); // phpcs:ignore
 ?>
 	<?php
 	// Prepare map data.
