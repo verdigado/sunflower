@@ -276,7 +276,7 @@ class SunflowerEventSettingsPage {
 	public function sunflower_zoom_callback(): void {
 		printf(
 			'<input type="number" min="1" max="19" id="sunflower_zoom" name="sunflower_events_options[sunflower_zoom]" value="%s">',
-			esc_attr( $this->options['sunflower_zoom'] ?? '11' )
+			esc_attr( $this->options['sunflower_zoom'] ? $this->options['sunflower_zoom'] : '11' )
 		);
 		echo '<div>1 (ganze Welt) bis 19 (einzelne Straße), Zoomlevel für die Übersichtskarte für Termine</div>';
 	}

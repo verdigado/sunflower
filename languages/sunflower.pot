@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.0.9\n"
+"Project-Id-Version: sunflower 2.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-06T11:45:45+00:00\n"
+"POT-Creation-Date: 2024-05-10T09:52:54+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -47,11 +47,11 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
 msgstr ""
 
-#: archive-sunflower_event.php:40
+#: archive-sunflower_event.php:39
 msgid "Events archive"
 msgstr ""
 
-#: archive-sunflower_event.php:40
+#: archive-sunflower_event.php:39
 #: functions/events.php:36
 #: functions/options/class-sunflowereventsettingspage.php:34
 #: functions/options/class-sunflowereventsettingspage.php:35
@@ -59,45 +59,45 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: archive-sunflower_event.php:54
+#: archive-sunflower_event.php:53
 msgid "to upcoming events"
 msgstr ""
 
-#: archive-sunflower_event.php:56
+#: archive-sunflower_event.php:55
 #: build/next-events/render.php:28
 msgid "all events"
 msgstr ""
 
-#: archive-sunflower_event.php:58
+#: archive-sunflower_event.php:57
 msgid "Archive"
 msgstr ""
 
-#: archive-sunflower_event.php:64
+#: archive-sunflower_event.php:63
 #: functions/events.php:235
 #: functions/options/class-sunflowereventsettingspage.php:113
 msgid "Map"
 msgstr ""
 
-#: archive-sunflower_event.php:129
+#: archive-sunflower_event.php:128
 msgid "more info"
 msgstr ""
 
-#: archive-sunflower_event.php:186
-#: single-sunflower_event.php:140
+#: archive-sunflower_event.php:185
+#: single-sunflower_event.php:143
 msgid "Show event location on map"
 msgstr ""
 
-#: archive-sunflower_event.php:189
-#: single-sunflower_event.php:143
+#: archive-sunflower_event.php:188
+#: single-sunflower_event.php:146
 msgid "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
 
-#: archive-sunflower_event.php:193
-#: single-sunflower_event.php:151
+#: archive-sunflower_event.php:192
+#: single-sunflower_event.php:154
 msgid "Show map"
 msgstr ""
 
-#: archive-sunflower_event.php:203
+#: archive-sunflower_event.php:202
 msgid "calendar in ics-format"
 msgstr ""
 
@@ -194,7 +194,7 @@ msgid ""
 msgstr ""
 
 #: functions/admin.php:217
-#: functions/block-patterns.php:17
+#: functions/block-patterns.php:24
 #: functions/blocks.php:19
 #: functions/options/class-sunflowerfirststepspage.php:33
 #: functions/options/class-sunflowerfirststepspage.php:34
@@ -271,7 +271,7 @@ msgstr ""
 msgid "Event location"
 msgstr ""
 
-#: functions/icalimport.php:94
+#: functions/icalimport.php:98
 msgid "More Information"
 msgstr ""
 
@@ -466,16 +466,16 @@ msgstr ""
 msgid "Show share buttons on single post page"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:233
+#: functions/options/class-sunflowersocialmediasettingspage.php:236
 #: functions/s.php:154
 msgid "Select Open Graph Fallback Image"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:245
+#: functions/options/class-sunflowersocialmediasettingspage.php:248
 msgid "Open Media Library"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:250
+#: functions/options/class-sunflowersocialmediasettingspage.php:253
 msgid "This fallback image will be used when sharing pages and posts and no featured image has been selected."
 msgstr ""
 
@@ -552,25 +552,25 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: single-sunflower_event.php:52
+#: single-sunflower_event.php:55
 #: template-parts/archive-event.php:34
 msgid "o'clock"
 msgstr ""
 
-#: single-sunflower_event.php:80
+#: single-sunflower_event.php:83
 msgid "Location Link"
 msgstr ""
 
-#: single-sunflower_event.php:96
+#: single-sunflower_event.php:99
 msgid "Link to webinar"
 msgstr ""
 
-#: single-sunflower_event.php:102
-#: single-sunflower_event.php:104
+#: single-sunflower_event.php:105
+#: single-sunflower_event.php:107
 msgid "organized by"
 msgstr ""
 
-#: single-sunflower_event.php:111
+#: single-sunflower_event.php:114
 msgid "Download as ics"
 msgstr ""
 

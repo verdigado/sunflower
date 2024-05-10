@@ -165,7 +165,7 @@ endif;
 
 						$sunflower_center_lat = ( $sunflower_lower_lat + $sunflower_upper_lat ) / 2;
 						$sunflower_center_lon = ( $sunflower_lower_lon + $sunflower_upper_lon ) / 2;
-						$sunflower_zoom       = sunflower_get_setting( 'sunflower_zoom' ) ?? 6;
+						$sunflower_zoom       = sunflower_get_setting( 'sunflower_zoom' ) ? sunflower_get_setting( 'sunflower_zoom' ) : 11;
 						printf(
 							"map.center = { 'lat': %s, 'lon': %s, 'zoom': %s };",
 							esc_attr( $sunflower_center_lat ),
@@ -185,7 +185,7 @@ endif;
 									<?php esc_html_e( 'Show event location on map', 'sunflower' ); ?>
 								</div>
 								<div class="mb-3">
-									<?php esc_html_e( 'If you click the button, the content will be downloaded from openstreetmap.', 'sunflower' ); ?>
+									<?php echo wp_kses_post( __( 'If you click the button, the content will be downloaded from openstreetmap.', 'sunflower' ) ); ?>
 								</div>
 
 								<button class="wp-block-button__link no-border-radius show-leaflet-all">
