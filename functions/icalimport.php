@@ -32,7 +32,13 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 		return $parse_exception->getMessage();
 	}
 
-	$timezone = new \DateTimeZone( get_option( 'timezone_string' ) );
+	try {
+		// If timezone_string contains a valid timezone string, we create a timezone object of it.
+		$timezone = new \DateTimeZone( get_option( 'timezone_string' ) );
+	} catch ( Exception $e ) {
+		// Otherwise we fall back to 'Europe/Berlin'.
+		$timezone = new \DateTimeZone( 'Europe/Berlin' );
+	}
 
 	$time_range_history   = sunflower_get_constant( 'SUNFLOWER_EVENT_TIME_RANGE_BACK' ) ? sunflower_get_constant( 'SUNFLOWER_EVENT_TIME_RANGE_BACK' ) : '0 months';
 	$time_range_future    = sunflower_get_constant( 'SUNFLOWER_EVENT_TIME_RANGE' ) ? sunflower_get_constant( 'SUNFLOWER_EVENT_TIME_RANGE' ) : '6 months';
