@@ -47,7 +47,7 @@
     "compile:build": "node-sass sass/style.scss -o ./",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss' 'src/**/*.scss'",
-    "lint:js": "wp-scripts lint-js 'js/*.js' 'src/**/*.js'",
+    "lint:js": "wp-scripts lint-js 'js/*.js' 'src/**/*.js' 'assets/js/*.js'",
     "lint:jsa": "wp-scripts lint-js",
     "composer-lib": "cd lib && composer install",
     "copy-node-modules": "copyfiles -u 1 node_modules/jquery-slim/dist/*.min.js node_modules/@popperjs/core/dist/umd/popper.min.js node_modules/bootstrap/dist/js/*.min.js node_modules/@fortawesome/fontawesome-free/webfonts/* node_modules/fork-awesome/fonts/* node_modules/leaflet/dist/*.js node_modules/leaflet/dist/*.css node_modules/leaflet/dist/images/* node_modules/jquery-datetimepicker/build/*.min.js node_modules/jquery-datetimepicker/build/*.min.css node_modules/lightbox2/dist/css/lightbox.min.css node_modules/lightbox2/dist/js/lightbox.min.js node_modules/lightbox2/dist/images/* node_modules/masonry-layout/dist/masonry.pkgd.min.js assets/vndr",
