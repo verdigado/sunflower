@@ -18,9 +18,16 @@ function sunflower_theme_class() {
 }
 
 /**
- * Change path to favicon.ico to sunflower.
+ * Change URL to site icon to sunflower as default.
+ *
+ * @param string $url     Site icon URL.
  */
-function sunflower_get_site_icon_url_defaults() {
+function sunflower_get_site_icon_url_defaults( $url ) {
+	// A custom site icon seems to be set. Keep it untouched.
+	if ( filter_var( $url, FILTER_VALIDATE_URL ) ) {
+		return $url;
+	}
+	// Set default site icon to sunflower.
 	return sunflower_parent_or_child( 'assets/img/favicon.ico' );
 }
 
