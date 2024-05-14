@@ -31,7 +31,6 @@ function sunflower_customize_register( $wp_customize ) {
 			)
 		);
 
-		$wp_customize->remove_control( 'site_icon' );
 	}
 }
 
