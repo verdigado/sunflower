@@ -116,7 +116,7 @@
 						if ( in_array( 'button-highlight', $menu_item->classes, true ) ) {
 							$classes_string = implode( ' ', $menu_item->classes );
 							echo '
-                                <a  href="' . esc_url( $menu_item->url ) . '"><i class="' . esc_attr( $classes_string ) . '"></i> ' . esc_html( $menu_item->title ) . '</a>';
+							<div class="button-highlight-stuck"><a  href="' . esc_url( $menu_item->url ) . '"><i class="' . esc_attr( $classes_string ) . '"></i> ' . esc_html( $menu_item->title ) . '</a></div>';
 							return;
 						}
 					}
@@ -124,9 +124,9 @@
 			}
 			?>
 
-				<div class="button-highlight-stuck">
-					<?php sunflower_output_highlight_button_if_exists(); ?>
-				</div>
+			<?php sunflower_output_highlight_button_if_exists(); ?>
+
+
 			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-times close"></i>
 				<i class="fas fa-bars open"></i>
