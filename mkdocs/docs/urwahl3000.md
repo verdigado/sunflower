@@ -17,5 +17,5 @@ Du kannst die bisherige Startseite so lassen oder eine neue, besonders schöne S
 Beiträge und Seiten werden automatisch übernommen. [Wenn es zu Fehlern kommt, melde sie bitte unter https://github.com/verdigado/sunflower/issues](https://github.com/verdigado/sunflower/issues)
 
 ## Termine
-Termine werden zum Großteil aus Urwahl3000 automatish importiert.
+Termine werden zum Großteil aus Urwahl3000 automatisch importiert.
 "Geheime Veranstaltung" werden importiert, aber nicht veröffentlicht.

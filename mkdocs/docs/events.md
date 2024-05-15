@@ -28,7 +28,7 @@ Das kannst Du direkt in den Sunflower-Einstellungen machen unter Einstellungen -
 
 Alternativ kannst Du folgendes probieren:
 - Einstellungen Permalinks
-- Wähle eine beliebiege andere Einstellung aus und speichere sie
+- Wähle eine beliebige andere Einstellung aus und speichere sie
 - Wähle Deine bisherige Einstellung wieder aus und speichere sie
 - Fertig. Jetzt muss der Link im Menü funktionieren
 

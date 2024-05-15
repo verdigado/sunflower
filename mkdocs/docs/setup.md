@@ -12,7 +12,7 @@ Nach der Installation des Themes musst Du einige Einstellungen vornehmen. Dafür
 
 ###  Theme aktivieren
 
-Um die Sonnenblume als Logo und Icon nutzen zu können, musst Du Dir die Nutzungsbedingungen durchlesen und akzeptieren. Andernsfalls wird die Sonnenblume nicht angezeigt. Du kannst das Theme trotzdem nutzen und Dein eigenes Logo verwenden.
+Um die Sonnenblume als Logo und Icon nutzen zu können, musst Du Dir die Nutzungsbedingungen durchlesen und akzeptieren. Andernfalls wird die Sonnenblume nicht angezeigt. Du kannst das Theme trotzdem nutzen und Dein eigenes Logo verwenden.
 
 <figure markdown="span">
   ![Screenshot vom Sunflower-Menü](images/sunflower-terms-of-use.png){ width="" }
@@ -56,7 +56,7 @@ Zeilen ohne URL werden nicht berücksichtigt, Du kannst sie als Muster gerne beh
 
 ### Teile in Sozialen Medien
 
-In der Einzelansicht von Beiträgen kannst Du Icons zum Teilen via X (Twitter), Facebook und per E-Mail anzeigen. Ein Klick auf die Icons öffnet dann das jeweilige Soziale Netz und Du kannst den Beitrag dort teilen. Das ist unabhängig davon, ob Du auf den Platformen selbst einen Account hast.
+In der Einzelansicht von Beiträgen kannst Du Icons zum Teilen via X (Twitter), Facebook und per E-Mail anzeigen. Ein Klick auf die Icons öffnet dann das jeweilige Soziale Netz und Du kannst den Beitrag dort teilen. Das ist unabhängig davon, ob Du auf den Plattformen selbst einen Account hast.
 
 Im Falle von E-Mail wird Dein Email-Programm geöffnet.
 

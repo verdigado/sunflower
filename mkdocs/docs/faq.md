@@ -14,7 +14,7 @@ Du kannst auch das [WordPress-Plugin Free Images](https://wordpress.org/plugins/
 4. Nutze das Bild an jeder beliebigen Stelle in WordPress
 
 ## Wie kann ich Soziale Plattformen wie Instagram, X (Twitter) und Facebook verlinken?
-Gehe dazu in die Sunflower-Eintellungen und trage die kompletten Webadressen Deiner Profile ein.
+Gehe dazu in die Sunflower-Einstellungen und trage die kompletten Webadressen Deiner Profile ein.
 Sie erscheinen dann automatisch in der Fußzeile.
 
 ## Ich wünsche mir ein neues Feature, das es nicht gibt
