@@ -264,7 +264,6 @@ body {
                 display: flex;
                 align-items: center;
                 height: auto;
-                padding-right: 5px;
                 margin-right: 5px;
 
                 @include media-breakpoint-up(md) {
@@ -277,12 +276,8 @@ body {
 
                 a.nav-link {
                     color: $white;
-                    border: 1px !important;
-
-                    &:hover {
-                        color: $primary;
-                    }
                 }
+
             }
 
             > li.menu-item-has-children {
