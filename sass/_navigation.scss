@@ -148,18 +148,19 @@
                 white-space: nowrap;
                 max-height: 4em;
 
+                a.nav-link {
+                    color: $white;
+                }
+
                 &:hover {
+
+                    a.nav-link {
+                        color: $black;
+                    }
                     background-color: map-get($custom-colors, "sonne");
                     border-bottom: 4px solid $white;
                 }
 
-                a.nav-link {
-                    color: $white;
-
-                    &:hover {
-                        color: $black;
-                    }
-                }
             }
 
             .current-page-ancestor,
