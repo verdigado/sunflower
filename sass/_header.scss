@@ -271,15 +271,6 @@ body {
                 }
             }
 
-            > .current-menu-item {
-                background-color: $primary;
-
-                a.nav-link {
-                    color: $white;
-                }
-
-            }
-
             > li.menu-item-has-children {
                 flex-wrap: auto;
 
