@@ -79,7 +79,7 @@ class SunflowerEventSettingsPage {
 			<h2>Korrektur der Marker auf Landkarten von importierten Terminen</h2>
 			<input type="hidden" name="_sunflower_event_lat" id="_sunflower_event_lat">
 			<input type="hidden" name="_sunflower_event_lon" id="_sunflower_event_lon">
-			<?php wp_nonce_field( 'sunflower_location' ); ?>
+			<?php wp_nonce_field( 'sunflower_location', '_wpnonce-locationfix' ); ?>
 			<div id="sunflower-location-row" style="display:none">
 				Bearbeite die Geo-Markierung für:
 				<select name="sunflower_location" id="sunflower-location">

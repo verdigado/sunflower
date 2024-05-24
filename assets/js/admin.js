@@ -6,12 +6,13 @@ jQuery( function ( $ ) {
 		'click',
 		'.sunflower-plugins .notice-dismiss',
 		function () {
+			const id = $( this ).parent().attr( 'id' );
 			jQuery.ajax( {
 				url: ajaxurl,
 				method: 'POST',
 				data: {
-					id: $( this ).parent().attr( 'id' ),
-					_wpnonce: $( '#_wpnonce' ).val(),
+					id,
+					_wpnonce: $( '#' + id + ' #_wpnonce' ).val(),
 					action: 'sunflower_plugins_dismiss',
 				},
 			} );
@@ -93,7 +94,7 @@ function sunflowerSetMarker( lat, lon, zoom, setmarker ) {
 		method: 'POST',
 		data: {
 			action: 'sunflower_fix_event_location',
-			_wpnonce: jQuery( '#_wpnonce' ).val(),
+			_wpnonce: jQuery( '#_wpnonce-locationfix' ).val(),
 			lat,
 			lon,
 			transient: jQuery( '#sunflower-location option:selected' ).text(),
@@ -112,6 +113,7 @@ function sunflowerFixLocationDelete() {
 		method: 'POST',
 		data: {
 			action: 'sunflower_fix_event_location',
+			_wpnonce: jQuery( '#_wpnonce-locationfix' ).val(),
 			lat: 0,
 			lon: 0,
 			transient: jQuery( '#sunflower-location option:selected' ).text(),
