@@ -123,7 +123,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 
 		// Write start and end time to event post metadata.
 		update_post_meta( $id, '_sunflower_event_from', $event->DTSTART->getDateTime( $timezone_fix )->setTimezone( $timezone )->format( 'Y-m-d H:i' ) ); // phpcs:ignore
-		update_post_meta( $id, '_sunflower_event_until', $event->DTEND->getDateTime( $timezone_fix )->setTimezone( $timezone )->format( 'Y-m-d H:i' ) ); // phpcs:ignore
+		update_post_meta( $id, '_sunflower_event_until', $event->DTEND?->getDateTime( $timezone_fix )->setTimezone( $timezone )->format( 'Y-m-d H:i' ) ); // phpcs:ignore
 		update_post_meta( $id, '_sunflower_event_uid', $uid );
 
 		if ( isset( $event->LOCATION ) ) { // phpcs:ignore
