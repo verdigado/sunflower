@@ -92,10 +92,13 @@ Sich wiederholende Termine werden bis längstens in einem Jahr importiert. Du ka
 importierenden Termine bei sich wiederholenden Terminen so festlegen:
 ``define('SUNFLOWER_EVENT_RECURRING_EVENTS', 10);``
 
-### Geodaten
+### Geokodierung der Veranstaltungsorte
+
 Die Information zum Veranstaltungsort werden über [Nominatim](https://nominatim.openstreetmap.org/ui/) auf einer Landkarte gesucht. Die Geokoordinaten werden lokal gespeichert. Pro Import-Lauf werden höchstens drei neue Orte über Nominatim gesucht, damit die Import-Performance hoch bleibt.
 
-Fehlerhafte Geodaten können in den Sunflower-Einstellungen unter Termine korrigiert werden. Sie werden beim nächsten Import-Lauf wirksam.
+Wird ein Ort mit Straße und Ort beschrieben ist die Genauigkeit sehr hoch. Ein allgemeiner Begriff, wie z.B. "Geschäftsstelle" führt zu einem zufälligen Ergebnis.
+
+Fehlerhafte Geodaten können in den Sunflower-Einstellungen unter `Termine -> Korrektur der Marker auf Landkarten von importierten Terminen` korrigiert werden. Sie werden bei allen zukünftigen Import-Läufen mit der selben Ortsbezeichnung wirksam.
 
 ### Zoom-Level für importierte Termine festlegen
 Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abweichen möchtest, trage in der *wp-config.php* bitte die Zeile

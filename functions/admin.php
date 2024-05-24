@@ -40,8 +40,8 @@ function sunflower_notice() {
 		<?php wp_nonce_field( 'sunflower_update_notice' ); ?>
 		<p>
 		<?php
-			$linkgithub = "<a href='https://github.com/verdigado/sunflower' target='_blank'>open source</a>";
-		$linkverdigado  = "<a href='https://www.verdigado.com/' target='_blank' title='verdigado eG'>
+			$linkgithub    = "<a href='https://github.com/verdigado/sunflower' target='_blank'>open source</a>";
+			$linkverdigado = "<a href='https://www.verdigado.com/' target='_blank' title='verdigado eG'>
                 <img src='" . get_template_directory_uri() . "/assets/img/verdigado-logo.png' alt='Logo of verdigado eG' /></a>";
 		printf(
 		/* translators: %1$s and %2$s are replaced with links */
@@ -70,6 +70,7 @@ function sunflower_notice_php() {
 
 	?>
 	<div id="sunflower-plugins-php-82" class="notice notice-error update-nag sunflower-plugins is-dismissible">
+		<?php wp_nonce_field( 'sunflower_update_notice' ); ?>
 		<p class="h3"><?php esc_attr_e( 'PHP Version End of Life', 'sunflower' ); ?></p>
 		<p>
 		<?php
@@ -109,6 +110,7 @@ function sunflower_notice_terms() {
 
 	?>
 	<div id="sunflower-notice-terms" class="notice notice-error update-nag sunflower-plugins is-dismissible">
+		<?php wp_nonce_field( 'sunflower_update_notice' ); ?>
 		<p class="h3"><?php esc_attr_e( 'New Terms and Use Settings', 'sunflower' ); ?></p>
 		<p>
 			<?php
@@ -177,7 +179,8 @@ add_action( 'wp_ajax_sunflower_plugins_dismiss', 'sunflower_update_notice' );
  * Delete dissmissed option for admins.
  */
 function sunflower_admin() {
-	delete_option( 'sunflower-plugins-dismissed' );
+	// phpcs:ignore
+	// delete_option( 'sunflower-plugins-dismissed' );
 }
 
 add_action( 'admin_init', 'sunflower_admin' );
