@@ -126,7 +126,7 @@
         .navbar-nav {
             align-items: center;
 
-            > .nav-item {
+            >.nav-item {
 
                 border-bottom: 4px solid transparent;
 
@@ -136,6 +136,33 @@
                         border-bottom: 4px solid $secondary;
                     }
                 }
+
+                &.menu-item-has-children {
+
+                    .submenu-opener {
+                        color: $black;
+                        font-size: 18px;
+                    }
+                }
+
+                &.button-highlight {
+
+                    a {
+
+                        &.nav-link {
+                            color: $white;
+                        }
+                    }
+
+                    &.menu-item-has-children {
+
+                        .submenu-opener {
+                            color: $white;
+                        }
+
+                    }
+                }
+
             }
 
             .button-highlight {
@@ -148,45 +175,8 @@
                 white-space: nowrap;
                 max-height: 4em;
 
-                a.nav-link {
-                    color: $white;
-                }
-
-                &:hover {
-
-                    a.nav-link {
-                        color: $black;
-                    }
-                    background-color: map-get($custom-colors, "sonne");
-                    border-bottom: 4px solid $white;
-                }
-
             }
 
-            .current-page-ancestor,
-            .current-menu-parent,
-            .current-menu-item.active {
-
-                a.nav-link {
-                    color: $primary;
-
-                    &:hover {
-                        color: $black;
-                    }
-                }
-            }
-
-            .current-menu-parent {
-
-                .current_page_item > a {
-                    color: $primary;
-
-                    &:hover {
-                        color: $white;
-                    }
-                }
-
-            }
 
             .nav-link {
                 color: $body-color;
@@ -220,7 +210,7 @@
         box-shadow: none;
     }
 
-    > .close {
+    >.close {
         display: block;
     }
 }
@@ -356,7 +346,7 @@
 
 #mainmenu {
 
-    > li {
+    >li {
         text-transform: uppercase;
 
         &.menu-item-has-children {
@@ -376,18 +366,11 @@
                 display: block;
             }
 
-            .submenu-opener {
-                flex: auto;
-                color: $black;
-                font-size: 18px;
-                text-align: end;
-            }
-
             .dropdown-menu {
                 flex: 100%;
                 top: 100%;
 
-                > ul {
+                >ul {
                     margin-top: 20px;
                 }
             }
