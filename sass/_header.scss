@@ -141,6 +141,27 @@ body.admin-bar {
     }
 }
 
+.wp-custom-logo {
+
+    .navbar {
+
+        &-main.stuck {
+
+            .navbar-brand {
+
+                height: unset;
+                width: unset;
+
+                background-color: transparent;
+
+                img {
+                    height: 76px;
+                }
+            }
+        }
+    }
+}
+
 body {
 
     &.search,
