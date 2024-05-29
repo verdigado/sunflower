@@ -97,7 +97,12 @@
 		<div class="container">
 			<?php
 				$sunflower_options = get_option( 'sunflower_first_steps_options' );
-			if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
+			if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
+				$sunflower_custom_logo_id = get_theme_mod( 'custom_logo' );
+				$sunflower_custom_logo    = wp_get_attachment_image_src( $sunflower_custom_logo_id, 'thumbnail' );
+				printf( '<a class="navbar-brand" href="%s">', esc_url( $sunflower_custom_logo[0] ) );
+				printf( '<img src="%s" class="custom-logo" alt="Logo" title="%s"></a>', esc_url( $sunflower_custom_logo[0] ), esc_attr( get_bloginfo( 'name' ) ) );
+			} elseif ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
 				printf( '<a class="navbar-brand" href="%s">', esc_url( get_home_url() ) );
 				printf( '<img src="%s" class="sunflower-logo" alt="Sonnenblume - Logo" title="%s"></a>', esc_attr( sunflower_parent_or_child( 'assets/img/sunflower.svg' ) ), esc_attr( get_bloginfo( 'name' ) ) );
 			}
