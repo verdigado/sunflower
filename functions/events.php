@@ -388,6 +388,11 @@ function sunflower_get_next_events( $number = -1, $tag_ids = null ) {
 			'meta_query'     => array(
 				'relation' => 'OR',
 				array(
+					'key'     => '_sunflower_event_until',
+					'value'   => gmdate( 'Y-m-d H:i', strToTime( 'now + 1 hours' ) ),
+					'compare' => '>',
+				),
+				array(
 					'key'     => '_sunflower_event_from',
 					'value'   => gmdate( 'Y-m-d H:i', strToTime( 'now - 6 hours' ) ),
 					'compare' => '>',
