@@ -95,23 +95,25 @@ function sunflower_get_event_in_ics( $post ) {
 	$sunflower_prodid = wp_parse_url( (string) get_bloginfo( 'url' ), PHP_URL_HOST );
 	$uid              = md5( uniqid( wp_rand(), true ) ) . '@' . $sunflower_prodid;
 	$description      = sunflower_textfold( 'DESCRIPTION:' . wp_strip_all_tags( get_the_content() ) );
-	$location         = implode(
-		', ',
-		array_diff(
-			array( $_sunflower_event_location_name, $_sunflower_event_location_street, $_sunflower_event_location_city ),
-			array( false )
+	$location         = sunflower_textfold(
+		'LOCATION:' . implode(
+			', ',
+			array_diff(
+				array( $_sunflower_event_location_name, $_sunflower_event_location_street, $_sunflower_event_location_city ),
+				array( false )
+			)
 		)
 	);
 
 	return <<<"ICALEVENT"
 BEGIN:VEVENT\r
 UID:{$uid}\r
-LOCATION:{$location}\r
+{$location}\r
 {$summary}\r
 {$description}\r
 CLASS:PUBLIC\r
-DTSTART:{$from}\r
-DTEND:{$until}\r
+DTSTART;TZID=Europe/Berlin:{$from}\r
+DTEND;TZID=Europe/Berlin:{$until}\r
 DTSTAMP:{$now}\r
 END:VEVENT\r
 ICALEVENT;
@@ -135,5 +137,5 @@ function sunflower_textfold( $text ) {
 	// Remove empty lines and replace all new lines with "\n\n".
 	$text = preg_replace( '/\s*(\n)/', '\n\n', $text );
 	// Fold all lines after 75 signs.
-	return rtrim( chunk_split( (string) $text, 75, "\r\n " ), "\r\n " );
+	return rtrim( chunk_split( (string) $text, 74, "\r\n " ), "\r\n " );
 }

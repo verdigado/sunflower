@@ -50,8 +50,13 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 	$time_range_stop = new \DateTime();
 	$time_range_stop->setTimestamp( strtotime( (string) $time_range_future ) );
 
+	$timezone_fix = null;
+	if ( sunflower_get_setting( 'sunflower_fix_time_zone_error' ) ) {
+		$timezone_fix = $timezone;
+	}
+
 	// expand RRULE events to new vCalendar which has all events in the given time range.
-	$new_vcalendar = $vcalendar->expand( $time_range_start, $time_range_stop );
+	$new_vcalendar = $vcalendar->expand( $time_range_start, $time_range_stop, $timezone_fix );
 
 	$all_events = array();
 	if ( is_iterable( $new_vcalendar->VEVENT ) ) { // phpcs:ignore
@@ -115,11 +120,6 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 
 		// Save all event post ids from imported ics ressources.
 		$ids_from_remote[] = $id;
-
-		$timezone_fix = null;
-		if ( sunflower_get_setting( 'sunflower_fix_time_zone_error' ) ) {
-			$timezone_fix = $timezone;
-		}
 
 		// Write start and end time to event post metadata.
 		update_post_meta( $id, '_sunflower_event_from', $event->DTSTART->getDateTime( $timezone_fix )->setTimezone( $timezone )->format( 'Y-m-d H:i' ) ); // phpcs:ignore
@@ -238,7 +238,7 @@ function sunflower_import_icals( $force = false ) {
 		}
 
 		$response = sunflower_icalimport( $url, $auto_categories );
-		if ( ! empty( $response ) ) {
+		if ( ! empty( $response ) && is_array( $response ) ) {
 			$ids_from_remote = array_merge( $ids_from_remote, $response[0] );
 		}
 	}
