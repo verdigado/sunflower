@@ -14,7 +14,9 @@ const observer = new IntersectionObserver(
 	}
 );
 
-observer.observe( stickyDetector );
+if ( stickyDetector ) {
+	observer.observe( stickyDetector );
+}
 
 jQuery( function () {
 	jQuery( '.show-leaflet' ).on( 'click', function () {
@@ -131,6 +133,7 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function ( e ) {
 				message: jQuery( '#message' ).val(),
 				name: jQuery( '#name' ).val(),
 				mail: jQuery( '#mail' ).val(),
+				phone: jQuery( '#phone' ).val(),
 				title: jQuery( '#contact-form-title' ).html(),
 				captcha: jQuery( '#captcha' ).val(),
 			},

@@ -12,6 +12,18 @@
         "title": {
             "type": "string",
 			"default": ""
+		},
+		"requireMail": {
+			"type": "boolean",
+			"default": false
+		},
+		"displayPhone": {
+			"type": "boolean",
+			"default": false
+		},
+		"requirePhone": {
+			"type": "boolean",
+			"default": false
 		}
     },
 	"supports": {

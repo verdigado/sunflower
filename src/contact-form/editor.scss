@@ -6,6 +6,12 @@
 
 @import "../../sass/variables";
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 .wp-block-sunflower-contact-form {
 
     .comment {
@@ -37,6 +43,29 @@
         font-style: normal;
     }
 
+    .mb-5 {
+        margin-bottom: 3rem !important;
+    }
+
+    .row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * var(--bs-gutter-y));
+        margin-right: calc(-0.5 * var(--bs-gutter-x));
+        margin-left: calc(-0.5 * var(--bs-gutter-x));
+
+        > * {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+            padding-right: calc(var(--bs-gutter-x) * 0.5);
+            padding-left: calc(var(--bs-gutter-x) * 0.5);
+            margin-top: var(--bs-gutter-y);
+        }
+    }
+
     @media (min-width: 768px) {
 
         .col-md-6 {
@@ -45,34 +74,9 @@
         }
     }
 
-}
-
-
-.mb-5 {
-    margin-bottom: 3rem !important;
-}
-
-.row {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: calc(-1 * var(--bs-gutter-y));
-    margin-right: calc(-0.5 * var(--bs-gutter-x));
-    margin-left: calc(-0.5 * var(--bs-gutter-x));
-
-    > * {
-        flex-shrink: 0;
-        width: 100%;
-        max-width: 100%;
-        padding-right: calc(var(--bs-gutter-x) * 0.5);
-        padding-left: calc(var(--bs-gutter-x) * 0.5);
-        margin-top: var(--bs-gutter-y);
+    small,
+    .small {
+        font-size: 0.9375rem;
     }
-}
 
-
-small,
-.small {
-    font-size: 0.9375rem;
 }

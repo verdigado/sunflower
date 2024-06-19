@@ -30,25 +30,39 @@ function sunflower_contact_form() {
 		die();
 	}
 
-	$message = sanitize_textarea_field( $_POST['message'] );
-	$name    = sanitize_text_field( $_POST['name'] );
-	$mail    = sanitize_email( $_POST['mail'] );
-	$title   = sanitize_text_field( $_POST['title'] );
+	$name = sanitize_text_field( $_POST['name'] );
+	if ( $name ) {
+		$message[] = sprintf( __( 'Name', 'sunflower-contact-form' ) . ': %s', $name );
+	}
+
+	$mail = sanitize_email( $_POST['mail'] );
+	if ( $mail ) {
+		$message[] = sprintf( __( 'E-Mail', 'sunflower-contact-form' ) . ': %s', $mail );
+	}
+
+	$phone = sanitize_text_field( $_POST['phone'] );
+	if ( $phone ) {
+		$message[] = sprintf( __( 'Phone', 'sunflower-contact-form' ) . ': %s', $phone );
+	}
+
+	$message[] = "\n" . __( 'Message', 'sunflower-contact-form' ) . ': ' . sanitize_textarea_field( $_POST['message'] );
+
+	$title = sanitize_text_field( $_POST['title'] );
 
 	$response = __( 'Thank you. The form has been sent.', 'sunflower-contact-form' );
 	$to       = sunflower_get_setting( 'sunflower_contact_form_to' ) ? sunflower_get_setting( 'sunflower_contact_form_to' ) : get_option( 'admin_email' );
 
-	$subject = __( 'New Message from', 'sunflower-contact-form' ) . ' ' . ( $title ? $title : __( 'Contact Form', 'sunflower-contact-form' ) );
-	$message = sprintf( "Name: %s\nE-Mail: %s\n\n%s", $name, $mail, $message );
+	$subject     = __( 'New Message from', 'sunflower-contact-form' ) . ' ' . ( $title ? $title : __( 'Contact Form', 'sunflower-contact-form' ) );
+	$message_str = sprintf( '%s', implode( "\n", $message ) );
 
 	if ( ! empty( $mail ) ) {
 		$headers = 'Reply-To: ' . $mail;
 	}
 
 	if ( '' === $headers || '0' === $headers ) {
-		wp_mail( $to, $subject, $message );
+		wp_mail( $to, $subject, $message_str );
 	} else {
-		wp_mail( $to, $subject, $message, $headers );
+		wp_mail( $to, $subject, $message_str, $headers );
 	}
 
 	echo wp_json_encode(
