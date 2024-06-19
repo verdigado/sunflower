@@ -13,7 +13,12 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 
-import { PanelBody, Disabled, TextControl } from '@wordpress/components';
+import {
+	PanelBody,
+	Disabled,
+	TextControl,
+	ToggleControl,
+} from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
 /**
@@ -40,11 +45,19 @@ export default function Edit( { attributes, setAttributes } ) {
 		className: 'row',
 	} );
 
-	const { title } = attributes;
+	const { title, requireMail, requirePhone, displayPhone } = attributes;
 
 	const onChangeTitle = ( input ) => {
 		setAttributes( { title: input === undefined ? '' : input } );
 	};
+
+	function toggleAttribute( propName ) {
+		return () => {
+			const value = attributes[ propName ];
+
+			setAttributes( { [ propName ]: ! value } );
+		};
+	}
 
 	return (
 		<div { ...blockProps }>
@@ -55,6 +68,9 @@ export default function Edit( { attributes, setAttributes } ) {
 							block={ 'sunflower/contact-form' }
 							attributes={ {
 								title,
+								requireMail,
+								requirePhone,
+								displayPhone,
 							} }
 						/>
 					</Disabled>
@@ -82,6 +98,30 @@ export default function Edit( { attributes, setAttributes } ) {
 								'sunflower-contact-form'
 							) }
 							onChange={ onChangeTitle }
+						/>
+						<ToggleControl
+							label={ __(
+								'Require E-Mail',
+								'sunflower-contact-form'
+							) }
+							checked={ requireMail }
+							onChange={ toggleAttribute( 'requireMail' ) }
+						/>
+						<ToggleControl
+							label={ __(
+								'Display Phone Field',
+								'sunflower-contact-form'
+							) }
+							checked={ displayPhone }
+							onChange={ toggleAttribute( 'displayPhone' ) }
+						/>
+						<ToggleControl
+							label={ __(
+								'Require Phone',
+								'sunflower-contact-form'
+							) }
+							checked={ requirePhone }
+							onChange={ toggleAttribute( 'requirePhone' ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
