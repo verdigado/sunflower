@@ -261,6 +261,7 @@ body {
             &.sunflower-logo {
                 background-color: $secondary;
             }
+
             margin-right: 0.25rem;
             height: 95px;
             width: 95px;
@@ -313,5 +314,30 @@ body {
 
 #navbar-sticky-detector.header-personal {
     height: 1px;
-    background: $white;
+    margin-top: -1px;
+}
+
+.stuck ~ #content {
+    margin-top: 95px;
+
+    // to scroll to correct position with sticky header
+    // while destination is an anchor
+    .entry-content {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+
+            &[id]::before {
+                content: "";
+                display: block;
+                height: 95px;
+                margin-top: -45px;
+                visibility: hidden;
+            }
+        }
+    }
 }
