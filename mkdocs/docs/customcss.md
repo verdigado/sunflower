@@ -31,7 +31,7 @@ archive-loop article {
 }
 ```
 
-## Hintergrundfarbe für Logo im Sticky-Menü anpassen
+## Hintergrundfarbe für Logo im Menü anpassen
 
 Die folgende Einstellung setzt die Hintergrundfarbe für das eigene Logo im Sticky-Menü (angezeigtes Menü beim Scrollen):
 
@@ -40,7 +40,13 @@ Die folgende Einstellung setzt die Hintergrundfarbe für das eigene Logo im Stic
 	background-color: #005437;
 }
 ```
-Das Beispiel setzt die Hintergrundfarbe auf "Tanne", wie es mit der Sonnenblume im Standard-Header der Fall ist.
+Die folgende Einstellung setzt die Hintergrundfarbe für das eigene Logo im Personal-Header:
+```
+.header-personal .img-container {
+    background-color: #005437;
+}
+```
+Die Beispiele setzen die Hintergrundfarbe auf "Tanne", wie es mit der Sonnenblume der Fall ist.
 
 ## Suche in der oberen Menüleiste ausblenden
 
