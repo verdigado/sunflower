@@ -8,9 +8,8 @@ const observer = new IntersectionObserver(
 		stickyElement.classList.toggle( 'stuck', ! e.isIntersecting );
 	},
 	{
-		root: null,
 		rootMargin: '0px',
-		threshold: [ 0, 1 ],
+		threshold: [ 0.1 ],
 	}
 );
 
