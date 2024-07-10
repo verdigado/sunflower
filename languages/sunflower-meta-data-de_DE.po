@@ -53,8 +53,8 @@ msgstr ""
 "fontawesome.com/icons?d=gallery&m=free"
 
 #: build/meta-data/index.js:188 build/meta-data/index.js:149
-msgid "Target URL the Icon is linked to"
-msgstr "Ziel-Adresse (URL) mit dem das Icon verlinkt wird"
+msgid "Target URL the Icon is linked to. For email addresses, use the format mailto:example@example.com."
+msgstr "Ziel-Adresse (URL) mit der das Icon verlinkt wird. Für E-Mail-Adressen ist das Format mailto:example@example.com zu verwenden."
 
 #: build/meta-data-bak/block.json build/meta-data-works/block.json
 #: build/meta-data/block.json

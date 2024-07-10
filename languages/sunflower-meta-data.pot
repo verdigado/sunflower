@@ -51,7 +51,7 @@ msgstr ""
 
 #: build/meta-data/index.js:188
 #: build/meta-data/index.js:149
-msgid "Target URL the Icon is linked to"
+msgid "Target URL the Icon is linked to. For email addresses, use the format mailto:example@example.com."
 msgstr ""
 
 #: build/meta-data-bak/block.json
