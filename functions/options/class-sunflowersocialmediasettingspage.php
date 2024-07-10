@@ -119,6 +119,15 @@ class SunflowerSocialMediaSettingsPage {
 		);
 
 		add_settings_field(
+			'sunflower_sharer_whatsapp',
+			__( 'WhatsApp', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-social-media-options',
+			'sunflower_social_media_sharers',
+			array( 'sunflower_sharer_whatsapp', __( 'WhatsApp', 'sunflower' ) )
+		);
+
+		add_settings_field(
 			'sunflower_sharer_mail',
 			__( 'mail', 'sunflower' ),
 			$this->sunflower_checkbox_callback( ... ),
@@ -193,6 +202,7 @@ class SunflowerSocialMediaSettingsPage {
 		$default[] = 'fab fa-twitter;Twitter;';
 		$default[] = 'fab fa-bluesky;Bluesky;';
 		$default[] = 'fab fa-facebook-f;Facebook;';
+		$default[] = 'fab fa-whatsapp;WhatsApp;';
 		$default[] = 'fab fa-threads;Threads;';
 		$default[] = 'fab fa-tiktok;TikTok;';
 		$default[] = 'fab fa-linkedin;LinkedIn;';
