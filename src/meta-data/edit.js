@@ -120,6 +120,10 @@ export default function Edit( { attributes, setAttributes } ) {
 									label: 'Facebook',
 								},
 								{
+									value: 'fab fa-whatsapp',
+									label: 'WhatsApp',
+								},
+								{
 									value: 'fab fa-threads',
 									label: 'Threads',
 								},
