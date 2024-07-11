@@ -101,29 +101,35 @@ endif;
  * Make the Sunflower social sharers.
  */
 function sunflower_the_social_media_sharers() {
-	$twitter  = false;
-	$facebook = false;
-	$mail     = false;
+
+	$sharer = array();
 	if ( sunflower_get_setting( 'sunflower_sharer_twitter' ) || sunflower_get_setting( 'sunflower_sharer_x_twitter' ) ) {
-		$twitter = sprintf(
-			'<a href="https://twitter.com/intent/tweet?text=%s&url=%s&via=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-x-twitter"></i></a>',
+		$sharer[] = sprintf(
+			'<a href="https://twitter.com/intent/tweet?text=%s&url=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-x-twitter"></i></a>',
 			rawurlencode( (string) get_the_title() ),
 			get_permalink(),
-			false,
 			__( 'Share on X (Twitter) ', 'sunflower' )
 		);
 	}
 
 	if ( sunflower_get_setting( 'sunflower_sharer_facebook' ) ) {
-		$facebook = sprintf(
-			"<i class='fab fa-facebook sharer' onclick=\"window.open('https://www.facebook.com/sharer/sharer.php?u=%s', 'sharer', 'width=626,height=436')\" title=\"%s\"></i>",
-			get_permalink(),
+		$sharer[] = sprintf(
+			'<a href="https://www.facebook.com/sharer/sharer.php?u=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-facebook-f"></i></a>',
+			rawurlencode( (string) get_the_title() ),
 			__( 'Share on Facebook ', 'sunflower' )
 		);
 	}
 
+	if ( sunflower_get_setting( 'sunflower_sharer_whatsapp' ) ) {
+		$sharer[] = sprintf(
+			'<a href="https://wa.me/?text=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-whatsapp"></i></a>',
+			rawurlencode( (string) get_the_title() ),
+			__( 'Share on WhatsApp ', 'sunflower' )
+		);
+	}
+
 	if ( sunflower_get_setting( 'sunflower_sharer_mail' ) ) {
-		$mail = sprintf(
+		$sharer[] = sprintf(
 			'<a href="MAILTO:?subject=%s&body=%s" target="_blank" title="%s" class="sharer"><i class="fas fa-envelope"></i></a>',
 			rawurlencode( (string) get_the_title() ),
 			get_permalink(),
@@ -131,12 +137,10 @@ function sunflower_the_social_media_sharers() {
 		);
 	}
 
-	if ( $twitter || $facebook || $mail ) {
+	if ( count( $sharer ) > 0 ) {
 		printf(
-			'<div class="social-media-sharers mb-5">%s %s %s</div>',
-			wp_kses_post( $twitter ),
-			wp_kses_post( $facebook ),
-			wp_kses_post( $mail )
+			'<div class="social-media-sharers mb-5">%s</div>',
+			wp_kses_post( implode( ' ', $sharer ) )
 		);
 	}
 }
