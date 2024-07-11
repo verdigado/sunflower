@@ -102,7 +102,7 @@ endif;
  */
 function sunflower_the_social_media_sharers() {
 
-	$sharer = [];
+	$sharer = array();
 	if ( sunflower_get_setting( 'sunflower_sharer_twitter' ) || sunflower_get_setting( 'sunflower_sharer_x_twitter' ) ) {
 		$sharer[] = sprintf(
 			'<a href="https://twitter.com/intent/tweet?text=%s&url=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-x-twitter"></i></a>',
@@ -137,10 +137,10 @@ function sunflower_the_social_media_sharers() {
 		);
 	}
 
-	if ( count($sharer) > 0 ) {
+	if ( count( $sharer ) > 0 ) {
 		printf(
 			'<div class="social-media-sharers mb-5">%s</div>',
-			implode(' ', $sharer)
+			wp_kses_post( implode( ' ', $sharer ) )
 		);
 	}
 }
