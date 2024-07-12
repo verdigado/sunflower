@@ -229,6 +229,11 @@
 	}
 }
 
+.styled-layout .wp-block-group {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
 /* Main column width */
 .wp-block {
 	max-width: 860px;
@@ -457,5 +462,32 @@ p a {
 	.stoerer {
 		left: 8rem;
 		top: 2rem;
+	}
+}
+
+/* Startseite */
+.wp-block-group.alignfull.has-background {
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	padding-left: 5vw;
+	padding-right: 5vw;
+}
+
+/* @media (min-width: 992px) {
+	.wp-block-group.alignfull.has-background {
+		padding-left: 10vw;
+		padding-right: 10vw;
+	}
+} */
+
+@media (min-width: 1200px) {
+	.wp-block-group.alignfull.has-background {
+		padding-left: 20vw;
+		padding-right: 20vw;
 	}
 }
