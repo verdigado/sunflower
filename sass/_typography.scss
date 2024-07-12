@@ -12,6 +12,11 @@ h6,
 .h6 {
 
     word-break: break-word;
+
+    &.textbalken {
+        margin-bottom: 0;
+        padding: 0 1em;
+    }
 }
 
 .roofline {
@@ -165,26 +170,10 @@ h6,
     width: fit-content;
     line-height: 150%;
     position: relative;
-    padding: 0;
+    text-transform: uppercase;
 
     @include themed() {
         font-family: t("headingFont");
-    }
-
-    &.has-text-align-center {
-        margin: auto;
-    }
-
-    &::after {
-        background: inherit;
-        content: "";
-        position: absolute;
-        top: 0;
-        right: -20px;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-        transform: skew(-12deg);
     }
 
     &::before {
@@ -194,14 +183,14 @@ h6,
         top: 0;
         right: 0;
         bottom: 0;
-        left: -20px;
+        left: -9px;
         z-index: -1;
         transform: skew(-12deg);
+        transform-origin: bottom;
     }
 
     &.links-eins {
         left: 1em;
-        margin-top: -0.5rem;
 
         @include media-breakpoint-down(md) {
             left: 0.5em;
@@ -210,12 +199,12 @@ h6,
 
     &.links-zwei {
         left: 3em;
-        margin-top: -0.5rem;
 
         @include media-breakpoint-down(md) {
             left: 2.5em;
         }
     }
+
 }
 
 .stoerer {
@@ -249,4 +238,3 @@ h6,
         top: 2rem;
     }
 }
-

@@ -1,9 +1,12 @@
 .wp-block-group {
 
-    padding: 0;
     position: relative;
 
-    &.has-background {
+    &.is-layout-flex {
+        gap: 0;
+    }
+
+    &.alignfull.has-background {
         width: 100vw;
         display: flex;
         justify-content: center;
@@ -29,6 +32,7 @@
     &__inner-container {
         max-width: map-get($container-max-widths, "xl");
     }
+
 }
 
 .d-flex {
