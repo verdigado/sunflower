@@ -18,7 +18,6 @@
 
         p,
         ul {
-            padding: 0 1em;
 
             &.textbalken {
                 padding: 0 0.5em;
@@ -34,6 +33,11 @@
 
     &.no-gap.is-layout-flex {
         gap: 0;
+
+        p,
+        ul {
+            padding: 0 1em;
+        }
     }
 
 }
