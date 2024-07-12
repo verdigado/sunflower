@@ -22,7 +22,7 @@
 	font-style: normal;
 	font-display: swap; }
 
-body {
+.editor-styles-wrapper {
 	font-family: "PTSans";
 	font-size: 1.1875rem;
 	line-height: 1.5;
@@ -107,39 +107,37 @@ body {
 	text-decoration: none;
 }
 
-h1.wp-block,
-h2.wp-block,
-h3.wp-block,
-.h1,
-.h2 {
+.editor-styles-wrapper h1.wp-block,
+.editor-styles-wrapper h2.wp-block,
+.editor-styles-wrapper h3.wp-block,
+.editor-styles-wrapper .h1,
+.editor-styles-wrapper .h2,
+.editor-styles-wrapper .h3 {
 	font-family: "GrueneType";
 }
 
-h1, .h1,
-.h1,
-.has-huge-font-size {
+.editor-styles-wrapper h1,
+.editor-styles-wrapper .h1,
+.editor-styles-wrapper .has-huge-font-size {
 	font-size: 36px;
 	line-height: 1.2em;
 }
 
-h2,
-.h2,
-.h2,
-.has-large-font-size {
+.editor-styles-wrapper h2,
+.editor-styles-wrapper .h2,
+.editor-styles-wrapper .has-large-font-size {
 	font-size: 27px;
 	line-height: 1.2em;
-	font-family: "GrueneType";
 }
 
-h3,
-.h3,
-.h3,
-.has-medium-font-size {
+.editor-styles-wrapper h3,
+.editor-styles-wrapper .h3,
+.editor-styles-wrapper .has-medium-font-size {
 	font-weight: 700;
 	font-size: 25px;
 }
 
-.has-white-background-color .h1, .h2, .h3 {
+.editor-styles-wrapper .has-white-background-color .h1, .h2, .h3 {
 	color: #005437;
 }
 
@@ -151,6 +149,7 @@ h3,
 	.has-huge-font-size {
 		font-size: 45px;
 		line-height: 1.3em;
+		margin-top: 0;
 	}
 
 	h2,
@@ -158,27 +157,32 @@ h3,
 	.has-large-font-size {
 		font-size: 31px;
 		line-height: 1.3em;
+		margin-top: 0;
 	}
 
 	h3,
 	.h3,
 	.has-medium-font-size {
 		font-size: 27px;
+		margin-top: 0;
 	}
 
 	h4,
 	.h4 {
 		font-size: 27px;
+		margin-top: 0;
 	}
 
 	h5,
 	.h5 {
 		font-size: 25px;
+		margin-top: 0;
 	}
 
 	h6,
 	.h6 {
 		font-size: 22px;
+		margin-top: 0;
 	}
 }
 
@@ -293,28 +297,38 @@ p a {
 }
 
 /* add textbalken */
+.editor-styles-wrapper h1.textbalken,
+.editor-styles-wrapper .textbalken.h1,
+.editor-styles-wrapper h2.textbalken,
+.editor-styles-wrapper .textbalken.h2,
+.editor-styles-wrapper h3.textbalken,
+.editor-styles-wrapper .textbalken.h3,
+.editor-styles-wrapper h4.textbalken,
+.editor-styles-wrapper .textbalken.h4,
+.editor-styles-wrapper h5.textbalken,
+.editor-styles-wrapper .textbalken.h5,
+.editor-styles-wrapper h6.textbalken,
+.editor-styles-wrapper .textbalken.h6,
+.editor-styles-wrapper .h1.textbalken,
+.editor-styles-wrapper .h2.textbalken,
+.editor-styles-wrapper .h3.textbalken,
+.editor-styles-wrapper .h4.textbalken,
+.editor-styles-wrapper .h5.textbalken,
+.editor-styles-wrapper .h6.textbalken {
+	margin-bottom: 0;
+	padding: 0 1em;
+}
+
 .has-background.textbalken {
 	z-index: 0;
 	width: fit-content;
 	line-height: 150%;
 	position: relative;
-	padding: 0;
+	text-transform: uppercase;
 }
 
-.has-background.textbalken.has-text-align-center {
-	margin: auto;
-}
-
-.has-background.textbalken::after {
-	background: inherit;
-	content: "";
-	position: absolute;
-	top: 0;
-	right: -20px;
-	bottom: 0;
-	left: 0;
-	z-index: -1;
-	transform: skew(-12deg);
+.editor-styles-wrapper  .has-background.textbalken {
+	font-family: "GrueneType";
 }
 
 .has-background.textbalken::before {
@@ -324,18 +338,17 @@ p a {
 	top: 0;
 	right: 0;
 	bottom: 0;
-	left: -20px;
+	left: -9px;
 	z-index: -1;
 	transform: skew(-12deg);
+	transform-origin: bottom;
 }
 
 .has-background.textbalken.links-eins {
 	left: 1em;
-	margin-top: -0.5rem !important;
 }
 
 @media (max-width: 767.98px) {
-
 	.has-background.textbalken.links-eins {
 		left: 0.5em;
 	}
@@ -343,14 +356,24 @@ p a {
 
 .has-background.textbalken.links-zwei {
 	left: 3em;
-	margin-top: -0.5rem !important;
 }
 
 @media (max-width: 767.98px) {
-
 	.has-background.textbalken.links-zwei {
 		left: 2.5em;
 	}
+}
+
+.wp-block-columns.no-gap.is-layout-flex {
+	gap: 0;
+}
+
+.wp-block-columns .wp-block-column p, .wp-block-columns .wp-block-column ul {
+	padding: 0 1em;
+}
+
+.wp-block-columns .wp-block-column p.textbalken, .wp-block-columns .wp-block-column ul.textbalken {
+	padding: 0 0.5em;
 }
 
 .stoerer {

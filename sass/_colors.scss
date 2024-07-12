@@ -13,15 +13,15 @@
 
 @each $name, $code in $custom-colors {
     .has-#{$name}-color {
-        color: $code !important;
+        color: $code;
     }
 
     .has-#{$name}-background-color {
-        background-color: $code !important;
+        background-color: $code;
     }
 
     .has-#{$name}-hover-background-color:hover {
-        background-color: $code !important;
+        background-color: $code;
     }
 }
 
