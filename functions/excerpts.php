@@ -13,12 +13,3 @@ function sunflower_excerpt_length() {
 }
 
 add_filter( 'excerpt_length', 'sunflower_excerpt_length', 900 );
-
-/**
- * Change read_more link text.
- */
-function sunflower_read_more_link() {
-	return '…';
-}
-
-add_filter( 'excerpt_more', 'sunflower_read_more_link', 910 );
