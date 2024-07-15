@@ -47,21 +47,7 @@
 			<div class="entry-content">
 				<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 				<?php
-				the_excerpt(
-					sprintf(
-						wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-							__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'sunflower' ),
-							array(
-								'span' => array(
-									'class' => array(),
-								),
-							)
-						),
-						wp_kses_post( get_the_title() )
-					)
-				);
-
+				the_excerpt();
 				wp_link_pages(
 					array(
 						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sunflower' ),
@@ -78,7 +64,7 @@
 				<div class="d-flex flex-row-reverse">
 					<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="continue-reading">
 					<?php
-					__( 'Continue reading', 'sunflower' );
+					esc_attr_e( 'Continue reading', 'sunflower' );
 					?>
 				</a>
 				</div>

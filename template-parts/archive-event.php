@@ -51,20 +51,7 @@ foreach ( $sunflower_tags as $sunflower_tag ) {
 
 			<div class="entry-content">
 				<?php
-				the_excerpt(
-					sprintf(
-						wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-							__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'sunflower' ),
-							array(
-								'span' => array(
-									'class' => array(),
-								),
-							)
-						),
-						wp_kses_post( get_the_title() )
-					)
-				);
+				the_excerpt();
 				?>
 			</div><!-- .entry-content -->
 
