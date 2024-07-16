@@ -2,30 +2,26 @@
 
     position: relative;
 
-    &.is-layout-flex {
-        gap: 0;
-    }
-
-    &.alignfull.has-background {
+    &.alignfull {
         width: 100vw;
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
-        flex-direction: column;
 
         margin-left: calc(50% - 50vw);
         margin-right: calc(50% - 50vw);
-        padding-left: 5vw;
-        padding-right: 5vw;
 
-        @include media-breakpoint-up(lg) {
-            padding-left: 10vw;
-            padding-right: 10vw;
+        @include media-breakpoint-down(xl) {
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
 
-        @include media-breakpoint-up(xl) {
-            padding-left: 20vw;
-            padding-right: 20vw;
+        @include media-breakpoint-down(sm) {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        > p {
+            max-width: map-get($container-max-widths, "xl");
         }
     }
 

@@ -30,7 +30,9 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"align": [ "full" ],
+		"alignWide": true
 	},
 	"textdomain": "sunflower-next-events",
 	"editorScript": "file:./index.js",
