@@ -83,7 +83,7 @@ if ( 0 === $sunflower_posts->post_count ) {
 $sunflower_list_items .= sprintf(
 	'
     <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s" rel="">
-        <div class="p-45 row ">
+        <div class="p-45 row">
         <span class="continue-reading text-white text-center pt-0">%2$s</span>
         </div>
     </a>
@@ -92,7 +92,7 @@ $sunflower_list_items .= sprintf(
 	( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'to archive', 'sunflower-latest-posts' )
 );
 
-$sunflower_list_items .= '</div></div></div></div>';
+$sunflower_list_items .= '</div></div></div>';
 
 echo wp_kses(
 	$sunflower_list_items,
