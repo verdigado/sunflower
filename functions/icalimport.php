@@ -238,7 +238,7 @@ function sunflower_import_icals( $force = false ) {
 		}
 
 		$response = sunflower_icalimport( $url, $auto_categories );
-		if ( ! empty( $response ) && is_array( $response ) ) {
+		if ( ! empty( $response ) && is_array( $response ) && is_array( $response[0] ) ) {
 			$ids_from_remote = array_merge( $ids_from_remote, $response[0] );
 		}
 	}
