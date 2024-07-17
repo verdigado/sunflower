@@ -31,4 +31,10 @@ a {
     &:active {
         outline: 0;
     }
+
+}
+
+// avoid link underline as of WordPress 6.6
+:root :where(a:where(:not(.wp-element-button))) {
+    text-decoration-line: none;
 }
