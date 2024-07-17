@@ -2,7 +2,6 @@
     margin-bottom: 0;
 
     .wp-block-column {
-        margin-bottom: 50px;
 
         .wp-block-group {
             padding: 0;
@@ -18,7 +17,6 @@
 
         p,
         ul {
-            padding: 0 1em;
 
             &.textbalken {
                 padding: 0 0.5em;
@@ -34,6 +32,11 @@
 
     &.no-gap.is-layout-flex {
         gap: 0;
+
+        p,
+        ul {
+            padding: 0 1em;
+        }
     }
 
 }
@@ -44,8 +47,11 @@
 
         .wp-block-column {
 
-            img {
-                max-height: 200px;
+            .wp-block-image {
+
+                img {
+                    max-height: 200px;
+                }
             }
         }
     }
@@ -58,8 +64,11 @@
 
         .wp-block-column {
 
-            img {
-                max-height: 230px;
+            .wp-block-image {
+
+                img {
+                    max-height: 230px;
+                }
             }
         }
     }

@@ -17,9 +17,9 @@ if ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'
 }
 
 $sunflower_return = sprintf(
-	' <div class="wp-block-group alignfull sunflower-has-background-dim has-background next-events %s">
+	' <div class="wp-block-group alignfull sunflower-has-background-dim has-text-color has-white-color has-background is-vertical is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-group-is-layout-4 wp-block-group-is-layout-flex  next-events %s">
                     <div class="wp-block-group__inner-container">
-                        <h2 class="text-center h1 text-white">%s</h2>
+                        <h2 class="wp-block-heading has-text-align-center h1">%s</h2>
                         <div class="wp-block-button text-center mb-5"><a class="wp-block-button__link no-border-radius" href="%s" rel="">%s</a></div>
                     <div class="row">',
 	$sunflower_classes,
