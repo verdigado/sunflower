@@ -413,10 +413,6 @@ p a {
 	gap: 0;
 }
 
-.wp-block-columns .wp-block-column p, .wp-block-columns .wp-block-column ul {
-	padding: 0 1em;
-}
-
 .wp-block-columns .wp-block-column p.textbalken, .wp-block-columns .wp-block-column ul.textbalken {
 	padding: 0 0.5em;
 }

@@ -85,7 +85,9 @@ export default function Edit( { attributes, setAttributes } ) {
 	);
 
 	useEffect( () => {
-		if ( ! hasResolved ) return;
+		if ( ! hasResolved ) {
+			return;
+		}
 
 		setTagFormSuggestions( allTags.map( ( atag ) => atag.name ) );
 		// accept tags as ids (pre 2.1.0) and slugs
