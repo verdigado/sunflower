@@ -15,7 +15,7 @@ $sunflower_is_grid = false;
 if ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'] ) {
 	$sunflower_is_grid = true;
 }
-// wp-block-group alignfull has-text-color has-background is-vertical is-content-justification-center is-layout-flex wp-container-core-group-is-layout-4 wp-block-group-is-layout-flex
+
 $sunflower_return = sprintf(
 	' <div class="wp-block-group alignfull sunflower-has-background-dim has-text-color has-white-color has-background is-vertical is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-group-is-layout-4 wp-block-group-is-layout-flex  next-events %s">
                     <div class="wp-block-group__inner-container">

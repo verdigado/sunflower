@@ -2,7 +2,6 @@
     margin-bottom: 0;
 
     .wp-block-column {
-        margin-bottom: 50px;
 
         .wp-block-group {
             padding: 0;
@@ -45,9 +44,11 @@
 @include media-breakpoint-up(sm) {
 
     .same-height {
+
         .wp-block-column {
 
             .wp-block-image {
+
                 img {
                     max-height: 200px;
                 }
@@ -64,6 +65,7 @@
         .wp-block-column {
 
             .wp-block-image {
+
                 img {
                     max-height: 230px;
                 }

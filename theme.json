@@ -129,16 +129,5 @@
 				}
 			]
 		}
-	},
-	"styles": {
-		"spacing": {
-		  "padding": {
-			"top": "0px",
-			"bottom": "0px",
-			"right": "2rem",
-			"left": "2rem"
-		  }
-		}
-	  }
-
+	}
 }
