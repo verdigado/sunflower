@@ -45,11 +45,12 @@
 @include media-breakpoint-up(sm) {
 
     .same-height {
-
         .wp-block-column {
 
-            img {
-                max-height: 200px;
+            .wp-block-image {
+                img {
+                    max-height: 200px;
+                }
             }
         }
     }
@@ -62,8 +63,10 @@
 
         .wp-block-column {
 
-            img {
-                max-height: 230px;
+            .wp-block-image {
+                img {
+                    max-height: 230px;
+                }
             }
         }
     }

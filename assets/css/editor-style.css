@@ -117,12 +117,15 @@
 	border-radius: 15px;
 }
 
-.editor-styles-wrapper .wp-block-button__link {
-	border-radius: 0 !important;
+.wp-block-button__link {
 	font-family: "PTSans";
-	background-color: #008939 !important;
+	background-color: #008939;
+	color: #fff;
 	text-transform: uppercase;
+	font-size: 1rem;
+	border-radius: 3px;
 }
+
 .wp-block-pullquote{
 	border-top: 0;
 	border-bottom: 0;
@@ -249,18 +252,18 @@
 	max-width: none;
 }
 
+.same-height .wp-block-column .wp-block-image img {
+	max-height: 200px;
+}
+
 @media (min-width: 1200px) {
-	.same-height .wp-block-column img {
+	.same-height .wp-block-column .wp-block-image img {
 		max-height: 230px;
 	}
-}
-
-@media (min-width: 576px) {
-	.same-height .wp-block-column img {
-		max-height: 200px;
+	.wp-block-column {
+		margin-bottom: 0;
 	}
 }
-
 .wp-block-column img {
 	width: 100%;
 	object-fit: cover;
@@ -283,12 +286,6 @@ p a {
 	font-size: 120%;
 	margin: 3px 0 0 0;
 }
-
-.notice p {
-	font-size: 90%;
-	padding: 0;
-}
-
 
 /* customize RSS block */
 .wp-block-rss {
@@ -465,7 +462,58 @@ p a {
 	}
 }
 
-/* Startseite */
+/* styled layout */
+.styled-layout .wp-block-group {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+@media (max-width: 767.98px) {
+	.styled-layout .wp-block-group {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+}
+
+.styled-layout .wp-block-group.wp-block-group-is-layout-flow > h2, .styled-layout .wp-block-group.wp-block-group-is-layout-flow > .h2,
+.styled-layout .wp-block-group .wp-block-group__inner-container > h2,
+.styled-layout .wp-block-group .wp-block-group__inner-container > .h2 {
+	margin-bottom: 70px;
+}
+
+.styled-layout .site-main {
+	margin-bottom: 0;
+}
+
+/* next-events block */
+.wp-block-group {
+	position: relative;
+}
+.wp-block-group__inner-container {
+	max-width: 1200px;
+	position: relative;
+}
+
+.next-events {
+	background-image: url("../img/sunflower1.jpg");
+	background-size: cover;
+	background-position: top;
+}
+.sunflower-has-background-dim > * {
+	z-index: 30;
+}
+
+.sunflower-has-background-dim::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 20;
+	opacity: 0.3;
+	background-color: #000;
+}
 .wp-block-group.alignfull.has-background {
 	width: 100vw;
 	display: flex;
@@ -476,18 +524,4 @@ p a {
 	margin-right: calc(50% - 50vw);
 	padding-left: 5vw;
 	padding-right: 5vw;
-}
-
-/* @media (min-width: 992px) {
-	.wp-block-group.alignfull.has-background {
-		padding-left: 10vw;
-		padding-right: 10vw;
-	}
-} */
-
-@media (min-width: 1200px) {
-	.wp-block-group.alignfull.has-background {
-		padding-left: 20vw;
-		padding-right: 20vw;
-	}
 }

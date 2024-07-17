@@ -3,7 +3,7 @@
 	"version": 3,
 	"settings": {
 		"appearanceTools": false,
-		"useRootPaddingAwareAlignments": true,
+		"useRootPaddingAwareAlignments": false,
 		"color": {
 			"palette": [
 				{
