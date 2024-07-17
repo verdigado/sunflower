@@ -81,7 +81,9 @@ export default function Edit( { attributes, setAttributes } ) {
 	);
 
 	useEffect( () => {
-		if ( ! hasResolved ) return;
+		if ( ! hasResolved ) {
+			return;
+		}
 
 		setCategoriesFormSuggestions(
 			allCategories.map( ( category ) => category.name )
