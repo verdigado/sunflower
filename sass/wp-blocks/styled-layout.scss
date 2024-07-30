@@ -4,6 +4,11 @@
         padding-top: 100px;
         padding-bottom: 100px;
 
+        .wp-block-group {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
         @include media-breakpoint-down(md) {
             padding-top: 50px;
             padding-bottom: 50px;
