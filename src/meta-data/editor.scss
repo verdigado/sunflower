@@ -18,4 +18,9 @@
 
     }
 
+
+}
+
+.d-flex:has(.wp-block-sunflower-meta-data) {
+    display: flex !important;
 }

@@ -56,8 +56,19 @@ export default function Edit( { attributes, setAttributes } ) {
 		setAttributes( { icon: newIcon === undefined ? 'none' : newIcon } );
 	};
 
+	function validateEmail( email ) {
+		const re = /^[^\s@\/]+@[^\s@]+\.[^\s@]{2,10}$/;
+		return re.test( email );
+	}
+
 	const onChangeUrl = ( newUrl ) => {
-		setAttributes( { url: newUrl === undefined ? '#' : newUrl } );
+		if (
+			validateEmail( newUrl ) &&
+			! ( newUrl.substring( 0, 7 ) === 'mailto:' )
+		) {
+			newUrl = 'mailto:' + newUrl;
+		}
+		setAttributes( { url: newUrl === undefined ? '' : newUrl } );
 	};
 
 	return (
@@ -140,10 +151,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						<TextControl
 							label="URL"
 							help={ __(
-								'Target URL the Icon is linked to',
+								'Target URL the Icon is linked to. For email addresses, use the format mailto:example@example.com.',
 								'sunflower-meta-data'
 							) }
 							value={ url }
+							placeholder={ 'https://gruene.social/@verdigado' }
 							onChange={ onChangeUrl }
 						/>
 					</PanelBody>

@@ -15,7 +15,7 @@
 		},
 		"url": {
 			"type": "string",
-			"default": "#"
+			"default": ""
 		}
 	},
 	"supports": {
