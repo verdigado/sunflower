@@ -44,6 +44,8 @@ a.event-card {
     background-image: url("assets/img/sunflower1.jpg");
     background-size: cover;
     background-position: top;
+
+    flex-direction: column;
 }
 
 #leaflet {
