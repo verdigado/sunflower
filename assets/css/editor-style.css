@@ -521,3 +521,6 @@ p a {
 	padding-left: 5vw;
 	padding-right: 5vw;
 }
+.bg-white {
+    background-color: #fff;
+}
