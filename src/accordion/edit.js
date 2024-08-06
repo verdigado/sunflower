@@ -14,6 +14,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 import { TextControl } from '@wordpress/components';
+import { useEffect } from '@wordpress/element';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -40,7 +41,9 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		className: 'accordion',
 	} );
 
-	setAttributes( { blockId: clientId } );
+	useEffect( () => {
+		setAttributes( { blockId: clientId } );
+	}, [ clientId, setAttributes ] );
 
 	const onChangeContent = ( newContent ) => {
 		setAttributes( { content: newContent } );
