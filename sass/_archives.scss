@@ -24,48 +24,52 @@
         }
     }
 
-    ul.wp-block-categories-list {
-        display: inline-flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        list-style-type: none;
+    .sunflower-categories {
 
-        li {
+        ul.wp-block-categories-list {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style-type: none;
 
-            a {
+            li {
 
-                @include themed() {
-                    font-family: t("standardFont");
+                a {
+
+                    @include themed() {
+                        font-family: t("standardFont");
+                    }
+
+                    font-weight: 700;
+                    font-size: 16px;
+                    color: $black;
+                    letter-spacing: 0.05em;
+                    background: none;
+                    border: 0;
+                    padding: 0;
+                    margin: 0 1em;
+                    border-bottom: 2px solid transparent;
+                    text-transform: uppercase;
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        color: $primary;
+                        border-bottom-color: $primary;
+                    }
+
                 }
 
-                font-weight: 700;
-                font-size: 16px;
-                color: $black;
-                letter-spacing: 0.05em;
-                background: none;
-                border: 0;
-                padding: 0;
-                margin: 0 1em;
-                border-bottom: 2px solid transparent;
-                text-transform: uppercase;
-
-                &:focus {
-                    outline: none;
-                    box-shadow: none;
+                &.current-cat {
+                    border-bottom: 2px solid $black;
                 }
-
-                &:hover,
-                &:focus,
-                &:active {
-                    color: $primary;
-                    border-bottom-color: $primary;
-                }
-
-            }
-
-            &.current-cat {
-                border-bottom: 2px solid $black;
             }
         }
+
     }
 }
