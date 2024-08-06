@@ -3,7 +3,9 @@
         "@wordpress/stylelint-config/scss"
     ],
     "ignoreFiles": [
-        "sass/_normalize.scss"
+        "sass/_normalize.scss",
+		"style.css",
+		"style-rtl.css"
     ],
     "rules": {
         "indentation": 4,

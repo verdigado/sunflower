@@ -15,7 +15,7 @@ module.exports = {
 	rules: {
 		'jest/expect-expect': 'off',
 		'react/jsx-boolean-value': 'error',
-		'@wordpress/is-gutenberg-plugin': 'error',
+		'@wordpress/wp-global-usage': 'error',
 		'@wordpress/react-no-unsafe-timeout': 'error',
 		'@wordpress/no-unsafe-wp-apis': 'off',
 		'@wordpress/data-no-store-string-literals': 'error',
