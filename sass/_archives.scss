@@ -26,6 +26,8 @@
 
     ul.wp-block-categories-list {
         display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
         list-style-type: none;
 
         li {
@@ -63,7 +65,6 @@
 
             &.current-cat {
                 border-bottom: 2px solid $black;
-
             }
         }
     }
