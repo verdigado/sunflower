@@ -25,7 +25,7 @@ get_header();
 						<?php
 						$sunflower_parsed_blocks = parse_blocks( '<!-- wp:categories /-->' );
 						if ( $sunflower_parsed_blocks ) {
-							echo '<div class="filter-button-group mb-5 text-center">';
+							echo '<div class="filter-button-group mb-5 text-center sunflower-categories">';
 							foreach ( $sunflower_parsed_blocks as $sunflower_block ) {
 								echo wp_kses_post( render_block( $sunflower_block ) );
 							}
