@@ -37,7 +37,7 @@
                 a {
 
                     @include themed() {
-                        font-family: t("standardFont");
+                        font-family: t("standardFont"), t(secondaryFont);
                     }
 
                     font-weight: 700;

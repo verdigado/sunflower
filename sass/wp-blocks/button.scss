@@ -6,7 +6,7 @@
     border-radius: 3px;
 
     @include themed() {
-        font-family: t("standardFont");
+        font-family: t("standardFont"), t(secondaryFont);
     }
 
     &:hover {

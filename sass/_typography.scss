@@ -69,7 +69,7 @@ h3,
 .has-medium-font-size {
 
     @include themed() {
-        font-family: t("standardFont");
+        font-family: t("standardFont"), t(secondaryFont);
     }
 
     font-weight: 700;
@@ -89,7 +89,7 @@ h4,
 .h4 {
 
     @include themed() {
-        font-family: t("standardFont");
+        font-family: t("standardFont"), t(secondaryFont);
     }
 
     font-weight: 700;
@@ -100,7 +100,7 @@ h5,
 .h5 {
 
     @include themed() {
-        font-family: t("standardFont");
+        font-family: t("standardFont"), t(secondaryFont);
     }
 
     font-weight: 700;
@@ -111,7 +111,7 @@ h6,
 .h6 {
 
     @include themed() {
-        font-family: t("standardFont");
+        font-family: t("standardFont"), t(secondaryFont);
     }
 
     font-weight: 700;

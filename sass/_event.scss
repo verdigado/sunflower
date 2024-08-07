@@ -15,7 +15,7 @@ a.event-card {
             color: $darkgray;
 
             @include themed() {
-                font-family: t("standardFont");
+                font-family: t("standardFont"), t(secondaryFont);
             }
 
             border-bottom: 1px solid $lightgray;
@@ -31,7 +31,7 @@ a.event-card {
         .date {
 
             @include themed() {
-                font-family: t("standardFont");
+                font-family: t("standardFont"), t(secondaryFont);
             }
 
             font-weight: 700;
