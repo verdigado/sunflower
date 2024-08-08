@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying Category pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -23,6 +23,33 @@ get_header();
 						</header><!-- .page-header -->
 
 						<?php
+						/* Show used categories below title and description depending on settings. */
+						$sunflower_categories_archive_setting = sunflower_get_setting( 'sunflower_categories_archive' ) ? sunflower_get_setting( 'sunflower_categories_archive' ) : 'main-categories';
+
+						$sunflower_args = array(
+							'echo'             => false,
+							'hierarchical'     => false,
+							'parent'           => 0,
+							'orderby'          => 'name',
+							'hide_empty'       => true,
+							'show_option_none' => '',
+							'title_li'         => '',
+						);
+
+						if ( 'only-subcategories' === $sunflower_categories_archive_setting ) {
+							$sunflower_args['parent'] = $cat;
+						}
+
+						if ( 'no' !== $sunflower_categories_archive_setting ) {
+							$sunflower_categories_archive = wp_list_categories( $sunflower_args );
+
+							if ( $sunflower_categories_archive ) {
+								echo '<div class="filter-button-group mb-5 text-center sunflower-categories"><ul class="wp-block-categories-list wp-block-categories">';
+									echo wp_kses_post( $sunflower_categories_archive );
+								echo '</ul></div>';
+							}
+						}
+
 						/* Start the Loop */
 						$sunflower_list_items = '';
 						while ( have_posts() ) {
@@ -80,7 +107,9 @@ get_header();
 						}
 					} else {
 						get_template_part( 'template-parts/content', 'none' );
+
 					}
+
 					?>
 
 				</main><!-- #main -->

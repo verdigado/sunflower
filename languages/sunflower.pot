@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.1.1\n"
+"Project-Id-Version: sunflower 2.1.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-10T09:52:54+00:00\n"
+"POT-Creation-Date: 2024-08-08T07:01:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -102,6 +102,7 @@ msgid "calendar in ics-format"
 msgstr ""
 
 #: archive.php:69
+#: category.php:96
 #: index.php:76
 #: search.php:73
 #: single.php:54
@@ -109,6 +110,7 @@ msgid "previous"
 msgstr ""
 
 #: archive.php:70
+#: category.php:97
 #: index.php:77
 #: search.php:74
 #: single.php:59
@@ -169,12 +171,12 @@ msgstr ""
 msgid "More information can be found on the sunflower theme settings page"
 msgstr ""
 
-#: functions/admin.php:73
+#: functions/admin.php:74
 msgid "PHP Version End of Life"
 msgstr ""
 
 #. translators: %1$s is replace with current PHP version and %2$s is replaced with link
-#: functions/admin.php:83
+#: functions/admin.php:84
 msgid ""
 "<p>You are using PHP <strong>%1$s</strong> which <a href=\"https://www.php.net/supported-versions.php\">is not supported</a> anymore!</p>\n"
 "                <p>Please note, that Sunflower theme <strong>will require at least PHP 8.2+</strong> as of release 2.1.0. <br />\n"
@@ -183,17 +185,17 @@ msgid ""
 "                <p>If you are looking for a web hosting service with attitute, have look at %2$s.</p>"
 msgstr ""
 
-#: functions/admin.php:112
+#: functions/admin.php:114
 msgid "New Terms and Use Settings"
 msgstr ""
 
-#: functions/admin.php:116
+#: functions/admin.php:118
 msgid ""
 "There is a new option on the <a href='admin.php?page=sunflower_admin'>Sunflower->First Steps</a> page.<br />\n"
 "            If you continue to use the sunflower icons in menue, footer and as favicon, please read and accept the terms of use."
 msgstr ""
 
-#: functions/admin.php:217
+#: functions/admin.php:220
 #: functions/block-patterns.php:24
 #: functions/blocks.php:19
 #: functions/options/class-sunflowerfirststepspage.php:33
@@ -201,7 +203,7 @@ msgstr ""
 msgid "Sunflower"
 msgstr ""
 
-#: functions/admin.php:244
+#: functions/admin.php:247
 msgid "Help for sunflowers events"
 msgstr ""
 
@@ -263,15 +265,15 @@ msgstr ""
 msgid "delete map"
 msgstr ""
 
-#: functions/events.php:511
+#: functions/events.php:516
 msgid "Event date"
 msgstr ""
 
-#: functions/events.php:512
+#: functions/events.php:517
 msgid "Event location"
 msgstr ""
 
-#: functions/icalimport.php:98
+#: functions/icalimport.php:105
 msgid "More Information"
 msgstr ""
 
@@ -281,7 +283,7 @@ msgid "Layout"
 msgstr ""
 
 #: functions/metaboxes.php:24
-#: functions/metaboxes.php:131
+#: functions/metaboxes.php:150
 msgid "Metadata"
 msgstr ""
 
@@ -301,11 +303,11 @@ msgstr ""
 msgid "Hide feature image on single view, but show it on lists."
 msgstr ""
 
-#: functions/metaboxes.php:125
+#: functions/metaboxes.php:144
 msgid "Roofline"
 msgstr ""
 
-#: functions/metaboxes.php:132
+#: functions/metaboxes.php:151
 msgid "use Shift + Enter to prevent line between"
 msgstr ""
 
@@ -426,6 +428,31 @@ msgstr ""
 msgid "Show social media icons in header"
 msgstr ""
 
+#: functions/options/class-sunflowersettingspage.php:177
+#: functions/options/class-sunflowersettingspage.php:181
+msgid "Show list of categories on category archive"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:261
+msgid "Standard"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:262
+msgid "Personal"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:284
+msgid "do not show"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:285
+msgid "main categories"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:286
+msgid "only sub-categories"
+msgstr ""
+
 #: functions/options/class-sunflowersocialmediasettingspage.php:34
 #: functions/options/class-sunflowersocialmediasettingspage.php:35
 msgid "Social Media"
@@ -508,7 +535,7 @@ msgid "Add widgets here."
 msgstr ""
 
 #: functions/s.php:167
-#: template-parts/content-archive.php:81
+#: template-parts/content-archive.php:67
 msgid "Continue reading"
 msgstr ""
 
@@ -574,14 +601,7 @@ msgstr ""
 msgid "Download as ics"
 msgstr ""
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/archive-event.php:58
-#: template-parts/content-archive.php:54
-#: template-parts/content.php:76
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
-
-#: template-parts/content-archive.php:67
+#: template-parts/content-archive.php:53
 #: template-parts/content-page.php:31
 #: template-parts/content.php:89
 msgid "Pages:"
@@ -609,14 +629,19 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content.php:76
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
 #: template-parts/event-json-ld.php:20
 msgid "none"
 msgstr ""
 
 #: template-parts/header-standard.php:40
 #: template-parts/header-standard.php:43
-#: template-parts/header-standard.php:153
-#: template-parts/header-standard.php:156
+#: template-parts/header-standard.php:158
+#: template-parts/header-standard.php:161
 msgid "Search"
 msgstr ""
 
