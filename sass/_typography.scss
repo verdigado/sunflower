@@ -22,13 +22,13 @@ h6,
 .roofline {
 
     @include themed() {
-        font-family: t("headingFont");
+        font-family: t(headingFont);
     }
 
     &-single {
 
         @include themed() {
-            font-family: t("headingFontBold");
+            font-family: t(headingFontBold);
         }
     }
 
@@ -45,7 +45,7 @@ h1,
 .has-huge-font-size {
 
     @include themed() {
-        font-family: t("headingFontBold");
+        font-family: t(headingFontBold);
     }
 
     font-size: 36px;
@@ -57,7 +57,7 @@ h2,
 .has-large-font-size {
 
     @include themed() {
-        font-family: t("headingFontBold");
+        font-family: t(headingFontBold);
     }
 
     font-size: 27px;
@@ -69,7 +69,7 @@ h3,
 .has-medium-font-size {
 
     @include themed() {
-        font-family: t("standardFont"), t(secondaryFont);
+        font-family: t(standardFont);
     }
 
     font-weight: 700;
@@ -89,7 +89,7 @@ h4,
 .h4 {
 
     @include themed() {
-        font-family: t("standardFont"), t(secondaryFont);
+        font-family: t(standardFont);
     }
 
     font-weight: 700;
@@ -100,7 +100,7 @@ h5,
 .h5 {
 
     @include themed() {
-        font-family: t("standardFont"), t(secondaryFont);
+        font-family: t(standardFont);
     }
 
     font-weight: 700;
@@ -111,7 +111,7 @@ h6,
 .h6 {
 
     @include themed() {
-        font-family: t("standardFont"), t(secondaryFont);
+        font-family: t(standardFont);
     }
 
     font-weight: 700;
@@ -173,7 +173,7 @@ h6,
     text-transform: uppercase;
 
     @include themed() {
-        font-family: t("headingFont");
+        font-family: t(headingFont);
     }
 
     &::before {
@@ -213,7 +213,7 @@ h6,
     font-size: 30pt;
 
     @include themed() {
-        font-family: t("headingFontBold");
+        font-family: t(headingFontBold);
     }
 
     padding: 8pt;

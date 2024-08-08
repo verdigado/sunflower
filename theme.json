@@ -70,7 +70,7 @@
 				{
 					"fontFace": [
 						{
-							"fontFamily": "PT Sans",
+							"fontFamily": "PTSans",
 							"fontStretch": "normal",
 							"fontStyle": "normal",
 							"fontWeight": "400",
@@ -79,7 +79,7 @@
 							]
 						},
 						{
-							"fontFamily": "PT Sans",
+							"fontFamily": "PTSans",
 							"fontStretch": "normal",
 							"fontStyle": "italic",
 							"fontWeight": "400",
@@ -88,7 +88,7 @@
 							]
 						},
 						{
-							"fontFamily": "PT Sans",
+							"fontFamily": "PTSans",
 							"fontStretch": "normal",
 							"fontStyle": "normal",
 							"fontWeight": "700",
@@ -97,7 +97,7 @@
 							]
 						},
 						{
-							"fontFamily": "PT Sans",
+							"fontFamily": "PTSans",
 							"fontStretch": "normal",
 							"fontStyle": "italic",
 							"fontWeight": "700",
@@ -106,8 +106,8 @@
 							]
 						}
 					],
-					"fontFamily": "\"PT Sans\", sans-serif",
-					"name": "PT Sans",
+					"fontFamily": "PTSans, \"PT Sans\", sans-serif",
+					"name": "PTSans",
 					"slug": "pt-sans"
 				},
 				{

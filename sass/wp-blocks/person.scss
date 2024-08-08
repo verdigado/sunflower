@@ -10,7 +10,7 @@
             font-weight: 700;
 
             @include themed() {
-                font-family: t("headingFontBold");
+                font-family: t(headingFontBold);
             }
         }
     }
@@ -21,7 +21,7 @@
         font-weight: 700;
 
         @include themed() {
-            font-family: t("headingFontBold");
+            font-family: t(headingFontBold);
         }
 
         margin-bottom: 1rem;

@@ -190,7 +190,7 @@ body {
     &-name {
 
         @include themed() {
-            font-family: t("headingFontBold");
+            font-family: t(headingFontBold);
         }
 
         font-weight: 500;
