@@ -171,6 +171,15 @@ class SunflowerSettingsPage {
 			'sunflower_layout',
 			array( 'sunflower_header_social_media', __( 'Show social media icons in header', 'sunflower' ) )
 		);
+
+		add_settings_field(
+			'sunflower_categories_archive',
+			__( 'Show list of categories on category archive', 'sunflower' ),
+			$this->sunflower_categories_archive( ... ),
+			'sunflower-setting-admin',
+			'sunflower_layout',
+			array( 'sunflower_categories_filter', __( 'Show list of categories on category archive', 'sunflower' ) )
+		);
 	}
 
 	/**
@@ -248,13 +257,41 @@ class SunflowerSettingsPage {
 	public function sunflower_header_layout(): void {
 		echo '<select id="sunflower_header_layout" name="sunflower_options[sunflower_header_layout]">';
 
-		$options = array( 'standard', 'personal' );
+		$options = array(
+			array( 'standard', __( 'Standard', 'sunflower' ) ),
+			array( 'personal', __( 'Personal', 'sunflower' ) ),
+		);
 		foreach ( $options as $option ) {
-			$selected = ( isset( $this->options['sunflower_header_layout'] ) && $this->options['sunflower_header_layout'] === $option ) ? 'selected' : '';
+			$selected = ( isset( $this->options['sunflower_header_layout'] ) && $this->options['sunflower_header_layout'] === $option[0] ) ? 'selected' : '';
 			printf(
-				'<option value="%1$s" %2$s>%1$s</option>',
-				esc_attr( $option ),
-				esc_attr( $selected )
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_attr( $option[1] )
+			);
+		}
+
+		echo '</select>';
+	}
+
+	/**
+	 * Header layout variant field
+	 */
+	public function sunflower_categories_archive(): void {
+		echo '<select id="sunflower_categories_archive" name="sunflower_options[sunflower_categories_archive]">';
+
+		$options = array(
+			array( 'no', __( 'do not show', 'sunflower' ) ),
+			array( 'main-categories', __( 'main categories', 'sunflower' ) ),
+			array( 'only-subcategories', __( 'only sub-categories', 'sunflower' ) ),
+		);
+		foreach ( $options as $option ) {
+			$selected = ( isset( $this->options['sunflower_categories_archive'] ) && $this->options['sunflower_categories_archive'] === $option[0] ) ? 'selected' : '';
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_attr( $option[1] )
 			);
 		}
 
