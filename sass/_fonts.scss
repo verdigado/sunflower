@@ -1,12 +1,8 @@
 @font-face {
     font-family: GrueneType;
-    src: url("assets/fonts/GrueneType-BlackCondensedItalic.eot");
     src:
-        url("assets/fonts/GrueneType-BlackCondensedItalic.eot?#iefix") format("embedded-opentype"),
         url("assets/fonts/GrueneType-BlackCondensedItalic.woff2") format("woff2"),
-        url("assets/fonts/GrueneType-BlackCondensedItalic.woff") format("woff"),
-        url("assets/fonts/GrueneType-BlackCondensedItalic.ttf") format("truetype"),
-        url("assets/fonts/GrueneType-BlackCondensedItalic.svg#GrueneType-BlackCondensedItalic") format("svg");
+        url("assets/fonts/GrueneType-BlackCondensedItalic.ttf") format("truetype");
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -41,9 +37,5 @@
 }
 
 .ptsans {
-    font-family: PTSans !important;
-}
-
-.ptsans {
-    font-family: PTSans !important;
+    font-family: "PT Sans" !important;
 }

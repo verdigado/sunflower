@@ -1,6 +1,6 @@
 $themes: (
-    default: ("headingFont": "GrueneType", "headingFontBold": "GrueneType", "standardFont": "PTSans, \"PT Sans\", sans-serif"),
-    contrast: ("headingFont": "GrueneType", "headingFontBold": "GrueneType", "standardFont": "PTSans \"PT Sans\", sans-serif")
+    default: ("headingFont": "GrueneType", "headingFontBold": "GrueneType", "standardFont": "\"PT Sans\", sans-serif"),
+    contrast: ("headingFont": "GrueneType", "headingFontBold": "GrueneType", "standardFont": "\"PT Sans\", sans-serif")
 );
 
 @mixin themed() {

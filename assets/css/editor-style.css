@@ -1,29 +1,50 @@
 @font-face {
 	font-family: GrueneType;
-	src: url("../fonts/GrueneType-BlackCondensedItalic.eot");
-	src: url("../fonts/GrueneType-BlackCondensedItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/GrueneType-BlackCondensedItalic.woff2") format("woff2"), url("../fonts/GrueneType-BlackCondensedItalic.woff") format("woff"), url("../fonts/GrueneType-BlackCondensedItalic.ttf") format("truetype"), url("../fonts/GrueneType-BlackCondensedItalic.svg#GrueneType-BlackCondensedItalic") format("svg");
+	src: url("assets/fonts/GrueneType-BlackCondensedItalic.woff2") format("woff2"), url("assets/fonts/GrueneType-BlackCondensedItalic.ttf") format("truetype");
 	font-weight: 900;
 	font-style: normal;
-	font-display: swap; }
+	font-display: swap;
+}
 
 @font-face {
-	font-family: PTSans;
-	src: url("../fonts/PTSans-Regular.eot");
-	src: url("../fonts/PTSans-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/PTSans-Regular.woff2") format("woff2"), url("../fonts/PTSans-Regular.woff") format("woff"), url("../fonts/PTSans-Regular.ttf") format("truetype"), url("../fonts/PTSans-Regular.svg#PTSans-Regular") format("svg");
+	font-family: "PT Sans";
+	font-style: normal;
 	font-weight: 400;
-	font-style: normal;
-	font-display: swap; }
+	font-display: fallback;
+	src: url('../fonts/pt-sans-v17-latin_latin-ext-regular.woff2') format('woff2'), url('../fonts/pt-sans-v17-latin_latin-ext-regular.ttf') format('truetype');
+	font-stretch: normal;
+}
 
 @font-face {
-	font-family: PTSans;
-	src: url("../fonts/PTSans-Bold.eot");
-	src: url("../fonts/PTSans-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/PTSans-Bold.woff2") format("woff2"), url("../fonts/PTSans-Bold.woff") format("woff"), url("../fonts/PTSans-Bold.ttf") format("truetype"), url("../fonts/PTSans-Bold.svg#PTSans-Bold") format("svg");
-	font-weight: 700;
+	font-family: "PT Sans";
+	font-style: italic;
+	font-weight: 400;
+	font-display: fallback;
+	src: url('../fonts/pt-sans-v17-latin_latin-ext-italic.woff2') format('woff2'), url('../fonts/pt-sans-v17-latin_latin-ext-italic.ttf') format('truetype');
+	font-stretch: normal;
+}
+
+@font-face {
+	font-family: "PT Sans";
 	font-style: normal;
-	font-display: swap; }
+	font-weight: 700;
+	font-display: fallback;
+	src: url('../fonts/pt-sans-v17-latin_latin-ext-700.woff2') format('woff2'), url('../fonts/pt-sans-v17-latin_latin-ext-700.ttf') format('truetype');
+	font-stretch: normal;
+}
+
+@font-face {
+	font-family: "PT Sans";
+	font-style: italic;
+	font-weight: 700;
+	font-display: fallback;
+	src: url('../fonts/pt-sans-v17-latin_latin-ext-700italic.woff2') format('woff2'), url('../fonts/pt-sans-v17-latin_latin-ext-700italic.ttf') format('truetype');
+	font-stretch: normal;
+}
+
 
 .editor-styles-wrapper {
-	font-family: "PTSans";
+	font-family: "PT Sans", sans-serif;
 	font-size: 1.1875rem;
 	line-height: 1.5;
 }
@@ -118,7 +139,7 @@
 }
 
 .wp-block-button__link {
-	font-family: "PTSans";
+	font-family: "PT Sans", sans-serif;
 	background-color: #008939;
 	color: #fff;
 	text-transform: uppercase;
@@ -126,12 +147,13 @@
 	border-radius: 3px;
 }
 
-.wp-block-pullquote{
+.wp-block-pullquote {
 	border-top: 0;
 	border-bottom: 0;
 }
 
-.wp-block-media-text.person .wp-block-media-text__media img, .wp-block-media-text.person .wp-block-image img {
+.wp-block-media-text.person .wp-block-media-text__media img,
+.wp-block-media-text.person .wp-block-image img {
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
 	border-bottom-left-radius: 0;
@@ -183,15 +205,17 @@
 	font-size: 25px;
 }
 
-.editor-styles-wrapper .has-white-background-color .h1, .h2, .h3 {
+.editor-styles-wrapper .has-white-background-color .h1,
+.h2,
+.h3 {
 	color: #005437;
 }
 
 
 @media (min-width: 768px) {
+
 	.wrap h1,
-	h1
-	.h1,
+	h1 .h1,
 	.has-huge-font-size {
 		font-size: 45px;
 		line-height: 1.3em;
@@ -233,8 +257,8 @@
 }
 
 .styled-layout .wp-block-group {
-    padding-top: 100px;
-    padding-bottom: 100px;
+	padding-top: 100px;
+	padding-bottom: 100px;
 }
 
 /* Main column width */
@@ -260,10 +284,12 @@
 	.same-height .wp-block-column .wp-block-image img {
 		max-height: 230px;
 	}
+
 	.wp-block-column {
 		margin-bottom: 0;
 	}
 }
+
 .wp-block-column img {
 	width: 100%;
 	object-fit: cover;
@@ -310,11 +336,11 @@ p a {
 }
 
 .theme--default .wp-block-rss .wp-block-rss__item-title {
-	font-family: PTSans;
+	font-family: "PT Sans", sans-serif;
 }
 
 .theme--contrast .wp-block-rss .wp-block-rss__item-title {
-	font-family: PTSans;
+	font-family: "PT Sans", sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -372,7 +398,7 @@ p a {
 	text-transform: uppercase;
 }
 
-.editor-styles-wrapper  .has-background.textbalken {
+.editor-styles-wrapper .has-background.textbalken {
 	font-family: "GrueneType";
 }
 
@@ -413,7 +439,8 @@ p a {
 	gap: 0;
 }
 
-.wp-block-columns .wp-block-column p.textbalken, .wp-block-columns .wp-block-column ul.textbalken {
+.wp-block-columns .wp-block-column p.textbalken,
+.wp-block-columns .wp-block-column ul.textbalken {
 	padding: 0 0.5em;
 }
 
@@ -471,9 +498,10 @@ p a {
 	}
 }
 
-.styled-layout .wp-block-group.wp-block-group-is-layout-flow > h2, .styled-layout .wp-block-group.wp-block-group-is-layout-flow > .h2,
-.styled-layout .wp-block-group .wp-block-group__inner-container > h2,
-.styled-layout .wp-block-group .wp-block-group__inner-container > .h2 {
+.styled-layout .wp-block-group.wp-block-group-is-layout-flow>h2,
+.styled-layout .wp-block-group.wp-block-group-is-layout-flow>.h2,
+.styled-layout .wp-block-group .wp-block-group__inner-container>h2,
+.styled-layout .wp-block-group .wp-block-group__inner-container>.h2 {
 	margin-bottom: 70px;
 }
 
@@ -485,6 +513,7 @@ p a {
 .wp-block-group {
 	position: relative;
 }
+
 .wp-block-group__inner-container {
 	max-width: 1200px;
 	position: relative;
@@ -495,7 +524,8 @@ p a {
 	background-size: cover;
 	background-position: top;
 }
-.sunflower-has-background-dim > * {
+
+.sunflower-has-background-dim>* {
 	z-index: 30;
 }
 
@@ -510,6 +540,7 @@ p a {
 	opacity: 0.3;
 	background-color: #000;
 }
+
 .wp-block-group.alignfull.has-background {
 	width: 100vw;
 	display: flex;
@@ -521,6 +552,7 @@ p a {
 	padding-left: 5vw;
 	padding-right: 5vw;
 }
+
 .bg-white {
-    background-color: #fff;
+	background-color: #fff;
 }

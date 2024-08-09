@@ -4,7 +4,10 @@
     &__title {
 
         font-size: 1.1875rem;
-        font-family: PTSans !important;
+
+        @include themed() {
+            font-family: t(standardFont);
+        }
 
         color: var(--wp--preset--color--white);
         padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);

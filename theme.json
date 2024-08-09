@@ -75,7 +75,8 @@
 							"fontStyle": "normal",
 							"fontWeight": "400",
 							"src": [
-								"file:./assets/fonts/PTSans-Regular.woff2"
+								"file:./assets/fonts/pt-sans-v17-latin_latin-ext-regular.woff2",
+								"file:./assets/fonts/pt-sans-v17-latin_latin-ext-regular.ttf"
 							]
 						},
 						{
@@ -84,7 +85,8 @@
 							"fontStyle": "italic",
 							"fontWeight": "400",
 							"src": [
-								"file:./assets/fonts/PTSans-Italic.woff2"
+								"file:./assets/fonts/pt-sans-v17-latin_latin-ext-italic.woff2",
+								"file:./assets/fonts/pt-sans-v17-latin_latin-ext-italic.ttf"
 							]
 						},
 						{
@@ -93,7 +95,8 @@
 							"fontStyle": "normal",
 							"fontWeight": "700",
 							"src": [
-								"file:./assets/fonts/PTSans-Bold.woff2"
+								"file:./assets/fonts/pt-sans-v17-latin_latin-ext-700.woff2",
+								"file:./assets/fonts/pt-sans-v17-latin_latin-ext-700.ttf"
 							]
 						},
 						{
@@ -102,12 +105,13 @@
 							"fontStyle": "italic",
 							"fontWeight": "700",
 							"src": [
-								"file:./assets/fonts/PTSans-BoldItalic.woff2"
+								"file:./assets/fonts/pt-sans-v17-latin_latin-ext-700italic.woff2",
+								"file:./assets/fonts/pt-sans-v17-latin_latin-ext-700italic.ttf"
 							]
 						}
 					],
-					"fontFamily": "PTSans, \"PT Sans\", sans-serif",
-					"name": "PTSans",
+					"fontFamily": "\"PT Sans\", sans-serif",
+					"name": "PT Sans",
 					"slug": "pt-sans"
 				},
 				{
@@ -119,7 +123,8 @@
 							"fontStyle": "bold",
 							"fontWeight": "900",
 							"src": [
-								"file:./assets/fonts/GrueneType-BlackCondensedItalic.woff2"
+								"file:./assets/fonts/GrueneType-BlackCondensedItalic.woff2",
+								"file:./assets/fonts/GrueneType-BlackCondensedItalic.ttf"
 							]
 						}
 					],
