@@ -8,7 +8,7 @@ body {
 body {
 
     @include themed() {
-        font-family: t("standardFont");
+        font-family: t(standardFont);
     }
 }
 
@@ -160,7 +160,7 @@ button.filter,
 a.eventlist {
 
     @include themed() {
-        font-family: t("standardFont");
+        font-family: t(standardFont);
     }
 
     font-weight: 700;

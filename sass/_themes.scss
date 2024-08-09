@@ -1,6 +1,6 @@
 $themes: (
-    default: ("headingFont": "GrueneType", "headingFontBold": "GrueneType", "standardFont": "PTSans"),
-    contrast: ("headingFont": "GrueneType", "headingFontBold": "GrueneType", "standardFont": "PTSans")
+    default: ("headingFont": "GrueneType", "headingFontBold": "GrueneType", "standardFont": "\"PT Sans\", sans-serif"),
+    contrast: ("headingFont": "GrueneType", "headingFontBold": "GrueneType", "standardFont": "\"PT Sans\", sans-serif")
 );
 
 @mixin themed() {
@@ -22,7 +22,7 @@ $themes: (
 
 @function t($key) {
 
-    @return map-get($theme-map, $key);
+    @return unquote(map-get($theme-map, $key));
 }
 
 .theme--contrast {
