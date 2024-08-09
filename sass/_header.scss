@@ -39,6 +39,10 @@ body.admin-bar {
 
 .navbar {
 
+    > .container {
+        padding-left: 0;
+    }
+
     &-main {
         border-bottom: 1px solid $darkgray;
         transition: 0.3s;
@@ -270,8 +274,6 @@ body {
             align-items: center;
 
             @include media-breakpoint-down(sm) {
-                height: 55px;
-                width: 55px;
                 padding: 8px;
             }
         }

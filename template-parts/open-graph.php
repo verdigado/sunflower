@@ -16,7 +16,7 @@ if ( ! $sunflower_open_graph_image ) {
 ?>
 
 <!-- Facebook Meta Tags -->
-<meta property="og:url" content="<?php esc_url( the_permalink() ); ?>">
+<meta property="og:url" content="<?php the_permalink(); ?>">
 <meta property="og:type" content="website">
 <meta property="og:title" content="<?php echo esc_attr( get_the_title() ); ?>">
 <meta property="og:description" content="<?php echo esc_attr( wp_strip_all_tags( (string) get_the_excerpt() ) ); ?>">
