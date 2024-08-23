@@ -7,8 +7,9 @@
  * @package sunflower
  */
 
-$sunflower_styled_layout = (bool) get_post_meta( $post->ID, '_sunflower_styled_layout', true ) ?? false;
-$sunflower_class         = $args['class'] ?? '';
+$sunflower_show_post_thumbnail = has_post_thumbnail() && ! get_post_meta( $post->ID, '_sunflower_hide_feature_image', true );
+$sunflower_styled_layout       = (bool) get_post_meta( $post->ID, '_sunflower_styled_layout', true ) ?? false;
+$sunflower_class               = $args['class'] ?? '';
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $sunflower_class ); ?>>
@@ -20,7 +21,11 @@ $sunflower_class         = $args['class'] ?? '';
 	}
 	?>
 
-	<?php sunflower_post_thumbnail( $sunflower_styled_layout, true ); ?>
+	<?php
+	if ( $sunflower_show_post_thumbnail ) {
+		sunflower_post_thumbnail( $sunflower_styled_layout, true );
+	}
+	?>
 
 	<div class="entry-content accordion">
 		<?php
