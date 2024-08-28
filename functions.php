@@ -24,7 +24,6 @@ require_once __DIR__ . '/functions/related-posts.php';
 require_once __DIR__ . '/functions/activation.php';
 require_once __DIR__ . '/functions/comments.php';
 require_once __DIR__ . '/functions/icalimport.php';
-require_once __DIR__ . '/functions/pictureimport.php';
 require_once __DIR__ . '/functions/emailscrambler.php';
 require_once __DIR__ . '/functions/contact-form.php';
 require_once __DIR__ . '/functions/api.php';
