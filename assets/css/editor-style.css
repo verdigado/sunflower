@@ -1,6 +1,6 @@
 @font-face {
 	font-family: GrueneType;
-	src: url("assets/fonts/GrueneType-BlackCondensedItalic.woff2") format("woff2"), url("assets/fonts/GrueneType-BlackCondensedItalic.ttf") format("truetype");
+	src: url("../fonts/GrueneType-BlackCondensedItalic.woff2") format("woff2"), url("../fonts/GrueneType-BlackCondensedItalic.ttf") format("truetype");
 	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
@@ -520,9 +520,10 @@ p a {
 }
 
 .next-events {
-	background-image: url("../img/sunflower1.jpg");
+	background-image: url("../img/jeb-buchman-NjrjrdJE8As-unsplash-1.jpg");
 	background-size: cover;
 	background-position: top;
+	flex-direction: column;
 }
 
 .sunflower-has-background-dim>* {
