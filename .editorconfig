@@ -4,7 +4,7 @@
 root = true
 
 [*]
-# WordPress Coding Style uses TABs for PHP, JS and CSS files
+# WordPress Coding Style uses TABs for PHP, JS, HTML and CSS files
 # https://developer.wordpress.org/coding-standards/wordpress-coding-standards/
 indent_style = tab
 indent_size = 4
