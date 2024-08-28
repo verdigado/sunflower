@@ -1,17 +1,18 @@
 # Häufige Fragen
 
 ## Wie komme ich an schöne Bilder?
-Kostenlose schöne Bilder gibt es bspw. auf
-- [Pixabay](https://pixabay.com)
-- [Unsplash](https://unspalsh.com)
-- [Pexels](https://pexels.com)
 
-Du kannst auch das [WordPress-Plugin Free Images](https://wordpress.org/plugins/free-images/) installieren und dann innerhalb von WordPress Bilder von Pixabay herunterladen und in deiner Mediathek hinterlegen.
+Kostenlose schöne Bilder gibt es z.B. auf
 
-1. Installiere das [WordPress-Plugin Free Images](https://wordpress.org/plugins/free-images/)
-2. Gehe im Menü auf *Medien > Download Images*
-3. Suche ein Bild aus und lade es in Deine Mediathek
-4. Nutze das Bild an jeder beliebigen Stelle in WordPress
+- [Unsplash](https://unsplash.com)
+- [pixelio.de](https://www.pixelio.de/) (Registrierung notwendig)
+- [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?search=sonnenblumen&title=Special:MediaSearch&type=image&haslicense=unrestricted) (gute Suche, nur freie Lizenzen)
+
+Siehe auch die Empfehlungen des Bundesverbands unter [Das grüne Grundlagen-Design -> Hilfreiche Links](https://www.gruene.de/service/grundlagendesign-2023).
+
+### Lizenz- und Nutzungsbedingungen prüfen!
+
+Prüft unbedingt die Lizenz- und Nutzungsbedingungen der Bilder, die ihr verwenden möchtet. "Kostenlos" heißt nicht, dass man sie in jedem Fall verwenden darf. Manchmal ist es auch notwendig, die Quelle oder die Lizenz mit anzugeben wie z.B. bei [Creative Commons (CC)-Lizenzen](https://de.creativecommons.net/was-ist-cc/).
 
 ## Wie kann ich Soziale Plattformen wie Instagram, X (Twitter) und Facebook verlinken?
 Gehe dazu in die Sunflower-Einstellungen und trage die kompletten Webadressen Deiner Profile ein.
@@ -20,7 +21,7 @@ Sie erscheinen dann automatisch in der Fußzeile.
 ## Ich wünsche mir ein neues Feature, das es nicht gibt
 Neue Features kannst Du auf der
 
-* [Projektseite bei gitbub](https://github.com/verdigado/sunflower/issues) oder
+* [Projektseite bei GitHub](https://github.com/verdigado/sunflower/issues) oder
 * im Chatkanal auf [Chatbegrünung](https://chatbegruenung.de/channel/sunflower-wordpress)
 
 melden.
