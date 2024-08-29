@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.1.4\n"
+"Project-Id-Version: sunflower 2.1.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-19T09:08:48+00:00\n"
+"POT-Creation-Date: 2024-08-29T11:19:36+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower-contact-form\n"
@@ -40,47 +40,47 @@ msgid "https://verdigado.com"
 msgstr ""
 
 #: build/contact-form/render.php:11
-#: functions/contact-form.php:55
-#: build/contact-form/index.js:104
-#: build/contact-form/index.js:92
+#: functions/contact-form.php:63
+#: build/contact-form/index.js:119
+#: build/contact-form/index.js:101
 msgid "Contact Form"
 msgstr ""
 
-#: build/contact-form/render.php:27
+#: build/contact-form/render.php:28
 #: functions/contact-form.php:48
 msgid "Message"
 msgstr ""
 
-#: build/contact-form/render.php:30
+#: build/contact-form/render.php:31
 msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
 msgstr ""
 
-#: build/contact-form/render.php:34
+#: build/contact-form/render.php:35
 msgid ""
 "By using this form, you consent to the storage and processing of your data through our website.\n"
 "            Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>"
 msgstr ""
 
-#: build/contact-form/render.php:45
+#: build/contact-form/render.php:46
 #: functions/contact-form.php:35
 msgid "Name"
 msgstr ""
 
-#: build/contact-form/render.php:52
+#: build/contact-form/render.php:53
 #: functions/contact-form.php:40
 msgid "E-Mail"
 msgstr ""
 
-#: build/contact-form/render.php:64
+#: build/contact-form/render.php:65
 #: functions/contact-form.php:45
 msgid "Phone"
 msgstr ""
 
-#: build/contact-form/render.php:74
+#: build/contact-form/render.php:75
 msgid "How much is 1 + 1 ?"
 msgstr ""
 
-#: build/contact-form/render.php:80
+#: build/contact-form/render.php:84
 msgid "submit"
 msgstr ""
 
@@ -88,32 +88,47 @@ msgstr ""
 msgid "Thank you. The form has been sent."
 msgstr ""
 
-#: functions/contact-form.php:55
+#: functions/contact-form.php:63
 msgid "New Message from"
 msgstr ""
 
-#: build/contact-form/index.js:100
-#: build/contact-form/index.js:79
+#: build/contact-form/index.js:114
+#: build/contact-form/index.js:88
 msgid "The receiver address may be altered within the Sunflower theme settings. By default, emails are sent to the site administrator."
 msgstr ""
 
-#: build/contact-form/index.js:102
-#: build/contact-form/index.js:87
+#: build/contact-form/index.js:117
+#: build/contact-form/index.js:96
 msgid "Title of the form"
 msgstr ""
 
-#: build/contact-form/index.js:107
-#: build/contact-form/index.js:99
+#: build/contact-form/index.js:122
+#: build/contact-form/index.js:108
+msgid "Mail To"
+msgstr ""
+
+#: build/contact-form/index.js:123
+#: build/contact-form/index.js:109
+msgid "Mail form to this address instead of default receiver."
+msgstr ""
+
+#: build/contact-form/index.js:125
+#: build/contact-form/index.js:114
+msgid "default receiver"
+msgstr ""
+
+#: build/contact-form/index.js:129
+#: build/contact-form/index.js:122
 msgid "Require E-Mail"
 msgstr ""
 
-#: build/contact-form/index.js:111
-#: build/contact-form/index.js:104
+#: build/contact-form/index.js:133
+#: build/contact-form/index.js:130
 msgid "Display Phone Field"
 msgstr ""
 
-#: build/contact-form/index.js:115
-#: build/contact-form/index.js:109
+#: build/contact-form/index.js:137
+#: build/contact-form/index.js:138
 msgid "Require Phone"
 msgstr ""
 

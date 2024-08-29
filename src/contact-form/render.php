@@ -11,6 +11,7 @@ if ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) {
 	$sunflower_title = __( 'Contact Form', 'sunflower-contact-form' );
 }
 
+$sunflower_mailto        = $attributes['mailTo'] ?? '';
 $sunflower_display_phone = $attributes['displayPhone'] ?? false;
 $sunflower_require_phone = $attributes['requirePhone'] ?? false;
 $sunflower_require_mail  = $attributes['requireMail'] ?? false;
@@ -76,6 +77,9 @@ $sunflower_require_mail  = $attributes['requireMail'] ?? false;
 		</p>
 
 	</div>
+
+		<input id="mail-to" name="mail-to" type="hidden" value="<?php echo esc_attr( strrev( base64_encode( $sunflower_mailto ) ) ); //phpcs:ignore ?>" />
+
 		<p class="form-submit">
 			<input name="submit" type="submit" id="submit" class="submit" value="<?php esc_attr_e( 'submit', 'sunflower-contact-form' ); ?>"/>
 		</p>

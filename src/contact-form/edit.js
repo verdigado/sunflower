@@ -45,10 +45,15 @@ export default function Edit( { attributes, setAttributes } ) {
 		className: 'row',
 	} );
 
-	const { title, requireMail, requirePhone, displayPhone } = attributes;
+	const { title, mailTo, requireMail, requirePhone, displayPhone } =
+		attributes;
 
 	const onChangeTitle = ( input ) => {
 		setAttributes( { title: input === undefined ? '' : input } );
+	};
+
+	const onChangeMailTo = ( input ) => {
+		setAttributes( { mailTo: input === undefined ? '' : input } );
 	};
 
 	function toggleAttribute( propName ) {
@@ -98,6 +103,20 @@ export default function Edit( { attributes, setAttributes } ) {
 								'sunflower-contact-form'
 							) }
 							onChange={ onChangeTitle }
+						/>
+						<TextControl
+							label={ __( 'Mail To', 'sunflower-contact-form' ) }
+							help={ __(
+								'Mail form to this address instead of default receiver.',
+								'sunflower-contact-form'
+							) }
+							value={ mailTo }
+							placeholder={ __(
+								'default receiver',
+								'sunflower-contact-form'
+							) }
+							type="email"
+							onChange={ onChangeMailTo }
 						/>
 						<ToggleControl
 							label={ __(

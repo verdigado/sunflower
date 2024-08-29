@@ -50,7 +50,15 @@ function sunflower_contact_form() {
 	$title = sanitize_text_field( $_POST['title'] );
 
 	$response = __( 'Thank you. The form has been sent.', 'sunflower-contact-form' );
-	$to       = sunflower_get_setting( 'sunflower_contact_form_to' ) ? sunflower_get_setting( 'sunflower_contact_form_to' ) : get_option( 'admin_email' );
+
+	$mail_to = sanitize_text_field( $_POST['mailTo'] );
+	if ( $mail_to ) {
+		$to = sanitize_email( base64_decode( strrev( (string) $mail_to ) ) ); // phpcs:ignore
+	}
+
+	if ( empty( $to ) ) {
+		$to = sunflower_get_setting( 'sunflower_contact_form_to' ) ? sunflower_get_setting( 'sunflower_contact_form_to' ) : get_option( 'admin_email' );
+	}
 
 	$subject     = __( 'New Message from', 'sunflower-contact-form' ) . ' ' . ( $title ? $title : __( 'Contact Form', 'sunflower-contact-form' ) );
 	$message_str = sprintf( '%s', implode( "\n", $message ) );

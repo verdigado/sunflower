@@ -132,6 +132,7 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function ( e ) {
 				message: jQuery( '#message' ).val(),
 				name: jQuery( '#name' ).val(),
 				mail: jQuery( '#mail' ).val(),
+				mailTo: jQuery( '#mail-to' ).val(),
 				phone: jQuery( '#phone' ).val(),
 				title: jQuery( '#contact-form-title' ).html(),
 				captcha: jQuery( '#captcha' ).val(),
