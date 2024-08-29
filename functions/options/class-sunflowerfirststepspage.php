@@ -83,32 +83,6 @@ class SunflowerFirstStepsPage {
 			<h2><?php esc_attr_e( 'Settings', 'sunflower' ); ?></h2>
 			Bitte siehe links im Menü, welche Unterpunkte es gibt.
 
-			<h2>Import von Muster-Bildern</h2>
-			<?php
-			if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( $_GET['_wpnonce'], 'pictureimport-first-steps' ) && isset( $_GET['pictureimport'] ) ) {
-				$count = sunflower_import_all_pictures();
-				printf( '<a href="upload.php">Es wurden %d Bilder importiert. Sieh sie Dir in der Mediathek an</a>', esc_attr( $count ) );
-			} else {
-				?>
-				Wir haben eine Auswahl an Muster-Bildern zusammengestellt, die Du Dir in Deine Mediathek
-				herunterladen kannst. Du darfst diese Bilder ohne Quellenangabe nutzen.
-				Hier siehst Du die Bilder, die du importieren kannst:
-				<div style="margin-bottom:1em">
-					<img src="https://sunflower-theme.de/updateserver/images/thumbnails.jpg" alt="Thumbnails">
-				</div>
-				<div>
-					<?php
-					$sunflower_pictureimport_url = wp_nonce_url( 'admin.php?page=sunflower_admin&pictureimport=1', 'pictureimport-first-steps' );
-					printf( '<a href="%s" class="button button-primary">%s</a>', esc_html( $sunflower_pictureimport_url ), esc_attr__( 'Import Images to Media', 'sunflower' ) );
-					?>
-				</div>
-				<div>
-				Der Import kann einige Minuten dauern. Bitte warte so lange, und klicke nirgendwo hin.
-			</div>
-				<?php
-			}
-			?>
-
 		</div>
 		<?php
 	}
