@@ -28,6 +28,10 @@
 		"requirePhone": {
 			"type": "boolean",
 			"default": false
+		},
+		"sendCopy": {
+			"type": "boolean",
+			"default": false
 		}
     },
 	"supports": {

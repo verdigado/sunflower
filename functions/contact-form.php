@@ -73,6 +73,13 @@ function sunflower_contact_form() {
 		wp_mail( $to, $subject, $message_str, $headers );
 	}
 
+	// Send mail to sender if selected and email address is available.
+	if ( ! empty( $mail ) && sanitize_text_field( $_POST['sendCopy'] ) ) {
+		$headers = 'Reply-To: ' . $to;
+		$subject = __( 'Your Message on', 'sunflower-contact-form' ) . ' ' . ( $title ? $title : __( 'Contact Form', 'sunflower-contact-form' ) );
+		wp_mail( $mail, $subject, $message_str, $headers );
+	}
+
 	echo wp_json_encode(
 		array(
 			'code' => 200,

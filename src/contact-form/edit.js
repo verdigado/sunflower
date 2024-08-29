@@ -45,7 +45,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		className: 'row',
 	} );
 
-	const { title, mailTo, requireMail, requirePhone, displayPhone } =
+	const { title, mailTo, requireMail, requirePhone, displayPhone, sendCopy } =
 		attributes;
 
 	const onChangeTitle = ( input ) => {
@@ -141,6 +141,14 @@ export default function Edit( { attributes, setAttributes } ) {
 							) }
 							checked={ requirePhone }
 							onChange={ toggleAttribute( 'requirePhone' ) }
+						/>
+						<ToggleControl
+							label={ __(
+								'Send copy to sender',
+								'sunflower-contact-form'
+							) }
+							checked={ sendCopy }
+							onChange={ toggleAttribute( 'sendCopy' ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
