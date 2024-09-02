@@ -100,7 +100,7 @@ function sunflower_add_event_meta_boxes() {
 add_action( 'admin_init', 'sunflower_add_event_meta_boxes' );
 
 /**
- * Save event meta data
+ * Save event meta data to database.
  */
 function sunflower_save_event_meta_boxes() {
 	global $post;
@@ -131,8 +131,16 @@ function sunflower_save_event_meta_boxes() {
 
 	$into_transients = array( '_sunflower_event_lat', '_sunflower_event_lon', '_sunflower_event_zoom' );
 
+	$is_all_day = $_POST['_sunflower_event_whole_day'] ?? '';
+
 	foreach ( $sunflower_event_fields as $id => $config ) {
-		$value = ( 'datetimepicker' === $config[1] ) ? sunflower_german_date2int_date( $_POST[ $id ] ) : $_POST[ $id ];
+
+		// In case of all day events the events end on midnight, next day. So we have to add one day on save.
+		if ( '_sunflower_event_until' === $id && 'checked' === $is_all_day ) {
+			$value = gmdate( 'Y-m-d', strtotime( sunflower_german_date2int_date( $_POST[ $id ] ) ) + 86400 );
+		} else {
+			$value = ( 'datetimepicker' === $config[1] ) ? sunflower_german_date2int_date( $_POST[ $id ] ) : $_POST[ $id ];
+		}
 
 		update_post_meta( $post->ID, $id, sanitize_text_field( $value ) );
 		if ( ! in_array( $id, $into_transients, true ) ) {
@@ -150,7 +158,7 @@ function sunflower_save_event_meta_boxes() {
 add_action( 'save_post', 'sunflower_save_event_meta_boxes', 10, 2 );
 
 /**
- * Transform date from German format to YYYY-MM-DD HH:mm
+ * Transform date from German format "DD.MM.YYYY HH:mm" to "YYYY-MM-DD HH:mm"
  *
  * @param string $german_date The date string in German format.
  */
@@ -159,23 +167,35 @@ function sunflower_german_date2int_date( $german_date ) {
 		return '';
 	}
 
-	[$day, $month, $year, $hours, $minutes] = preg_split( '/[^0-9]/', (string) $german_date );
-	return sprintf( '%s-%s-%s %s:%s', $year, $month, $day, $hours, $minutes );
+	$date_array = preg_split( '/[^0-9]/', (string) $german_date );
+
+	if ( count( $date_array ) === 5 ) {
+		return sprintf( '%s-%s-%s %s:%s', $date_array[2], $date_array[1], $date_array[0], $date_array[3], $date_array[4] );
+	} else {
+		return sprintf( '%s-%s-%s', $date_array[2], $date_array[1], $date_array[0] );
+	}
 }
 
 /**
- * Transform date format from "YYYY-MM-DD HH:mm" into DD.MM.YYYY HH:mm
+ * Transform date format from "YYYY-MM-DD HH:mm" into German format "DD.MM.YYYY HH:mm"
  *
- * @param int $int_date The date in format "YYYY-MM-DD HH:mm".
+ * @param int $int_date The date in format international format.
  */
 function sunflower_int_date2german_date( $int_date ) {
 	if ( ! $int_date ) {
 		return '';
 	}
 
-	[$year, $month, $day, $hours, $minutes] = preg_split( '/[^0-9]/', (string) $int_date );
-	return sprintf( '%s.%s.%s %s:%s', $day, $month, $year, $hours, $minutes );
+	$date_array = preg_split( '/[^0-9]/', (string) $int_date );
+
+	if ( count( $date_array ) === 5 ) {
+		return sprintf( '%s.%s.%s %s:%s', $date_array[2], $date_array[1], $date_array[0], $date_array[3], $date_array[4] );
+	} else {
+		return sprintf( '%s.%s.%s', $date_array[2], $date_array[1], $date_array[0] );
+	}
 }
+
+
 
 /**
  * Render event meta box
@@ -203,8 +223,15 @@ function sunflower_event_meta_box() {
 		return;
 	}
 
+	$is_all_day = $custom['_sunflower_event_whole_day'][0] ?? '';
+
 	foreach ( $sunflower_event_fields as $id => $config ) {
 		$value = $custom[ $id ][0] ?? false;
+
+		// In case of all day events the events end on midnight, next day. For the input, we show last day of event.
+		if ( '_sunflower_event_until' === $id && 'checked' === $is_all_day ) {
+			$value = gmdate( 'Y.m.d', strtotime( $value ) - 86400 );
+		}
 		sunflower_event_field( $id, $config, $value );
 	}
 
@@ -259,7 +286,7 @@ function sunflower_event_field( $id, $config, $value ) {
 
 	match ( $sunflower_type ) {
 		'checkbox' => printf(
-			'<div><span><input class="%4$s" type="checkbox" name="%1$s" id="%1$s"  %3$s value="checked"></span><label for="%1$s">%2$s</label></div>',
+			'<div><span><input class="%4$s" type="checkbox" name="%1$s" id="%1$s" %3$s value="checked"></span><label for="%1$s">%2$s</label></div>',
 			esc_attr( $id ),
 			esc_attr( $sunflower_label ),
 			esc_attr( $value ),
@@ -294,7 +321,7 @@ function sunflower_load_event_admin_scripts() {
 
 	wp_enqueue_script(
 		'sunflower-datetimepicker-custom',
-		get_template_directory_uri() . '/assets/custom-jquery-date-time-picker.js',
+		get_template_directory_uri() . '/assets/js/custom-jquery-date-time-picker.js',
 		array( 'sunflower-datetimepicker' ),
 		'1.0.0',
 		true
