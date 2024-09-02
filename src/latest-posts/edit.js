@@ -63,6 +63,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		count,
 		archiveText,
 		blockLayout,
+		columns,
 	} = attributes;
 
 	const [ categoriesFormSuggestions, setCategoriesFormSuggestions ] =
@@ -250,6 +251,20 @@ export default function Edit( { attributes, setAttributes } ) {
 							value={ archiveText }
 							onChange={ onChangeArchiveText }
 						/>
+						{ blockLayout === 'grid' && (
+							<RangeControl
+								__nextHasNoMarginBottom
+								__next40pxDefaultSize
+								label={ __( 'Columns' ) }
+								value={ columns }
+								onChange={ ( value ) =>
+									setAttributes( { columns: value } )
+								}
+								min={ 2 }
+								max={ 3 }
+								required
+							/>
+						) }
 					</PanelBody>
 				</InspectorControls>
 			}

@@ -9,9 +9,11 @@ $sunflower_classnames   = array();
 $sunflower_classnames[] = 'has-background';
 $sunflower_classnames[] = 'latest-posts';
 
-$sunflower_is_grid = false;
+$sunflower_columns = 1;
 if ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'] ) {
-	$sunflower_is_grid = true;
+	if ( isset( $attributes['columns'] ) ) {
+		$sunflower_columns = $attributes['columns'];
+	}
 }
 
 $sunflower_count = isset( $attributes['count'] ) ? (int) $attributes['count'] : 6;
@@ -60,7 +62,17 @@ $sunflower_list_items = sprintf(
 	$sunflower_title
 );
 
-$sunflower_css_col = true === $sunflower_is_grid ? 'col-md-6' : 'col-12';
+switch ( $sunflower_columns ) {
+	case 1:
+		$sunflower_css_col = 'col-12';
+		break;
+	case 2:
+		$sunflower_css_col = 'col-md-6';
+		break;
+	case 3:
+		$sunflower_css_col = 'col-md-4';
+		break;
+}
 
 while ( $sunflower_posts->have_posts() ) {
 	$sunflower_posts->the_post();
