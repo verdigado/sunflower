@@ -126,6 +126,16 @@ export default function Edit( { attributes, setAttributes } ) {
 							checked={ requireMail }
 							onChange={ toggleAttribute( 'requireMail' ) }
 						/>
+						{ requireMail && (
+							<ToggleControl
+								label={ __(
+									'Send copy to sender',
+									'sunflower-contact-form'
+								) }
+								checked={ sendCopy }
+								onChange={ toggleAttribute( 'sendCopy' ) }
+							/>
+						) }
 						<ToggleControl
 							label={ __(
 								'Display Phone Field',
@@ -134,22 +144,16 @@ export default function Edit( { attributes, setAttributes } ) {
 							checked={ displayPhone }
 							onChange={ toggleAttribute( 'displayPhone' ) }
 						/>
-						<ToggleControl
-							label={ __(
-								'Require Phone',
-								'sunflower-contact-form'
-							) }
-							checked={ requirePhone }
-							onChange={ toggleAttribute( 'requirePhone' ) }
-						/>
-						<ToggleControl
-							label={ __(
-								'Send copy to sender',
-								'sunflower-contact-form'
-							) }
-							checked={ sendCopy }
-							onChange={ toggleAttribute( 'sendCopy' ) }
-						/>
+						{ displayPhone && (
+							<ToggleControl
+								label={ __(
+									'Require Phone',
+									'sunflower-contact-form'
+								) }
+								checked={ requirePhone }
+								onChange={ toggleAttribute( 'requirePhone' ) }
+							/>
+						) }
 					</PanelBody>
 				</InspectorControls>
 			}
