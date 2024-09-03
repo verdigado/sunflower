@@ -6,11 +6,12 @@ Hier findest du eine Liste, über Änderungen, die mit den verschiedenen Version
 
 Release: [*03. September 2024*](https://github.com/verdigado/sunflower/releases/tag/v2.2.0)
 
-* **3-spaltige Beiträge** - Es wurde eine Ansicht der neusten Beiträge in 3 Spalten hinzugefügt.
-* **Bestätigungsmail an Absender** - Im Sunflower Formular wurde ergänzt, dass der Absender eine Bestätigungsmail erhält.
+* **3-spaltige Beiträge** - Der Block "Neueste Beiträge" kann jetzt auch mit 3 Spalten genutzt werden.
+* **Bestätigungsmail an Absender** - Im Sunflower Formular wurde ergänzt, dass der Absender eine Bestätigungsmail erhalten kann.
 * **Anpassbare Empfänger im Kontaktformular** - Es können nun Empfänger im Kontaktformular individuell hinterlegt werden.
 * **Vorlage Linkseite** - Nutzende können sich eine Linkseite als Vorlage in die Hompage integrieren und anpassen. Damit bieten wir eine Alternative zu Linktree und Wonderlink. [Die Anleitung dazu, findest du hier](blocks.md#vorlagen)
 * **Pixabay Stockfotos** - Pixabay hat die Nutzung ihrer Bilder für politische Inhalte verboten - diese wurden deshalb komplett ausgetauscht.
+* **SEO Verbesserung** - In den Metadaten wird der [WebSite Name nach schema.org](https://developers.google.com/search/docs/appearance/site-names?hl=de#website) standardmäßig ausgegeben.
 
 ## Version 2.1
 

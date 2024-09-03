@@ -45,6 +45,15 @@ class SunflowerSettingsPage {
 	public function create_sunflower_settings_page(): void {
 		// Set class properties from options.
 		$this->options = get_option( 'sunflower_options' );
+
+		if ( ! is_array( $this->options ) ) {
+			$this->options = array();
+		}
+
+		// Set default values.
+		$this->options['sunflower_schema_org']         = $this->options['sunflower_schema_org'] ?? 'checked';
+		$this->options['sunflower_categories_archive'] = $this->options['sunflower_categories_archive'] ?? 'main-categories';
+
 		?>
 		<div class="wrap">
 			<h1><?php esc_html_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
@@ -115,7 +124,10 @@ class SunflowerSettingsPage {
 			$this->sunflower_checkbox_callback( ... ),
 			'sunflower-setting-admin',
 			'sunflower_layout',
-			array( 'sunflower_show_related_posts', __( 'show related posts', 'sunflower' ) )
+			array(
+				'field' => 'sunflower_show_related_posts',
+				'label' => __( 'show related posts', 'sunflower' ),
+			)
 		);
 
 		add_settings_field(
@@ -124,7 +136,10 @@ class SunflowerSettingsPage {
 			$this->sunflower_checkbox_callback( ... ),
 			'sunflower-setting-admin',
 			'sunflower_layout',
-			array( 'sunflower_show_author', __( 'Show post author on post details and via REST api.', 'sunflower' ) )
+			array(
+				'field' => 'sunflower_show_author',
+				'label' => __( 'Show post author on post details and via REST api.', 'sunflower' ),
+			)
 		);
 
 		add_settings_field(
@@ -133,7 +148,10 @@ class SunflowerSettingsPage {
 			$this->sunflower_checkbox_callback( ... ),
 			'sunflower-setting-admin',
 			'sunflower_layout',
-			array( 'sunflower_hide_prev_next', __( 'hide previous and next links', 'sunflower' ) )
+			array(
+				'field' => 'sunflower_hide_prev_next',
+				'label' => __( 'hide previous and next links', 'sunflower' ),
+			)
 		);
 
 		add_settings_field(
@@ -151,7 +169,10 @@ class SunflowerSettingsPage {
 			$this->sunflower_checkbox_callback( ... ),
 			'sunflower-setting-admin',
 			'sunflower_layout',
-			array( 'sunflower_main_menu_item_is_placeholder', __( 'items with href=# in the main menu are placeholders for submenu', 'sunflower' ) )
+			array(
+				'field' => 'sunflower_main_menu_item_is_placeholder',
+				'label' => __( 'items with href=# in the main menu are placeholders for submenu', 'sunflower' ),
+			)
 		);
 
 		add_settings_field(
@@ -177,8 +198,19 @@ class SunflowerSettingsPage {
 			__( 'Show list of categories on category archive', 'sunflower' ),
 			$this->sunflower_categories_archive( ... ),
 			'sunflower-setting-admin',
+			'sunflower_layout'
+		);
+
+		add_settings_field(
+			'sunflower_schema_org',
+			__( 'Enhance SEO', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-admin',
 			'sunflower_layout',
-			array( 'sunflower_categories_filter', __( 'Show list of categories on category archive', 'sunflower' ) )
+			array(
+				'field' => 'sunflower_schema_org',
+				'label' => __( 'Set website name in page metadata', 'sunflower' ),
+			)
 		);
 	}
 
@@ -217,8 +249,8 @@ class SunflowerSettingsPage {
 	 * @param array $args The field arguments.
 	 */
 	public function sunflower_checkbox_callback( $args ): void {
-		$field = $args[0];
-		$label = $args[1];
+		$field = $args['field'];
+		$label = $args['label'];
 
 		printf(
 			'<label>

@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-
 jQuery( function ( $ ) {
 	$.datetimepicker.setLocale( 'de' );
 
