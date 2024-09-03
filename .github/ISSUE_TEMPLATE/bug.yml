@@ -1,0 +1,67 @@
+name: Bug Report
+description: File a bug report.
+labels: ["type: bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Need help or support?
+        Please don't open an issue! Head to https://chatbegruenung.de/channel/sunflower-wordpress or https://verdigado.com/kontakt/.
+
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: Tell us what should happen.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Current behavior
+      description: Tell us what happens instead of the expected behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Website or Screenshots
+      description: If applicable, add a link to the website or add screenshots to help explain your problem.
+  
+  - type: textarea
+    attributes:
+      label: Additional context/info to reproduce
+
+  - type: textarea
+    attributes:
+      label: Possible Fix
+      description: If you have suggestions on a fix for the bug.
+
+  - type: input
+    attributes:
+      label: Devise
+      placeholder: "Desktop/Smartphone"
+
+  - type: input
+    attributes:
+      label: OS
+      placeholder: "e.g. iOS, Android, Windows"
+
+  - type: input
+    attributes:
+      label: Browser
+      placeholder: "e.g. Google Chrome, safari, Microsoft Edge, Mozilla Firefox"
+
+  - type: input
+    attributes:
+      label: Version of the sunflower theme
+      placeholder: "v0.0.0"
+
+  - type: input
+    attributes:
+      label: WordPress version
+      placeholder: "v0.0.0"
+
+  - type: input
+    attributes:
+      label: PHP version
+      placeholder: "v0.0.0"
