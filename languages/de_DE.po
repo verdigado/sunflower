@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2024-08-08T07:01:26+00:00\n"
-"PO-Revision-Date: 2024-08-08 09:01+0200\n"
+"POT-Creation-Date: 2024-09-03T12:26:49+00:00\n"
+"PO-Revision-Date: 2024-09-03 14:29+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -74,7 +74,7 @@ msgstr "Alle Termine"
 msgid "Archive"
 msgstr "Archiv"
 
-#: archive-sunflower_event.php:63 functions/events.php:235
+#: archive-sunflower_event.php:63 functions/events.php:262
 #: functions/options/class-sunflowereventsettingspage.php:113
 msgid "Map"
 msgstr "Landkarte"
@@ -275,7 +275,7 @@ msgstr "URL der Organisator*in"
 msgid "Event"
 msgstr "Termin"
 
-#: functions/events.php:192
+#: functions/events.php:212
 msgid ""
 "This event will be imported by remote ical-calendar. All changes here will "
 "be overwritten."
@@ -283,20 +283,20 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:236
+#: functions/events.php:263
 #: functions/options/class-sunflowereventsettingspage.php:114
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/events.php:237
+#: functions/events.php:264
 msgid "delete map"
 msgstr "Karte nicht anzeigen"
 
-#: functions/events.php:516
+#: functions/events.php:543
 msgid "Event date"
 msgstr "Datum der Veranstaltung"
 
-#: functions/events.php:517
+#: functions/events.php:544
 msgid "Event location"
 msgstr "Ort"
 
@@ -305,7 +305,7 @@ msgid "More Information"
 msgstr "Weitere Informationen"
 
 #: functions/metaboxes.php:15
-#: functions/options/class-sunflowersettingspage.php:99
+#: functions/options/class-sunflowersettingspage.php:108
 msgid "Layout"
 msgstr "Layout"
 
@@ -342,7 +342,7 @@ msgid "use Shift + Enter to prevent line between"
 msgstr "Wähle SHIFT + ENTER, um  Zwischenzeile zu verhindern"
 
 #: functions/options/class-sunflowereventsettingspage.php:50
-#: functions/options/class-sunflowersettingspage.php:50
+#: functions/options/class-sunflowersettingspage.php:59
 #: functions/options/class-sunflowersocialmediasettingspage.php:50
 msgid "Sunflower Settings"
 msgstr "Sunflower Einstellungen"
@@ -394,92 +394,95 @@ msgid "Settings"
 msgstr "Einstellungen"
 
 #: functions/options/class-sunflowerfirststepspage.php:102
-msgid "Import Images to Media"
-msgstr "Bilder in Mediathek importieren"
-
-#: functions/options/class-sunflowerfirststepspage.php:128
 msgid "Activate Theme"
 msgstr "Theme aktivieren"
 
-#: functions/options/class-sunflowerfirststepspage.php:135
+#: functions/options/class-sunflowerfirststepspage.php:109
 msgid "Sunflower Terms of Use"
 msgstr "Sunflower Nutzungsbedingungen"
 
-#: functions/options/class-sunflowerfirststepspage.php:139
+#: functions/options/class-sunflowerfirststepspage.php:113
 msgid "Accept Terms of Use"
 msgstr "Nutzungsbedingungen akzeptieren"
 
-#: functions/options/class-sunflowersettingspage.php:75
+#: functions/options/class-sunflowersettingspage.php:84
 msgid "Reimport permalink structure"
 msgstr "Permalinkstruktur neu einlesen"
 
-#: functions/options/class-sunflowersettingspage.php:106
+#: functions/options/class-sunflowersettingspage.php:115
 msgid "Excerpt length (words)"
 msgstr "Anzahl der Wörter im Vorschautext"
 
-#: functions/options/class-sunflowersettingspage.php:114
-#: functions/options/class-sunflowersettingspage.php:118
+#: functions/options/class-sunflowersettingspage.php:123
+#: functions/options/class-sunflowersettingspage.php:129
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options/class-sunflowersettingspage.php:123
+#: functions/options/class-sunflowersettingspage.php:135
 msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
-#: functions/options/class-sunflowersettingspage.php:127
+#: functions/options/class-sunflowersettingspage.php:141
 msgid "Show post author on post details and via REST api."
 msgstr "Zeige den/die Autor*in im Beitrag und über die REST-API."
 
-#: functions/options/class-sunflowersettingspage.php:132
-#: functions/options/class-sunflowersettingspage.php:136
+#: functions/options/class-sunflowersettingspage.php:147
+#: functions/options/class-sunflowersettingspage.php:153
 msgid "hide previous and next links"
 msgstr "Verstecke vor- und zurück-Links"
 
-#: functions/options/class-sunflowersettingspage.php:141
-#: functions/options/class-sunflowersettingspage.php:145
+#: functions/options/class-sunflowersettingspage.php:159
+#: functions/options/class-sunflowersettingspage.php:163
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/class-sunflowersettingspage.php:150
+#: functions/options/class-sunflowersettingspage.php:168
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/class-sunflowersettingspage.php:154
+#: functions/options/class-sunflowersettingspage.php:174
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/class-sunflowersettingspage.php:159
-#: functions/options/class-sunflowersettingspage.php:163
+#: functions/options/class-sunflowersettingspage.php:180
+#: functions/options/class-sunflowersettingspage.php:184
 msgid "Use this header layout"
 msgstr "Layout für den Header"
 
-#: functions/options/class-sunflowersettingspage.php:168
-#: functions/options/class-sunflowersettingspage.php:172
+#: functions/options/class-sunflowersettingspage.php:189
+#: functions/options/class-sunflowersettingspage.php:193
 msgid "Show social media icons in header"
 msgstr "Social-Media Icons im Header anzeigen"
 
-#: functions/options/class-sunflowersettingspage.php:177
-#: functions/options/class-sunflowersettingspage.php:181
+#: functions/options/class-sunflowersettingspage.php:198
 msgid "Show list of categories on category archive"
 msgstr "Zeige Liste von Kategorien auf Kategorie Seite"
 
-#: functions/options/class-sunflowersettingspage.php:261
+#: functions/options/class-sunflowersettingspage.php:206
+msgid "Enhance SEO"
+msgstr "SEO verbessern"
+
+#: functions/options/class-sunflowersettingspage.php:212
+msgid "Set website name in page metadata"
+msgstr "Webseitenname in den Seiten-Metadaten"
+
+#: functions/options/class-sunflowersettingspage.php:293
 msgid "Standard"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:262
+#: functions/options/class-sunflowersettingspage.php:294
 msgid "Personal"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:284
+#: functions/options/class-sunflowersettingspage.php:316
 msgid "do not show"
 msgstr "keine Anzeige"
 
-#: functions/options/class-sunflowersettingspage.php:285
+#: functions/options/class-sunflowersettingspage.php:317
 msgid "main categories"
 msgstr "Hauptkategorien"
 
-#: functions/options/class-sunflowersettingspage.php:286
+#: functions/options/class-sunflowersettingspage.php:318
 msgid "only sub-categories"
 msgstr "nur Unter-Kategorien"
 
@@ -512,37 +515,38 @@ msgid "Facebook"
 msgstr "Facebook"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:123
+#: functions/options/class-sunflowersocialmediasettingspage.php:127
+msgid "WhatsApp"
+msgstr ""
+
+#: functions/options/class-sunflowersocialmediasettingspage.php:132
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:127
+#: functions/options/class-sunflowersocialmediasettingspage.php:136
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:164
+#: functions/options/class-sunflowersocialmediasettingspage.php:173
 msgid "Show share buttons on single post page"
 msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:236
+#: functions/options/class-sunflowersocialmediasettingspage.php:246
 #: functions/s.php:154
 msgid "Select Open Graph Fallback Image"
 msgstr "Fallback-Bild für Open-Graph-Tag wählen"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:248
+#: functions/options/class-sunflowersocialmediasettingspage.php:258
 msgid "Open Media Library"
 msgstr "Mediathek öffnen"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:253
+#: functions/options/class-sunflowersocialmediasettingspage.php:263
 msgid ""
 "This fallback image will be used when sharing pages and posts and no "
 "featured image has been selected."
 msgstr ""
 "Dieses Fallback-Bild wird beim Teilen von Seiten oder Beiträgen verwendet, "
 "wenn kein Beitragsbild ausgewählt wurde."
-
-#: functions/pictureimport.php:67
-msgid "An error occurred. Could not import images"
-msgstr "Es ist ein Fehler aufgetreten. Die Bilder wurden nicht importiert."
 
 #: functions/s.php:54
 msgid "Mainmenu"
@@ -595,15 +599,19 @@ msgctxt "list item separator"
 msgid ", "
 msgstr ", "
 
-#: inc/template-tags.php:113
+#: inc/template-tags.php:111
 msgid "Share on X (Twitter) "
 msgstr "Auf X (Twitter) teilen"
 
-#: inc/template-tags.php:121
+#: inc/template-tags.php:119
 msgid "Share on Facebook "
 msgstr "Auf Facebook teilen "
 
-#: inc/template-tags.php:130
+#: inc/template-tags.php:127
+msgid "Share on WhatsApp "
+msgstr "Auf WhatsApp teilen "
+
+#: inc/template-tags.php:136
 msgid "send mail "
 msgstr "Sende E-Mail"
 
@@ -618,7 +626,7 @@ msgstr "Uhr"
 
 #: single-sunflower_event.php:83
 msgid "Location Link"
-msgstr "Link zum Ort"
+msgstr "Ort"
 
 #: single-sunflower_event.php:99
 msgid "Link to webinar"
@@ -632,7 +640,7 @@ msgstr "organisiert von"
 msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
-#: template-parts/content-archive.php:53 template-parts/content-page.php:31
+#: template-parts/content-archive.php:53 template-parts/content-page.php:36
 #: template-parts/content.php:89
 msgid "Pages:"
 msgstr "Seiten:"
@@ -754,6 +762,12 @@ msgstr ""
 msgctxt "Font family name"
 msgid "GrueneType"
 msgstr ""
+
+#~ msgid "Import Images to Media"
+#~ msgstr "Bilder in Mediathek importieren"
+
+#~ msgid "An error occurred. Could not import images"
+#~ msgstr "Es ist ein Fehler aufgetreten. Die Bilder wurden nicht importiert."
 
 #~ msgid "no"
 #~ msgstr "keine Anzeige"

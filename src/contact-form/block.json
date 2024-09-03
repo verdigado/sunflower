@@ -13,6 +13,10 @@
             "type": "string",
 			"default": ""
 		},
+        "mailTo": {
+            "type": "string",
+			"default": ""
+		},
 		"requireMail": {
 			"type": "boolean",
 			"default": false
@@ -22,6 +26,10 @@
 			"default": false
 		},
 		"requirePhone": {
+			"type": "boolean",
+			"default": false
+		},
+		"sendCopy": {
 			"type": "boolean",
 			"default": false
 		}

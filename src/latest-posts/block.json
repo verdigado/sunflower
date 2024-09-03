@@ -31,6 +31,10 @@
 			"type": "string",
 			"default": "grid"
 		},
+		"columns": {
+			"type": "number",
+			"default": 2
+		},
 		"excerptLength": {
 			"type": "number",
 			"default": 55

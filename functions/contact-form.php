@@ -50,7 +50,15 @@ function sunflower_contact_form() {
 	$title = sanitize_text_field( $_POST['title'] );
 
 	$response = __( 'Thank you. The form has been sent.', 'sunflower-contact-form' );
-	$to       = sunflower_get_setting( 'sunflower_contact_form_to' ) ? sunflower_get_setting( 'sunflower_contact_form_to' ) : get_option( 'admin_email' );
+
+	$mail_to = sanitize_text_field( $_POST['mailTo'] );
+	if ( $mail_to ) {
+		$to = sanitize_email( base64_decode( strrev( (string) $mail_to ) ) ); // phpcs:ignore
+	}
+
+	if ( empty( $to ) ) {
+		$to = sunflower_get_setting( 'sunflower_contact_form_to' ) ? sunflower_get_setting( 'sunflower_contact_form_to' ) : get_option( 'admin_email' );
+	}
 
 	$subject     = __( 'New Message from', 'sunflower-contact-form' ) . ' ' . ( $title ? $title : __( 'Contact Form', 'sunflower-contact-form' ) );
 	$message_str = sprintf( '%s', implode( "\n", $message ) );
@@ -63,6 +71,13 @@ function sunflower_contact_form() {
 		wp_mail( $to, $subject, $message_str );
 	} else {
 		wp_mail( $to, $subject, $message_str, $headers );
+	}
+
+	// Send mail to sender if selected and email address is available.
+	if ( ! empty( $mail ) && sanitize_text_field( $_POST['sendCopy'] ) ) {
+		$headers = 'Reply-To: ' . $to;
+		$subject = __( 'Your Message on', 'sunflower-contact-form' ) . ' ' . ( $title ? $title : __( 'Contact Form', 'sunflower-contact-form' ) );
+		wp_mail( $mail, $subject, $message_str, $headers );
 	}
 
 	echo wp_json_encode(
