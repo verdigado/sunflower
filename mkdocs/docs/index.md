@@ -4,12 +4,12 @@ Dies ist die Anleitung für das Sunflower-WordPress-Theme.
 
 ## Neuerungen
 
-Am 7. Mai 2024 ist die Version 2.1. von Sunflower mit einer Reihe an neuen Dingen erschienen. [Hier findest du eine Liste mit den Neuerungen.](changelog.md#version-21)
+Am 3. September 2024 ist die Version 2.2. von Sunflower mit einer Reihe an neuen Dingen erschienen. [Hier findest du eine Liste mit den Neuerungen.](changelog.md#version-22)
 
 ## Voraussetzungen
 * WordPress 6
 * Sunflower Theme 2.0.x: PHP 7.4 oder 8.2
-* Sunflower Theme 2.1.x: PHP 8.2
+* Sunflower Theme 2.1, 2.2: PHP 8.2
 
 ## Features
 * einfacher Umzug von Urwahl3000
