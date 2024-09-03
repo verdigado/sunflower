@@ -2,6 +2,13 @@
 
 Hier findest du eine Liste, über Änderungen, die mit den verschiedenen Versionen erschienen sind.
 
+## Version 2.2. *03. September 2024*
+* **3-spaltige Beiträge** - Es wurde eine Ansicht der neusten Beiträge in 3 Spalten hinzugefügt.
+* **Bestätigungsmail an Absender** - Im Sunflower Formular wurde ergänzt, dass der Absender eine Bestätigungsmail erhält.
+* **Anpassbare Empfänger im Kontaktformular** - Es können nun Empfänger im Kontaktformular individuell hinterlegt werden.
+* **Vorlage Linkseite** - Nutzende können sich eine Linkseite als Vorlage in die Hompage integrieren und anpassen. Damit bieten wir eine Alternative zu Linktree und Wonderlink. [Die Anleitung dazu, findest du hier](blocks.md#vorlagen)
+* **Pixabay Stockfotos** - Pixabay hat die Nutzung ihrer Bilder für politische Inhalte verboten - diese wurden deshalb komplett ausgetauscht.
+
 ## Version 2.1 *07. Mai 2024*
 * **Nutzungsbedingungen** - Nutzende müssen bestätigen, um das Logo der Grünen benutzen zu können. [Hier ist beschrieben, wie es geht.](setup.md#theme-aktivieren)
 * **Button-Highlight** - es wurde eine Klasse geschaffen, um ein Menü Item in der Hauptnavigation hervorzuheben. [Mehr dazu](menus.md#wie-setze-ich-einen-highlight-button)
