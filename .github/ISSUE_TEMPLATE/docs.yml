@@ -1,0 +1,23 @@
+name: Documentation
+description: Are the docs lacking or missing something?
+labels: ["type: documentation"]
+body:
+  - type: checkboxes
+    attributes:
+      label: "Documentation is:"
+      options:
+        - label: Missing or needed?
+        - label: Confusing
+        - label: Not sure?
+
+  - type: textarea
+    attributes:
+      label: Please Explain in Detail
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Your Proposal for Changes
+    validations:
+      required: true
