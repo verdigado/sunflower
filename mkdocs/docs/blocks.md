@@ -56,3 +56,9 @@ Es gibt auch Vorlagen für typische Szenarien wie z.B. die Startseite und Kandid
   ![Screenshot vom Sunflower-Menü](images/pattern.png){ width="" }
   <figcaption>Vorlage in Seite laden</figcaption>
 </figure>
+
+Neu ist auch die Vorlage für eine Linkseite. gerade für Social Media als alternative zu Wonderlink kund Linktree interessant. Die Vorlage kann in die Entsprechende Seite geladen werden. Es sollte auch der haken bei "gestyltes Layout" gesetzt werden.
+<figure markdown="span">
+  ![Screenshot von der Muster Linkseite](images/screenshot-linkseite.png){ width="" }
+  <figcaption>Vorlage in Seite laden</figcaption>
+</figure>
