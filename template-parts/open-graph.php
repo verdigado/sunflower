@@ -31,17 +31,14 @@ if ( ! $sunflower_open_graph_image ) {
 <meta name="twitter:image" content="<?php echo esc_url( $sunflower_open_graph_image ); ?>">
 
 <?php
-$sunflower_schema_org = sunflower_get_setting( 'sunflower_schema_org' );
-if ( ! function_exists( 'is_plugin_active' ) ) {
-
-	$sunflower_is_yoast_active = defined( 'WPSEO_FILE' );
-}
+$sunflower_schema_org      = sunflower_get_setting( 'sunflower_schema_org' );
+$sunflower_is_yoast_active = defined( 'WPSEO_FILE' );
 
 // Add WebSite schema. See https://developers.google.com/search/docs/appearance/site-names?hl=de#website for details.
 // schema.org metadata may be set already by other plugins as Yoast.
 if ( 'checked' === $sunflower_schema_org && false === $sunflower_is_yoast_active ) {
 
-	printf( '<meta property="og:site_name" content="%s">', esc_attr( get_bloginfo( 'name' ) ) );
+	printf( '<meta property="og:site_name" content="%s">' . "\n", esc_attr( get_bloginfo( 'name' ) ) );
 	printf(
 		'<script type="application/ld+json">
 			{
@@ -50,7 +47,7 @@ if ( 'checked' === $sunflower_schema_org && false === $sunflower_is_yoast_active
 			"name" : "%s",
 			"url" : "%s"
 			}
-			</script>',
+			</script>' . "\n",
 		esc_attr( get_bloginfo( 'name' ) ),
 		esc_url( get_home_url() )
 	);

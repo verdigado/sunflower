@@ -47,11 +47,11 @@ class SunflowerSettingsPage {
 		$this->options = get_option( 'sunflower_options' );
 
 		if ( ! is_array( $this->options ) ) {
-			$this->options = array();
+			$this->options                         = array();
+			$this->options['sunflower_schema_org'] = $this->options['sunflower_schema_org'] ?? 'checked';
 		}
 
 		// Set default values.
-		$this->options['sunflower_schema_org']         = $this->options['sunflower_schema_org'] ?? 'checked';
 		$this->options['sunflower_categories_archive'] = $this->options['sunflower_categories_archive'] ?? 'main-categories';
 
 		?>
