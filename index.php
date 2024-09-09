@@ -13,7 +13,7 @@ get_header();
 		<div class="row">
 			<div class="col-12">
 				<main id="primary" class="site-main archive">
-					<?php if ( have_posts() ) : ?>
+					<?php if ( have_posts() ) { ?>
 
 						<header class="page-header mb-5 text-center">
 						<?php
@@ -77,21 +77,23 @@ get_header();
 							'next_text' => __( 'next', 'sunflower' ),
 						);
 
-						printf(
-							'<div class="d-flex justify-content-around mt-3 mb-5"><div class="sunflower-pagination">%s</div></div>',
-							wp_kses_post( paginate_links( $sunflower_args ) )
-						);
+						$sunflower_paginated_links = paginate_links( $sunflower_args );
 
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+						if ( $sunflower_paginated_links ) {
+							printf(
+								'<div class="d-flex justify-content-around mt-3 mb-5"><div class="sunflower-pagination">%s</div></div>',
+								wp_kses_post( $sunflower_paginated_links )
+							);
+						}
+					} else {
+						get_template_part( 'template-parts/content', 'none' );
+					}
+					?>
 
 				</main><!-- #main -->
 			</div>
 		</div>
 </div>
 <?php
+get_sidebar();
 get_footer();
