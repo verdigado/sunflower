@@ -116,6 +116,7 @@ function sunflower_the_social_media_sharers() {
 		$sharer[] = sprintf(
 			'<a href="https://www.facebook.com/sharer/sharer.php?u=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-facebook-f"></i></a>',
 			get_permalink(),
+			rawurlencode( (string) get_the_title() ),
 			__( 'Share on Facebook ', 'sunflower' )
 		);
 	}
