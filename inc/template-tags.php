@@ -58,14 +58,14 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 	 */
 	function sunflower_entry_footer( $show_sharers = false ) {
 		?>
-			<div class="d-flex mt-2 mb-2">
-				<?php
+<div class="d-flex mt-2 mb-2">
+    <?php
 				if ( $show_sharers ) {
 					sunflower_the_social_media_sharers();
 				}
 				?>
-				<div>
-		<?php
+    <div>
+        <?php
 
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
@@ -91,9 +91,9 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 
 		?>
 
-				</div>
-			</div>
-		<?php
+    </div>
+</div>
+<?php
 	}
 endif;
 
@@ -115,15 +115,16 @@ function sunflower_the_social_media_sharers() {
 	if ( sunflower_get_setting( 'sunflower_sharer_facebook' ) ) {
 		$sharer[] = sprintf(
 			'<a href="https://www.facebook.com/sharer/sharer.php?u=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-facebook-f"></i></a>',
-			rawurlencode( (string) get_the_title() ),
+			get_permalink(),
 			__( 'Share on Facebook ', 'sunflower' )
 		);
 	}
 
 	if ( sunflower_get_setting( 'sunflower_sharer_whatsapp' ) ) {
 		$sharer[] = sprintf(
-			'<a href="https://wa.me/?text=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-whatsapp"></i></a>',
+			'<a href="https://wa.me/?text=%s %s" target="_blank" title="%s" class="sharer"><i class="fab fa-whatsapp"></i></a>',
 			rawurlencode( (string) get_the_title() ),
+			get_permalink(),
 			__( 'Share on WhatsApp ', 'sunflower' )
 		);
 	}
@@ -164,14 +165,14 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 
 		if ( is_singular() ) :
 			?>
-			<div class="post-thumbnail
+<div class="post-thumbnail
 			<?php
 			if ( $styled_layout ) {
 				echo ' mt-1';
 			}
 			?>
 			">
-				<?php
+    <?php
 				the_post_thumbnail(
 					'null',
 					array(
@@ -180,20 +181,20 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 				);
 				?>
 
-			<?php
+    <?php
 			if ( $caption ) {
 				$caption = get_post( get_post_thumbnail_id() )->post_excerpt;
 				if ( ! empty( $caption ) ) {
 					?>
-				<figcaption><?php echo esc_attr( $caption ); ?></figcaption>
-					<?php
+    <figcaption><?php echo esc_attr( $caption ); ?></figcaption>
+    <?php
 				}
 			}
 			?>
-			</div><!-- .post-thumbnail -->
+</div><!-- .post-thumbnail -->
 
-		<?php else : ?>
-			<?php
+<?php else : ?>
+<?php
 				$classes = array( 'post-thumbnail' );
 
 			the_post_thumbnail(
@@ -210,7 +211,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 			?>
 
 
-			<?php
+<?php
 		endif; // End is_singular().
 	}
 endif;
