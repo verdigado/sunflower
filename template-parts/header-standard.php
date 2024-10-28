@@ -100,7 +100,7 @@
 			if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 				$sunflower_custom_logo_id = get_theme_mod( 'custom_logo' );
 				$sunflower_custom_logo    = wp_get_attachment_image_src( $sunflower_custom_logo_id, 'thumbnail' );
-				printf( '<a class="navbar-brand" href="%s">', esc_url( $sunflower_custom_logo[0] ) );
+				printf( '<a class="navbar-brand" href="%s">', esc_url( get_home_url() ) );
 				printf( '<img src="%s" class="custom-logo" alt="Logo" title="%s"></a>', esc_url( $sunflower_custom_logo[0] ), esc_attr( get_bloginfo( 'name' ) ) );
 			} elseif ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
 				printf( '<a class="navbar-brand" href="%s">', esc_url( get_home_url() ) );
