@@ -196,13 +196,12 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			$item_has_children = false;
 			// If item has_children add atts to <a>.
 			if ( isset( $args->has_children ) && $args->has_children && 0 === $depth && $args->depth > 1 ) {
-				$item_has_children      = true;
-				$atts['href']           = empty( $item->url ) ? '#' : $item->url;
-				$atts['data-bs-toggle'] = 'dropdown';
-				$atts['aria-haspopup']  = 'true';
-				$atts['aria-expanded']  = 'false';
-				$atts['class']          = 'dropdown-toggle nav-link';
-				$atts['id']             = 'menu-item-dropdown-' . $item->ID;
+				$item_has_children     = true;
+				$atts['href']          = empty( $item->url ) ? '#' : $item->url;
+				$atts['aria-haspopup'] = 'true';
+				$atts['aria-expanded'] = 'false';
+				$atts['class']         = 'dropdown-toggle nav-link';
+				$atts['id']            = 'menu-item-dropdown-' . $item->ID;
 			} else {
 				$atts['href'] = empty( $item->url ) ? '#' : $item->url;
 				// Items in dropdowns use .dropdown-item instead of .nav-link.
@@ -310,7 +309,10 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			$item_output .= $args->after ?? '';
 
 			if ( $item_has_children ) {
-				$item_output .= '<div class="submenu-opener" data-bs-toggle="dropdown"><i class="fas fa-angle-down" ></i></div>';
+				$item_output .= '
+					<button class="toggle submenu-expand submenu-opener" data-toggle-target="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+						<span class="screen-reader-text">' . esc_attr__( 'Show sub menu', 'sunflower' ) . '</span>
+					</button>';
 			}
 
 			/**

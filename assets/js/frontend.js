@@ -202,12 +202,7 @@ function addRssReadMore() {
 
 // make parent item of dropdowm menu clickable which is not intended by Bootstrap
 jQuery( '.dropdown .dropdown-toggle' ).on( 'click', function () {
-	const dropdownOpen = jQuery( this ).hasClass( 'show' ); // dropdown shown
-	const mobileOpen = jQuery( '#mainmenu-container' ).hasClass( 'show' ); // mobile nav open
-	if (
-		( dropdownOpen === false && mobileOpen === true ) ||
-		( dropdownOpen === true && mobileOpen === false )
-	) {
+	if ( jQuery( '.dropdown:hover' ).length !== 0 ) {
 		window.location = jQuery( this ).attr( 'href' );
 	}
 
