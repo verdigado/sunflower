@@ -36,11 +36,14 @@
 				</div>
 				<div>
 					<div class="h5 bloginfo-name">
-						<p><?php printf( '<span>%s</span>', esc_attr( get_bloginfo( 'name' ) ) ); ?></p>
+						<?php printf( '<span>%s</span>', esc_attr( get_bloginfo( 'name' ) ) ); ?>
 					</div>
-					<div class="mb-0 bloginfo-description">
-						<?php esc_attr( bloginfo( 'description' ) ); ?>
-					</div>
+					<?php
+						$description = bloginfo( 'description' );
+						if ( $description !== '' ) {
+							printf( '<div class="mb-0 bloginfo-description">%s</div>', esc_attr( $description ) );
+						}
+					?>
 				</div>
 			</div>
 
