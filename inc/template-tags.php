@@ -115,15 +115,16 @@ function sunflower_the_social_media_sharers() {
 	if ( sunflower_get_setting( 'sunflower_sharer_facebook' ) ) {
 		$sharer[] = sprintf(
 			'<a href="https://www.facebook.com/sharer/sharer.php?u=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-facebook-f"></i></a>',
-			rawurlencode( (string) get_the_title() ),
+			get_permalink(),
 			__( 'Share on Facebook ', 'sunflower' )
 		);
 	}
 
 	if ( sunflower_get_setting( 'sunflower_sharer_whatsapp' ) ) {
 		$sharer[] = sprintf(
-			'<a href="https://wa.me/?text=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-whatsapp"></i></a>',
+			'<a href="https://wa.me/?text=%s %s" target="_blank" title="%s" class="sharer"><i class="fab fa-whatsapp"></i></a>',
 			rawurlencode( (string) get_the_title() ),
+			get_permalink(),
 			__( 'Share on WhatsApp ', 'sunflower' )
 		);
 	}
