@@ -81,10 +81,14 @@ class SunflowerEventSettingsPage {
 			<input type="hidden" name="_sunflower_event_lon" id="_sunflower_event_lon">
 			<?php wp_nonce_field( 'sunflower_location', '_wpnonce-locationfix' ); ?>
 			<div id="sunflower-location-row" style="display:none">
-				Bearbeite die Geo-Markierung für:
-				<select name="sunflower_location" id="sunflower-location">
-					<option value="">bitte wählen</option>
 				<?php
+				printf(
+					'%1$s
+					<select name="sunflower_location" id="sunflower-location">
+						<option value="">%2$s</option>',
+					esc_attr__( 'Adjust geo marker for:', 'sunflower' ),
+					esc_attr__( 'please choose', 'sunflower' )
+				);
 				global $wpdb;
 				$transients = $wpdb->get_results( sprintf( "SELECT * FROM %s WHERE option_name LIKE '_transient_sunflower_geocache_%%'", $wpdb->options ) );
 
@@ -96,8 +100,14 @@ class SunflowerEventSettingsPage {
 
 				?>
 				</select>
-				<button id="sunflower-fix-location-delete">Geodaten für diesen Ort löschen</button>
+				<?php
+				printf(
+					'<button class="button-secondary" id="sunflower-fix-location-delete">%s</button>',
+					esc_attr__( 'Delete geo data for this location', 'sunflower' )
+				);
+				?>
 				<br>
+
 				Die Änderung wird automatisch nach Setzen der Markierung gespeichert. Wirksam wird sie beim nächsten Import. Den Import kannst Du per Hand auslösen.
 			</div>
 			<?php
@@ -107,7 +117,7 @@ class SunflowerEventSettingsPage {
 			printf(
 				'
                 <div>
-                    <button id="sunflowerShowMap" onClick="sunflowerShowLeaflet( %3$s, %4$s, %5$s, false );">%2$s</button>
+                    <button id="sunflowerShowMap" class="button-primary" onClick="sunflowerShowLeaflet( %3$s, %4$s, %5$s, false );">%2$s</button>
                 </div>
                 <div id="leaflet" style="height:400px"></div>',
 				esc_attr__( 'Map', 'sunflower' ),

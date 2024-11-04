@@ -263,9 +263,10 @@ add_action( 'init', 'sunflower_import_icals' );
 
 
 /**
- * Make georeferencing via nominatim for unknown locations.
+ * Make georeferencing via nominatim for unknown locations and cache result in database.
  *
  * @param string $location The location as human readable string.
+ * @return array
  */
 function sunflower_geocode( $location ) {
 	static $i  = 0;

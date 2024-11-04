@@ -14,3 +14,46 @@ p a img {
 	border-left-color: #005437;
 	box-shadow: 0 1px 1px rgba(0,0,0,.04);
 }
+
+.sunflower-field {
+	margin-top: 5px;
+}
+.sunflower-field label {
+	vertical-align: bottom;
+}
+.sunflower-field input {
+	margin-top: 5px;
+}
+.sunflower-field.checkbox {
+	padding: 10px 0;
+}
+.sunflower-field.checkbox label {
+	margin-left: 4px;
+
+}
+#sunflower_event_meta_box div.inside {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	min-width: 0;
+	flex-basis: auto;
+}
+
+#sunflower_event_meta_box .components-flex.components-h-stack {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+#sunflower_event_meta_box .components-flex.components-h-stack button {
+	margin-right: 5px;
+}
+
+#leaflet {
+	border: 1px solid #005437;
+	margin: 2px 0;
+}
+
+#sunflowerHideMap {
+	display: none;
+}

@@ -22,8 +22,12 @@ jQuery( function ( $ ) {
 
 // Methods for edition the location of manual added events.
 jQuery( function () {
-	jQuery( '#sunflowerDeleteMap' ).on( 'click', function () {
-		sunflowerDeleteLeaflet();
+	jQuery( '#_sunflower_event_show_map' ).on( 'click', function () {
+		if ( jQuery( '#_sunflower_event_show_map' ).is( ':checked' ) ) {
+			jQuery( '#sunflower-map-settings' ).show();
+		} else {
+			jQuery( '#sunflower-map-settings' ).hide();
+		}
 	} );
 	jQuery( '#sunflower-fix-location-delete' ).on( 'click', function () {
 		sunflowerFixLocationDelete();
@@ -33,21 +37,45 @@ jQuery( function () {
 	} );
 } );
 
-function sunflowerDeleteLeaflet() {
-	jQuery( '#_sunflower_event_lat' ).val( '' );
-	jQuery( '#_sunflower_event_lon' ).val( '' );
-	jQuery( '#_sunflower_event_zoom' ).val( '' );
-	jQuery( '#leaflet' ).hide();
-	jQuery( '#sunflowerShowMap' ).show();
-}
-
 let marker;
 let leaflet = null;
 /* eslint-disable-next-line no-unused-vars */
 function sunflowerShowLeaflet( lat, lon, zoom, showMarker ) {
+	if ( lat === -1 && lon === -1 && zoom === -1 ) {
+		const address = [];
+
+		const street = jQuery(
+			'input[name="_sunflower_event_location_street"]'
+		).val();
+		const city = jQuery(
+			'input[name="_sunflower_event_location_city"]'
+		).val();
+
+		if ( street ) {
+			address.push( street.trim() );
+		}
+
+		if ( city ) {
+			address.push( city.trim() );
+		}
+		jQuery.ajax( {
+			url: 'https://nominatim.openstreetmap.org/search?format=json',
+			method: 'GET',
+			data: {
+				q: address.join( ', ' ),
+			},
+			async: false,
+			success( response ) {
+				lat = response[ 0 ].lat;
+				lon = response[ 0 ].lon;
+				zoom = 12;
+			},
+		} );
+	}
+
 	if ( leaflet ) {
-		jQuery( '#leaflet' ).show();
-		// do not initalize again
+		jQuery( '#leaflet div' ).show();
+		// do not initialize again
 		return;
 	}
 	leaflet = L.map( 'leaflet' ).setView( [ lat, lon ], zoom );
@@ -60,7 +88,7 @@ function sunflowerShowLeaflet( lat, lon, zoom, showMarker ) {
 	marker = L.marker( [ lat, lon ] ).addTo( leaflet );
 
 	if ( showMarker ) {
-		sunflowerSetMarker( lat, lon, leaflet.getZoom(), marker );
+		sunflowerSetMarker( lat, lon, leaflet.getZoom(), marker, false );
 	} else {
 		jQuery( '#sunflower-location-row' ).show();
 	}
@@ -70,36 +98,51 @@ function sunflowerShowLeaflet( lat, lon, zoom, showMarker ) {
 			ev.latlng.lat,
 			ev.latlng.lng,
 			leaflet.getZoom(),
-			marker
+			marker,
+			true
 		);
 	} );
-
 	jQuery( '#sunflowerShowMap' ).hide();
 }
 
-function sunflowerSetMarker( lat, lon, zoom, setmarker ) {
+function sunflowerSetMarker( lat, lon, zoom, setmarker, update ) {
 	jQuery( '#_sunflower_event_lat' ).val( lat );
 	jQuery( '#_sunflower_event_lon' ).val( lon );
 	jQuery( '#_sunflower_event_zoom' ).val( zoom );
 
 	setmarker.setLatLng( new L.LatLng( lat, lon ) );
 
-	// do this only for location fixing
-	if ( jQuery( '#sunflower-location' ).length === 0 ) {
-		return;
-	}
+	if ( update === true ) {
+		const address = [];
 
-	jQuery.ajax( {
-		url: ajaxurl,
-		method: 'POST',
-		data: {
-			action: 'sunflower_fix_event_location',
-			_wpnonce: jQuery( '#_wpnonce-locationfix' ).val(),
-			lat,
-			lon,
-			transient: jQuery( '#sunflower-location option:selected' ).text(),
-		},
-	} );
+		const street = jQuery(
+			'input[name="_sunflower_event_location_street"]'
+		).val();
+		const city = jQuery(
+			'input[name="_sunflower_event_location_city"]'
+		).val();
+
+		if ( street ) {
+			address.push( street.trim() );
+		}
+
+		if ( city ) {
+			address.push( city.trim() );
+		}
+
+		jQuery.ajax( {
+			url: ajaxurl,
+			method: 'POST',
+			data: {
+				action: 'sunflower_fix_event_location',
+				_wpnonce: jQuery( '#_wpnonce-locationfix' ).val(),
+				lat,
+				lon,
+				do: 'update',
+				transient: address.join( ', ' ),
+			},
+		} );
+	}
 }
 
 function sunflowerFixLocation() {
@@ -108,15 +151,21 @@ function sunflowerFixLocation() {
 }
 
 function sunflowerFixLocationDelete() {
+	const transient = jQuery( '#sunflower-location option:selected' ).text();
+	const poiSelected = jQuery( '#sunflower-location option:selected' ).val();
+
+	// remove von von current select list
+	jQuery( '#sunflower-location' )
+		.children( 'option[value="' + poiSelected + '"]' )
+		.remove();
 	jQuery.ajax( {
 		url: ajaxurl,
 		method: 'POST',
 		data: {
 			action: 'sunflower_fix_event_location',
 			_wpnonce: jQuery( '#_wpnonce-locationfix' ).val(),
-			lat: 0,
-			lon: 0,
-			transient: jQuery( '#sunflower-location option:selected' ).text(),
+			transient,
+			do: 'delete',
 		},
 	} );
 }

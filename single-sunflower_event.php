@@ -25,7 +25,13 @@ $sunflower_event_organizer_url   = get_post_meta( $post->ID, '_sunflower_event_o
 $sunflower_event_lon  = get_post_meta( $post->ID, '_sunflower_event_lon', true ) ?? false;
 $sunflower_event_lat  = get_post_meta( $post->ID, '_sunflower_event_lat', true ) ?? false;
 $sunflower_event_zoom = get_post_meta( $post->ID, '_sunflower_event_zoom', true ) ?? false;
-$sunflower_zoom       = sunflower_get_setting( 'sunflower_zoom' ) ? sunflower_get_setting( 'sunflower_zoom' ) : 11;
+// Show map, if lat&lon is present AND post option _sunflower_event_show_map is available and "checked".
+if ( ! in_array( '_sunflower_event_show_map', get_post_custom_keys( $post->ID ), true ) ) {
+	$sunflower_event_show_map = 'checked';
+} else {
+	$sunflower_event_show_map = get_post_meta( $post->ID, '_sunflower_event_show_map', true ) ?? false;
+}
+$sunflower_zoom = sunflower_get_setting( 'sunflower_zoom' ) ? sunflower_get_setting( 'sunflower_zoom' ) : 11;
 if ( ! $sunflower_event_zoom ) {
 	$sunflower_event_zoom = $sunflower_zoom;
 }
@@ -135,7 +141,9 @@ $sunflower_metadata .= sprintf(
 
 						?>
 
-						<?php if ( $sunflower_event_lat && $sunflower_event_lon ) { ?>
+						<?php
+						if ( $sunflower_event_lat && $sunflower_event_lon && 'checked' === $sunflower_event_show_map ) {
+							?>
 						<div id="leaflet" class="d-flex flex-column justify-content-center align-items-center bg-lightgreen border-0">
 							<div class="before-loading text-center">
 								<i class="fas fa-map-marker-alt mb-3"></i>
@@ -151,7 +159,7 @@ $sunflower_metadata .= sprintf(
 									data-lon="<?php echo esc_attr( $sunflower_event_lon ); ?>"
 									data-zoom="<?php echo esc_attr( $sunflower_event_zoom ); ?>"
 								>
-							<?php esc_html_e( 'Show map', 'sunflower' ); ?>
+								<?php esc_html_e( 'Show map', 'sunflower' ); ?>
 								</button>
 							</div>
 						</div>
