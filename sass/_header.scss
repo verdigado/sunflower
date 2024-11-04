@@ -286,13 +286,8 @@ body {
 
             > .menu-item {
                 display: flex;
-                align-items: center;
                 height: auto;
                 margin-right: 5px;
-
-                @include media-breakpoint-up(md) {
-                    height: 5em;
-                }
             }
 
             > li.menu-item-has-children {
