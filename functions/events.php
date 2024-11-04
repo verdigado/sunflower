@@ -22,6 +22,7 @@ function sunflower_get_event_fields() {
 		'_sunflower_event_lat'             => array( 'Latitude', null, 'hidden' ),
 		'_sunflower_event_lon'             => array( 'Longitude', null, 'hidden' ),
 		'_sunflower_event_zoom'            => array( 'Zoom', null, 'hidden' ),
+		'_sunflower_event_show_map'        => array( __( 'Show map on event', 'sunflower' ), null, 'checkbox', 'checked' ),
 	);
 }
 
@@ -153,6 +154,29 @@ function sunflower_save_event_meta_boxes() {
 
 		set_transient( $id, $value );
 	}
+
+	$sunflower_location = array();
+
+	if ( $_POST['_sunflower_event_location_street'] ) {
+		$sunflower_location[] = trim( $_POST['_sunflower_event_location_street'] );
+	}
+
+	if ( $_POST['_sunflower_event_location_city'] ) {
+		$sunflower_location[] = trim( $_POST['_sunflower_event_location_city'] );
+	}
+
+	$sunflower_location_string = implode( ', ', $sunflower_location );
+
+	if ( ! empty( $sunflower_location_string ) ) {
+		$coordinates = sunflower_geocode( $sunflower_location_string );
+		if ( $coordinates ) {
+			[$lon, $lat] = $coordinates;
+			update_post_meta( $post->ID, '_sunflower_event_lat', $lat );
+			update_post_meta( $post->ID, '_sunflower_event_lon', $lon );
+			$zoom = sunflower_get_constant( 'SUNFLOWER_EVENT_IMPORTED_ZOOM' ) ? sunflower_get_constant( 'SUNFLOWER_EVENT_IMPORTED_ZOOM' ) : 12;
+			update_post_meta( $post->ID, '_sunflower_event_zoom', $zoom );
+		}
+	}
 }
 
 add_action( 'save_post', 'sunflower_save_event_meta_boxes', 10, 2 );
@@ -212,7 +236,7 @@ function sunflower_event_meta_box() {
 		printf( '<div style="color:red">%s</div>', esc_html__( 'This event will be imported by remote ical-calendar. All changes here will be overwritten.', 'sunflower' ) );
 		?>
 		<script>
-			jQuery( document ).ready(function() {
+			jQuery( function() {
 				window.setTimeout(() => {
 					jQuery('.popover-slot').prepend('<div class="sunflower-admin-hint">Dies ist ein importierter Termin.<br>Änderungen hier werden in Kürze automatisch überschrieben.</div>');
 				}, 1000);
@@ -221,6 +245,16 @@ function sunflower_event_meta_box() {
 		</script>
 		<?php
 		return;
+	} else {
+		?>
+		<script>
+		jQuery( function() {
+				if (jQuery('#_sunflower_event_show_map').is(':checked')) {
+					jQuery('#sunflower-map-settings').show();
+				}
+		});
+		</script>
+		<?php
 	}
 
 	$is_all_day = $custom['_sunflower_event_whole_day'][0] ?? '';
@@ -235,37 +269,26 @@ function sunflower_event_meta_box() {
 		sunflower_event_field( $id, $config, $value );
 	}
 
-	$lat  = $custom['_sunflower_event_lat'][0] ?? false;
-	$lon  = $custom['_sunflower_event_lon'][0] ?? false;
-	$zoom = $custom['_sunflower_event_zoom'][0] ?? false;
-
-	if ( ! $lat || ! $lon || ! $zoom ) {
-		$lat  = get_transient( '_sunflower_event_lat' );
-		$lon  = get_transient( '_sunflower_event_lon' );
-		$zoom = get_transient( '_sunflower_event_zoom' );
-	}
-
-	if ( ! $lat || ! $lon || ! $zoom ) {
-		$lat  = 50.5;
-		$lon  = 9.7;
-		$zoom = 4;
-	}
+	$lat  = $custom['_sunflower_event_lat'][0] ?? -1;
+	$lon  = $custom['_sunflower_event_lon'][0] ?? -1;
+	$zoom = $custom['_sunflower_event_zoom'][0] ?? -1;
 
 	printf(
-		'%1$s
+		'<hr />
+		<div id="sunflower-map-settings" style="display:none;">
+		<h3 class="">%1$s</h3>
         <div class="components-flex components-h-stack">
-            <button id="sunflowerShowMap" class="components-button is-primary" onClick="sunflowerShowLeaflet( %4$s, %5$s, %6$s, true );">%2$s</button>
-            <br />
-            <button id="sunflowerDeleteMap" class="components-button is-secondary is-destructive" >%3$s</button>
+            <button id="sunflowerShowMap" class="components-button is-primary" onClick="sunflowerShowLeaflet( %3$s, %4$s, %5$s, true );">%2$s</button>
         </div>
-        <div id="leaflet" style="height:270px"></div>',
+        <div id="leaflet" style="height:270px"></div>
+		</div>',
 		esc_html__( 'Map', 'sunflower' ),
-		esc_html__( 'load map', 'sunflower' ),
-		esc_html__( 'delete map', 'sunflower' ),
+		esc_html__( 'Load map and fix location marker', 'sunflower' ),
 		esc_attr( $lat ),
 		esc_attr( $lon ),
-		esc_attr( $zoom )
+		esc_attr( $zoom ),
 	);
+	wp_nonce_field( 'sunflower_location', '_wpnonce-locationfix' );
 }
 
 /**
@@ -276,21 +299,28 @@ function sunflower_event_meta_box() {
  * @param string $value The field value.
  */
 function sunflower_event_field( $id, $config, $value ) {
-	$sunflower_label = $config[0];
-	$sunflower_class = $config[1] ?? '';
-	$sunflower_type  = $config[2] ?? false;
+	$sunflower_label               = $config[0];
+	$sunflower_class               = $config[1] ?? '';
+	$sunflower_type                = $config[2] ?? false;
+	$sunflower_initialized_checked = $config[3] ?? '';
 
 	if ( 'datetimepicker' === $sunflower_class ) {
 		$value = sunflower_int_date2german_date( $value );
 	}
 
+	$sunflower_checked = '';
+	if ( false === $value && 'checked' === $sunflower_initialized_checked ) {
+		$sunflower_checked = 'checked';
+	}
+
 	match ( $sunflower_type ) {
 		'checkbox' => printf(
-			'<div><span><input class="%4$s" type="checkbox" name="%1$s" id="%1$s" %3$s value="checked"></span><label for="%1$s">%2$s</label></div>',
+			'<div class="sunflower-field checkbox"><span><input class="%4$s" type="checkbox" name="%1$s" id="%1$s" %3$s value="checked" %5$s></span><label for="%1$s">%2$s</label></div>',
 			esc_attr( $id ),
 			esc_attr( $sunflower_label ),
 			esc_attr( $value ),
-			esc_attr( $sunflower_class )
+			esc_attr( $sunflower_class ),
+			esc_attr( $sunflower_checked )
 		),
 		'hidden' => printf(
 			'<input type="hidden" name="%1$s" id="%1$s" value="%2$s">',
@@ -298,7 +328,7 @@ function sunflower_event_field( $id, $config, $value ) {
 			esc_attr( $value )
 		),
 		default => printf(
-			'<div>%2$s<br><input class="%4$s" type="text" name="%1$s" placeholder="%2$s" autocomplete="off" value="%3$s"></div>',
+			'<div class="sunflower-field text"><label for="%1$s">%2$s</label><br /><input class="%4$s" type="text" name="%1$s" placeholder="%2$s" autocomplete="off" value="%3$s"></div>',
 			esc_attr( $id ),
 			esc_attr( $sunflower_label ),
 			esc_attr( $value ),

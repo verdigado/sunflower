@@ -74,8 +74,8 @@ function sunflower_notice_php() {
 		<p class="h3"><?php esc_attr_e( 'PHP Version End of Life', 'sunflower' ); ?></p>
 		<p>
 		<?php
-			$phpversion = 'Current PHP version: ' . phpversion();
-		$linkverdigado  = "<a href='https://www.verdigado.com/' target='_blank' title='verdigado eG'>
+			$phpversion    = 'Current PHP version: ' . phpversion();
+			$linkverdigado = "<a href='https://www.verdigado.com/' target='_blank' title='verdigado eG'>
                 <img src='" . get_template_directory_uri() . "/assets/img/verdigado-logo.png' alt='Logo of verdigado eG' /></a>";
 
 		printf(
@@ -193,7 +193,7 @@ function sunflower_admin_style() {
 		'sunflower-admin-styles',
 		get_template_directory_uri() . '/assets/css/admin.css',
 		null,
-		'2.1.0'
+		SUNFLOWER_VERSION
 	);
 }
 
@@ -280,9 +280,31 @@ function sunflower_fix_event_location() {
 		return;
 	}
 	$transient = sprintf( 'sunflower_geocache_%s', $_POST['transient'] );
+	if ( 'delete' === $_POST['do'] ) {
+		delete_transient( $transient );
+	} else {
+		$lon = $_POST['lon'];
+		$lat = $_POST['lat'];
+		set_transient( $transient, array( $lon, $lat ) );
+	}
+}
+
+add_action( 'wp_ajax_sunflower_fix_event_location', 'sunflower_fix_event_location' );
+
+/**
+ * Set event location.
+ */
+function sunflower_set_event_location() {
+	if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'sunflower_location' ) ) {
+		return;
+	}
+	$transient = sprintf( 'sunflower_geocache_%s', $_POST['transient'] );
 	$lon       = $_POST['lon'];
 	$lat       = $_POST['lat'];
 	set_transient( $transient, array( $lon, $lat ) );
+
+	update_post_meta( $id, '_sunflower_event_lat', $lat );
+	update_post_meta( $id, '_sunflower_event_lon', $lon );
 }
 
 add_action( 'wp_ajax_sunflower_fix_event_location', 'sunflower_fix_event_location' );
