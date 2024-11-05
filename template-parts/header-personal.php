@@ -39,7 +39,7 @@
 						<?php printf( '<span>%s</span>', esc_attr( get_bloginfo( 'name' ) ) ); ?>
 					</div>
 					<?php
-						$description = bloginfo( 'description' );
+						$description = get_bloginfo( 'description' );
 						if ( $description !== '' ) {
 							printf( '<div class="mb-0 bloginfo-description">%s</div>', esc_attr( $description ) );
 						}
