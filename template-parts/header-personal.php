@@ -39,10 +39,10 @@
 						<?php printf( '<span>%s</span>', esc_attr( get_bloginfo( 'name' ) ) ); ?>
 					</div>
 					<?php
-						$description = get_bloginfo( 'description' );
-						if ( $description ) {
-							printf( '<div class="mb-0 bloginfo-description">%s</div>', esc_attr( $description ) );
-						}
+					$sunflower_description = get_bloginfo( 'description' );
+					if ( $sunflower_description ) {
+						printf( '<div class="mb-0 bloginfo-description">%s</div>', esc_attr( $sunflower_description ) );
+					}
 					?>
 				</div>
 			</div>
