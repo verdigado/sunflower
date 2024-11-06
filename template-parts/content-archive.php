@@ -14,7 +14,7 @@
 		<?php if ( has_post_thumbnail() ) { ?>
 			<div class="">
 				<a href="<?php echo esc_url( get_permalink() ); ?>" aria-label="Post Thumbnail" rel="bookmark">
-					<?php sunflower_post_thumbnail(); ?>
+					<?php sunflower_post_thumbnail( false, false, true ); ?>
 				</a>
 			</div>
 			<?php
