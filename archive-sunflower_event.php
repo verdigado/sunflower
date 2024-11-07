@@ -67,25 +67,18 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 
 
 						<?php
-							$sunflower_terms = get_terms(
-								array(
-									'taxonomy'   => 'sunflower_event_tag',
-									'hide_empty' => true,
-								)
-							);
 
-						if ( ! $sunflower_is_event_archive ) {
-							foreach ( $sunflower_terms as $sunflower_term ) {
-								printf( '<button class="filter" data-filter=".%s">%s</button>', esc_attr( $sunflower_term->slug ), esc_attr( $sunflower_term->name ) );
-							}
+							$sunflower_ordered_posts = ( $sunflower_is_event_archive ) ? sunflower_get_past_events() : sunflower_get_next_events();
+
+							$sunflower_terms = wp_get_object_terms( wp_list_pluck( $sunflower_ordered_posts->posts, 'ID' ), 'sunflower_event_tag' );
+						foreach ( $sunflower_terms as $sunflower_term ) {
+							printf( '<button class="filter" data-filter=".%s">%s</button>', esc_attr( $sunflower_term->slug ), esc_attr( $sunflower_term->name ) );
 						}
 						?>
 						</div>
 
 						<div class="row event-list">
 						<?php
-
-						$sunflower_ordered_posts = ( $sunflower_is_event_archive ) ? sunflower_get_past_events() : sunflower_get_next_events();
 
 						/* Start the Loop */
 						while ( $sunflower_ordered_posts->have_posts() ) {
@@ -154,7 +147,7 @@ endif;
 								"map.marker.push( { 'lat' : %s, 'lon': %s, 'content': '%s'} );",
 								esc_attr( $sunflower_marker->lat ),
 								esc_attr( $sunflower_marker->lon ),
-								esc_attr( $sunflower_marker->content )
+								wp_kses_post( $sunflower_marker->content )
 							);
 
 							$sunflower_lower_lat = min( $sunflower_lower_lat, $sunflower_marker->lat );
