@@ -135,7 +135,7 @@
     &-light {
 
         .navbar-nav {
-            align-items: normal;
+            align-items: center;
 
             >.nav-item {
 
@@ -179,8 +179,11 @@
                         background-size: 30px;
                         background-position: center;
                         transition: transform 0.2s ease-in-out;
-                        font-weight: 700;
-                        right: var(--wp--preset--spacing--50);
+
+                        @include media-breakpoint-up(lg) {
+                            background-size: 24px;
+                            padding: 6px;
+                        }
 
                         &.show {
                             content: "";
@@ -417,12 +420,17 @@
     width: 100%;
     margin-left: 10px;
 
+    &.collapsing,
     &.collapse.show {
 
-        li {
-            text-align: end;
-            border-top: 1px solid $very-light-gray;
-            padding-left: 14px;
+        .navbar-nav {
+            align-items: normal;
+
+            .nav-item {
+                text-align: end;
+                border-top: 1px solid $very-light-gray;
+                padding-left: 24px;
+            }
         }
 
         .dropdown {
@@ -439,7 +447,8 @@
             }
 
             &-item {
-                justify-content: start;
+                text-wrap: auto;
+                text-align: left;
             }
         }
     }
