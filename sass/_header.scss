@@ -186,9 +186,12 @@ body {
         margin-right: 0.75rem;
     }
 
-    img {
-        width: 55px;
-        background: transparent;
+    .sunflower-logo {
+
+        img {
+            width: 55px;
+            background: transparent;
+        }
     }
 
     &-name {
@@ -279,7 +282,7 @@ body {
         }
 
         img {
-            height: 56px;
+            height: 100%;
         }
 
         #mainmenu {
