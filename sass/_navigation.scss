@@ -13,12 +13,7 @@
 
                     div.dropdown-menu {
                         display: block;
-
-                        margin-top: 54px;
-
-                        &.show {
-                            margin-top: 4px;
-                        }
+                        top: calc(100% + 8px);
 
                         ul {
                             border-radius: 0;
@@ -243,6 +238,7 @@
                 margin-right: 0.5rem;
                 margin-left: 0.5rem;
                 text-align: left;
+                white-space: nowrap;
 
                 &:hover {
                     color: $secondary;
@@ -430,6 +426,10 @@
                 text-align: end;
                 border-top: 1px solid $very-light-gray;
                 padding-left: 24px;
+
+                .nav-link {
+                    white-space: normal;
+                }
             }
         }
 
@@ -447,7 +447,7 @@
             }
 
             &-item {
-                text-wrap: auto;
+                white-space: normal;
                 text-align: left;
             }
         }
