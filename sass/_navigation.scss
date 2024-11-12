@@ -13,12 +13,7 @@
 
                     div.dropdown-menu {
                         display: block;
-
-                        margin-top: 54px;
-
-                        &.show {
-                            margin-top: 4px;
-                        }
+                        top: calc(100% + 8px);
 
                         ul {
                             border-radius: 0;

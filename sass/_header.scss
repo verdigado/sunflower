@@ -291,6 +291,11 @@ body {
                 display: flex;
                 height: auto;
                 margin-right: 5px;
+                align-items: center;
+
+                @include media-breakpoint-up(md) {
+                    height: 5em;
+                }
             }
 
             > li.menu-item-has-children {
