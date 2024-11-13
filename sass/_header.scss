@@ -183,15 +183,26 @@ body {
     padding: 27px 0;
 
     .img-container {
-        margin-right: 0.75rem;
-    }
+        margin-right: 0.5rem;
 
-    .sunflower-logo {
+        &.sunflower-logo {
 
-        img {
-            width: 55px;
-            background: transparent;
+            img {
+                width: 55px;
+                background: transparent;
+            }
         }
+
+        &.custom-logo {
+
+            img {
+                max-width: 100px;
+                max-height: 55px;
+                object-fit: contain;
+                object-position: right;
+            }
+        }
+
     }
 
     &-name {
@@ -228,7 +239,14 @@ body {
         }
 
         .img-container {
-            margin-right: 0.25rem;
+            margin-right: 1rem;
+
+            &.custom-logo {
+
+                img {
+                    max-width: 150px;
+                }
+            }
         }
     }
 }
@@ -269,9 +287,7 @@ body {
                 background-color: $secondary;
             }
 
-            margin-right: 1rem;
             height: 95px;
-            width: 95px;
             display: flex;
             justify-content: center;
             align-items: center;
