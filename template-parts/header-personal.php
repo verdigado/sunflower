@@ -81,17 +81,3 @@
 			?>
 		</div>
 	</nav>
-
-	<script>
-		jQuery(document).ready( function (){
-			jQuery('.navbar-toggler').click(function(){
-				if(jQuery('.navbar-toggler').hasClass('collapsed')) {
-					window.setTimeout(() => {
-						jQuery('body').removeClass('navbar-open');
-					}, 100);
-				} else{
-					jQuery('body').addClass('navbar-open');
-				}
-			})
-		})
-	</script>

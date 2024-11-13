@@ -208,4 +208,16 @@ jQuery( '.dropdown .dropdown-toggle' ).on( 'click', function () {
 
 	return false;
 } );
+
+jQuery( function () {
+	jQuery( '.navbar-toggler' ).click( function () {
+		if ( jQuery( '.navbar-toggler' ).hasClass( 'collapsed' ) ) {
+			window.setTimeout( () => {
+				jQuery( 'body' ).removeClass( 'navbar-open' );
+			}, 100 );
+		} else {
+			jQuery( 'body' ).addClass( 'navbar-open' );
+		}
+	} );
+} );
 /* eslint-enable no-undef */

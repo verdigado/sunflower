@@ -1,3 +1,7 @@
+body.navbar-open {
+    overflow: hidden;
+}
+
 @include media-breakpoint-up(lg) {
 
     .navbar {
@@ -334,7 +338,6 @@
             border-radius: 4px;
             margin-right: 0;
             margin-top: -4px;
-            overflow: hidden;
             list-style-type: none;
             background-color: $white;
             padding: 0;
@@ -418,6 +421,9 @@
 
     &.collapsing,
     &.collapse.show {
+
+        max-height: 90vh;
+        overflow: auto;
 
         .navbar-nav {
             align-items: normal;
