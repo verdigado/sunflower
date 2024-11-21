@@ -290,18 +290,10 @@
 	}
 }
 
-.wp-block-column img {
-	width: 100%;
+.wp-block-columns .wp-block-column img {
 	object-fit: cover;
 	border-radius: 3px;
-}
-
-.wp-block-image img {
-	box-sizing: border-box;
-	height: auto;
-	max-width: 100%;
-	vertical-align: bottom;
-}
+  }
 
 p a {
 	color: #008939;
@@ -557,3 +549,10 @@ p a {
 .bg-white {
 	background-color: #fff;
 }
+
+.entry-content {
+	margin: 0;
+	word-wrap: break-word;
+	hyphens: auto;
+	hyphenate-limit-chars: auto 3 4;
+  }
