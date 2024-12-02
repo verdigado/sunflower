@@ -187,8 +187,6 @@ body {
 
         &.sunflower-logo {
 
-            width: 95px;
-
             img {
                 width: 55px;
                 background: transparent;
@@ -287,6 +285,7 @@ body {
 
             &.sunflower-logo {
                 background-color: $secondary;
+                width: 95px;
             }
 
             height: 95px;
