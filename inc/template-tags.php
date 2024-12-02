@@ -154,10 +154,10 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 	 * element when on single views.
 	 *
 	 * @param boolean $styled_layout Is this a styled layout.
-	 * @param boolean $caption Show the caption.
+	 * @param boolean $show_caption Show the caption.
 	 * @param boolean $is_block Is latest news block.
 	 */
-	function sunflower_post_thumbnail( $styled_layout = false, $caption = false, $is_block = false ) {
+	function sunflower_post_thumbnail( $styled_layout = false, $show_caption = false, $is_block = false ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -183,8 +183,8 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 				?>
 
 			<?php
-			if ( $caption ) {
-				$caption = get_post( get_post_thumbnail_id() )->post_excerpt;
+			if ( $show_caption ) {
+				$caption = get_post( get_post_thumbnail_id() )?->post_excerpt;
 				if ( ! empty( $caption ) ) {
 					?>
 				<figcaption><?php echo esc_attr( $caption ); ?></figcaption>
