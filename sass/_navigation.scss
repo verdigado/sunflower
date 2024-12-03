@@ -181,7 +181,8 @@ body.navbar-open {
 
                         @include media-breakpoint-up(lg) {
                             background-size: 24px;
-                            padding: 6px;
+                            padding: 7px;
+                            margin-right: 4px;
                         }
 
                         &.show {
@@ -217,7 +218,6 @@ body.navbar-open {
                         border-radius: 9999px;
                         text-align: left;
                         padding: 11px 14px 7px 14px;
-                        margin-left: -7px;
 
                         &.nav-link {
                             color: $white;
