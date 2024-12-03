@@ -13,3 +13,6 @@ function sunflower_excerpt_length() {
 }
 
 add_filter( 'excerpt_length', 'sunflower_excerpt_length', 900 );
+
+// Add excerpt to pages, too.
+add_post_type_support( 'page', 'excerpt' );
