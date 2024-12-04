@@ -4,7 +4,7 @@
  * Try to style the editor accordion like in the frontend without bootstrap
  */
 
-@import "../../sass/variables";
+@use "../../sass/variables";
 
 .wp-block-sunflower-latest-posts {
 
@@ -13,7 +13,7 @@
 
     a {
         text-decoration: none;
-        color: $primary;
+        color: variables.$primary;
     }
 
     article {
@@ -48,7 +48,7 @@
         .entry-content a,
         .continue-reading {
             text-decoration: none;
-            color: $body-color;
+            color: variables.$body-color;
         }
 
         .continue-reading {
@@ -117,7 +117,7 @@
     }
 
     .bg-primary {
-        background-color: $primary;
+        background-color: variables.$primary;
     }
 
     .text-white {

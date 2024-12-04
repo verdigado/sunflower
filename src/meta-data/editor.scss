@@ -4,13 +4,13 @@
  * Try to style the editor accordion like in the frontend without bootstrap
  */
 
-@import "../../sass/variables";
+@use "../../sass/variables";
 
 .wp-block-sunflower-meta-data {
 
     a {
         text-decoration: none;
-        color: $body-color;
+        color: variables.$body-color;
 
         &.text-danger {
             color: #f00;
