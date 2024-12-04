@@ -76,6 +76,11 @@ Die Beispiele setzen die Hintergrundfarbe auf "Tanne", wie es mit der Sonnenblum
 }
 ```
 
+!!! Danger "Menü bleibt nicht mehr oben angeheftet!"
+    Mit der o.a. Änderung bleibt das Menü nicht mehr angeheftet und scrollt mit.
+	Gerne würden wir beides unter einen Hut bekommen. Wer hier eine Lösung findet, kann sich gerne
+	auf [GitHub](https://github.com/verdigado/sunflower) melden.
+
 ## Eigene Klassennamen
 
 | CSS Klasse | Funktion |

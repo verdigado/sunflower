@@ -33,9 +33,17 @@ Für die Startseite kannst Du die Musterinhalte der Demoseite verwenden. [mehr](
 
 ## Social-Media-Profile
 
-### Icons in der Fußleiste
+### Icons in der Fußzeile
 
-Du kannst beliebige Social-Media-Profile in beliebiger Reihenfolge in der Fußzeile der Webseite anzeigen. Trage dazu in den Sunflower-Einstellungen die Profile in folgendem Format ein:
+Du kannst beliebige Social-Media-Profile in beliebiger Reihenfolge in der Fußzeile der Webseite anzeigen. Unterhalb von "Sunflower" und "Profile in Sozialen Medien" findest Du schon eine vorgefertigte Liste, die nur noch mit der URL Deines Social-Media-Profiles ergänzt werden muss.
+
+<figure markdown="span">
+  ![Screenshot vom Einstellungs-Menü](images/sunflower_socialmedia.png){ width="" }
+  <figcaption>Sunflower-Einstellungen: Profile in Sozialen Medien</figcaption>
+</figure>
+
+<br />
+Das Format der Einträge ist folgendes:
 
 ```
 Fontawesome-Klasse;Title-Attribut;URL
@@ -46,6 +54,17 @@ Fontawesome-Klasse;Title-Attribut;URL
 - die URL ist die komplette Adresse Deines Social-Media-Profiles, beginnend mit `https://`
 
 Zeilen ohne URL werden nicht berücksichtigt, Du kannst sie als Muster gerne behalten.
+
+### Icons in der Kopfzeile
+
+Wenn die Social Media Profile **auch** in der Kopfzeile, also im Header, erscheinen sollen, dann muss die Option
+`Sunflower -> Einstellungen -> Social-Media Icons im Header anzeigen`
+aktiviert werden.
+
+<figure markdown="span">
+  ![Screenshot vom Einstellungs-Menü](images/sunflower_socialmedia_header.png){ width="" }
+  <figcaption>Sunflower-Einstellungen: Social-Media Icons im Header anzeigen</figcaption>
+</figure>
 
 ### Teile in Sozialen Medien
 
@@ -76,3 +95,6 @@ Gehe dazu in
 ### Multi-Site Instanz
 
 `Dashboard -> Netzwerkverwaltung -> Themes -> Automatische Aktualisierungen aktivieren`
+
+!!! Info "Design der Netzwerk-Hauptseite"
+    Damit das Theme automatisch auf Updates prüfen kann, muss es als Theme der Netzwerk-Hauptseite ausgewählt sein.

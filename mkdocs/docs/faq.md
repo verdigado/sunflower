@@ -16,7 +16,7 @@ Prüft unbedingt die Lizenz- und Nutzungsbedingungen der Bilder, die ihr verwend
 
 ## Wie kann ich Soziale Plattformen wie Instagram, X (Twitter) und Facebook verlinken?
 Gehe dazu in die Sunflower-Einstellungen und trage die kompletten Webadressen Deiner Profile ein.
-Sie erscheinen dann automatisch in der Fußzeile.
+Sie erscheinen dann automatisch in der Fußzeile und optional in der Kopfleiste. Siehe dazu [Icons in der Fußleiste](/setup/#teile-in-sozialen-medien)
 
 ## Ich wünsche mir ein neues Feature, das es nicht gibt
 Neue Features kannst Du auf der
