@@ -256,11 +256,6 @@
 	}
 }
 
-.styled-layout .wp-block-group {
-	padding-top: 100px;
-	padding-bottom: 100px;
-}
-
 /* Main column width */
 .wp-block {
 	max-width: 860px;
@@ -481,6 +476,11 @@ p a {
 .styled-layout .wp-block-group {
 	padding-top: 100px;
 	padding-bottom: 100px;
+}
+
+.styled-layout .wp-block-group > * {
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 @media (max-width: 767.98px) {

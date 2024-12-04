@@ -1,3 +1,4 @@
+@use "sass:map";
 $custom-colors: (
     klee: #008939,
     klee-700: #006e2e,
@@ -14,17 +15,17 @@ $custom-colors: (
 );
 
 
-$primary: map-get($custom-colors, "klee");
-$secondary: map-get($custom-colors, "tanne");
-$white: map-get($custom-colors, "white");
+$primary: map.get($custom-colors, "klee");
+$secondary: map.get($custom-colors, "tanne");
+$white: map.get($custom-colors, "white");
 
-$black: map-get($custom-colors, "black");
-$black-500: map-get($custom-colors, "black-500");
+$black: map.get($custom-colors, "black");
+$black-500: map.get($custom-colors, "black-500");
 
 $white-90: rgba(255, 255, 255, 0.9);
 
 $dark: #ddd;
-$gray-500: map-get($custom-colors, "gray-500");
+$gray-500: map.get($custom-colors, "gray-500");
 $darkgray: #333;
 $lightgray: #aeb2ad;
 $very-light-gray: #d6d9d6;

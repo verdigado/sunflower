@@ -4,18 +4,18 @@
  * Try to style the editor accordion like in the frontend without bootstrap
  */
 
-@import "../../sass/variables";
+@use "../../sass/variables";
 
 .wp-block-sunflower-next-events {
 
     list-style: none;
     padding: 0;
 
-    a {
+    a.event-card {
         text-decoration: none;
-        color: $body-color;
+        color: variables.$body-color;
 
-        &.event-card article {
+        article {
             background-color: #fff;
             border-radius: 3px;
             height: 100%;
