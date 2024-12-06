@@ -134,6 +134,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 		}
 
 		update_post_meta( $id, '_sunflower_event_uid', $uid );
+		update_post_meta( $id, '_sunflower_event_source', md5( $url ) );
 
 		if ( isset( $event->LOCATION ) ) { // phpcs:ignore
 			update_post_meta( $id, '_sunflower_event_location_name', (string) $event->LOCATION ); // phpcs:ignore
@@ -217,6 +218,29 @@ function sunflower_get_events_having_uid() {
 }
 
 /**
+ * Get all post type "sunflower_event" from given source.
+ *
+ * @param int $source The hash value of the source URL.
+ */
+function sunflower_get_event_by_source( $source ) {
+	return new WP_Query(
+		array(
+			'nopaging'   => true,
+			'post_type'  => 'sunflower_event',
+			'meta_key'   => '_sunflower_event_source',
+			'orderby'    => 'meta_value',
+			'meta_query' => array(
+				array(
+					'key'     => '_sunflower_event_source',
+					'value'   => $source,
+					'compare' => '=',
+				),
+			),
+		)
+	);
+}
+
+/**
  * Run the import job.
  *
  * @param boolean $force Force the import even if transient time is not past.
@@ -236,6 +260,7 @@ function sunflower_import_icals( $force = false ) {
 	$lines = explode( "\n", (string) sunflower_get_setting( 'sunflower_ical_urls' ) );
 
 	$ids_from_remote = array();
+	$ids_from_source = array();
 	foreach ( $lines as $line ) {
 		$info = explode( ';', $line );
 
@@ -246,9 +271,21 @@ function sunflower_import_icals( $force = false ) {
 			continue;
 		}
 
+		// Get all already imported events of the given source.
+		$events_of_source = sunflower_get_event_by_source( md5( $url ) );
+		$ids_from_source  = array();
+
+		while ( $events_of_source->have_posts() ) {
+			$events_of_source->the_post();
+			$ids_from_source[] = get_the_ID();
+		}
+
 		$response = sunflower_icalimport( $url, $auto_categories );
 		if ( ! empty( $response ) && is_array( $response ) && is_array( $response[0] ) ) {
 			$ids_from_remote = array_merge( $ids_from_remote, $response[0] );
+		} else {
+			// Keep known events as the response might only be temporarily unavailable.
+			$ids_from_remote = array_merge( $ids_from_remote, $ids_from_source );
 		}
 	}
 
