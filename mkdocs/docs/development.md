@@ -1,4 +1,4 @@
-# Themeentwicklung
+# Theme-Entwicklung
 
 ## Sprachdateien
 - Erzeuge mit `make make-pot` ein neues Template-File
