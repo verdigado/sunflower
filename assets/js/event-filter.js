@@ -22,7 +22,7 @@ jQuery( function () {
 	const hash = window.location.hash.substring( 1 );
 
 	if ( hash !== '' ) {
-		jQuery( '.filter[data-filter=".' + hash + '"]' ).on( 'click' );
+		jQuery( 'button.filter[data-filter=".' + hash + '"]' ).click();
 	}
 } );
 
