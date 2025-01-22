@@ -3,10 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.0.9\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-meta-"
-"data\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-meta-data\n"
 "POT-Creation-Date: 2024-04-16T21:56:11+00:00\n"
-"PO-Revision-Date: 2024-04-17 00:00+0200\n"
+"PO-Revision-Date: 2025-01-22 14:46+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Domain: sunflower-meta-data\n"
 
 #. Theme Name of the theme
@@ -46,24 +45,20 @@ msgid "Selected Icon"
 msgstr "Ausgewähltes icon"
 
 #: build/meta-data/index.js:183 build/meta-data/index.js:142
-msgid ""
-"All icons can be found at https://fontawesome.com/icons?d=gallery&m=free"
-msgstr ""
-"Alle Icons können auf folgender Seite gefunden werden: https://"
-"fontawesome.com/icons?d=gallery&m=free"
+msgid "All icons can be found at https://fontawesome.com/icons?d=gallery&m=free"
+msgstr "Alle Icons können auf folgender Seite gefunden werden: https://fontawesome.com/icons?d=gallery&m=free"
 
 #: build/meta-data/index.js:188 build/meta-data/index.js:149
 msgid "Target URL the Icon is linked to. For email addresses, use the format mailto:example@example.com."
-msgstr "Ziel-Adresse (URL) mit der das Icon verlinkt wird. Für E-Mail-Adressen ist das Format mailto:example@example.com zu verwenden."
+msgstr ""
+"Ziel-Adresse (URL), mit der das Icon verlinkt wird. Für E-Mail-Adressen ist das Format mailto:example@example.com zu verwenden."
 
-#: build/meta-data-bak/block.json build/meta-data-works/block.json
-#: build/meta-data/block.json
+#: build/meta-data-bak/block.json build/meta-data-works/block.json build/meta-data/block.json
 msgctxt "block title"
 msgid "Metadata Line (Sunflower)"
-msgstr "Metadaten / Social-Media Profile (Sunflower)"
+msgstr "Metadaten / Social-Media-Profile (Sunflower)"
 
-#: build/meta-data-bak/block.json build/meta-data-works/block.json
-#: build/meta-data/block.json
+#: build/meta-data-bak/block.json build/meta-data-works/block.json build/meta-data/block.json
 msgctxt "block description"
 msgid "Metadata Line"
-msgstr "Metadaten / Social Media Profile"
+msgstr "Metadaten / Social-Media-Profile"

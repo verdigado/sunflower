@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-"
 "accordion\n"
 "POT-Creation-Date: 2024-04-04T20:41:37+00:00\n"
-"PO-Revision-Date: 2024-04-04 22:44+0200\n"
+"PO-Revision-Date: 2025-01-22 14:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Domain: sunflower-accordion\n"
 
 #. Theme Name of the theme
@@ -39,22 +39,22 @@ msgstr ""
 
 #: build/accordion/index.js:91 build/accordion/index.js:66
 msgid "Clickable text opening the selection"
-msgstr "Klickbarer Text, der die Selektion öffnet"
+msgstr "Klickbarer Text, der die Auswahl öffnet"
 
 #: build/accordion/index.js:94 build/accordion/index.js:69
 msgid "Titel of the accordion item"
-msgstr "Titel des Akkordeon Elements"
+msgstr "Titel des Akkordeon-Elements"
 
 #: build/accordion/index.js:101 build/accordion/index.js:77
 msgid "Text content of the openend accordion item."
-msgstr "Inhaltstext des geöffneten Akkordeon Elements."
+msgstr "Inhaltstext des geöffneten Akkordeon-Elements."
 
 #: build/accordion/block.json
 msgctxt "block title"
 msgid "Accordion Item (Sunflower)"
-msgstr "Akkordeon Element (Sunflower)"
+msgstr "Akkordeon-Element (Sunflower)"
 
 #: build/accordion/block.json
 msgctxt "block description"
 msgid "Sunflower: Simple Accordion Item Block Element"
-msgstr "Sunflower: Einfaches Akkordeon Element"
+msgstr "Sunflower: Einfaches Akkordeon-Element"

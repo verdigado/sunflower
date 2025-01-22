@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "POT-Creation-Date: 2024-11-04T10:17:08+00:00\n"
-"PO-Revision-Date: 2024-11-04 11:22+0100\n"
+"PO-Revision-Date: 2025-01-22 14:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -29,7 +29,7 @@ msgstr "https://sunflower-theme.de"
 #. Description of the theme
 #: style.css
 msgid "Theme for the German Green Party"
-msgstr "WordPress Theme für BÜNDNIS 90/DIE GRÜNEN"
+msgstr "WordPress-Theme für BÜNDNIS 90/DIE GRÜNEN"
 
 #. Author of the theme
 #: style.css
@@ -160,7 +160,7 @@ msgstr "Keine Kommentare möglich."
 
 #: functions/admin.php:24
 msgid "Sunflower Settings Page"
-msgstr "Sunflower Einstellungen"
+msgstr "Sunflower-Einstellungen"
 
 #. translators: %1$s and %2$s are replaced with links
 #: functions/admin.php:48
@@ -177,7 +177,7 @@ msgstr "Mehr Infos gibt es auf der Sunflower-Einstellungsseite"
 
 #: functions/admin.php:74
 msgid "PHP Version End of Life"
-msgstr "PHP Version veraltet"
+msgstr "PHP-Version veraltet"
 
 #. translators: %1$s is replace with current PHP version and %2$s is replaced with link
 #: functions/admin.php:84
@@ -194,12 +194,12 @@ msgid ""
 msgstr ""
 "<p>Ihr nutzt PHP <strong>%1$s</strong>. Diese Version wird <a href=\"https://"
 "www.php.net/supported-versions.php\">nicht mehr unterstützt</a>!</p>\n"
-"                <p>Bitte beachtet, dass das Sunflower Theme ab Version 2.1.0 "
+"                <p>Bitte beachtet, dass das Sunflower-Theme ab Version 2.1.0 "
 "<strong>mindestens PHP 8.2+ erfordert</strong>. <br />\n"
 "                Wenn ihr weiterhin Aktualisierungen erhalten wollt, dann "
-"müsst ihr euren Server aktualisieren bzw. euren Web-Hosting Anbieter "
+"müsst ihr euren Server aktualisieren bzw. euren Web-Hosting-Anbieter "
 "ansprechen.</p>\n"
-"                <p>Wenn ihr auf der Suche nach einem Web-Hosting Anbieter "
+"                <p>Wenn ihr auf der Suche nach einem Web-Hosting-Anbieter "
 "mit Haltung seid, schaut doch mal bei  %2$s vorbei.</p>"
 
 #: functions/admin.php:114
@@ -214,9 +214,9 @@ msgid ""
 "as favicon, please read and accept the terms of use."
 msgstr ""
 "Es gibt eine neue Einstellung auf der Seite <a href='admin.php?"
-"page=sunflower_admin'>Sunflower->Erste Schritte</a>.<br />\n"
+"page=sunflower_admin'>Sunflower → Erste Schritte</a>.<br />\n"
 "            Wenn Du weiterhin die Sonnenblume im Menü, im Footer und als "
-"Favicon nutzen möchtest, lese und akzeptiere die Nutzungsbedingungen."
+"Favicon nutzen möchtest, lies und akzeptiere die Nutzungsbedingungen."
 
 #: functions/admin.php:220 functions/block-patterns.php:24
 #: functions/blocks.php:19
@@ -344,7 +344,7 @@ msgstr "Wähle SHIFT + ENTER, um  Zwischenzeile zu verhindern"
 #: functions/options/class-sunflowersettingspage.php:59
 #: functions/options/class-sunflowersocialmediasettingspage.php:50
 msgid "Sunflower Settings"
-msgstr "Sunflower Einstellungen"
+msgstr "Sunflower-Einstellungen"
 
 #: functions/options/class-sunflowereventsettingspage.php:70
 msgid "Import calendars now"
@@ -414,7 +414,7 @@ msgstr "Theme aktivieren"
 
 #: functions/options/class-sunflowerfirststepspage.php:109
 msgid "Sunflower Terms of Use"
-msgstr "Sunflower Nutzungsbedingungen"
+msgstr "Sunflower-Nutzungsbedingungen"
 
 #: functions/options/class-sunflowerfirststepspage.php:113
 msgid "Accept Terms of Use"
@@ -444,7 +444,7 @@ msgstr "Zeige den/die Autor*in im Beitrag und über die REST-API."
 #: functions/options/class-sunflowersettingspage.php:147
 #: functions/options/class-sunflowersettingspage.php:153
 msgid "hide previous and next links"
-msgstr "Verstecke vor- und zurück-Links"
+msgstr "Verstecke Vor- und Zurück-Links"
 
 #: functions/options/class-sunflowersettingspage.php:159
 #: functions/options/class-sunflowersettingspage.php:163
@@ -467,11 +467,11 @@ msgstr "Layout für den Header"
 #: functions/options/class-sunflowersettingspage.php:189
 #: functions/options/class-sunflowersettingspage.php:193
 msgid "Show social media icons in header"
-msgstr "Social-Media Icons im Header anzeigen"
+msgstr "Social-Media-Icons im Header anzeigen"
 
 #: functions/options/class-sunflowersettingspage.php:198
 msgid "Show list of categories on category archive"
-msgstr "Zeige Liste von Kategorien auf Kategorie Seite"
+msgstr "Zeige Liste von Kategorien auf Kategorie-Seite"
 
 #: functions/options/class-sunflowersettingspage.php:206
 msgid "Enhance SEO"
@@ -487,7 +487,7 @@ msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:294
 msgid "Personal"
-msgstr ""
+msgstr "Persönlich"
 
 #: functions/options/class-sunflowersettingspage.php:316
 msgid "do not show"
@@ -692,8 +692,8 @@ msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
+"Anscheinend können wir nicht finden, wonach du suchst. Vielleicht hilft eine "
+"Internetsuche."
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content.php:76
