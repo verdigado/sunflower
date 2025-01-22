@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-latest-"
 "posts\n"
 "POT-Creation-Date: 2024-05-06T11:53:09+00:00\n"
-"PO-Revision-Date: 2024-05-06 13:56+0200\n"
+"PO-Revision-Date: 2025-01-22 14:45+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Domain: sunflower-latest-posts\n"
 
 #. Theme Name of the theme
@@ -63,11 +63,11 @@ msgstr "Anzahl der Beiträge, die angezeigt werden sollen"
 
 #: build/latest-posts/index.js:320 build/latest-posts/index.js:301
 msgid "Archive Text"
-msgstr "Blog-Archiv Link"
+msgstr "Blog-Archiv-Link"
 
 #: build/latest-posts/index.js:321 build/latest-posts/index.js:305
 msgid "Link label of the archive link"
-msgstr "Link Text für den Archiv-Link"
+msgstr "Linktext für den Archiv-Link"
 
 #: build/latest-posts/block.json
 msgctxt "block title"
