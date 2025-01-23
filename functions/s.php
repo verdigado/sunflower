@@ -76,6 +76,13 @@ if ( ! function_exists( 'sunflower_setup' ) ) :
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		add_theme_support( 'align-wide' );
+
+		/**
+		 * Add Responsive embedded content
+		 * https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/#responsive-embedded-content
+		 */
+		add_theme_support( 'responsive-embeds' );
+
 		add_theme_support( 'editor-styles' );
 		add_editor_style( '/assets/css/editor-style.css' );
 		add_editor_style( '/assets/css/admin-fontawesome.css' );
@@ -92,7 +99,7 @@ add_action( 'after_setup_theme', 'sunflower_setup' );
  * @global int $content_width
  */
 function sunflower_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'sunflower_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'sunflower_content_width', 876 );
 }
 
 add_action( 'after_setup_theme', 'sunflower_content_width', 0 );
