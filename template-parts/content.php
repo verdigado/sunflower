@@ -19,7 +19,7 @@ $sunflower_class               = $args['class'] ?? '';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $sunflower_class ); ?>>
 	<?php if ( ! $sunflower_styled_layout ) { ?>
-	<header class="entry-header full-width <?php echo ( $sunflower_show_post_thumbnail ) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
+	<header class="entry-header <?php echo ( $sunflower_show_post_thumbnail ) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
 		<div class="container">
 			<div class="row position-relative">
 				<div class="col-12">
