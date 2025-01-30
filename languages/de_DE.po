@@ -49,7 +49,7 @@ msgstr "Hoppla, Seite nicht gefunden."
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
-msgstr "Leider wurde die Seite nicht gefunden. Möchten Sie suchen?"
+msgstr "Leider wurde die Seite nicht gefunden. Möchtest du suchen?"
 
 #: archive-sunflower_event.php:39
 msgid "Events archive"
@@ -91,7 +91,7 @@ msgstr "Veranstaltungsort auf der Karte anzeigen"
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
-"Wenn Sie auf den Button klicken, werden Daten von openstreetmap.org geladen."
+"Wenn du auf den Button klickst, werden Daten von openstreetmap.org geladen."
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
@@ -138,9 +138,9 @@ msgid ""
 "more info see <a href=\"%s\">privacy</a>"
 msgstr ""
 "Ihre E-Mail-Adresse wird nicht veröffentlicht. Erforderliche Felder sind mit "
-"* markiert. Mit der Nutzung dieses Formulars erklären Sie sich mit der "
-"Speicherung und Verarbeitung Ihrer Daten durch diese Website einverstanden. "
-"Weiteres entnehmen Sie bitte der <a href=\"%s\">Datenschutzerklärung</a>."
+"* markiert. Mit der Nutzung dieses Formulars erklärst du dich mit der "
+"Speicherung und Verarbeitung deiner Daten durch diese Website einverstanden. "
+"Weiteres entnehme bitte der <a href=\"%s\">Datenschutzerklärung</a>."
 
 #: comments.php:56
 msgid "One comment"
@@ -233,7 +233,7 @@ msgstr "Hilfe für Sunflower-Termine"
 msgid "Form not sent. Captcha wrong. Please try again."
 msgstr ""
 "Das Formular konnte nicht gesendet werden, weil die Rechnung (Captcha) "
-"falsch ist. Bitte versuchen Sie es noch einmal."
+"falsch ist. Bitte versuche es noch einmal."
 
 #: functions/events.php:13
 msgid "Startdate"
@@ -593,7 +593,7 @@ msgstr "weiterlesen"
 
 #: functions/security.php:13
 msgid "Login error. Did you mistype s.th.?"
-msgstr "Loginfehler. Haben Sie sich vertippt?"
+msgstr "Loginfehler. Hast du dich vertippt?"
 
 #: header.php:36
 msgid "Skip to content"
