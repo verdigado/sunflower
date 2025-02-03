@@ -33,7 +33,7 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 				<main id="primary" class="site-main">
 					<?php if ( have_posts() ) : ?>
 
-						<header class="page-header text-center">
+						<header class="page-header">
 							<h1 class="page-title">
 								<?php
 								( $sunflower_is_event_archive ) ? esc_html_e( 'Events archive', 'sunflower' ) : esc_html_e( 'Events', 'sunflower' );

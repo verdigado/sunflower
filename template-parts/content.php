@@ -19,10 +19,9 @@ $sunflower_class               = $args['class'] ?? '';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $sunflower_class ); ?>>
 	<?php if ( ! $sunflower_styled_layout ) { ?>
-	<header class="entry-header full-width <?php echo ( $sunflower_show_post_thumbnail ) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
-		<div class="container">
-			<div class="row position-relative">
-				<div class="col-12">
+	<header class="entry-header <?php echo ( $sunflower_show_post_thumbnail ) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
+		<div class="row position-relative">
+			<div class="col-12">
 		<?php
 		$sunflower_roofline = get_post_meta( $post->ID, '_sunflower_roofline', true );
 		if ( $sunflower_roofline ) {
@@ -50,8 +49,6 @@ $sunflower_class               = $args['class'] ?? '';
 					<?php
 					endif;
 		?>
-					</div>
-
 			</div>
 		</div>
 	</header><!-- .entry-header -->

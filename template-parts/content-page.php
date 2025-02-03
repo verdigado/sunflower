@@ -14,7 +14,7 @@ $sunflower_class               = $args['class'] ?? '';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $sunflower_class ); ?>>
 	<?php if ( ! $sunflower_styled_layout ) { ?>
-		<header class="entry-header text-center <?php echo ( has_post_thumbnail() ) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
+		<header class="entry-header <?php echo ( has_post_thumbnail() ) ? 'has-post-thumbnail' : 'has-no-post-thumbnail'; ?>">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</header><!-- .entry-header -->
 		<?php
