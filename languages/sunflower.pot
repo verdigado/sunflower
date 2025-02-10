@@ -1,15 +1,15 @@
-# Copyright (C) 2024 verdigado eG
+# Copyright (C) 2025 verdigado eG
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.2.0\n"
+"Project-Id-Version: sunflower 2.2.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-11-04T10:17:08+00:00\n"
+"POT-Creation-Date: 2025-02-10T09:46:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -73,31 +73,31 @@ msgid "Archive"
 msgstr ""
 
 #: archive-sunflower_event.php:63
-#: functions/events.php:289
+#: functions/events.php:285
 #: functions/options/class-sunflowereventsettingspage.php:123
 msgid "Map"
 msgstr ""
 
-#: archive-sunflower_event.php:128
+#: archive-sunflower_event.php:121
 msgid "more info"
 msgstr ""
 
-#: archive-sunflower_event.php:185
+#: archive-sunflower_event.php:178
 #: single-sunflower_event.php:151
 msgid "Show event location on map"
 msgstr ""
 
-#: archive-sunflower_event.php:188
+#: archive-sunflower_event.php:181
 #: single-sunflower_event.php:154
 msgid "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
 
-#: archive-sunflower_event.php:192
+#: archive-sunflower_event.php:185
 #: single-sunflower_event.php:162
 msgid "Show map"
 msgstr ""
 
-#: archive-sunflower_event.php:202
+#: archive-sunflower_event.php:195
 msgid "calendar in ics-format"
 msgstr ""
 
@@ -256,19 +256,19 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: functions/events.php:238
+#: functions/events.php:236
 msgid "This event will be imported by remote ical-calendar. All changes here will be overwritten."
 msgstr ""
 
-#: functions/events.php:290
+#: functions/events.php:286
 msgid "Load map and fix location marker"
 msgstr ""
 
-#: functions/events.php:577
+#: functions/events.php:573
 msgid "Event date"
 msgstr ""
 
-#: functions/events.php:578
+#: functions/events.php:574
 msgid "Event location"
 msgstr ""
 
@@ -505,55 +505,60 @@ msgid "WhatsApp"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:132
+#: functions/options/class-sunflowersocialmediasettingspage.php:136
+msgid "Mastodon"
+msgstr ""
+
+#: functions/options/class-sunflowersocialmediasettingspage.php:141
 msgid "mail"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:136
+#: functions/options/class-sunflowersocialmediasettingspage.php:145
 msgid "Mail"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:173
+#: functions/options/class-sunflowersocialmediasettingspage.php:182
 msgid "Show share buttons on single post page"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:246
-#: functions/s.php:154
+#: functions/options/class-sunflowersocialmediasettingspage.php:255
+#: functions/s.php:158
 msgid "Select Open Graph Fallback Image"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:258
+#: functions/options/class-sunflowersocialmediasettingspage.php:267
 msgid "Open Media Library"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:263
+#: functions/options/class-sunflowersocialmediasettingspage.php:272
 msgid "This fallback image will be used when sharing pages and posts and no featured image has been selected."
 msgstr ""
 
-#: functions/s.php:54
+#: functions/s.php:59
 msgid "Mainmenu"
 msgstr ""
 
-#: functions/s.php:55
+#: functions/s.php:60
 msgid "Topmenu"
 msgstr ""
 
-#: functions/s.php:56
+#: functions/s.php:61
 msgid "Footer Menu 1"
 msgstr ""
 
-#: functions/s.php:57
+#: functions/s.php:62
 msgid "Footer Menu 2"
 msgstr ""
 
-#: functions/s.php:103
+#: functions/s.php:115
 msgid "Sidebar"
 msgstr ""
 
-#: functions/s.php:105
+#: functions/s.php:117
 msgid "Add widgets here."
 msgstr ""
 
-#: functions/s.php:167
+#: functions/s.php:171
 #: template-parts/content-archive.php:67
 msgid "Continue reading"
 msgstr ""
@@ -593,11 +598,15 @@ msgstr ""
 msgid "Share on Facebook "
 msgstr ""
 
-#: inc/template-tags.php:127
+#: inc/template-tags.php:128
 msgid "Share on WhatsApp "
 msgstr ""
 
-#: inc/template-tags.php:136
+#: inc/template-tags.php:144
+msgid "Share on Mastodon "
+msgstr ""
+
+#: inc/template-tags.php:154
 msgid "send mail "
 msgstr ""
 
@@ -630,7 +639,7 @@ msgstr ""
 
 #: template-parts/content-archive.php:53
 #: template-parts/content-page.php:36
-#: template-parts/content.php:89
+#: template-parts/content.php:113
 msgid "Pages:"
 msgstr ""
 
@@ -656,8 +665,28 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
+#: template-parts/content.php:72
+msgid "Mastodon Instance address"
+msgstr ""
+
+#: template-parts/content.php:77
+msgid "Enter your instance's address"
+msgstr ""
+
+#: template-parts/content.php:82
+msgid "Memorize my instance"
+msgstr ""
+
+#: template-parts/content.php:86
+msgid "Close"
+msgstr ""
+
+#: template-parts/content.php:87
+msgid "Save and Share"
+msgstr ""
+
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:76
+#: template-parts/content.php:100
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 

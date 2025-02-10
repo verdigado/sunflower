@@ -137,16 +137,8 @@ function sunflower_scripts() {
 	}
 
 	wp_enqueue_script(
-		'popper',
-		get_template_directory_uri() . '/assets/vndr/@popperjs/core/dist/umd/popper.min.js',
-		array(),
-		SUNFLOWER_VERSION,
-		true
-	);
-
-	wp_enqueue_script(
 		'bootstrap',
-		get_template_directory_uri() . '/assets/vndr/bootstrap/dist/js/bootstrap.min.js',
+		get_template_directory_uri() . '/assets/vndr/bootstrap/dist/js/bootstrap.bundle.min.js',
 		array( 'jquery' ),
 		SUNFLOWER_VERSION,
 		true
@@ -201,6 +193,15 @@ function sunflower_scripts() {
 	wp_enqueue_style( 'lightbox', get_template_directory_uri() . '/assets/vndr/lightbox2/dist/css/lightbox.min.css', array(), '4.3.0' );
 	wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/assets/vndr/lightbox2/dist/js/lightbox.min.js', array( 'jquery' ), '3.3.0', true );
 	wp_enqueue_script( 'masonry', get_template_directory_uri() . '/assets/vndr/masonry-layout/dist/masonry.pkgd.min.js', array( 'masorny' ), '4.2.2', true );
+	if ( sunflower_get_setting( 'sunflower_sharer_mastodon' ) ) {
+		wp_enqueue_script(
+			'mastodon',
+			get_template_directory_uri() . '/assets/js/mastodon.js',
+			null,
+			SUNFLOWER_VERSION,
+			true
+		);
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'sunflower_scripts' );

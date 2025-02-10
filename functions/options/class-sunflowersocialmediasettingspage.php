@@ -128,6 +128,15 @@ class SunflowerSocialMediaSettingsPage {
 		);
 
 		add_settings_field(
+			'sunflower_sharer_mastodon',
+			__( 'Mastodon', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-social-media-options',
+			'sunflower_social_media_sharers',
+			array( 'sunflower_sharer_mastodon', __( 'Mastodon', 'sunflower' ) )
+		);
+
+		add_settings_field(
 			'sunflower_sharer_mail',
 			__( 'mail', 'sunflower' ),
 			$this->sunflower_checkbox_callback( ... ),
