@@ -129,6 +129,23 @@ function sunflower_the_social_media_sharers() {
 		);
 	}
 
+	if ( sunflower_get_setting( 'sunflower_sharer_mastodon' ) ) {
+		$sharer[] = sprintf(
+			'<div
+              class="mastodon-share-button sharer"
+              data-target="%1$s"
+              data-name="%2$s"
+              data-buttonstyle="fab fa-mastodon"
+              data-text="%3$s"
+			  title="%3$s"
+              >%4$s</div>',
+			get_permalink(),
+			rawurlencode( (string) get_the_title() ),
+			__( 'Share on Mastodon ', 'sunflower' ),
+			'<i class="fab fa-mastodon"></i>',
+		);
+	}
+
 	if ( sunflower_get_setting( 'sunflower_sharer_mail' ) ) {
 		$sharer[] = sprintf(
 			'<a href="MAILTO:?subject=%s&body=%s" target="_blank" title="%s" class="sharer"><i class="fas fa-envelope"></i></a>',
