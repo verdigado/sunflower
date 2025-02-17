@@ -106,6 +106,10 @@ add_action( 'admin_init', 'sunflower_add_event_meta_boxes' );
 function sunflower_save_event_meta_boxes() {
 	global $post;
 
+	if ( ! isset( $post->ID ) || empty( $_POST ) ) {
+		return;
+	}
+
 	// Do not save, if nonce is invalid.
 	if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'update-post_' . $post->ID ) ) {
 		return;
@@ -117,10 +121,6 @@ function sunflower_save_event_meta_boxes() {
 	}
 
 	$sunflower_event_fields = sunflower_get_event_fields();
-
-	if ( ! isset( $post->ID ) ) {
-		return;
-	}
 
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
