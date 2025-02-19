@@ -23,13 +23,19 @@ body.admin-bar {
 
     }
 
-    .sunflower-icon {
+    #wp-admin-bar-sunflower {
 
-        .ab-item {
+        > .ab-item {
 
             &::before {
 
-                content: url("assets/img/sunflower.svg");
+                content: "";
+                background-image: url("assets/img/sunflower.svg") !important;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                top: 50%;
+                transform: translateY(-50%);
                 width: 20px;
                 height: 20px;
             }
