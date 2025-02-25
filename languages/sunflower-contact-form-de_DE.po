@@ -55,7 +55,7 @@ msgstr "Nachricht"
 #: build/contact-form/render.php:32
 msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
 msgstr ""
-"Bitte füllen Sie alle Pflichtfelder (<span class=\"required\">*</span>) aus."
+"Bitte fülle alle Pflichtfelder (<span class=\"required\">*</span>) aus."
 
 #: build/contact-form/render.php:36
 msgid ""
@@ -64,9 +64,9 @@ msgid ""
 "            Additional information can be found in our privacy policy on <a "
 "href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>"
 msgstr ""
-"Mit der Nutzung dieses Formulars erklären Sie sich mit der Speicherung und "
-"Verarbeitung Ihrer Daten durch diese Website einverstanden. \n"
-"\t\tWeiteres entnehmen Sie bitte unserer  <a href=\"#\" "
+"Mit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und "
+"Verarbeitung deiner Daten durch diese Website einverstanden. \n"
+"\t\tWeiteres entnehme bitte unserer  <a href=\"#\" "
 "id=\"privacy_policy_url\">Datenschutzerklärung</a>"
 
 #: build/contact-form/render.php:47 functions/contact-form.php:35
@@ -91,7 +91,7 @@ msgstr "absenden"
 
 #: functions/contact-form.php:52
 msgid "Thank you. The form has been sent."
-msgstr "Vielen Dank. Ihre Nachricht wurde verschickt."
+msgstr "Vielen Dank. Deine Nachricht wurde verschickt."
 
 #: functions/contact-form.php:63
 msgid "New Message from"
@@ -99,7 +99,7 @@ msgstr "Neue Nachricht über"
 
 #: functions/contact-form.php:78
 msgid "Your Message on"
-msgstr "Ihre Nachricht über"
+msgstr "Deine Nachricht über"
 
 #: build/contact-form/index.js:115 build/contact-form/index.js:88
 msgid ""
