@@ -14,7 +14,7 @@ Siehe auch die Empfehlungen des Bundesverbands unter [Das grüne Grundlagen-Desi
 
 Prüft unbedingt die Lizenz- und Nutzungsbedingungen der Bilder, die ihr verwenden möchtet. "Kostenlos" heißt nicht, dass man sie in jedem Fall verwenden darf. Manchmal ist es auch notwendig, die Quelle oder die Lizenz mit anzugeben wie z.B. bei [Creative Commons (CC)-Lizenzen](https://de.creativecommons.net/was-ist-cc/).
 
-## Wie kann ich Soziale Plattformen wie Instagram, X (Twitter) und Facebook verlinken?
+## Wie kann ich Soziale Plattformen wie Mastodon, Instagram und Facebook verlinken?
 Gehe dazu in die Sunflower-Einstellungen und trage die kompletten Webadressen Deiner Profile ein.
 Sie erscheinen dann automatisch in der Fußzeile und optional in der Kopfleiste. Siehe dazu [Icons in der Fußleiste](setup.md#teile-in-sozialen-medien)
 
