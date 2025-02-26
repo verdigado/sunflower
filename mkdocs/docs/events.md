@@ -9,7 +9,7 @@ Ein Termin besteht aus einer normalen Überschrift und normalem Inhalt, genauso 
 - ganztägiger Termin oder nicht
 - Veranstaltungsort, Straße und Stadt
 
-Außerdem kannst Du eine Markierung auf einer Landkarte [OpenStreetMap](https://www.openstreetmap.de/) setzen. Diese Landkarte wird nach einem Opt-In-Klick durch die Besucherin im Frontend angezeigt.
+Außerdem kannst Du eine Markierung auf einer Landkarte [OpenStreetMap](https://www.openstreetmap.de/) setzen. Diese Landkarte wird nach einem Opt-In-Klick durch der\*die Besucher\*innen im Frontend angezeigt.
 
 ## Übersichtsseite im Menü einfügen
 - Design > Menüs

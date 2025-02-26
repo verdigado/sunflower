@@ -68,7 +68,7 @@ aktiviert werden.
 
 ### Teile in Sozialen Medien
 
-In der Einzelansicht von Beiträgen kannst Du Icons zum Teilen via X (Twitter), Facebook und per E-Mail anzeigen. Ein Klick auf die Icons öffnet dann das jeweilige Soziale Netz und Du kannst den Beitrag dort teilen. Das ist unabhängig davon, ob Du auf den Plattformen selbst einen Account hast.
+In der Einzelansicht von Beiträgen kannst Du Icons zum Teilen via Mastodon, WhatsApp, Facebook und per E-Mail anzeigen. Ein Klick auf die Icons öffnet dann das jeweilige Soziale Netz und Du kannst den Beitrag dort teilen. Das ist unabhängig davon, ob Du auf den Plattformen selbst einen Account hast.
 
 Im Falle von E-Mail wird Dein Email-Programm geöffnet.
 

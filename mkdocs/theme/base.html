@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<html class="writer-html5" lang="{{ config.theme.locale|default('en') }}" >
 <head>
   {%- block site_meta %}
   <meta charset="utf-8">
@@ -9,8 +8,11 @@
   {% if page and page.is_homepage %}<meta name="description" content="{{ config.site_description }}">{% endif %}
   {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
   {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
-  {% if config.site_favicon %}<link rel="icon" href="{{ config.site_favicon|url }}">
-  {% else %}<link rel="icon" href="{{ 'img/favicon.ico'|url }}" type="image/x-icon">{% endif %}
+  {%- if config.site_favicon %}
+	<link rel="shortcut icon" href="{{ config.site_favicon|url }}" />
+  {%- else %}
+	<link rel="shortcut icon" href="{{ 'img/favicon.ico'|url }}" />
+  {%- endif %}
   {%- endblock %}
 
   {%- block htmltitle %}
