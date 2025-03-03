@@ -102,7 +102,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 		$post_content = sprintf( '<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->', nl2br( (string) $event->DESCRIPTION ) ); // phpcs:ignore
 
 		if ( isset( $event->URL ) && filter_var( (string) $event->URL, FILTER_VALIDATE_URL ) ) { // phpcs:ignore
-			$post_content .= sprintf( '<!-- wp:paragraph --><p>%1$s: <a href="%1$s" target="_blank">%1$s</a></p><!-- /wp:paragraph -->', __( 'More Information', 'sunflower' ), (string) $event->URL ); // phpcs:ignore
+			$post_content .= sprintf( '<!-- wp:paragraph --><p><a href="%1$s" title="%2$s" target="_blank">%3$s&nbsp;<i class="fa-solid fa-up-right-from-square"></i></a></p><!-- /wp:paragraph -->', (string) $event->URL, __( 'Open link in a new tab', 'default' ), __( 'More Information', 'sunflower' ) );  // phpcs:ignore
 		}
 
 		$post = array(
