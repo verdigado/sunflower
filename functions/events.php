@@ -339,52 +339,59 @@ function sunflower_event_field( $id, $config, $value ) {
 
 /**
  * Load the required JavaScript files.
+ *
+ * @param string $hook The hook name.
  */
-function sunflower_load_event_admin_scripts() {
-	wp_enqueue_script(
-		'sunflower-datetimepicker',
-		get_template_directory_uri() . '/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js',
-		array( 'jquery' ),
-		'1.0.0',
-		true
-	);
+function sunflower_load_event_admin_scripts( $hook ) {
+	if ( 'sunflower_page_sunflower_events_options' === $hook || 'sunflower_event' === get_post_type() ) {
 
-	wp_enqueue_script(
-		'sunflower-datetimepicker-custom',
-		get_template_directory_uri() . '/assets/js/custom-jquery-date-time-picker.js',
-		array( 'sunflower-datetimepicker' ),
-		'1.0.0',
-		true
-	);
+		wp_enqueue_script(
+			'sunflower-datetimepicker',
+			get_template_directory_uri() . '/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js',
+			array( 'jquery' ),
+			'1.0.0',
+			true
+		);
 
-	wp_enqueue_style(
-		'sunflower-datetimepicker',
-		get_template_directory_uri() . '/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.min.css',
-		array(),
-		'1.0.0'
-	);
+		wp_enqueue_script(
+			'sunflower-datetimepicker-custom',
+			get_template_directory_uri() . '/assets/js/custom-jquery-date-time-picker.js',
+			array( 'sunflower-datetimepicker' ),
+			'1.0.0',
+			true
+		);
 
-	wp_enqueue_script(
-		'sunflower-leaflet',
-		get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.js',
-		null,
-		'3.2.1',
-		true
-	);
+		wp_enqueue_style(
+			'sunflower-datetimepicker',
+			get_template_directory_uri() . '/assets/vndr/jquery-datetimepicker/build/jquery.datetimepicker.min.css',
+			array(),
+			'1.0.0'
+		);
 
-	wp_enqueue_style(
-		'sunflower-leaflet',
-		get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.css',
-		array(),
-		'1.0.0'
-	);
+		wp_enqueue_script(
+			'sunflower-leaflet',
+			get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.js',
+			null,
+			'3.2.1',
+			true
+		);
 
-	wp_enqueue_style(
-		'sunflower-editor-style',
-		get_template_directory_uri() . '/assets/css/editor-style.css',
-		array(),
-		'1.0.0'
-	);
+		wp_enqueue_style(
+			'sunflower-leaflet',
+			get_template_directory_uri() . '/assets/vndr/leaflet/dist/leaflet.css',
+			array(),
+			'1.0.0'
+		);
+	}
+
+	if ( in_array( get_post_type(), array( 'post', 'page' ), true ) ) {
+			wp_enqueue_style(
+				'sunflower-editor-style',
+				get_template_directory_uri() . '/assets/css/editor-style.css',
+				array(),
+				'1.0.0'
+			);
+	}
 }
 
 add_action( 'admin_enqueue_scripts', 'sunflower_load_event_admin_scripts' );
