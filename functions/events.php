@@ -384,7 +384,7 @@ function sunflower_load_event_admin_scripts( $hook ) {
 		);
 	}
 
-	if ( in_array( get_post_type(), array( 'post', 'page' ), true ) ) {
+	if ( in_array( $hook, array( 'post.php', 'post-new.php' ), true ) ) {
 			wp_enqueue_style(
 				'sunflower-editor-style',
 				get_template_directory_uri() . '/assets/css/editor-style.css',
