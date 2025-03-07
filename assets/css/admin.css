@@ -57,3 +57,13 @@ p a img {
 #sunflowerHideMap {
 	display: none;
 }
+
+.sunflower-admin-hint {
+	text-align: center;
+	background-color: #e6007e;
+	padding: 10px;
+	color: white;
+	font-size: 150%;
+	line-height: 1.5;
+	border-radius: 15px;
+}

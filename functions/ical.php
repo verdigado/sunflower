@@ -12,8 +12,13 @@ $sunflower_event = '';
 if ( ! defined( 'SUNFLOWER_ICAL_ALL_EVENTS' ) ) {
 	$sunflower_event = sunflower_get_event_in_ics( $post ) . "\n";
 } else {
-	$sunflower_filename = preg_replace( '/[^a-zA-Z0-9]/', '-', $sunflower_prodid . '_events' ) . '.ics';
-	$sunflower_posts    = sunflower_get_next_events();
+	$sunflower_event_tags = array();
+	if ( isset( $_GET['sunflower_tag'] ) && ! empty( $_GET['sunflower_tag'] ) ) { // phpcs:ignore
+		$sunflower_event_tags = explode( ',', $_GET['sunflower_tag'] ); // phpcs:ignore
+	}
+	$sunflower_event_tags_str = implode( ',', $sunflower_event_tags );
+	$sunflower_filename       = preg_replace( '/[^a-zA-Z0-9]/', '-', $sunflower_prodid . '_events' . ( ( $sunflower_event_tags_str ) ? '-' . $sunflower_event_tags_str : '' ) ) . '.ics';
+	$sunflower_posts          = sunflower_get_next_events( -1, $sunflower_event_tags );
 	while ( $sunflower_posts->have_posts() ) {
 		$sunflower_posts->the_post();
 		$sunflower_event .= sunflower_get_event_in_ics( $post ) . "\n";

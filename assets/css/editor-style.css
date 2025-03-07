@@ -129,15 +129,6 @@
 	margin: 0;
 }
 
-.sunflower-admin-hint {
-	text-align: center;
-	background-color: #e6007e;
-	padding: 10px;
-	color: white;
-	font-size: 200%;
-	border-radius: 15px;
-}
-
 .wp-block-button__link {
 	font-family: "PT Sans", sans-serif;
 	background-color: #008939;
