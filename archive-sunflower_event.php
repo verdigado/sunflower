@@ -210,16 +210,6 @@ endif;
 		true
 	);
 
-	wp_localize_script(
-		'filter-custom',
-		'sunflower',
-		array(
-			'texts' => array(
-				'icscalendar' => __( 'calendar in ics-format', 'sunflower' ),
-			),
-		)
-	);
-
 	?>
 
 <?php

@@ -24,7 +24,7 @@ jQuery( '.filter-button-group' ).on( 'click', 'button', function () {
 			return href.split( '?' )[ 0 ] + '?' + params.toString();
 		} )
 		.text( function () {
-			if ( eventTag ) {
+			if ( eventTag && eventTag !== 'map' ) {
 				return (
 					sunflower.texts.icscalendar +
 					' (' +

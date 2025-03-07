@@ -168,7 +168,8 @@ function sunflower_scripts() {
 			'theme_url'          => get_template_directory_uri(),
 			'maps_marker'        => sunflower_parent_or_child( 'assets/img/marker.png' ),
 			'texts'              => array(
-				'readmore' => __( 'Continue reading', 'sunflower' ),
+				'readmore'    => __( 'Continue reading', 'sunflower' ),
+				'icscalendar' => __( 'calendar in ics-format', 'sunflower' ),
 			),
 		)
 	);
