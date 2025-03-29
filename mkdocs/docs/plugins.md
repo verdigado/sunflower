@@ -26,4 +26,4 @@ Es ist nichts weiter zu machen, als das Plugin zu installieren.
 	
 	Da twingle keine Cookies setzt, kann das Overlay von Embed Privacy für diesen Embed-Anbieter deaktiviert werden.
   	
-  	Embed Privacy funktioniert nur mit dem Code-Snippet von twingle und nicht mit dem twingle-Plugin.
+  	Embed Privacy funktioniert nur mit dem Code-Snippet ("Optimiert für Homepagebaukästen") von twingle und nicht mit dem twingle-Plugin.
