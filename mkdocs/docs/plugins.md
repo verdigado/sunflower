@@ -21,7 +21,9 @@ Das Plugin [Embed Privacy](https://de.wordpress.org/plugins/embed-privacy/) verh
 
 Es ist nichts weiter zu machen, als das Plugin zu installieren.
 
-!!! Note "Embed Privacy mit dem Spendenformular von twingle nutzen"
+!!! Note "Twingle-Spendenformular mit Embed Privacy nutzen"
 	Wenn du das Embed des [twingle-Spendenformulars](donationform.md) einstellen oder deaktivieren möchtest, kannst du unter `Einstellungen > Embed Privacy > Embeds verwalten > Neuen Beitrag erstellen` twingle als Embed hinzufügen. Verwende dazu das Regex-Muster `/twingle\.de/`.
- 	
+	
+	Da twingle keine Cookies setzt, kann das Overlay von Embed Privacy für diesen Embed-Anbieter deaktiviert werden.
+  	
   	Embed Privacy funktioniert nur mit dem Code-Snippet von twingle und nicht mit dem twingle-Plugin.
