@@ -16,7 +16,7 @@ Je mehr grüne Gliederungen sich bei twingle registrieren und damit das gesamte 
 
 Unter [twingle](https://www.twingle.de/registrierung-gruene/) kannst Du Deine Gliederung unter dem grünen Rahmenvertrag registrieren (bitte registriere Deine Gliederung nicht über das reguläre Formular auf der twingle-Webseite, sondern nur über den angegebenen Link). Dazu musst Du lediglich die AGB akzeptieren und die Stammdaten sowie die IBAN des Spendenkontos Deiner Gliederung angeben. Das twingle-Konto solltest Du auf den Namen einer Person registrieren, die für das Bankkonto Deiner Gliederung zeichnungsberechtigt ist.
 
-Bitte verwende bei der Registrierung Eures Twingle-Kontos eine offizielle E-Mail-Adresse von BÜNDNIS 90/DIE GRÜNEN.
+Bitte verwende bei der Registrierung Eures twingle-Kontos eine offizielle E-Mail-Adresse von BÜNDNIS 90/DIE GRÜNEN.
 
 !!! Note "Muss eine neue Gläubiger-ID für die Registrierung beantragt werden?"
     Nein, die Gläubiger-ID des Bundesverbandes kann eingetragen werden. Das ist die selbe ID, die beim Einzug der Mitgliedsbeiträge verwendet wird.
