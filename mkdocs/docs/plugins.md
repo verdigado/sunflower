@@ -20,3 +20,8 @@ Das Plugin muss einmalig unter `Einstellungen -> ActivityPub` konfiguriert werde
 Das Plugin [Embed Privacy](https://de.wordpress.org/plugins/embed-privacy/) verhindert das Laden externer Inhalte (CSS, Fonts, Bilder, Videos) von Social Media und Video-Platformen ohne, dass der\*die Besucher\*innen der Seite zugestimmt hat.
 
 Es ist nichts weiter zu machen, als das Plugin zu installieren.
+
+!!! Note "Embed Privacy mit dem Spendenformular von twingle nutzen"
+	Wenn du das Embed des [twingle-Spendenformulars](donationform.md) einstellen oder deaktivieren möchtest, kannst du unter `Einstellungen > Embed Privacy > Embeds verwalten > Neuen Beitrag erstellen` twingle als Embed hinzufügen. Verwende dazu das Regex-Muster `/twingle\.de/`.
+ 	
+  	Embed Privacy funktioniert nur mit dem Code-Snippet von twingle und nicht mit dem twingle-Plugin.
