@@ -120,7 +120,7 @@
 							"fontDisplay": "block",
 							"fontFamily": "GrueneType",
 							"fontStretch": "normal",
-							"fontStyle": "bold",
+							"fontStyle": "normal",
 							"fontWeight": "900",
 							"src": [
 								"file:./assets/fonts/GrueneType-BlackCondensedItalic.woff2",

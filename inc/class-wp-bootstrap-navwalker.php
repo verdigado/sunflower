@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Bootstrap Navwalker.
+ * WP Bootstrap Navwalker
  *
  * @package WP-Bootstrap-Navwalker
  *
@@ -8,7 +8,7 @@
  * Plugin Name: WP Bootstrap Navwalker
  * Plugin URI:  https://github.com/wp-bootstrap/wp-bootstrap-navwalker
  * Description: A custom WordPress nav walker class to implement the Bootstrap 4 navigation style in a custom theme using the WordPress built in menu manager.
- * Author: Edward McIntyre - @twittem, WP Bootstrap, William Patton - @pattonwebz
+ * Author: Edward McIntyre - @twittem, WP Bootstrap, William Patton - @pattonwebz, IanDelMar - @IanDelMar
  * Version: 4.3.0
  * Author URI: https://github.com/wp-bootstrap
  * GitHub Plugin URI: https://github.com/wp-bootstrap/wp-bootstrap-navwalker
@@ -17,15 +17,32 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
  */
 
-/* Check if Class Exists. */
-if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
+// Check if Class Exists.
+if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 	/**
 	 * WP_Bootstrap_Navwalker class.
-	 *
-	 * @extends Walker_Nav_Menu
 	 */
 	// phpcs:ignore
 	class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
+
+		/**
+		 * Whether the items_wrap contains schema microdata or not.
+		 *
+		 * @since 4.2.0
+		 * @var boolean
+		 */
+		private $has_schema = false;
+
+		/**
+		 * Ensure the items_wrap argument contains microdata.
+		 *
+		 * @since 4.2.0
+		 */
+		public function __construct() {
+			if ( ! has_filter( 'wp_nav_menu_args', array( $this, 'add_schema_to_navbar_ul' ) ) ) {
+				add_filter( 'wp_nav_menu_args', array( $this, 'add_schema_to_navbar_ul' ) );
+			}
+		}
 
 		/**
 		 * Starts the list before the elements are added.
@@ -34,11 +51,11 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 		 *
 		 * @see Walker_Nav_Menu::start_lvl()
 		 *
-		 * @param string   $output Used to append additional content (passed by reference).
-		 * @param int      $depth  Depth of menu item. Used for padding.
-		 * @param stdClass $args   An object of wp_nav_menu() arguments.
+		 * @param string           $output Used to append additional content (passed by reference).
+		 * @param int              $depth  Depth of menu item. Used for padding.
+		 * @param WP_Nav_Menu_Args $args   An object of wp_nav_menu() arguments.
 		 */
-		public function start_lvl( &$output, $depth = 0, $args = array() ): void {
+		public function start_lvl( &$output, $depth = 0, $args = null ) {
 			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 				$t = '';
 				$n = '';
@@ -46,7 +63,6 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$t = "\t";
 				$n = "\n";
 			}
-
 			$indent = str_repeat( $t, $depth );
 			// Default class to add to the file.
 			if ( 0 === $depth ) {
@@ -54,7 +70,6 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			} else {
 				$classes = array( 'dropdown-submenu', 'dropdown-menu-level-' . $depth );
 			}
-
 			/**
 			 * Filters the CSS class(es) applied to a menu list element.
 			 *
@@ -65,9 +80,10 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			 * @param int      $depth   Depth of menu item. Used for padding.
 			 */
 			// phpcs:ignore
-			$class_names = implode( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
-			$class_names = '' !== $class_names && '0' !== $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-			/**
+			$class_names = join( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
+			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+			/*
 			 * The `.dropdown-menu` container needs to have a labelledby
 			 * attribute which points to it's trigger link.
 			 *
@@ -75,15 +91,37 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			 * link with an id that was added to the $output.
 			 */
 			$labelledby = '';
-			// find all links with an id in the output.
+			// Find all links with an id in the output.
 			preg_match_all( '/(<a.*?id=\"|\')(.*?)\"|\'.*?>/im', $output, $matches );
-			// with pointer at end of array check if we got an ID match.
+			// With pointer at end of array check if we got an ID match.
 			if ( end( $matches[2] ) ) {
-				// build a string to use as aria-labelledby.
+				// Build a string to use as aria-labelledby.
 				$labelledby = 'aria-labelledby="' . esc_attr( end( $matches[2] ) ) . '"';
 			}
+			$output .= "{$n}{$indent}<div$class_names><ul $labelledby>{$n}";
+		}
 
-			$output .= sprintf( '%s%s<div %s><ul %s>%s', $n, $indent, $class_names, $labelledby, $n );
+		/**
+		 * Outputs the end of the current level in the tree after elements are output.
+		 *
+		 * @since 2.1.0
+		 *
+		 * @see Walker::end_lvl()
+		 *
+		 * @param string           $output Used to append additional content (passed by reference).
+		 * @param int              $depth  Optional. Depth of page. Used for padding. Default 0.
+		 * @param WP_Nav_Menu_Args $args   An object of wp_nav_menu() arguments.
+		 */
+		public function end_lvl( &$output, $depth = 0, $args = null ) {
+			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+				$t = '';
+				$n = '';
+			} else {
+				$t = "\t";
+				$n = "\n";
+			}
+			$indent  = str_repeat( $t, $depth );
+			$output .= "$indent</ul></div>{$n}";
 		}
 
 		/**
@@ -94,13 +132,13 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 		 *
 		 * @see Walker_Nav_Menu::start_el()
 		 *
-		 * @param string   $output Used to append additional content (passed by reference).
-		 * @param WP_Post  $item   Menu item data object.
-		 * @param int      $depth  Depth of menu item. Used for padding.
-		 * @param stdClass $args   An object of wp_nav_menu() arguments.
-		 * @param int      $id     Current item ID.
+		 * @param string           $output Used to append additional content (passed by reference).
+		 * @param WP_Nav_Menu_Item $item   Menu item data object.
+		 * @param int              $depth  Depth of menu item. Used for padding.
+		 * @param WP_Nav_Menu_Args $args   An object of wp_nav_menu() arguments.
+		 * @param int              $id     Current item ID.
 		 */
-		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ): void {
+		public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
 			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 				$t = '';
 				$n = '';
@@ -108,44 +146,60 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$t = "\t";
 				$n = "\n";
 			}
-
 			$indent = ( $depth ) ? str_repeat( $t, $depth ) : '';
+
+			if ( false !== strpos( $args->items_wrap, 'itemscope' ) && false === $this->has_schema ) {
+				$this->has_schema  = true;
+				$args->link_before = '<span itemprop="name">' . $args->link_before;
+				$args->link_after .= '</span>';
+			}
 
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
-			// Initialize some holder variables to store specially handled item
-			// wrappers and icons.
+			// Updating the CSS classes of a menu item in the WordPress Customizer preview results in all classes defined
+			// in that particular input box to come in as one big class string.
+			// phpcs:ignore
+			$split_on_spaces = function ( $class ) {
+				return preg_split( '/\s+/', $class );
+			};
+			$classes         = $this->flatten( array_map( $split_on_spaces, $classes ) );
+
+			/*
+			 * Initialize some holder variables to store specially handled item
+			 * wrappers and icons.
+			 */
 			$linkmod_classes = array();
 			$icon_classes    = array();
 
-			/**
+			/*
 			 * Get an updated $classes array without linkmod or icon classes.
 			 *
 			 * NOTE: linkmod and icon class arrays are passed by reference and
 			 * are maybe modified before being used later in this function.
 			 */
-			$classes = self::separate_linkmods_and_icons_from_classes( $classes, $linkmod_classes, $icon_classes, $depth );
+			$classes = $this->separate_linkmods_and_icons_from_classes( $classes, $linkmod_classes, $icon_classes, $depth );
 
 			// Join any icon classes plucked from $classes into a string.
-			$icon_class_string = implode( ' ', $icon_classes );
+			$icon_class_string = join( ' ', $icon_classes );
 
 			/**
 			 * Filters the arguments for a single nav menu item.
 			 *
-			 *  WP 4.4.0
+			 * @since WP 4.4.0
 			 *
-			 * @param stdClass $args  An object of wp_nav_menu() arguments.
-			 * @param WP_Post  $item  Menu item data object.
-			 * @param int      $depth Depth of menu item. Used for padding.
+			 * @param WP_Nav_Menu_Args $args  An object of wp_nav_menu() arguments.
+			 * @param WP_Nav_Menu_Item $item  Menu item data object.
+			 * @param int              $depth Depth of menu item. Used for padding.
+			 *
+			 * @var WP_Nav_Menu_Args
 			 */
 			// phpcs:ignore
 			$args = apply_filters( 'nav_menu_item_args', $args, $item, $depth );
 
 			// Add .dropdown or .active classes where they are needed.
-			if ( isset( $args->has_children ) && $args->has_children ) {
+			if ( $this->has_children ) {
 				$classes[] = 'dropdown';
 			}
-
 			if ( in_array( 'current-menu-item', $classes, true ) || in_array( 'current-menu-parent', $classes, true ) ) {
 				$classes[] = 'active';
 			}
@@ -159,8 +213,8 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			$classes = apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth );
 
 			// Form a string of classes in format: class="class_names".
-			$class_names = implode( ' ', $classes );
-			$class_names = '' !== $class_names && '0' !== $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+			$class_names = join( ' ', $classes );
+			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
 			/**
 			 * Filters the ID applied to a menu item's list item element.
@@ -168,46 +222,43 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			 * @since WP 3.0.1
 			 * @since WP 4.1.0 The `$depth` parameter was added.
 			 *
-			 * @param string   $menu_id The ID that is applied to the menu item's `<li>` element.
-			 * @param WP_Post  $item    The current menu item.
-			 * @param stdClass $args    An object of wp_nav_menu() arguments.
-			 * @param int      $depth   Depth of menu item. Used for padding.
+			 * @param string           $menu_id The ID that is applied to the menu item's `<li>` element.
+			 * @param WP_Nav_Menu_Item $item    The current menu item.
+			 * @param WP_Nav_Menu_Args $args    An object of wp_nav_menu() arguments.
+			 * @param int              $depth   Depth of menu item. Used for padding.
 			 */
 			// phpcs:ignore
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-			$output .= $indent . '<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"' . $id . $class_names . '>';
+			$output .= $indent . '<li ' . $id . $class_names . '>';
 
-			// initialize array for holding the $atts for the link item.
-			$atts = array();
-
-			// Set title from item to the $atts array - if title is empty then
-			// default to item title.
-			if ( empty( $item->attr_title ) ) {
-				$atts['title'] = empty( $item->title ) ? '' : wp_strip_all_tags( (string) $item->title );
+			// Initialize array for holding the $atts for the link item.
+			$atts           = array();
+			$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
+			if ( '_blank' === $item->target && empty( $item->xfn ) ) {
+				$atts['rel'] = 'noopener noreferrer';
 			} else {
-				$atts['title'] = $item->attr_title;
+				$atts['rel'] = ! empty( $item->xfn ) ? $item->xfn : '';
 			}
 
-			$atts['target'] = empty( $item->target ) ? '' : $item->target;
-			$atts['rel']    = empty( $item->xfn ) ? '' : $item->xfn;
-
-			$item_has_children = false;
-			// If item has_children add atts to <a>.
-			if ( isset( $args->has_children ) && $args->has_children && 0 === $depth && $args->depth > 1 ) {
-				$item_has_children     = true;
-				$atts['href']          = empty( $item->url ) ? '#' : $item->url;
-				$atts['aria-haspopup'] = 'true';
+			// If the item has_children add atts to <a>.
+			if ( $this->has_children && 0 === $depth ) {
+				$atts['href']          = '#';
+				$atts['data-toggle']   = 'dropdown';
 				$atts['aria-expanded'] = 'false';
 				$atts['class']         = 'dropdown-toggle nav-link';
 				$atts['id']            = 'menu-item-dropdown-' . $item->ID;
 			} else {
-				$atts['href'] = empty( $item->url ) ? '#' : $item->url;
-				// Items in dropdowns use .dropdown-item instead of .nav-link.
+				if ( true === $this->has_schema ) {
+					$atts['itemprop'] = 'url';
+				}
+
+				$atts['href'] = ! empty( $item->url ) ? $item->url : '#';
+				// For items in dropdowns use .dropdown-item instead of .nav-link.
 				if ( $depth > 0 ) {
-					$has_children  = ( isset( $args->has_children ) && $args->has_children ) ? ' has-children' : '';
-					$atts['class'] = 'dropdown-item' . $has_children;
+					$atts['class'] = 'dropdown-item';
 				} else {
 					$atts['class'] = 'nav-link';
 				}
@@ -215,8 +266,9 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 
 			$atts['aria-current'] = $item->current ? 'page' : '';
 
-			// update atts of this item based on any custom linkmod classes.
-			$atts = self::update_atts_for_linkmod_type( $atts, $linkmod_classes );
+			// Update atts of this item based on any custom linkmod classes.
+			$atts = $this->update_atts_for_linkmod_type( $atts, $linkmod_classes );
+
 			// Allow filtering of the $atts array before using it.
 			// phpcs:ignore
 			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
@@ -230,193 +282,167 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				}
 			}
 
-			/**
-			 * Set a typeflag to easily test if this is a linkmod or not.
-			 */
-			$linkmod_type = self::get_linkmod_type( $linkmod_classes );
+			// Set a typeflag to easily test if this is a linkmod or not.
+			$linkmod_type = $this->get_linkmod_type( $linkmod_classes );
 
-			/**
-			 * START appending the internal item contents to the output.
-			 */
-			$item_output = $args->before ?? '';
-			/**
+			// START appending the internal item contents to the output.
+			$item_output = isset( $args->before ) ? $args->before : '';
+
+			/*
 			 * This is the start of the internal nav item. Depending on what
 			 * kind of linkmod we have we may need different wrapper elements.
 			 */
 			if ( '' !== $linkmod_type ) {
-				// is linkmod, output the required element opener.
-				$item_output .= self::linkmod_element_open( $linkmod_type, $attributes );
+				// Is linkmod, output the required element opener.
+				$item_output .= $this->linkmod_element_open( $linkmod_type, $attributes );
 			} else {
 				// With no link mod type set this must be a standard <a> tag.
 				$item_output .= '<a' . $attributes . '>';
 			}
 
-			/**
+			/*
 			 * Initiate empty icon var, then if we have a string containing any
 			 * icon classes form the icon markup with an <i> element. This is
 			 * output inside of the item before the $title (the link text).
 			 */
 			$icon_html = '';
-			if ( '' !== $icon_class_string && '0' !== $icon_class_string ) {
-				// append an <i> with the icon classes to what is output before links.
+			if ( ! empty( $icon_class_string ) ) {
+				// Append an <i> with the icon classes to what is output before links.
 				$icon_html = '<i class="' . esc_attr( $icon_class_string ) . '" aria-hidden="true"></i> ';
 			}
 
-			/**
-			 * This filter is documented in wp-includes/post-template.php
-			 */
+			/** This filter is documented in wp-includes/post-template.php */
 			// phpcs:ignore
-			$title = apply_filters( 'the_title', esc_html( $item->title ), $item->ID );
+			$title = apply_filters( 'the_title', $item->title, $item->ID );
 
 			/**
 			 * Filters a menu item's title.
 			 *
 			 * @since WP 4.4.0
 			 *
-			 * @param string   $title The menu item's title.
-			 * @param WP_Post  $item  The current menu item.
-			 * @param stdClass $args  An object of wp_nav_menu() arguments.
-			 * @param int      $depth Depth of menu item. Used for padding.
+			 * @param string           $title The menu item's title.
+			 * @param WP_Nav_Menu_Item $item  The current menu item.
+			 * @param WP_Nav_Menu_Args $args  An object of wp_nav_menu() arguments.
+			 * @param int              $depth Depth of menu item. Used for padding.
 			 */
 			// phpcs:ignore
 			$title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
 
-			/**
-			 * If the .sr-only class was set apply to the nav items text only.
-			 */
+			// If the .sr-only class was set apply to the nav items text only.
 			if ( in_array( 'sr-only', $linkmod_classes, true ) ) {
-				$title         = self::wrap_for_screen_reader( $title );
+				$title         = $this->wrap_for_screen_reader( $title );
 				$keys_to_unset = array_keys( $linkmod_classes, 'sr-only', true );
-				foreach ( $keys_to_unset as $key_to_unset ) {
-					unset( $linkmod_classes[ $key_to_unset ] );
+				foreach ( $keys_to_unset as $k ) {
+					unset( $linkmod_classes[ $k ] );
 				}
 			}
 
 			// Put the item contents into $output.
 			$item_output .= isset( $args->link_before ) ? $args->link_before . $icon_html . $title . $args->link_after : '';
-			/**
+
+			/*
 			 * This is the end of the internal nav item. We need to close the
 			 * correct element depending on the type of link or link mod.
 			 */
 			if ( '' !== $linkmod_type ) {
-				// is linkmod, output the required closing element.
-				$item_output .= self::linkmod_element_close( $linkmod_type );
+				// Is linkmod, output the required closing element.
+				$item_output .= $this->linkmod_element_close( $linkmod_type );
 			} else {
 				// With no link mod type set this must be a standard <a> tag.
 				$item_output .= '</a>';
 			}
 
-			$item_output .= $args->after ?? '';
+			$item_output .= isset( $args->after ) ? $args->after : '';
 
-			if ( $item_has_children ) {
+			if ( $this->has_children && 0 === $depth ) {
 				$item_output .= '
 					<button class="toggle submenu-expand submenu-opener" data-toggle-target="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
 						<span class="screen-reader-text">' . esc_attr__( 'Show sub menu', 'sunflower' ) . '</span>
 					</button>';
 			}
 
-			/**
-			 * END appending the internal item contents to the output.
-			 */
+			// END appending the internal item contents to the output.
 			// phpcs:ignore
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
 
 		/**
-		 * Traverse elements to create list from elements.
+		 * Menu fallback.
 		 *
-		 * Display one element if the element doesn't have any children otherwise,
-		 * display the element and its children. Will only traverse up to the max
-		 * depth and no ignore elements under that depth. It is possible to set the
-		 * max depth to include all depths, see walk() method.
-		 *
-		 * This method should not be called directly, use the walk() method instead.
-		 *
-		 * @since WP 2.5.0
-		 *
-		 * @see Walker::start_lvl()
-		 *
-		 * @param object $element           Data object.
-		 * @param array  $children_elements List of elements to continue traversing (passed by reference).
-		 * @param int    $max_depth         Max depth to traverse.
-		 * @param int    $depth             Depth of current element.
-		 * @param array  $args              An array of arguments.
-		 * @param string $output            Used to append additional content (passed by reference).
-		 */
-		public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ): void {
-			if ( ! $element ) {
-				return;
-			}
-
-			$id_field = $this->db_fields['id'];
-			// Display this element.
-			if ( is_object( $args[0] ) ) {
-				$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
-			}
-
-			parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-		}
-
-		/**
-		 * Menu Fallback
-		 * =============
 		 * If this function is assigned to the wp_nav_menu's fallback_cb variable
 		 * and a menu has not been assigned to the theme location in the WordPress
-		 * menu manager the function with display nothing to a non-logged in user,
+		 * menu manager the function will display nothing to a non-logged in user,
 		 * and will add a link to the WordPress menu manager if logged in as an admin.
 		 *
 		 * @param array $args passed from the wp_nav_menu function.
+		 * @return string|void String when echo is false.
 		 */
 		public static function fallback( $args ) {
-			if ( current_user_can( 'edit_theme_options' ) ) {
-				/* Get Arguments. */
-				$container       = $args['container'];
-				$container_id    = $args['container_id'];
-				$container_class = $args['container_class'];
-				$menu_class      = $args['menu_class'];
-				$menu_id         = $args['menu_id'];
+			if ( ! current_user_can( 'edit_theme_options' ) ) {
+				return;
+			}
 
-				// initialize var to store fallback html.
-				$fallback_output = '';
+			// Initialize var to store fallback html.
+			$fallback_output = '';
 
-				if ( $container ) {
-					$fallback_output .= '<' . esc_attr( $container );
-					if ( $container_id ) {
-						$fallback_output .= ' id="' . esc_attr( $container_id ) . '"';
-					}
-
-					if ( $container_class ) {
-						$fallback_output .= ' class="' . esc_attr( $container_class ) . '"';
-					}
-
-					$fallback_output .= '>';
-				}
-
-				$fallback_output .= '<ul';
-				if ( $menu_id ) {
-					$fallback_output .= ' id="' . esc_attr( $menu_id ) . '"';
-				}
-
-				if ( $menu_class ) {
-					$fallback_output .= ' class="' . esc_attr( $menu_class ) . '"';
-				}
-
-				$fallback_output .= '>';
-				$fallback_output .= '<li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link" title="' . esc_attr__( 'Add a menu', 'sunflower' ) . '">' . esc_html__( 'Add a menu', 'sunflower' ) . '</a></li>';
-				$fallback_output .= '</ul>';
-				if ( $container ) {
-					$fallback_output .= '</' . esc_attr( $container ) . '>';
-				}
-
-				// if $args has 'echo' key and it's true echo, otherwise return.
-				if ( array_key_exists( 'echo', $args ) && $args['echo'] ) {
-					echo wp_kses_post( $fallback_output );
-				} else {
-					return wp_kses_post( $fallback_output );
+			// Menu container opening tag.
+			$show_container = false;
+			if ( $args['container'] ) {
+				/**
+				 * Filters the list of HTML tags that are valid for use as menu containers.
+				 *
+				 * @since WP 3.0.0
+				 *
+				 * @param array $tags The acceptable HTML tags for use as menu containers.
+				 *                    Default is array containing 'div' and 'nav'.
+				 */
+				// phpcs:ignore
+				$allowed_tags = apply_filters( 'wp_nav_menu_container_allowedtags', array( 'div', 'nav' ) );
+				if ( is_string( $args['container'] ) && in_array( $args['container'], $allowed_tags, true ) ) {
+					$show_container   = true;
+					$class            = $args['container_class'] ? ' class="menu-fallback-container ' . esc_attr( $args['container_class'] ) . '"' : ' class="menu-fallback-container"';
+					$id               = $args['container_id'] ? ' id="' . esc_attr( $args['container_id'] ) . '"' : '';
+					$fallback_output .= '<' . $args['container'] . $id . $class . '>';
 				}
 			}
 
-			return null;
+			// The fallback menu.
+			$class            = $args['menu_class'] ? ' class="menu-fallback-menu ' . esc_attr( $args['menu_class'] ) . '"' : ' class="menu-fallback-menu"';
+			$id               = $args['menu_id'] ? ' id="' . esc_attr( $args['menu_id'] ) . '"' : '';
+			$fallback_output .= '<ul' . $id . $class . '>';
+			$fallback_output .= '<li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link" title="' . esc_attr__( 'Add a menu', 'sunflower' ) . '">' . esc_html__( 'Add a menu', 'sunflower' ) . '</a></li>';
+			$fallback_output .= '</ul>';
+
+			// Menu container closing tag.
+			if ( $show_container ) {
+				$fallback_output .= '</' . $args['container'] . '>';
+			}
+
+			// if $args has 'echo' key and it's true echo, otherwise return.
+			if ( array_key_exists( 'echo', $args ) && $args['echo'] ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo $fallback_output;
+			} else {
+				return $fallback_output;
+			}
+		}
+
+		/**
+		 * Filter to ensure the items_Wrap argument contains microdata.
+		 *
+		 * @since 4.2.0
+		 *
+		 * @param  array $args The nav instance arguments.
+		 * @return array $args The altered nav instance arguments.
+		 */
+		public function add_schema_to_navbar_ul( $args ) {
+			if ( isset( $args['items_wrap'] ) ) {
+				$wrap = $args['items_wrap'];
+				if ( strpos( $wrap, 'SiteNavigationElement' ) === false ) {
+					$args['items_wrap'] = preg_replace( '/(>).*>?\%3\$s/', ' itemscope itemtype="http://www.schema.org/SiteNavigationElement"$0', $wrap );
+				}
+			}
+			return $args;
 		}
 
 		/**
@@ -440,22 +466,26 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 		private function separate_linkmods_and_icons_from_classes( $classes, &$linkmod_classes, &$icon_classes, $depth ) {
 			// Loop through $classes array to find linkmod or icon classes.
 			foreach ( $classes as $key => $class ) {
-				// If any special classes are found, store the class in it's
-				// holder array and and unset the item from $classes.
-				if ( preg_match( '/^disabled|^sr-only/i', (string) $class ) ) {
+				/*
+				 * If any special classes are found, store the class in it's
+				 * holder array and and unset the item from $classes.
+				 */
+				if ( preg_match( '/^disabled|^sr-only/i', $class ) ) {
 					// Test for .disabled or .sr-only classes.
 					$linkmod_classes[] = $class;
 					unset( $classes[ $key ] );
-				} elseif ( preg_match( '/^dropdown-header|^dropdown-divider|^dropdown-item-text/i', (string) $class ) && $depth > 0 ) {
-					// Test for .dropdown-header or .dropdown-divider and a
-					// depth greater than 0 - IE inside a dropdown.
+				} elseif ( preg_match( '/^dropdown-header|^dropdown-divider|^dropdown-item-text/i', $class ) && $depth > 0 ) {
+					/*
+					 * Test for .dropdown-header or .dropdown-divider and a
+					 * depth greater than 0 - IE inside a dropdown.
+					 */
 					$linkmod_classes[] = $class;
 					unset( $classes[ $key ] );
-				} elseif ( preg_match( '/^fa-(\S*)?|^fa(s|r|l|b)?(\s?)?$/i', (string) $class ) ) {
+				} elseif ( preg_match( '/^fa-(\S*)?|^fa(s|r|l|b)?(\s?)?$/i', $class ) ) {
 					// Font Awesome.
 					$icon_classes[] = $class;
 					unset( $classes[ $key ] );
-				} elseif ( preg_match( '/^glyphicon-(\S*)?|^glyphicon(\s?)$/i', (string) $class ) ) {
+				} elseif ( preg_match( '/^glyphicon-(\S*)?|^glyphicon(\s?)$/i', $class ) ) {
 					// Glyphicons.
 					$icon_classes[] = $class;
 					unset( $classes[ $key ] );
@@ -479,20 +509,20 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			$linkmod_type = '';
 			// Loop through array of linkmod classes to handle their $atts.
 			if ( ! empty( $linkmod_classes ) ) {
-				foreach ( $linkmod_classes as $linkmod_class ) {
-					if ( ! empty( $linkmod_class ) ) {
-						// check for special class types and set a flag for them.
-						if ( 'dropdown-header' === $linkmod_class ) {
+				foreach ( $linkmod_classes as $link_class ) {
+					if ( ! empty( $link_class ) ) {
+
+						// Check for special class types and set a flag for them.
+						if ( 'dropdown-header' === $link_class ) {
 							$linkmod_type = 'dropdown-header';
-						} elseif ( 'dropdown-divider' === $linkmod_class ) {
+						} elseif ( 'dropdown-divider' === $link_class ) {
 							$linkmod_type = 'dropdown-divider';
-						} elseif ( 'dropdown-item-text' === $linkmod_class ) {
+						} elseif ( 'dropdown-item-text' === $link_class ) {
 							$linkmod_type = 'dropdown-item-text';
 						}
 					}
 				}
 			}
-
 			return $linkmod_type;
 		}
 
@@ -508,20 +538,21 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 		 */
 		private function update_atts_for_linkmod_type( $atts = array(), $linkmod_classes = array() ) {
 			if ( ! empty( $linkmod_classes ) ) {
-				foreach ( $linkmod_classes as $linkmod_class ) {
-					if ( ! empty( $linkmod_class ) ) {
-						// update $atts with a space and the extra classname...
-						// so long as it's not a sr-only class.
-						if ( 'sr-only' !== $linkmod_class ) {
-							$atts['class'] .= ' ' . esc_attr( $linkmod_class );
+				foreach ( $linkmod_classes as $link_class ) {
+					if ( ! empty( $link_class ) ) {
+						/*
+						 * Update $atts with a space and the extra classname
+						 * so long as it's not a sr-only class.
+						 */
+						if ( 'sr-only' !== $link_class ) {
+							$atts['class'] .= ' ' . esc_attr( $link_class );
 						}
-
-						// check for special class types we need additional handling for.
-						if ( 'disabled' === $linkmod_class ) {
+						// Check for special class types we need additional handling for.
+						if ( 'disabled' === $link_class ) {
 							// Convert link to '#' and unset open targets.
 							$atts['href'] = '#';
 							unset( $atts['target'] );
-						} elseif ( 'dropdown-header' === $linkmod_class || 'dropdown-divider' === $linkmod_class || 'dropdown-item-text' === $linkmod_class ) {
+						} elseif ( 'dropdown-header' === $link_class || 'dropdown-divider' === $link_class || 'dropdown-item-text' === $link_class ) {
 							// Store a type flag and unset href and target.
 							unset( $atts['href'] );
 							unset( $atts['target'] );
@@ -529,7 +560,6 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 					}
 				}
 			}
-
 			return $atts;
 		}
 
@@ -538,14 +568,13 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 		 *
 		 * @since 4.0.0
 		 *
-		 * @param  string $text the string of text to be wrapped in a screen reader class.
+		 * @param string $text the string of text to be wrapped in a screen reader class.
 		 * @return string      the string wrapped in a span with the class.
 		 */
 		private function wrap_for_screen_reader( $text = '' ) {
 			if ( $text ) {
-				return '<span class="sr-only">' . $text . '</span>';
+				$text = '<span class="sr-only">' . $text . '</span>';
 			}
-
 			return $text;
 		}
 
@@ -564,14 +593,15 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			if ( 'dropdown-item-text' === $linkmod_type ) {
 				$output .= '<span class="dropdown-item-text"' . $attributes . '>';
 			} elseif ( 'dropdown-header' === $linkmod_type ) {
-				// For a header use a span with the .h6 class instead of a real
-				// header tag so that it doesn't confuse screen readers.
+				/*
+				 * For a header use a span with the .h6 class instead of a real
+				 * header tag so that it doesn't confuse screen readers.
+				 */
 				$output .= '<span class="dropdown-header h6"' . $attributes . '>';
 			} elseif ( 'dropdown-divider' === $linkmod_type ) {
-				// this is a divider.
+				// This is a divider.
 				$output .= '<div class="dropdown-divider"' . $attributes . '>';
 			}
-
 			return $output;
 		}
 
@@ -587,15 +617,38 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 		private function linkmod_element_close( $linkmod_type ) {
 			$output = '';
 			if ( 'dropdown-header' === $linkmod_type || 'dropdown-item-text' === $linkmod_type ) {
-				// For a header use a span with the .h6 class instead of a real
-				// header tag so that it doesn't confuse screen readers.
+				/*
+				 * For a header use a span with the .h6 class instead of a real
+				 * header tag so that it doesn't confuse screen readers.
+				 */
 				$output .= '</span>';
 			} elseif ( 'dropdown-divider' === $linkmod_type ) {
-				// this is a divider.
+				// This is a divider.
 				$output .= '</div>';
 			}
-
 			return $output;
 		}
+
+		/**
+		 * Flattens a multidimensional array to a simple array.
+		 *
+		 * @param array $array a multidimensional array.
+		 *
+		 * @return array a simple array
+		 */
+		// phpcs:ignore
+		public function flatten( $array ) {
+			$result = array();
+			// phpcs:ignore
+			foreach ( $array as $element ) {
+				if ( is_array( $element ) ) {
+					array_push( $result, ...$this->flatten( $element ) );
+				} else {
+					$result[] = $element;
+				}
+			}
+			return $result;
+		}
 	}
-}
+
+endif;
