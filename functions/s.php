@@ -28,12 +28,7 @@ if ( ! function_exists( 'sunflower_setup' ) ) :
 		* If you're building a theme based on sunflower, use a find and replace
 		* to change 'sunflower' to the name of your theme in all the template files.
 		*/
-		// Hack for WordPress 6.7.0.
-		if ( version_compare( $GLOBALS['wp_version'], '6.7', '<' ) ) {
-			load_theme_textdomain( 'sunflower', get_template_directory() . '/languages' );
-		} else {
-			load_textdomain( 'sunflower', get_template_directory() . '/languages/' . determine_locale() . '.mo' );
-		}
+		load_theme_textdomain( 'sunflower', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
