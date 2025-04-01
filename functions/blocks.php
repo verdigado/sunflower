@@ -32,6 +32,8 @@ add_filter( 'block_categories_all', 'sunflower_block_category', 10, 2 );
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function sunflower_blocks_init() {
+	require_once __DIR__ . '/block-patterns.php';
+
 	register_block_type( get_template_directory() . '/build/accordion' );
 	wp_set_script_translations(
 		'sunflower-accordion-editor-script',

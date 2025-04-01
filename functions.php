@@ -19,7 +19,6 @@ require_once __DIR__ . '/functions/admin.php';
 require_once __DIR__ . '/functions/metaboxes.php';
 require_once __DIR__ . '/functions/blocks.php';
 require_once __DIR__ . '/functions/update.php';
-require_once __DIR__ . '/functions/block-patterns.php';
 require_once __DIR__ . '/functions/related-posts.php';
 require_once __DIR__ . '/functions/activation.php';
 require_once __DIR__ . '/functions/comments.php';

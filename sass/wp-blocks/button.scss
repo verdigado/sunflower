@@ -5,6 +5,10 @@
     font-size: 1rem;
     border-radius: 3px;
 
+    // required to get pre WP 6.8 styles
+    height: auto;
+    width: auto;
+
     @include themed() {
         font-family: t(standardFont);
     }
