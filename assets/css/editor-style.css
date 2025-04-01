@@ -136,6 +136,8 @@
 	text-transform: uppercase;
 	font-size: 1rem;
 	border-radius: 3px;
+	width: auto;
+	height: auto;
 }
 
 .wp-block-pullquote {
