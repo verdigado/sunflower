@@ -27,20 +27,21 @@ Wenn die Seite nicht gefunden wird, musst Du die die Permalink-Struktur neu einl
 Das kannst Du direkt in den Sunflower-Einstellungen machen unter Einstellungen -> Permalinks.
 
 Alternativ kannst Du folgendes probieren:
+
 - Einstellungen Permalinks
 - Wähle eine beliebige andere Einstellung aus und speichere sie
 - Wähle Deine bisherige Einstellung wieder aus und speichere sie
 - Fertig. Jetzt muss der Link im Menü funktionieren
 
-## Termine über ical importieren
+## Termine über iCal importieren
 
 *Sunflower* kann Termine aus mehreren externen Kalendern per iCal-URL importieren.
 
-Bitte trage diese iCal-URLs in den Sunflower-Einstellungen ein. Die Termine werden regelmäßig automatisch aktualisiert. Solche Termine darfst Du nicht mehr im WordPress-Backend bearbeiten, weil Änderungen wieder überschrieben würden.
+Bitte trage diese iCal-URLs in den Sunflower-Einstellungen unter `Sunflower > Termine > URLs der iCal-Kalender` ein. Die Termine werden regelmäßig automatisch aktualisiert. Solche Termine darfst Du nicht mehr im WordPress-Backend bearbeiten, weil Änderungen wieder überschrieben würden.
 
 Du kannst das Importieren von Termine auch gewollt auslösen (zusätzlich zum automatischen Import alle paar Stunden), indem Du in den Sunflower-Einstellungen auf *Kalender importieren* klickst.
 
-Importiert werden
+Importiert werden:
 
 - Titel
 - Beschreibung
@@ -49,21 +50,28 @@ Importiert werden
 - Ort (dazu holt sich *Sunflower* selbstständig Geodaten, siehe unten)#
 - Auf Wunsch bekommen Termine eines Kalenders eine automatische Kategorie in WordPress zugewiesen. Trage dazu in den Einstellungen nach der KalenderURL einen Strichpunkt ; ein und dann den beliebigen Namen der automatisch zugewiesenenen Kategorie.
 
-### Externe Kalender (z.B. Wolke) importieren
+### Wolke-Kalender erstellen und importieren
 
-Du kannst jeden Kalender importieren, der eine öffentliche URL im iCal-Format anbietet. In der grünen Wolke gibt es auch einen Service für grüne Mitglieder und Gliederungen. Unter
-[wolke.netzbegruenung.de -> Kalender](https://wolke.netzbegruenung.de/apps/calendar/dayGridMonth/now)
-findest Du Deine eigenen Kalender. Dort kanst Du mehrere Kalender anlegen, z.B. einen nur für die Webseite.
+In der grünen Wolke gibt es auch einen Service für grüne Mitglieder und Gliederungen. Unter [wolke.netzbegruenung.de -> Kalender](https://wolke.netzbegruenung.de/apps/calendar/dayGridMonth/now) findest Du Deine eigenen Kalender. Dort kanst Du mehrere Kalender anlegen, zum Beispiel einen nur für die Webseite.
 
-Klicke auf
-
-1. *+ Neuer Kalender* und vergebe einen beliebigen Namen
-2. Neben dem Kalendername gibt es ein Kettensymbol, damit öffnet sich ein kleine Menü
-3. hierin gibt es ein Untermenü, dass Du mit den drei Punkten öffnen kannst
-4. anschließend klickst Du auf *Abonnement-Link kopieren*
-5. diesen trägst Du in den *Sunflower-Einstellungen* ein
+1. Klicke auf *+ Neuer Kalender* und vergebe einen beliebigen Namen, zum Beispiel "GRÜNE TERMINE (OV)".
+2. Fahre mit der Maus über den Kalendernamen. Es erscheint ein Stift-Symbol. Klicke darauf, um das Bearbeitungsmenü zu öffnen.
+3. Öffne das Untermenü *Link teilen*, indem Du rechts zuerst auf das Plus-Symbol und dann auf die drei Punkte klickst.
+4. Klicke anschließend auf *Abonnement-Link kopieren*.
+5. Füge diesen Link in den Sunflower-Einstellungen unter `Sunflower > Termine > URLs der iCal-Kalender` ein.
 
 Eine bebilderte Anleitung findest du auch [hier](https://gcms-intern.de/anleitungen/single/termine-anlegen#c892817).
+
+!!! Note "Nachhaltige Kalenderverwaltung"
+	Damit der Kalender langfristig zuverlässig genutzt werden kann, sollte ihn eine Person verwalten, die Deiner Gliederung dauerhaft erhalten bleibt, wie zum Beispiel Dein\*e Kreisgeschäftsfüher\*in. 
+
+Wenn Du möchtest, dass die anderen Mitglieder Eurer Gliederung den Kalender in der Wolke sehen können, kannst du eine zusätzliche Einstellung vornehmen. Dafür benötigst Du die Rolle `Wolke-Redakteur*in` für Deine Gliederung in der Mitgliederverwaltung Sherpa. Falls Du diese nicht hast, wende Dich an eine Person mit Sherpa-Zugang innerhalb Deiner Gliederung.
+
+1. Öffne das Bearbeitungsmenü des Wolke-Kalenders und gehe zur Zeile *Mit Benutzern oder Gruppen teilen*.
+2. Gib dort den Gliederungsschlüssel ein. Dieser steht beispielsweise vor deinem Gliederungsordner in der [Wolke](https://wolke.netzbegruenung.de), zum Beispiel:
+	- `101009_Esslingen` (Kreisverband)
+  	- `10100903_Esslingen` (Ortsverband)
+3. Wichtig: Das Häkchen bei "kann bearbeiten" sollte nicht gesetzt werden.
 
 ### Import-Häufigkeit festlegen
 Standardmäßig holt sich *Sunflower* alle drei Stunden neue Daten vom externen Kalender. Um diese Zeit zu ändern, kannst Du in der wp-config.php folgendes eintragen:
