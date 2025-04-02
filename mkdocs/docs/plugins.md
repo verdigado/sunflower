@@ -4,7 +4,7 @@ Es gibt eine unübersehbare Menge an [WordPress Plugins](https://de.wordpress.or
 
 ## ActivityPub - Fediverse ohne Aufwand
 
-Mit dem Plugin [Activitypub](https://de.wordpress.org/plugins/activitypub/) wird deine Webseite Teil des Fediverse. Über Mastodon kann man folgen, Beiträge favorisieren und teilen.
+Mit dem Plugin [Activitypub](https://de.wordpress.org/plugins/activitypub/) wird Deine Webseite Teil des Fediverse. Über Mastodon kann man folgen, Beiträge favorisieren und teilen.
 
 Das Plugin muss einmalig unter `Einstellungen -> ActivityPub` konfiguriert werden. Danach brauchst Du Dich nicht mehr drum zu kümmern.
 
@@ -22,7 +22,7 @@ Das Plugin [Embed Privacy](https://de.wordpress.org/plugins/embed-privacy/) verh
 Es ist nichts weiter zu machen, als das Plugin zu installieren.
 
 !!! Note "Twingle-Spendenformular mit Embed Privacy nutzen"
-	Wenn du das Embed des [twingle-Spendenformulars](donationform.md) einstellen oder deaktivieren möchtest, kannst du unter `Einstellungen > Embed Privacy > Embeds verwalten > Neuen Beitrag erstellen` twingle als Embed hinzufügen. Verwende dazu das Regex-Muster `/twingle\.de/`.
+	Wenn du das Embed des [twingle-Spendenformulars](donationform.md) einstellen oder deaktivieren möchtest, kannst Du unter `Einstellungen > Embed Privacy > Embeds verwalten > Neuen Beitrag erstellen` twingle als Embed hinzufügen. Verwende dazu das Regex-Muster `/twingle\.de/`.
 
 	Da twingle keine Cookies setzt, kann das Overlay von Embed Privacy für diesen Embed-Anbieter deaktiviert werden.
 
