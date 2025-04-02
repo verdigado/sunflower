@@ -1,6 +1,7 @@
 # Veranstaltungen / Termine
 
 ## Termin manuell anlegen
+
 Termine sind ein eigener Inhaltstyp, ähnlich wie Beiträge und Seiten. Du findest sie im Backend-Menü als extra Menüpunkt *Termine*. Dort kannst Du auf *Erstellen* klicken.
 
 Ein Termin besteht aus einer normalen Überschrift und normalem Inhalt, genauso wie Seiten und Beiträge. Zusätzlich gibt es in der Seitenleiste den Bereich *Termin*. Hier kannst Du folgendes einstellen:
@@ -12,6 +13,7 @@ Ein Termin besteht aus einer normalen Überschrift und normalem Inhalt, genauso 
 Außerdem kannst Du eine Markierung auf einer Landkarte [OpenStreetMap](https://www.openstreetmap.de/) setzen. Diese Landkarte wird nach einem Opt-In-Klick durch der\*die Besucher\*innen im Frontend angezeigt.
 
 ## Übersichtsseite im Menü einfügen
+
 - Design > Menüs
 - Termine > alle anzeigen
 - Den obersten Eintrag zum Menü hinzufügen
@@ -19,10 +21,12 @@ Außerdem kannst Du eine Markierung auf einer Landkarte [OpenStreetMap](https://
 Wenn Du keine "Termine" siehst, klicke rechts oben auf das Zahnrad und blende Termine ein.
 
 ### In der Menüansicht werden keine Termine angezeigt
+
 - Klicke auf *Ansicht anpassen* und
 - setze den Haken bei Termine
 
 ### Die Terminseite wird im Frontend nicht gefunden
+
 Wenn die Seite nicht gefunden wird, musst Du die die Permalink-Struktur neu einlesen.
 Das kannst Du direkt in den Sunflower-Einstellungen machen unter `Sunflower > Einstellungen > Permalinks`.
 
@@ -65,7 +69,7 @@ Eine bebilderte Anleitung findest du auch [hier](https://gcms-intern.de/anleitun
 !!! Note "Nachhaltige Kalenderverwaltung"
 	Damit der Kalender langfristig zuverlässig genutzt werden kann, sollte ihn eine Person verwalten, die Deiner Gliederung dauerhaft erhalten bleibt, wie zum Beispiel Dein\*e Kreisgeschäftsfüher\*in. 
 
-Wenn Du möchtest, dass die anderen Mitglieder Eurer Gliederung den Kalender in der Wolke sehen können, kannst du eine zusätzliche Einstellung vornehmen. Dafür benötigst Du die Rolle `Wolke-Redakteur*in` für Deine Gliederung in der Mitgliederverwaltung Sherpa. Falls Du diese nicht hast, wende Dich an eine Person mit Sherpa-Zugang innerhalb Deiner Gliederung.
+Wenn Du möchtest, dass die anderen Mitglieder Deiner Gliederung den Kalender in der Wolke sehen können, kannst Du eine zusätzliche Einstellung vornehmen. Dafür benötigst Du die Rolle `Wolke-Redakteur*in` für Deine Gliederung in der Mitgliederverwaltung Sherpa. Falls Du diese nicht hast, wende Dich an eine Person mit Sherpa-Zugang innerhalb Deiner Gliederung.
 
 1. Öffne das Bearbeitungsmenü des Wolke-Kalenders und gehe zur Zeile *Mit Benutzern oder Gruppen teilen*.
 2. Gib dort den Gliederungsschlüssel ein. Dieser steht beispielsweise vor deinem Gliederungsordner in der [Wolke](https://wolke.netzbegruenung.de), zum Beispiel:
@@ -81,6 +85,7 @@ Standardmäßig holt sich *Sunflower* alle drei Stunden neue Daten vom externen 
 wobei die 1 hier im Beispiel für jede Stunde steht.
 
 ### Anzahl der zu importierenden Termine festlegen
+
 Standardmäßig holt sich *Sunflower* alle Termie der nächsten sechs Monate vom externen Kalender. Um dies zu ändern, kannst Du in der wp-config.php folgendes eintragen:
 
 ``define('SUNFLOWER_EVENT_TIME_RANGE', '3 months');``
@@ -96,6 +101,7 @@ Dabei kannst Du bspw. folgendes nutzen
 - 1 year
 
 ### Anzahl der sich wiederholenden Termine beim Import festlegen
+
 Sich wiederholende Termine werden bis längstens in einem Jahr importiert. Du kannst die Höchstzahl der zu
 importierenden Termine bei sich wiederholenden Terminen so festlegen:
 ``define('SUNFLOWER_EVENT_RECURRING_EVENTS', 10);``
@@ -109,6 +115,7 @@ Wird ein Ort mit Straße und Ort beschrieben ist die Genauigkeit sehr hoch. Ein 
 Fehlerhafte Geodaten können in den Sunflower-Einstellungen unter `Sunflower > Termine > Korrektur der Marker auf Landkarten von importierten Terminen` korrigiert werden. Sie werden bei allen zukünftigen Import-Läufen mit der selben Ortsbezeichnung wirksam.
 
 ### Zoom-Level für importierte Termine festlegen
+
 Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abweichen möchtest, trage in der *wp-config.php* bitte die Zeile
 
 ``define('SUNFLOWER_EVENT_IMPORTED_ZOOM', 10);``
