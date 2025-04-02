@@ -24,7 +24,7 @@ Wenn Du keine "Termine" siehst, klicke rechts oben auf das Zahnrad und blende Te
 
 ### Die Terminseite wird im Frontend nicht gefunden
 Wenn die Seite nicht gefunden wird, musst Du die die Permalink-Struktur neu einlesen.
-Das kannst Du direkt in den Sunflower-Einstellungen machen unter Einstellungen -> Permalinks.
+Das kannst Du direkt in den Sunflower-Einstellungen machen unter `Sunflower > Einstellungen > Permalinks`.
 
 Alternativ kannst Du folgendes probieren:
 
@@ -47,7 +47,7 @@ Importiert werden:
 - Beschreibung
 - Start- und Enddatum
 - Kategorien (technisch sind das WordPress-Schlagwörter)
-- Ort (dazu holt sich *Sunflower* selbstständig Geodaten, siehe unten)#
+- Ort (dazu holt sich *Sunflower* selbstständig Geodaten, siehe unten)
 - Auf Wunsch bekommen Termine eines Kalenders eine automatische Kategorie in WordPress zugewiesen. Trage dazu in den Einstellungen nach der KalenderURL einen Strichpunkt ; ein und dann den beliebigen Namen der automatisch zugewiesenenen Kategorie.
 
 ### Wolke-Kalender erstellen und importieren
@@ -106,7 +106,7 @@ Die Information zum Veranstaltungsort werden über [Nominatim](https://nominatim
 
 Wird ein Ort mit Straße und Ort beschrieben ist die Genauigkeit sehr hoch. Ein allgemeiner Begriff, wie z.B. "Geschäftsstelle" führt zu einem zufälligen Ergebnis.
 
-Fehlerhafte Geodaten können in den Sunflower-Einstellungen unter `Termine -> Korrektur der Marker auf Landkarten von importierten Terminen` korrigiert werden. Sie werden bei allen zukünftigen Import-Läufen mit der selben Ortsbezeichnung wirksam.
+Fehlerhafte Geodaten können in den Sunflower-Einstellungen unter `Sunflower > Termine > Korrektur der Marker auf Landkarten von importierten Terminen` korrigiert werden. Sie werden bei allen zukünftigen Import-Läufen mit der selben Ortsbezeichnung wirksam.
 
 ### Zoom-Level für importierte Termine festlegen
 Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abweichen möchtest, trage in der *wp-config.php* bitte die Zeile
