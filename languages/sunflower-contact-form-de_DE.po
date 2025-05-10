@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-"
 "form\n"
 "POT-Creation-Date: 2024-08-29T12:22:21+00:00\n"
-"PO-Revision-Date: 2025-03-07 08:57+0100\n"
+"PO-Revision-Date: 2025-05-10 13:51+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.6\n"
 "X-Domain: sunflower-contact-form\n"
 
 #. Theme Name of the theme
@@ -116,7 +116,7 @@ msgstr "Titel des Formulars"
 
 #: build/contact-form/index.js:123 build/contact-form/index.js:108
 msgid "Mail To"
-msgstr "Empfänger Email"
+msgstr "Empfänger-E-Mail"
 
 #: build/contact-form/index.js:124 build/contact-form/index.js:109
 msgid "Mail form to this address instead of default receiver."
@@ -124,7 +124,7 @@ msgstr "Sende Formular an die angegebene Adresse statt dem Standard-Empfänger."
 
 #: build/contact-form/index.js:126 build/contact-form/index.js:114
 msgid "default receiver"
-msgstr "Standard Empfänger"
+msgstr "Standard-Empfänger"
 
 #: build/contact-form/index.js:130 build/contact-form/index.js:122
 msgid "Require E-Mail"

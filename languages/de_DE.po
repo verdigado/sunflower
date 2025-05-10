@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "POT-Creation-Date: 2025-02-10T09:46:09+00:00\n"
-"PO-Revision-Date: 2025-02-25 17:55+0100\n"
+"PO-Revision-Date: 2025-05-10 13:49+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.6\n"
 "X-Domain: sunflower\n"
 
 #. Theme Name of the theme
@@ -140,7 +140,7 @@ msgstr ""
 "Ihre E-Mail-Adresse wird nicht veröffentlicht. Erforderliche Felder sind mit "
 "* markiert. Mit der Nutzung dieses Formulars erklärst du dich mit der "
 "Speicherung und Verarbeitung deiner Daten durch diese Website einverstanden. "
-"Weiteres entnehme bitte der <a href=\"%s\">Datenschutzerklärung</a>."
+"Entnimm Weiteres bitte der <a href=\"%s\">Datenschutzerklärung</a>."
 
 #: comments.php:56
 msgid "One comment"
@@ -554,7 +554,7 @@ msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 #: functions/options/class-sunflowersocialmediasettingspage.php:255
 #: functions/s.php:158
 msgid "Select Open Graph Fallback Image"
-msgstr "Fallback-Bild für Open-Graph-Tag wählen"
+msgstr "Ausweichbild für Open-Graph-Tag wählen"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:267
 msgid "Open Media Library"
@@ -565,7 +565,7 @@ msgid ""
 "This fallback image will be used when sharing pages and posts and no "
 "featured image has been selected."
 msgstr ""
-"Dieses Fallback-Bild wird beim Teilen von Seiten oder Beiträgen verwendet, "
+"Dieses Ausweichbild wird beim Teilen von Seiten oder Beiträgen verwendet, "
 "wenn kein Beitragsbild ausgewählt wurde."
 
 #: functions/s.php:59
@@ -686,7 +686,8 @@ msgstr "Derzeit sind keine Veranstaltungen geplant."
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+"Bereit, deinen ersten Beitrag zu veröffentlichen? <a href=\"%1$s\">Hier "
+"kannst du loslegen</a>!"
 
 #: template-parts/content-none.php:37
 msgid ""
@@ -706,7 +707,7 @@ msgstr ""
 
 #: template-parts/content.php:72
 msgid "Mastodon Instance address"
-msgstr "Adresse der Mastodon Instanz"
+msgstr "Adresse der Mastodon-Instanz"
 
 #: template-parts/content.php:77
 msgid "Enter your instance's address"
@@ -722,7 +723,7 @@ msgstr "Schließen"
 
 #: template-parts/content.php:87
 msgid "Save and Share"
-msgstr "Speichern und Teilen"
+msgstr "Speichern und teilen"
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content.php:100
