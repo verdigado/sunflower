@@ -5,6 +5,20 @@ body {
     overflow-x: hidden;
 }
 
+// standard header with navigation stucked
+html {
+    scroll-padding-top: 40px;
+
+    @include media-breakpoint-up(sm) {
+        scroll-padding-top: 90px;
+    }
+}
+
+// personal header
+html:has(.header-personal) {
+    scroll-padding-top: 90px;
+}
+
 body {
 
     @include themed() {
