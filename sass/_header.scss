@@ -295,28 +295,6 @@ body {
             height: 100%;
         }
 
-        #mainmenu {
-
-            > .menu-item {
-                display: flex;
-                height: auto;
-                margin-right: 5px;
-                align-items: center;
-
-                @include media-breakpoint-up(md) {
-                    height: 5em;
-                }
-            }
-
-            > li.menu-item-has-children {
-                flex-wrap: auto;
-
-                @include media-breakpoint-up(md) {
-                    flex-wrap: nowrap;
-                }
-            }
-        }
-
         .social-media-profile {
             background: none;
 
