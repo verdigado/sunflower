@@ -12,15 +12,22 @@ body.admin-bar {
 
         &-main.stuck {
 
-            @include media-breakpoint-up(sm) {
-                top: 47px;
-            }
+            top: 46px;
 
             @include media-breakpoint-up(md) {
                 top: 32px;
             }
         }
 
+    }
+
+    .stuck.header-personal ~ #content {
+
+        margin-top: 141px;
+
+        @include media-breakpoint-up(md) {
+            margin-top: 127px;
+        }
     }
 
     #wp-admin-bar-sunflower {
@@ -257,27 +264,6 @@ body {
     }
 }
 
-// to scroll to correct position with sticky header
-// while destination is an anchor
-.entry-content {
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-
-        &[id]::before {
-            content: "";
-            display: block;
-            height: 75px;
-            margin-top: -75px;
-            visibility: hidden;
-        }
-    }
-}
-
 .header {
 
     &-personal {
@@ -285,6 +271,7 @@ body {
         .bloginfo {
             background: none;
             padding: 0;
+            max-height: 100px;
         }
 
         .img-container {
@@ -340,6 +327,7 @@ body {
     }
 }
 
+// avoid flickering
 #navbar-sticky-detector.header-personal {
     height: 1px;
     margin-top: -1px;
@@ -347,25 +335,8 @@ body {
 
 .stuck ~ #content {
     margin-top: 95px;
+}
 
-    // to scroll to correct position with sticky header
-    // while destination is an anchor
-    .entry-content {
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-
-            &[id]::before {
-                content: "";
-                display: block;
-                height: 95px;
-                margin-top: -45px;
-                visibility: hidden;
-            }
-        }
-    }
+.header-personal.stuck ~ #content {
+    margin-top: 100px;
 }
