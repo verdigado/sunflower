@@ -110,18 +110,21 @@ export default function Edit( { attributes, setAttributes } ) {
 									value: 'fab fa-bluesky',
 									label: 'Bluesky',
 								},
-								{ value: 'fab fa-twitter', label: 'Twitter' },
 								{
 									value: 'fab fa-instagram',
-									label: 'Instragram',
+									label: 'Instagram',
 								},
 								{
 									value: 'fab fa-facebook-f',
 									label: 'Facebook',
 								},
 								{
-									value: 'fab fa-whatsapp',
-									label: 'WhatsApp',
+									value: 'fab fa-linkedin',
+									label: 'LinkedIn',
+								},
+								{
+									value: 'fab fa-mastodon',
+									label: 'Mastodon',
 								},
 								{
 									value: 'fab fa-threads',
@@ -131,7 +134,14 @@ export default function Edit( { attributes, setAttributes } ) {
 									value: 'fab fa-tiktok',
 									label: 'TikTok',
 								},
-								{ value: 'fab fa-mastodon', label: 'Mastodon' },
+								{
+									value: 'fab fa-whatsapp',
+									label: 'WhatsApp',
+								},
+								{
+									value: 'fab fa-xing',
+									label: 'Xing',
+								},
 								{ value: 'fab fa-youtube', label: 'YouTube' },
 								{ value: 'fas fa-envelope', label: 'E-Mail' },
 								{ value: 'fas fa-globe', label: 'Website' },
