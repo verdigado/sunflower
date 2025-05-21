@@ -119,21 +119,30 @@ class SunflowerSocialMediaSettingsPage {
 		);
 
 		add_settings_field(
-			'sunflower_sharer_whatsapp',
-			__( 'WhatsApp', 'sunflower' ),
-			$this->sunflower_checkbox_callback( ... ),
-			'sunflower-setting-social-media-options',
-			'sunflower_social_media_sharers',
-			array( 'sunflower_sharer_whatsapp', __( 'WhatsApp', 'sunflower' ) )
-		);
-
-		add_settings_field(
 			'sunflower_sharer_mastodon',
 			__( 'Mastodon', 'sunflower' ),
 			$this->sunflower_checkbox_callback( ... ),
 			'sunflower-setting-social-media-options',
 			'sunflower_social_media_sharers',
 			array( 'sunflower_sharer_mastodon', __( 'Mastodon', 'sunflower' ) )
+		);
+
+		add_settings_field(
+			'sunflower_sharer_linkedin',
+			__( 'LinkedIn', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-social-media-options',
+			'sunflower_social_media_sharers',
+			array( 'sunflower_sharer_linkedin', __( 'LinkedIn', 'sunflower' ) )
+		);
+
+		add_settings_field(
+			'sunflower_sharer_whatsapp',
+			__( 'WhatsApp', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-social-media-options',
+			'sunflower_social_media_sharers',
+			array( 'sunflower_sharer_whatsapp', __( 'WhatsApp', 'sunflower' ) )
 		);
 
 		add_settings_field(
