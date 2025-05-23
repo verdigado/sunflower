@@ -20,7 +20,7 @@ Wenn Du keine "Termine" siehst, klicke rechts oben auf das Zahnrad und blende Te
 
 ### In der Menüansicht werden keine Termine angezeigt
 - Klicke auf *Ansicht anpassen* und
-- setze den Haken bei Termine
+- Setze den Haken bei Termine
 
 ### Die Terminseite wird im Frontend nicht gefunden
 Wenn die Seite nicht gefunden wird, musst Du die die Permalink-Struktur neu einlesen.
@@ -30,13 +30,13 @@ Alternativ kannst Du folgendes probieren:
 - Einstellungen Permalinks
 - Wähle eine beliebige andere Einstellung aus und speichere sie
 - Wähle Deine bisherige Einstellung wieder aus und speichere sie
-- Fertig. Jetzt muss der Link im Menü funktionieren
+- Fertig, jetzt muss der Link im Menü funktionieren
 
-## Termine über ical importieren
+## Termine über iCal importieren
 
-*Sunflower* kann Termine aus mehreren externen Kalendern per iCal-URL importieren.
+*Sunflower* kann Termine aus mehreren externen Kalendern per iCal-URL (zB Grüne Kalender aus der Wolke, siehe unten) importieren.
 
-Bitte trage diese iCal-URLs in den Sunflower-Einstellungen ein. Die Termine werden regelmäßig automatisch aktualisiert. Solche Termine darfst Du nicht mehr im WordPress-Backend bearbeiten, weil Änderungen wieder überschrieben würden.
+Bitte trage diese iCal-URLs in den Sunflower-Einstellungen ein. Die Termine werden regelmäßig automatisch synchronisiert/aktualisiert. Solche Termine solltest Du nicht mehr im WordPress-Backend bearbeiten, weil Änderungen wieder überschrieben würden.
 
 Du kannst das Importieren von Termine auch gewollt auslösen (zusätzlich zum automatischen Import alle paar Stunden), indem Du in den Sunflower-Einstellungen auf *Kalender importieren* klickst.
 
@@ -46,22 +46,22 @@ Importiert werden
 - Beschreibung
 - Start- und Enddatum
 - Kategorien (technisch sind das WordPress-Schlagwörter)
-- Ort (dazu holt sich *Sunflower* selbstständig Geodaten, siehe unten)#
+- Ort (dazu holt sich *Sunflower* selbstständig Geodaten, siehe unten)
 - Auf Wunsch bekommen Termine eines Kalenders eine automatische Kategorie in WordPress zugewiesen. Trage dazu in den Einstellungen nach der KalenderURL einen Strichpunkt ; ein und dann den beliebigen Namen der automatisch zugewiesenenen Kategorie.
 
 ### Externe Kalender (z.B. Wolke) importieren
 
 Du kannst jeden Kalender importieren, der eine öffentliche URL im iCal-Format anbietet. In der grünen Wolke gibt es auch einen Service für grüne Mitglieder und Gliederungen. Unter
 [wolke.netzbegruenung.de -> Kalender](https://wolke.netzbegruenung.de/apps/calendar/dayGridMonth/now)
-findest Du Deine eigenen Kalender. Dort kanst Du mehrere Kalender anlegen, z.B. einen nur für die Webseite.
+findest Du Deine eigenen Kalender. Dort kannst Du mehrere Kalender anlegen, z.B. einen nur für die Webseite.
 
-Klicke auf
+Klicke in der Grünen Wolke Kalenderansicht auf
 
-1. *+ Neuer Kalender* und vergebe einen beliebigen Namen
-2. Neben dem Kalendername gibt es ein Kettensymbol, damit öffnet sich ein kleine Menü
-3. hierin gibt es ein Untermenü, dass Du mit den drei Punkten öffnen kannst
-4. anschließend klickst Du auf *Abonnement-Link kopieren*
-5. diesen trägst Du in den *Sunflower-Einstellungen* ein
+1. Das + -Symbol, dann auf *Neuer Kalender* und vergebe einen beliebigen Namen
+2. Neben dem neu erstellten Kalendernamen gibt es ein Kettensymbol, damit öffnet sich ein kleines Popup (Modal) *Kalender bearbeiten*
+3. In dem Popup *Kalender bearbeiten* gibt es ein Untermenü, welches Du mit drei Punkten geöffnet werden kann
+4. Klicke auf *Abonnement-Link kopieren*
+5. Diesen kopierten Link trägst Du in den *Sunflower-Einstellungen* bei Wordpress ein
 
 Eine bebilderte Anleitung findest du auch [hier](https://gcms-intern.de/anleitungen/single/termine-anlegen#c892817).
 
@@ -73,15 +73,15 @@ Standardmäßig holt sich *Sunflower* alle drei Stunden neue Daten vom externen 
 wobei die 1 hier im Beispiel für jede Stunde steht.
 
 ### Anzahl der zu importierenden Termine festlegen
-Standardmäßig holt sich *Sunflower* alle Termie der nächsten sechs Monate vom externen Kalender. Um dies zu ändern, kannst Du in der wp-config.php folgendes eintragen:
+Standardmäßig holt sich *Sunflower* alle Termine der nächsten sechs Monate vom externen Kalender. Um dies zu ändern, kannst Du in der wp-config.php folgendes eintragen:
 
 ``define('SUNFLOWER_EVENT_TIME_RANGE', '3 months');``
 
-Von Haus aus werden vergangene Termine nicht mehr importiert. Um das zu ändern, kann Du in der wp-config.php folgendes eintragen:
+Von Haus aus werden vergangene Termine nicht mehr importiert. Um das zu ändern, kannst Du in der wp-config.php folgendes eintragen:
 
 ``define('SUNFLOWER_EVENT_TIME_RANGE_BACK', '3 months');``
 
-Dabei kannst Du bspw. folgendes nutzen
+Dabei kannst Du bspw. folgendes nutzen:
 
 - 4 weeks
 - 9 months
@@ -105,4 +105,4 @@ Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abwei
 
 ``define('SUNFLOWER_EVENT_IMPORTED_ZOOM', 10);``
 
-ein, wobei die *10* das neue Zoomlevel angibt. Es wird werst beim nächsten Import verwendet, diesen Import kannst Du aber manuell triggern (wie, siehe oben).
+ein, wobei die *10* das neue Zoomlevel angibt. Die Änderung wird erst beim nächsten Import verwendet, diesen Import kannst Du aber manuell auslösen (wie, siehe oben).
