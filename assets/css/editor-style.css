@@ -1,6 +1,6 @@
 @font-face {
-	font-family: GrueneType;
-	src: url("../fonts/GrueneType-BlackCondensedItalic.woff2") format("woff2"), url("../fonts/GrueneType-BlackCondensedItalic.ttf") format("truetype");
+	font-family: "GrueneType Neue";
+	src: url("../fonts/GrueneTypeNeue-Regular.woff2") format("woff2"), url("../fonts/GrueneTypeNeue-Regular.ttf") format("truetype");
 	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
@@ -65,7 +65,7 @@
 }
 
 .wp-block-media-text.person .person-name {
-	font-family: "GrueneType";
+	font-family: "GrueneType Neue";
 }
 
 .wp-block-media-text.person .h4 {
@@ -75,7 +75,7 @@
 }
 
 .wp-block-media-text.person .h4 {
-	font-family: "GrueneType";
+	font-family: "GrueneType Neue";
 }
 
 .wp-block-media-text.person .wp-block-media-text__content {
@@ -174,7 +174,7 @@
 .editor-styles-wrapper .h1,
 .editor-styles-wrapper .h2,
 .editor-styles-wrapper .h3 {
-	font-family: "GrueneType";
+	font-family: "GrueneType Neue";
 }
 
 .editor-styles-wrapper h1,
@@ -379,7 +379,7 @@ p a {
 }
 
 .editor-styles-wrapper .has-background.textbalken {
-	font-family: "GrueneType";
+	font-family: "GrueneType Neue";
 }
 
 .has-background.textbalken::before {
@@ -428,7 +428,7 @@ p a {
 	width: 200px;
 	height: 200px;
 	font-size: 30pt;
-	font-family: GrueneType !important;
+	font-family: "GrueneType Neue" !important;
 	padding: 8pt;
 	border-radius: 50%;
 	line-height: 100%;
