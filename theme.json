@@ -118,19 +118,19 @@
 					"fontFace": [
 						{
 							"fontDisplay": "block",
-							"fontFamily": "GrueneType",
+							"fontFamily": "GrueneType Neue",
 							"fontStretch": "normal",
 							"fontStyle": "normal",
-							"fontWeight": "900",
+							"fontWeight": "400",
 							"src": [
-								"file:./assets/fonts/GrueneType-BlackCondensedItalic.woff2",
-								"file:./assets/fonts/GrueneType-BlackCondensedItalic.ttf"
+								"file:./assets/fonts/GrueneTypeNeue-Regular.woff2",
+								"file:./assets/fonts/GrueneTypeNeue-Regular.woff2"
 							]
 						}
 					],
-					"fontFamily": "'GruenType', sans-serif",
-					"name": "GrueneType",
-					"slug": "gruenetype"
+					"fontFamily": "'GruenType Neue', sans-serif",
+					"name": "GrueneType Neue",
+					"slug": "gruenetypeneue"
 				}
 			]
 		}
