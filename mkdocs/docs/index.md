@@ -4,6 +4,8 @@ Dies ist die Anleitung für das Sunflower-WordPress-Theme.
 
 ## Neuerungen
 
+Am 3. September 2024 ist die Version 2.2 von Sunflower mit einer Reihe an neuen Dingen erschienen. [Hier findest du eine Liste mit den Neuerungen.](changelog.md#version-22)
+
 Die aktuellsten Neuerungen (Releases) der Version von Sunflower sind bei [github zu finden](https://github.com/verdigado/sunflower/releases).
 
 ## Voraussetzungen
