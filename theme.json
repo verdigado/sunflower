@@ -124,11 +124,11 @@
 							"fontWeight": "400",
 							"src": [
 								"file:./assets/fonts/GrueneTypeNeue-Regular.woff2",
-								"file:./assets/fonts/GrueneTypeNeue-Regular.woff2"
+								"file:./assets/fonts/GrueneTypeNeue-Regular.ttf"
 							]
 						}
 					],
-					"fontFamily": "'GruenType Neue', sans-serif",
+					"fontFamily": "\"GruenType Neue\", sans-serif",
 					"name": "GrueneType Neue",
 					"slug": "gruenetypeneue"
 				}
@@ -141,6 +141,26 @@
 				"color": {
 					"background": "var:preset|color|klee",
 					"text": "var:preset|color|white"
+				}
+			},
+			"core/heading": {
+				"typography": {
+					"fontWeight": "400"
+				}
+			}
+		},
+		"typography": {
+					"fontWeight": "400",
+					"fontFamily": "var(--wp--preset--font-family--pt-sans)"
+		},
+		"elements": {
+			"h1": {
+				"typography": {
+					"fontWeight": "400",
+					"fontFamily": "var(--wp--preset--font-family--gruenetypeneue)"
+				},
+				"color": {
+					"text": "var:preset|color|tanne"
 				}
 			}
 		}
