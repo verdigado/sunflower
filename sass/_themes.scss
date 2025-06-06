@@ -7,19 +7,19 @@
 
 $themes: (
 /* Color scheme*/
-  light: (
+  colorscheme-light: (
     background: map-get($custom-colors, "weiss"),
     text: map-get($custom-colors, "schwarzwald")
   ),
-  green: (
+  colorscheme-green: (
     background: map-get($custom-colors, "schwarzwald"),
     text: map-get($custom-colors, "weiss"),
   ),
   /* Form Style*/
-  sharp: (
+  formstyle-sharp: (
     border-radius: 0
   ),
-  rounded: (
+  formstyle-rounded: (
     border-radius: 16px
   ),
   /* Header-Layout*/
@@ -44,23 +44,43 @@ $themes: (
   )
 );
 
-
+// mixin for top-level
 @mixin themed() {
+  @each $theme, $map in $themes {
+    $theme-map: () !global;
 
-    @each $theme, $map in $themes {
-        .theme--#{$theme} & {
-            $theme-map: () !global;
-
-            @each $key, $submap in $map {
-                $value: map-get(map-get($themes, $theme), "#{$key}");
-                $theme-map: map-merge($theme-map, ($key: $value)) !global;
-            }
-
-            @content;
-            $theme-map: null !global;
-        }
+    @each $key, $value in $map {
+      $theme-map: map-merge($theme-map, ($key: $value)) !global;
     }
+
+    &.#{$theme} {
+      @content;
+    }
+
+    $theme-map: null !global;
+  }
 }
+
+//mixin for embeded/ nested
+@mixin themed-nested() {
+  @each $theme, $map in $themes {
+    $theme-map: () !global;
+
+    @each $key, $value in $map {
+      $theme-map: map-merge($theme-map, ($key: $value)) !global;
+    }
+
+    .#{$theme} & {
+      @content;
+    }
+
+    $theme-map: null !global;
+  }
+}
+
+
+
+
 
 @function t($key) {
   $val: map-get($theme-map, $key);
