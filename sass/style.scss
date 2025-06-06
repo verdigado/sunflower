@@ -53,6 +53,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 // Import variables and mixins.
 @import "abstracts/abstracts";
+@import "variables";
+@import "themes";
 
 /*--------------------------------------------------------------
 # Generic
@@ -117,12 +119,10 @@ $fa-font-path : "assets/vndr/@fortawesome/fontawesome-free/webfonts";
 
 /* Bootstrap
 --------------------------------------------- */
-@import "variables";
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 /* Custom
 --------------------------------------------- */
-@import "themes";
 @import "typography";
 @import "generic";
 @import "header";
