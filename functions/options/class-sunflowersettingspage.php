@@ -194,6 +194,31 @@ class SunflowerSettingsPage {
 		);
 
 		add_settings_field(
+    		'sunflower_form_style',
+    		__('Formstil (Ecken)', 'sunflower'),
+    		[$this, 'sunflower_form_style_callback'],
+    		'sunflower-setting-admin',
+    		'sunflower_layout'
+		);
+
+		add_settings_field(
+    		'sunflower_color_scheme',
+    		__('Farbschema', 'sunflower'),
+    		[$this, 'sunflower_color_scheme_callback'],
+    		'sunflower-setting-admin',
+    		'sunflower_layout'
+		);
+
+		add_settings_field(
+    		'sunflower_header_layout',
+    		__('Footer-Layout', 'sunflower'),
+    		[$this, 'sunflower_header_layout_callback'],
+    		'sunflower-setting-admin',
+    		'sunflower_layout'
+		);
+
+
+		add_settings_field(
 			'sunflower_categories_archive',
 			__( 'Show list of categories on category archive', 'sunflower' ),
 			$this->sunflower_categories_archive( ... ),
