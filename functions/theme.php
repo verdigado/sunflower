@@ -58,3 +58,16 @@ $sunflower_options = get_option( 'sunflower_first_steps_options' );
 if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
 	add_filter( 'get_site_icon_url', 'sunflower_get_site_icon_url_defaults', 10, 3 );
 }
+
+// Add options to gutenberg blocks
+function sunflower_enqueue_block_editor_assets() {
+    wp_enqueue_script(
+        'sunflower-block-theme-options',
+        get_template_directory_uri() . '/assets/js/block-theme-options.js',
+        ['wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-compose', 'wp-hooks'],
+        filemtime(get_template_directory() . '/assets/js/block-theme-options.js'),
+        true
+    );
+}
+add_action('enqueue_block_editor_assets', 'sunflower_enqueue_block_editor_assets');
+
