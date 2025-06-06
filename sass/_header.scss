@@ -59,6 +59,8 @@ body.admin-bar {
     &-main {
         border-bottom: 1px solid $darkgray;
         transition: 0.3s;
+        background-color: black;
+        height: 60px;
 
         .nav {
 
@@ -82,11 +84,11 @@ body.admin-bar {
         .navbar-brand {
             opacity: 1;
             margin-left: 0.5rem;
-            height: 100px;
-            width: 100px;
+            height: 46px;
+            width: 46px;
             min-width: fit-content;
             background-color: $secondary;
-            padding: 22px;
+            padding: 16px 8px 16px 8px;
 
             @include media-breakpoint-up(md) {
                 margin-left: 0;
@@ -99,7 +101,7 @@ body.admin-bar {
             }
 
             img {
-                height: 56px;
+                height: 46px;
                 display: block;
 
                 @include media-breakpoint-down(sm) {
@@ -318,3 +320,96 @@ body {
 .header-personal.stuck ~ #content {
     margin-top: 100px;
 }
+
+
+
+$green-bg: #003300;
+$light-bg: #ffffff;
+$bright-green: #00aa00;
+$bright-blue: #00aaff;
+$text-light: #ffffff;
+$text-dark: #222222;
+
+.top-bar {
+  border-radius: 0 0 40px 40px;
+  background-color: transparent;
+  }
+
+
+  .right-bar {
+    border-radius: 0 0 16px 16px;
+    height: 100px;
+    padding: 16px 30px 16px 30px;
+    margin-right: -1.5rem;
+    @include themed-nested() {
+    background-color: t(background);
+    color: t(text);
+    }
+
+ a {
+    @include themed-nested() {
+    color: t(text);
+    }
+ }
+}
+
+.logo-background {
+    background-color: #005538;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  .logo-img {
+    height: 40px;
+  }
+
+  .main-menu .nav-link {
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+  }
+
+  .btn-green {
+    background-color: $bright-green;
+    border-radius: 20px;
+    color: white;
+    padding: 0.5rem 1.2rem;
+  }
+
+  .btn-blue {
+    background-color: $bright-blue;
+    border-radius: 20px;
+    color: white;
+    padding: 0.5rem 1.2rem;
+  }
+
+  .label-top{
+    background-color: #005538;
+  }
+
+  .label-bottom{
+    background-color: #8ABD24;
+
+  }
+
+  .skew-box {
+    height: 34px;
+    color:$white;
+    font-family: "PT Sans";
+    width: fit-content;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    transform: skewX(-12deg);
+    margin-left: 33px
+  }
+
+  .brand-left {
+    min-width: 160px;
+  }
+
+
+

@@ -10,6 +10,8 @@
     // padding: 25px;
     padding-left: 20vw;
     padding-right: 20vw;
+    top: -110px;
+    z-index: -1;
 
     &.wp-block-group-is-layout-flow,
     .wp-block-cover__inner-container {
