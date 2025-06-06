@@ -194,6 +194,31 @@ class SunflowerSettingsPage {
 		);
 
 		add_settings_field(
+    		'sunflower_form_style',
+    		__('Formstil (Ecken)', 'sunflower'),
+    		[$this, 'sunflower_form_style_callback'],
+    		'sunflower-setting-admin',
+    		'sunflower_layout'
+		);
+
+		add_settings_field(
+    		'sunflower_color_scheme',
+    		__('Farbschema', 'sunflower'),
+    		[$this, 'sunflower_color_scheme_callback'],
+    		'sunflower-setting-admin',
+    		'sunflower_layout'
+		);
+
+		add_settings_field(
+    		'sunflower_footer_layout',
+    		__('Footer-Layout', 'sunflower'),
+    		[$this, 'sunflower_footer_layout_callback'],
+    		'sunflower-setting-admin',
+    		'sunflower_layout'
+		);
+
+
+		add_settings_field(
 			'sunflower_categories_archive',
 			__( 'Show list of categories on category archive', 'sunflower' ),
 			$this->sunflower_categories_archive( ... ),
@@ -305,6 +330,76 @@ class SunflowerSettingsPage {
 
 		echo '</select>';
 	}
+
+	/**
+	 * Form Style layout variant field
+	 */
+	public function sunflower_form_style_callback(): void {
+		echo '<select id="sunflower_form_style" name="sunflower_options[sunflower_form_style]">';
+
+		$options = array(
+			array( 'rounded', __( 'Abgerundet', 'sunflower' ) ),
+			array( 'sharp', __( 'Eckig', 'sunflower' ) ),
+		);
+		foreach ( $options as $option ) {
+			$selected = ( isset( $this->options['sunflower_form_style'] ) && $this->options['sunflower_form_style'] === $option[0] ) ? 'selected' : '';
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_attr( $option[1] )
+			);
+		}
+
+		echo '</select>';
+	}
+
+	/**
+	 * Color Sheme layout variant field
+	 */
+	public function sunflower_color_scheme_callback(): void {
+		echo '<select id="sunflower_color_scheme" name="sunflower_options[sunflower_color_scheme]">';
+
+		$options = array(
+			array( 'light', __( 'Hell', 'sunflower' ) ),
+			array( 'green', __( 'Grün', 'sunflower' ) ),
+		);
+		foreach ( $options as $option ) {
+			$selected = ( isset( $this->options['sunflower_color_scheme'] ) && $this->options['sunflower_color_scheme'] === $option[0] ) ? 'selected' : '';
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_attr( $option[1] )
+			);
+		}
+
+		echo '</select>';
+	}
+
+	/**
+	 * Footer layout variant field
+	 */
+	public function sunflower_footer_layout_callback(): void {
+		echo '<select id="sunflower_footer_layout" name="sunflower_options[sunflower_footer_layout]">';
+
+		$options = array(
+			array( 'sand', __( 'Sand', 'sunflower' ) ),
+			array( 'green', __( 'Grün', 'sunflower' ) ),
+		);
+		foreach ( $options as $option ) {
+			$selected = ( isset( $this->options['sunflower_footer_layout'] ) && $this->options['sunflower_footer_layout'] === $option[0] ) ? 'selected' : '';
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_attr( $option[1] )
+			);
+		}
+
+		echo '</select>';
+	}
+
 
 	/**
 	 * Header layout variant field
