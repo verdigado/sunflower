@@ -10,6 +10,7 @@ $custom-colors: (
     kalk: #E8EAE9,
     gruener-sand: #F3FAF6,
     weiss: #ffffff,
+    white: #fff
 
     //himmel: #0ba1dd,
     //black: #000,
@@ -28,21 +29,21 @@ $white: map.get($custom-colors, "weiss");
 $black: map.get($custom-colors, "schwarzwald");
 //$black-500: map.get($custom-colors, "black-500");
 
-//$white-90: rgba(255, 255, 255, 0.9);
+$white-90: rgba(255, 255, 255, 0.9);
 
 //$dark: #ddd;
 //$gray-500: map.get($custom-colors, "gray-500");
-//$darkgray: #333;
-//$lightgray: #aeb2ad;
-//$very-light-gray: #d6d9d6;
+$darkgray: #333;
+$lightgray: #aeb2ad;
+$very-light-gray: #d6d9d6;
 
 // $body-color is $gray-900 by default and set by BS
-//$body-color: #212529;
+$body-color: #212529;
 
-//$sidebar-color: #afafaf;
+$sidebar-color: #afafaf;
 
-//$lightgreen: #e5f3eb;
-//$darkgreen: #002216;
+$lightgreen: #e5f3eb;
+$darkgreen: #002216;
 
 $border-radius: 3px;
 $border-radius-small: 1px;
