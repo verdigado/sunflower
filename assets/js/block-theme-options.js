@@ -76,7 +76,7 @@
     withThemeOptions
   );
 
-  // 3. Klassen ins HTML einfügen
+  // class in HTML
   addFilter(
     'blocks.getSaveContent.extraProps',
     'sunflower/theme-options-classes',
