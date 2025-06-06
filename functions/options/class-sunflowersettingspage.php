@@ -195,7 +195,7 @@ class SunflowerSettingsPage {
 
 		add_settings_field(
     		'sunflower_form_style',
-    		__('Formstil (Ecken)', 'sunflower'),
+    		__('Use this form style', 'sunflower'),
     		[$this, 'sunflower_form_style_callback'],
     		'sunflower-setting-admin',
     		'sunflower_layout'
@@ -203,7 +203,7 @@ class SunflowerSettingsPage {
 
 		add_settings_field(
     		'sunflower_color_scheme',
-    		__('Farbschema', 'sunflower'),
+    		__('Use this color scheme', 'sunflower'),
     		[$this, 'sunflower_color_scheme_callback'],
     		'sunflower-setting-admin',
     		'sunflower_layout'
@@ -211,7 +211,7 @@ class SunflowerSettingsPage {
 
 		add_settings_field(
     		'sunflower_footer_layout',
-    		__('Footer-Layout', 'sunflower'),
+    		__('Use this footer layout', 'sunflower'),
     		[$this, 'sunflower_footer_layout_callback'],
     		'sunflower-setting-admin',
     		'sunflower_layout'
