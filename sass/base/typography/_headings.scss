@@ -1,8 +1,41 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    clear: both;
+$heading-sizes: (
+  h1: 80px,
+  h2: 60px,
+  h3: 40px,
+  h4: 25px,
+  h5: 18px,
+  h6: 16px
+);
+
+$heading-letter-spacings: (
+  h1: -0.3px,
+  h2: 0,
+  h3: 0.7px,
+  h4: 0.5px,
+  h5: 0.8px,
+  h6: 1px
+);
+
+$heading-font: "GrueneType Neue";
+$heading-line-heights: 110.00000000000001%;
+$heading-weights: 900;
+
+@include themed() {
+  @if map-has-key($theme-map, 'headings') {
+    @each $tag, $size in $heading-sizes {
+      $heading-color: t(headings, $tag);
+      #{$tag} {
+        color: $heading-color;
+        font-family: $heading-font;
+        line-height: $heading-line-heights;
+        font-weight: $heading-weights;
+        font-size: $size;
+        letter-spacing: map-get($heading-letter-spacings, $tag);
+      }
+    }
+  }
 }
+
+
+
+

@@ -1,19 +1,28 @@
-@import 'variables';
-
-//$themes: (
-//    default: ("headingFont": "GrueneType Neue", "headingFontBold": "GrueneType Neue", "standardFont": "\"PT Sans\", sans-serif"),
-//    contrast: ("headingFont": "GrueneType Neue", "headingFontBold": "GrueneType Neue", "standardFont": "\"PT Sans\", sans-serif")
-//);
-
 $themes: (
 /* Color scheme*/
   colorscheme-light: (
     background: map-get($custom-colors, "weiss"),
-    text: map-get($custom-colors, "schwarzwald")
+    text: map-get($custom-colors, "schwarzwald"),
+    headings: (
+      h1: map-get($custom-colors, "tanne"),
+      h2: map-get($custom-colors, "grashalm"),
+      h3: map-get($custom-colors, "tanne"),
+      h4: map-get($custom-colors, "grashalm"),
+      h5: map-get($custom-colors, "tanne"),
+      h6: map-get($custom-colors, "grashalm")
+    )
   ),
   colorscheme-green: (
     background: map-get($custom-colors, "schwarzwald"),
     text: map-get($custom-colors, "weiss"),
+    headings: (
+      h1: map-get($custom-colors, "weiss"),
+      h2: map-get($custom-colors, "grashalm"),
+      h3: map-get($custom-colors, "weiss"),
+      h4: map-get($custom-colors, "grashalm"),
+      h5: map-get($custom-colors, "weiss"),
+      h6: map-get($custom-colors, "grashalm")
+    )
   ),
   /* Form Style*/
   formstyle-sharp: (
@@ -47,49 +56,60 @@ $themes: (
 // mixin for top-level
 @mixin themed() {
   @each $theme, $map in $themes {
-    $theme-map: () !global;
+    @at-root #{&}.#{$theme} {
+      $theme-map: () !global;
 
-    @each $key, $value in $map {
-      $theme-map: map-merge($theme-map, ($key: $value)) !global;
-    }
+      @each $key, $value in $map {
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
 
-    &.#{$theme} {
       @content;
-    }
 
-    $theme-map: null !global;
+      $theme-map: null !global;
+    }
   }
 }
 
 //mixin for embeded/ nested
 @mixin themed-nested() {
   @each $theme, $map in $themes {
-    $theme-map: () !global;
+    @at-root .#{$theme} & {
+      $theme-map: () !global;
 
-    @each $key, $value in $map {
-      $theme-map: map-merge($theme-map, ($key: $value)) !global;
-    }
+      @each $key, $value in $map {
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
 
-    .#{$theme} & {
       @content;
+
+      $theme-map: null !global;
     }
-
-    $theme-map: null !global;
   }
 }
 
-
-
-
-
-@function t($key) {
-  $val: map-get($theme-map, $key);
-  @if type-of($val) == "string" {
-    @return unquote($val);
+@function t($key, $subkey: null) {
+  @if global-variable-exists(theme-map) == false or $theme-map == null {
+    @error 't(): $theme-map ist null oder nicht initialisiert.';
   }
-  @return $val;
-}
 
+  $value: map-get($theme-map, $key);
+
+  @if $subkey == null {
+    @return $value;
+  }
+
+  @if type-of($value) != 'map' {
+    @error 't(): Der Wert zu "#{$key}" ist keine Map. Aktueller Wert: #{$value}';
+  }
+
+  $subvalue: map-get($value, $subkey);
+
+  @if $subvalue == null {
+    @error 't(): Kein Wert gefunden für subkey "#{$subkey}" in "#{$key}".';
+  }
+
+  @return $subvalue;
+}
 
 .theme--contrast {
 
