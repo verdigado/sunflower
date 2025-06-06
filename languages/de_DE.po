@@ -470,34 +470,46 @@ msgid "Show social media icons in header"
 msgstr "Social-Media-Icons im Header anzeigen"
 
 #: functions/options/class-sunflowersettingspage.php:198
+msgid "Use this form style"
+msgstr "Form Style"
+
+#: functions/options/class-sunflowersettingspage.php:206
+msgid "Use this color scheme"
+msgstr "Farbschema"
+
+#: functions/options/class-sunflowersettingspage.php:214
+msgid "Use this footer layout"
+msgstr "Footer Layout"
+
+#: functions/options/class-sunflowersettingspage.php:223
 msgid "Show list of categories on category archive"
 msgstr "Zeige Liste von Kategorien auf Kategorie-Seite"
 
-#: functions/options/class-sunflowersettingspage.php:206
+#: functions/options/class-sunflowersettingspage.php:231
 msgid "Enhance SEO"
 msgstr "SEO verbessern"
 
-#: functions/options/class-sunflowersettingspage.php:212
+#: functions/options/class-sunflowersettingspage.php:237
 msgid "Set website name in page metadata"
 msgstr "Webseitenname in den Seiten-Metadaten"
 
-#: functions/options/class-sunflowersettingspage.php:293
+#: functions/options/class-sunflowersettingspage.php:318
 msgid "Standard"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:294
+#: functions/options/class-sunflowersettingspage.php:319
 msgid "Personal"
 msgstr "Persönlich"
 
-#: functions/options/class-sunflowersettingspage.php:316
+#: functions/options/class-sunflowersettingspage.php:411
 msgid "do not show"
 msgstr "keine Anzeige"
 
-#: functions/options/class-sunflowersettingspage.php:317
+#: functions/options/class-sunflowersettingspage.php:412
 msgid "main categories"
 msgstr "Hauptkategorien"
 
-#: functions/options/class-sunflowersettingspage.php:318
+#: functions/options/class-sunflowersettingspage.php:413
 msgid "only sub-categories"
 msgstr "nur Unter-Kategorien"
 
