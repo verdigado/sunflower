@@ -1,3 +1,9 @@
 body {
-    background: $color__background-body; // Fallback for when there is no custom background color defined.
+    @include themed() {
+        background-color: t(background);
+        color: t(text);
+        border-radius: t(border-radius);
+    }
 }
+
+
