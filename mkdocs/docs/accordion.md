@@ -8,3 +8,5 @@ Für komplexere Darstellungen kann man das Plugin [Accordion Blocks](https://wor
     Aktuell ist die letzte Version 1.5 von "Accordion Blocks" über 3 Jahre alt. Es ist unbekannt, ob die Entwicklung eingestellt wurde oder das Plugin auch zukünftig gepflegt wird.
 
     Vielleicht gibt es auch bessere Lösungen. Dann wäre ein [Hinweis](https://github.com/verdigado/sunflower/issues) sehr willkommen.
+
+Neben dem Sunflower-Akkordion-Block gibt es bei Wordpress den Details-Block, der auch verwendet werden kann (welcher aber nicht im Sunflower-Style ist!).
