@@ -1,17 +1,19 @@
-$themes: (
-    default: ("headingFont": "GrueneType Neue", "headingFontBold": "GrueneType Neue", "standardFont": "\"PT Sans\", sans-serif"),
-    contrast: ("headingFont": "GrueneType Neue", "headingFontBold": "GrueneType Neue", "standardFont": "\"PT Sans\", sans-serif")
-);
+@import 'variables';
+
+//$themes: (
+//    default: ("headingFont": "GrueneType Neue", "headingFontBold": "GrueneType Neue", "standardFont": "\"PT Sans\", sans-serif"),
+//    contrast: ("headingFont": "GrueneType Neue", "headingFontBold": "GrueneType Neue", "standardFont": "\"PT Sans\", sans-serif")
+//);
 
 $themes: (
 /* Color scheme*/
   light: (
-    background: $weiss,
-    text: $schwarzwald,
+    background: map-get($custom-colors, "weiss"),
+    text: map-get($custom-colors, "schwarzwald")
   ),
   green: (
-    background: $schwarzwald,
-    text: $weiss,
+    background: map-get($custom-colors, "schwarzwald"),
+    text: map-get($custom-colors, "weiss"),
   ),
   /* Form Style*/
   sharp: (
@@ -33,12 +35,12 @@ $themes: (
   ),
   /* Footer-Layout*/
   footer-sand: (
-    footer-bg: $sand,
-    footer-text: $schwarzwald
+    footer-bg: map-get($custom-colors, "sand"),
+    footer-text: map-get($custom-colors, "schwarzwald")
   ),
   footer-green: (
-    footer-bg: $schwarzwald,
-    footer-text: $weiss
+    footer-bg: map-get($custom-colors, "schwarzwald"),
+    footer-text: map-get($custom-colors, "weiss")
   )
 );
 
@@ -61,9 +63,13 @@ $themes: (
 }
 
 @function t($key) {
-
-    @return unquote(map-get($theme-map, $key));
+  $val: map-get($theme-map, $key);
+  @if type-of($val) == "string" {
+    @return unquote($val);
+  }
+  @return $val;
 }
+
 
 .theme--contrast {
 
