@@ -4,14 +4,22 @@ input[type="reset"],
 input[type="submit"] {
     border: 1px solid;
     border-color: $color__border-button;
-    border-radius: 3px;
-    background: $color__background-button;
-    color: rgba(0, 0, 0, 0.8);
     line-height: 1;
     padding: 0.6em 1em 0.4em;
 
+    @include themed-nested() {
+    background-color: t(btn-pr-background);
+    color: t(btn-pr-text);
+    border-radius: t(border-radius);
+    }
+
     &:hover {
         border-color: $color__border-button-hover;
+         @include themed-nested() {
+        background-color: t(btn-pr-background);
+        color: t(btn-pr-text);
+        border-radius: t(border-radius);
+    }
     }
 
     &:active,
