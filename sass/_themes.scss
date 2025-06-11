@@ -10,7 +10,17 @@ $themes: (
       h4: map-get($custom-colors, "grashalm"),
       h5: map-get($custom-colors, "tanne"),
       h6: map-get($custom-colors, "grashalm")
-    )
+    ),
+    btn-pr-background: map-get($custom-colors, "tanne"),
+    btn-pr-text: map-get($custom-colors, "sand"),
+    btn-sk-background: map-get($custom-colors, "weiss"),
+    btn-sk-text: map-get($custom-colors, "tanne"),
+    btn-hover-background: map-get($custom-colors, "grashalm"),
+    btn-hover-text: map-get($custom-colors, "sand"),
+    btn-hl-background: map-get($custom-colors, "himmel"),
+    btn-hl-text: map-get($custom-colors, "weiss"),
+    btn-hl-hover-background: map-get($custom-colors, "klee"),
+    btn-hl-hover-text: map-get($custom-colors, "weiss"),
   ),
   colorscheme-green: (
     background: map-get($custom-colors, "schwarzwald"),
@@ -22,7 +32,17 @@ $themes: (
       h4: map-get($custom-colors, "grashalm"),
       h5: map-get($custom-colors, "weiss"),
       h6: map-get($custom-colors, "grashalm")
-    )
+    ),
+    btn-pr-background: map-get($custom-colors, "tanne"),
+    btn-pr-text: map-get($custom-colors, "sand"),
+    btn-sk-background: map-get($custom-colors, "weiss"),
+    btn-sk-text: map-get($custom-colors, "tanne"),
+    btn-hover-background: map-get($custom-colors, "grashalm"),
+    btn-hover-text: map-get($custom-colors, "sand"),
+    btn-hl-background: map-get($custom-colors, "klee"),
+    btn-hl-text: map-get($custom-colors, "weiss"),
+    btn-hl-hover-background: map-get($custom-colors, "himmel"),
+    btn-hl-hover-text: map-get($custom-colors, "weiss"),
   ),
   /* Form Style*/
   formstyle-sharp: (

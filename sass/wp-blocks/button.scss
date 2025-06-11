@@ -1,20 +1,27 @@
 .wp-block-button__link {
-    background-color: $primary;
-    color: $white;
-    text-transform: uppercase;
-    font-size: 1rem;
-    border-radius: 3px;
-
-    // required to get pre WP 6.8 styles
+    border-radius: 23px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0.6px;
     height: auto;
     width: auto;
+    display: inline-block;
+    font-family: 'PT Sans';
+    padding: 0.6em 1.5em;
 
-    @include themed() {
-        font-family: t(standardFont);
+    @include themed-nested() {
+        background-color: t(btn-pr-background);
+        color: t(btn-pr-text);
     }
 
     &:hover {
-        background-color: $secondary;
+        text-decoration: none;
+
+        @include themed-nested() {
+            background-color: t(btn-hover-background);
+            color: t(btn-hover-text);
+        }
     }
 
     &:hover,
@@ -26,5 +33,89 @@
         color: $white;
         outline: 0;
         box-shadow: 0 0 0 0.25rem #000;
+    }
+
+    // Sekundärstil
+    .sekundaer & {
+        @include themed-nested() {
+            background-color: t(btn-sk-background);
+            color: t(btn-sk-text);
+            border: 2px solid t(btn-sk-text);
+        }
+
+        &:hover {
+            @include themed-nested() {
+                background-color: t(btn-hover-background);
+                color: t(btn-hover-text);
+            }
+        }
+    }
+
+    // Highlight-Stil (immer dominant)
+    .highlight & {
+        @include themed-nested() {
+            background-color: t(btn-hl-background);
+            color: t(btn-hl-text);
+            border-color: t(btn-hl-text);
+        }
+
+        &[class*="fa-"] {
+            padding-left: 2.5em;
+        }
+
+        &:hover {
+            @include themed-nested() {
+                background-color: t(btn-hover-background);
+                color: t(btn-hover-text);
+            }
+        }
+
+        &::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            margin-left: -1.5em;
+
+            @include themed-nested() {
+                color: t(btn-hl-text);
+            }
+        }
+    }
+
+    // Icon-Stil, nur wenn KEIN Highlight
+    .wp-block-button:not(.highlight) &.fa-solid,
+    .wp-block-button:not(.highlight) &[class*="fa-"] {
+        padding-left: 2.5em;
+        position: relative;
+
+        @include themed-nested() {
+            background-color: t(btn-sk-background);
+            color: t(btn-sk-text);
+            border: 2px solid t(btn-sk-text);
+        }
+
+        &::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 1em;
+
+            @include themed-nested() {
+                color: t(btn-sk-text);
+            }
+        }
+
+        &:hover {
+            @include themed-nested() {
+                background-color: t(btn-hover-background);
+                color: t(btn-hover-text);
+            }
+
+            &::before {
+                @include themed-nested() {
+                    color: t(btn-hover-text);
+                }
+            }
+        }
     }
 }
