@@ -17,6 +17,8 @@ $color_scheme = get_theme_mod( 'color-scheme', 'light' );
 $header_classes = 'right-bar ' . ( $color_scheme === 'green' ? 'scheme-green' : 'scheme-light' );
 ?>
 
+<?php /* Sticky Observer */ ?>
+<div id="navbar-sticky-detector"></div>
 <header class="top-bar">
   <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap">
 
@@ -57,5 +59,7 @@ $header_classes = 'right-bar ' . ( $color_scheme === 'green' ? 'scheme-green' : 
     </div>
   </div>
 </header>
+
+
 
 <?php wp_body_open(); ?>

@@ -21,7 +21,7 @@ body.admin-bar {
 
     }
 
-    .stuck.header-personal ~ #content {
+    .stuck.header-personal~#content {
 
         margin-top: 141px;
 
@@ -32,7 +32,7 @@ body.admin-bar {
 
     #wp-admin-bar-sunflower {
 
-        > .ab-item {
+        >.ab-item {
 
             &::before {
 
@@ -52,7 +52,7 @@ body.admin-bar {
 
 .navbar {
 
-    > .container {
+    >.container {
         padding-left: 0;
     }
 
@@ -313,11 +313,11 @@ body {
     margin-top: -1px;
 }
 
-.stuck ~ #content {
+.stuck~#content {
     margin-top: 95px;
 }
 
-.header-personal.stuck ~ #content {
+.header-personal.stuck~#content {
     margin-top: 100px;
 }
 
@@ -331,27 +331,69 @@ $text-light: #ffffff;
 $text-dark: #222222;
 
 .top-bar {
-  border-radius: 0 0 40px 40px;
-  background-color: transparent;
-  }
+    border-radius: 0 0 40px 40px;
+    background-color: transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    &.stuck {
+        height: 60px;
+        top: 32px;
+        z-index: 1000;
+        position: fixed;
+        width: 100%;
+        z-index: 50;
+        border-radius: 0;
+
+        .brand-left {
+            display: none !important;
+        }
+
+        .right-bar {
+            border-radius: 0;
+            height: 60px;
+            min-width: 102%;
+            justify-content: left !important;
+            padding: 0px 0px 0px 10px;
+            margin-left: -12px;
+
+            @include themed-nested() {
+                background-color: t(background);
+                color: t(text);
+            }
+        }
+
+        .logo-background {
+            width: 46px;
+            height: 46px;
+        }
+
+        .logo-img {
+            height: 35px;
+        }
+
+    }
+}
 
 
-  .right-bar {
+.right-bar {
     border-radius: 0 0 16px 16px;
     height: 100px;
     padding: 16px 30px 16px 30px;
     margin-right: -1.5rem;
+
     @include themed-nested() {
-    background-color: t(background);
-    color: t(text);
+        background-color: t(background);
+        color: t(text);
     }
 
- a {
-    @include themed-nested() {
-    color: t(text);
+    a {
+        @include themed-nested() {
+            color: t(text);
+        }
     }
- }
 }
+
+
 
 .logo-background {
     background-color: #005538;
@@ -359,57 +401,55 @@ $text-dark: #222222;
     height: 60px;
     border-radius: 10px;
     display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
-  .logo-img {
+.logo-img {
     height: 40px;
-  }
+}
 
-  .main-menu .nav-link {
+.main-menu .nav-link {
     font-weight: bold;
     padding: 0.5rem 0.75rem;
     text-decoration: none;
-  }
+}
 
-  .btn-green {
+.btn-green {
     background-color: $bright-green;
     border-radius: 20px;
     color: white;
     padding: 0.5rem 1.2rem;
-  }
+}
 
-  .btn-blue {
+.btn-blue {
     background-color: $bright-blue;
     border-radius: 20px;
     color: white;
     padding: 0.5rem 1.2rem;
-  }
+}
 
-  .label-top{
+.label-top {
     background-color: #005538;
-  }
+}
 
-  .label-bottom{
+.label-bottom {
     background-color: #8ABD24;
 
-  }
+}
 
-  .skew-box {
+.skew-box {
     height: 34px;
-    color:$white;
+    color: $white;
     font-family: "PT Sans";
     width: fit-content;
     display: inline-block;
     padding: 0.2rem 0.6rem;
     transform: skewX(-12deg);
     margin-left: 33px
-  }
+}
 
-  .brand-left {
+.brand-left {
     min-width: 160px;
-  }
-
-
+}
 

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 // get the sticky element
 const stickyDetector = document.querySelector( '#navbar-sticky-detector' );
-const stickyElement = document.querySelector( '.navbar-main' );
+const stickyElement = document.querySelector( '.top-bar' );
 
 const observer = new IntersectionObserver(
 	( [ e ] ) => {
