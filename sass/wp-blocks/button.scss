@@ -119,3 +119,11 @@
         }
     }
 }
+
+@include media-breakpoint-down(md) {
+    .wp-block-button__link {
+        font-size: 16px;
+        letter-spacing: 0.5px;
+    }
+}
+
