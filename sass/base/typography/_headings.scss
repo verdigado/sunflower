@@ -1,19 +1,56 @@
 $heading-sizes: (
-  h1: 80px,
-  h2: 60px,
-  h3: 40px,
-  h4: 25px,
-  h5: 18px,
-  h6: 16px
+    h1: 80px,
+    h2: 60px,
+    h3: 40px,
+    h4: 25px,
+    h5: 18px,
+    h6: 16px
 );
 
+$heading-sizes-tablet: (
+    h1: 60px,
+    h2: 30px,
+    h3: 24px,
+    h4: 18px,
+    h5: 18px,
+    h6: 16px
+);
+
+$heading-sizes-mobile: (
+    h1: 35px,
+    h2: 30px,
+    h3: 24px,
+    h4: 18px,
+    h5: 16px,
+    h6: 14px
+);
+
+
 $heading-letter-spacings: (
-  h1: -0.3px,
-  h2: 0,
-  h3: 0.7px,
-  h4: 0.5px,
-  h5: 0.8px,
-  h6: 1px
+    h1: -0.3px,
+    h2: 0,
+    h3: 0.7px,
+    h4: 0.5px,
+    h5: 0.8px,
+    h6: 1px
+);
+
+$heading-letter-spacings-tablet: (
+    h1: 0.7px,
+    h2: 0.6px,
+    h3: 0.6px,
+    h4: 0.8px,
+    h5: 0.8px,
+    h6: 1px
+);
+
+$heading-letter-spacings-mobile: (
+    h1: 0.7px,
+    h2: 0.6px,
+    h3: 0.6px,
+    h4: 0.8px,
+    h5: 0.8px,
+    h6: 1px
 );
 
 $heading-font: "GrueneType Neue";
@@ -21,21 +58,29 @@ $heading-line-heights: 110.00000000000001%;
 $heading-weights: 900;
 
 @include themed() {
-  @if map-has-key($theme-map, 'headings') {
-    @each $tag, $size in $heading-sizes {
-      $heading-color: t(headings, $tag);
-      #{$tag} {
-        color: $heading-color;
-        font-family: $heading-font;
-        line-height: $heading-line-heights;
-        font-weight: $heading-weights;
-        font-size: $size;
-        letter-spacing: map-get($heading-letter-spacings, $tag);
-      }
+    @if map-has-key($theme-map, 'headings') {
+        @each $tag, $size in $heading-sizes {
+            $heading-color: t(headings, $tag);
+
+            #{$tag} {
+                color: $heading-color;
+                font-family: $heading-font;
+                line-height: $heading-line-heights;
+                font-weight: $heading-weights;
+                font-size: $size;
+                letter-spacing: map-get($heading-letter-spacings, $tag);
+
+                @include media-breakpoint-down(md) {
+                    font-size: map-get($heading-sizes-tablet, $tag);
+                    letter-spacing: map-get($heading-letter-spacings-tablet, $tag);
+                }
+
+                @include media-breakpoint-down(sm) {
+                    font-size: map-get($heading-sizes-mobile, $tag);
+                    letter-spacing: map-get($heading-letter-spacings-mobile, $tag);
+                }
+            }
+        }
     }
-  }
 }
-
-
-
 

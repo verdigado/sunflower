@@ -50,6 +50,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+/* Bootstrap
+--------------------------------------------- */
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 // Import variables and mixins.
 @import "abstracts/abstracts";
@@ -117,9 +120,7 @@ $fa-font-path : "assets/vndr/@fortawesome/fontawesome-free/webfonts";
 --------------------------------------------- */
 @import "forkawesome";
 
-/* Bootstrap
---------------------------------------------- */
-@import "../node_modules/bootstrap/scss/bootstrap";
+
 
 /* Custom
 --------------------------------------------- */
