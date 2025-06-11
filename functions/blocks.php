@@ -93,3 +93,18 @@ function sunflower_blocks_load_textdomain() {
 }
 
 add_action( 'after_setup_theme', 'sunflower_blocks_load_textdomain' );
+
+function sunflower_enqueue_block_icon_picker() {
+  wp_enqueue_script(
+    'sunflower-button-icon-picker',
+    get_template_directory_uri() . '/assets/js/block-icon-picker.js',
+    array(
+      'wp-blocks', 'wp-element', 'wp-editor', 'wp-components',
+      'wp-i18n', 'wp-compose', 'wp-data'
+    ),
+    filemtime(get_template_directory() . '/assets/js/block-icon-picker.js'),
+    true
+  );
+}
+add_action('enqueue_block_editor_assets', 'sunflower_enqueue_block_icon_picker');
+
