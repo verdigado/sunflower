@@ -4,9 +4,13 @@
 
         &-header {
             text-align: left;
-            background: $white;
-            color: $secondary;
             padding: 0;
+
+            @include themed() {
+                background-color: t(background);
+                color: t(text);
+                border-radius: t(border-radius);
+            }
 
             @include media-breakpoint-up(md) {
                 padding: 65px 0;

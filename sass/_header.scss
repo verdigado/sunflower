@@ -188,7 +188,9 @@ body {
     &.page,
     &.archive,
     &.blog {
-        background-color: $white;
+        @include themed() {
+            background-color: t(background);
+        }
     }
 }
 
