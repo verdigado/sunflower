@@ -69,7 +69,7 @@ Eine bebilderte Anleitung findest du auch [hier](https://gcms-intern.de/anleitun
 !!! Note "Nachhaltige Kalenderverwaltung"
 	Damit der Kalender langfristig zuverlässig genutzt werden kann, sollte ihn eine Person verwalten, die Deiner Gliederung dauerhaft erhalten bleibt, wie zum Beispiel Dein\*e Kreisgeschäftsfüher\*in. 
 
-Wenn Du möchtest, dass die anderen Mitglieder Deiner Gliederung den Kalender in der Wolke sehen können, kannst Du eine zusätzliche Einstellung vornehmen. Dafür benötigst Du die Rolle `Wolke-Redakteur*in` für Deine Gliederung in der Mitgliederverwaltung Sherpa. Falls Du diese nicht hast, wende Dich an eine Person mit Sherpa-Zugang innerhalb Deiner Gliederung.
+Wenn Du möchtest, dass die anderen Mitglieder Deiner Gliederung den Kalender in der Wolke sehen können, kannst Du eine zusätzliche Einstellung vornehmen. Dafür benötigst Du die Rolle `Wolke-Redakteur\*in` für Deine Gliederung in der Mitgliederverwaltung Sherpa. Falls Du diese nicht hast, wende Dich an eine Person mit Sherpa-Zugang innerhalb Deiner Gliederung.
 
 1. Öffne das Bearbeitungsmenü des Wolke-Kalenders und gehe zur Zeile *Mit Benutzern oder Gruppen teilen*.
 2. Gib dort den Gliederungsschlüssel ein. Dieser steht beispielsweise vor deinem Gliederungsordner in der [Wolke](https://wolke.netzbegruenung.de), zum Beispiel:
