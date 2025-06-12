@@ -188,7 +188,7 @@ body {
     &.page,
     &.archive,
     &.blog {
-        @include themed() {
+        @include themed-colorscheme() {
             background-color: t(background);
         }
     }
@@ -224,9 +224,9 @@ body {
 
     &-name {
 
-        @include themed() {
-            font-family: t(headingFontBold);
-        }
+        // @include themed() {
+        //     font-family: t(headingFontBold);
+        // }
 
         font-weight: 500;
         font-size: 22px;
@@ -358,7 +358,7 @@ $text-dark: #222222;
             padding: 0px 0px 0px 10px;
             margin-left: -12px;
 
-            @include themed-nested() {
+            @include themed-colorscheme-nested() {
                 background-color: t(background);
                 color: t(text);
             }
@@ -383,13 +383,13 @@ $text-dark: #222222;
     padding: 16px 30px 16px 30px;
     margin-right: -1.5rem;
 
-    @include themed-nested() {
+    @include themed-colorscheme-nested() {
         background-color: t(background);
         color: t(text);
     }
 
     a {
-        @include themed-nested() {
+        @include themed-colorscheme-nested() {
             color: t(text);
         }
     }

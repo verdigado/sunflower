@@ -7,18 +7,16 @@ input[type="submit"] {
     line-height: 1;
     padding: 0.6em 1em 0.4em;
 
-    @include themed-nested() {
+    @include themed-colorscheme-nested() {
     background-color: t(btn-pr-background);
     color: t(btn-pr-text);
-    border-radius: t(border-radius);
     }
 
     &:hover {
         border-color: $color__border-button-hover;
-         @include themed-nested() {
+         @include themed-colorscheme-nested() {
         background-color: t(btn-pr-background);
         color: t(btn-pr-text);
-        border-radius: t(border-radius);
     }
     }
 
