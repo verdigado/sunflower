@@ -57,7 +57,7 @@ $heading-font: "GrueneType Neue";
 $heading-line-heights: 110.00000000000001%;
 $heading-weights: 900;
 
-@include themed() {
+@include themed-colorscheme() {
     @if map-has-key($theme-map, 'headings') {
         @each $tag, $size in $heading-sizes {
             $heading-color: t(headings, $tag);

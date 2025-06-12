@@ -23,6 +23,12 @@ $themes: (
     btn-hl-text: map-get($custom-colors, "weiss"),
     btn-hl-hover-background: map-get($custom-colors, "klee"),
     btn-hl-hover-text: map-get($custom-colors, "weiss"),
+    input-text: map-get($custom-colors, "maus"),
+    input-border: map-get($custom-colors, "tanne"),
+    input-background: map-get($custom-colors, "weiss"),
+    input-icon: map-get($custom-colors, "klee"),
+    input-fokus-text: map-get($custom-colors, "klee"),
+    input-fokus-border: map-get($custom-colors, "grashalm"),
   ),
   colorscheme-green: (
     background: map-get($custom-colors, "schwarzwald"),
@@ -77,39 +83,71 @@ $themes: (
   )
 );
 
-// mixin for top-level
-@mixin themed() {
+// Top-level
+@mixin themed-colorscheme() {
   @each $theme, $map in $themes {
-    @at-root #{&}.#{$theme} {
-      $theme-map: () !global;
-
-      @each $key, $value in $map {
-        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+    @if str-index($theme, "colorscheme-") {
+      @at-root #{&}.#{$theme} {
+        $theme-map: () !global;
+        @each $key, $value in $map {
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+        @content;
+        $theme-map: null !global;
       }
-
-      @content;
-
-      $theme-map: null !global;
     }
   }
 }
 
-//mixin for embeded/ nested
-@mixin themed-nested() {
+// Nested
+@mixin themed-colorscheme-nested() {
   @each $theme, $map in $themes {
-    @at-root .#{$theme} & {
-      $theme-map: () !global;
-
-      @each $key, $value in $map {
-        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+    @if str-index($theme, "colorscheme-") {
+      @at-root .#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $value in $map {
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+        @content;
+        $theme-map: null !global;
       }
-
-      @content;
-
-      $theme-map: null !global;
     }
   }
 }
+
+// Top-level
+@mixin themed-formstyle() {
+  @each $theme, $map in $themes {
+    @if str-index($theme, "formstyle-") {
+      @at-root #{&}.#{$theme} {
+        $theme-map: () !global;
+        @each $key, $value in $map {
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+}
+
+// Nested
+@mixin themed-formstyle-nested() {
+  @each $theme, $map in $themes {
+    @if str-index($theme, "formstyle-") {
+      @at-root .#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $value in $map {
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+}
+
+
 
 @function t($key, $subkey: null) {
   @if global-variable-exists(theme-map) == false or $theme-map == null {

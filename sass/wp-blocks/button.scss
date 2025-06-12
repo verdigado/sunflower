@@ -10,7 +10,7 @@
     font-family: 'PT Sans';
     padding: 0.6em 1.5em;
 
-    @include themed-nested() {
+    @include themed-colorscheme-nested() {
         background-color: t(btn-pr-background);
         color: t(btn-pr-text);
     }
@@ -18,7 +18,7 @@
     &:hover {
         text-decoration: none;
 
-        @include themed-nested() {
+        @include themed-colorscheme-nested() {
             background-color: t(btn-hover-background);
             color: t(btn-hover-text);
         }
@@ -37,14 +37,14 @@
 
     // Sekundärstil
     .sekundaer & {
-        @include themed-nested() {
+        @include themed-colorscheme-nested() {
             background-color: t(btn-sk-background);
             color: t(btn-sk-text);
             border: 2px solid t(btn-sk-text);
         }
 
         &:hover {
-            @include themed-nested() {
+            @include themed-colorscheme-nested() {
                 background-color: t(btn-hover-background);
                 color: t(btn-hover-text);
             }
@@ -53,7 +53,7 @@
 
     // Highlight-Stil (immer dominant)
     .highlight & {
-        @include themed-nested() {
+        @include themed-colorscheme-nested() {
             background-color: t(btn-hl-background);
             color: t(btn-hl-text);
             border-color: t(btn-hl-text);
@@ -64,7 +64,7 @@
         }
 
         &:hover {
-            @include themed-nested() {
+            @include themed-colorscheme-nested() {
                 background-color: t(btn-hl-hover-background);
                 color: t(btn-hl-hover-text);
             }
@@ -76,7 +76,7 @@
             position: absolute;
             margin-left: -1.5em;
 
-            @include themed-nested() {
+            @include themed-colorscheme-nested() {
                 color: t(btn-hl-icon);
             }
         }
@@ -88,7 +88,7 @@
         padding-left: 2.5em;
         position: relative;
 
-        @include themed-nested() {
+        @include themed-colorscheme-nested() {
             background-color: t(btn-sk-background);
             color: t(btn-sk-text);
             border: 2px solid t(btn-sk-border);
@@ -100,19 +100,19 @@
             position: absolute;
             left: 1em;
 
-            @include themed-nested() {
+            @include themed-colorscheme-nested() {
                 color: t(btn-sk-icon);
             }
         }
 
         &:hover {
-            @include themed-nested() {
+            @include themed-colorscheme-nested() {
                 background-color: t(btn-hover-background);
                 color: t(btn-hover-text);
             }
 
             &::before {
-                @include themed-nested() {
+                @include themed-colorscheme-nested() {
                     color: t(btn-hover-text);
                 }
             }

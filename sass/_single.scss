@@ -6,7 +6,7 @@
             text-align: left;
             padding: 0;
 
-            @include themed() {
+            @include themed-colorscheme() {
                 background-color: t(background);
                 color: t(text);
                 border-radius: t(border-radius);
