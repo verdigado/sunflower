@@ -36,7 +36,7 @@
 
                 a {
 
-                    @include themed() {
+                    @include themed-colorscheme() {
                         font-family: t(standardFont);
                     }
 

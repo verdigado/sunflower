@@ -14,9 +14,9 @@ a.event-card {
         .event-archive-meta {
             color: $darkgray;
 
-            @include themed() {
-                font-family: t(standardFont);
-            }
+            // @include themed() {
+            //     font-family: t(standardFont);
+            // }
 
             border-bottom: 1px solid $lightgray;
         }
@@ -30,9 +30,9 @@ a.event-card {
 
         .date {
 
-            @include themed() {
-                font-family: t(standardFont);
-            }
+            // @include themed() {
+            //     font-family: t(standardFont);
+            // }
 
             font-weight: 700;
             font-size: 25px;
