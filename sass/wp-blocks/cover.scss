@@ -1,8 +1,8 @@
 .entry-content > .wp-block-cover {
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
+    // @include themed() {
+    //     font-family: t(headingFontBold);
+    // }
 
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);

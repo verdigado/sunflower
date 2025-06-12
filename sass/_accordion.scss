@@ -5,7 +5,7 @@
 
         font-size: 1.1875rem;
 
-        @include themed() {
+        @include themed-colorscheme() {
             font-family: t(standardFont);
         }
 

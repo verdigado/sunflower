@@ -21,15 +21,15 @@ h6,
 
 .roofline {
 
-    @include themed() {
-        font-family: t(headingFont);
-    }
+    // @include themed() {
+    //     font-family: t(headingFont);
+    // }
 
     &-single {
 
-        @include themed() {
-            font-family: t(headingFontBold);
-        }
+        // @include themed() {
+        //     font-family: t(headingFontBold);
+        // }
     }
 
     font-weight: 500;
@@ -44,9 +44,9 @@ h1,
 .h1,
 .has-huge-font-size {
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
+    // @include themed() {
+    //     font-family: t(headingFontBold);
+    // }
 
     font-size: 36px;
     line-height: 1.2em;
@@ -56,9 +56,9 @@ h2,
 .h2,
 .has-large-font-size {
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
+    // @include themed() {
+    //     font-family: t(headingFontBold);
+    // }
 
     font-size: 27px;
     line-height: 1.2em;
@@ -68,9 +68,9 @@ h3,
 .h3,
 .has-medium-font-size {
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
+    // @include themed() {
+    //     font-family: t(headingFontBold);
+    // }
 
     font-size: 25px;
 }
@@ -87,9 +87,9 @@ h3,
 h4,
 .h4 {
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
+    // @include themed() {
+    //     font-family: t(headingFontBold);
+    // }
 
     font-size: 23px;
 }
@@ -97,9 +97,9 @@ h4,
 h5,
 .h5 {
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
+    // @include themed() {
+    //     font-family: t(headingFontBold);
+    // }
 
     font-size: 21px;
 }
@@ -107,9 +107,9 @@ h5,
 h6,
 .h6 {
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
+    // @include themed() {
+    //     font-family: t(headingFontBold);
+    // }
 
     font-size: 18px;
 }
@@ -168,9 +168,9 @@ h6,
     position: relative;
     text-transform: uppercase;
 
-    @include themed() {
-        font-family: t(headingFont);
-    }
+    // @include themed() {
+    //     font-family: t(headingFont);
+    // }
 
     &::before {
         background: inherit;
@@ -208,9 +208,9 @@ h6,
     height: 200px;
     font-size: 30pt;
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
+    // @include themed() {
+    //     font-family: t(headingFontBold);
+    // }
 
     padding: 8pt;
     border-radius: 50%;

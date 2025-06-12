@@ -9,9 +9,9 @@
             font-size: 30px;
             font-weight: 700;
 
-            @include themed() {
-                font-family: t(headingFontBold);
-            }
+            // @include themed() {
+            //     font-family: t(headingFontBold);
+            // }
         }
     }
 
@@ -20,9 +20,9 @@
         font-size: 30px;
         font-weight: 700;
 
-        @include themed() {
-            font-family: t(headingFontBold);
-        }
+        // @include themed() {
+        //     font-family: t(headingFontBold);
+        // }
 
         margin-bottom: 1rem;
 
