@@ -44,7 +44,7 @@ foreach ( $sunflower_tags as $sunflower_tag ) {
 		<div class="mt-2">
 			<header class="entry-header pt-2 pb-2">
 				<?php
-				the_title( '<strong class="h2">', '</strong>' );
+				the_title( '<span class="h2">', '</span>' );
 				?>
 			</header><!-- .entry-header -->
 

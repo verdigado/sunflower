@@ -23,7 +23,7 @@ Wenn Du keine "Termine" siehst, klicke rechts oben auf das Zahnrad und blende Te
 ### In der Menüansicht werden keine Termine angezeigt
 
 - Klicke auf *Ansicht anpassen* und
-- setze den Haken bei Termine
+- Setze den Haken bei Termine
 
 ### Die Terminseite wird im Frontend nicht gefunden
 
@@ -35,13 +35,13 @@ Alternativ kannst Du folgendes probieren:
 - Einstellungen Permalinks
 - Wähle eine beliebige andere Einstellung aus und speichere sie
 - Wähle Deine bisherige Einstellung wieder aus und speichere sie
-- Fertig. Jetzt muss der Link im Menü funktionieren
+- Fertig, jetzt muss der Link im Menü funktionieren
 
 ## Termine über iCal importieren
 
-*Sunflower* kann Termine aus mehreren externen Kalendern per iCal-URL importieren.
+*Sunflower* kann Termine aus mehreren externen Kalendern per iCal-URL (zB Grüne Kalender aus der Wolke, siehe unten) importieren.
 
-Bitte trage diese iCal-URLs in den Sunflower-Einstellungen unter `Sunflower > Termine > URLs der iCal-Kalender` ein. Die Termine werden regelmäßig automatisch aktualisiert. Solche Termine darfst Du nicht mehr im WordPress-Backend bearbeiten, weil Änderungen wieder überschrieben würden.
+Bitte trage diese iCal-URLs in den Sunflower-Einstellungen unter `Sunflower > Termine > URLs der iCal-Kalender` ein. Die Termine werden regelmäßig automatisch synchronisiert/aktualisiert. Solche Termine solltest Du nicht mehr im WordPress-Backend bearbeiten, weil Änderungen wieder überschrieben würden.
 
 Du kannst das Importieren von Termine auch gewollt auslösen (zusätzlich zum automatischen Import alle paar Stunden), indem Du in den Sunflower-Einstellungen auf *Kalender importieren* klickst.
 
@@ -86,15 +86,15 @@ wobei die 1 hier im Beispiel für jede Stunde steht.
 
 ### Anzahl der zu importierenden Termine festlegen
 
-Standardmäßig holt sich *Sunflower* alle Termie der nächsten sechs Monate vom externen Kalender. Um dies zu ändern, kannst Du in der wp-config.php folgendes eintragen:
+Standardmäßig holt sich *Sunflower* alle Termine der nächsten sechs Monate vom externen Kalender. Um dies zu ändern, kannst Du in der wp-config.php folgendes eintragen:
 
 ``define('SUNFLOWER_EVENT_TIME_RANGE', '3 months');``
 
-Von Haus aus werden vergangene Termine nicht mehr importiert. Um das zu ändern, kann Du in der wp-config.php folgendes eintragen:
+Von Haus aus werden vergangene Termine nicht mehr importiert. Um das zu ändern, kannst Du in der wp-config.php folgendes eintragen:
 
 ``define('SUNFLOWER_EVENT_TIME_RANGE_BACK', '3 months');``
 
-Dabei kannst Du bspw. folgendes nutzen
+Dabei kannst Du bspw. folgendes nutzen:
 
 - 4 weeks
 - 9 months
@@ -120,4 +120,4 @@ Importierte Termine haben standardmäßig das Zoom-Level 12. Wenn Du davon abwei
 
 ``define('SUNFLOWER_EVENT_IMPORTED_ZOOM', 10);``
 
-ein, wobei die *10* das neue Zoomlevel angibt. Es wird werst beim nächsten Import verwendet, diesen Import kannst Du aber manuell triggern (wie, siehe oben).
+ein, wobei die *10* das neue Zoomlevel angibt. Die Änderung wird erst beim nächsten Import verwendet, diesen Import kannst Du aber manuell auslösen (wie, siehe oben).

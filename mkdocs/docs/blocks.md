@@ -4,11 +4,11 @@
 - Wähle den Block "Medien > Cover"
 
 ## Wie lege ich eine farbige Fläche unter einen Bereich?
-- gruppiere die jeweiligen Elemente
+- Gruppiere die jeweiligen Elemente
 - Wählen in den Block-Einstellungen die Farbeinstellungen aus
 
-## Neuste Beiträge (Sunflower)
-Das Sunflower Theme liefert einige eigene Blöcke mit sich. Unter anderem den Neuste Beiträge (Sunflower) Block. Dort kannst du ein paar Einstellungen vornehmen.
+## Neueste Beiträge (Sunflower)
+Das Sunflower Theme liefert einige eigene Blöcke mit sich. Unter anderem den Neueste Beiträge (Sunflower) Block. Dort kannst du ein paar Einstellungen vornehmen.
 
 ### Raster- vs. Listenansicht
 Seit dem Release von 2.1 kannst du die Ansicht beim Sunflower Block umstellen. Dafür musst du nur im Block oben über den Button die Ansicht einstellen. Es ist eine reine gestalterische und geschmackliche Frage, wie du die neusten Beiträge angezeigt haben möchtest. Direkt durch das Umstellen der Einstellung siehst du im Backend, wie die Darstellung aussieht.
@@ -48,17 +48,5 @@ Im Bild ist die Listenansicht ausgewählt. rechts daneben siehst du den Button f
 </figure>
 
 ## RSS-Block
-Wi rhaben den RSS Block angepasst. Darüber könntest du Beiträge einer anderen Gliederung z.B. auf deiner Seite mit anzeigen lassen. Dafür nutze einfach den entsprechenden RSS-Link der Seite und füge ihn ein. So kannst du von unterschiedlichen Gliederungen die neusten News anzeigen lassen und direkt auf deren Seite verlinken.
+Wir haben den RSS Block angepasst. Darüber könntest du Beiträge einer anderen Gliederung z.B. auf deiner Seite mit anzeigen lassen. Dafür nutze einfach den entsprechenden RSS-Link der Seite und füge ihn ein. So kannst du von unterschiedlichen Gliederungen die neuesten News anzeigen lassen und direkt auf deren Seite verlinken.
 
-## Vorlagen
-Es gibt auch Vorlagen für typische Szenarien wie z.B. die Startseite und Kandidierenden Seite. Du findest sie beim Erstellen einer neuen Seite in den Vorlagen:
-<figure markdown="span">
-  ![Screenshot vom Sunflower-Menü](images/pattern.png){ width="" }
-  <figcaption>Vorlage in Seite laden</figcaption>
-</figure>
-
-Neu ist auch die Vorlage für eine Linkseite. gerade für Social Media als alternative zu Wonderlink kund Linktree interessant. Die Vorlage kann in die Entsprechende Seite geladen werden. Es sollte auch der haken bei "gestyltes Layout" gesetzt werden.
-<figure markdown="span">
-  ![Screenshot von der Muster Linkseite](images/screenshot-linkseite.png){ width="" }
-  <figcaption>Vorlage in Seite laden</figcaption>
-</figure>

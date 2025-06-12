@@ -120,12 +120,12 @@ function sunflower_the_social_media_sharers() {
 		);
 	}
 
-	if ( sunflower_get_setting( 'sunflower_sharer_whatsapp' ) ) {
+	if ( sunflower_get_setting( 'sunflower_sharer_linkedin' ) ) {
 		$sharer[] = sprintf(
-			'<a href="https://wa.me/?text=%s %s" target="_blank" title="%s" class="sharer"><i class="fab fa-whatsapp"></i></a>',
-			rawurlencode( (string) get_the_title() ),
+			'<a href="https://www.linkedin.com/feed/?shareActive=true&shareUrl=%s&text=%s" target="_blank" title="%s" class="sharer"><i class="fab fa-linkedin-in"></i></a>',
 			get_permalink(),
-			__( 'Share on WhatsApp ', 'sunflower' )
+			rawurlencode( (string) get_the_title() ),
+			__( 'Share on LinkedIn ', 'sunflower' )
 		);
 	}
 
@@ -143,6 +143,15 @@ function sunflower_the_social_media_sharers() {
 			rawurlencode( (string) get_the_title() ),
 			__( 'Share on Mastodon ', 'sunflower' ),
 			'<i class="fab fa-mastodon"></i>',
+		);
+	}
+
+	if ( sunflower_get_setting( 'sunflower_sharer_whatsapp' ) ) {
+		$sharer[] = sprintf(
+			'<a href="https://wa.me/?text=%s %s" target="_blank" title="%s" class="sharer"><i class="fab fa-whatsapp"></i></a>',
+			rawurlencode( (string) get_the_title() ),
+			get_permalink(),
+			__( 'Share on WhatsApp ', 'sunflower' )
 		);
 	}
 
