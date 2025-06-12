@@ -11,6 +11,7 @@ nav:
     - Individuelles CSS: customcss.md
   - Nutzung:
     - Elemente (Blöcke): blocks.md
+    - Vorlagen: templates.md
     - Termine: events.md
     - Anträge & Beschlüsse: proposals.md
     - Accordions: accordion.md
