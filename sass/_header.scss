@@ -181,19 +181,6 @@ body.admin-bar {
     }
 }
 
-body {
-
-    &.search,
-    &.home,
-    &.page,
-    &.archive,
-    &.blog {
-        @include themed-colorscheme() {
-            background-color: t(background);
-        }
-    }
-}
-
 .bloginfo {
     background-size: cover;
     text-transform: uppercase;
