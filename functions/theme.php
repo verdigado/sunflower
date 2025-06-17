@@ -71,3 +71,15 @@ function sunflower_enqueue_block_editor_assets() {
 }
 add_action('enqueue_block_editor_assets', 'sunflower_enqueue_block_editor_assets');
 
+//Input-Icon-Script
+function load_input_icon_script() {
+    wp_enqueue_script(
+        'input-icons',
+        get_template_directory_uri() . '/assets/js/input-icons.js',
+        [],
+        '1.0',
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'load_input_icon_script');
+
