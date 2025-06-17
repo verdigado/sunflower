@@ -1,0 +1,19 @@
+.wp-block-social-links .wp-block-social-link.wp-social-link {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    @include themed-colorscheme-nested() {
+        background-color: t(pagination-background);
+        color: t(pagination-text);
+        border: 2px solid t(pagination-border);
+    }
+}
+
+.wp-block-social-links .wp-block-social-link.wp-social-link:hover {
+    @include themed-colorscheme-nested() {
+        background-color: t(pagination-hover-background);
+        color: t(pagination-hover-text);
+        border-color: t(pagination-hover-background);
+    }
+}
