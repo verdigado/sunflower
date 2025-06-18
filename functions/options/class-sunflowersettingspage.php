@@ -194,29 +194,28 @@ class SunflowerSettingsPage {
 		);
 
 		add_settings_field(
-    		'sunflower_form_style',
-    		__('Use this form style', 'sunflower'),
-    		[$this, 'sunflower_form_style_callback'],
-    		'sunflower-setting-admin',
-    		'sunflower_layout'
+			'sunflower_form_style',
+			__( 'Use this form style', 'sunflower' ),
+			array( $this, 'sunflower_form_style_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_layout'
 		);
 
 		add_settings_field(
-    		'sunflower_color_scheme',
-    		__('Use this color scheme', 'sunflower'),
-    		[$this, 'sunflower_color_scheme_callback'],
-    		'sunflower-setting-admin',
-    		'sunflower_layout'
+			'sunflower_color_scheme',
+			__( 'Use this color scheme', 'sunflower' ),
+			array( $this, 'sunflower_color_scheme_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_layout'
 		);
 
 		add_settings_field(
-    		'sunflower_footer_layout',
-    		__('Use this footer layout', 'sunflower'),
-    		[$this, 'sunflower_footer_layout_callback'],
-    		'sunflower-setting-admin',
-    		'sunflower_layout'
+			'sunflower_footer_layout',
+			__( 'Use this footer layout', 'sunflower' ),
+			array( $this, 'sunflower_footer_layout_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_layout'
 		);
-
 
 		add_settings_field(
 			'sunflower_categories_archive',

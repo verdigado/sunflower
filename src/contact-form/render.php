@@ -1,12 +1,12 @@
 <?php
-$attributes = $attributes ?? [];
+$attributes = $attributes ?? array();
 
-$sunflower_title          = $attributes['title'] ?? __( 'Contact Form', 'sunflower-contact-form' );
-$sunflower_mailto         = $attributes['mailTo'] ?? '';
-$sunflower_sendcopy       = $attributes['sendCopy'] ?? 0;
-$sunflower_display_phone  = $attributes['displayPhone'] ?? false;
-$sunflower_require_phone  = $attributes['requirePhone'] ?? false;
-$sunflower_require_mail   = $attributes['requireMail'] ?? false;
+$sunflower_title         = $attributes['title'] ?? __( 'Contact Form', 'sunflower-contact-form' );
+$sunflower_mailto        = $attributes['mailTo'] ?? '';
+$sunflower_sendcopy      = $attributes['sendCopy'] ?? 0;
+$sunflower_display_phone = $attributes['displayPhone'] ?? false;
+$sunflower_require_phone = $attributes['requirePhone'] ?? false;
+$sunflower_require_mail  = $attributes['requireMail'] ?? false;
 
 // Placeholder with * when required
 $placeholder_message = __( 'Your Message', 'sunflower-contact-form' ) . '*';
@@ -41,10 +41,14 @@ $placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*
 			</p>
 
 			<p class="small">
-				<?php echo wp_kses_post( __(
-					'By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href="#" id="privacy_policy_url">Datenschutzerklärung</a>',
-					'sunflower-contact-form'
-				) ); ?>
+				<?php
+				echo wp_kses_post(
+					__(
+						'By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href="#" id="privacy_policy_url">Datenschutzerklärung</a>',
+						'sunflower-contact-form'
+					)
+				);
+				?>
 			</p>
 		</div>
 

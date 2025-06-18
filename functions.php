@@ -35,28 +35,28 @@ require_once __DIR__ . '/functions/latest-posts.php';
 /**
  * Add body classes to the theme options
  */
-function sunflower_add_body_classes($classes) {
-    $options = get_option('sunflower_options');
+function sunflower_add_body_classes( $classes ) {
+	$options = get_option( 'sunflower_options' );
 
-    if (!empty($options['sunflower_form_style'])) {
-        $classes[] = 'formstyle-' . sanitize_html_class($options['sunflower_form_style']);
-    }
+	if ( ! empty( $options['sunflower_form_style'] ) ) {
+		$classes[] = 'formstyle-' . sanitize_html_class( $options['sunflower_form_style'] );
+	}
 
-    if (!empty($options['sunflower_color_scheme'])) {
-        $classes[] = 'colorscheme-' . sanitize_html_class($options['sunflower_color_scheme']);
-    }
+	if ( ! empty( $options['sunflower_color_scheme'] ) ) {
+		$classes[] = 'colorscheme-' . sanitize_html_class( $options['sunflower_color_scheme'] );
+	}
 
-    if (!empty($options['sunflower_header_layout'])) {
-        $classes[] = 'header-' . sanitize_html_class($options['sunflower_header_layout']);
-    }
+	if ( ! empty( $options['sunflower_header_layout'] ) ) {
+		$classes[] = 'header-' . sanitize_html_class( $options['sunflower_header_layout'] );
+	}
 
-    if (!empty($options['sunflower_footer_layout'])) {
-        $classes[] = 'footer-' . sanitize_html_class($options['sunflower_footer_layout']);
-    }
+	if ( ! empty( $options['sunflower_footer_layout'] ) ) {
+		$classes[] = 'footer-' . sanitize_html_class( $options['sunflower_footer_layout'] );
+	}
 
-    return $classes;
+	return $classes;
 }
-add_filter('body_class', 'sunflower_add_body_classes');
+add_filter( 'body_class', 'sunflower_add_body_classes' );
 
 
 /**

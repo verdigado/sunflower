@@ -61,25 +61,24 @@ if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
 
 // Add options to gutenberg blocks
 function sunflower_enqueue_block_editor_assets() {
-    wp_enqueue_script(
-        'sunflower-block-theme-options',
-        get_template_directory_uri() . '/assets/js/block-theme-options.js',
-        ['wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-compose', 'wp-hooks'],
-        filemtime(get_template_directory() . '/assets/js/block-theme-options.js'),
-        true
-    );
+	wp_enqueue_script(
+		'sunflower-block-theme-options',
+		get_template_directory_uri() . '/assets/js/block-theme-options.js',
+		array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-compose', 'wp-hooks' ),
+		filemtime( get_template_directory() . '/assets/js/block-theme-options.js' ),
+		true
+	);
 }
-add_action('enqueue_block_editor_assets', 'sunflower_enqueue_block_editor_assets');
+add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_editor_assets' );
 
-//Input-Icon-Script
+// Input-Icon-Script
 function load_input_icon_script() {
-    wp_enqueue_script(
-        'input-icons',
-        get_template_directory_uri() . '/assets/js/input-icons.js',
-        [],
-        '1.0',
-        true
-    );
+	wp_enqueue_script(
+		'input-icons',
+		get_template_directory_uri() . '/assets/js/input-icons.js',
+		array(),
+		'1.0',
+		true
+	);
 }
-add_action('wp_enqueue_scripts', 'load_input_icon_script');
-
+add_action( 'wp_enqueue_scripts', 'load_input_icon_script' );
