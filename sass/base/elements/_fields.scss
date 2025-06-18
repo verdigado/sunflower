@@ -1,13 +1,10 @@
 input[type="text"],
-input[type="name"],
-input[type="mail"],
 input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
 input[type="number"],
 input[type="tel"],
-input[type="phone"],
 input[type="range"],
 input[type="date"],
 input[type="month"],
@@ -16,7 +13,6 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
-input[type="captcha"],
 textarea {
     border-radius: 23px;
     padding: 3px;
@@ -64,15 +60,12 @@ textarea {
 @include media-breakpoint-down(md) {
 
     input[type="text"],
-    input[type="name"],
-    input[type="mail"],
     input[type="email"],
     input[type="url"],
     input[type="password"],
     input[type="search"],
     input[type="number"],
     input[type="tel"],
-    input[type="phone"],
     input[type="range"],
     input[type="date"],
     input[type="month"],
@@ -81,7 +74,6 @@ textarea {
     input[type="datetime"],
     input[type="datetime-local"],
     input[type="color"],
-    input[type="captcha"],
     textarea {
         font-size: 16px;
     }
