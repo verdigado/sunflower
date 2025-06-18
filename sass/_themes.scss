@@ -37,6 +37,9 @@ $themes: (
     pagination-current-text: map-get($custom-colors, "grashalm"),
     pagination-current-border: map-get($custom-colors, "grashalm"),
     pagination-current-background: map-get($custom-colors, "schwarzwald"),
+    form-section-border: map-get($custom-colors, "klee"),
+    form-section-title-color: map-get($custom-colors, "weiss"),
+    form-section-title-background: map-get($custom-colors, "klee"),
   ),
   colorscheme-green: (
     background: map-get($custom-colors, "schwarzwald"),
