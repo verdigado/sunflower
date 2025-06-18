@@ -8,16 +8,17 @@ input[type="submit"] {
     padding: 0.6em 1em 0.4em;
 
     @include themed-colorscheme-nested() {
-    background-color: t(btn-pr-background);
-    color: t(btn-pr-text);
+        background-color: t(btn-pr-background);
+        color: t(btn-pr-text);
     }
 
     &:hover {
         border-color: $color__border-button-hover;
-         @include themed-colorscheme-nested() {
-        background-color: t(btn-pr-background);
-        color: t(btn-pr-text);
-    }
+
+        @include themed-colorscheme-nested() {
+            background-color: t(btn-pr-background);
+            color: t(btn-pr-text);
+        }
     }
 
     &:active,

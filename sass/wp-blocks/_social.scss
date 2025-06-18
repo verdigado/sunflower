@@ -11,6 +11,7 @@
 }
 
 .wp-block-social-links .wp-block-social-link.wp-social-link:hover {
+
     @include themed-colorscheme-nested() {
         background-color: t(pagination-hover-background);
         color: t(pagination-hover-text);

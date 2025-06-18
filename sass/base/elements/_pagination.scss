@@ -1,74 +1,76 @@
 @mixin pagination-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 43px;
-  height: 43px;
-  border-radius: 50%;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 16px;
-  transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.2s ease;
 }
 
 .wp-block-query-pagination-numbers {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 1.5rem;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5rem;
 }
 
 .wp-block-query-pagination-numbers .page-numbers,
 .wp-block-query-pagination-next,
 .wp-block-query-pagination-previous {
-  @include pagination-button;
 
-  @include themed-colorscheme-nested() {
-    background-color: t(pagination-background);
-    color: t(pagination-text);
-    border: 2px solid t(pagination-border);
-  }
+    @include pagination-button;
+
+    @include themed-colorscheme-nested() {
+        background-color: t(pagination-background);
+        color: t(pagination-text);
+        border: 2px solid t(pagination-border);
+    }
 }
 
 .wp-block-query-pagination-numbers .page-numbers:hover,
 .wp-block-query-pagination-next:hover,
 .wp-block-query-pagination-previous:hover {
-  @include themed-colorscheme-nested() {
-    background-color: t(pagination-hover-background);
-    color: t(pagination-hover-text);
-    border-color: t(pagination-hover-background);
-  }
+
+    @include themed-colorscheme-nested() {
+        background-color: t(pagination-hover-background);
+        color: t(pagination-hover-text);
+        border-color: t(pagination-hover-background);
+    }
 }
 
 .wp-block-query-pagination-numbers .page-numbers.current {
-  cursor: default;
+    cursor: default;
 
-  @include themed-colorscheme-nested() {
-    background-color: t(pagination-current-background);
-    color: t(pagination-current-text);
-    border-color: t(pagination-current-border);
-  }
+    @include themed-colorscheme-nested() {
+        background-color: t(pagination-current-background);
+        color: t(pagination-current-text);
+        border-color: t(pagination-current-border);
+    }
 }
 
 .wp-block-query-pagination-numbers .page-numbers.dots {
-  all: unset;
-  display: inline-block;
-  color: #999;
-  font-size: 16px;
-  padding: 0 6px;
-  line-height: 43px;
-  cursor: default;
+    all: unset;
+    display: inline-block;
+    color: #999;
+    font-size: 16px;
+    padding: 0 6px;
+    line-height: 43px;
+    cursor: default;
 }
 
 .wp-block-query-pagination-next span,
 .wp-block-query-pagination-previous span {
-  font-size: 24px;
-  line-height: 1;
+    font-size: 24px;
+    line-height: 1;
 }
 
 .wp-block-query-pagination .wp-block-query-pagination-next-arrow {
     display: inline-block;
-    margin-left: 0ch;
+    margin-left: 0;
 }
 
