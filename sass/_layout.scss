@@ -19,13 +19,6 @@ html:has(.header-personal) {
     scroll-padding-top: 90px;
 }
 
-body {
-
-    @include themed() {
-        font-family: t(standardFont);
-    }
-}
-
 @include media-breakpoint-up(lg) {
 
     .container-narrow {
@@ -173,9 +166,9 @@ a.continue-reading,
 button.filter,
 a.eventlist {
 
-    @include themed() {
-        font-family: t(standardFont);
-    }
+    // @include themed() {
+    //     font-family: t(standardFont);
+    // }
 
     font-weight: 700;
     font-size: 16px;
