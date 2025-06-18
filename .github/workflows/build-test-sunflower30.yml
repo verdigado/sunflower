@@ -1,0 +1,79 @@
+# .github/workflows/release.yml
+
+name: Build Test for Sunflower 3.0
+
+on:
+  push:
+    branches:
+      - sunflower2.0
+
+env:
+  NODE_VERSION: 22
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: check theme version against tag
+        run: |
+          THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
+          V="v"
+          echo Version in style.scss: $THEME_VERSION
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache node_modules directory
+        uses: actions/cache@v4
+        id: npm-cache-dir
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install npm packages
+        if: steps.npm-cache-dir.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Lint SCSS
+        run: npm run lint:scss
+
+      - name: Build CSS
+        run: npm run compile:css
+
+      - name: Build CSS-RTL
+        run: npm run compile:rtl
+
+      - name: Lint JS
+        run: npm run lint:js
+
+      - name: Build JS
+        run: npm run build
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          tools: cs2pr
+
+      - name: run install composer
+        run: |
+            composer install
+            cd lib && composer install
+
+      - name: Run PHPCS checks
+        id: phpcs
+        continue-on-error: true
+        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml .
+
+      - name: Show PHPCS results in PR
+        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
+        run: cs2pr ./phpcs-report.xml
+
+      - name: Make bundle
+        run: npm run bundle
