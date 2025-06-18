@@ -77,3 +77,39 @@ jobs:
 
       - name: Make bundle
         run: npm run bundle
+
+      - name: fail on fork
+        if: github.repository_owner != 'verdigado'
+        run: exit 1
+
+      - name: Rename ZIP file
+        run: |
+          SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+          BRANCH_NAME=${GITHUB_REF##*/}
+          mv ../sunflower.zip sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip
+
+      - name: Provide deploy_key
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
+          SSH_USER: 'github-ci'
+          SSH_HOST: 'wordpress71.gcms.verdigado.net'
+        run: |
+          mkdir "$HOME/.ssh"
+          echo "$DEPLOY_KEY" > "$HOME/.ssh/dev-server.key"
+          chmod 600 "$HOME/.ssh/dev-server.key"
+          cat >> ~/.ssh/config <<END
+          Host dev-server
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/dev-server.key
+            StrictHostKeyChecking no
+          END
+
+      - name: rsync zipfile
+        env:
+            PAGEID: 1952
+        run: |
+            SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+            BRANCH_NAME=${GITHUB_REF##*/}
+            rsync -a sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip dev-server:/var/www/updateserver/
+            ssh dev-server "cd /var/www && wp theme install updateserver/sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip --force >> /tmp/sunflower-install.log"
