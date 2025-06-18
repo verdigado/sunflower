@@ -1,187 +1,205 @@
 $themes: (
-/* Color scheme*/
-  colorscheme-light: (
-    background: map-get($custom-colors, "weiss"),
-    text: map-get($custom-colors, "schwarzwald"),
-    headings: (
-      h1: map-get($custom-colors, "tanne"),
-      h2: map-get($custom-colors, "grashalm"),
-      h3: map-get($custom-colors, "tanne"),
-      h4: map-get($custom-colors, "grashalm"),
-      h5: map-get($custom-colors, "tanne"),
-      h6: map-get($custom-colors, "grashalm")
+    /* Color scheme*/
+    colorscheme-light: (
+        background: map-get($custom-colors, "weiss"),
+        text: map-get($custom-colors, "schwarzwald"),
+        headings: (
+            h1: map-get($custom-colors, "tanne"),
+            h2: map-get($custom-colors, "grashalm"),
+            h3: map-get($custom-colors, "tanne"),
+            h4: map-get($custom-colors, "grashalm"),
+            h5: map-get($custom-colors, "tanne"),
+            h6: map-get($custom-colors, "grashalm")
+        ),
+        btn-pr-background: map-get($custom-colors, "tanne"),
+        btn-pr-text: map-get($custom-colors, "sand"),
+        btn-sk-background: map-get($custom-colors, "weiss"),
+        btn-sk-text: map-get($custom-colors, "tanne"),
+        btn-sk-border: map-get($custom-colors, "tanne"),
+        btn-sk-icon: map-get($custom-colors, "klee"),
+        btn-hover-background: map-get($custom-colors, "grashalm"),
+        btn-hover-text: map-get($custom-colors, "sand"),
+        btn-hl-background: map-get($custom-colors, "himmel"),
+        btn-hl-text: map-get($custom-colors, "weiss"),
+        btn-hl-hover-background: map-get($custom-colors, "klee"),
+        btn-hl-hover-text: map-get($custom-colors, "weiss"),
+        input-text: map-get($custom-colors, "maus"),
+        input-border: map-get($custom-colors, "tanne"),
+        input-background: map-get($custom-colors, "weiss"),
+        input-icon: map-get($custom-colors, "klee"),
+        input-fokus-text: map-get($custom-colors, "klee"),
+        input-fokus-border: map-get($custom-colors, "grashalm"),
+        pagination-background: map-get($custom-colors, "weiss"),
+        pagination-text: map-get($custom-colors, "tanne"),
+        pagination-border: map-get($custom-colors, "tanne"),
+        pagination-hover-background: map-get($custom-colors, "grashalm"),
+        pagination-hover-text: map-get($custom-colors, "weiss"),
+        pagination-current-text: map-get($custom-colors, "grashalm"),
+        pagination-current-border: map-get($custom-colors, "grashalm"),
+        pagination-current-background: map-get($custom-colors, "schwarzwald"),
+        form-section-border: map-get($custom-colors, "klee"),
+        form-section-title-color: map-get($custom-colors, "weiss"),
+        form-section-title-background: map-get($custom-colors, "klee"),
     ),
-    btn-pr-background: map-get($custom-colors, "tanne"),
-    btn-pr-text: map-get($custom-colors, "sand"),
-    btn-sk-background: map-get($custom-colors, "weiss"),
-    btn-sk-text: map-get($custom-colors, "tanne"),
-    btn-sk-border: map-get($custom-colors, "tanne"),
-    btn-sk-icon: map-get($custom-colors, "klee"),
-    btn-hover-background: map-get($custom-colors, "grashalm"),
-    btn-hover-text: map-get($custom-colors, "sand"),
-    btn-hl-background: map-get($custom-colors, "himmel"),
-    btn-hl-text: map-get($custom-colors, "weiss"),
-    btn-hl-hover-background: map-get($custom-colors, "klee"),
-    btn-hl-hover-text: map-get($custom-colors, "weiss"),
-    input-text: map-get($custom-colors, "maus"),
-    input-border: map-get($custom-colors, "tanne"),
-    input-background: map-get($custom-colors, "weiss"),
-    input-icon: map-get($custom-colors, "klee"),
-    input-fokus-text: map-get($custom-colors, "klee"),
-    input-fokus-border: map-get($custom-colors, "grashalm"),
-    pagination-background: map-get($custom-colors, "weiss"),
-    pagination-text: map-get($custom-colors, "tanne"),
-    pagination-border: map-get($custom-colors, "tanne"),
-    pagination-hover-background: map-get($custom-colors, "grashalm"),
-    pagination-hover-text: map-get($custom-colors, "weiss"),
-    pagination-current-text: map-get($custom-colors, "grashalm"),
-    pagination-current-border: map-get($custom-colors, "grashalm"),
-    pagination-current-background: map-get($custom-colors, "schwarzwald"),
-    form-section-border: map-get($custom-colors, "klee"),
-    form-section-title-color: map-get($custom-colors, "weiss"),
-    form-section-title-background: map-get($custom-colors, "klee"),
-  ),
-  colorscheme-green: (
-    background: map-get($custom-colors, "schwarzwald"),
-    text: map-get($custom-colors, "weiss"),
-    headings: (
-      h1: map-get($custom-colors, "weiss"),
-      h2: map-get($custom-colors, "grashalm"),
-      h3: map-get($custom-colors, "weiss"),
-      h4: map-get($custom-colors, "grashalm"),
-      h5: map-get($custom-colors, "weiss"),
-      h6: map-get($custom-colors, "grashalm")
+    colorscheme-green: (
+        background: map-get($custom-colors, "schwarzwald"),
+        text: map-get($custom-colors, "weiss"),
+        headings: (
+            h1: map-get($custom-colors, "weiss"),
+            h2: map-get($custom-colors, "grashalm"),
+            h3: map-get($custom-colors, "weiss"),
+            h4: map-get($custom-colors, "grashalm"),
+            h5: map-get($custom-colors, "weiss"),
+            h6: map-get($custom-colors, "grashalm")
+        ),
+        btn-pr-background: map-get($custom-colors, "tanne"),
+        btn-pr-text: map-get($custom-colors, "sand"),
+        btn-sk-background: map-get($custom-colors, "weiss"),
+        btn-sk-text: map-get($custom-colors, "tanne"),
+        btn-sk-border: map-get($custom-colors, "grashalm"),
+        btn-sk-icon: map-get($custom-colors, "klee"),
+        btn-hover-background: map-get($custom-colors, "grashalm"),
+        btn-hover-text: map-get($custom-colors, "sand"),
+        btn-hl-background: map-get($custom-colors, "klee"),
+        btn-hl-text: map-get($custom-colors, "weiss"),
+        btn-hl-hover-background: map-get($custom-colors, "himmel"),
+        btn-hl-hover-text: map-get($custom-colors, "weiss"),
     ),
-    btn-pr-background: map-get($custom-colors, "tanne"),
-    btn-pr-text: map-get($custom-colors, "sand"),
-    btn-sk-background: map-get($custom-colors, "weiss"),
-    btn-sk-text: map-get($custom-colors, "tanne"),
-    btn-sk-border: map-get($custom-colors, "grashalm"),
-    btn-sk-icon: map-get($custom-colors, "klee"),
-    btn-hover-background: map-get($custom-colors, "grashalm"),
-    btn-hover-text: map-get($custom-colors, "sand"),
-    btn-hl-background: map-get($custom-colors, "klee"),
-    btn-hl-text: map-get($custom-colors, "weiss"),
-    btn-hl-hover-background: map-get($custom-colors, "himmel"),
-    btn-hl-hover-text: map-get($custom-colors, "weiss"),
-  ),
-  /* Form Style*/
-  formstyle-sharp: (
-    border-radius: 0
-  ),
-  formstyle-rounded: (
-    border-radius: 16px
-  ),
-  /* Header-Layout*/
-  header-standard: (
-    width: 100%,
-    height: 140px,
-    left: 70%
-
-  ),
-  header-personal: (
-    width: 100%,
-    height: 100px
-  ),
-  /* Footer-Layout*/
-  footer-sand: (
-    footer-bg: map-get($custom-colors, "sand"),
-    footer-text: map-get($custom-colors, "schwarzwald")
-  ),
-  footer-green: (
-    footer-bg: map-get($custom-colors, "schwarzwald"),
-    footer-text: map-get($custom-colors, "weiss")
-  )
+    /* Form Style*/
+    formstyle-sharp: (border-radius: 0),
+    formstyle-rounded: (border-radius: 16px),
+    /* Header-Layout*/
+    header-standard: (
+        width: 100%,
+        height: 140px,
+        left: 70%
+    ),
+    header-personal: (
+        width: 100%,
+        height: 100px
+    ),
+    /* Footer-Layout*/
+    footer-sand: (
+        footer-bg: map-get($custom-colors, "sand"),
+        footer-text: map-get($custom-colors, "schwarzwald")
+    ),
+    footer-green: (
+        footer-bg: map-get($custom-colors, "schwarzwald"),
+        footer-text: map-get($custom-colors, "weiss")
+    )
 );
 
 // Top-level
 @mixin themed-colorscheme() {
-  @each $theme, $map in $themes {
-    @if str-index($theme, "colorscheme-") {
-      @at-root #{&}.#{$theme} {
-        $theme-map: () !global;
-        @each $key, $value in $map {
-          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+
+    @each $theme, $map in $themes {
+
+        @if str-index($theme, "colorscheme-") {
+
+            @at-root #{&}.#{$theme} {
+                $theme-map: () !global;
+
+                @each $key, $value in $map {
+                    $theme-map: map-merge($theme-map, ($key: $value)) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
+            }
         }
-        @content;
-        $theme-map: null !global;
-      }
     }
-  }
 }
 
 // Nested
 @mixin themed-colorscheme-nested() {
-  @each $theme, $map in $themes {
-    @if str-index($theme, "colorscheme-") {
-      @at-root .#{$theme} & {
-        $theme-map: () !global;
-        @each $key, $value in $map {
-          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+
+    @each $theme, $map in $themes {
+
+        @if str-index($theme, "colorscheme-") {
+
+            @at-root .#{$theme} & {
+                $theme-map: () !global;
+
+                @each $key, $value in $map {
+                    $theme-map: map-merge($theme-map, ($key: $value)) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
+            }
         }
-        @content;
-        $theme-map: null !global;
-      }
     }
-  }
 }
 
 // Top-level
 @mixin themed-formstyle() {
-  @each $theme, $map in $themes {
-    @if str-index($theme, "formstyle-") {
-      @at-root #{&}.#{$theme} {
-        $theme-map: () !global;
-        @each $key, $value in $map {
-          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+
+    @each $theme, $map in $themes {
+
+        @if str-index($theme, "formstyle-") {
+
+            @at-root #{&}.#{$theme} {
+                $theme-map: () !global;
+
+                @each $key, $value in $map {
+                    $theme-map: map-merge($theme-map, ($key: $value)) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
+            }
         }
-        @content;
-        $theme-map: null !global;
-      }
     }
-  }
 }
 
 // Nested
 @mixin themed-formstyle-nested() {
-  @each $theme, $map in $themes {
-    @if str-index($theme, "formstyle-") {
-      @at-root .#{$theme} & {
-        $theme-map: () !global;
-        @each $key, $value in $map {
-          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+
+    @each $theme, $map in $themes {
+
+        @if str-index($theme, "formstyle-") {
+
+            @at-root .#{$theme} & {
+                $theme-map: () !global;
+
+                @each $key, $value in $map {
+                    $theme-map: map-merge($theme-map, ($key: $value)) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
+            }
         }
-        @content;
-        $theme-map: null !global;
-      }
     }
-  }
 }
 
-
-
 @function t($key, $subkey: null) {
-  @if global-variable-exists(theme-map) == false or $theme-map == null {
-    @error 't(): $theme-map ist null oder nicht initialisiert.';
-  }
 
-  $value: map-get($theme-map, $key);
+    @if global-variable-exists(theme-map) == false or not $theme-map {
 
-  @if $subkey == null {
-    @return $value;
-  }
+        @error "t(): $theme-map ist null oder nicht initialisiert.";
+    }
 
-  @if type-of($value) != 'map' {
-    @error 't(): Der Wert zu "#{$key}" ist keine Map. Aktueller Wert: #{$value}';
-  }
+    $value: map-get($theme-map, $key);
 
-  $subvalue: map-get($value, $subkey);
+    @if not $subkey {
 
-  @if $subvalue == null {
-    @error 't(): Kein Wert gefunden für subkey "#{$subkey}" in "#{$key}".';
-  }
+        @return $value;
+    }
 
-  @return $subvalue;
+    @if type-of($value) != "map" {
+
+        @error 't(): Der Wert zu "#{$key}" ist keine Map. Aktueller Wert: #{$value}';
+    }
+
+    $subvalue: map-get($value, $subkey);
+
+    @if not $subvalue {
+
+        @error 't(): Kein Wert gefunden für subkey "#{$subkey}" in "#{$key}".';
+    }
+
+    @return $subvalue;
 }
 
 .theme--contrast {

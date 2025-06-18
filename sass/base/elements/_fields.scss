@@ -30,7 +30,7 @@ textarea {
         border: 2px solid t(input-border);
     }
 
-    & label {
+    label {
         font-size: 12px;
         line-height: 130%;
 
@@ -40,12 +40,14 @@ textarea {
     }
 
     &::placeholder {
+
         @include themed-colorscheme-nested() {
             color: t(input-text);
         }
     }
 
     &:focus {
+
         @include themed-colorscheme-nested() {
             color: t(input-fokus-text);
             border: 2px solid t(input-fokus-border) !important;
@@ -117,6 +119,7 @@ textarea {
     }
 
     &::placeholder {
+
         @include themed-colorscheme-nested() {
             color: t(input-text);
             border: 2px solid t(input-fokus-border) !important;
@@ -125,6 +128,7 @@ textarea {
 
     &:focus,
     &:active {
+
         @include themed-colorscheme-nested() {
             color: t(input-fokus-text);
             border: 2px solid t(input-fokus-border) !important;
@@ -136,6 +140,7 @@ textarea {
     }
 
     &:valid {
+
         @include themed-colorscheme-nested() {
             color: t(input-fokus-text);
             border: 2px solid t(input-fokus-border) !important;
@@ -220,12 +225,14 @@ input[type="radio"]::after {
 
 
 input[type="checkbox"]:checked::after {
+
     @include themed-colorscheme-nested() {
         background-color: t(input-fokus-border);
     }
 }
 
 input[type="radio"]:checked::after {
+
     @include themed-colorscheme-nested() {
         background-color: t(input-fokus-border);
     }

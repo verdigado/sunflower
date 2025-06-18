@@ -21,7 +21,7 @@ body.admin-bar {
 
     }
 
-    .stuck.header-personal~#content {
+    .stuck.header-personal ~ #content {
 
         margin-top: 141px;
 
@@ -59,7 +59,7 @@ body.admin-bar {
     &-main {
         border-bottom: 1px solid $darkgray;
         transition: 0.3s;
-        background-color: black;
+        background-color: $black;
         height: 60px;
 
         .nav {
@@ -302,22 +302,21 @@ body.admin-bar {
     margin-top: -1px;
 }
 
-.stuck~#content {
+.stuck ~ #content {
     margin-top: 95px;
 }
 
-.header-personal.stuck~#content {
+.header-personal.stuck ~ #content {
     margin-top: 100px;
 }
 
 
-
-$green-bg: #003300;
-$light-bg: #ffffff;
-$bright-green: #00aa00;
-$bright-blue: #00aaff;
-$text-light: #ffffff;
-$text-dark: #222222;
+$green-bg: #030;
+$light-bg: #fff;
+$bright-green: #0a0;
+$bright-blue: #0af;
+$text-light: #fff;
+$text-dark: #222;
 
 .top-bar {
     border-radius: 0 0 40px 40px;
@@ -327,7 +326,6 @@ $text-dark: #222222;
     &.stuck {
         height: 60px;
         top: 32px;
-        z-index: 1000;
         position: fixed;
         width: 100%;
         z-index: 50;
@@ -342,7 +340,7 @@ $text-dark: #222222;
             height: 60px;
             min-width: 102%;
             justify-content: left !important;
-            padding: 0px 0px 0px 10px;
+            padding: 0 0 0 10px;
             margin-left: -12px;
 
             @include themed-colorscheme-nested() {
@@ -376,12 +374,12 @@ $text-dark: #222222;
     }
 
     a {
+
         @include themed-colorscheme-nested() {
             color: t(text);
         }
     }
 }
-
 
 
 .logo-background {
@@ -399,7 +397,7 @@ $text-dark: #222222;
 }
 
 .main-menu .nav-link {
-    font-weight: bold;
+    font-weight: 700;
     padding: 0.5rem 0.75rem;
     text-decoration: none;
 }
@@ -407,14 +405,14 @@ $text-dark: #222222;
 .btn-green {
     background-color: $bright-green;
     border-radius: 20px;
-    color: white;
+    color: $white;
     padding: 0.5rem 1.2rem;
 }
 
 .btn-blue {
     background-color: $bright-blue;
     border-radius: 20px;
-    color: white;
+    color: $white;
     padding: 0.5rem 1.2rem;
 }
 
@@ -423,7 +421,7 @@ $text-dark: #222222;
 }
 
 .label-bottom {
-    background-color: #8ABD24;
+    background-color: #8abd24;
 
 }
 
@@ -435,10 +433,9 @@ $text-dark: #222222;
     display: inline-block;
     padding: 0.2rem 0.6rem;
     transform: skewX(-12deg);
-    margin-left: 33px
+    margin-left: 33px;
 }
 
 .brand-left {
     min-width: 160px;
 }
-

@@ -7,7 +7,7 @@
     height: auto;
     width: auto;
     display: inline-block;
-    font-family: 'PT Sans';
+    font-family: "PT Sans";
     padding: 0.6em 1.5em;
 
     @include themed-colorscheme-nested() {
@@ -37,6 +37,7 @@
 
     // Sekundärstil
     .sekundaer & {
+
         @include themed-colorscheme-nested() {
             background-color: t(btn-sk-background);
             color: t(btn-sk-text);
@@ -44,6 +45,7 @@
         }
 
         &:hover {
+
             @include themed-colorscheme-nested() {
                 background-color: t(btn-hover-background);
                 color: t(btn-hover-text);
@@ -53,6 +55,7 @@
 
     // Highlight-Stil (immer dominant)
     .highlight & {
+
         @include themed-colorscheme-nested() {
             background-color: t(btn-hl-background);
             color: t(btn-hl-text);
@@ -64,6 +67,7 @@
         }
 
         &:hover {
+
             @include themed-colorscheme-nested() {
                 background-color: t(btn-hl-hover-background);
                 color: t(btn-hl-hover-text);
@@ -106,12 +110,14 @@
         }
 
         &:hover {
+
             @include themed-colorscheme-nested() {
                 background-color: t(btn-hover-background);
                 color: t(btn-hover-text);
             }
 
             &::before {
+
                 @include themed-colorscheme-nested() {
                     color: t(btn-hover-text);
                 }
@@ -121,6 +127,7 @@
 }
 
 @include media-breakpoint-down(md) {
+
     .wp-block-button__link {
         font-size: 16px;
         letter-spacing: 0.5px;

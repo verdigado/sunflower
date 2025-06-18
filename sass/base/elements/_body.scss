@@ -1,11 +1,12 @@
 body {
+
     @include themed-formstyle() {
         border-radius: t(border-radius);
     }
 
     @include themed-colorscheme() {
         background-color: t(background);
-        color: t(text)
+        color: t(text);
     }
 }
 
