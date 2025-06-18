@@ -59,7 +59,7 @@ body.admin-bar {
     &-main {
         border-bottom: 1px solid $darkgray;
         transition: 0.3s;
-        background-color: black;
+        background-color: $black;
         height: 60px;
 
         .nav {
@@ -405,14 +405,14 @@ $text-dark: #222;
 .btn-green {
     background-color: $bright-green;
     border-radius: 20px;
-    color: white;
+    color: $white;
     padding: 0.5rem 1.2rem;
 }
 
 .btn-blue {
     background-color: $bright-blue;
     border-radius: 20px;
-    color: white;
+    color: $white;
     padding: 0.5rem 1.2rem;
 }
 
@@ -439,4 +439,3 @@ $text-dark: #222;
 .brand-left {
     min-width: 160px;
 }
-
