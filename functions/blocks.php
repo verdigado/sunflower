@@ -94,6 +94,9 @@ function sunflower_blocks_load_textdomain() {
 
 add_action( 'after_setup_theme', 'sunflower_blocks_load_textdomain' );
 
+/**
+ * Add icon picker for WP blocks.
+ */
 function sunflower_enqueue_block_icon_picker() {
 	wp_enqueue_script(
 		'sunflower-button-icon-picker',
