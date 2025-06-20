@@ -1,20 +1,10 @@
 <?php
 /**
  * Custom Header Template
+ *
+ * @package sunflower
  */
-?>
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
 
-<?php
-$color_scheme   = get_theme_mod( 'color-scheme', 'light' );
-$header_classes = 'right-bar ' . ( $color_scheme === 'green' ? 'scheme-green' : 'scheme-light' );
 ?>
 
 <?php /* Sticky Observer */ ?>
@@ -30,7 +20,7 @@ $header_classes = 'right-bar ' . ( $color_scheme === 'green' ? 'scheme-green' : 
 
 	<!-- Center: Logo + Menu -->
 
-	<div class="nav-center d-flex align-items-center gap-4 flex-wrap justify-content-center <?php echo esc_attr( $header_classes ); ?>">
+	<div class="nav-center d-flex align-items-center gap-4 flex-wrap justify-content-center">
 		<div class="logo-background">
 		<?php
 		$sunflower_options = get_option( 'sunflower_first_steps_options' );
@@ -59,7 +49,5 @@ $header_classes = 'right-bar ' . ( $color_scheme === 'green' ? 'scheme-green' : 
 	</div>
 	</div>
 </header>
-
-
 
 <?php wp_body_open(); ?>
