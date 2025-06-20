@@ -1,5 +1,9 @@
 <?php
-$attributes = $attributes ?? array();
+/**
+ * Render the Sunflower contact form.
+ *
+ * @package sunflower
+ */
 
 $sunflower_title         = $attributes['title'] ?? __( 'Contact Form', 'sunflower-contact-form' );
 $sunflower_mailto        = $attributes['mailTo'] ?? '';
@@ -8,12 +12,12 @@ $sunflower_display_phone = $attributes['displayPhone'] ?? false;
 $sunflower_require_phone = $attributes['requirePhone'] ?? false;
 $sunflower_require_mail  = $attributes['requireMail'] ?? false;
 
-// Placeholder with * when required
-$placeholder_message = __( 'Your Message', 'sunflower-contact-form' ) . '*';
-$placeholder_name    = __( 'Name', 'sunflower-contact-form' ) . '*';
-$placeholder_email   = __( 'E-Mail', 'sunflower-contact-form' ) . ( $sunflower_require_mail ? '*' : '' );
-$placeholder_phone   = __( 'Phone', 'sunflower-contact-form' ) . ( $sunflower_require_phone ? '*' : '' );
-$placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*';
+// Placeholder with '*' appended if required.
+$sunflower_placeholder_message = __( 'Your Message', 'sunflower-contact-form' ) . '*';
+$sunflower_placeholder_name    = __( 'Name', 'sunflower-contact-form' ) . '*';
+$sunflower_placeholder_email   = __( 'E-Mail', 'sunflower-contact-form' ) . ( $sunflower_require_mail ? '*' : '' );
+$sunflower_placeholder_phone   = __( 'Phone', 'sunflower-contact-form' ) . ( $sunflower_require_phone ? '*' : '' );
+$sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*';
 ?>
 
 <div class="comment-respond mb-5">
@@ -32,7 +36,7 @@ $placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*
 					rows="8"
 					maxlength="2000"
 					required
-					placeholder="<?php echo esc_attr( $placeholder_message ); ?>"
+					placeholder="<?php echo esc_attr( $sunflower_placeholder_message ); ?>"
 				></textarea>
 			</p>
 
@@ -63,7 +67,7 @@ $placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*
 					size="30"
 					maxlength="245"
 					required
-					placeholder="<?php echo esc_attr( $placeholder_name ); ?>"
+					placeholder="<?php echo esc_attr( $sunflower_placeholder_name ); ?>"
 				/>
 			</p>
 
@@ -77,7 +81,7 @@ $placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*
 					size="30"
 					maxlength="100"
 					<?php echo $sunflower_require_mail ? 'required' : ''; ?>
-					placeholder="<?php echo esc_attr( $placeholder_email ); ?>"
+					placeholder="<?php echo esc_attr( $sunflower_placeholder_email ); ?>"
 				/>
 			</p>
 
@@ -92,7 +96,7 @@ $placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*
 						size="30"
 						pattern="[0-9\-\+\s]*"
 						<?php echo $sunflower_require_phone ? 'required' : ''; ?>
-						placeholder="<?php echo esc_attr( $placeholder_phone ); ?>"
+						placeholder="<?php echo esc_attr( $sunflower_placeholder_phone ); ?>"
 					/>
 				</p>
 			<?php endif; ?>
@@ -107,7 +111,7 @@ $placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*
 					size="30"
 					maxlength="100"
 					required
-					placeholder="<?php echo esc_attr( $placeholder_captcha ); ?>"
+					placeholder="<?php echo esc_attr( $sunflower_placeholder_captcha ); ?>"
 				/>
 			</p>
 		</div>
@@ -116,7 +120,7 @@ $placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*
 		if ( $sunflower_mailto ) {
 			printf(
 				'<input id="mail-to" name="mail-to" type="hidden" value="%s" />',
-				esc_attr( strrev( base64_encode( $sunflower_mailto ) ) )
+				esc_attr( strrev( base64_encode( $sunflower_mailto ) ) ) // phpcs:ignore
 			);
 		}
 		if ( $sunflower_sendcopy ) {
