@@ -111,5 +111,5 @@ jobs:
         run: |
             SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
             BRANCH_NAME=${GITHUB_REF##*/}
-            rsync -a sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip dev-server:/var/www/updateserver/
-            ssh dev-server "cd /var/www && wp theme install updateserver/sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip --force >> /tmp/sunflower-install.log"
+            rsync sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip dev-server:/var/www/updateserver/
+            ssh dev-server "cd /var/www && rm -fr wp-content/themes/sunflower/ && wp theme install updateserver/sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip >> /tmp/sunflower-install.log"
