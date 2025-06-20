@@ -34,6 +34,8 @@ require_once __DIR__ . '/functions/latest-posts.php';
 
 /**
  * Add body classes to the theme options
+ *
+ * @param array $classes Array containing all set body classes.
  */
 function sunflower_add_body_classes( $classes ) {
 	$options = get_option( 'sunflower_options' );
