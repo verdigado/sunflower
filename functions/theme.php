@@ -59,7 +59,9 @@ if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
 	add_filter( 'get_site_icon_url', 'sunflower_get_site_icon_url_defaults', 10, 3 );
 }
 
-// Add options to gutenberg blocks
+/**
+ * Add options to gutenberg blocks.
+ */
 function sunflower_enqueue_block_editor_assets() {
 	wp_enqueue_script(
 		'sunflower-block-theme-options',
@@ -71,14 +73,16 @@ function sunflower_enqueue_block_editor_assets() {
 }
 add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_editor_assets' );
 
-// Input-Icon-Script
-function load_input_icon_script() {
+/**
+ * Input-Icon-Script
+ */
+function sunflower_load_input_icon_script() {
 	wp_enqueue_script(
 		'input-icons',
 		get_template_directory_uri() . '/assets/js/input-icons.js',
 		array(),
-		'1.0',
+		filemtime( get_template_directory() . '/assets/js/input-icons.js' ),
 		true
 	);
 }
-add_action( 'wp_enqueue_scripts', 'load_input_icon_script' );
+add_action( 'wp_enqueue_scripts', 'sunflower_load_input_icon_script' );
