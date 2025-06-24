@@ -19,8 +19,7 @@
 	</div>
 
 	<!-- Center: Logo + Menu -->
-
-	<div class="nav-center d-flex align-items-center gap-4 flex-wrap justify-content-center">
+	<div class="right-bar nav-center d-flex align-items-center gap-4 flex-wrap justify-content-center">
 		<div class="logo-background">
 		<?php
 		$sunflower_options = get_option( 'sunflower_first_steps_options' );
