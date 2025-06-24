@@ -37,14 +37,14 @@
     &::before {
         content: "";
         position: absolute;
-        left: -10px;
+        left: -6px;
         top: 0px;
         transform: translateY(-50%);
         width: 0px;
         height: 0px;
         -webkit-transform: rotate(360deg);
         border-style: solid;
-        border-width: 0 0 33px 10px;
+        border-width: 0 0 33px 6px;
 
         @include themed-colorscheme-nested() {
             border-color: transparent transparent t(form-section-title-background) transparent;
@@ -55,14 +55,14 @@
     &::after {
         content: "";
         position: absolute;
-        right: -10px;
+        right: -6px;
         top: 0px;
         transform: translateY(-50%);
         width: 0px;
         height: 0px;
         -webkit-transform: rotate(360deg);
         border-style: solid;
-        border-width: 33px 10px 0 0;
+        border-width: 33px 6px 0 0;
 
         @include themed-colorscheme-nested() {
             border-color: t(form-section-title-background) transparent transparent transparent;
