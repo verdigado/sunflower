@@ -33,7 +33,7 @@ function sunflower_enqueue_scripts() {
 		'nav-overflow',
 		get_template_directory_uri() . '/assets/js/nav-overflow.js',
 		array(),
-		null,
+		SUNFLOWER_VERSION,
 		true
 	);
 }
