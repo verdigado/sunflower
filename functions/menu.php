@@ -24,6 +24,10 @@ function sunflower_add_menu_item_is_placeholder_script() {
 
 add_action( 'wp_footer', 'sunflower_add_menu_item_is_placeholder_script' );
 
+/**
+ * Script to encapsulate menu items into a "More" dropdown
+ * when there are too many entries in the menu.
+ */
 function sunflower_enqueue_scripts() {
 	wp_enqueue_script(
 		'nav-overflow',
