@@ -31,6 +31,7 @@ require_once __DIR__ . '/functions/menu.php';
 require_once __DIR__ . '/functions/security.php';
 require_once __DIR__ . '/functions/theme.php';
 require_once __DIR__ . '/functions/latest-posts.php';
+require_once __DIR__ . '/functions/media.php';
 
 /**
  * Get value of the sunflower settings.
