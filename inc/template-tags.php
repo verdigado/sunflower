@@ -207,13 +207,15 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 					)
 				);
 				?>
-
 			<?php
 			if ( $show_caption ) {
-				$caption = get_post( get_post_thumbnail_id() )?->post_excerpt;
-				if ( ! empty( $caption ) ) {
+				$caption[] = get_post_meta( get_post_thumbnail_id(), '_media_creator', true );
+				$caption[] = get_post( get_post_thumbnail_id() )?->post_excerpt;
+
+				$caption_string = implode('|', $caption);
+				if ( ! empty( $caption_string ) ) {
 					?>
-				<figcaption><?php echo esc_attr( $caption ); ?></figcaption>
+				<figcaption><?php echo esc_attr( $caption_string ); ?></figcaption>
 					<?php
 				}
 			}
