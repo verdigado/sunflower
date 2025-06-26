@@ -1,6 +1,6 @@
 document.addEventListener( 'DOMContentLoaded', function () {
 	const navWrapper = document.querySelector( '.right-bar' );
-	const menuUl = document.querySelector( '#menu-neues-hauptmenue' );
+	const menuUl = document.querySelector( '.main-menu ul' );
 
 	if ( ! navWrapper || ! menuUl ) {
 		return;
