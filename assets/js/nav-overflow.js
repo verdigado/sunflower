@@ -2,11 +2,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	const navWrapper = document.querySelector( '.right-bar' );
 	const menuUl = document.querySelector( '#menu-neues-hauptmenue' );
 
-	/* eslint-disable no-console */
-	console.log( '--- DEBUG nav-overflow.js ---' );
-	console.log( 'navWrapper:', navWrapper );
-	console.log( 'menuUl:', menuUl );
-	/* eslint-enable no-console */
+	console.log('--- DEBUG nav-overflow.js ---');
+    console.log('navWrapper:', navWrapper);
+    console.log('menuUl:', menuUl);
 
 	if ( ! navWrapper || ! menuUl ) {
 		return;
