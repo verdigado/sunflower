@@ -67,3 +67,18 @@ p a img {
 	line-height: 1.5;
 	border-radius: 15px;
 }
+
+
+table.compat-attachment-fields {
+	display: block;
+	width: 100%;
+}
+
+table.compat-attachment-fields tbody {
+	display: block;
+	width: 100%;
+}
+
+table.compat-attachment-fields tr {
+	display: grid;
+}
