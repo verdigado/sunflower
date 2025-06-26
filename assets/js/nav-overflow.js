@@ -2,6 +2,10 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	const navWrapper = document.querySelector( '.right-bar' );
 	const menuUl = document.querySelector( '#menu-neues-hauptmenue' );
 
+	console.log('--- DEBUG nav-overflow.js ---');
+    console.log('navWrapper:', navWrapper);
+    console.log('menuUl:', menuUl);
+
 	if ( ! navWrapper || ! menuUl ) {
 		return;
 	}
