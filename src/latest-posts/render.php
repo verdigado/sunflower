@@ -45,7 +45,7 @@ if ( ! $sunflower_link || '' === $sunflower_link ) {
 // Fetch posts for given parameters.
 $sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories, $sunflower_excluded_categories );
 
-$sunflower_title = isset( $attributes['title'] ) ? sprintf( '<h2 class="text-center h1">%s</h2>', $attributes['title'] ) : '';
+$sunflower_title = ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) ? sprintf( '<h2 class="text-center h1">%s</h2>', $attributes['title'] ) : '';
 
 $sunflower_classes = get_block_wrapper_attributes(
 	array(

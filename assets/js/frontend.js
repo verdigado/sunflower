@@ -75,7 +75,7 @@ jQuery( function () {
 	} );
 
 	lightbox.option( {
-		albumLabel: 'Bild %1 von %2',
+		albumLabel: sunflower.texts.lightbox2.imageOneOf,
 	} );
 } );
 
@@ -221,4 +221,46 @@ jQuery( function () {
 	} );
 } );
 
+document.addEventListener( 'DOMContentLoaded', function () {
+	// Add aria-labels to make lightbox2 WCAG2AA compliant.
+	const observerLightbox = new MutationObserver( () => {
+		const closeBtn = document.querySelector( ".lb-close[role='button']" );
+		const cancelBtn = document.querySelector( ".lb-cancel[role='button']" );
+		const nextBtn = document.querySelector( ".lb-next[role='button']" );
+		const prevBtn = document.querySelector( ".lb-prev[role='button']" );
+
+		if ( closeBtn ) {
+			closeBtn.setAttribute(
+				'aria-label',
+				sunflower.texts.lightbox2.closeLightbox
+			);
+		}
+
+		if ( cancelBtn ) {
+			cancelBtn.setAttribute(
+				'aria-label',
+				sunflower.texts.lightbox2.cancelLoading
+			);
+		}
+
+		if ( nextBtn ) {
+			nextBtn.setAttribute(
+				'aria-label',
+				sunflower.texts.lightbox2.nextImage
+			);
+		}
+
+		if ( prevBtn ) {
+			prevBtn.setAttribute(
+				'aria-label',
+				sunflower.texts.lightbox2.previousImage
+			);
+		}
+	} );
+
+	observerLightbox.observe( document.body, {
+		childList: true,
+		subtree: true,
+	} );
+} );
 /* eslint-enable no-undef */

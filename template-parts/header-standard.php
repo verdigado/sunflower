@@ -37,16 +37,14 @@
 								);
 								?>
 							<form class="form-inline my-2 my-md-0 search d-flex" action="<?php bloginfo( 'url' ); ?>">
-								<input class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php esc_html_e( 'Search', 'sunflower' ); ?>" aria-label="<?php esc_html_e( 'Search', 'sunflower' ); ?>"
+								<label for="topbar-search" class="visually-hidden"><?php esc_html_e( 'Search', 'sunflower' ); ?></label>
+								<input id="topbar-search" class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php esc_html_e( 'Search', 'sunflower' ); ?>" aria-label="<?php esc_html_e( 'Search', 'sunflower' ); ?>"
 									value="<?php echo get_search_query(); ?>"
 								>
 								<input type="submit" class="d-none" value="<?php esc_html_e( 'Search', 'sunflower' ); ?>" aria-label="<?php esc_html_e( 'Search', 'sunflower' ); ?>">
 							</form>
 							<button class="show-search me-3" title="<?php esc_html_e( 'show search', 'sunflower' ); ?>" aria-label="<?php esc_html_e( 'show search', 'sunflower' ); ?>">
 								<i class="fas fa-search"></i>
-							</button>
-							<button class="d-none show-contrast" title="<?php esc_html_e( 'increase contrast', 'sunflower' ); ?>" aria-label="<?php esc_html_e( 'increase contrast', 'sunflower' ); ?>">
-								<i class="fab fa-accessible-icon"></i>
 							</button>
 						</div>
 				</div>

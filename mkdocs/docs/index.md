@@ -14,6 +14,7 @@ Die aktuellsten Neuerungen (Releases) der Version von Sunflower sind bei [github
 * Sunflower Theme 2.1, 2.2: PHP 8.2
 
 ## Features
+* [Barrierefrei nach WCAG 2.1 AA](accessibility.md)
 * einfacher Umzug von Urwahl3000
 * eine Musterstartseite erstellt man mit nur einem Knopfdruck
 * eigene Terminverwaltung, Kalender können per ics importiert werden
@@ -24,3 +25,11 @@ Die aktuellsten Neuerungen (Releases) der Version von Sunflower sind bei [github
 * Buildprozesse für SCSS, JavaScript und Übersetzungen
 * basiert auf [underscores](https://underscores.me/)
 * [mehr zur Technik](development.md)
+
+Die Seite /aktuelles wurde mit dem Tool Pa11y auf Barrierefreiheit geprüft.
+
+Testtool: Pa11y CLI
+
+Prüfstandard: WCAG 2.1 AA
+
+Ergebnis: ✔️ Keine Fehler gefunden
