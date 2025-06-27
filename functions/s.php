@@ -165,6 +165,13 @@ function sunflower_scripts() {
 			'texts'              => array(
 				'readmore'    => __( 'Continue reading', 'sunflower' ),
 				'icscalendar' => __( 'calendar in ics-format', 'sunflower' ),
+				'lightbox2'   => array(
+					'imageOneOf'    => __( 'Image %1 of %2', 'sunflower' ),
+					'nextImage'     => __( 'Next Image', 'sunflower' ),
+					'previousImage' => __( 'Previous Image', 'sunflower' ),
+					'cancelLoading' => __( 'Cancel Loading Image', 'sunflower' ),
+					'closeLightbox' => __( 'Close Lightbox', 'sunflower' ),
+				),
 			),
 		)
 	);
