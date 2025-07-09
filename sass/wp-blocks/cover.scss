@@ -1,16 +1,52 @@
+@use "sass:map";
+
 .entry-content > .wp-block-cover {
 
     // @include themed() {
     //     font-family: t(headingFontBold);
     // }
 
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    width: 100vw;
-    // padding: 25px;
-    padding-left: 20vw;
-    padding-right: 20vw;
-    background-color: $black;
+    width: 100%;
+    height: calc(100vh - var(--double-grid-margin));
+    margin-top: var(--grid-margin);
+    z-index: -1;
+    margin-bottom: var(--grid-margin);
+    border-radius: var(--border-radius-large);
+
+    .wp-block-cover__inner-container {
+        background-color: $white;
+        border-radius: 0 30px 0 0;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: fit-content;
+        padding: 25px 50px 0 25px;
+
+        h1 {
+            color: map.get($custom-colors, "tanne") !important;
+            text-align: left;
+        }
+
+        &::before {
+            content: url("assets/img/concave-30px.svg");
+            height: 30px;
+            width: 38.16px;
+            position: absolute;
+            rotate: -180deg;
+            top: -16.8px;
+            left: -0.3px;
+        }
+
+        &::after {
+            content: url("assets/img/concave-30px.svg");
+            height: 30px;
+            width: 38.16px;
+            position: absolute;
+            rotate: 180deg;
+            bottom: -12.5px;
+            right: -37.7px;
+        }
+    }
 
     &.wp-block-group-is-layout-flow,
     .wp-block-cover__inner-container {
@@ -22,6 +58,6 @@
 
     .wp-block-cover {
         overflow: hidden;
-        border-radius: $border-radius;
+        border-radius: var(--border-radius-medium);
     }
 }

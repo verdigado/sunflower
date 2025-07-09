@@ -91,8 +91,6 @@
 
 	</header><!-- #masthead -->
 
-	<?php /* must be outside of masthead for stickness */ ?>
-	<div id="navbar-sticky-detector"></div>
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white">
 		<div class="container">
 			<?php

@@ -6,7 +6,7 @@
  */
 
 ?>
-	<div id="navbar-sticky-detector" class="header-personal"></div>
+
 	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white header-personal">
 		<div class="container">
 			<div class="d-flex w-100">

@@ -48,11 +48,36 @@ $darkgreen: #002216;
 $border-radius: 3px;
 $border-radius-small: 1px;
 
+:root {
+    --border-radius-large: 30px;
+    --border-radius-button: 23px;
+    --border-radius-medium: 15px;
+    --border-radius-small: 8px;
+
+
+    --grid-margin: 20px;
+    --double-grid-margin: calc(var(--grid-margin) * 2);
+
+    @media (max-width: 1400px) {
+        --grid-margin: 12px;
+    }
+}
+
+
 $container-max-widths: (
     sm: 540px,
     md: 720px,
     lg: 960px,
     xl: 1170px) !default;
+
+
+$breakpoint-xs: 470px;
+$breakpoint-sm: 950px;
+$breakpoint-md: 1200px;
+$breakpoint-lg: 1500px;
+$breakpoint-xl: 2100px;
+$breakpoint-xxl: 2400px;
+
 
 $font-size-base: 1.1875rem;
 $small-font-size: 15px;

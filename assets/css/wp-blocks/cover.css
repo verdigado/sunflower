@@ -1,0 +1,17 @@
+/* Error: Undefined variable.
+ *    ,
+ * 16 |         max-width: map-get($container-max-widths, "xl");
+ *    |                            ^^^^^^^^^^^^^^^^^^^^^
+ *    '
+ *   sass/wp-blocks/cover.scss 16:28  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: Undefined variable.\a    \2577 \a 16 \2502          max-width: map-get($container-max-widths, "xl");\a    \2502                             ^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   sass/wp-blocks/cover.scss 16:28  root stylesheet';
+}

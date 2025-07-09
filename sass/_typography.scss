@@ -50,6 +50,7 @@ h1,
 
     font-size: 36px;
     line-height: 1.2em;
+    font-weight: 500 !important;
 }
 
 h2,
@@ -232,5 +233,26 @@ h6,
     @include media-breakpoint-down(md) {
         left: 8rem;
         top: 2rem;
+    }
+}
+
+.skew-box {
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 150%;
+}
+
+.right-bar a {
+    font-family: "PT Sans", sans-serif;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0.4px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.colorscheme-light .right-bar a {
+    &:hover {
+        color: map-get($custom-colors, "grashalm");
     }
 }

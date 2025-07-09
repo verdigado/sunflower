@@ -35,7 +35,6 @@ body.admin-bar {
         >.ab-item {
 
             &::before {
-
                 content: "";
                 background-image: url("assets/img/sunflower.svg") !important;
                 background-size: contain;
@@ -58,9 +57,10 @@ body.admin-bar {
 
     &-main {
         border-bottom: 1px solid $darkgray;
-        transition: 0.3s;
+        transition: 0.3s ease;
         background-color: $black;
         height: 60px;
+        position: fixed;
 
         .nav {
 
@@ -75,9 +75,7 @@ body.admin-bar {
     }
 
     &-main.stuck {
-        position: fixed;
         width: 100%;
-
         top: 0;
         z-index: 50;
 
@@ -302,10 +300,6 @@ body.admin-bar {
     margin-top: -1px;
 }
 
-.stuck ~ #content {
-    margin-top: 95px;
-}
-
 .header-personal.stuck ~ #content {
     margin-top: 100px;
 }
@@ -321,12 +315,13 @@ $text-dark: #222;
 .top-bar {
     border-radius: 0 0 40px 40px;
     background-color: transparent;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
 
     &.stuck {
         height: 60px;
-        top: 32px;
-        position: fixed;
         width: 100%;
         z-index: 50;
         border-radius: 0;
@@ -338,35 +333,75 @@ $text-dark: #222;
         .right-bar {
             border-radius: 0;
             height: 60px;
-            min-width: 102%;
+            width: 100%;
             justify-content: left !important;
-            padding: 0 0 0 10px;
-            margin-left: -12px;
+            max-width: initial;
+            padding: 7px;
+            right: 0;
+
+            .concave-30px {
+                top: -50px;
+            }
 
             @include themed-colorscheme-nested() {
                 background-color: t(background);
                 color: t(text);
             }
         }
+
+        .logo-background {
+            width: 46px;
+            height: 46px;
+
+            .logo-img {
+                width: 35px !important;
+            }
+        }
     }
 
     .logo-background {
-        width: 46px;
-        height: 46px;
-    }
+        width: 60px;
+        height: 60px;
 
-    .logo-img {
-        height: 35px;
+        .logo-img {
+            width: 46px !important;
+        }
     }
 
 }
 
 .right-bar {
-    border-radius: 0 0 16px 16px;
+    border-radius: 0 0 0 20px;
     height: 100px;
-    padding: 16px 30px 16px 30px;
-    margin-right: -1.5rem;
+    padding: 20px;
+    right: 0;
+    top: 0;
+    position: absolute;
+    justify-content: center;
     max-width: 1036px;
+    transition: 0.3s ease;
+
+    .concave-30px {
+        color: $white;
+
+        &:nth-of-type(1) {
+            left: -30px;
+            top: 10px;
+
+            @media (max-width: 1400px) {
+                top: 2px;
+            }
+        }
+
+        &:nth-of-type(2) {
+            right: 20px;
+            top: 90px;
+
+            @media (max-width: 1400px) {
+                right: 12px;
+            }
+        }
+    }
 
     @include themed-colorscheme-nested() {
         background-color: t(background);
@@ -384,8 +419,6 @@ $text-dark: #222;
 
 .logo-background {
     background-color: #005538;
-    width: 60px;
-    height: 60px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -394,6 +427,7 @@ $text-dark: #222;
 
 .logo-img {
     height: 40px;
+    width: 40px;
 }
 
 .main-menu .nav-link {
@@ -418,33 +452,34 @@ $text-dark: #222;
 
 .label-top {
     background-color: #005538;
+    position: relative;
+    left: var(--double-grid-margin);
 
     &::before {
         content: "";
         position: relative;
-        left: -15px;
-        top: -25px;
+        left: -7px;
+        top: -33px;
         transform: translateY(-50%);
         width: 0;
         height: 0;
         -webkit-transform: rotate(360deg);
         border-style: solid;
-        border-width: 0 0 34px 6px;
+        border-width: 0 0 32px 7px;
         border-color: transparent transparent #005538 transparent;
-
     }
 
     &::after {
         content: "";
         position: relative;
-        right: -15px;
-        top: 29px;
+        right: -7px;
+        top: 28.8px;
         transform: translateY(-50%);
         width: 0;
         height: 0;
         -webkit-transform: rotate(360deg);
         border-style: solid;
-        border-width: 34px 6px 0 0;
+        border-width: 32px 7px 0 0;
         border-color: #005538 transparent transparent transparent;
 
     }
@@ -456,14 +491,14 @@ $text-dark: #222;
     &::before {
         content: "";
         position: relative;
-        left: -16px;
-        top: -25px;
+        left: -7px;
+        top: -33px;
         transform: translateY(-50%);
         width: 0;
         height: 0;
         -webkit-transform: rotate(360deg);
         border-style: solid;
-        border-width: 0 0 34px 6px;
+        border-width: 0 0 32px 7px;
         border-color: transparent transparent #8abd24 transparent;
 
     }
@@ -471,14 +506,14 @@ $text-dark: #222;
     &::after {
         content: "";
         position: relative;
-        right: -16px;
+        right: -7px;
         top: 29px;
         transform: translateY(-50%);
         width: 0;
         height: 0;
         -webkit-transform: rotate(360deg);
         border-style: solid;
-        border-width: 34px 6px 0 0;
+        border-width: 32px 7px 0 0;
         border-color: #8abd24 transparent transparent transparent;
 
     }
@@ -486,17 +521,20 @@ $text-dark: #222;
 }
 
 .skew-box {
-    height: 34px;
+    height: 32px;
     color: $white;
-    font-family: "PT Sans";
+    font-family: "GrueneType Neue", sans-serif;
     width: fit-content;
     display: inline-block;
-    padding: 0.2rem 0.6rem;
-    margin-left: 33px;
+    padding: 0.3rem 0;
 }
 
 .brand-left {
     min-width: 160px;
+    margin: calc(var(--grid-margin) + 16px) 0 0 calc(var(--double-grid-margin) + 6px);
+    top:0;
+    left:0;
+    position: absolute;
 }
 
 .more-menu {

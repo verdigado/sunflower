@@ -1,6 +1,16 @@
 .wp-block-group {
 
     position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .wp-block-columns {
+    width: calc(83.3% - 180px);
+    }
 
     &.alignfull {
         width: 100vw;
