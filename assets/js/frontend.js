@@ -1,20 +1,35 @@
 /* eslint-disable no-undef */
 // get the sticky element
-const stickyDetector = document.querySelector( '#navbar-sticky-detector' );
 const stickyElement = document.querySelector( '.top-bar' );
 
-const observer = new IntersectionObserver(
-	( [ e ] ) => {
-		stickyElement.classList.toggle( 'stuck', ! e.isIntersecting );
-	},
-	{
-		rootMargin: '0px',
-		threshold: [ 0.1 ],
-	}
-);
+let ticking = false;
+let scrollThreshold = 1;
 
-if ( stickyDetector ) {
-	observer.observe( stickyDetector );
+function updateStuckState() {
+	if ( stickyElement ) {
+		const shouldBeStuck = window.scrollY > scrollThreshold;
+		const isCurrentlyStuck = stickyElement.classList.contains( 'stuck' );
+
+		if ( shouldBeStuck && ! isCurrentlyStuck ) {
+			stickyElement.classList.add( 'stuck' );
+		} else if ( ! shouldBeStuck && isCurrentlyStuck ) {
+			stickyElement.classList.remove( 'stuck' );
+		}
+	}
+	ticking = false;
+}
+
+function onScroll() {
+	if ( ! ticking ) {
+		requestAnimationFrame( updateStuckState );
+		ticking = true;
+	}
+}
+
+if ( stickyElement ) {
+	window.addEventListener( 'scroll', onScroll, { passive: true } );
+	// Initialer Check
+	updateStuckState();
 }
 
 jQuery( function () {

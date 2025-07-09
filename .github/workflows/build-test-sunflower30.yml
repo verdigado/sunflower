@@ -3,113 +3,113 @@
 name: Build Test for Sunflower 3.0
 
 on:
-  push:
-    branches:
-      - sunflower2.0
+    push:
+        branches:
+            - sunflower2.0
 
 env:
-  NODE_VERSION: 22
+    NODE_VERSION: 22
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: check theme version against tag
-        run: |
-          THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
-          V="v"
-          echo Version in style.scss: $THEME_VERSION
+            - name: check theme version against tag
+              run: |
+                  THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
+                  V="v"
+                  echo Version in style.scss: $THEME_VERSION
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
 
-      - name: Cache node_modules directory
-        uses: actions/cache@v4
-        id: npm-cache-dir
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+            - name: Cache node_modules directory
+              uses: actions/cache@v4
+              id: npm-cache-dir
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
 
-      - name: Install npm packages
-        if: steps.npm-cache-dir.outputs.cache-hit != 'true'
-        run: npm ci
+            - name: Install npm packages
+              if: steps.npm-cache-dir.outputs.cache-hit != 'true'
+              run: npm ci
 
-      - name: Lint SCSS
-        run: npm run lint:scss
+            - name: Lint SCSS
+              run: npm run lint:scss
 
-      - name: Build CSS
-        run: npm run compile:css
+            - name: Build CSS
+              run: npm run compile:css
 
-      - name: Build CSS-RTL
-        run: npm run compile:rtl
+            - name: Build CSS-RTL
+              run: npm run compile:rtl
 
-      - name: Lint JS
-        run: npm run lint:js
+            - name: Lint JS
+              run: npm run lint:js
 
-      - name: Build JS
-        run: npm run build
+            - name: Build JS
+              run: npm run build
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.2
-          tools: cs2pr
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 8.2
+                  tools: cs2pr
 
-      - name: run install composer
-        run: |
-            composer install
-            cd lib && composer install
+            - name: run install composer
+              run: |
+                  composer install
+                  cd lib && composer install
 
-      - name: Run PHPCS checks
-        id: phpcs
-        continue-on-error: true
-        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml .
+            - name: Run PHPCS checks
+              id: phpcs
+              continue-on-error: true
+              run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml .
 
-      - name: Show PHPCS results in PR
-        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
-        run: cs2pr ./phpcs-report.xml
+            - name: Show PHPCS results in PR
+              if: ${{ always() && steps.phpcs.outcome == 'failure' }}
+              run: cs2pr ./phpcs-report.xml
 
-      - name: Make bundle
-        run: npm run bundle
+            - name: Make bundle
+              run: npm run bundle
 
-      - name: fail on fork
-        if: github.repository_owner != 'verdigado'
-        run: exit 1
+            - name: fail on fork
+              if: github.repository_owner != 'verdigado'
+              run: exit 1
 
-      - name: Rename ZIP file
-        run: |
-          SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
-          BRANCH_NAME=${GITHUB_REF##*/}
-          mv ../sunflower.zip sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip
+            - name: Rename ZIP file
+              run: |
+                  SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+                  BRANCH_NAME=${GITHUB_REF##*/}
+                  mv ../sunflower.zip sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip
 
-      - name: Provide deploy_key
-        env:
-          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
-          SSH_USER: 'github-ci'
-          SSH_HOST: 'wordpress71.gcms.verdigado.net'
-        run: |
-          mkdir "$HOME/.ssh"
-          echo "$DEPLOY_KEY" > "$HOME/.ssh/dev-server.key"
-          chmod 600 "$HOME/.ssh/dev-server.key"
-          cat >> ~/.ssh/config <<END
-          Host dev-server
-            HostName $SSH_HOST
-            User $SSH_USER
-            IdentityFile ~/.ssh/dev-server.key
-            StrictHostKeyChecking no
-          END
+            - name: Provide deploy_key
+              env:
+                  DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
+                  SSH_USER: 'github-ci'
+                  SSH_HOST: 'wordpress71.gcms.verdigado.net'
+              run: |
+                  mkdir "$HOME/.ssh"
+                  echo "$DEPLOY_KEY" > "$HOME/.ssh/dev-server.key"
+                  chmod 600 "$HOME/.ssh/dev-server.key"
+                  cat >> ~/.ssh/config <<END
+                  Host dev-server
+                    HostName $SSH_HOST
+                    User $SSH_USER
+                    IdentityFile ~/.ssh/dev-server.key
+                    StrictHostKeyChecking no
+                  END
 
-      - name: rsync zipfile
-        env:
-            PAGEID: 1952
-        run: |
-            SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
-            BRANCH_NAME=${GITHUB_REF##*/}
-            rsync sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip dev-server:/var/www/updateserver/
-            ssh dev-server "cd /var/www && rm -fr wp-content/themes/sunflower/ && wp theme install updateserver/sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip >> /tmp/sunflower-install.log"
+            - name: rsync zipfile
+              env:
+                  PAGEID: 1952
+              run: |
+                  SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+                  BRANCH_NAME=${GITHUB_REF##*/}
+                  rsync sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip dev-server:/var/www/updateserver/
+                  ssh dev-server "cd /var/www && rm -fr wp-content/themes/sunflower/ && wp theme install updateserver/sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip >> /tmp/sunflower-install.log"

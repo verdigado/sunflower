@@ -150,8 +150,8 @@
 			}
 		},
 		"typography": {
-					"fontWeight": "400",
-					"fontFamily": "var(--wp--preset--font-family--pt-sans)"
+			"fontWeight": "400",
+			"fontFamily": "var(--wp--preset--font-family--pt-sans)"
 		},
 		"elements": {
 			"h1": {

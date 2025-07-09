@@ -1,22 +1,16 @@
 {
-    "extends": [
-        "@wordpress/stylelint-config/scss"
-    ],
-    "ignoreFiles": [
-        "sass/_normalize.scss",
-		"style.css",
-		"style-rtl.css"
-    ],
-    "rules": {
-        "indentation": 4,
-        "font-family-no-missing-generic-family-keyword": null,
-        "no-descending-specificity": null,
-        "block-no-empty": null,
-        "no-duplicate-selectors": null,
-        "font-family-no-duplicate-names": null,
-        "selector-class-pattern": null,
-        "function-url-quotes": null,
-        "declaration-property-unit-allowed-list":  null,
-        "scss/no-global-function-names": null
-    }
+	"extends": [ "@wordpress/stylelint-config/scss" ],
+	"ignoreFiles": [ "sass/_normalize.scss", "style.css", "style-rtl.css" ],
+	"rules": {
+		"indentation": 4,
+		"font-family-no-missing-generic-family-keyword": null,
+		"no-descending-specificity": null,
+		"block-no-empty": null,
+		"no-duplicate-selectors": null,
+		"font-family-no-duplicate-names": null,
+		"selector-class-pattern": null,
+		"function-url-quotes": null,
+		"declaration-property-unit-allowed-list": null,
+		"scss/no-global-function-names": null
+	}
 }

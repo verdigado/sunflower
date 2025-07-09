@@ -35,6 +35,14 @@ html:has(.header-personal) {
     }
 }
 
+.container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 100%;
+}
+
+.col-12 {
+    padding: 0 var(--grid-margin);
+}
+
 .post-edit-link {
     color: $white;
 
@@ -207,7 +215,7 @@ a.eventlist {
     align-items: baseline;
     font-size: 80%;
 
-    >* {
+    > * {
         padding: 20px 30px;
         display: block;
     }
@@ -238,7 +246,7 @@ iframe {
 
     &-has-background-dim {
 
-        >* {
+        > * {
             z-index: 30;
         }
 

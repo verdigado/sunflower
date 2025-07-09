@@ -6,6 +6,9 @@
     font-weight: 400;
     font-style: normal;
     font-display: swap;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {

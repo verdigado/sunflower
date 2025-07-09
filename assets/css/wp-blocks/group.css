@@ -1,0 +1,19 @@
+/* Error: Undefined mixin.
+ *    ,
+ * 11 | /         @include media-breakpoint-down(xl) {
+ * 12 | |             padding-left: 2rem;
+ * 13 | |             padding-right: 2rem;
+ * 14 | \         }
+ *    '
+ *   sass/wp-blocks/group.scss 11:9  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a    \2577 \a 11 \2502  \250c          @include media-breakpoint-down(xl) {\a 12 \2502  \2502              padding-left: 2rem;\a 13 \2502  \2502              padding-right: 2rem;\a 14 \2502  \2514          }\a    \2575 \a   sass/wp-blocks/group.scss 11:9  root stylesheet";
+}
