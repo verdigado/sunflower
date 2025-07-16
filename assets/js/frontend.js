@@ -279,3 +279,79 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	} );
 } );
 /* eslint-enable no-undef */
+
+/* Parallax for Header Image */
+
+document.addEventListener( 'DOMContentLoaded', function () {
+	const covers = document.querySelectorAll( '.wp-block-cover' );
+
+	covers.forEach( ( cover ) => {
+		const image = cover.querySelector(
+			'.wp-block-cover__image-background'
+		);
+		if ( image ) {
+			image.style.transform = 'scale(1.2)';
+			image.style.willChange = 'transform'; // Performance-Tweak
+		}
+	} );
+
+	// Parallax-Scroll
+
+	window.addEventListener( 'scroll', () => {
+		const scrollY = window.scrollY;
+		const windowHeight = window.innerHeight;
+
+		covers.forEach( ( cover ) => {
+			const image = cover.querySelector(
+				'.wp-block-cover__image-background'
+			);
+			if ( ! image ) return;
+
+			const coverTop = cover.offsetTop;
+			const coverHeight = cover.offsetHeight;
+
+			if (
+				scrollY + windowHeight > coverTop &&
+				scrollY < coverTop + coverHeight
+			) {
+				const speed = 0.1; // höherer Speed
+				const offset = ( scrollY - coverTop ) * speed;
+
+				image.style.transform = `translateY(${ offset }px) scale(1.2)`;
+			}
+		} );
+	} );
+} );
+
+/* Mehrere Columns in einer Group haben ein Bild am Anfang */
+document.querySelectorAll( '.wp-block-columns' ).forEach( ( columns ) => {
+	const allColumns = columns.querySelectorAll( ':scope > .wp-block-column' );
+
+	const allStartWithImage = Array.from( allColumns ).every( ( col ) => {
+		const firstChild = col.firstElementChild;
+		return firstChild && firstChild.classList.contains( 'wp-block-image' );
+	} );
+
+	if ( allColumns.length > 1 && allStartWithImage ) {
+		columns.classList.add( 'all-columns-start-with-image' );
+	}
+} );
+
+/* Eine von 2 columns enthält nur headlines */
+
+document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
+	const cols = group.querySelectorAll(
+		':scope > .wp-block-columns > .wp-block-column'
+	);
+	if ( cols.length !== 2 ) return; // exakt 2?
+
+	const headlineOnly = ( col ) => {
+		return Array.from( col.children ).every( ( el ) =>
+			/^H[1-6]$/.test( el.tagName )
+		);
+	};
+
+	if ( headlineOnly( cols[ 0 ] ) || headlineOnly( cols[ 1 ] ) ) {
+		group.classList.add( 'two-cols-headline-only' );
+	}
+} );

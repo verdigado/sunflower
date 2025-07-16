@@ -1,7 +1,7 @@
 @use "sass:map";
 $custom-colors: (
     schwarzwald:#002216,
-    tanne: #005437,
+    tanne: #005538,
     klee: #008939,
     grashalm: #8abd24,
     sonne: #fff17a,
@@ -11,8 +11,8 @@ $custom-colors: (
     gruener-sand: #f3faf6,
     weiss: #fff,
     white: #fff,
-
     himmel: #0ba1dd,
+
     //black: #000,
     //black-500: #201d1b,
     //gray: #eff2ed,
@@ -48,17 +48,31 @@ $darkgreen: #002216;
 $border-radius: 3px;
 $border-radius-small: 1px;
 
+
+$breakpoint-xs: 470px;
+$breakpoint-sm: 950px;
+$breakpoint-md: 1200px;
+$breakpoint-lg: 1500px;
+$breakpoint-xl: 2100px;
+$breakpoint-xxl: 2400px;
+
+
 :root {
     --border-radius-large: 30px;
     --border-radius-button: 23px;
     --border-radius-medium: 15px;
     --border-radius-small: 8px;
 
+    --half-block-spacing: 105px;
+    --block-spacing: calc(var(--half-block-spacing) * 2);
 
     --grid-margin: 20px;
     --double-grid-margin: calc(var(--grid-margin) * 2);
 
-    @media (max-width: 1400px) {
+    --gap-large: 34px;
+    --gap-small: 5px;
+
+    @media (max-width: $breakpoint-md) {
         --grid-margin: 12px;
     }
 }
@@ -69,14 +83,6 @@ $container-max-widths: (
     md: 720px,
     lg: 960px,
     xl: 1170px) !default;
-
-
-$breakpoint-xs: 470px;
-$breakpoint-sm: 950px;
-$breakpoint-md: 1200px;
-$breakpoint-lg: 1500px;
-$breakpoint-xl: 2100px;
-$breakpoint-xxl: 2400px;
 
 
 $font-size-base: 1.1875rem;

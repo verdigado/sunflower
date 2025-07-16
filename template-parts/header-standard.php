@@ -11,13 +11,14 @@
 	<div class="container-fluid d-flex align-items-center justify-content-between flex-wrap">
 
 		<!-- Left: Label Block -->
-		<div class="brand-left d-flex flex-column align-items-center text-center">
+
+		<a href="<?php echo esc_url(home_url('/')); ?>" class="brand-left d-flex flex-column align-items-center text-center">
 			<div class="label-top fw-bold text-uppercase skew-box"><?php esc_attr(bloginfo('name')); ?></div>
 			<div class="label-bottom fw-bold skew-box"><?php esc_attr(bloginfo('description')); ?></div>
-		</div>
+		</a>
 
 		<!-- Center: Logo + Menu -->
-		<div class="right-bar nav-center d-flex align-items-center gap-4 flex-wrap justify-content-center">
+		<div class="right-bar nav-center d-flex align-items-center flex-wrap justify-content-center">
 
 			<?php
 			get_template_part('assets/img/concave');
@@ -30,7 +31,7 @@
 					the_custom_logo();
 				} elseif (($sunflower_options['sunflower_terms_of_use'] ?? false) === 'checked') {
 					echo '<a href="' . esc_url(home_url()) . '" rel="home">';
-					printf('<img src="%s" alt="Logo" class="logo-img">', esc_attr(sunflower_parent_or_child('assets/img/sunflower.svg')));
+					get_template_part( 'assets/img/sunflower' );
 					echo '</a>';
 				}
 				?>
@@ -41,7 +42,7 @@
 				wp_nav_menu(
 					array(
 						'theme_location' => 'mainmenu',
-						'menu_class' => 'nav gap-3',
+						'menu_class' => 'nav',
 						'container' => false,
 						'fallback_cb' => false,
 					)

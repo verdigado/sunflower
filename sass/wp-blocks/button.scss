@@ -1,14 +1,17 @@
+@use "sass:map";
+
 .wp-block-button__link {
     border-radius: 23px;
     font-weight: 700;
     font-size: 20px;
     line-height: 130%;
     letter-spacing: 0.6px;
-    height: auto;
+    height: 46px;
     width: auto;
     display: inline-block;
-    font-family: "PT Sans";
-    padding: 0.6em 1.5em;
+    font-family: "PT Sans", sans-serif;
+    padding: 0 40px 4px 40px;
+    transition: 0.3s ease;
 
     @include themed-colorscheme-nested() {
         background-color: t(btn-pr-background);
@@ -31,8 +34,7 @@
 
     &:focus {
         color: $white;
-        outline: 0;
-        box-shadow: 0 0 0 0.25rem #000;
+        outline: 3px solid map.get($custom-colors, "schwarzwald");
     }
 
     // Sekundärstil

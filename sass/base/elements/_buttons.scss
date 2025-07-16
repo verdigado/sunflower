@@ -6,6 +6,7 @@ input[type="submit"] {
     border-color: $color__border-button;
     line-height: 1;
     padding: 0.6em 1em 0.4em;
+    transition: 0.3s ease;
 
     @include themed-colorscheme-nested() {
         background-color: t(btn-pr-background);

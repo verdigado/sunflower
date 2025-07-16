@@ -12,8 +12,8 @@
     }
 
     .wp-block-group {
-        padding-top: 100px;
-        padding-bottom: 100px;
+        padding-top: var(--half-block-spacing);
+        padding-bottom: var(--half-block-spacing);
 
         .wp-block-group {
             padding-top: 0;

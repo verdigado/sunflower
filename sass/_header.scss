@@ -1,10 +1,12 @@
+@use "sass:map";
+
 header {
 
     .social-media-profile {
         background: transparent;
     }
-}
 
+}
 
 body.admin-bar {
 
@@ -18,7 +20,6 @@ body.admin-bar {
                 top: 32px;
             }
         }
-
     }
 
     .stuck.header-personal ~ #content {
@@ -47,6 +48,11 @@ body.admin-bar {
             }
         }
     }
+}
+
+.main-menu .nav {
+    gap: var(--gap-large);
+    margin-right: var(--gap-large);
 }
 
 .navbar {
@@ -327,16 +333,17 @@ $text-dark: #222;
         border-radius: 0;
 
         .brand-left {
-            display: none !important;
+            top: -200px;
+            opacity: 0;
         }
 
         .right-bar {
             border-radius: 0;
             height: 60px;
             width: 100%;
-            justify-content: left !important;
+            justify-content: space-between !important;
             max-width: initial;
-            padding: 7px;
+            padding: 7px 0 7px 7px;
             right: 0;
 
             .concave-30px {
@@ -362,9 +369,23 @@ $text-dark: #222;
     .logo-background {
         width: 60px;
         height: 60px;
+        transition: 0.3s ease;
+
+        .logo-img {
+            color: map.get($custom-colors, "sonne");
+        }
+
+        &:hover {
+            background-color: map.get($custom-colors, "grashalm");
+
+            .logo-img {
+                color: map.get($custom-colors, "weiss");
+            }
+        }
 
         .logo-img {
             width: 46px !important;
+            height: 46px !important;
         }
     }
 
@@ -380,15 +401,16 @@ $text-dark: #222;
     justify-content: center;
     max-width: 1036px;
     transition: 0.3s ease;
+    gap: var(--gap-large);
 
     .concave-30px {
         color: $white;
 
         &:nth-of-type(1) {
             left: -30px;
-            top: 10px;
+            top: 8.8px;
 
-            @media (max-width: 1400px) {
+            @media (max-width: $breakpoint-md) {
                 top: 2px;
             }
         }
@@ -397,7 +419,7 @@ $text-dark: #222;
             right: 20px;
             top: 90px;
 
-            @media (max-width: 1400px) {
+            @media (max-width: $breakpoint-md) {
                 right: 12px;
             }
         }
@@ -451,9 +473,10 @@ $text-dark: #222;
 }
 
 .label-top {
-    background-color: #005538;
+    background-color: map.get($custom-colors, "tanne");
     position: relative;
     left: var(--double-grid-margin);
+    transition: 0.3s ease;
 
     &::before {
         content: "";
@@ -461,6 +484,7 @@ $text-dark: #222;
         left: -7px;
         top: -33px;
         transform: translateY(-50%);
+        transition: 0.3s ease;
         width: 0;
         height: 0;
         -webkit-transform: rotate(360deg);
@@ -475,6 +499,7 @@ $text-dark: #222;
         right: -7px;
         top: 28.8px;
         transform: translateY(-50%);
+        transition: 0.3s ease;
         width: 0;
         height: 0;
         -webkit-transform: rotate(360deg);
@@ -486,7 +511,8 @@ $text-dark: #222;
 }
 
 .label-bottom {
-    background-color: #8abd24;
+    background-color: map.get($custom-colors, "grashalm");
+    transition: 0.3s ease;
 
     &::before {
         content: "";
@@ -496,6 +522,7 @@ $text-dark: #222;
         transform: translateY(-50%);
         width: 0;
         height: 0;
+        transition: 0.3s ease;
         -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 0 0 32px 7px;
@@ -507,15 +534,15 @@ $text-dark: #222;
         content: "";
         position: relative;
         right: -7px;
-        top: 29px;
+        top: 28.8px;
         transform: translateY(-50%);
         width: 0;
         height: 0;
+        transition: 0.3s ease;
         -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 32px 7px 0 0;
         border-color: #8abd24 transparent transparent transparent;
-
     }
 
 }
@@ -534,7 +561,35 @@ $text-dark: #222;
     margin: calc(var(--grid-margin) + 16px) 0 0 calc(var(--double-grid-margin) + 6px);
     top:0;
     left:0;
+    opacity: 1;
+    transition: 0.3s ease;
     position: absolute;
+    cursor: pointer;
+
+    &:hover {
+        .label-top {
+            background-color: map.get($custom-colors, "grashalm");
+
+            &::before {
+                border-color: transparent transparent map.get($custom-colors, "grashalm") transparent;
+            }
+
+            &::after {
+                border-color: map.get($custom-colors, "grashalm") transparent transparent transparent;
+            }
+        }
+        .label-bottom {
+            background-color: map.get($custom-colors, "tanne");
+
+            &::after {
+                border-color: map.get($custom-colors, "tanne") transparent transparent transparent;
+            }
+
+            &::before {
+                border-color: transparent transparent map.get($custom-colors, "tanne") transparent;
+            }
+        }
+    }
 }
 
 .more-menu {

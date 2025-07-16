@@ -201,7 +201,19 @@ h6,
             left: 2.5em;
         }
     }
+}
 
+h1:has(+ h4) {
+    margin-bottom: 12px;
+}
+
+
+.has-background.textbalken.links-drei {
+    left: 5em;
+
+    @include media-breakpoint-down(md) {
+        left: 4.5em;
+    }
 }
 
 .stoerer {
