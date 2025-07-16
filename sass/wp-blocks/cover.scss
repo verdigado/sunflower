@@ -9,9 +9,24 @@
     width: 100%;
     height: calc(100vh - var(--double-grid-margin));
     margin-top: var(--grid-margin);
+    transition: 0.3s ease;
     z-index: -1;
-    margin-bottom: var(--grid-margin);
+    margin-bottom: var(--half-block-spacing);
     border-radius: var(--border-radius-large);
+    overflow: hidden;
+
+    .wp-block-cover__image-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 105%;
+        object-fit: cover;
+        transform: translateY(0);
+        will-change: transform;
+        z-index: 0;
+    }
+
 
     .wp-block-cover__inner-container {
         background-color: $white;
