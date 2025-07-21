@@ -35,11 +35,17 @@
         left: 0;
         bottom: 0;
         width: fit-content;
-        padding: 25px 50px 0 25px;
+        padding: 5px 50px 0 25px;
+        max-width: 70%;
+
+        @include media-breakpoint-down(xl) {
+            border-radius: 0 20px 0 0;
+        }
 
         h1 {
             color: map.get($custom-colors, "tanne") !important;
             text-align: left;
+            margin-bottom: var(--grid-margin)
         }
 
         &::before {
@@ -50,6 +56,13 @@
             rotate: -180deg;
             top: -16.8px;
             left: -0.3px;
+
+            @include media-breakpoint-down(xl) {
+                height: 20px;
+                width: 25.44px;
+                top: -11.5px;
+                left: 0;
+            }
         }
 
         &::after {
@@ -60,12 +73,14 @@
             rotate: 180deg;
             bottom: -12.5px;
             right: -37.7px;
-        }
-    }
 
-    &.wp-block-group-is-layout-flow,
-    .wp-block-cover__inner-container {
-        max-width: map-get($container-max-widths, "xl");
+            @include media-breakpoint-down(xl) {
+                height: 20px;
+                width: 25.44px;
+                right: -25.2px;
+                bottom: -8.5px;
+            }
+        }
     }
 }
 

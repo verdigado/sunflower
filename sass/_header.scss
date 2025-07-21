@@ -8,6 +8,131 @@ header {
 
 }
 
+.stuck .hamburger {
+    .concave-30px {
+        top: -100px !important;
+    }
+}
+
+.hamburger {
+    display: none;
+    position: fixed;
+    box-sizing: border-box;
+    right: 0;
+    top: 0;
+    padding: var(--grid-margin);
+    background-color: map.get($custom-colors, "weiss");
+    width: 75px;
+    height: 64px;
+    z-index: 110;
+    border-radius: 0 0 0 var(--border-radius-medium);
+    cursor: pointer;
+
+    &:hover {
+       div {
+            background-color: map.get($custom-colors, "tanne");
+        }
+       }
+
+    .concave-30px {
+        color: map.get($custom-colors, "weiss");
+    }
+
+    div {
+        height: 8px;
+        width: 50px;
+        border-radius: var(--border-radius-tiny);
+        background-color: map.get($custom-colors, "grashalm");
+        position: absolute;
+        rotate: 0deg;
+        transition: 0.3s ease !important;
+
+
+        &:nth-of-type(1) {
+            top: 12px;
+            left: 12px;
+        }
+
+        &:nth-of-type(2) {
+            top: 28px;
+            left: 12px;
+        }
+
+        &:nth-of-type(3) {
+            top: 44px;
+            left: 12px;
+        }
+    }
+
+    .concave-30px:nth-of-type(1) {
+        position: absolute;
+        left: -30px;
+        top: 10px;
+
+        @include media-breakpoint-down(xl) {
+            top: 5.5px;
+            left: -20px;
+        }
+    }
+
+    .concave-30px:nth-of-type(2) {
+        position: absolute;
+        top: 54.2px;
+        right: 20px;
+
+        @include media-breakpoint-down(xl) {
+            top: 57.2px;
+            right: 12px;
+        }
+    }
+}
+
+
+.hamburger-menu {
+
+    .top-bar:has(.unfold) {
+        background-color: map.get($custom-colors, "schwarzwald");
+        height: 100%;
+        border-radius: 0;
+        position: fixed;
+
+        .brand-left {
+            top: -200px;
+            opacity: 0;
+        }
+    }
+
+    .right-bar {
+        right: -100%;
+        opacity: 0;
+
+        &.unfold  {
+            right: 0 !important;
+            transition: 0.3s ease !important;
+            opacity: 1;
+        }
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .right-bar.unfold ~ .hamburger {
+        div {
+            top: 28px;
+        }
+        div:nth-of-type(1) {
+            rotate: 45deg;
+        }
+        div:nth-of-type(2) {
+            rotate: -45deg;
+        }
+        div:nth-of-type(3) {
+            rotate: -45deg;
+        }
+    }
+}
+
 body.admin-bar {
 
     .navbar {
@@ -33,7 +158,7 @@ body.admin-bar {
 
     #wp-admin-bar-sunflower {
 
-        >.ab-item {
+        > .ab-item {
 
             &::before {
                 content: "";
@@ -52,12 +177,12 @@ body.admin-bar {
 
 .main-menu .nav {
     gap: var(--gap-large);
-    margin-right: var(--gap-large);
+    margin-right: var(--grid-margin);
 }
 
 .navbar {
 
-    >.container {
+    > .container {
         padding-left: 0;
     }
 
@@ -163,6 +288,7 @@ body.admin-bar {
         display: none;
     }
 }
+
 
 .wp-custom-logo {
 
@@ -322,7 +448,7 @@ $text-dark: #222;
     border-radius: 0 0 40px 40px;
     background-color: transparent;
     transition: background-color 0.3s ease;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
 
@@ -331,6 +457,7 @@ $text-dark: #222;
         width: 100%;
         z-index: 50;
         border-radius: 0;
+        position: fixed;
 
         .brand-left {
             top: -200px;
@@ -339,22 +466,32 @@ $text-dark: #222;
 
         .right-bar {
             border-radius: 0;
-            height: 60px;
+            height: 61px;
             width: 100%;
             justify-content: space-between !important;
             max-width: initial;
             padding: 7px 0 7px 7px;
             right: 0;
 
-            .concave-30px {
-                top: -50px;
+            &__content {
+                height: 46px;
             }
 
+            .concave-30px {
+                top: -50px;
+                opacity: 0;
+            }
+
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
             @include themed-colorscheme-nested() {
-                background-color: t(background);
                 color: t(text);
             }
         }
+
 
         .logo-background {
             width: 46px;
@@ -369,11 +506,7 @@ $text-dark: #222;
     .logo-background {
         width: 60px;
         height: 60px;
-        transition: 0.3s ease;
-
-        .logo-img {
-            color: map.get($custom-colors, "sonne");
-        }
+        transition: 0.3s background-color ease;
 
         &:hover {
             background-color: map.get($custom-colors, "grashalm");
@@ -384,8 +517,19 @@ $text-dark: #222;
         }
 
         .logo-img {
+            color: map.get($custom-colors, "sonne");
             width: 46px !important;
             height: 46px !important;
+        }
+
+        @include media-breakpoint-down(xl) {
+            width: 46px;
+            height: 46px;
+
+            .logo-img {
+                width: 35px !important;
+                height: 35px !important;
+            }
         }
     }
 
@@ -394,24 +538,46 @@ $text-dark: #222;
 .right-bar {
     border-radius: 0 0 0 20px;
     height: 100px;
-    padding: 20px;
+    padding: var(--grid-margin);
     right: 0;
     top: 0;
     position: absolute;
     justify-content: center;
-    max-width: 1036px;
-    transition: 0.3s ease;
+    max-width: calc(100% - var(--width-brand-left));
     gap: var(--gap-large);
+    z-index: 101;
+
+    @include media-breakpoint-down(xl) {
+        height: 70px;
+        border-radius: 0 0 0 10px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        gap: var(--gap-large);
+        position: relative;
+        z-index: 101;
+
+        @include media-breakpoint-down(xl) {
+            height: 46px;
+        }
+
+    }
 
     .concave-30px {
         color: $white;
 
         &:nth-of-type(1) {
             left: -30px;
-            top: 8.8px;
+            top: 9.8px;
 
-            @media (max-width: $breakpoint-md) {
-                top: 2px;
+            @include media-breakpoint-down(xl) {
+                top: 5.5px;
+                left: -20px;
             }
         }
 
@@ -419,8 +585,9 @@ $text-dark: #222;
             right: 20px;
             top: 90px;
 
-            @media (max-width: $breakpoint-md) {
+            @include media-breakpoint-down(xl) {
                 right: 12px;
+                top: 63.5px;
             }
         }
     }
@@ -445,12 +612,77 @@ $text-dark: #222;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include media-breakpoint-down(xl) {
+        border-radius: 6px;
+    }
 }
 
 .logo-img {
     height: 40px;
     width: 40px;
 }
+
+
+.main-menu {
+    margin-top: -4px;
+
+    ul {
+
+        > li { position: relative; }
+
+        a {
+            display: block;
+            padding: .5rem 0;
+            text-decoration: none;
+        }
+
+        .sub-menu {
+            list-style: none;
+            margin: 0;
+            padding: .5rem 0;
+            min-width: 220px;
+
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 6px 12px rgba(0,0,0,.08);
+            z-index: 100;
+            display: none;              // zunächst versteckt
+
+            > li > a { padding: .5rem 1rem; white-space: nowrap; }
+        }
+    }
+}
+
+/* Hover‑Dropdown für Desktop */
+.menu-item-has-children:hover > .sub-menu {
+    display: block;
+}
+
+/* ===  Styling tieferer Ebenen bleibt unverändert ======================== */
+.sub-menu .sub-menu {
+    position: static;           // innerhalb des geöffneten Panels einfach untereinander
+    box-shadow: none;
+    padding-left: 1rem;
+}
+
+/* === Responsive: Mobile (bis 991 px) ==================================== */
+@media (max-width: 991px) {
+    #menu-main {
+        flex-direction: column;            // vertikale Hauptnavigation
+
+        .sub-menu {
+            position: static;
+            box-shadow: none;
+        }
+    }
+}
+
+
+
+
 
 .main-menu .nav-link {
     font-weight: 700;
@@ -475,8 +707,7 @@ $text-dark: #222;
 .label-top {
     background-color: map.get($custom-colors, "tanne");
     position: relative;
-    left: var(--double-grid-margin);
-    transition: 0.3s ease;
+    right: calc(-1 * var(--gap-large));
 
     &::before {
         content: "";
@@ -484,13 +715,20 @@ $text-dark: #222;
         left: -7px;
         top: -33px;
         transform: translateY(-50%);
-        transition: 0.3s ease;
         width: 0;
         height: 0;
         -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 0 0 32px 7px;
         border-color: transparent transparent #005538 transparent;
+        transition: border-color 0.3s ease;
+
+        @include media-breakpoint-down(xl) {
+            top: -29px;
+            left: -6px;
+            border-width: 0 0 28px 6px;
+            border-color: transparent transparent #005538 transparent;
+        }
     }
 
     &::after {
@@ -499,20 +737,25 @@ $text-dark: #222;
         right: -7px;
         top: 28.8px;
         transform: translateY(-50%);
-        transition: 0.3s ease;
         width: 0;
         height: 0;
         -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 32px 7px 0 0;
         border-color: #005538 transparent transparent transparent;
+        transition: border-color 0.3s ease;
 
+        @include media-breakpoint-down(xl) {
+            top: 25px;
+            right: -6px;
+            border-width: 28px 6px 0 0;
+            border-color: #005538 transparent transparent transparent;
+        }
     }
 }
 
 .label-bottom {
     background-color: map.get($custom-colors, "grashalm");
-    transition: 0.3s ease;
 
     &::before {
         content: "";
@@ -522,12 +765,18 @@ $text-dark: #222;
         transform: translateY(-50%);
         width: 0;
         height: 0;
-        transition: 0.3s ease;
         -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 0 0 32px 7px;
         border-color: transparent transparent #8abd24 transparent;
+        transition: border-color 0.3s ease;
 
+        @include media-breakpoint-down(xl) {
+            top: -29px;
+            left: -6px;
+            border-width: 0 0 28px 6px;
+            border-color: transparent transparent #8abd24 transparent;
+        }
     }
 
     &::after {
@@ -538,11 +787,18 @@ $text-dark: #222;
         transform: translateY(-50%);
         width: 0;
         height: 0;
-        transition: 0.3s ease;
         -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 32px 7px 0 0;
         border-color: #8abd24 transparent transparent transparent;
+        transition: border-color 0.3s ease;
+
+        @include media-breakpoint-down(xl) {
+            top: 25px;
+            right: -6px;
+            border-width: 28px 6px 0 0;
+            border-color: #8abd24 transparent transparent transparent;
+        }
     }
 
 }
@@ -554,17 +810,26 @@ $text-dark: #222;
     width: fit-content;
     display: inline-block;
     padding: 0.3rem 0;
+    transition: background-color 0.3s ease;
+
+    @include media-breakpoint-down(xl) {
+        height: 28px;
+        padding: 6px 0 0 0;
+    }
 }
 
 .brand-left {
     min-width: 160px;
-    margin: calc(var(--grid-margin) + 16px) 0 0 calc(var(--double-grid-margin) + 6px);
-    top:0;
-    left:0;
+    margin: calc(var(--double-grid-margin) - 4px) 80px 0 calc(var(--double-grid-margin) + 7px);
+    top: 0;
+    left: 0;
     opacity: 1;
-    transition: 0.3s ease;
     position: absolute;
     cursor: pointer;
+
+    @include media-breakpoint-down(xl) {
+        margin: var(--double-grid-margin) 80px 0 calc(var(--double-grid-margin) + 7px);
+    }
 
     &:hover {
         .label-top {
@@ -578,6 +843,7 @@ $text-dark: #222;
                 border-color: map.get($custom-colors, "grashalm") transparent transparent transparent;
             }
         }
+
         .label-bottom {
             background-color: map.get($custom-colors, "tanne");
 
@@ -608,4 +874,65 @@ $text-dark: #222;
     padding: 10px;
     border: 1px solid #ccc;
 }
+
+
+html body.hamburger-menu .top-bar.stuck {
+    transition: 0.3s ease;
+    background-color: #002216;
+    height: 100%;
+    border-radius: 0;
+    position: fixed;
+
+    .right-bar {
+        all: unset;
+        min-width: 260px;
+        background-color: $white;
+        box-sizing: border-box;
+        z-index: 101;
+    }
+}
+
+
+html body.hamburger-menu .top-bar, html body.hamburger-menu .top-bar.stuck {
+
+    .right-bar {
+        border-radius: 0;
+        transition: background-color 0.3s ease;
+        top: 0;
+        min-width: 260px;
+        height: 100vh;
+        position: fixed;
+        overflow: scroll;
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        right: 100%;
+        padding: 120px var(--grid-margin) var(--grid-margin) var(--double-grid-margin);
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .logo-background {
+            top: var(--grid-margin);
+            position: fixed;
+        }
+
+        &__content {
+            align-items: flex-start;
+            height: 100%;
+
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+            }
+        }
+    }
+}
+
+
+
 

@@ -4,15 +4,25 @@
 	"settings": {
 		"appearanceTools": false,
 		"useRootPaddingAwareAlignments": false,
+
+
 		"color": {
+
+			"defaultPalette": false,
+			"custom": false,
+			"defaultGradients": false,
+			"customGradient": false,
+			"defaultDuotone": false,
+			"customDuotone": false,
+
 			"palette": [
 				{
-					"color": "#0BA1DD",
-					"name": "Himmel",
-					"slug": "himmel"
+					"color": "#002216",
+					"name": "Schwarzwald",
+					"slug": "black"
 				},
 				{
-					"color": "#005437",
+					"color": "#005538",
 					"name": "Tanne",
 					"slug": "tanne"
 				},
@@ -22,19 +32,9 @@
 					"slug": "klee"
 				},
 				{
-					"color": "#006E2E",
-					"name": "Klee-700",
-					"slug": "klee-700"
-				},
-				{
 					"color": "#8ABD24",
 					"name": "Grashalm",
 					"slug": "grashalm"
-				},
-				{
-					"color": "#ffffff",
-					"name": "White",
-					"slug": "white"
 				},
 				{
 					"color": "#FFF17A",
@@ -47,14 +47,24 @@
 					"slug": "sand"
 				},
 				{
-					"color": "#EFF2ED",
-					"name": "Gray",
+					"color": "#374951",
+					"name": "Maus",
 					"slug": "gray"
 				},
 				{
-					"color": "#201D1B",
-					"name": "Black",
-					"slug": "black"
+					"color": "#e8eae9",
+					"name": "Kalk",
+					"slug": "kalk"
+				},
+				{
+					"color": "#ffffff",
+					"name": "White",
+					"slug": "white"
+				},
+				{
+					"color": "#0BA1DD",
+					"name": "Himmel",
+					"slug": "himmel"
 				}
 			]
 		},

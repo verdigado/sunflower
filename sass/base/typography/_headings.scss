@@ -72,12 +72,12 @@ $heading-weights: 900;
                 font-size: $size;
                 letter-spacing: map-get($heading-letter-spacings, $tag);
 
-                @include media-breakpoint-down(md) {
+                @include media-breakpoint-down(xl) {
                     font-size: map-get($heading-sizes-tablet, $tag);
                     letter-spacing: map-get($heading-letter-spacings-tablet, $tag);
                 }
 
-                @include media-breakpoint-down(sm) {
+                @include media-breakpoint-down(md) {
                     font-size: map-get($heading-sizes-mobile, $tag);
                     letter-spacing: map-get($heading-letter-spacings-mobile, $tag);
                 }

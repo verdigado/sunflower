@@ -52,5 +52,9 @@
 .concave-30px {
     position: absolute;
     width: 30px;
-    transition: 0.3s ease;
+    z-index: 95;
+
+    @include media-breakpoint-down(xl) {
+        width: 20px;
+    }
 }
