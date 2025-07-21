@@ -91,5 +91,6 @@ $sunflower_require_mail  = $attributes['requireMail'] ?? false;
 		<p class="form-submit">
 			<input name="submit" type="submit" id="submit" class="submit" value="<?php esc_attr_e( 'submit', 'sunflower-contact-form' ); ?>"/>
 		</p>
+		<div id="form-error" class="bg-danger p-4 text-white" style="display:none;"></div>
 	</form>
 </div>
