@@ -51,14 +51,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 --------------------------------------------------------------*/
 
-/* Bootstrap
---------------------------------------------- */
-@import "../node_modules/bootstrap/scss/bootstrap";
 
-// Import variables and mixins.
-@import "abstracts/abstracts";
+@import "../node_modules/bootstrap/scss/bootstrap";
 @import "variables";
+@import "abstracts/abstracts";
 @import "themes";
+
 
 /*--------------------------------------------------------------
 # Generic

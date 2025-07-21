@@ -11,6 +11,7 @@ $custom-colors: (
     gruener-sand: #f3faf6,
     weiss: #fff,
     white: #fff,
+
     himmel: #0ba1dd,
 
     //black: #000,
@@ -49,12 +50,21 @@ $border-radius: 3px;
 $border-radius-small: 1px;
 
 
-$breakpoint-xs: 470px;
-$breakpoint-sm: 950px;
-$breakpoint-md: 1200px;
-$breakpoint-lg: 1500px;
-$breakpoint-xl: 2100px;
-$breakpoint-xxl: 2400px;
+$transition-duration: .3s !default;
+$transition-easing:   ease !default;
+$transition-delay:    .3s !default;
+
+
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 470px,
+    md: 950px,
+    lg: 1200px,
+    xl: 1500px,
+    xxl: 2100px
+);
+
 
 
 :root {
@@ -62,6 +72,7 @@ $breakpoint-xxl: 2400px;
     --border-radius-button: 23px;
     --border-radius-medium: 15px;
     --border-radius-small: 8px;
+    --border-radius-tiny: 3px;
 
     --half-block-spacing: 105px;
     --block-spacing: calc(var(--half-block-spacing) * 2);
@@ -69,20 +80,26 @@ $breakpoint-xxl: 2400px;
     --grid-margin: 20px;
     --double-grid-margin: calc(var(--grid-margin) * 2);
 
-    --gap-large: 34px;
+    --gap-large: 25px;
     --gap-small: 5px;
 
-    @media (max-width: $breakpoint-md) {
+    --width-brand-left: 350px;
+
+    @include media-breakpoint-down(xl) {
         --grid-margin: 12px;
+        --gap-large: 25px;
+        --border-radius-large: 20px;
+        --border-radius-medium: 10px;
     }
 }
 
 
 $container-max-widths: (
-    sm: 540px,
-    md: 720px,
-    lg: 960px,
-    xl: 1170px) !default;
+    sm: 450px,
+    md: 880px,
+    lg: 1140px,
+    xl: 1380px,
+    xxl: 1680px) !default;
 
 
 $font-size-base: 1.1875rem;

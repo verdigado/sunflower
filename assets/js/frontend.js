@@ -295,33 +295,43 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		}
 	} );
 
-	// Parallax-Scroll
+	(() => {
 
-	window.addEventListener( 'scroll', () => {
-		const scrollY = window.scrollY;
-		const windowHeight = window.innerHeight;
+		const covers = document.querySelectorAll('.wp-block-cover');
 
-		covers.forEach( ( cover ) => {
-			const image = cover.querySelector(
-				'.wp-block-cover__image-background'
-			);
-			if ( ! image ) return;
+		if ('scrollRestoration' in history) {
+			history.scrollRestoration = 'manual';
+		}
 
-			const coverTop = cover.offsetTop;
-			const coverHeight = cover.offsetHeight;
+		document.documentElement.style.overflowAnchor = 'none';
+		const SPEED = 0.1; // Bewegungsgeschwindigkeit
 
-			if (
-				scrollY + windowHeight > coverTop &&
-				scrollY < coverTop + coverHeight
-			) {
-				const speed = 0.1; // höherer Speed
-				const offset = ( scrollY - coverTop ) * speed;
+		function update() {
+			const scrollY      = window.scrollY;
+			const viewportH    = window.innerHeight;
 
-				image.style.transform = `translateY(${ offset }px) scale(1.2)`;
-			}
-		} );
-	} );
-} );
+			covers.forEach((cover) => {
+				const img = cover.querySelector('.wp-block-cover__image-background');
+				if (!img) return;
+
+				const { top, bottom } = cover.getBoundingClientRect();
+
+				// Nur berechnen, wenn das Cover (teilweise) im Viewport ist
+				if (top < viewportH && bottom > 0) {
+					const offset = (scrollY - cover.offsetTop) * SPEED;
+					img.style.transform = `translateY(${offset}px) scale(1.2)`;
+				}
+			});
+		}
+
+		window.addEventListener('load', update, { passive: true });
+
+		window.addEventListener('scroll', () => requestAnimationFrame(update), {
+			passive: true,
+		});
+	})();
+
+
 
 /* Mehrere Columns in einer Group haben ein Bild am Anfang */
 document.querySelectorAll( '.wp-block-columns' ).forEach( ( columns ) => {
@@ -343,7 +353,7 @@ document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
 	const cols = group.querySelectorAll(
 		':scope > .wp-block-columns > .wp-block-column'
 	);
-	if ( cols.length !== 2 ) return; // exakt 2?
+	if ( cols.length !== 2 ) return;
 
 	const headlineOnly = ( col ) => {
 		return Array.from( col.children ).every( ( el ) =>
@@ -355,3 +365,109 @@ document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
 		group.classList.add( 'two-cols-headline-only' );
 	}
 } );
+
+
+
+	/**
+	 * Menu-Hamburger
+	 */
+
+	(function () {
+		const BODY_CLASS         = 'hamburger-menu';
+		const RIGHT_BAR_SELECTOR = '.right-bar';
+		const CONTENT_SELECTOR   = '.right-bar__content';
+
+		function hasOverflow(el) {
+			return (
+				el.scrollHeight > el.clientHeight ||
+				el.scrollWidth  > el.clientWidth
+			);
+		}
+
+		function updateBodyClass() {
+			const rightBar = document.querySelector(RIGHT_BAR_SELECTOR);
+			const content  = rightBar?.querySelector(CONTENT_SELECTOR);
+			if (!rightBar || !content) return;
+
+			const hadClass = document.body.classList.contains(BODY_CLASS);
+			if (hadClass) document.body.classList.remove(BODY_CLASS);
+
+			const overflow = hasOverflow(content);
+
+			document.body.classList.toggle(BODY_CLASS, overflow);
+		}
+
+		updateBodyClass();
+
+		document.addEventListener('DOMContentLoaded', () => {
+			updateBodyClass();
+			requestAnimationFrame(updateBodyClass);
+		});
+
+		window.addEventListener('load', updateBodyClass, { passive: true });
+		window.addEventListener('resize', updateBodyClass, { passive: true });
+
+		const rightBar = document.querySelector(RIGHT_BAR_SELECTOR);
+		if (rightBar) {
+			new MutationObserver(updateBodyClass).observe(rightBar, {
+				attributes: true,
+				childList : true,
+				subtree   : true,
+			});
+		}
+	})();
+
+
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+	const brandLeft = document.querySelector('.brand-left');
+	if (!brandLeft) return;
+
+	const setWidthVar = () => {
+		const rect  = brandLeft.getBoundingClientRect();
+		const style = window.getComputedStyle(brandLeft);
+		const total =
+			rect.width +
+			parseFloat(style.marginLeft || 0) +
+			parseFloat(style.marginRight || 0);
+
+		document.documentElement.style.setProperty(
+			'--width-brand-left',
+			total + 'px'
+		);
+	};
+
+	setWidthVar();
+
+	window.addEventListener('resize', setWidthVar, { passive: true });
+
+	new ResizeObserver(setWidthVar).observe(brandLeft);
+});
+
+
+/**
+ * Hamburger ausklappen
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+	const burger   = document.querySelector('.hamburger');  // Klasse!
+	const rightBar = document.querySelector('.right-bar');
+
+	if (!burger || !rightBar) return;                       // Sicherheits-Check
+
+	burger.addEventListener('click', () => {
+		rightBar.classList.toggle('unfold');
+
+		const expanded = rightBar.classList.contains('unfold');
+		burger.setAttribute('aria-expanded', expanded);
+	});
+});
+
+
+/**
+ * Menu-Dropdown für Touch devices
+ */
+
+

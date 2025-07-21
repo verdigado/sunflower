@@ -248,10 +248,16 @@ h1:has(+ h4) {
     }
 }
 
-.skew-box {
+.brand-left {
     font-size: 18px;
     letter-spacing: 0.8px;
     line-height: 150%;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 16px;
+        letter-spacing: 1px;
+        line-height: 130%;
+    }
 }
 
 .right-bar a {
@@ -261,10 +267,22 @@ h1:has(+ h4) {
     letter-spacing: 0.4px;
     font-weight: 700;
     transition: 0.3s ease;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 16px;
+        letter-spacing: 0.6px;
+    }
 }
+
+.colorscheme-light .right-bar .current_page_item {
+    a {
+        color: map-get($custom-colors, "klee") !important;
+    }
+}
+
 
 .colorscheme-light .right-bar a {
     &:hover {
-        color: map-get($custom-colors, "grashalm");
+        color: map-get($custom-colors, "klee");
     }
 }
