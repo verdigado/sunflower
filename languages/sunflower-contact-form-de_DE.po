@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: sunflower 2.0.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-"
 "form\n"
-"POT-Creation-Date: 2024-08-29T12:22:21+00:00\n"
-"PO-Revision-Date: 2025-05-10 13:51+0200\n"
+"POT-Creation-Date: 2025-07-21T08:35:19+00:00\n"
+"PO-Revision-Date: 2025-07-21 10:35+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Domain: sunflower-contact-form\n"
 
 #. Theme Name of the theme
@@ -43,7 +43,7 @@ msgid "https://verdigado.com"
 msgstr ""
 
 #: build/contact-form/render.php:11 functions/contact-form.php:63
-#: functions/contact-form.php:78 build/contact-form/index.js:120
+#: functions/contact-form.php:79 build/contact-form/index.js:130
 #: build/contact-form/index.js:101
 msgid "Contact Form"
 msgstr "Kontaktformular"
@@ -82,8 +82,8 @@ msgid "Phone"
 msgstr "Telefon"
 
 #: build/contact-form/render.php:76
-msgid "How much is 1 + 1 ?"
-msgstr "Was ist 1 + 1 ?"
+msgid "How much is 1 + 1?"
+msgstr "Was ist 1 + 1?"
 
 #: build/contact-form/render.php:92
 msgid "submit"
@@ -97,11 +97,11 @@ msgstr "Vielen Dank. Deine Nachricht wurde verschickt."
 msgid "New Message from"
 msgstr "Neue Nachricht über"
 
-#: functions/contact-form.php:78
+#: functions/contact-form.php:79
 msgid "Your Message on"
 msgstr "Deine Nachricht über"
 
-#: build/contact-form/index.js:115 build/contact-form/index.js:88
+#: build/contact-form/index.js:125 build/contact-form/index.js:88
 msgid ""
 "The receiver address may be altered within the Sunflower theme settings. By "
 "default, emails are sent to the site administrator."
@@ -110,37 +110,37 @@ msgstr ""
 "werden. Standardmäßig wird das Formular an den*die Webseiten-"
 "Administrator*in gesendet."
 
-#: build/contact-form/index.js:118 build/contact-form/index.js:96
+#: build/contact-form/index.js:128 build/contact-form/index.js:96
 msgid "Title of the form"
 msgstr "Titel des Formulars"
 
-#: build/contact-form/index.js:123 build/contact-form/index.js:108
+#: build/contact-form/index.js:133 build/contact-form/index.js:108
 msgid "Mail To"
 msgstr "Empfänger-E-Mail"
 
-#: build/contact-form/index.js:124 build/contact-form/index.js:109
+#: build/contact-form/index.js:134 build/contact-form/index.js:109
 msgid "Mail form to this address instead of default receiver."
 msgstr "Sende Formular an die angegebene Adresse statt dem Standard-Empfänger."
 
-#: build/contact-form/index.js:126 build/contact-form/index.js:114
+#: build/contact-form/index.js:136 build/contact-form/index.js:114
 msgid "default receiver"
 msgstr "Standard-Empfänger"
 
-#: build/contact-form/index.js:130 build/contact-form/index.js:122
+#: build/contact-form/index.js:140 build/contact-form/index.js:122
 msgid "Require E-Mail"
 msgstr "E-Mail ist Pflichtfeld"
 
-#: build/contact-form/index.js:134 build/contact-form/index.js:130
+#: build/contact-form/index.js:144 build/contact-form/index.js:131
+msgid "Send copy to sender"
+msgstr "Kopie an den Absender schicken"
+
+#: build/contact-form/index.js:148 build/contact-form/index.js:140
 msgid "Display Phone Field"
 msgstr "Telefon-Feld anzeigen"
 
-#: build/contact-form/index.js:138
+#: build/contact-form/index.js:152 build/contact-form/index.js:149
 msgid "Require Phone"
 msgstr "Telefon ist Pflichtfeld"
-
-#: build/contact-form/index.js:142 build/contact-form/index.js:146
-msgid "Send copy to sender"
-msgstr "Kopie an den Absender schicken"
 
 #: build/contact-form/block.json
 msgctxt "block title"
@@ -209,5 +209,5 @@ msgstr ""
 
 #: theme.json
 msgctxt "Font family name"
-msgid "GrueneType"
+msgid "GrueneType Neue"
 msgstr ""

@@ -73,7 +73,7 @@ $sunflower_require_mail  = $attributes['requireMail'] ?? false;
 		}
 		?>
 		<p class="comment-form-email">
-			<label for="captcha"><?php esc_attr_e( 'How much is 1 + 1 ?', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
+			<label for="captcha"><?php esc_attr_e( 'How much is 1 + 1?', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
 			<input id="captcha" name="captcha" type="text" value="" size="30" maxlength="100" required="required"/>
 		</p>
 
