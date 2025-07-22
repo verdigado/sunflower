@@ -10,11 +10,11 @@ function sunflower_add_creator_field_to_media( $form_fields, $post ) {
 
     // Neues Feld definieren
     $form_fields['media_creator'] = array(
-        'label' => __( 'Creator', 'mytheme' ),
+        'label' => __( 'Creator', 'sunflower' ),
         'input' => 'html',
-		'html'  => '<textarea class="widefat" name="attachments[' . $post->ID . '][media_creator]">' . esc_textarea( $creator ) . '</textarea>',
+		'html'  => '<textarea class="widefat" cols="160" name="attachments[' . $post->ID . '][media_creator]">' . esc_textarea( $creator ) . '</textarea>',
         'value' => $creator ? $creator : '',
-        'helps' => __( 'Name des Erstellers dieses Mediums', 'mytheme' ),
+        'helps' => __( 'Creator / Source of this media (may contain links)', 'sunflower' ),
     );
 
 	$sunflower_media_creator      = sunflower_get_setting( 'sunflower_media_creator' );
