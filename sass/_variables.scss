@@ -50,10 +50,9 @@ $border-radius: 3px;
 $border-radius-small: 1px;
 
 
-$transition-duration: .3s !default;
+$transition-duration: 0.3s !default;
 $transition-easing:   ease !default;
-$transition-delay:    .3s !default;
-
+$transition-delay:    0.3s !default;
 
 
 $grid-breakpoints: (
@@ -64,7 +63,6 @@ $grid-breakpoints: (
     xl: 1500px,
     xxl: 2100px
 );
-
 
 
 :root {

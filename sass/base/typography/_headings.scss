@@ -86,3 +86,15 @@ $heading-weights: 900;
     }
 }
 
+
+h1:has(mark) {
+
+    line-height: 80%;
+
+    mark {
+        display: inline-block !important;
+        padding: 15px 0 0 0;
+        font-size: 60px;
+        line-height: 100%;
+    }
+}

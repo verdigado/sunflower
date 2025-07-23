@@ -10,7 +10,6 @@
     height: calc(100vh - var(--double-grid-margin));
     margin-top: var(--grid-margin);
     transition: 0.3s ease;
-    z-index: -1;
     margin-bottom: var(--half-block-spacing);
     border-radius: var(--border-radius-large);
     overflow: hidden;
@@ -45,7 +44,8 @@
         h1 {
             color: map.get($custom-colors, "tanne") !important;
             text-align: left;
-            margin-bottom: var(--grid-margin)
+            margin-bottom: var(--grid-margin);
+            position: relative;
         }
 
         &::before {

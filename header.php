@@ -17,10 +17,14 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<script>document.documentElement.classList.add('preload');</script>
+
 	<?php
 	get_template_part( 'template-parts/open-graph' );
 	?>
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>

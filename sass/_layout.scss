@@ -35,7 +35,12 @@ html:has(.header-personal) {
     }
 }
 
-.container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm,
+.container {
     max-width: 100%;
 }
 

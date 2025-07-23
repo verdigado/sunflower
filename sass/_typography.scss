@@ -275,13 +275,19 @@ h1:has(+ h4) {
 }
 
 .colorscheme-light .right-bar .current_page_item {
+
     a {
         color: map-get($custom-colors, "klee") !important;
+    }
+
+    .sub-menu a {
+        color: map-get($custom-colors, "schwarzwald") !important;
     }
 }
 
 
 .colorscheme-light .right-bar a {
+
     &:hover {
         color: map-get($custom-colors, "klee");
     }
