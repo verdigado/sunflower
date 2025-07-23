@@ -1,3 +1,4 @@
+@use "sass:map";
 .opacity {
 
     &-0 {
@@ -57,4 +58,51 @@
     @include media-breakpoint-down(xl) {
         width: 20px;
     }
+}
+
+.brand-left {
+    z-index: 10;
+}
+
+
+@layer fade;
+@layer fade {
+    :root {
+        --fade-duration: .8s;
+    }
+
+
+
+    html.preload {
+        header, main, section, article, aside, nav, figure, img, .right-bar, .wp-block-group, .brand-left,
+        video, picture, blockquote, ul, ol, li, table, form, h1, h2, h3, h4, h5, h6, a, p {
+            opacity: 0;
+        }
+    }
+
+    header, main, section, article, aside, nav, .wp-block-group,
+    figure, img, video, picture, .wp-block-buttons, .right-bar, .logo-background,
+    blockquote, ul, ol, li, table, form,
+    h1, h2, h3, h4, h5, h6, a, p {
+        transition: opacity var(--fade-duration) ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        header, main, section, article, aside, nav, .wp-block-group,
+        figure, img, video, picture, .wp-block-buttons, .right-bar, .logo-background,
+        blockquote, ul, ol, li, table, form,
+        h1, h2, h3, h4, h5, h6, a, p {
+            transition: none;
+        }
+    }
+}
+
+
+
+.right-bar.js-measuring {
+    visibility: hidden;
+}
+
+.wp-block-cover .has-background-dim:not([class*=-background-color]), .wp-block-cover-image .has-background-dim:not([class*=-background-color]), .wp-block-cover-image.has-background-dim:not([class*=-background-color]), .wp-block-cover.has-background-dim:not([class*=-background-color]) {
+    display: none;
 }
