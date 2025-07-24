@@ -1,6 +1,6 @@
 {
     "extends": [
-        "@wordpress/stylelint-config/scss"
+        "@wordpress/stylelint-config/scss-stylistic"
     ],
     "ignoreFiles": [
         "sass/_normalize.scss",
@@ -8,7 +8,7 @@
 		"style-rtl.css"
     ],
     "rules": {
-        "indentation": 4,
+        "@stylistic/indentation": 4,
         "font-family-no-missing-generic-family-keyword": null,
         "no-descending-specificity": null,
         "block-no-empty": null,
