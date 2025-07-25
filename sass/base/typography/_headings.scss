@@ -87,7 +87,8 @@ $heading-weights: 900;
 }
 
 
-h1:has(mark), h2:has(mark) {
+h1:has(mark),
+h2:has(mark) {
 
     line-height: 80%;
 
@@ -100,13 +101,14 @@ h1:has(mark), h2:has(mark) {
         --bg: transparent;
         margin-left: 20px;
 
-        &::before, &::after {
-                width: 0;
-                height: 0;
-                content: "";
-                position: absolute;
-                bottom: 0;
-            }
+        &::before,
+        &::after {
+            width: 0;
+            height: 0;
+            content: "";
+            position: absolute;
+            bottom: 0;
+        }
 
         &::before {
             top: -0.8px;
@@ -126,7 +128,6 @@ h1:has(mark), h2:has(mark) {
         }
 
     }
-
 
 
     mark:nth-of-type(2) {
