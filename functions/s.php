@@ -176,6 +176,25 @@ function sunflower_scripts() {
 		)
 	);
 
+	/* Inline‑Script ganz an den Anfang des Heads */
+	add_action(
+		'wp_head',
+		fn() => print(
+		"<script>document.documentElement.classList.add('preload');</script>"
+		),
+		0
+	);
+
+	/* JS – im Head mit defer */
+	wp_enqueue_script(
+		'fade',
+		get_stylesheet_directory_uri() . '/assets/js/fade.js',
+		array(),
+		SUNFLOWER_VERSION,
+		false
+	);
+	wp_script_add_data( 'fade', 'strategy', 'defer' );
+
 	if ( 'sunflower_event' === get_post_type() ) {
 		wp_enqueue_script(
 			'sunflower-leaflet',

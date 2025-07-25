@@ -86,3 +86,47 @@ function sunflower_load_input_icon_script() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sunflower_load_input_icon_script' );
+
+
+/**
+ * Load file content and echo
+ *
+ * @param string $file     The file name with full path.
+ */
+function sunflower_inline_svg( $file ) {
+	$filepath = get_template_directory() . '/' . $file;
+	if ( file_exists( $filepath ) ) {
+		$wpfsd = new WP_Filesystem_Direct( false );
+		$svg   = $wpfsd->get_contents( $filepath );
+
+		$allowed_svg_tags = array(
+			'svg'   => array(
+				'class'       => true,
+				'xmlns'       => true,
+				'width'       => true,
+				'height'      => true,
+				'viewBox'     => true,
+				'aria-hidden' => true,
+				'role'        => true,
+				'fill'        => true,
+			),
+			'path'  => array(
+				'd'            => true,
+				'fill'         => true,
+				'stroke'       => true,
+				'stroke-width' => true,
+			),
+			'g'     => array(
+				'fill'      => true,
+				'stroke'    => true,
+				'transform' => true,
+			),
+			'title' => array(),
+			'desc'  => array(),
+		);
+
+		echo wp_kses( $svg, $allowed_svg_tags );
+	} else {
+		echo '<!-- SVG not found: ' . esc_html( $filename ) . ' -->';
+	}
+}
