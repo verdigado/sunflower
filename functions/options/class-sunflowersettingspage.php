@@ -224,7 +224,6 @@ class SunflowerSettingsPage {
 				'label' => __( 'required', 'sunflower' ),
 			)
 		);
-
 	}
 
 	/**
