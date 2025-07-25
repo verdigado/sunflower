@@ -262,7 +262,7 @@ h1:has(+ h4) {
 
 .right-bar a {
     font-family: "PT Sans", sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 100%;
     letter-spacing: 0.4px;
     font-weight: 700;
@@ -292,3 +292,5 @@ h1:has(+ h4) {
         color: map-get($custom-colors, "klee");
     }
 }
+
+

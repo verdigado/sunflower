@@ -44,8 +44,12 @@
         h1 {
             color: map.get($custom-colors, "tanne") !important;
             text-align: left;
-            margin-bottom: var(--grid-margin);
+            margin-bottom: calc(var(--grid-margin) * 2);
             position: relative;
+        }
+
+        .wp-block-buttons {
+            margin-bottom: var(--grid-margin)
         }
 
         &::before {

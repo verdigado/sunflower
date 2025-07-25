@@ -1,9 +1,12 @@
+@use "sass:map";
+
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
     border: 1px solid;
-    border-color: $color__border-button;
+    border-color: $button-border;
+    background-color: $button-background;
     line-height: 1;
     padding: 0.6em 1em 0.4em;
     transition: 0.3s ease;
@@ -14,7 +17,8 @@ input[type="submit"] {
     }
 
     &:hover {
-        border-color: $color__border-button-hover;
+        border-color: $button-hover;
+        background-color: $button-hover;
 
         @include themed-colorscheme-nested() {
             background-color: t(btn-pr-background);

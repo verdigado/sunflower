@@ -1,5 +1,9 @@
 @use "sass:map";
 
+.wp-block-buttons {
+    gap: var(--grid-margin);
+}
+
 .wp-block-button__link {
     border-radius: 23px;
     font-weight: 700;
@@ -12,19 +16,15 @@
     font-family: "PT Sans", sans-serif;
     padding: 0 40px 4px 40px;
     transition: 0.3s ease;
-
-    @include themed-colorscheme-nested() {
-        background-color: t(btn-pr-background);
-        color: t(btn-pr-text);
-    }
+    border: 2px solid $button-border;
+    background-color: $button-background;
+    color: $primary;
 
     &:hover {
+        color: $white;
         text-decoration: none;
-
-        @include themed-colorscheme-nested() {
-            background-color: t(btn-hover-background);
-            color: t(btn-hover-text);
-        }
+        background-color: $button-hover;
+        border: 2px solid $button-hover;
     }
 
     &:hover,

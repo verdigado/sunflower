@@ -512,5 +512,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+/**
+ * mark before & after bekommen die selbe linienfarbe wie mark background
+ */
 
+
+function applyMarkBorders(root = document) {
+	root.querySelectorAll('h1 mark').forEach(mark => {
+		const bg = getComputedStyle(mark).backgroundColor;
+		mark.style.setProperty('--bg', bg);
+	});
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+	applyMarkBorders();
+
+	const observer = new MutationObserver(muts => {
+		muts.forEach(m => {
+			m.addedNodes.forEach(node => {
+				if (node.nodeType !== 1) return;            // nur Elemente
+				if (node.matches?.('h1 mark')) applyMarkBorders(node.parentNode);
+				else applyMarkBorders(node);                // falls <mark> tiefer liegt
+			});
+		});
+	});
+	observer.observe(document.body, { childList: true, subtree: true });
+});
 
