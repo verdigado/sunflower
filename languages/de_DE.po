@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2025-06-27T08:29:18+00:00\n"
-"PO-Revision-Date: 2025-06-27 10:30+0200\n"
+"POT-Creation-Date: 2025-07-25T11:56:33+00:00\n"
+"PO-Revision-Date: 2025-07-25 14:06+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -303,6 +303,26 @@ msgstr "Ort"
 msgid "More Information"
 msgstr "Weitere Informationen"
 
+#: functions/media.php:23
+msgid "Creator"
+msgstr "Urheber*in"
+
+#: functions/media.php:28
+msgid "Creator / Source of this media (may contain links)"
+msgstr "Urheber*in / Quelle dieses Mediums (kann LInks enthalten)"
+
+#: functions/media.php:96 functions/media.php:126
+msgid "The creator field is mandatory and must not be left empty."
+msgstr "Das Feld „Urheber*in“ ist ein Pflichtfeld und darf nicht leer sein."
+
+#: functions/media.php:99 functions/media.php:127
+msgid ""
+"No alternative text provided. Please consider adding a description for "
+"better accessibility."
+msgstr ""
+"Kein Alternativtext angegeben. Bitte füge eine Beschreibung hinzu, um die "
+"Barrierefreiheit zu verbessern."
+
 #: functions/metaboxes.php:15
 #: functions/options/class-sunflowersettingspage.php:108
 msgid "Layout"
@@ -386,6 +406,8 @@ msgstr "Übersichtskarte zeigen"
 
 #: functions/options/class-sunflowereventsettingspage.php:187
 #: functions/options/class-sunflowereventsettingspage.php:191
+#: functions/options/class-sunflowereventsettingspage.php:203
+#: functions/options/class-sunflowereventsettingspage.php:207
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
@@ -481,23 +503,31 @@ msgstr "SEO verbessern"
 msgid "Set website name in page metadata"
 msgstr "Webseitenname in den Seiten-Metadaten"
 
-#: functions/options/class-sunflowersettingspage.php:293
+#: functions/options/class-sunflowersettingspage.php:218
+msgid "Media creator field"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:224
+msgid "required"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:305
 msgid "Standard"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:294
+#: functions/options/class-sunflowersettingspage.php:306
 msgid "Personal"
 msgstr "Persönlich"
 
-#: functions/options/class-sunflowersettingspage.php:316
+#: functions/options/class-sunflowersettingspage.php:328
 msgid "do not show"
 msgstr "keine Anzeige"
 
-#: functions/options/class-sunflowersettingspage.php:317
+#: functions/options/class-sunflowersettingspage.php:329
 msgid "main categories"
 msgstr "Hauptkategorien"
 
-#: functions/options/class-sunflowersettingspage.php:318
+#: functions/options/class-sunflowersettingspage.php:330
 msgid "only sub-categories"
 msgstr "nur Unter-Kategorien"
 
@@ -659,10 +689,8 @@ msgid "Share on Facebook "
 msgstr "Auf Facebook teilen "
 
 #: inc/template-tags.php:128
-#, fuzzy
-#| msgid "Share on Mastodon "
 msgid "Share on LinkedIn "
-msgstr "Auf Mastodon teilen "
+msgstr "Auf LinkedIn teilen "
 
 #: inc/template-tags.php:144
 msgid "Share on Mastodon "
@@ -767,8 +795,8 @@ msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgid "none"
 msgstr "keine"
 
-#: template-parts/header-standard.php:41 template-parts/header-standard.php:44
-#: template-parts/header-standard.php:156
+#: template-parts/header-standard.php:40 template-parts/header-standard.php:41
+#: template-parts/header-standard.php:44 template-parts/header-standard.php:156
 #: template-parts/header-standard.php:159
 msgid "Search"
 msgstr "Suche"

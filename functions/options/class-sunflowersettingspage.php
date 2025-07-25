@@ -212,6 +212,18 @@ class SunflowerSettingsPage {
 				'label' => __( 'Set website name in page metadata', 'sunflower' ),
 			)
 		);
+
+		add_settings_field(
+			'sunflower_media_creator',
+			__( 'Media creator field', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-admin',
+			'sunflower_layout',
+			array(
+				'field' => 'sunflower_media_creator',
+				'label' => __( 'required', 'sunflower' ),
+			)
+		);
 	}
 
 	/**
