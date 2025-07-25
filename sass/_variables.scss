@@ -86,15 +86,17 @@ $grid-breakpoints: (
     --gap-small: 5px;
 
     --width-brand-left: 350px;
+}
 
-    @include media-breakpoint-down(xl) {
+@media (max-width: 1200px) {
+
+    :root {
         --grid-margin: 12px;
         --gap-large: 20px;
         --border-radius-large: 20px;
         --border-radius-medium: 10px;
     }
 }
-
 
 $container-max-widths: (
     sm: 450px,
