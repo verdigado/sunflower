@@ -87,14 +87,49 @@ $heading-weights: 900;
 }
 
 
-h1:has(mark) {
+h1:has(mark), h2:has(mark) {
 
     line-height: 80%;
 
     mark {
         display: inline-block !important;
-        padding: 15px 0 0 0;
+        padding: 15px 10px 0 7px;
         font-size: 60px;
         line-height: 100%;
+        position: relative;
+        --bg: transparent;
+        margin-left: 20px;
+
+        &::before, &::after {
+                width: 0;
+                height: 0;
+                content: "";
+                position: absolute;
+                bottom: 0;
+            }
+
+        &::before {
+            top: -0.8px;
+            left: -19.2px;
+            border-style: solid;
+            border-width: 0 0 76px 19.3px;
+            border-color: transparent transparent var(--bg) transparent;
+        }
+
+        &::after {
+            transform: scaleX(-1);
+            bottom: -0.8px;
+            right: -18.5px;
+            border-style: solid;
+            border-width: 0 19.3px 76px 0;
+            border-color: transparent var(--bg) transparent transparent;
+        }
+
+    }
+
+
+
+    mark:nth-of-type(2) {
+        margin-left: 100px;
     }
 }

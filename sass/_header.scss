@@ -468,6 +468,7 @@ $text-dark: #222;
     position: absolute;
     top: 0;
     width: 100%;
+    z-index: 110;
 
     &.stuck {
         height: 60px;
@@ -564,7 +565,7 @@ $text-dark: #222;
     position: absolute;
     justify-content: center;
     max-width: calc(100% - var(--width-brand-left));
-    gap: var(--gap-large);
+    gap: var(--grid-margin);
     z-index: 101;
 
     @include media-breakpoint-down(xl) {
@@ -672,6 +673,7 @@ $text-dark: #222;
             width: fit-content;
             margin: 0;
             outline: 1px solid map.get($custom-colors, "weiss");
+            overflow: hidden;
 
             > li > a {
                 padding: calc(var(--gap-large) / 2);
@@ -696,6 +698,22 @@ $text-dark: #222;
     }
 }
 
+html body.hamburger-menu header div .right-bar .main-menu ul li::after{
+    display: none;
+}
+
+html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
+    padding-top: var(--gap-large) !important;
+    display: block;
+
+    a {
+        font-weight: 500;
+    }
+
+    .sub-menu {
+        padding-top: 0 !important;
+    }
+}
 
 .menu-item-has-children:hover > .sub-menu {
     display: block !important;
@@ -960,7 +978,7 @@ html body.hamburger-menu .top-bar.stuck {
     }
 
     .sub-menu {
-        top: 42px;
+        top: 41px;
         padding: 0 0 calc(var(--grid-margin) / 2) 0;
 
             .sub-menu {
@@ -968,31 +986,39 @@ html body.hamburger-menu .top-bar.stuck {
                 padding: 0 0 0 var(--gap-large);
             }
     }
+
+    a {
+
+        ~ ul:nth-of-type(1) li:nth-of-type(1) a {
+            padding-top: calc(var(--gap-large) / 2);
+        }
+    }
 }
 
 .menu-item-has-children {
 
     a {
-        padding-right: 23px;
+        padding-right: 18px;
+        position: relative;
+        z-index: 140;
+
+        ~ ul:nth-of-type(1) li:nth-of-type(1) a {
+            padding-top: 0;
+        }
+
+        ~ ul:nth-of-type(1) li ul li a {
+            padding-top: calc(var(--gap-large) / 2) !important;
+        }
     }
 
     &::after {
         content: url("/wp-content/themes/sunflower/assets/img/dropdown.svg");
         display: block;
-        width: 19px;
-        height: 19px;
+        width: 13px;
+        height: 13px;
         position: absolute;
         right: 0;
-        top: -4px;
-        rotate: 0;
-        transition: rotate 0.3s ease;
-    }
-
-    &:hover {
-
-        &::after {
-            rotate: 360deg;
-        }
+        top: -5.8px;
     }
 
     .menu-item-has-children {

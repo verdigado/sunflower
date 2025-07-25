@@ -23,9 +23,13 @@ $custom-colors: (
 );
 
 
-$primary: map.get($custom-colors, "klee");
-$secondary: map.get($custom-colors, "tanne");
+$primary: map.get($custom-colors, "tanne");
+$secondary: map.get($custom-colors, "grashalm");
 $white: map.get($custom-colors, "weiss");
+
+$button-border: $primary;
+$button-background: $white;
+$button-hover: $secondary;
 
 $black: map.get($custom-colors, "schwarzwald");
 //$black-500: map.get($custom-colors, "black-500");
@@ -78,14 +82,14 @@ $grid-breakpoints: (
     --grid-margin: 20px;
     --double-grid-margin: calc(var(--grid-margin) * 2);
 
-    --gap-large: 25px;
+    --gap-large: 23px;
     --gap-small: 5px;
 
     --width-brand-left: 350px;
 
     @include media-breakpoint-down(xl) {
         --grid-margin: 12px;
-        --gap-large: 25px;
+        --gap-large: 20px;
         --border-radius-large: 20px;
         --border-radius-medium: 10px;
     }
