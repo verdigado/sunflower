@@ -98,34 +98,8 @@ function sunflower_inline_svg( $file ) {
 	if ( file_exists( $filepath ) ) {
 		$wpfsd = new WP_Filesystem_Direct( false );
 		$svg   = $wpfsd->get_contents( $filepath );
-
-		$allowed_svg_tags = array(
-			'svg'   => array(
-				'class'       => true,
-				'xmlns'       => true,
-				'width'       => true,
-				'height'      => true,
-				'viewBox'     => true,
-				'aria-hidden' => true,
-				'role'        => true,
-				'fill'        => true,
-			),
-			'path'  => array(
-				'd'            => true,
-				'fill'         => true,
-				'stroke'       => true,
-				'stroke-width' => true,
-			),
-			'g'     => array(
-				'fill'      => true,
-				'stroke'    => true,
-				'transform' => true,
-			),
-			'title' => array(),
-			'desc'  => array(),
-		);
-
-		echo wp_kses( $svg, $allowed_svg_tags );
+		// We do not escape this, because only theme svg may be imported.
+		echo $svg; // phpcs:ignore
 	} else {
 		echo '<!-- SVG not found: ' . esc_html( $filename ) . ' -->';
 	}
