@@ -212,10 +212,10 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 				$caption[] = get_post_meta( get_post_thumbnail_id(), '_media_creator', true );
 				$caption[] = get_post( get_post_thumbnail_id() )?->post_excerpt;
 
-				$caption_string = implode('|', $caption);
+				$caption_string = implode( ' | ', $caption );
 				if ( ! empty( $caption_string ) ) {
 					?>
-				<figcaption><?php echo esc_attr( $caption_string ); ?></figcaption>
+				<figcaption><?php echo wp_kses_post( $caption_string ); ?></figcaption>
 					<?php
 				}
 			}
