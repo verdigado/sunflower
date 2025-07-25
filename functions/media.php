@@ -122,9 +122,9 @@ function sunflower_enqueue_media_script( $hook ) {
 			'sunflower-media-js',
 			'sunflower',
 			array(
-				'texts'              => array(
-					'creatorFieldEmpty'    => esc_html__( 'The creator field is mandatory and must not be left empty.', 'sunflower' ),
-					'emptyAltText' =>esc_html__( 'No alternative text provided. Please consider adding a description for better accessibility.', 'sunflower' )
+				'texts' => array(
+					'creatorFieldEmpty' => esc_html__( 'The creator field is mandatory and must not be left empty.', 'sunflower' ),
+					'emptyAltText'      => esc_html__( 'No alternative text provided. Please consider adding a description for better accessibility.', 'sunflower' ),
 				),
 			)
 		);
