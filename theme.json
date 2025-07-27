@@ -172,7 +172,14 @@
 				"color": {
 					"text": "var:preset|color|tanne"
 				}
+			},
+			"h2": {
+				"typography": {
+					"fontWeight": "400",
+					"fontFamily": "var(--wp--preset--font-family--gruenetypeneue)"
+				}
 			}
+
 		}
 	}
 }

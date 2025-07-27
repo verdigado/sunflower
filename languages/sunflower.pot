@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.2.5\n"
+"Project-Id-Version: sunflower 2.2.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-10T09:46:09+00:00\n"
+"POT-Creation-Date: 2025-06-27T08:29:18+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -98,6 +98,7 @@ msgid "Show map"
 msgstr ""
 
 #: archive-sunflower_event.php:195
+#: functions/s.php:167
 msgid "calendar in ics-format"
 msgstr ""
 
@@ -264,11 +265,11 @@ msgstr ""
 msgid "Load map and fix location marker"
 msgstr ""
 
-#: functions/events.php:573
+#: functions/events.php:571
 msgid "Event date"
 msgstr ""
 
-#: functions/events.php:574
+#: functions/events.php:572
 msgid "Event location"
 msgstr ""
 
@@ -501,81 +502,106 @@ msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:123
 #: functions/options/class-sunflowersocialmediasettingspage.php:127
-msgid "WhatsApp"
+msgid "Mastodon"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:132
 #: functions/options/class-sunflowersocialmediasettingspage.php:136
-msgid "Mastodon"
+msgid "LinkedIn"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:141
+#: functions/options/class-sunflowersocialmediasettingspage.php:145
+msgid "WhatsApp"
+msgstr ""
+
+#: functions/options/class-sunflowersocialmediasettingspage.php:150
 msgid "mail"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:145
+#: functions/options/class-sunflowersocialmediasettingspage.php:154
 msgid "Mail"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:182
+#: functions/options/class-sunflowersocialmediasettingspage.php:191
 msgid "Show share buttons on single post page"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:255
-#: functions/s.php:158
+#: functions/options/class-sunflowersocialmediasettingspage.php:264
+#: functions/s.php:153
 msgid "Select Open Graph Fallback Image"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:267
+#: functions/options/class-sunflowersocialmediasettingspage.php:276
 msgid "Open Media Library"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:272
+#: functions/options/class-sunflowersocialmediasettingspage.php:281
 msgid "This fallback image will be used when sharing pages and posts and no featured image has been selected."
 msgstr ""
 
-#: functions/s.php:59
+#: functions/s.php:54
 msgid "Mainmenu"
 msgstr ""
 
-#: functions/s.php:60
+#: functions/s.php:55
 msgid "Topmenu"
 msgstr ""
 
-#: functions/s.php:61
+#: functions/s.php:56
 msgid "Footer Menu 1"
 msgstr ""
 
-#: functions/s.php:62
+#: functions/s.php:57
 msgid "Footer Menu 2"
 msgstr ""
 
-#: functions/s.php:115
+#: functions/s.php:110
 msgid "Sidebar"
 msgstr ""
 
-#: functions/s.php:117
+#: functions/s.php:112
 msgid "Add widgets here."
 msgstr ""
 
-#: functions/s.php:171
+#: functions/s.php:166
 #: template-parts/content-archive.php:67
 msgid "Continue reading"
+msgstr ""
+
+#: functions/s.php:169
+msgid "Image %1 of %2"
+msgstr ""
+
+#: functions/s.php:170
+msgid "Next Image"
+msgstr ""
+
+#: functions/s.php:171
+msgid "Previous Image"
+msgstr ""
+
+#: functions/s.php:172
+msgid "Cancel Loading Image"
+msgstr ""
+
+#: functions/s.php:173
+msgid "Close Lightbox"
 msgstr ""
 
 #: functions/security.php:13
 msgid "Login error. Did you mistype s.th.?"
 msgstr ""
 
-#: header.php:36
+#: header.php:29
 msgid "Skip to content"
 msgstr ""
 
-#: inc/class-wp-bootstrap-navwalker.php:314
+#: inc/class-wp-bootstrap-navwalker.php:360
 msgid "Show sub menu"
 msgstr ""
 
-#: inc/class-wp-bootstrap-navwalker.php:405
+#: inc/class-wp-bootstrap-navwalker.php:413
 msgid "Add a menu"
 msgstr ""
 
@@ -599,7 +625,7 @@ msgid "Share on Facebook "
 msgstr ""
 
 #: inc/template-tags.php:128
-msgid "Share on WhatsApp "
+msgid "Share on LinkedIn "
 msgstr ""
 
 #: inc/template-tags.php:144
@@ -607,6 +633,10 @@ msgid "Share on Mastodon "
 msgstr ""
 
 #: inc/template-tags.php:154
+msgid "Share on WhatsApp "
+msgstr ""
+
+#: inc/template-tags.php:163
 msgid "send mail "
 msgstr ""
 
@@ -639,7 +669,7 @@ msgstr ""
 
 #: template-parts/content-archive.php:53
 #: template-parts/content-page.php:36
-#: template-parts/content.php:113
+#: template-parts/content.php:116
 msgid "Pages:"
 msgstr ""
 
@@ -665,28 +695,28 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content.php:72
+#: template-parts/content.php:73
 msgid "Mastodon Instance address"
 msgstr ""
 
-#: template-parts/content.php:77
+#: template-parts/content.php:79
 msgid "Enter your instance's address"
 msgstr ""
 
-#: template-parts/content.php:82
+#: template-parts/content.php:84
 msgid "Memorize my instance"
 msgstr ""
 
-#: template-parts/content.php:86
+#: template-parts/content.php:88
 msgid "Close"
 msgstr ""
 
-#: template-parts/content.php:87
+#: template-parts/content.php:89
 msgid "Save and Share"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:100
+#: template-parts/content.php:103
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
@@ -694,19 +724,15 @@ msgstr ""
 msgid "none"
 msgstr ""
 
-#: template-parts/header-standard.php:40
-#: template-parts/header-standard.php:43
-#: template-parts/header-standard.php:158
-#: template-parts/header-standard.php:161
+#: template-parts/header-standard.php:41
+#: template-parts/header-standard.php:44
+#: template-parts/header-standard.php:156
+#: template-parts/header-standard.php:159
 msgid "Search"
 msgstr ""
 
-#: template-parts/header-standard.php:45
+#: template-parts/header-standard.php:46
 msgid "show search"
-msgstr ""
-
-#: template-parts/header-standard.php:48
-msgid "increase contrast"
 msgstr ""
 
 #: template-parts/related-posts.php:15
@@ -770,5 +796,5 @@ msgstr ""
 
 #: theme.json
 msgctxt "Font family name"
-msgid "GrueneType"
+msgid "GrueneType Neue"
 msgstr ""

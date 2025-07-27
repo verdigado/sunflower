@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2025-02-10T09:46:09+00:00\n"
-"PO-Revision-Date: 2025-05-15 14:19+0200\n"
+"POT-Creation-Date: 2025-06-27T08:29:18+00:00\n"
+"PO-Revision-Date: 2025-06-27 10:30+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Domain: sunflower\n"
 
 #. Theme Name of the theme
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: archive-sunflower_event.php:195
+#: archive-sunflower_event.php:195 functions/s.php:167
 msgid "calendar in ics-format"
 msgstr "Kalender im ics-Format"
 
@@ -291,11 +291,11 @@ msgstr ""
 msgid "Load map and fix location marker"
 msgstr "Karte laden und Postion korrigieren"
 
-#: functions/events.php:573
+#: functions/events.php:571
 msgid "Event date"
 msgstr "Datum der Veranstaltung"
 
-#: functions/events.php:574
+#: functions/events.php:572
 msgid "Event location"
 msgstr "Ort"
 
@@ -543,36 +543,41 @@ msgstr "Facebook"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:123
 #: functions/options/class-sunflowersocialmediasettingspage.php:127
-msgid "WhatsApp"
+msgid "Mastodon"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:132
 #: functions/options/class-sunflowersocialmediasettingspage.php:136
-msgid "Mastodon"
+msgid "LinkedIn"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:141
+#: functions/options/class-sunflowersocialmediasettingspage.php:145
+msgid "WhatsApp"
+msgstr ""
+
+#: functions/options/class-sunflowersocialmediasettingspage.php:150
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:145
+#: functions/options/class-sunflowersocialmediasettingspage.php:154
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:182
+#: functions/options/class-sunflowersocialmediasettingspage.php:191
 msgid "Show share buttons on single post page"
 msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:255
-#: functions/s.php:158
+#: functions/options/class-sunflowersocialmediasettingspage.php:264
+#: functions/s.php:153
 msgid "Select Open Graph Fallback Image"
 msgstr "Ersatzbild für Open-Graph-Tag wählen"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:267
+#: functions/options/class-sunflowersocialmediasettingspage.php:276
 msgid "Open Media Library"
 msgstr "Mediathek öffnen"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:272
+#: functions/options/class-sunflowersocialmediasettingspage.php:281
 msgid ""
 "This fallback image will be used when sharing pages and posts and no "
 "featured image has been selected."
@@ -580,47 +585,69 @@ msgstr ""
 "Dieses Ersatzbild wird beim Teilen von Seiten oder Beiträgen verwendet, wenn "
 "kein Beitragsbild ausgewählt wurde."
 
-#: functions/s.php:59
+#: functions/s.php:54
 msgid "Mainmenu"
 msgstr "Hauptmenü"
 
-#: functions/s.php:60
+#: functions/s.php:55
 msgid "Topmenu"
 msgstr "Menü am oberen Rand"
 
-#: functions/s.php:61
+#: functions/s.php:56
 msgid "Footer Menu 1"
 msgstr "Fußzeilenmenü 1"
 
-#: functions/s.php:62
+#: functions/s.php:57
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/s.php:115
+#: functions/s.php:110
 msgid "Sidebar"
 msgstr "Seitenleiste"
 
-#: functions/s.php:117
+#: functions/s.php:112
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
-#: functions/s.php:171 template-parts/content-archive.php:67
+#: functions/s.php:166 template-parts/content-archive.php:67
 msgid "Continue reading"
 msgstr "weiterlesen"
+
+#: functions/s.php:169
+msgid "Image %1 of %2"
+msgstr "Bild %1 von %2"
+
+#: functions/s.php:170
+msgid "Next Image"
+msgstr "Nächstes Bild"
+
+#: functions/s.php:171
+#, fuzzy
+#| msgid "previous"
+msgid "Previous Image"
+msgstr "zurück"
+
+#: functions/s.php:172
+msgid "Cancel Loading Image"
+msgstr "Bild laden abbrechen"
+
+#: functions/s.php:173
+msgid "Close Lightbox"
+msgstr "Lightbox schließen"
 
 #: functions/security.php:13
 msgid "Login error. Did you mistype s.th.?"
 msgstr "Loginfehler. Hast du dich vertippt?"
 
-#: header.php:36
+#: header.php:29
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
 
-#: inc/class-wp-bootstrap-navwalker.php:314
+#: inc/class-wp-bootstrap-navwalker.php:360
 msgid "Show sub menu"
 msgstr "Zeige Untermenü"
 
-#: inc/class-wp-bootstrap-navwalker.php:405
+#: inc/class-wp-bootstrap-navwalker.php:413
 msgid "Add a menu"
 msgstr "Menü erstellen"
 
@@ -644,14 +671,20 @@ msgid "Share on Facebook "
 msgstr "Auf Facebook teilen "
 
 #: inc/template-tags.php:128
-msgid "Share on WhatsApp "
-msgstr "Auf WhatsApp teilen "
+#, fuzzy
+#| msgid "Share on Mastodon "
+msgid "Share on LinkedIn "
+msgstr "Auf Mastodon teilen "
 
 #: inc/template-tags.php:144
 msgid "Share on Mastodon "
 msgstr "Auf Mastodon teilen "
 
 #: inc/template-tags.php:154
+msgid "Share on WhatsApp "
+msgstr "Auf WhatsApp teilen "
+
+#: inc/template-tags.php:163
 msgid "send mail "
 msgstr "Sende E-Mail"
 
@@ -681,7 +714,7 @@ msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
 #: template-parts/content-archive.php:53 template-parts/content-page.php:36
-#: template-parts/content.php:113
+#: template-parts/content.php:116
 msgid "Pages:"
 msgstr "Seiten:"
 
@@ -717,28 +750,28 @@ msgstr ""
 "Anscheinend können wir nicht finden, wonach du suchst. Vielleicht hilft eine "
 "Internetsuche."
 
-#: template-parts/content.php:72
+#: template-parts/content.php:73
 msgid "Mastodon Instance address"
 msgstr "Adresse der Mastodon-Instanz"
 
-#: template-parts/content.php:77
+#: template-parts/content.php:79
 msgid "Enter your instance's address"
 msgstr "Gib deine Instanz-Adresse ein"
 
-#: template-parts/content.php:82
+#: template-parts/content.php:84
 msgid "Memorize my instance"
 msgstr "Merke meine Instanz"
 
-#: template-parts/content.php:86
+#: template-parts/content.php:88
 msgid "Close"
 msgstr "Schließen"
 
-#: template-parts/content.php:87
+#: template-parts/content.php:89
 msgid "Save and Share"
 msgstr "Speichern und teilen"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:100
+#: template-parts/content.php:103
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 
@@ -746,19 +779,15 @@ msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgid "none"
 msgstr "keine"
 
-#: template-parts/header-standard.php:40 template-parts/header-standard.php:43
-#: template-parts/header-standard.php:158
-#: template-parts/header-standard.php:161
+#: template-parts/header-standard.php:41 template-parts/header-standard.php:44
+#: template-parts/header-standard.php:156
+#: template-parts/header-standard.php:159
 msgid "Search"
 msgstr "Suche"
 
-#: template-parts/header-standard.php:45
+#: template-parts/header-standard.php:46
 msgid "show search"
 msgstr "zeige Suche"
-
-#: template-parts/header-standard.php:48
-msgid "increase contrast"
-msgstr "Kontrast erhöhen"
 
 #: template-parts/related-posts.php:15
 msgid "Related posts"
@@ -821,8 +850,11 @@ msgstr ""
 
 #: theme.json
 msgctxt "Font family name"
-msgid "GrueneType"
+msgid "GrueneType Neue"
 msgstr ""
+
+#~ msgid "increase contrast"
+#~ msgstr "Kontrast erhöhen"
 
 #~ msgid "Show and adjust map marker"
 #~ msgstr "Zeige Karte und korrigiere Marker-Positon"

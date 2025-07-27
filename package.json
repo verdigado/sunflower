@@ -1,76 +1,76 @@
 {
-	"name": "sunflower",
-	"version": "2.1.0",
-	"description": "Sunflower 2",
-	"author": "Automattic Theme Team",
-	"license": "GPL-2.0-or-later",
-	"keywords": [
-		"WordPress",
-		"Theme"
-	],
-	"homepage": "https://github.com/Automattic/_s#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Automattic/_s.git"
-	},
-	"bugs": {
-		"url": "https://github.com/Automattic/_s/issues"
-	},
-	"devDependencies": {
-		"@fortawesome/fontawesome-free": "^6.4.2",
-		"@wordpress/data": "^10.4.0",
-		"@wordpress/i18n": "^5.4.0",
-		"@wordpress/icons": "^10.4.0",
-		"@wordpress/scripts": "^30.6.0",
-		"@wordpress/stylelint-config": "^22.4.0",
-		"dir-archiver": "^2.1.0",
-		"eslint-plugin-eslint-comments": "^3.2.0",
-		"rtlcss": "^3.5.0",
-		"sass": "^1.77.8"
-	},
-	"rtlcssConfig": {
-		"options": {
-			"autoRename": false,
-			"autoRenameStrict": false,
-			"blacklist": {},
-			"clean": true,
-			"greedy": false,
-			"processUrls": false,
-			"stringMap": []
-		},
-		"plugins": [],
-		"map": false
-	},
-	"scripts": {
-		"watch": "sass sass/style.scss ./style.css -w",
-		"compile:css": "sass sass/style.scss ./style.css && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
-		"compile:build": "sass sass/style.scss ./style.css",
-		"compile:rtl": "rtlcss style.css style-rtl.css",
-		"lint:scss": "wp-scripts lint-style 'sass/**/*.scss' 'src/**/*.scss'",
-		"lint:js": "wp-scripts lint-js 'js/*.js' 'src/**/*.js' 'assets/js/*.js'",
-		"lint:jsa": "wp-scripts lint-js",
-		"composer-lib": "cd lib && composer install",
-		"copy-node-modules": "copyfiles -u 1 node_modules/jquery-slim/dist/*.min.js node_modules/bootstrap/dist/js/*.min.js node_modules/@fortawesome/fontawesome-free/webfonts/* node_modules/fork-awesome/fonts/* node_modules/leaflet/dist/*.js node_modules/leaflet/dist/*.css node_modules/leaflet/dist/images/* node_modules/jquery-datetimepicker/build/*.min.js node_modules/jquery-datetimepicker/build/*.min.css node_modules/lightbox2/dist/css/lightbox.min.css node_modules/lightbox2/dist/js/lightbox.min.js node_modules/lightbox2/dist/images/* node_modules/masonry-layout/dist/masonry.pkgd.min.js assets/vndr",
-		"bundle": "npm run copy-node-modules && cd ../ && dir-archiver --src sunflower --dest sunflower.zip --includebasedir true --exclude Makefile create-changelog.php changelog.html documentation mkdocs .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map .favorites.json",
-		"build": "wp-scripts build",
-		"start": "wp-scripts start",
-		"format": "wp-scripts format",
-		"packages-update": "wp-scripts packages-update"
-	},
-	"dependencies": {
-		"bootstrap": "^5.3.6",
-		"copyfiles": "^2.4.1",
-		"fork-awesome": "^1.2.0",
-		"jquery-datetimepicker": "^2.5.21",
-		"jquery-slim": "^3.0.0",
-		"leaflet": "^1.9.3",
-		"lightbox2": "^2.11.4",
-		"masonry-layout": "^4.2.2",
-		"pa11y": "^8.0"
-	},
-	"overrides": {
-		"ws": "^8.18.0",
-		"lighthouse": "^12.1.0",
-		"puppeteer-core": "^22.13.1"
-	}
+  "name": "sunflower",
+  "version": "2.1.0",
+  "description": "Sunflower 2",
+  "author": "Automattic Theme Team",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "homepage": "https://github.com/Automattic/_s#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Automattic/_s.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Automattic/_s/issues"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "@wordpress/data": "^10.4.0",
+    "@wordpress/i18n": "^5.4.0",
+    "@wordpress/icons": "^10.4.0",
+    "@wordpress/scripts": "^30.6.0",
+    "@wordpress/stylelint-config": "^22.4.0",
+    "dir-archiver": "^2.1.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "rtlcss": "^3.5.0",
+    "sass": "^1.77.8"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
+  "scripts": {
+    "watch": "sass sass/style.scss ./style.css -w",
+    "compile:css": "sass sass/style.scss ./style.css && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+    "compile:build": "sass sass/style.scss ./style.css",
+    "compile:rtl": "rtlcss style.css style-rtl.css",
+    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss' 'src/**/*.scss'",
+    "lint:js": "wp-scripts lint-js 'js/*.js' 'src/**/*.js' 'assets/js/*.js'",
+    "lint:jsa": "wp-scripts lint-js",
+    "composer-lib": "cd lib && composer install",
+    "copy-node-modules": "copyfiles -u 1 node_modules/jquery-slim/dist/*.min.js node_modules/bootstrap/dist/js/*.min.js node_modules/@fortawesome/fontawesome-free/webfonts/* node_modules/fork-awesome/fonts/* node_modules/leaflet/dist/*.js node_modules/leaflet/dist/*.css node_modules/leaflet/dist/images/* node_modules/jquery-datetimepicker/build/*.min.js node_modules/jquery-datetimepicker/build/*.min.css node_modules/lightbox2/dist/css/lightbox.min.css node_modules/lightbox2/dist/js/lightbox.min.js node_modules/lightbox2/dist/images/* node_modules/masonry-layout/dist/masonry.pkgd.min.js assets/vndr",
+    "bundle": "npm run copy-node-modules && cd ../ && dir-archiver --src sunflower --dest sunflower.zip --includebasedir true --exclude Makefile create-changelog.php changelog.html documentation mkdocs .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map .favorites.json",
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "format": "wp-scripts format",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.6",
+    "copyfiles": "^2.4.1",
+    "fork-awesome": "^1.2.0",
+    "jquery-datetimepicker": "^2.5.21",
+    "jquery-slim": "^3.0.0",
+    "leaflet": "^1.9.3",
+    "lightbox2": "^2.11.5",
+    "masonry-layout": "^4.2.2",
+    "pa11y": "^8.0"
+  },
+  "overrides": {
+    "ws": "^8.18.0",
+    "lighthouse": "^12.1.0",
+    "puppeteer-core": "^22.13.1"
+  }
 }

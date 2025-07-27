@@ -245,7 +245,12 @@
 .wp-block-columns .wp-block-column img {
 	object-fit: cover;
 	border-radius: 3px;
-  }
+}
+
+.wp-block-cover.wp-block-group-is-layout-flow,
+.wp-block-cover .wp-block-cover__inner-container {
+  max-width: 1170px;
+}
 
 p a {
 	color: #008939;

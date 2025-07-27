@@ -165,9 +165,35 @@ function sunflower_scripts() {
 			'texts'              => array(
 				'readmore'    => __( 'Continue reading', 'sunflower' ),
 				'icscalendar' => __( 'calendar in ics-format', 'sunflower' ),
+				'lightbox2'   => array(
+					'imageOneOf'    => __( 'Image %1 of %2', 'sunflower' ),
+					'nextImage'     => __( 'Next Image', 'sunflower' ),
+					'previousImage' => __( 'Previous Image', 'sunflower' ),
+					'cancelLoading' => __( 'Cancel Loading Image', 'sunflower' ),
+					'closeLightbox' => __( 'Close Lightbox', 'sunflower' ),
+				),
 			),
 		)
 	);
+
+	/* Inline‑Script ganz an den Anfang des Heads */
+	add_action(
+		'wp_head',
+		fn() => print(
+		"<script>document.documentElement.classList.add('preload');</script>"
+		),
+		0
+	);
+
+	/* JS – im Head mit defer */
+	wp_enqueue_script(
+		'fade',
+		get_stylesheet_directory_uri() . '/assets/js/fade.js',
+		array(),
+		SUNFLOWER_VERSION,
+		false
+	);
+	wp_script_add_data( 'fade', 'strategy', 'defer' );
 
 	if ( 'sunflower_event' === get_post_type() ) {
 		wp_enqueue_script(

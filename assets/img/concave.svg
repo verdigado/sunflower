@@ -1,0 +1,4 @@
+<svg fill="currentColor" class="concave-30px"
+	 xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 30 38.156677">
+	<path d="M0,0v10c15.948975,0,28.985107,12.447388,29.938171,28.156677h.061829V0H0Z"/>
+</svg>

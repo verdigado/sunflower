@@ -86,3 +86,21 @@ function sunflower_load_input_icon_script() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sunflower_load_input_icon_script' );
+
+
+/**
+ * Load file content and echo
+ *
+ * @param string $file     The file name with full path.
+ */
+function sunflower_inline_svg( $file ) {
+	$filepath = get_template_directory() . '/' . $file;
+	if ( file_exists( $filepath ) ) {
+		$wpfsd = new WP_Filesystem_Direct( false );
+		$svg   = $wpfsd->get_contents( $filepath );
+		// We do not escape this, because only theme svg may be imported.
+		echo $svg; // phpcs:ignore
+	} else {
+		echo '<!-- SVG not found: ' . esc_html( $filename ) . ' -->';
+	}
+}

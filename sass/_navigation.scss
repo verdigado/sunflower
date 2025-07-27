@@ -32,6 +32,7 @@ body.navbar-open {
 .topmenu {
 
     background: $secondary;
+    color: $white;
 
     .search {
 
@@ -44,6 +45,7 @@ body.navbar-open {
             padding-left: 15px;
             border-width: 0;
             transition: width 0.4s ease-out 0s;
+            font-style: italic;
 
             &.active {
                 width: 200px;
