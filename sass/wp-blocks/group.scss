@@ -1,47 +1,51 @@
 .wp-block-group {
 
     position: relative;
-    width: 100%;
+    width: calc(((100% - (11 * var(--grid-margin))) / 12) * 10 + (9 * var(--grid-margin)));
     padding-top: var(--half-block-spacing);
     padding-bottom: var(--half-block-spacing);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1400px;
+
+    .all-columns-start-with-image {
+
+        h2.even,
+        h2.odd,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $primary;
+        }
+    }
+
+    .wp-block-button {
+        margin-top: var(--grid-margin);
+        width: 100%;
+        max-width: 100%;
+
+        .wp-block-button {
+            margin-top: var(--gap-small);
+        }
+    }
 
     &__inner-container {
         margin: 0 auto;
     }
 
     .wp-block-columns {
-        width: calc(83.3% - 180px);
         margin: 0 auto;
-        max-width: 1400px;
-    }
-
-    &.alignfull {
-        width: 100vw;
-
-        margin-left: calc(50% - 50vw);
-        margin-right: calc(50% - 50vw);
-        margin-top: var(--half-block-spacing);
-        margin-bottom: var(--half-block-spacing);
-
-        @include media-breakpoint-down(xl) {
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-
-        @include media-breakpoint-down(sm) {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        > p {
-            max-width: map-get($container-max-widths, "xl");
-        }
     }
 
     &__inner-container {
         max-width: map-get($container-max-widths, "xl");
     }
 
+}
+
+:where(.wp-block-columns.is-layout-flex) {
+    gap: var(--grid-margin) !important;
 }
 
 .d-flex {
@@ -61,13 +65,37 @@
     }
 }
 
+.wp-block-group:has(.all-columns-start-with-image) {
 
-.wp-block-columns.all-columns-start-with-image {
+    @include media-breakpoint-down(xl) {
+        width: 100% !important;
+    }
 
-    width: 100%;
+    h2 {
+        text-align: center !important;
 
-    .wp-block-column .wp-block-image:nth-of-type(1) {
-        border-radius: 20px 20px 0 0;
-        overflow: hidden;
+        @media (max-width: 781px) {
+            text-align: inherit !important;
+        }
+    }
+
+    .wp-block-columns.all-columns-start-with-image {
+
+        width: 100%;
+
+        .wp-block-column .wp-block-image:nth-of-type(1) {
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            margin-bottom: var(--gap-large);
+            margin-top: 0;
+
+            img {
+                max-height: 250px;
+            }
+        }
+
+        p {
+            font-weight: 300;
+        }
     }
 }

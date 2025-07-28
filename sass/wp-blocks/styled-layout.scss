@@ -16,18 +16,13 @@
         padding-bottom: var(--half-block-spacing);
 
         .wp-block-group {
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-
-        @include media-breakpoint-down(md) {
-            padding-top: 50px;
-            padding-bottom: 50px;
+            padding-top: var(--gap-large);
+            padding-bottom: var(--gap-large);
         }
 
         &.wp-block-group-is-layout-flow > h2,
         .wp-block-group__inner-container > h2 {
-            margin-bottom: 70px;
+            margin-bottom: var(--double-grid-margin);
         }
 
         h1,

@@ -1,22 +1,35 @@
 .wp-block-image {
     margin-bottom: 0;
     border-radius: $border-radius;
+    position: relative;
 
     &:not(.is-style-rounded) {
 
         img {
-            border-radius: $border-radius;
+            border-radius: 0;
         }
     }
 
+    :where(figcaption) {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+
     figcaption {
-        position: relative;
-        width: unset;
+        width: 100%;
         color: inherit;
         text-align: right;
-        font-size: $small-font-size;
+        font-size: 12px !important;
+        line-height: 125%;
         background: none;
-        margin-right: 0.3em;
-        margin-top: 0.5em;
+        padding: calc(var(--gap-small) / 2) var(--gap-small);
+        position: absolute;
+        bottom: 0;
+
+        backdrop-filter: blur(25px) saturate(200%);
+        -webkit-backdrop-filter: blur(25px) saturate(200%);
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.15);
     }
 }

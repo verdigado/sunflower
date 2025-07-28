@@ -14,7 +14,7 @@
     width: auto;
     display: inline-block;
     font-family: "PT Sans", sans-serif;
-    padding: 0 40px 4px 40px;
+    padding: 0 35px 4px 35px;
     transition: 0.3s ease;
     border: 2px solid $button-border;
     background-color: $button-background;
@@ -128,11 +128,12 @@
     }
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(xl) {
 
     .wp-block-button__link {
         font-size: 16px;
         letter-spacing: 0.5px;
+        padding: 0 25px 4px 25px;
     }
 }
 

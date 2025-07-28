@@ -11,7 +11,6 @@ $custom-colors: (
     gruener-sand: #f3faf6,
     weiss: #fff,
     white: #fff,
-
     himmel: #0ba1dd,
 
     //black: #000,
@@ -91,10 +90,22 @@ $grid-breakpoints: (
 @media (max-width: 1200px) {
 
     :root {
-        --grid-margin: 12px;
-        --gap-large: 20px;
         --border-radius-large: 20px;
         --border-radius-medium: 10px;
+
+        --half-block-spacing: 75px;
+        --block-spacing: calc(var(--half-block-spacing) * 2);
+
+        --grid-margin: 12px;
+        --gap-large: 20px;
+    }
+}
+
+@media (max-width: 950px) {
+
+    :root {
+        --half-block-spacing: 50px;
+        --block-spacing: calc(var(--half-block-spacing) * 2);
     }
 }
 
@@ -107,7 +118,7 @@ $container-max-widths: (
 
 
 $font-size-base: 1.1875rem;
-$small-font-size: 15px;
+$small-font-size: 14px;
 
 $primary-text-emphasis: $white;
 

@@ -21,6 +21,32 @@
     margin-right: -50vw;
 }
 
+.alignwide {
+    width: calc(((100% - (11 * var(--grid-margin))) / 12) * 10 + (9 * var(--grid-margin)));
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    @media (max-width: 781px) {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: var(--grid-margin) !important;
+        padding-right: var(--grid-margin) !important;
+    }
+
+    @media (max-width: 480px) {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+.alignfull {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
 .text-left {
     text-align: left;
 }

@@ -307,3 +307,24 @@ h1:has(+ h4) {
     }
 }
 
+body {
+    font-size: 18px;
+    line-height: 175%;
+    letter-spacing: 0.6px;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 16px;
+        line-height: 175%;
+    }
+}
+
+p.has-small-font-size {
+    font-size: 16px !important;
+    line-height: 150%;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 14px !important;
+        line-height: 150%;
+    }
+}
+
