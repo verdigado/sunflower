@@ -274,6 +274,17 @@ h1:has(+ h4) {
     }
 }
 
+.smallmenu .right-bar a {
+font-size: 18px;
+    @include media-breakpoint-down(xl) {
+        font-size: 16px;
+    }
+}
+
+.right-bar .sub-menu a {
+    font-weight: 560;
+}
+
 .colorscheme-light .right-bar .current_page_item {
 
     a {

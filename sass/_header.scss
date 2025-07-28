@@ -27,7 +27,7 @@ header {
     background-color: map.get($custom-colors, "weiss");
     width: 75px;
     height: 64px;
-    z-index: 110;
+    z-index: 500;
     border-radius: 0 0 0 var(--border-radius-medium);
     cursor: pointer;
 
@@ -100,12 +100,18 @@ header {
         border-radius: 0;
         position: fixed;
 
+        .hamburger__top,.hamburger__bottom, .hamburger__center {
+            z-index: 200;
+        }
+
         .brand-left {
             top: -200px;
         }
 
         .concave-30px {
             transition: 0.3s ease;
+            z-index: 1;
+
             &:nth-of-type(1) {
                 top: -50px;
             }
@@ -123,6 +129,7 @@ header {
             right: 0 !important;
             transition: 0.3s ease !important;
             opacity: 1;
+            max-width: calc(100% - var(--grid-margin)) !important;
         }
     }
 
@@ -569,7 +576,7 @@ $text-dark: #222;
     z-index: 101;
 
     @include media-breakpoint-down(xl) {
-        height: 70px;
+        height: 85px;
         border-radius: 0 0 0 10px;
     }
 
@@ -597,8 +604,12 @@ $text-dark: #222;
             top: 9.8px;
 
             @include media-breakpoint-down(xl) {
-                top: 5.5px;
+                top: 13.7px;
                 left: -20px;
+            }
+
+            @include media-breakpoint-down(lg) {
+                top: 5.7px;
             }
         }
 
@@ -607,8 +618,11 @@ $text-dark: #222;
             top: 90px;
 
             @include media-breakpoint-down(xl) {
+                top: 78.5px
+            }
+
+            @include media-breakpoint-down(lg) {
                 right: 12px;
-                top: 63.5px;
             }
         }
     }
@@ -698,13 +712,25 @@ $text-dark: #222;
     }
 }
 
-html body.hamburger-menu header div .right-bar .main-menu ul li::after{
+html body.hamburger-menu header div .right-bar .main-menu ul li::after, html body.hamburger-menu header.stuck div .right-bar .main-menu ul li::after{
     display: none;
+}
+
+html body.hamburger-menu .top-bar.stuck, html body.hamburger-menu .top-bar {
+    .logo-background {
+        position: absolute !important;
+        top: 0;
+    }
+    .menu-item-has-children a ~ ul:nth-of-type(1) li:nth-of-type(1) a {
+        padding-top: 0;
+    }
 }
 
 html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
     padding-top: var(--gap-large) !important;
     display: block;
+    position: relative !important;
+    top: 0;
 
     a {
         font-weight: 500;
@@ -947,19 +973,22 @@ html body.hamburger-menu .top-bar.stuck {
         padding: 120px var(--grid-margin) var(--grid-margin) var(--double-grid-margin);
         scrollbar-width: none;
         -ms-overflow-style: none;
+        max-width: none;
 
         &::-webkit-scrollbar {
             display: none;
         }
 
         .logo-background {
-            top: var(--grid-margin);
+            top: -107px;
             position: fixed;
         }
 
         &__content {
             align-items: flex-start;
             height: 100%;
+            margin-right: var(--grid-margin);
+
 
             .nav {
                 flex-direction: column;

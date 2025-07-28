@@ -9,7 +9,7 @@ $heading-sizes: (
 
 $heading-sizes-tablet: (
     h1: 60px,
-    h2: 30px,
+    h2: 40px,
     h3: 24px,
     h4: 18px,
     h5: 18px,
@@ -101,6 +101,14 @@ h2:has(mark) {
         --bg: transparent;
         margin-left: 20px;
 
+        @include media-breakpoint-down(xl) {
+            font-size: 40px;
+        }
+        @include media-breakpoint-down(md) {
+            font-size: 30px;
+        }
+
+
         &::before,
         &::after {
             width: 0;
@@ -132,5 +140,16 @@ h2:has(mark) {
 
     mark:nth-of-type(2) {
         margin-left: 100px;
+    }
+}
+
+
+.colorscheme-light h2 {
+    &.odd {
+        color: $primary;
+    }
+
+    &.even {
+        color: $secondary;
     }
 }
