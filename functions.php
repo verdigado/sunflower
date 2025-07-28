@@ -33,30 +33,6 @@ require_once __DIR__ . '/functions/theme.php';
 require_once __DIR__ . '/functions/latest-posts.php';
 
 
-function aenias_fade_assets() {
-
-	/* Inline‑Script ganz an den Anfang des Heads */
-	add_action(
-		'wp_head',
-		fn() => print(
-		"<script>document.documentElement.classList.add('preload');</script>"
-		),
-		0   // höchste Priorität
-	);
-
-	/* JS – im Head mit defer */
-	wp_enqueue_script(
-		'fade',
-		get_stylesheet_directory_uri() . '/assets/js/fade.js',
-		[],
-		null,
-		false
-	);
-	wp_script_add_data('fade', 'strategy', 'defer');
-}
-add_action('wp_enqueue_scripts', 'aenias_fade_assets');
-
-
 /**
  * Add body classes to the theme options
  *
@@ -151,5 +127,3 @@ function sunflower_get_social_media_profiles() {
 
 	return $return;
 }
-
-

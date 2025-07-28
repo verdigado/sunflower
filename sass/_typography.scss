@@ -275,7 +275,8 @@ h1:has(+ h4) {
 }
 
 .smallmenu .right-bar a {
-font-size: 18px;
+    font-size: 18px;
+
     @include media-breakpoint-down(xl) {
         font-size: 16px;
     }

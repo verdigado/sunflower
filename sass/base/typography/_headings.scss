@@ -103,9 +103,12 @@ h2:has(mark) {
 
         @include media-breakpoint-down(xl) {
             font-size: 40px;
+            padding: 9px 10px 1px 7px;
         }
+
         @include media-breakpoint-down(md) {
             font-size: 30px;
+            padding: 8px 10px 2px 7px;
         }
 
 
@@ -124,6 +127,14 @@ h2:has(mark) {
             border-style: solid;
             border-width: 0 0 76px 19.3px;
             border-color: transparent transparent var(--bg) transparent;
+
+            @include media-breakpoint-down(xl) {
+                border-width: 0 0 51px 19.3px;
+            }
+
+            @include media-breakpoint-down(md) {
+                border-width: 0 0 41px 19.3px;
+            }
         }
 
         &::after {
@@ -133,6 +144,14 @@ h2:has(mark) {
             border-style: solid;
             border-width: 0 19.3px 76px 0;
             border-color: transparent var(--bg) transparent transparent;
+
+            @include media-breakpoint-down(xl) {
+                border-width: 0 19.3px 51px 0;
+            }
+
+            @include media-breakpoint-down(md) {
+                border-width: 0 19.3px 41px 0;
+            }
         }
 
     }
@@ -140,11 +159,20 @@ h2:has(mark) {
 
     mark:nth-of-type(2) {
         margin-left: 100px;
+
+        @include media-breakpoint-down(xl) {
+            margin-left: 85px;
+        }
+
+        @include media-breakpoint-down(md) {
+            margin-left: 75px;
+        }
     }
 }
 
 
 .colorscheme-light h2 {
+
     &.odd {
         color: $primary;
     }
