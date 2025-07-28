@@ -580,6 +580,10 @@ $text-dark: #222;
         border-radius: 0 0 0 10px;
     }
 
+    @media (max-width: 1200px) {
+        height: 70px;
+    }
+
     &__content {
         display: flex;
         flex-direction: row;
@@ -623,6 +627,10 @@ $text-dark: #222;
 
             @include media-breakpoint-down(lg) {
                 right: 12px;
+            }
+
+            @media (max-width: 1200px) {
+                top: 63.5px;
             }
         }
     }

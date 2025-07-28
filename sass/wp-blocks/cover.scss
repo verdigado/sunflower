@@ -20,7 +20,7 @@
         height: fit-content;
         flex-direction: column;
         overflow: visible;
-        margin-bottom: calc(var(--gap-large) * 2);
+        margin-bottom: var(--grid-margin);
     }
 
 
