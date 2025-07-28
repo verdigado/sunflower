@@ -731,6 +731,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
     display: block;
     position: relative !important;
     top: 0;
+    padding-left: var(--gap-large);
 
     a {
         font-weight: 500;
@@ -957,6 +958,10 @@ html body.hamburger-menu .top-bar.stuck {
 
 html body.hamburger-menu .top-bar,
 html body.hamburger-menu .top-bar.stuck {
+
+    .nav {
+        margin-bottom: var(--grid-margin);
+    }
 
     .right-bar {
         border-radius: 0;

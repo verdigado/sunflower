@@ -129,11 +129,14 @@ h2:has(mark) {
             border-color: transparent transparent var(--bg) transparent;
 
             @include media-breakpoint-down(xl) {
-                border-width: 0 0 51px 19.3px;
+                border-width: 0 0 51px 11.2px;
+                left: -11.1px;
             }
 
             @include media-breakpoint-down(md) {
-                border-width: 0 0 41px 19.3px;
+                border-width: 0 0 40.5px 8.5px;
+                left: -8.25px;
+                top: -0.53px;
             }
         }
 
@@ -146,11 +149,14 @@ h2:has(mark) {
             border-color: transparent var(--bg) transparent transparent;
 
             @include media-breakpoint-down(xl) {
-                border-width: 0 19.3px 51px 0;
+                border-width: 0 11.2px 51px 0;
+                right: -11.3px;
             }
 
             @include media-breakpoint-down(md) {
-                border-width: 0 19.3px 41px 0;
+                border-width: 0 8.5px 40.5px 0;
+                bottom: -0.53px;
+                right: -8.25px;
             }
         }
 

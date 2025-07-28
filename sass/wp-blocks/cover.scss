@@ -13,17 +13,32 @@
     margin-bottom: var(--half-block-spacing);
     border-radius: var(--border-radius-large);
     overflow: hidden;
+    padding: 0;
+    position: relative;
+
+    @include media-breakpoint-down(md) {
+        height: fit-content;
+        flex-direction: column;
+        overflow: visible;
+    }
+
 
     .wp-block-cover__image-background {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 105%;
+        height: 100%;
         object-fit: cover;
-        transform: translateY(0);
         will-change: transform;
         z-index: 0;
+
+        @include media-breakpoint-down(md) {
+            height: auto;
+            border-radius: var(--border-radius-large);
+            min-height: 350px;
+            position: relative;
+        }
     }
 
 
@@ -39,6 +54,23 @@
 
         @include media-breakpoint-down(xl) {
             border-radius: 0 20px 0 0;
+            max-width: 75%;
+        }
+
+        @include media-breakpoint-down(lg) {
+            padding: 24px 24px 0 12px;
+        }
+
+        @include media-breakpoint-down(md) {
+            max-width: 100%;
+            width: 100%;
+            border-radius: 0;
+            padding: 24px 12px 0 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
         }
 
         h1 {
@@ -46,10 +78,28 @@
             text-align: left;
             margin-bottom: calc(var(--grid-margin) * 2);
             position: relative;
+
+            @include media-breakpoint-down(lg) {
+                margin-top: 0;
+            }
+
+            left: -8px;
+
         }
 
         .wp-block-buttons {
             margin-bottom: var(--grid-margin);
+            flex-wrap: wrap;
+
+            @include media-breakpoint-down(lg) {
+                justify-content: center;
+                width: 100%;
+
+                .wp-block-button {
+                    flex: 1 1 auto;
+                    max-width: 100%;
+                }
+            }
         }
 
         &::before {
@@ -84,6 +134,14 @@
                 right: -25.2px;
                 bottom: -8.5px;
             }
+
+            @include media-breakpoint-down(md) {
+                bottom: initial;
+                top: -22.4px;
+                rotate: 90deg;
+                right: -11px;
+            }
+
         }
     }
 }

@@ -280,175 +280,113 @@ document.addEventListener( 'DOMContentLoaded', function () {
 } );
 /* eslint-enable no-undef */
 
-/* Parallax for Header Image */
+/* Mehrere Columns in einer Group haben ein Bild am Anfang */
+document.querySelectorAll( '.wp-block-columns' ).forEach( ( columns ) => {
+	const allColumns = columns.querySelectorAll( ':scope > .wp-block-column' );
 
-document.addEventListener( 'DOMContentLoaded', function () {
-	const covers = document.querySelectorAll( '.wp-block-cover' );
-
-	covers.forEach( ( cover ) => {
-		const image = cover.querySelector(
-			'.wp-block-cover__image-background'
-		);
-		if ( image ) {
-			image.style.transform = 'scale(1.2)';
-			image.style.willChange = 'transform'; // Performance-Tweak
-		}
+	const allStartWithImage = Array.from( allColumns ).every( ( col ) => {
+		const firstChild = col.firstElementChild;
+		return firstChild && firstChild.classList.contains( 'wp-block-image' );
 	} );
 
-	( () => {
-		if ( 'scrollRestoration' in history ) {
-			history.scrollRestoration = 'manual';
+	if ( allColumns.length > 1 && allStartWithImage ) {
+		columns.classList.add( 'all-columns-start-with-image' );
+	}
+} );
+
+/* Eine von 2 columns enthält nur headlines */
+
+document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
+	const cols = group.querySelectorAll(
+		':scope > .wp-block-columns > .wp-block-column'
+	);
+	if ( cols.length !== 2 ) {
+		return;
+	}
+
+	const headlineOnly = ( col ) => {
+		return Array.from( col.children ).every( ( el ) =>
+			/^H[1-6]$/.test( el.tagName )
+		);
+	};
+
+	if ( headlineOnly( cols[ 0 ] ) || headlineOnly( cols[ 1 ] ) ) {
+		group.classList.add( 'two-cols-headline-only' );
+	}
+} );
+
+/**
+ * Menu-Collapse
+ */
+
+( () => {
+	const BODY_CLASS = 'hamburger-menu';
+	const MEASURE_CLASS = 'js-measuring';
+	const RIGHT_BAR_SELECTOR = '.right-bar';
+	const CONTENT_SELECTOR = '.right-bar__content';
+
+	const qs = ( sel ) => document.querySelector( sel );
+
+	const hasOverflow = ( el ) =>
+		el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight;
+
+	function computeOverflow() {
+		const rightBar = qs( RIGHT_BAR_SELECTOR );
+		const content = rightBar?.querySelector( CONTENT_SELECTOR );
+		if ( ! rightBar || ! content ) {
+			return false;
 		}
 
-		document.documentElement.style.overflowAnchor = 'none';
-		const SPEED = 0.1; // Bewegungsgeschwindigkeit
+		rightBar.classList.add( MEASURE_CLASS );
 
-		function update() {
-			const scrollY = window.scrollY;
-			const viewportH = window.innerHeight;
-
-			covers.forEach( ( cover ) => {
-				const img = cover.querySelector(
-					'.wp-block-cover__image-background'
-				);
-				if ( ! img ) {
-					return;
-				}
-
-				const { top, bottom } = cover.getBoundingClientRect();
-
-				// Nur berechnen, wenn das Cover (teilweise) im Viewport ist
-				if ( top < viewportH && bottom > 0 ) {
-					const offset = ( scrollY - cover.offsetTop ) * SPEED;
-					img.style.transform = `translateY(${ offset }px) scale(1.2)`;
-				}
-			} );
+		const body = document.body;
+		const hadClass = body.classList.contains( BODY_CLASS );
+		if ( hadClass ) {
+			body.classList.remove( BODY_CLASS );
 		}
 
-		window.addEventListener( 'load', update, { passive: true } );
+		const overflow = hasOverflow( content );
 
-		window.addEventListener(
-			'scroll',
-			() => requestAnimationFrame( update ),
-			{
-				passive: true,
-			}
-		);
-	} )();
-
-	/* Mehrere Columns in einer Group haben ein Bild am Anfang */
-	document.querySelectorAll( '.wp-block-columns' ).forEach( ( columns ) => {
-		const allColumns = columns.querySelectorAll(
-			':scope > .wp-block-column'
-		);
-
-		const allStartWithImage = Array.from( allColumns ).every( ( col ) => {
-			const firstChild = col.firstElementChild;
-			return (
-				firstChild && firstChild.classList.contains( 'wp-block-image' )
-			);
-		} );
-
-		if ( allColumns.length > 1 && allStartWithImage ) {
-			columns.classList.add( 'all-columns-start-with-image' );
+		if ( hadClass ) {
+			body.classList.add( BODY_CLASS );
 		}
-	} );
+		rightBar.classList.remove( MEASURE_CLASS );
 
-	/* Eine von 2 columns enthält nur headlines */
+		return overflow;
+	}
 
-	document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
-		const cols = group.querySelectorAll(
-			':scope > .wp-block-columns > .wp-block-column'
-		);
-		if ( cols.length !== 2 ) {
+	let lastState = null;
+	let pending = false;
+
+	function scheduleUpdate() {
+		if ( pending ) {
 			return;
 		}
-
-		const headlineOnly = ( col ) => {
-			return Array.from( col.children ).every( ( el ) =>
-				/^H[1-6]$/.test( el.tagName )
-			);
-		};
-
-		if ( headlineOnly( cols[ 0 ] ) || headlineOnly( cols[ 1 ] ) ) {
-			group.classList.add( 'two-cols-headline-only' );
-		}
-	} );
-
-	/**
-	 * Menu-Collapse
-	 */
-
-	( () => {
-		const BODY_CLASS = 'hamburger-menu';
-		const MEASURE_CLASS = 'js-measuring';
-		const RIGHT_BAR_SELECTOR = '.right-bar';
-		const CONTENT_SELECTOR = '.right-bar__content';
-
-		const qs = ( sel ) => document.querySelector( sel );
-
-		const hasOverflow = ( el ) =>
-			el.scrollWidth > el.clientWidth ||
-			el.scrollHeight > el.clientHeight;
-
-		function computeOverflow() {
-			const rightBar = qs( RIGHT_BAR_SELECTOR );
-			const content = rightBar?.querySelector( CONTENT_SELECTOR );
-			if ( ! rightBar || ! content ) {
-				return false;
+		pending = true;
+		requestAnimationFrame( () => {
+			pending = false;
+			const overflow = computeOverflow();
+			if ( overflow !== lastState ) {
+				lastState = overflow;
+				document.body.classList.toggle( BODY_CLASS, overflow );
 			}
+		} );
+	}
 
-			rightBar.classList.add( MEASURE_CLASS );
+	scheduleUpdate();
 
-			const body = document.body;
-			const hadClass = body.classList.contains( BODY_CLASS );
-			if ( hadClass ) {
-				body.classList.remove( BODY_CLASS );
-			}
+	document.addEventListener( 'DOMContentLoaded', scheduleUpdate );
+	window.addEventListener( 'load', scheduleUpdate, { passive: true } );
+	window.addEventListener( 'resize', scheduleUpdate, { passive: true } );
 
-			const overflow = hasOverflow( content );
-
-			if ( hadClass ) {
-				body.classList.add( BODY_CLASS );
-			}
-			rightBar.classList.remove( MEASURE_CLASS );
-
-			return overflow;
-		}
-
-		let lastState = null;
-		let pending = false;
-
-		function scheduleUpdate() {
-			if ( pending ) {
-				return;
-			}
-			pending = true;
-			requestAnimationFrame( () => {
-				pending = false;
-				const overflow = computeOverflow();
-				if ( overflow !== lastState ) {
-					lastState = overflow;
-					document.body.classList.toggle( BODY_CLASS, overflow );
-				}
-			} );
-		}
-
-		scheduleUpdate();
-
-		document.addEventListener( 'DOMContentLoaded', scheduleUpdate );
-		window.addEventListener( 'load', scheduleUpdate, { passive: true } );
-		window.addEventListener( 'resize', scheduleUpdate, { passive: true } );
-
-		const rightBar = qs( RIGHT_BAR_SELECTOR );
-		if ( rightBar ) {
-			new MutationObserver( scheduleUpdate ).observe( rightBar, {
-				childList: true,
-				subtree: true,
-			} );
-		}
-	} )();
-} );
+	const rightBar = qs( RIGHT_BAR_SELECTOR );
+	if ( rightBar ) {
+		new MutationObserver( scheduleUpdate ).observe( rightBar, {
+			childList: true,
+			subtree: true,
+		} );
+	}
+} )();
 
 document.addEventListener( 'DOMContentLoaded', () => {
 	const brandLeft = document.querySelector( '.brand-left' );

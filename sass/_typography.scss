@@ -11,7 +11,9 @@ h6,
 .h5,
 .h6 {
 
-    word-break: break-word;
+    hyphens: none;
+    overflow-wrap: normal;
+    word-break: normal;
 
     &.textbalken {
         margin-bottom: 0;
@@ -283,7 +285,7 @@ h1:has(+ h4) {
 }
 
 .right-bar .sub-menu a {
-    font-weight: 560;
+    font-weight: 500;
 }
 
 .colorscheme-light .right-bar .current_page_item {
