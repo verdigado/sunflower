@@ -1,11 +1,7 @@
-/**
- * Entfernt die 'preload'‑Klasse **nach** dem ersten Frame
- * und blendet später erscheinende Elemente via IntersectionObserver ein.
- */
 ( () => {
 	'use strict';
 
-	const TAGS = [
+	const SELECTORS = [
 		'header',
 		'main',
 		'section',
@@ -36,47 +32,74 @@
 		'h6',
 	];
 
-	/* 1. Fade‑in für alles, was bereits im Viewport ist ------------- */
 	requestAnimationFrame( () =>
-		// Frame 1: Layout mit opacity 0
 		requestAnimationFrame( () =>
-			//Frame 2: jetzt sichtbar setzen
 			document.documentElement.classList.remove( 'preload' )
 		)
 	);
 
-	/* 2. IntersectionObserver für nachfolgende Elemente ------------- */
 	if ( ! ( 'IntersectionObserver' in window ) ) {
 		return;
 	}
 
 	const io = new IntersectionObserver(
-		( entries, obs ) => {
-			entries.forEach( ( e ) => {
-				if ( e.isIntersecting ) {
-					/* Opacity‑Regel von html.preload ist weg; jetzt Übergang anwenden */
-					e.target.style.opacity = '1';
-					obs.unobserve( e.target );
+		( entries ) => {
+			entries.forEach( ( entry ) => {
+				if ( entry.isIntersecting ) {
+					entry.target.style.opacity = '1';
+					io.unobserve( entry.target );
 				}
 			} );
 		},
 		{ rootMargin: '0px 0px -10% 0px' }
 	);
 
-	/* 3. Alle relevanten Elemente anmelden -------------------------- */
-	TAGS.forEach( ( tag ) =>
-		document.querySelectorAll( tag ).forEach( ( el ) => {
-			if ( el.getBoundingClientRect().top > window.innerHeight ) {
-				el.style.opacity = '0';
-				io.observe( el );
-			}
-		} )
+	const observeIfBelowFold = ( el ) => {
+		if ( el.getBoundingClientRect().top > window.innerHeight ) {
+			el.style.opacity = '0';
+			io.observe( el );
+		}
+	};
+
+	SELECTORS.forEach( ( sel ) =>
+		document.querySelectorAll( sel ).forEach( observeIfBelowFold )
 	);
 
-	/* 4. Aufräumen, wenn Tab inaktiv -------------------------------- */
 	document.addEventListener( 'visibilitychange', () => {
 		if ( document.hidden ) {
-			io.disconnect();
+			io.disconnect(); // aufräumen
+		} else {
+			/* verbliebene unsichtbare Elemente erneut beobachten */
+			SELECTORS.forEach( ( sel ) =>
+				document.querySelectorAll( sel ).forEach( ( el ) => {
+					if ( el.style.opacity === '0' ) {
+						io.observe( el );
+					}
+				} )
+			);
 		}
 	} );
+
+	const mo = new MutationObserver( ( muts ) => {
+		muts.forEach( ( m ) => {
+			m.addedNodes.forEach( ( node ) => {
+				if ( ! ( node instanceof Element ) ) {
+					return;
+				}
+
+				if ( SELECTORS.some( ( sel ) => node.matches( sel ) ) ) {
+					observeIfBelowFold( node );
+				}
+
+				if ( typeof node.querySelectorAll === 'function' ) {
+					SELECTORS.forEach( ( sel ) => {
+						node.querySelectorAll( sel ).forEach(
+							observeIfBelowFold
+						);
+					} );
+				}
+			} );
+		} );
+	} );
+	mo.observe( document.body, { childList: true, subtree: true } );
 } )();
