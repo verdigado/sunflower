@@ -37,6 +37,7 @@ body .entry-content > :first-child.wp-block-cover {
     margin-top: var(--grid-margin);
     margin-bottom: var(--half-block-spacing);
     border-radius: var(--border-radius-large);
+    padding: 0 !important;
     overflow: hidden;
     width: 100% !important;
     left: var(--grid-margin);
@@ -71,7 +72,7 @@ body .entry-content > :first-child.wp-block-cover {
         left: 0;
         bottom: 0;
         width: fit-content;
-        padding: 5px 50px 0 25px;
+        padding: 25px 50px 0 25px !important;
         max-width: 70%;
 
         @include media-breakpoint-down(xl) {
@@ -87,7 +88,7 @@ body .entry-content > :first-child.wp-block-cover {
             max-width: 100%;
             width: 100%;
             border-radius: 0;
-            padding: 12px 0 0 0;
+            padding: 12px 0 0 0 !important;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -107,6 +108,7 @@ body .entry-content > :first-child.wp-block-cover {
                 margin-top: 0 !important;
             }
         }
+
 
         h1 {
             color: map.get($custom-colors, "tanne") !important;

@@ -11,7 +11,7 @@
         flex-wrap: nowrap !important;
 
         .wp-block-column {
-            max-width: calc(100vw - calc(var(--grid-margin) * 2));
+            max-width: calc(100vw - calc(var(--grid-margin) * 4));
 
             .wp-block-button {
                 width: initial !important;
@@ -24,7 +24,6 @@
     .column-slider > .wp-block-column {
         flex: 0 0 100%;
         max-width: calc(100vw - var(--doublepadding));
-        margin-right: 20px;
         box-sizing: border-box;
     }
 

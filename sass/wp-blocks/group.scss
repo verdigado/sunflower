@@ -9,7 +9,7 @@
     max-width: 1400px;
 
     @media (max-width: 1200px) {
-        width: calc(100% - var(--double-grid-margin));
+        width: calc(100% - calc(var(--double-grid-margin) + calc(var(--gap-large) * 2))) !important;
     }
 
     .all-columns-start-with-image {
@@ -57,6 +57,10 @@
 :where(.wp-block-columns.is-layout-flex) {
     column-gap: 20px !important;
     row-gap: var(--double-grid-margin);
+
+    @include media-breakpoint-down(md) {
+        column-gap: calc(2 * var(--grid-margin)) !important;
+    }
 }
 
 .d-flex {
@@ -79,11 +83,10 @@
 .wp-block-group:has(.all-columns-start-with-image) {
     column-gap: 20px !important;
 
-    @include media-breakpoint-down(xl) {
-        width: 100% !important;
-    }
-
     @include media-breakpoint-down(md) {
+
+        width: 100% !important;
+
 
         .wp-block-columns {
             row-gap: var(--half-block-spacing) !important;
@@ -100,7 +103,6 @@
 
     .wp-block-columns.all-columns-start-with-image {
 
-        width: 100%;
 
         .wp-block-column .wp-block-image:nth-of-type(1) {
             border-radius: 20px 20px 0 0;
@@ -128,17 +130,22 @@
     padding-top: var(--half-block-spacing);
     padding-bottom: var(--half-block-spacing);
 
-    @media (max-width: 1200px) {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: var(--grid-margin) !important;
-        padding-right: var(--grid-margin) !important;
-    }
-
     @include media-breakpoint-down(md) {
         display: flex;
         flex-direction: column !important;
         row-gap: var(--double-grid-margin);
+    }
+
+    @media (max-width: 1200px) {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: var(--double-grid-margin) !important;
+        padding-right: calc(var(--gap-large) * 2) !important;
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     &__media {
