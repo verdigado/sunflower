@@ -612,10 +612,11 @@ $text-dark: #222;
                 left: -20px;
             }
 
-            @include media-breakpoint-down(lg) {
-                top: 5.7px;
+            @media (max-width: 1200px) {
+                top: 5.6px;
             }
         }
+
 
         &:nth-of-type(2) {
             right: 20px;
@@ -625,12 +626,9 @@ $text-dark: #222;
                 top: 78.5px
             }
 
-            @include media-breakpoint-down(lg) {
-                right: 12px;
-            }
-
             @media (max-width: 1200px) {
                 top: 63.5px;
+                right: 12px;
             }
         }
     }

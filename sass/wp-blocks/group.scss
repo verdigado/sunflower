@@ -8,6 +8,10 @@
     margin-right: auto;
     max-width: 1400px;
 
+    @media (max-width: 1200px) {
+        width: calc(100% - var(--double-grid-margin));
+    }
+
     .all-columns-start-with-image {
 
         h2.even,
@@ -21,7 +25,7 @@
     }
 
     .wp-block-button {
-        margin-top: var(--grid-margin);
+        margin-top: 0;
         width: 100%;
         max-width: 100%;
 
@@ -36,6 +40,12 @@
 
     .wp-block-columns {
         margin: 0 auto;
+
+        @include media-breakpoint-down(md) {
+            display: flex;
+            flex-direction: column !important;
+            row-gap: var(--double-grid-margin);
+        }
     }
 
     &__inner-container {
@@ -45,7 +55,8 @@
 }
 
 :where(.wp-block-columns.is-layout-flex) {
-    gap: var(--grid-margin) !important;
+    column-gap: 20px !important;
+    row-gap: var(--double-grid-margin);
 }
 
 .d-flex {
@@ -66,9 +77,17 @@
 }
 
 .wp-block-group:has(.all-columns-start-with-image) {
+    column-gap: 20px !important;
 
     @include media-breakpoint-down(xl) {
         width: 100% !important;
+    }
+
+    @include media-breakpoint-down(md) {
+
+        .wp-block-columns {
+            row-gap: var(--half-block-spacing) !important;
+        }
     }
 
     h2 {
@@ -96,6 +115,48 @@
 
         p {
             font-weight: 300;
+        }
+    }
+}
+
+
+.wp-block-media-text {
+    width: calc(((100% - (11 * var(--grid-margin))) / 12) * 10 + (9 * var(--grid-margin)));
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: var(--half-block-spacing);
+    padding-bottom: var(--half-block-spacing);
+
+    @media (max-width: 1200px) {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: var(--grid-margin) !important;
+        padding-right: var(--grid-margin) !important;
+    }
+
+    @include media-breakpoint-down(md) {
+        display: flex;
+        flex-direction: column !important;
+        row-gap: var(--double-grid-margin);
+    }
+
+    &__media {
+        border-radius: var(--border-radius-large);
+        overflow: hidden;
+    }
+
+    &.has-media-on-the-right {
+
+        .wp-block-media-text__content {
+            padding: 0 var(--double-grid-margin) 0 0 !important;
+        }
+    }
+
+    &.has-media-on-the-left {
+
+        .wp-block-media-text__content {
+            padding: 0 0 0 var(--double-grid-margin) !important;
         }
     }
 }

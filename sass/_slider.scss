@@ -1,0 +1,79 @@
+@use "sass:map";
+
+@media (max-width: 950px) {
+
+    /* Track */
+    .wp-block-columns.all-columns-start-with-image.more-than-two-columns.column-slider {
+        overflow: visible;
+        margin-left: 0;
+        display: flex;           /* Standard kommt von Gutenberg, hier nur Sicherung */
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+
+        .wp-block-column {
+            max-width: calc(100vw - calc(var(--grid-margin) * 2));
+
+            .wp-block-button {
+                width: initial !important;
+            }
+        }
+
+    }
+
+    /* Slides */
+    .column-slider > .wp-block-column {
+        flex: 0 0 100%;
+        max-width: calc(100vw - var(--doublepadding));
+        margin-right: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Navigation */
+    .navbuttons {
+        position: relative;
+        right: var(--padding);
+        bottom: -50px;
+        width: 100%;
+        margin-bottom: var(--block-spacing);
+    }
+
+    .slider__button {
+        position: absolute;
+        width: 46px;
+        height: 46px;
+        padding: 0;
+        cursor: pointer;
+        z-index: 10;
+        background-color: map.get($custom-colors, "weiss") !important;
+        border: 2px solid $primary !important;
+        border-radius: 23px;
+
+        div svg {
+            color: map.get($custom-colors, "klee");
+        }
+
+        &:hover {
+            background-color: $secondary !important;
+            border: 2px solid $secondary !important;
+
+            div svg {
+                color: map.get($custom-colors, "weiss");
+            }
+        }
+    }
+
+    .slider__button .button__direction {
+        display: block;
+        cursor: pointer;
+
+    }
+
+    .slider__button--prev {
+        left: 0;
+    }
+
+    .slider__button--next {
+        right: 0;
+        transform: rotate(180deg);
+    }
+}

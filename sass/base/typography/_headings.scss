@@ -176,14 +176,19 @@ h2:has(mark) {
     }
 }
 
+.has-large-font-size {
+    font-size: 60px !important;
+    letter-spacing: 0 !important;
+}
+
 
 .colorscheme-light h2 {
 
     &.odd {
-        color: $primary;
+        color: $secondary;
     }
 
     &.even {
-        color: $secondary;
+        color: $primary;
     }
 }

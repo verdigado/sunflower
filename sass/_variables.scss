@@ -61,7 +61,7 @@ $transition-delay:    0.3s !default;
 $grid-breakpoints: (
     xs: 0,
     sm: 470px,
-    md: 950px,
+    md: 950px,flex
     lg: 1200px,
     xl: 1500px,
     xxl: 2100px
@@ -79,6 +79,7 @@ $grid-breakpoints: (
     --block-spacing: calc(var(--half-block-spacing) * 2);
 
     --grid-margin: 20px;
+    --half-grid-margin: calc(var(--grid-margin) / 2);
     --double-grid-margin: calc(var(--grid-margin) * 2);
 
     --gap-large: 23px;
