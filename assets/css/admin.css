@@ -67,3 +67,36 @@ p a img {
 	line-height: 1.5;
 	border-radius: 15px;
 }
+
+/* Media Creator field */
+.compat-attachment-fields textarea.widefat {
+	min-height: 80px;
+	padding: 8px;
+}
+
+.compat-attachment-fields .help {
+	font-size: 12px;
+	color: #666;
+	margin-top: 4px;
+}
+
+.compat-attachment-fields tr {
+
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.compat-attachment-fields .form-required label span.required {
+	color: #d63638;
+	margin-left: 3px;
+}
+
+.compat-item label {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.compat-item .label span {
+	width: unset;
+}
