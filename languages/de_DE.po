@@ -309,7 +309,7 @@ msgstr "Urheber*in"
 
 #: functions/media.php:28
 msgid "Creator / Source of this media (may contain links)"
-msgstr "Urheber*in / Quelle dieses Mediums (kann LInks enthalten)"
+msgstr "Urheber*in / Quelle dieses Mediums (kann Links enthalten)"
 
 #: functions/media.php:96 functions/media.php:126
 msgid "The creator field is mandatory and must not be left empty."
