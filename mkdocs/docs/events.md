@@ -39,7 +39,7 @@ Alternativ kannst Du folgendes probieren:
 
 ## Termine über iCal importieren
 
-*Sunflower* kann Termine aus mehreren externen Kalendern per iCal-URL (zB Grüne Kalender aus der Wolke, siehe unten) importieren.
+*Sunflower* kann Termine aus mehreren externen Kalendern per iCal-URL (zB Grüne Kalender aus der Wolke, siehe unten) importieren. Du kannst jeden Kalender importieren, der eine öffentliche URL im iCal-Format anbietet.
 
 Bitte trage diese iCal-URLs in den Sunflower-Einstellungen unter `Sunflower > Termine > URLs der iCal-Kalender` ein. Die Termine werden regelmäßig automatisch synchronisiert/aktualisiert. Solche Termine solltest Du nicht mehr im WordPress-Backend bearbeiten, weil Änderungen wieder überschrieben würden.
 
@@ -65,17 +65,6 @@ In der grünen Wolke gibt es auch einen Service für grüne Mitglieder und Glied
 5. Füge diesen Link in den Sunflower-Einstellungen unter `Sunflower > Termine > URLs der iCal-Kalender` ein.
 
 Eine bebilderte Anleitung findest du auch [hier](https://gcms-intern.de/anleitungen/single/termine-anlegen#c892817).
-
-!!! Note "Nachhaltige Kalenderverwaltung"
-	Damit der Kalender langfristig zuverlässig genutzt werden kann, sollte ihn eine Person verwalten, die Deiner Gliederung dauerhaft erhalten bleibt, wie zum Beispiel Dein\*e Kreisgeschäftsfüher\*in. 
-
-Wenn Du möchtest, dass die anderen Mitglieder Deiner Gliederung den Kalender in der Wolke sehen können, kannst Du eine zusätzliche Einstellung vornehmen. Dafür benötigst Du die Rolle `Wolke-Redakteur\*in` für Deine Gliederung in der Mitgliederverwaltung Sherpa. Falls Du diese nicht hast, wende Dich an eine Person mit Sherpa-Zugang innerhalb Deiner Gliederung.
-
-1. Öffne das Bearbeitungsmenü des Wolke-Kalenders und gehe zur Zeile *Mit Benutzern oder Gruppen teilen*.
-2. Gib dort den Gliederungsschlüssel ein. Dieser steht beispielsweise vor deinem Gliederungsordner in der [Wolke](https://wolke.netzbegruenung.de), zum Beispiel:
-	- `101009_Esslingen` (Kreisverband)
-  	- `10100903_Esslingen` (Ortsverband)
-3. Wichtig: Das Häkchen bei "kann bearbeiten" sollte nicht gesetzt werden.
 
 ### Import-Häufigkeit festlegen
 Standardmäßig holt sich *Sunflower* alle drei Stunden neue Daten vom externen Kalender. Um diese Zeit zu ändern, kannst Du in der wp-config.php folgendes eintragen:
