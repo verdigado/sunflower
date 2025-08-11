@@ -16,7 +16,12 @@ function sunflower_add_creator_field_to_media( $form_fields, $post ) {
 
 	$creator = get_post_meta( $post->ID, '_media_creator', true );
 
-	$sunflower_media_creator_required = sunflower_get_setting( 'sunflower_media_creator' );
+	$sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
+
+	$sunflower_media_creator_required = '';
+	if ( 'required' === $sunflower_media_creator_settings || 'strict' === $sunflower_media_creator_settings ) {
+		$sunflower_media_creator_required = true;
+	}
 
 	// Define new field.
 	$form_fields['media_creator'] = array(
@@ -33,6 +38,25 @@ function sunflower_add_creator_field_to_media( $form_fields, $post ) {
 add_filter( 'attachment_fields_to_edit', 'sunflower_add_creator_field_to_media', 10, 2 );
 
 /**
+ * Add the media_creator field to t he REST api
+ */
+function sunflower_rest_api_media_creator() {
+	register_post_meta(
+		'attachment',
+		'_media_creator',
+		array(
+			'show_in_rest'  => true,
+			'single'        => true,
+			'type'          => 'string',
+			'auth_callback' => function () {
+				return current_user_can( 'edit_posts' );
+			},
+		)
+	);
+}
+add_action( 'init', 'sunflower_rest_api_media_creator' );
+
+/**
  * Check field for requirements and save.
  *
  * @param array $post       An array of post data.
@@ -41,8 +65,13 @@ add_filter( 'attachment_fields_to_edit', 'sunflower_add_creator_field_to_media',
 function sunflower_save_creator_field_to_media( $post, $attachment ) {
 
 	if ( isset( $attachment['media_creator'] ) ) {
-		$sunflower_media_creator_required = sunflower_get_setting( 'sunflower_media_creator' );
-		$creator                          = ( $attachment['media_creator'] );
+		$sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
+
+		$sunflower_media_creator_required = '';
+		if ( 'required' === $sunflower_media_creator_settings || 'strict' === $sunflower_media_creator_settings ) {
+			$sunflower_media_creator_required = true;
+		}
+		$creator = ( $attachment['media_creator'] );
 
 		// If creator field is empty and required --> do not save and show Error.
 		if ( $sunflower_media_creator_required && empty( $creator ) ) {
@@ -118,11 +147,16 @@ function sunflower_enqueue_media_script( $hook ) {
 			true
 		);
 
+		$sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
+
 		wp_localize_script(
 			'sunflower-media-js',
 			'sunflower',
 			array(
-				'texts' => array(
+				'options' => array(
+					'mediaCreator' => $sunflower_media_creator_settings,
+				),
+				'texts'   => array(
 					'creatorFieldEmpty' => esc_html__( 'The creator field is mandatory and must not be left empty.', 'sunflower' ),
 					'emptyAltText'      => esc_html__( 'No alternative text provided. Please consider adding a description for better accessibility.', 'sunflower' ),
 				),
@@ -141,11 +175,20 @@ add_action( 'admin_enqueue_scripts', 'sunflower_enqueue_media_script' );
  */
 function sunflower_add_creator_to_image_block( $block_content, $block ) {
 
-	if ( isset( $block['blockName'] ) && 'core/image' === $block['blockName'] ) {
-		// Get the attachement ID.
+	if ( isset( $block['blockName'] ) && ( 'core/image' === $block['blockName'] || 'core/media-text' === $block['blockName'] ) ) {
+
+		$sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
+
+		$attachment_id = 0;
 		if ( isset( $block['attrs']['id'] ) ) {
 			$attachment_id = $block['attrs']['id'];
-			$creator       = get_post_meta( $attachment_id, '_media_creator', true );
+		} elseif ( isset( $block['attrs']['mediaId'] ) ) {
+			$attachment_id = $block['attrs']['mediaId'];
+		}
+
+		// Get the attachement ID.
+		if ( $attachment_id ) {
+			$creator = get_post_meta( $attachment_id, '_media_creator', true );
 
 			if ( ! empty( $creator ) ) {
 				// Add the creator field as additional figcaption part.
@@ -164,6 +207,21 @@ function sunflower_add_creator_to_image_block( $block_content, $block ) {
 						$block_content
 					);
 				}
+			} elseif ( 'strict' === $sunflower_media_creator_settings ) {
+				// Find img tag and extend it.
+				$block_content = preg_replace(
+					'/(<img[^>]*class=")([^"]*)"/',
+					'$1$2 no-creator"',
+					$block_content
+				);
+
+				// Add class attribute if none is available.
+				$block_content = preg_replace(
+					'/(<img(?![^>]*class=))/',
+					'<img class="no-creator" ',
+					$block_content
+				);
+
 			}
 		}
 	}

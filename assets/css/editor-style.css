@@ -543,3 +543,16 @@ a.event-card article .h2 {
 .text-uppercase {
     text-transform: uppercase;
 }
+
+figure.no-creator {
+	position: relative;
+}
+figure.no-creator div {
+	filter: blur(11px);
+	transition: filter 0.3s ease;
+}
+
+/* Hover-Effekt nur im Gutenberg Editor */
+.editor-styles-wrapper .no-creator:hover div {
+    filter: blur(4px);
+}

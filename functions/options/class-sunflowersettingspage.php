@@ -216,13 +216,9 @@ class SunflowerSettingsPage {
 		add_settings_field(
 			'sunflower_media_creator',
 			__( 'Media creator field', 'sunflower' ),
-			$this->sunflower_checkbox_callback( ... ),
+			$this->sunflower_media_creator( ... ),
 			'sunflower-setting-admin',
 			'sunflower_layout',
-			array(
-				'field' => 'sunflower_media_creator',
-				'label' => __( 'required', 'sunflower' ),
-			)
 		);
 	}
 
@@ -331,6 +327,30 @@ class SunflowerSettingsPage {
 		);
 		foreach ( $options as $option ) {
 			$selected = ( isset( $this->options['sunflower_categories_archive'] ) && $this->options['sunflower_categories_archive'] === $option[0] ) ? 'selected' : '';
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_attr( $option[1] )
+			);
+		}
+
+		echo '</select>';
+	}
+
+	/**
+	 * Usage of the media creator field variantes
+	 */
+	public function sunflower_media_creator(): void {
+		echo '<select id="sunflower_media_creator" name="sunflower_options[sunflower_media_creator]">';
+
+		$options = array(
+			array( 'optional', __( 'optional', 'sunflower' ) ),
+			array( 'required', __( 'required', 'sunflower' ) ),
+			array( 'strict', __( 'strict (The image is blurred if no creator field is filled out.)', 'sunflower' ) ),
+		);
+		foreach ( $options as $option ) {
+			$selected = ( isset( $this->options['sunflower_media_creator'] ) && $this->options['sunflower_media_creator'] === $option[0] ) ? 'selected' : '';
 			printf(
 				'<option value="%1$s" %2$s>%3$s</option>',
 				esc_attr( $option[0] ),

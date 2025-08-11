@@ -52,3 +52,108 @@ jQuery( function ( $ ) {
 		}
 	} );
 } );
+
+( function ( wp ) {
+	const { addFilter } = wp.hooks;
+	const { createHigherOrderComponent } = wp.compose;
+	const { Fragment, useState, useEffect } = wp.element;
+	const { apiFetch } = wp;
+
+	// Prüft, ob das Medienobjekt ein Creator-Feld hat
+	const checkCreator = ( id, setHasCreator ) => {
+		if ( ! id ) {
+			setHasCreator( true );
+			return;
+		}
+
+		apiFetch( { path: `/wp/v2/media/${ id }` } )
+			.then( ( media ) => {
+				const has =
+					media?.meta?._media_creator &&
+					media.meta._media_creator.trim() !== '';
+				setHasCreator( has );
+			} )
+			.catch( () => {
+				setHasCreator( true );
+			} );
+	};
+
+	addFilter(
+		'editor.BlockEdit',
+		'sunflower/no-creator-warning',
+		createHigherOrderComponent( ( BlockEdit ) => {
+			return ( props ) => {
+				// supported Blocks
+				const supportedBlocks = [ 'core/image', 'core/media-text' ];
+				if ( ! supportedBlocks.includes( props.name ) ) {
+					return wp.element.createElement( BlockEdit, props );
+				}
+
+				// ID depends on block type
+				const mediaId =
+					props.name === 'core/image'
+						? props.attributes.id
+						: props.attributes.mediaId;
+
+				const [ hasCreator, setHasCreator ] = useState( null );
+
+				useEffect( () => {
+					checkCreator( mediaId, setHasCreator );
+				}, [ mediaId ] );
+
+				if ( hasCreator === null ) {
+					return wp.element.createElement( BlockEdit, props );
+				}
+
+				if (
+					! hasCreator &&
+					sunflower.options.mediaCreator === 'strict'
+				) {
+					props.className = ( props.className || '' ) + ' no-creator';
+				}
+
+				return wp.element.createElement(
+					Fragment,
+					null,
+					wp.element.createElement(
+						'div',
+						{
+							style: {
+								position: 'relative',
+								display: 'inline-block',
+							},
+						},
+						wp.element.createElement( BlockEdit, props ),
+						! hasCreator &&
+							( sunflower.options.mediaCreator === 'strict' ||
+								sunflower.options.mediaCreator ===
+									'required' ) &&
+							wp.element.createElement(
+								'span',
+								{
+									style: {
+										position: 'absolute',
+										top: '50%',
+										left: '50%',
+										transform: 'translate(-50%, -50%)',
+										background: '#f0c419',
+										color: '#000',
+										padding: '10px',
+										borderRadius: '5px',
+										fontSize: '20px',
+										fontWeight: 'bold',
+										opacity: 1,
+										transition: 'opacity 0.3s ease',
+										pointerEvents: 'none',
+										zIndex: 10,
+									},
+									className: 'sunflower-creator-warning',
+								},
+								sunflower.texts.creatorFieldEmpty
+							)
+					)
+				);
+			};
+		}, 'withNoCreatorWarning' )
+	);
+} )( window.wp );
