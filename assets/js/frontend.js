@@ -50,8 +50,6 @@ jQuery( function () {
 		jQuery( 'html' ).removeClass( 'theme--default' );
 	}
 
-	adjustMetaboxHeight();
-
 	addRssReadMore();
 
 	// mailto unscrambler
@@ -173,24 +171,6 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function ( e ) {
 
 	return false;
 } );
-
-function adjustMetaboxHeight() {
-	if ( ! jQuery( '.metabox' ).length ) {
-		return;
-	}
-
-	const tooBig =
-		jQuery( '.metabox' ).outerHeight() -
-		jQuery( '.entry-header' ).outerHeight();
-
-	if ( tooBig <= 0 ) {
-		return;
-	}
-
-	jQuery( '.entry-content' ).prepend( '<div class="metabox-spacer"></div>' );
-
-	jQuery( '.metabox-spacer' ).height( tooBig + 'px' );
-}
 
 /* add read more link to rss block items */
 function addRssReadMore() {

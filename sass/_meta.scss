@@ -41,17 +41,6 @@
     height: fit-content;
     margin-bottom: 20px;
 
-    &-spacer {
-        display: none;
-
-        @include media-breakpoint-up(md) {
-            display: block;
-            float: right;
-            width: 100px;
-            height: 150px;
-        }
-    }
-
     .date {
         font-size: 150%;
         font-weight: 700;
