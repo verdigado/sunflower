@@ -12,6 +12,21 @@
         width: calc(100% - calc(var(--double-grid-margin) + calc(var(--gap-large) * 2))) !important;
     }
 
+    @include media-breakpoint-down(md) {
+        width: 100% !important;
+    }
+
+
+    &:has(.all-columns-start-with-image) {
+
+        @include media-breakpoint-down(xl) {
+            max-width: 100% !important;
+            padding-left: 4.5px !important;
+            padding-right: var(--half-grid-margin) !important;
+        }
+    }
+
+
     .all-columns-start-with-image {
 
         h2.even,
@@ -21,6 +36,14 @@
         h5,
         h6 {
             color: $primary;
+        }
+
+        @include media-breakpoint-down(xl) {
+
+            .wp-block-column {
+                flex-basis: 100% !important;
+                flex-grow: unset;
+            }
         }
     }
 
@@ -139,8 +162,13 @@
     @media (max-width: 1200px) {
         width: 100% !important;
         max-width: 100% !important;
-        padding-left: var(--double-grid-margin) !important;
+        padding-left: calc(var(--gap-large) * 2) !important;
         padding-right: calc(var(--gap-large) * 2) !important;
+    }
+
+    @include media-breakpoint-down(md) {
+        padding-left: var(--gap-large) !important;
+        padding-right: var(--gap-large) !important;
     }
 
     @include media-breakpoint-down(sm) {

@@ -515,34 +515,16 @@ document.addEventListener( 'DOMContentLoaded', () => {
 } );
 
 /**
- * mark before & after bekommen die selbe linienfarbe wie mark background
+ * mark before & after bekommen die selbe linienfarbe wie mark background / border
  */
 
-function applyMarkBorders( root = document ) {
-	root.querySelectorAll( 'h1 mark' ).forEach( ( mark ) => {
-		const bg = getComputedStyle( mark ).backgroundColor;
-		mark.style.setProperty( '--bg', bg );
-	} );
-}
-
 document.addEventListener( 'DOMContentLoaded', () => {
-	applyMarkBorders();
-
-	const observer = new MutationObserver( ( muts ) => {
-		muts.forEach( ( m ) => {
-			m.addedNodes.forEach( ( node ) => {
-				if ( node.nodeType !== 1 ) {
-					return;
-				} // nur Elemente
-				if ( node.matches?.( 'h1 mark' ) ) {
-					applyMarkBorders( node.parentNode );
-				} else {
-					applyMarkBorders( node );
-				} // falls <mark> tiefer liegt
-			} );
+	document
+		.querySelectorAll( 'h1 mark, h2 mark, h3 mark' )
+		.forEach( ( mark ) => {
+			const bg = getComputedStyle( mark ).backgroundColor;
+			mark.style.setProperty( '--bg', bg );
 		} );
-	} );
-	observer.observe( document.body, { childList: true, subtree: true } );
 } );
 
 /**
@@ -581,9 +563,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
 ( () => {
 	'use strict';
 
-	const BREAKPOINT = 950; // px
-	const DRAG_THRESHOLD = 35; // px
-	const V_SCROLL_THRESHOLD = 5; // px
+	const breakpoint = 950; // px
+	const dragThreshold = 35; // px
+	const verticalScrollThreshold = 5; // px
 
 	const instances = [];
 
@@ -602,198 +584,295 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	};
 
 	function bootstrap() {
-		const vw = window.innerWidth;
+		const viewportWidth = window.innerWidth;
 
 		document
 			.querySelectorAll(
 				'.wp-block-columns.all-columns-start-with-image.more-than-two-columns'
 			)
 			.forEach( ( colBlock ) => {
-				const active =
+				const isActive =
 					colBlock.classList.contains( 'js-column-slider' );
 
-				if ( vw <= BREAKPOINT && ! active ) {
+				if ( viewportWidth <= breakpoint && ! isActive ) {
 					initSlider( colBlock );
-				} else if ( vw > BREAKPOINT && active ) {
+				} else if ( viewportWidth > breakpoint && isActive ) {
 					destroySlider( colBlock );
+				} else if ( isActive ) {
+					// Bei Resize innerhalb des Breakpoints Breite neu berechnen
+					const inst = instances.find(
+						( ins ) => ins.track === colBlock
+					);
+					if ( inst ) {
+						inst.recalc();
+					}
 				}
 			} );
 	}
 
 	function initSlider( track ) {
 		track.classList.add( 'column-slider', 'js-column-slider' );
-		track.style.flexWrap = 'nowrap'; // Kein Zeilenumbruch
+		track.style.flexWrap = 'nowrap';
 		track.style.transition = 'transform .5s ease-in-out';
 
 		const nav = document.createElement( 'div' );
 		nav.className = 'navbuttons';
 		nav.innerHTML = `
-            <button class="slider__button slider__button--prev" aria-label="Vorherige Folie">
-                <div class="button__direction">
-                	<svg class="button--direction"  width="22" height="20" viewBox="0 0 22 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path d="M9.66585 19.7617L11.0408 18.4284L3.87418 11.2617L21.9575 11.2617L21.9575 9.38672L3.87419 9.38671L11.0825 2.17838L9.70752 0.886716L0.249183 10.3034L9.66585 19.7617Z"/>
+			<button class="slider__button slider__button--prev" aria-label="Vorherige Folie">
+				<div class="button__direction">
+					<svg class="button--direction" width="22" height="20" viewBox="0 0 22 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9.66585 19.7617L11.0408 18.4284L3.87418 11.2617L21.9575 11.2617L21.9575 9.38672L3.87419 9.38671L11.0825 2.17838L9.70752 0.886716L0.249183 10.3034L9.66585 19.7617Z"/>
 					</svg>
 				</div>
-            </button>
-            <button class="slider__button slider__button--next" aria-label="Nächste Folie">
-                   <div class="button__direction">
-                     <svg width="22" height="20" viewBox="0 0 22 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path d="M9.66585 19.7617L11.0408 18.4284L3.87418 11.2617L21.9575 11.2617L21.9575 9.38672L3.87419 9.38671L11.0825 2.17838L9.70752 0.886716L0.249183 10.3034L9.66585 19.7617Z"/>
+			</button>
+			<button class="slider__button slider__button--next" aria-label="Nächste Folie">
+				<div class="button__direction">
+					<svg width="22" height="20" viewBox="0 0 22 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9.66585 19.7617L11.0408 18.4284L3.87418 11.2617L21.9575 11.2617L21.9575 9.38672L3.87419 9.38671L11.0825 2.17838L9.70752 0.886716L0.249183 10.3034L9.66585 19.7617Z"/>
 					</svg>
-					</div>
-            </button>
-        `;
-
+				</div>
+			</button>
+		`;
 		track.parentNode.insertBefore( nav, track.nextSibling );
 
 		const slides = Array.from( track.children ).filter( ( el ) =>
 			el.classList.contains( 'wp-block-column' )
 		);
 
-		const st = {
+		const state = {
 			track,
 			slides,
 			nav,
 			prevBtn: nav.querySelector( '.slider__button--prev' ),
 			nextBtn: nav.querySelector( '.slider__button--next' ),
-			idx: 0,
+			index: 0,
 			total: slides.length,
-			slideW: 0,
+			slideWidth: 0,
 			gap: 0,
-			trackW: 0,
-			isDrag: false,
-			sx: 0,
-			sy: 0,
-			curTrans: 0,
-			prevTrans: 0,
-			rafID: 0,
+			isDragging: false,
+			startX: 0,
+			startY: 0,
+			currentTranslate: 0,
+			previousTranslate: 0,
+			rafId: 0,
 		};
 
-		/* ------- Größen berechnen ------- */
+		function step() {
+			return state.slideWidth + state.gap;
+		}
+
+		function computeGap() {
+			const trackStyle = getComputedStyle( state.track );
+			let g = parseFloat( trackStyle.columnGap );
+			if ( Number.isNaN( g ) ) {
+				const gapStr = trackStyle.gap || '';
+				const parts = gapStr.trim().split( /\s+/ );
+				const last = parts[ parts.length - 1 ];
+				const val = parseFloat( last );
+				g = Number.isNaN( val ) ? 0 : val;
+			}
+			if ( g > 0 ) {
+				return g;
+			}
+
+			// Fallback: Abstand messen (funktioniert auch mit margin-basiertem "Gap")
+			if ( state.slides.length > 1 ) {
+				const a = state.slides[ 0 ].getBoundingClientRect();
+				const b = state.slides[ 1 ].getBoundingClientRect();
+				return Math.max( 0, Math.round( b.left - a.right ) );
+			}
+			return 0;
+		}
+
+		function setByIndex( skipAnim = false ) {
+			const x = -( state.index * step() );
+			state.currentTranslate = x;
+			state.previousTranslate = x;
+			if ( skipAnim ) {
+				state.track.style.transition = 'none';
+			}
+			state.track.style.transform = `translateX(${ x }px)`;
+			if ( skipAnim ) {
+				requestAnimationFrame( () => {
+					state.track.style.transition = 'transform .5s ease-in-out';
+				} );
+			}
+		}
+
 		function recalc() {
-			const first = st.slides[ 0 ];
-			const slideStyle = getComputedStyle( first );
-			const trackStyle = getComputedStyle( st.track );
-			st.slideW = first.clientWidth;
-			const marginR = parseFloat( slideStyle.marginRight ) || 0;
-			const flexGap =
-				parseFloat( trackStyle.columnGap || trackStyle.gap ) || 0;
-			st.gap = marginR + flexGap; // beide Abstände addieren
-			st.trackW = ( st.slideW + st.gap ) * st.total;
-			st.track.style.width = `${ st.trackW }px`;
-			updatePos();
-		}
+			// Inhaltsbreite des Containers (clientWidth inkl. Padding -> Padding abziehen)
+			const style = getComputedStyle( state.track );
+			const padLeft = parseFloat( style.paddingLeft ) || 0;
+			const padRight = parseFloat( style.paddingRight ) || 0;
+			const contentWidth = Math.max(
+				0,
+				Math.round( state.track.clientWidth - padLeft - padRight )
+			);
 
-		/* ------- Position ------- */
-		const slideWGap = () => st.slideW + st.gap;
+			// Fixe Kartenbreite -> verhindert falsche Flex-Neuverteilung auf Touch-Geräten
+			state.slideWidth = contentWidth;
+			state.slides.forEach( ( el ) => {
+				el.style.flex = `0 0 ${ state.slideWidth }px`;
+				el.style.width = `${ state.slideWidth }px`;
+				el.style.minWidth = `${ state.slideWidth }px`;
+				el.style.maxWidth = `${ state.slideWidth }px`;
+			} );
 
-		function updatePos() {
-			const x = -( st.idx * slideWGap() );
-			st.track.style.transform = `translateX(${ x }px)`;
-			st.prevTrans = st.curTrans = x;
-		}
+			state.gap = computeGap();
 
-		function setByIndex() {
-			st.curTrans = -( st.idx * slideWGap() );
-			st.prevTrans = st.curTrans;
-			st.track.style.transform = `translateX(${ st.curTrans }px)`;
-		}
-
-		/* ------- Buttons ------- */
-		st.nextBtn.addEventListener( 'click', () => {
-			if ( st.idx < st.total - 1 ) {
-				st.idx += 1;
-				updatePos();
+			// Index einklammern und Position aktualisieren
+			const maxIndex = Math.max( 0, state.total - 1 );
+			if ( state.index > maxIndex ) {
+				state.index = maxIndex;
 			}
-		} );
 
-		st.prevBtn.addEventListener( 'click', () => {
-			if ( st.idx > 0 ) {
-				st.idx -= 1;
-				updatePos();
-			}
-		} );
+			setByIndex( true );
+		}
 
-		/* ------- Drag / Swipe Handlers ------- */
 		function onStart( x, y ) {
-			st.isDrag = true;
-			st.sx = x;
-			st.sy = y;
-			st.track.style.transition = 'none';
-			st.rafID = requestAnimationFrame( onAnim );
+			state.isDragging = true;
+			state.startX = x;
+			state.startY = y;
+			state.track.style.transition = 'none';
+			state.rafId = requestAnimationFrame( onAnim );
 			disableScroll();
 		}
 
 		function onMove( x, y ) {
-			if ( ! st.isDrag ) {
+			if ( ! state.isDragging ) {
 				return;
 			}
-			const dx = x - st.sx;
-			const dy = y - st.sy;
-			st.curTrans = st.prevTrans + dx;
+			const dx = x - state.startX;
+			const dy = y - state.startY;
 
+			// Vertikales Scrollen zulassen, wenn Absicht klar ist
 			if (
-				Math.abs( dy ) > V_SCROLL_THRESHOLD &&
-				Math.abs( dx ) < DRAG_THRESHOLD * 10
+				Math.abs( dy ) > verticalScrollThreshold &&
+				Math.abs( dx ) < dragThreshold * 10
 			) {
 				enableScroll();
 			} else {
 				disableScroll();
 			}
+
+			const maxTranslate = -( step() * ( state.total - 1 ) );
+			state.currentTranslate = state.previousTranslate + dx;
+
+			// Sanftes Einklammern an den Rändern
+			const overshoot = 60;
+			if ( state.currentTranslate > overshoot ) {
+				state.currentTranslate = overshoot;
+			}
+			if ( state.currentTranslate < maxTranslate - overshoot ) {
+				state.currentTranslate = maxTranslate - overshoot;
+			}
 		}
 
 		function onEnd() {
-			cancelAnimationFrame( st.rafID );
-			st.isDrag = false;
-			const moved = st.curTrans - st.prevTrans;
-
-			if ( moved < -DRAG_THRESHOLD && st.idx < st.total - 1 ) {
-				st.idx += 1;
+			cancelAnimationFrame( state.rafId );
+			if ( ! state.isDragging ) {
+				return;
 			}
-			if ( moved > DRAG_THRESHOLD && st.idx > 0 ) {
-				st.idx -= 1;
+			state.isDragging = false;
+
+			const moved = state.currentTranslate - state.previousTranslate;
+			if ( moved < -dragThreshold && state.index < state.total - 1 ) {
+				state.index += 1;
+			} else if ( moved > dragThreshold && state.index > 0 ) {
+				state.index -= 1;
 			}
 
 			setByIndex();
-			st.track.style.transition = 'transform .5s ease-in-out';
+			state.track.style.transition = 'transform .5s ease-in-out';
 			enableScroll();
 		}
 
 		function onAnim() {
-			st.track.style.transform = `translateX(${ st.curTrans }px)`;
-			if ( st.isDrag ) {
-				st.rafID = requestAnimationFrame( onAnim );
+			state.track.style.transform = `translateX(${ state.currentTranslate }px)`;
+			if ( state.isDragging ) {
+				state.rafId = requestAnimationFrame( onAnim );
 			}
 		}
 
-		track.addEventListener(
-			'touchstart',
-			( e ) => onStart( e.touches[ 0 ].clientX, e.touches[ 0 ].clientY ),
-			{ passive: true }
-		);
+		// Buttons
+		const onNext = () => {
+			if ( state.index < state.total - 1 ) {
+				state.index += 1;
+				setByIndex();
+			}
+		};
+		const onPrev = () => {
+			if ( state.index > 0 ) {
+				state.index -= 1;
+				setByIndex();
+			}
+		};
 
-		track.addEventListener(
-			'touchmove',
-			( e ) => onMove( e.touches[ 0 ].clientX, e.touches[ 0 ].clientY ),
-			{ passive: false }
-		);
+		// Touch-Events
+		const onTouchStart = ( e ) =>
+			onStart( e.touches[ 0 ].clientX, e.touches[ 0 ].clientY );
+		const onTouchMove = ( e ) =>
+			onMove( e.touches[ 0 ].clientX, e.touches[ 0 ].clientY );
+		const onTouchEnd = () => onEnd();
 
-		track.addEventListener( 'touchend', onEnd );
+		// Mouse-Events
+		const onMouseDown = ( e ) => onStart( e.clientX, e.clientY );
+		const onMouseMove = ( e ) => onMove( e.clientX, e.clientY );
+		const onMouseUp = () => onEnd();
+		const onMouseLeave = () => onEnd();
 
-		track.addEventListener( 'mousedown', ( e ) =>
-			onStart( e.clientX, e.clientY )
-		);
-		track.addEventListener( 'mousemove', ( e ) =>
-			onMove( e.clientX, e.clientY )
-		);
-		track.addEventListener( 'mouseup', onEnd );
-		track.addEventListener( 'mouseleave', onEnd );
+		track.addEventListener( 'touchstart', onTouchStart, { passive: true } );
+		track.addEventListener( 'touchmove', onTouchMove, { passive: false } );
+		track.addEventListener( 'touchend', onTouchEnd );
+		track.addEventListener( 'touchcancel', onTouchEnd );
+
+		track.addEventListener( 'mousedown', onMouseDown );
+		track.addEventListener( 'mousemove', onMouseMove );
+		track.addEventListener( 'mouseup', onMouseUp );
+		track.addEventListener( 'mouseleave', onMouseLeave );
+
+		state.prevBtn.addEventListener( 'click', onPrev );
+		state.nextBtn.addEventListener( 'click', onNext );
 
 		window.addEventListener( 'resize', recalc );
 
 		recalc();
 
-		instances.push( { track, nav, recalc } );
+		instances.push( {
+			track,
+			nav,
+			recalc,
+			remove: () => {
+				track.removeEventListener( 'touchstart', onTouchStart );
+				track.removeEventListener( 'touchmove', onTouchMove );
+				track.removeEventListener( 'touchend', onTouchEnd );
+				track.removeEventListener( 'touchcancel', onTouchEnd );
+
+				track.removeEventListener( 'mousedown', onMouseDown );
+				track.removeEventListener( 'mousemove', onMouseMove );
+				track.removeEventListener( 'mouseup', onMouseUp );
+				track.removeEventListener( 'mouseleave', onMouseLeave );
+
+				state.prevBtn.removeEventListener( 'click', onPrev );
+				state.nextBtn.removeEventListener( 'click', onNext );
+
+				window.removeEventListener( 'resize', recalc );
+
+				// Inline-Styles zurücksetzen
+				state.slides.forEach( ( el ) => {
+					el.style.flex = '';
+					el.style.width = '';
+					el.style.minWidth = '';
+					el.style.maxWidth = '';
+				} );
+
+				track.style.transform = '';
+				track.style.flexWrap = '';
+				track.style.transition = '';
+
+				nav.remove();
+			},
+		} );
 	}
 
 	function destroySlider( track ) {
@@ -802,20 +881,11 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			return;
 		}
 
-		const { nav, recalc } = instances[ i ];
-
-		track.style.transform = '';
-		track.style.width = '';
-		track.style.flexWrap = '';
-
+		instances[ i ].remove();
 		track.classList.remove( 'column-slider', 'js-column-slider' );
-		nav.remove();
-
-		window.removeEventListener( 'resize', recalc );
 		instances.splice( i, 1 );
 	}
 
-	/* ---------------- Bootstrap ---------------- */
 	document.addEventListener( 'DOMContentLoaded', bootstrap );
 	window.addEventListener( 'resize', bootstrap );
 } )();

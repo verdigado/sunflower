@@ -12,23 +12,45 @@
     margin: var(--half-block-spacing) calc(-1 * var(--grid-margin));
     border-radius: 0;
     overflow: visible;
-    padding: var(--half-block-spacing) calc(var(--grid-margin));
+    padding: 0 calc(var(--grid-margin));
     position: relative;
     left: 0;
     right: calc(-1 * var(--grid-margin));
     width: calc(100% + var(--double-grid-margin)) !important;
 
+    @include media-breakpoint-down(xl) {
+        min-height: 300px;
+    }
 
     @include media-breakpoint-down(md) {
         height: fit-content;
         flex-direction: column;
         overflow: visible;
-        margin-bottom: var(--grid-margin);
+        min-height: 250px;
     }
 
     .wp-block-cover__inner-container {
         padding: var(--grid-margin);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        @include media-breakpoint-down(md) {
+            padding: var(--gap-huge) var(--gap-large);
+        }
+
+        &:has(> :is(h1,h2,h3,h4)):not(:has(> :not(:is(h1,h2,h3,h4,.wp-block-buttons)))) {
+            padding-top: var(--gap-huge);
+            padding-bottom: var(--gap-huge);
+
+            h1:has(mark),
+            h2:has(mark),
+            h3:has(mark) {
+                text-align: left !important;
+            }
+        }
     }
+
 
 }
 
@@ -74,6 +96,11 @@ body .entry-content > :first-child.wp-block-cover {
         width: fit-content;
         padding: 25px 50px 0 25px !important;
         max-width: 70%;
+
+        &:has(> :is(h1,h2,h3,h4)):not(:has(> :not(:is(h1,h2,h3,h4,.wp-block-buttons)))) {
+            padding-top: inherit;
+            padding-bottom: inherit;
+        }
 
         @include media-breakpoint-down(xl) {
             border-radius: 0 20px 0 0;

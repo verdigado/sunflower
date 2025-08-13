@@ -90,7 +90,7 @@ $heading-weights: 900;
 h1:has(mark),
 h2:has(mark) {
 
-    line-height: 80%;
+    line-height: 0;
 
     mark {
         display: inline-block !important;
@@ -100,6 +100,7 @@ h2:has(mark) {
         position: relative;
         --bg: transparent;
         margin-left: 20px;
+        margin-right: 20px;
 
         @include media-breakpoint-down(xl) {
             font-size: 40px;
@@ -122,8 +123,8 @@ h2:has(mark) {
         }
 
         &::before {
-            top: -0.8px;
-            left: -19.2px;
+            top: -1px;
+            left: -19.1px;
             border-style: solid;
             border-width: 0 0 76px 19.3px;
             border-color: transparent transparent var(--bg) transparent;
@@ -142,7 +143,7 @@ h2:has(mark) {
 
         &::after {
             transform: scaleX(-1);
-            bottom: -0.8px;
+            bottom: -1px;
             right: -18.5px;
             border-style: solid;
             border-width: 0 19.3px 76px 0;

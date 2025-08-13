@@ -20,14 +20,14 @@
 
     }
 
-    /* Slides */
+
     .column-slider > .wp-block-column {
         flex: 0 0 100%;
         max-width: calc(100vw - var(--doublepadding));
         box-sizing: border-box;
     }
 
-    /* Navigation */
+
     .navbuttons {
         position: relative;
         right: var(--padding);

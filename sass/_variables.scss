@@ -82,10 +82,18 @@ $grid-breakpoints: (
     --half-grid-margin: calc(var(--grid-margin) / 2);
     --double-grid-margin: calc(var(--grid-margin) * 2);
 
+    --gap-huge: 300px;
     --gap-large: 23px;
     --gap-small: 5px;
 
     --width-brand-left: 350px;
+}
+
+@media (max-width: 1500px) {
+
+    :root {
+        --gap-huge: 200px;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -107,6 +115,8 @@ $grid-breakpoints: (
     :root {
         --half-block-spacing: 50px;
         --block-spacing: calc(var(--half-block-spacing) * 2);
+
+        --gap-huge: 75px;
     }
 }
 
