@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.2.9\n"
+"Project-Id-Version: sunflower 2.2.10\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-27T08:29:18+00:00\n"
+"POT-Creation-Date: 2025-08-14T06:58:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: sunflower\n"
@@ -55,7 +55,7 @@ msgstr ""
 #: functions/events.php:37
 #: functions/options/class-sunflowereventsettingspage.php:34
 #: functions/options/class-sunflowereventsettingspage.php:35
-#: functions/options/class-sunflowereventsettingspage.php:146
+#: functions/options/class-sunflowereventsettingspage.php:163
 msgid "Events"
 msgstr ""
 
@@ -73,8 +73,8 @@ msgid "Archive"
 msgstr ""
 
 #: archive-sunflower_event.php:63
-#: functions/events.php:285
-#: functions/options/class-sunflowereventsettingspage.php:123
+#: functions/events.php:289
+#: functions/options/class-sunflowereventsettingspage.php:140
 msgid "Map"
 msgstr ""
 
@@ -257,24 +257,28 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: functions/events.php:236
+#: functions/events.php:237
 msgid "This event will be imported by remote ical-calendar. All changes here will be overwritten."
 msgstr ""
 
-#: functions/events.php:286
+#: functions/events.php:290
 msgid "Load map and fix location marker"
 msgstr ""
 
-#: functions/events.php:571
+#: functions/events.php:576
 msgid "Event date"
 msgstr ""
 
-#: functions/events.php:572
+#: functions/events.php:577
 msgid "Event location"
 msgstr ""
 
 #: functions/icalimport.php:105
 msgid "More Information"
+msgstr ""
+
+#: functions/icalimport.php:122
+msgid "Failed to import event"
 msgstr ""
 
 #: functions/metaboxes.php:15
@@ -317,50 +321,78 @@ msgstr ""
 msgid "Sunflower Settings"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:70
+#: functions/options/class-sunflowereventsettingspage.php:60
+msgid "ICS Calendar Import"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:72
+msgid "ICS calendar has been imported."
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:73
+msgid "new"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:74
+msgid "deleted"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:75
+msgid "updated"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:81
+msgid "See all events (Frontend)"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:82
+msgid "Edit events (Backend)"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:87
 msgid "Import calendars now"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:89
+#: functions/options/class-sunflowereventsettingspage.php:106
 msgid "Adjust geo marker for:"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:90
+#: functions/options/class-sunflowereventsettingspage.php:107
 msgid "please choose"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:106
+#: functions/options/class-sunflowereventsettingspage.php:123
 msgid "Delete geo data for this location"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:124
+#: functions/options/class-sunflowereventsettingspage.php:141
 msgid "load map"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:153
+#: functions/options/class-sunflowereventsettingspage.php:170
 msgid "Description shown on the events page"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:161
+#: functions/options/class-sunflowereventsettingspage.php:178
 msgid "URLs of iCal calendars, one per row"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:169
-#: functions/options/class-sunflowereventsettingspage.php:173
+#: functions/options/class-sunflowereventsettingspage.php:186
+#: functions/options/class-sunflowereventsettingspage.php:190
 msgid "Rectify time zone"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:178
-#: functions/options/class-sunflowereventsettingspage.php:182
+#: functions/options/class-sunflowereventsettingspage.php:195
+#: functions/options/class-sunflowereventsettingspage.php:199
 msgid "Show overall map"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:187
-#: functions/options/class-sunflowereventsettingspage.php:191
+#: functions/options/class-sunflowereventsettingspage.php:204
+#: functions/options/class-sunflowereventsettingspage.php:208
 msgid "Show events archive"
 msgstr ""
 
-#: functions/options/class-sunflowereventsettingspage.php:196
+#: functions/options/class-sunflowereventsettingspage.php:213
 msgid "Zoom-level of overall map"
 msgstr ""
 
@@ -724,6 +756,7 @@ msgstr ""
 msgid "none"
 msgstr ""
 
+#: template-parts/header-standard.php:40
 #: template-parts/header-standard.php:41
 #: template-parts/header-standard.php:44
 #: template-parts/header-standard.php:156

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2025-06-27T08:29:18+00:00\n"
-"PO-Revision-Date: 2025-06-27 10:30+0200\n"
+"POT-Creation-Date: 2025-08-14T06:58:11+00:00\n"
+"PO-Revision-Date: 2025-08-14 09:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -58,7 +58,7 @@ msgstr "Vergangene Veranstaltungen"
 #: archive-sunflower_event.php:39 functions/events.php:37
 #: functions/options/class-sunflowereventsettingspage.php:34
 #: functions/options/class-sunflowereventsettingspage.php:35
-#: functions/options/class-sunflowereventsettingspage.php:146
+#: functions/options/class-sunflowereventsettingspage.php:163
 msgid "Events"
 msgstr "Termine"
 
@@ -74,8 +74,8 @@ msgstr "Alle Termine"
 msgid "Archive"
 msgstr "Archiv"
 
-#: archive-sunflower_event.php:63 functions/events.php:285
-#: functions/options/class-sunflowereventsettingspage.php:123
+#: archive-sunflower_event.php:63 functions/events.php:289
+#: functions/options/class-sunflowereventsettingspage.php:140
 msgid "Map"
 msgstr "Landkarte"
 
@@ -279,7 +279,7 @@ msgstr "Zeige Karte beim Termin"
 msgid "Event"
 msgstr "Termin"
 
-#: functions/events.php:236
+#: functions/events.php:237
 msgid ""
 "This event will be imported by remote ical-calendar. All changes here will "
 "be overwritten."
@@ -287,21 +287,25 @@ msgstr ""
 "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
 "Änderungen hier werden regelmäßig überschrieben."
 
-#: functions/events.php:286
+#: functions/events.php:290
 msgid "Load map and fix location marker"
 msgstr "Karte laden und Postion korrigieren"
 
-#: functions/events.php:571
+#: functions/events.php:576
 msgid "Event date"
 msgstr "Datum der Veranstaltung"
 
-#: functions/events.php:572
+#: functions/events.php:577
 msgid "Event location"
 msgstr "Ort"
 
 #: functions/icalimport.php:105
 msgid "More Information"
 msgstr "Weitere Informationen"
+
+#: functions/icalimport.php:122
+msgid "Failed to import event"
+msgstr "Import der Veranstaltung fehlgeschlagen"
 
 #: functions/metaboxes.php:15
 #: functions/options/class-sunflowersettingspage.php:108
@@ -346,50 +350,78 @@ msgstr "Wähle SHIFT + ENTER, um  Zwischenzeile zu verhindern"
 msgid "Sunflower Settings"
 msgstr "Sunflower-Einstellungen"
 
-#: functions/options/class-sunflowereventsettingspage.php:70
+#: functions/options/class-sunflowereventsettingspage.php:60
+msgid "ICS Calendar Import"
+msgstr "ICS Kalender Import"
+
+#: functions/options/class-sunflowereventsettingspage.php:72
+msgid "ICS calendar has been imported."
+msgstr "ICS Kalender wurde importiert."
+
+#: functions/options/class-sunflowereventsettingspage.php:73
+msgid "new"
+msgstr "neu"
+
+#: functions/options/class-sunflowereventsettingspage.php:74
+msgid "deleted"
+msgstr "gelöscht"
+
+#: functions/options/class-sunflowereventsettingspage.php:75
+msgid "updated"
+msgstr "aktualisiert"
+
+#: functions/options/class-sunflowereventsettingspage.php:81
+msgid "See all events (Frontend)"
+msgstr "Alle Veranstaltungen auf der Webseite"
+
+#: functions/options/class-sunflowereventsettingspage.php:82
+msgid "Edit events (Backend)"
+msgstr "Veranstaltungen bearbeiten (Backend)"
+
+#: functions/options/class-sunflowereventsettingspage.php:87
 msgid "Import calendars now"
 msgstr "Kalender jetzt importieren"
 
-#: functions/options/class-sunflowereventsettingspage.php:89
+#: functions/options/class-sunflowereventsettingspage.php:106
 msgid "Adjust geo marker for:"
 msgstr "Marker-Position für diesen Ort anpassen:"
 
-#: functions/options/class-sunflowereventsettingspage.php:90
+#: functions/options/class-sunflowereventsettingspage.php:107
 msgid "please choose"
 msgstr "bitte wählen"
 
-#: functions/options/class-sunflowereventsettingspage.php:106
+#: functions/options/class-sunflowereventsettingspage.php:123
 msgid "Delete geo data for this location"
 msgstr "Geo-Daten für diesen Ort löschen"
 
-#: functions/options/class-sunflowereventsettingspage.php:124
+#: functions/options/class-sunflowereventsettingspage.php:141
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/options/class-sunflowereventsettingspage.php:153
+#: functions/options/class-sunflowereventsettingspage.php:170
 msgid "Description shown on the events page"
 msgstr "Beschreibung für die Termineseite"
 
-#: functions/options/class-sunflowereventsettingspage.php:161
+#: functions/options/class-sunflowereventsettingspage.php:178
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options/class-sunflowereventsettingspage.php:169
-#: functions/options/class-sunflowereventsettingspage.php:173
+#: functions/options/class-sunflowereventsettingspage.php:186
+#: functions/options/class-sunflowereventsettingspage.php:190
 msgid "Rectify time zone"
 msgstr "Zeitzone korrigieren"
 
-#: functions/options/class-sunflowereventsettingspage.php:178
-#: functions/options/class-sunflowereventsettingspage.php:182
+#: functions/options/class-sunflowereventsettingspage.php:195
+#: functions/options/class-sunflowereventsettingspage.php:199
 msgid "Show overall map"
 msgstr "Übersichtskarte zeigen"
 
-#: functions/options/class-sunflowereventsettingspage.php:187
-#: functions/options/class-sunflowereventsettingspage.php:191
+#: functions/options/class-sunflowereventsettingspage.php:204
+#: functions/options/class-sunflowereventsettingspage.php:208
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
-#: functions/options/class-sunflowereventsettingspage.php:196
+#: functions/options/class-sunflowereventsettingspage.php:213
 msgid "Zoom-level of overall map"
 msgstr "Zoomlevel für Übersichtskarte"
 
@@ -659,10 +691,8 @@ msgid "Share on Facebook "
 msgstr "Auf Facebook teilen "
 
 #: inc/template-tags.php:128
-#, fuzzy
-#| msgid "Share on Mastodon "
 msgid "Share on LinkedIn "
-msgstr "Auf Mastodon teilen "
+msgstr "Auf LinkedIn teilen "
 
 #: inc/template-tags.php:144
 msgid "Share on Mastodon "
@@ -767,8 +797,8 @@ msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgid "none"
 msgstr "keine"
 
-#: template-parts/header-standard.php:41 template-parts/header-standard.php:44
-#: template-parts/header-standard.php:156
+#: template-parts/header-standard.php:40 template-parts/header-standard.php:41
+#: template-parts/header-standard.php:44 template-parts/header-standard.php:156
 #: template-parts/header-standard.php:159
 msgid "Search"
 msgstr "Suche"
@@ -846,9 +876,6 @@ msgstr ""
 
 #~ msgid "Show and adjust map marker"
 #~ msgstr "Zeige Karte und korrigiere Marker-Positon"
-
-#~ msgid "delete map"
-#~ msgstr "Karte nicht anzeigen"
 
 #~ msgid "Import Images to Media"
 #~ msgstr "Bilder in Mediathek importieren"
