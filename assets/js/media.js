@@ -53,7 +53,9 @@ jQuery( function ( $ ) {
 	} );
 } );
 
+
 ( function ( wp ) {
+
 	const { addFilter } = wp.hooks;
 	const { createHigherOrderComponent } = wp.compose;
 	const { Fragment, useState, useEffect } = wp.element;
@@ -101,7 +103,7 @@ jQuery( function ( $ ) {
 					checkCreator( mediaId, setHasCreator );
 				}, [ mediaId ] );
 
-				if ( hasCreator === null ) {
+				if ( hasCreator === null) {
 					return wp.element.createElement( BlockEdit, props );
 				}
 
@@ -109,8 +111,36 @@ jQuery( function ( $ ) {
 					! hasCreator &&
 					sunflower.options.mediaCreator === 'strict'
 				) {
-					props.className = ( props.className || '' ) + ' no-creator';
+					const current = props.className || '';
+					if (!current.includes('no-creator')) {
+						props.className = current + ' no-creator';
+					}
 				}
+
+				if (
+					props.name === 'core/media-text' &&
+					props.attributes.mediaId
+				) {
+					if (
+						!hasCreator &&
+						(sunflower.options.mediaCreator === 'strict' || sunflower.options.mediaCreator === 'required')
+					) {
+						const current = props.attributes.className || '';
+						if (!current.includes('no-creator')) {
+							props.attributes.className = (current + ' no-creator').trim();
+						}
+					} else {
+						const current = props.attributes.className || '';
+						console.log(current);
+						if (current.includes('no-creator')) {
+							props.setAttributes({
+								className: current.replace(/\bno-creator\b/, '').trim()
+							});
+						}
+					}
+				}
+
+
 
 				return wp.element.createElement(
 					Fragment,
@@ -120,7 +150,7 @@ jQuery( function ( $ ) {
 						{
 							style: {
 								position: 'relative',
-								display: 'inline-block',
+								display: 'block',
 							},
 						},
 						wp.element.createElement( BlockEdit, props ),
