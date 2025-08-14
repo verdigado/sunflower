@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
-"POT-Creation-Date: 2025-08-14T06:58:11+00:00\n"
-"PO-Revision-Date: 2025-08-14 09:02+0200\n"
+"POT-Creation-Date: 2025-08-14T07:55:28+00:00\n"
+"PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -14,7 +14,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.2\n"
-"X-Domain: sunflower\n"
 
 #. Theme Name of the theme
 #: style.css
@@ -58,7 +57,7 @@ msgstr "Vergangene Veranstaltungen"
 #: archive-sunflower_event.php:39 functions/events.php:37
 #: functions/options/class-sunflowereventsettingspage.php:34
 #: functions/options/class-sunflowereventsettingspage.php:35
-#: functions/options/class-sunflowereventsettingspage.php:163
+#: functions/options/class-sunflowereventsettingspage.php:169
 msgid "Events"
 msgstr "Termine"
 
@@ -75,7 +74,7 @@ msgid "Archive"
 msgstr "Archiv"
 
 #: archive-sunflower_event.php:63 functions/events.php:289
-#: functions/options/class-sunflowereventsettingspage.php:140
+#: functions/options/class-sunflowereventsettingspage.php:146
 msgid "Map"
 msgstr "Landkarte"
 
@@ -303,9 +302,29 @@ msgstr "Ort"
 msgid "More Information"
 msgstr "Weitere Informationen"
 
-#: functions/icalimport.php:122
+#: functions/icalimport.php:123
 msgid "Failed to import event"
 msgstr "Import der Veranstaltung fehlgeschlagen"
+
+#: functions/media.php:28
+msgid "Creator"
+msgstr "Urheber*in"
+
+#: functions/media.php:33
+msgid "Creator / Source of this media (may contain links)"
+msgstr "Urheber*in / Quelle dieses Mediums (kann LInks enthalten)"
+
+#: functions/media.php:125 functions/media.php:160
+msgid "The creator field is mandatory and must not be left empty."
+msgstr "Das Feld „Urheber*in“ ist ein Pflichtfeld und darf nicht leer sein."
+
+#: functions/media.php:128 functions/media.php:161
+msgid ""
+"No alternative text provided. Please consider adding a description for "
+"better accessibility."
+msgstr ""
+"Kein Alternativtext angegeben. Bitte füge eine Beschreibung hinzu, um die "
+"Barrierefreiheit zu verbessern."
 
 #: functions/metaboxes.php:15
 #: functions/options/class-sunflowersettingspage.php:108
@@ -354,74 +373,77 @@ msgstr "Sunflower-Einstellungen"
 msgid "ICS Calendar Import"
 msgstr "ICS Kalender Import"
 
-#: functions/options/class-sunflowereventsettingspage.php:72
+#: functions/options/class-sunflowereventsettingspage.php:73
 msgid "ICS calendar has been imported."
 msgstr "ICS Kalender wurde importiert."
 
-#: functions/options/class-sunflowereventsettingspage.php:73
+#: functions/options/class-sunflowereventsettingspage.php:74
 msgid "new"
 msgstr "neu"
 
-#: functions/options/class-sunflowereventsettingspage.php:74
+#: functions/options/class-sunflowereventsettingspage.php:75
 msgid "deleted"
 msgstr "gelöscht"
 
-#: functions/options/class-sunflowereventsettingspage.php:75
+#: functions/options/class-sunflowereventsettingspage.php:76
 msgid "updated"
 msgstr "aktualisiert"
 
-#: functions/options/class-sunflowereventsettingspage.php:81
+#: functions/options/class-sunflowereventsettingspage.php:83
 msgid "See all events (Frontend)"
 msgstr "Alle Veranstaltungen auf der Webseite"
 
-#: functions/options/class-sunflowereventsettingspage.php:82
+#: functions/options/class-sunflowereventsettingspage.php:84
 msgid "Edit events (Backend)"
 msgstr "Veranstaltungen bearbeiten (Backend)"
 
-#: functions/options/class-sunflowereventsettingspage.php:87
+#: functions/options/class-sunflowereventsettingspage.php:88
+#: functions/options/class-sunflowereventsettingspage.php:93
 msgid "Import calendars now"
 msgstr "Kalender jetzt importieren"
 
-#: functions/options/class-sunflowereventsettingspage.php:106
+#: functions/options/class-sunflowereventsettingspage.php:112
 msgid "Adjust geo marker for:"
 msgstr "Marker-Position für diesen Ort anpassen:"
 
-#: functions/options/class-sunflowereventsettingspage.php:107
+#: functions/options/class-sunflowereventsettingspage.php:113
 msgid "please choose"
 msgstr "bitte wählen"
 
-#: functions/options/class-sunflowereventsettingspage.php:123
+#: functions/options/class-sunflowereventsettingspage.php:129
 msgid "Delete geo data for this location"
 msgstr "Geo-Daten für diesen Ort löschen"
 
-#: functions/options/class-sunflowereventsettingspage.php:141
+#: functions/options/class-sunflowereventsettingspage.php:147
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/options/class-sunflowereventsettingspage.php:170
+#: functions/options/class-sunflowereventsettingspage.php:176
 msgid "Description shown on the events page"
 msgstr "Beschreibung für die Termineseite"
 
-#: functions/options/class-sunflowereventsettingspage.php:178
+#: functions/options/class-sunflowereventsettingspage.php:184
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options/class-sunflowereventsettingspage.php:186
-#: functions/options/class-sunflowereventsettingspage.php:190
+#: functions/options/class-sunflowereventsettingspage.php:192
+#: functions/options/class-sunflowereventsettingspage.php:196
 msgid "Rectify time zone"
 msgstr "Zeitzone korrigieren"
 
-#: functions/options/class-sunflowereventsettingspage.php:195
-#: functions/options/class-sunflowereventsettingspage.php:199
+#: functions/options/class-sunflowereventsettingspage.php:201
+#: functions/options/class-sunflowereventsettingspage.php:205
 msgid "Show overall map"
 msgstr "Übersichtskarte zeigen"
 
-#: functions/options/class-sunflowereventsettingspage.php:204
-#: functions/options/class-sunflowereventsettingspage.php:208
+#: functions/options/class-sunflowereventsettingspage.php:210
+#: functions/options/class-sunflowereventsettingspage.php:214
+#: functions/options/class-sunflowereventsettingspage.php:226
+#: functions/options/class-sunflowereventsettingspage.php:230
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
-#: functions/options/class-sunflowereventsettingspage.php:213
+#: functions/options/class-sunflowereventsettingspage.php:219
 msgid "Zoom-level of overall map"
 msgstr "Zoomlevel für Übersichtskarte"
 
@@ -513,25 +535,41 @@ msgstr "SEO verbessern"
 msgid "Set website name in page metadata"
 msgstr "Webseitenname in den Seiten-Metadaten"
 
-#: functions/options/class-sunflowersettingspage.php:293
+#: functions/options/class-sunflowersettingspage.php:218
+msgid "Media creator field"
+msgstr "Medien Urheber*in"
+
+#: functions/options/class-sunflowersettingspage.php:301
 msgid "Standard"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:294
+#: functions/options/class-sunflowersettingspage.php:302
 msgid "Personal"
 msgstr "Persönlich"
 
-#: functions/options/class-sunflowersettingspage.php:316
+#: functions/options/class-sunflowersettingspage.php:324
 msgid "do not show"
 msgstr "keine Anzeige"
 
-#: functions/options/class-sunflowersettingspage.php:317
+#: functions/options/class-sunflowersettingspage.php:325
 msgid "main categories"
 msgstr "Hauptkategorien"
 
-#: functions/options/class-sunflowersettingspage.php:318
+#: functions/options/class-sunflowersettingspage.php:326
 msgid "only sub-categories"
 msgstr "nur Unter-Kategorien"
+
+#: functions/options/class-sunflowersettingspage.php:348
+msgid "optional"
+msgstr "optional"
+
+#: functions/options/class-sunflowersettingspage.php:349
+msgid "required"
+msgstr "verpflichtend"
+
+#: functions/options/class-sunflowersettingspage.php:350
+msgid "strict (The image is blurred if no creator field is filled out.)"
+msgstr "streng (Bild wird verpixelt, wenn Urheber*in leer ist.)"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:34
 #: functions/options/class-sunflowersocialmediasettingspage.php:35
