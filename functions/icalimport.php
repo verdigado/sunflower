@@ -69,6 +69,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 	}
 
 	$updated_events         = 0;
+	$new_events             = 0;
 	$ids_from_remote        = array();
 	$count_recurring_events = array();
 
@@ -96,7 +97,6 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 		if ( $is_imported->have_posts() ) {
 			$is_imported->the_post();
 			$wp_id = get_the_ID();
-			++$updated_events;
 		}
 
 		$post_content = sprintf( '<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->', nl2br( (string) $event->DESCRIPTION ) ); // phpcs:ignore
@@ -113,9 +113,24 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			'post_status'  => 'publish',
 		);
 		$id   = wp_insert_post( (array) $post, true );
+
 		if ( ! is_int( $id ) ) {
-			echo 'Could not copy post';
-			return false;
+			printf(
+				'
+				<p class="notice notice-warning notice-large">
+				%1$s: %2$s - "%3$s"
+				</p>',
+				esc_attr__( 'Failed to import event', 'sunflower' ),
+				esc_attr( $event->DTSTART->getDateTime()->format( 'd.m.Y' ) ), // phpcs:ignore
+				esc_attr( $event->SUMMARY->getValue() ) // phpcs:ignore
+			);
+			continue;
+		}
+
+		if ( 0 === $wp_id ) {
+			++$new_events;
+		} elseif ( $wp_id === $id ) {
+			++$updated_events;
 		}
 
 		// Save all event post ids from imported ics ressources.
@@ -164,7 +179,12 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 		wp_set_post_terms( $id, $categories, 'sunflower_event_tag' );
 	}
 
-	return array( $ids_from_remote, count( $all_events ) - $updated_events, $updated_events );
+	return array(
+		$ids_from_remote,
+		count( $all_events ) - $updated_events,
+		'updated_events' => $updated_events,
+		'new_events'     => $new_events,
+	);
 }
 
 /**
@@ -291,9 +311,17 @@ function sunflower_import_icals( $force = false ) {
 
 	$deleted_on_remote = array_diff( sunflower_get_events_having_uid(), $ids_from_remote );
 
+	$deleted_events = 0;
 	foreach ( $deleted_on_remote as $to_be_deleted ) {
 		wp_delete_post( $to_be_deleted );
+		++$deleted_events;
 	}
+
+	return array(
+		'deleted_events' => $deleted_events,
+		'updated_events' => $response['updated_events'],
+		'new_events'     => $response['new_events'],
+	);
 }
 
 add_action( 'init', 'sunflower_import_icals' );
