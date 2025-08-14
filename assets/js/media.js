@@ -53,9 +53,7 @@ jQuery( function ( $ ) {
 	} );
 } );
 
-
 ( function ( wp ) {
-
 	const { addFilter } = wp.hooks;
 	const { createHigherOrderComponent } = wp.compose;
 	const { Fragment, useState, useEffect } = wp.element;
@@ -103,7 +101,7 @@ jQuery( function ( $ ) {
 					checkCreator( mediaId, setHasCreator );
 				}, [ mediaId ] );
 
-				if ( hasCreator === null) {
+				if ( hasCreator === null ) {
 					return wp.element.createElement( BlockEdit, props );
 				}
 
@@ -112,7 +110,7 @@ jQuery( function ( $ ) {
 					sunflower.options.mediaCreator === 'strict'
 				) {
 					const current = props.className || '';
-					if (!current.includes('no-creator')) {
+					if ( ! current.includes( 'no-creator' ) ) {
 						props.className = current + ' no-creator';
 					}
 				}
@@ -122,25 +120,27 @@ jQuery( function ( $ ) {
 					props.attributes.mediaId
 				) {
 					if (
-						!hasCreator &&
-						(sunflower.options.mediaCreator === 'strict' || sunflower.options.mediaCreator === 'required')
+						! hasCreator &&
+						( sunflower.options.mediaCreator === 'strict' ||
+							sunflower.options.mediaCreator === 'required' )
 					) {
 						const current = props.attributes.className || '';
-						if (!current.includes('no-creator')) {
-							props.attributes.className = (current + ' no-creator').trim();
+						if ( ! current.includes( 'no-creator' ) ) {
+							props.attributes.className = (
+								current + ' no-creator'
+							).trim();
 						}
 					} else {
 						const current = props.attributes.className || '';
-						console.log(current);
-						if (current.includes('no-creator')) {
-							props.setAttributes({
-								className: current.replace(/\bno-creator\b/, '').trim()
-							});
+						if ( current.includes( 'no-creator' ) ) {
+							props.setAttributes( {
+								className: current
+									.replace( /\bno-creator\b/, '' )
+									.trim(),
+							} );
 						}
 					}
 				}
-
-
 
 				return wp.element.createElement(
 					Fragment,
