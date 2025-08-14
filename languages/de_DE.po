@@ -308,21 +308,23 @@ msgstr "Import der Veranstaltung fehlgeschlagen"
 
 #: functions/media.php:28
 msgid "Creator"
-msgstr ""
+msgstr "Urheber*in"
 
 #: functions/media.php:33
 msgid "Creator / Source of this media (may contain links)"
-msgstr ""
+msgstr "Urheber*in / Quelle dieses Mediums (kann LInks enthalten)"
 
 #: functions/media.php:125 functions/media.php:160
 msgid "The creator field is mandatory and must not be left empty."
-msgstr ""
+msgstr "Das Feld „Urheber*in“ ist ein Pflichtfeld und darf nicht leer sein."
 
 #: functions/media.php:128 functions/media.php:161
 msgid ""
 "No alternative text provided. Please consider adding a description for "
 "better accessibility."
 msgstr ""
+"Kein Alternativtext angegeben. Bitte füge eine Beschreibung hinzu, um die "
+"Barrierefreiheit zu verbessern."
 
 #: functions/metaboxes.php:15
 #: functions/options/class-sunflowersettingspage.php:108
