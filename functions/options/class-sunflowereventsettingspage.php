@@ -57,13 +57,36 @@ class SunflowerEventSettingsPage {
 			?>
 			</form>
 
-			<h2>Kalenderimport</h2>
+			<h2><?php esc_attr_e( 'ICS Calendar Import', 'sunflower' ); ?></h2>
 			<?php
 
 			if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( $_GET['_wpnonce'], 'sunflower_events_options-icalimport' ) && isset( $_GET['icalimport'] ) ) {
-				sunflower_import_icals( true );
-				echo '<div>Die Termine wurden aktualisiert.</div>';
-				printf( '<div><a href="../?post_type=sunflower_event">Termine ansehen</a></div>' );
+				$count = sunflower_import_icals( true );
+				printf(
+					'<div>%1$s<ul>
+					<li>%2$s</li>
+					<li>%3$s</li>
+					<li>%4$s</li>
+					</ul>
+					</div>
+					',
+					esc_attr__( 'ICS calendar has been imported.', 'sunflower' ),
+					esc_attr__( 'new', 'sunflower' ) . ': ' . (int) $count['new_events'],
+					esc_attr__( 'deleted', 'sunflower' ) . ': ' . (int) $count['deleted_events'],
+					esc_attr__( 'updated', 'sunflower' ) . ': ' . (int) $count['updated_events'],
+				);
+				printf(
+					'<div>
+					<a href="../?post_type=sunflower_event" class="button button-secondary">%s</a>
+					<a href="edit.php?post_type=sunflower_event" class="button button-secondary">%s</a>
+					</div>',
+					esc_attr__( 'See all events (Frontend)', 'sunflower' ),
+					esc_attr__( 'Edit events (Backend)', 'sunflower' )
+				);
+				if ( ini_get( 'allow_url_fopen' ) ) {
+					$sunflower_icalimport_url = wp_nonce_url( 'admin.php?page=sunflower_events_options&icalimport=1', 'sunflower_events_options-icalimport' );
+					printf( '<a href="%s" class="button button-primary">%s</a>', esc_html( $sunflower_icalimport_url ), esc_attr__( 'Import calendars now', 'sunflower' ) );
+				}
 			} elseif ( sunflower_get_setting( 'sunflower_ical_urls' ) ) {
 				if ( ini_get( 'allow_url_fopen' ) ) {
 					$sunflower_icalimport_url = wp_nonce_url( 'admin.php?page=sunflower_events_options&icalimport=1', 'sunflower_events_options-icalimport' );
@@ -286,7 +309,7 @@ class SunflowerEventSettingsPage {
 	public function sunflower_zoom_callback(): void {
 		printf(
 			'<input type="number" min="1" max="19" id="sunflower_zoom" name="sunflower_events_options[sunflower_zoom]" value="%s">',
-			esc_attr( $this->options['sunflower_zoom'] ? $this->options['sunflower_zoom'] : '11' )
+			esc_attr( $this->options['sunflower_zoom'] ?? '11' )
 		);
 		echo '<div>1 (ganze Welt) bis 19 (einzelne Straße), Zoomlevel für die Übersichtskarte für Termine</div>';
 	}

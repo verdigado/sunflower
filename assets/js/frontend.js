@@ -50,8 +50,6 @@ jQuery( function () {
 		jQuery( 'html' ).removeClass( 'theme--default' );
 	}
 
-	adjustMetaboxHeight();
-
 	addRssReadMore();
 
 	// mailto unscrambler
@@ -75,7 +73,7 @@ jQuery( function () {
 	} );
 
 	lightbox.option( {
-		albumLabel: 'Bild %1 von %2',
+		albumLabel: sunflower.texts.lightbox2.imageOneOf,
 	} );
 } );
 
@@ -143,11 +141,28 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function ( e ) {
 			response = JSON.parse( response );
 
 			if ( response.code === 500 ) {
-				jQuery( '#sunflower-contact-form' ).append(
-					'<div class="bg-danger p-4 text-white">' +
-						response.text +
-						'</div>'
+				const errorbox = jQuery(
+					'#sunflower-contact-form #form-error'
 				);
+				errorbox.html( response.text );
+				errorbox.show();
+
+				const button = jQuery( '#submit' );
+				button.hide();
+
+				// show some progress
+				const interval = setInterval( function () {
+					errorbox.append( ' . ' );
+				}, 500 );
+
+				// show submit button after 5 seconds again and hide error message
+				setTimeout( function () {
+					clearInterval( interval );
+					button.prop( 'disabled', false );
+					button.css( 'opacity', 1 );
+					button.show();
+					errorbox.hide();
+				}, 5000 );
 				return;
 			}
 
@@ -156,24 +171,6 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function ( e ) {
 
 	return false;
 } );
-
-function adjustMetaboxHeight() {
-	if ( ! jQuery( '.metabox' ).length ) {
-		return;
-	}
-
-	const tooBig =
-		jQuery( '.metabox' ).outerHeight() -
-		jQuery( '.entry-header' ).outerHeight();
-
-	if ( tooBig <= 0 ) {
-		return;
-	}
-
-	jQuery( '.entry-content' ).prepend( '<div class="metabox-spacer"></div>' );
-
-	jQuery( '.metabox-spacer' ).height( tooBig + 'px' );
-}
 
 /* add read more link to rss block items */
 function addRssReadMore() {
@@ -221,4 +218,46 @@ jQuery( function () {
 	} );
 } );
 
+document.addEventListener( 'DOMContentLoaded', function () {
+	// Add aria-labels to make lightbox2 WCAG2AA compliant.
+	const observerLightbox = new MutationObserver( () => {
+		const closeBtn = document.querySelector( ".lb-close[role='button']" );
+		const cancelBtn = document.querySelector( ".lb-cancel[role='button']" );
+		const nextBtn = document.querySelector( ".lb-next[role='button']" );
+		const prevBtn = document.querySelector( ".lb-prev[role='button']" );
+
+		if ( closeBtn ) {
+			closeBtn.setAttribute(
+				'aria-label',
+				sunflower.texts.lightbox2.closeLightbox
+			);
+		}
+
+		if ( cancelBtn ) {
+			cancelBtn.setAttribute(
+				'aria-label',
+				sunflower.texts.lightbox2.cancelLoading
+			);
+		}
+
+		if ( nextBtn ) {
+			nextBtn.setAttribute(
+				'aria-label',
+				sunflower.texts.lightbox2.nextImage
+			);
+		}
+
+		if ( prevBtn ) {
+			prevBtn.setAttribute(
+				'aria-label',
+				sunflower.texts.lightbox2.previousImage
+			);
+		}
+	} );
+
+	observerLightbox.observe( document.body, {
+		childList: true,
+		subtree: true,
+	} );
+} );
 /* eslint-enable no-undef */

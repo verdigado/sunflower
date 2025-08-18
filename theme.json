@@ -124,7 +124,7 @@
 							"fontWeight": "400",
 							"src": [
 								"file:./assets/fonts/GrueneTypeNeue-Regular.woff2",
-								"file:./assets/fonts/GrueneTypeNeue-Regular.ttf"
+								"file:./assets/fonts/GrueneTypeNeue-Regular.woff"
 							]
 						}
 					],
@@ -150,8 +150,8 @@
 			}
 		},
 		"typography": {
-					"fontWeight": "400",
-					"fontFamily": "var(--wp--preset--font-family--pt-sans)"
+			"fontWeight": "400",
+			"fontFamily": "var(--wp--preset--font-family--pt-sans)"
 		},
 		"elements": {
 			"h1": {
@@ -162,7 +162,14 @@
 				"color": {
 					"text": "var:preset|color|tanne"
 				}
+			},
+			"h2": {
+				"typography": {
+					"fontWeight": "400",
+					"fontFamily": "var(--wp--preset--font-family--gruenetypeneue)"
+				}
 			}
+
 		}
 	}
 }
