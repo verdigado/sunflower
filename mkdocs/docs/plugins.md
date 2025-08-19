@@ -4,7 +4,7 @@ Es gibt eine unübersehbare Menge an [WordPress Plugins](https://de.wordpress.or
 
 ## ActivityPub - Fediverse ohne Aufwand
 
-Mit dem Plugin [Activitypub](https://de.wordpress.org/plugins/activitypub/) wird deine Webseite Teil des Fediverse. Über Mastodon kann man folgen, Beiträge favorisieren und teilen.
+Mit dem Plugin [Activitypub](https://de.wordpress.org/plugins/activitypub/) wird Deine Webseite Teil des Fediverse. Über Mastodon kann man folgen, Beiträge favorisieren und teilen.
 
 Das Plugin muss einmalig unter `Einstellungen -> ActivityPub` konfiguriert werden. Danach brauchst Du Dich nicht mehr drum zu kümmern.
 
