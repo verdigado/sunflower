@@ -190,6 +190,14 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 
 		global $post;
 
+		$creator                          = get_post_meta( get_post_thumbnail_id(), '_media_creator', true );
+		$sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
+
+		$sunflower_media_creator_required = '';
+		if ( 'required' === $sunflower_media_creator_settings || 'strict' === $sunflower_media_creator_settings ) {
+			$sunflower_media_creator_required = true;
+		}
+
 		if ( is_singular() && ! $is_block ) :
 			?>
 			<div class="post-thumbnail
@@ -200,20 +208,31 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 			?>
 			">
 				<?php
+
+				$classes = array( 'w-100', 'border-radius' );
+				if ( 'strict' === $sunflower_media_creator_settings && empty( $creator ) ) {
+					$classes[] = ' no-creator';
+				}
 				the_post_thumbnail(
 					'null',
 					array(
-						'class' => 'w-100 border-radius',
+						'class' => implode( ' ', $classes ),
 					)
 				);
 				?>
-
 			<?php
 			if ( $show_caption ) {
-				$caption = get_post( get_post_thumbnail_id() )?->post_excerpt;
-				if ( ! empty( $caption ) ) {
+				$caption = array_filter(
+					array(
+						get_post_meta( get_post_thumbnail_id(), '_media_creator', true ),
+						get_post( get_post_thumbnail_id() )?->post_excerpt,
+					)
+				);
+
+				$caption_string = implode( ' | ', $caption );
+				if ( ! empty( $caption_string ) ) {
 					?>
-				<figcaption><?php echo esc_attr( $caption ); ?></figcaption>
+				<figcaption><?php echo wp_kses_post( $caption_string ); ?></figcaption>
 					<?php
 				}
 			}
@@ -223,6 +242,9 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 		<?php else : ?>
 			<?php
 				$classes = array( 'post-thumbnail' );
+			if ( 'strict' === $sunflower_media_creator_settings && empty( $creator ) ) {
+				$classes[] = ' no-creator';
+			}
 
 			the_post_thumbnail(
 				'medium_large',

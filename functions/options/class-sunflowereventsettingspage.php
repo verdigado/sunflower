@@ -221,6 +221,14 @@ class SunflowerEventSettingsPage {
 			'sunflower-setting-events',
 			'sunflower-setting-events'
 		);
+		add_settings_field(
+			'sunflower_show_event_archive',
+			__( 'Show events archive', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-events',
+			'sunflower-setting-events',
+			array( 'sunflower_show_event_archive', __( 'Show events archive', 'sunflower' ) )
+		);
 	}
 
 	/**
