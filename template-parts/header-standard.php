@@ -87,7 +87,7 @@
 			</div>
 		</div>
 
-	</header><!-- #masthead -->
+</header><!-- #masthead -->
 
 	<?php /* must be outside of masthead for stickness */ ?>
 	<div id="navbar-sticky-detector"></div>
