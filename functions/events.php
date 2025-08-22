@@ -139,7 +139,7 @@ function sunflower_save_event_meta_boxes() {
 		// In case of all day events the events end on midnight, next day. So we have to add one day on save.
 		if ( '_sunflower_event_until' === $id && 'checked' === $is_all_day ) {
 			$value = gmdate( 'Y-m-d', strtotime( sunflower_german_date2int_date( $_POST[ $id ] ) ) + 86400 );
-		} else {
+		} elseif ( '_sunflower_event_from' === $id || '_sunflower_event_until' === $id ) {
 			$value = ( 'datetimepicker' === $config[1] ) ? sunflower_german_date2int_date( $_POST[ $id ] ) : $_POST[ $id ];
 		}
 
