@@ -167,7 +167,11 @@ a.continue-reading,
 }
 
 .filter-button-group {
-    margin-top: -35px;
+
+    @include media-breakpoint-up(md) {
+        margin-top: -35px;
+    }
+
 }
 
 button.filter,
