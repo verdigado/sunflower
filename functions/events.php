@@ -140,7 +140,9 @@ function sunflower_save_event_meta_boxes() {
 		if ( '_sunflower_event_until' === $id && 'checked' === $is_all_day ) {
 			$value = gmdate( 'Y-m-d', strtotime( sunflower_german_date2int_date( $_POST[ $id ] ) ) + 86400 );
 		} elseif ( '_sunflower_event_from' === $id || '_sunflower_event_until' === $id ) {
-			$value = ( 'datetimepicker' === $config[1] ) ? sunflower_german_date2int_date( $_POST[ $id ] ) : $_POST[ $id ];
+			$value = sunflower_german_date2int_date( $_POST[ $id ] );
+		} else {
+			$value = $_POST[ $id ];
 		}
 
 		update_post_meta( $post->ID, $id, sanitize_text_field( $value ) );
