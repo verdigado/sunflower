@@ -26,7 +26,7 @@ import {
 	ToolbarGroup,
 } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
-import { grid, list } from '@wordpress/icons';
+import { grid, list, gallery } from '@wordpress/icons';
 import { useEntityRecords } from '@wordpress/core-data';
 import { useState, useEffect } from '@wordpress/element';
 
@@ -164,6 +164,12 @@ export default function Edit( { attributes, setAttributes } ) {
 			title: __( 'Grid view' ),
 			onClick: () => setAttributes( { blockLayout: 'grid' } ),
 			isActive: blockLayout === 'grid',
+		},
+		{
+			icon: gallery,
+			title: __( 'Slider view', 'sunflower-latest-posts' ),
+			onClick: () => setAttributes( { blockLayout: 'slider' } ),
+			isActive: blockLayout === 'slider',
 		},
 	];
 

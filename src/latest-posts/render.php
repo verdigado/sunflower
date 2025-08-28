@@ -9,6 +9,8 @@ $sunflower_classnames   = array();
 $sunflower_classnames[] = 'has-background';
 $sunflower_classnames[] = 'latest-posts';
 
+$sunflower_is_slider = isset( $attributes['blockLayout'] ) && 'slider' === $attributes['blockLayout'];
+
 $sunflower_columns = 1;
 if ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'] ) {
 	if ( isset( $attributes['columns'] ) ) {
@@ -42,7 +44,7 @@ if ( ! $sunflower_link || '' === $sunflower_link ) {
 	}
 }
 
-// Fetch posts for given parameters.
+
 $sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories, $sunflower_excluded_categories );
 
 $sunflower_title = ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) ? sprintf( '<h2 class="text-center h1">%s</h2>', $attributes['title'] ) : '';
@@ -53,13 +55,16 @@ $sunflower_classes = get_block_wrapper_attributes(
 	)
 );
 
+
 $sunflower_list_items = sprintf(
-	'<div %s>
+	'<div %1$s>
         <div class="wp-block-group__inner-container">
-            %s
-                <div class="row" data-masonry=\'{"percentPosition": true }\' >',
+            %2$s
+                <div class="row %3$s" %4$s>',
 	$sunflower_classes,
-	$sunflower_title
+	$sunflower_title,
+	$sunflower_is_slider ? 'posts-slider' : '',
+	$sunflower_is_slider ? '' : 'data-masonry=\'{"percentPosition": true }\''
 );
 
 switch ( $sunflower_columns ) {
@@ -92,19 +97,42 @@ if ( 0 === $sunflower_posts->post_count ) {
 	$sunflower_list_items = sprintf( '<div class="col-12 text-center pb-4">%s</div><div class="col-12">', __( 'No posts found', 'sunflower' ) );
 }
 
-$sunflower_list_items .= sprintf(
-	'
+
+if ( $sunflower_is_slider ) {
+	$sunflower_list_items .= sprintf(
+		'<div class="%3$s">
+            <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s" rel="">
+                <div class="p-45 row">
+                    <span class="continue-reading text-white text-center pt-0">%2$s</span>
+                </div>
+            </a>
+        </div>',
+		$sunflower_link,
+		( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'to archive', 'sunflower-latest-posts' ),
+		$sunflower_css_col
+	);
+}
+
+
+$sunflower_list_items .= '</div>';
+
+if ( ! $sunflower_is_slider ) {
+
+	$sunflower_list_items .= sprintf(
+		'
     <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s" rel="">
         <div class="p-45 row">
         <span class="continue-reading text-white text-center pt-0">%2$s</span>
         </div>
     </a>
 ',
-	$sunflower_link,
-	( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'to archive', 'sunflower-latest-posts' )
-);
+		$sunflower_link,
+		( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'to archive', 'sunflower-latest-posts' )
+	);
+}
 
-$sunflower_list_items .= '</div></div></div>';
+
+$sunflower_list_items .= '</div></div>';
 
 echo wp_kses(
 	$sunflower_list_items,

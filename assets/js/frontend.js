@@ -560,10 +560,14 @@ document.addEventListener( 'DOMContentLoaded', function () {
  * Slider
  */
 
+/*
+ * Slider
+ */
+
 ( () => {
 	'use strict';
 
-	const breakpoint = 950; // px
+	const breakpoint = 950; // px (nur für Group-Slider)
 	const dragThreshold = 35; // px
 	const verticalScrollThreshold = 5; // px
 
@@ -588,20 +592,37 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 		document
 			.querySelectorAll(
-				'.wp-block-columns.all-columns-start-with-image.more-than-two-columns'
+				/* <<< GEÄNDERT: Latest-Posts-Track zusätzlich zulassen >>> */
+				'.wp-block-columns.all-columns-start-with-image.more-than-two-columns, .latest-posts .row.posts-slider'
 			)
-			.forEach( ( colBlock ) => {
+			.forEach( ( trackEl ) => {
 				const isActive =
-					colBlock.classList.contains( 'js-column-slider' );
+					trackEl.classList.contains( 'js-column-slider' );
 
-				if ( viewportWidth <= breakpoint && ! isActive ) {
-					initSlider( colBlock );
+				/* <<< NEU: Latest-Posts sollen IMMER sliden; Groups nur <= breakpoint >>> */
+				const isLatestPostsTrack =
+					trackEl.classList.contains( 'posts-slider' ) ||
+					( trackEl.classList.contains( 'row' ) &&
+						trackEl.closest( '.latest-posts' ) );
+
+				if ( isLatestPostsTrack ) {
+					if ( ! isActive ) {
+						initSlider( trackEl );
+					} else {
+						const inst = instances.find(
+							( ins ) => ins.track === trackEl
+						);
+						if ( inst ) {
+							inst.recalc();
+						}
+					}
+				} else if ( viewportWidth <= breakpoint && ! isActive ) {
+					initSlider( trackEl );
 				} else if ( viewportWidth > breakpoint && isActive ) {
-					destroySlider( colBlock );
+					destroySlider( trackEl );
 				} else if ( isActive ) {
-					// Bei Resize innerhalb des Breakpoints Breite neu berechnen
 					const inst = instances.find(
-						( ins ) => ins.track === colBlock
+						( ins ) => ins.track === trackEl
 					);
 					if ( inst ) {
 						inst.recalc();
@@ -635,9 +656,20 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		`;
 		track.parentNode.insertBefore( nav, track.nextSibling );
 
-		const slides = Array.from( track.children ).filter( ( el ) =>
-			el.classList.contains( 'wp-block-column' )
-		);
+		/* <<< GEÄNDERT: Slides je nach Track-Typ ermitteln >>> */
+		const isLatestPosts =
+			track.classList.contains( 'posts-slider' ) ||
+			( track.classList.contains( 'row' ) &&
+				track.closest( '.latest-posts' ) );
+
+		const slides = Array.from( track.children ).filter( ( el ) => {
+			if ( isLatestPosts ) {
+				// Latest-Posts (Bootstrap-Grid): Spalten sind .col-*
+				return el.matches( '.col-12, .col-md-6, .col-md-4' );
+			}
+			// Bestehende Group-Slider
+			return el.classList.contains( 'wp-block-column' );
+		} );
 
 		const state = {
 			track,
@@ -655,6 +687,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			currentTranslate: 0,
 			previousTranslate: 0,
 			rafId: 0,
+			/* <<< NEU: wie viele Karten pro „Seite“ bei Latest-Posts >>> */
+			slidesPerView: 1,
+			isLatestPosts,
 		};
 
 		function step() {
@@ -675,7 +710,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				return g;
 			}
 
-			// Fallback: Abstand messen (funktioniert auch mit margin-basiertem "Gap")
+			// Fallback: Abstand messen (funktioniert auch mit margin-/padding-basiertem „Gap“)
 			if ( state.slides.length > 1 ) {
 				const a = state.slides[ 0 ].getBoundingClientRect();
 				const b = state.slides[ 1 ].getBoundingClientRect();
@@ -709,19 +744,46 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				Math.round( state.track.clientWidth - padLeft - padRight )
 			);
 
-			// Fixe Kartenbreite -> verhindert falsche Flex-Neuverteilung auf Touch-Geräten
-			state.slideWidth = contentWidth;
-			state.slides.forEach( ( el ) => {
-				el.style.flex = `0 0 ${ state.slideWidth }px`;
-				el.style.width = `${ state.slideWidth }px`;
-				el.style.minWidth = `${ state.slideWidth }px`;
-				el.style.maxWidth = `${ state.slideWidth }px`;
-			} );
-
+			// Gap zuerst ermitteln
 			state.gap = computeGap();
 
-			// Index einklammern und Position aktualisieren
-			const maxIndex = Math.max( 0, state.total - 1 );
+			if ( state.isLatestPosts ) {
+				/* <<< NEU: 3/2/1 Karten je nach Breite >>> */
+				const vw = window.innerWidth;
+				let spv = 3;
+				if ( vw < 800 ) {
+					spv = 1;
+				} else if ( vw < 1200 ) {
+					spv = 2;
+				}
+				state.slidesPerView = spv;
+
+				const totalGap = state.gap * ( spv - 1 );
+				state.slideWidth = Math.max(
+					0,
+					Math.floor( ( contentWidth - totalGap ) / spv )
+				);
+
+				state.slides.forEach( ( el ) => {
+					el.style.flex = `0 0 ${ state.slideWidth }px`;
+					el.style.width = `${ state.slideWidth }px`;
+					el.style.minWidth = `${ state.slideWidth }px`;
+					el.style.maxWidth = `${ state.slideWidth }px`;
+				} );
+			} else {
+				/* Group-Slider: weiter 1 Karte pro „Seite“ <= 950px */
+				state.slidesPerView = 1;
+				state.slideWidth = contentWidth;
+				state.slides.forEach( ( el ) => {
+					el.style.flex = `0 0 ${ state.slideWidth }px`;
+					el.style.width = `${ state.slideWidth }px`;
+					el.style.minWidth = `${ state.slideWidth }px`;
+					el.style.maxWidth = `${ state.slideWidth }px`;
+				} );
+			}
+
+			// Index einklammern
+			const maxIndex = Math.max( 0, state.total - state.slidesPerView );
 			if ( state.index > maxIndex ) {
 				state.index = maxIndex;
 			}
@@ -755,10 +817,12 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				disableScroll();
 			}
 
-			const maxTranslate = -( step() * ( state.total - 1 ) );
+			const maxTranslate = -(
+				step() * Math.max( 0, state.total - state.slidesPerView )
+			);
 			state.currentTranslate = state.previousTranslate + dx;
 
-			// Sanftes Einklammern an den Rändern
+			// Sanftes Einklammern
 			const overshoot = 60;
 			if ( state.currentTranslate > overshoot ) {
 				state.currentTranslate = overshoot;
@@ -776,10 +840,14 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			state.isDragging = false;
 
 			const moved = state.currentTranslate - state.previousTranslate;
-			if ( moved < -dragThreshold && state.index < state.total - 1 ) {
-				state.index += 1;
-			} else if ( moved > dragThreshold && state.index > 0 ) {
-				state.index -= 1;
+			const inc = state.isLatestPosts ? state.slidesPerView : 1;
+
+			const maxIndex = Math.max( 0, state.total - state.slidesPerView );
+
+			if ( moved < -dragThreshold ) {
+				state.index = Math.min( maxIndex, state.index + inc );
+			} else if ( moved > dragThreshold ) {
+				state.index = Math.max( 0, state.index - inc );
 			}
 
 			setByIndex();
@@ -796,14 +864,17 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 		// Buttons
 		const onNext = () => {
-			if ( state.index < state.total - 1 ) {
-				state.index += 1;
+			const inc = state.isLatestPosts ? state.slidesPerView : 1;
+			const maxIndex = Math.max( 0, state.total - state.slidesPerView );
+			if ( state.index < maxIndex ) {
+				state.index = Math.min( maxIndex, state.index + inc );
 				setByIndex();
 			}
 		};
 		const onPrev = () => {
+			const inc = state.isLatestPosts ? state.slidesPerView : 1;
 			if ( state.index > 0 ) {
-				state.index -= 1;
+				state.index = Math.max( 0, state.index - inc );
 				setByIndex();
 			}
 		};

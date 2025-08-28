@@ -1,14 +1,101 @@
 @use "sass:map";
 
+/* Latest-Posts Slider – immer aktiv, mehrere Karten pro Ansicht */
+.latest-posts .row.column-slider {
+    overflow: visible;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+
+
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    .entry-header,
+    .entry-content,
+    .entry-meta,
+    img {
+        pointer-events: none;
+    }
+
+    div {
+        cursor: pointer;
+    }
+}
+
+.latest-posts .row.column-slider > .col-12,
+.latest-posts .row.column-slider > .col-md-6,
+.latest-posts .row.column-slider > .col-md-4 {
+    flex: 0 0 auto;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+/* Nav & Buttons – Latest-Posts */
+.latest-posts .navbuttons {
+    position: relative;
+    right: var(--padding);
+    bottom: -50px;
+    width: 100%;
+    margin-bottom: var(--block-spacing);
+}
+
+.latest-posts .slider__button {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+    background-color: map.get($custom-colors, "weiss") !important;
+    border: 2px solid $primary !important;
+    border-radius: 23px;
+
+    div svg {
+        color: map.get($custom-colors, "klee");
+    }
+
+    &:hover {
+        background-color: $secondary !important;
+        border: 2px solid $secondary !important;
+
+        div svg {
+            color: map.get($custom-colors, "weiss");
+        }
+    }
+}
+
+.latest-posts .slider__button .button__direction {
+    display: block;
+    cursor: pointer;
+}
+
+.latest-posts .slider__button--prev {
+    left: 0;
+}
+
+.latest-posts .slider__button--next {
+    right: 0;
+    transform: rotate(180deg);
+}
+
+/* Group-Slider (bestehende Logik) – nur <= 950px */
 @media (max-width: 950px) {
 
-    /* Track */
     .wp-block-columns.all-columns-start-with-image.more-than-two-columns.column-slider {
         overflow: visible;
         margin-left: 0;
-        display: flex;           /* Standard kommt von Gutenberg, hier nur Sicherung */
+        display: flex;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
+
+        /* <<< NEU: auch hier keine Textselektion beim Ziehen >>> */
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
 
         .wp-block-column {
             max-width: calc(100vw - calc(var(--grid-margin) * 4));
@@ -17,16 +104,13 @@
                 width: initial !important;
             }
         }
-
     }
-
 
     .column-slider > .wp-block-column {
         flex: 0 0 100%;
         max-width: calc(100vw - var(--doublepadding));
         box-sizing: border-box;
     }
-
 
     .navbuttons {
         position: relative;
@@ -64,7 +148,6 @@
     .slider__button .button__direction {
         display: block;
         cursor: pointer;
-
     }
 
     .slider__button--prev {
