@@ -137,5 +137,6 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 				value="<?php echo esc_attr__( 'submit', 'sunflower-contact-form' ); ?>"
 			/>
 		</p>
+		<div id="form-error" class="bg-danger p-4 text-white" style="display:none;"></div>
 	</form>
 </div>

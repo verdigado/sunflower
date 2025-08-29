@@ -139,8 +139,10 @@ function sunflower_save_event_meta_boxes() {
 		// In case of all day events the events end on midnight, next day. So we have to add one day on save.
 		if ( '_sunflower_event_until' === $id && 'checked' === $is_all_day ) {
 			$value = gmdate( 'Y-m-d', strtotime( sunflower_german_date2int_date( $_POST[ $id ] ) ) + 86400 );
+		} elseif ( '_sunflower_event_from' === $id || '_sunflower_event_until' === $id ) {
+			$value = sunflower_german_date2int_date( $_POST[ $id ] );
 		} else {
-			$value = ( 'datetimepicker' === $config[1] ) ? sunflower_german_date2int_date( $_POST[ $id ] ) : $_POST[ $id ];
+			$value = $_POST[ $id ];
 		}
 
 		update_post_meta( $post->ID, $id, sanitize_text_field( $value ) );
@@ -227,13 +229,15 @@ function sunflower_int_date2german_date( $int_date ) {
 function sunflower_event_meta_box() {
 	global $post;
 
-	$sunflower_event_fields = sunflower_get_event_fields();
+	$sunflower_event_fields  = sunflower_get_event_fields();
+	$sunflower_form_disabled = '';
 
 	$custom = get_post_custom( $post->ID );
 	$uid    = $custom['_sunflower_event_uid'][0] ?? false;
 
 	if ( $uid ) {
 		printf( '<div style="color:red">%s</div>', esc_html__( 'This event will be imported by remote ical-calendar. All changes here will be overwritten.', 'sunflower' ) );
+		$sunflower_form_disabled = 'disabled';
 		?>
 		<script>
 			jQuery( function() {
@@ -244,7 +248,6 @@ function sunflower_event_meta_box() {
 			});
 		</script>
 		<?php
-		return;
 	} else {
 		?>
 		<script>
@@ -265,6 +268,9 @@ function sunflower_event_meta_box() {
 		// In case of all day events the events end on midnight, next day. For the input, we show last day of event.
 		if ( '_sunflower_event_until' === $id && 'checked' === $is_all_day ) {
 			$value = gmdate( 'Y.m.d', strtotime( $value ) - 86400 );
+		}
+		if ( $sunflower_form_disabled ) {
+			$config[4] = 'disabled="disabled"';
 		}
 		sunflower_event_field( $id, $config, $value );
 	}
@@ -303,6 +309,7 @@ function sunflower_event_field( $id, $config, $value ) {
 	$sunflower_class               = $config[1] ?? '';
 	$sunflower_type                = $config[2] ?? false;
 	$sunflower_initialized_checked = $config[3] ?? '';
+	$sunflower_field_disabled      = $config[4] ?? '';
 
 	if ( 'datetimepicker' === $sunflower_class ) {
 		$value = sunflower_int_date2german_date( $value );
@@ -315,7 +322,7 @@ function sunflower_event_field( $id, $config, $value ) {
 
 	match ( $sunflower_type ) {
 		'checkbox' => printf(
-			'<div class="sunflower-field checkbox"><span><input class="%4$s" type="checkbox" name="%1$s" id="%1$s" %3$s value="checked" %5$s></span><label for="%1$s">%2$s</label></div>',
+			'<div class="sunflower-field checkbox"><span><input class="%4$s" type="checkbox" name="%1$s" id="%1$s" %3$s value="checked" ' . esc_attr( $sunflower_field_disabled ) . ' %5$s></span><label for="%1$s">%2$s</label></div>',
 			esc_attr( $id ),
 			esc_attr( $sunflower_label ),
 			esc_attr( $value ),
@@ -328,7 +335,7 @@ function sunflower_event_field( $id, $config, $value ) {
 			esc_attr( $value )
 		),
 		default => printf(
-			'<div class="sunflower-field text"><label for="%1$s">%2$s</label><br /><input class="%4$s" type="text" name="%1$s" placeholder="%2$s" autocomplete="off" value="%3$s"></div>',
+			'<div class="sunflower-field text"><label for="%1$s">%2$s</label><br /><input class="%4$s" type="text" name="%1$s" placeholder="%2$s" autocomplete="off" value="%3$s" ' . esc_attr( $sunflower_field_disabled ) . '></div>',
 			esc_attr( $id ),
 			esc_attr( $sunflower_label ),
 			esc_attr( $value ),

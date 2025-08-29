@@ -23,7 +23,6 @@ $sunflower_metadata      = get_post_meta( $post->ID, '_sunflower_metadata', true
 		<div class="row">
 			<div class="col-12">
 				<main id="primary" class="site-main">
-
 					<?php
 					$sunflower_display_single = ( is_front_page() ) ? '' : 'display-single';
 

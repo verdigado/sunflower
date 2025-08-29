@@ -3,7 +3,7 @@
     font-family: "GrueneType Neue";
     src:
         url("assets/fonts/GrueneTypeNeue-Regular.woff2") format("woff2"),
-        url("assets/fonts/GrueneTypeNeue-Regular.ttf") format("truetype");
+        url("assets/fonts/GrueneTypeNeue-Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -36,8 +36,8 @@
 }
 
 .gruenetype {
-    font-family: GrueneType !important;
-    font-weight: 500;
+    font-family: "GrueneType Neue" !important;
+    font-weight: 400;
 }
 
 .ptsans {
