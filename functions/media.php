@@ -100,8 +100,8 @@ function sunflower_save_creator_field_to_media( $post, $attachment ) {
 			function ( $location ) {
 				return add_query_arg(
 					array(
-						'media_creator_error' => 1,
-						'_sunflower_nonce'    => wp_create_nonce( 'sunflower_media_notice' ),
+						'media_alt_warning' => 1,
+						'_sunflower_nonce'  => wp_create_nonce( 'sunflower_media_notice' ),
 					),
 					$location
 				);
