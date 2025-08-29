@@ -267,7 +267,7 @@ class SunflowerSocialMediaSettingsPage {
 
 		printf(
 			'<input type="text" id="sunflower_open_graph_fallback_image" name="sunflower_social_media_options[sunflower_open_graph_fallback_image]" size="%s" value="%s">',
-			esc_attr( min( strlen( (string) $this->options['sunflower_open_graph_fallback_image'] ), 120 ) ),
+			esc_attr( min( strlen( $this->options['sunflower_open_graph_fallback_image'] ?? '' ), 120 ) ),
 			esc_attr( $this->options['sunflower_open_graph_fallback_image'] ?? '' )
 		);
 
