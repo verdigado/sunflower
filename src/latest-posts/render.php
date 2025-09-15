@@ -89,7 +89,7 @@ while ( $sunflower_posts->have_posts() ) {
 }
 
 if ( 0 === $sunflower_posts->post_count ) {
-	$sunflower_list_items = sprintf( '<div class="col-12 text-center pb-4">%s</div><div class="col-12">', __( 'No posts found', 'sunflower' ) );
+	$sunflower_list_items = sprintf( '<div class="col-12 text-center pb-4">%s</div>', __( 'No posts found', 'sunflower' ) );
 }
 
 $sunflower_list_items .= sprintf(
