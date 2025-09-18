@@ -144,6 +144,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			update_post_meta( $id, '_sunflower_event_from', $event->DTSTART->getDateTime()->format( 'Y-m-d' ) ); // phpcs:ignore
 			update_post_meta( $id, '_sunflower_event_until', $event->DTEND?->getDateTime()->format( 'Y-m-d' ) ); // phpcs:ignore
 		} else {
+			delete_post_meta( $id, '_sunflower_event_whole_day' );
 			update_post_meta( $id, '_sunflower_event_from', $event->DTSTART->getDateTime( $timezone_fix )->setTimezone( $timezone )->format( 'Y-m-d H:i' ) ); // phpcs:ignore
 			update_post_meta( $id, '_sunflower_event_until', $event->DTEND?->getDateTime( $timezone_fix )->setTimezone( $timezone )->format( 'Y-m-d H:i' ) ); // phpcs:ignore
 		}
