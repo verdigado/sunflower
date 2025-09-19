@@ -175,8 +175,9 @@ export default function Edit( { attributes, setAttributes } ) {
 							) }
 							value={ count }
 							onChange={ onChangeCount }
-							min={ 1 }
-							max={ 20 }
+							min={ 6 }
+							max={ 18 }
+							step={ 6 }
 						/>
 					</PanelBody>
 				</InspectorControls>

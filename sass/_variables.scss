@@ -72,7 +72,7 @@ $grid-breakpoints: (
     --border-radius-large: 30px;
     --border-radius-button: 23px;
     --border-radius-medium: 15px;
-    --border-radius-small: 8px;
+    --border-radius-small: 10px;
     --border-radius-tiny: 3px;
 
     --half-block-spacing: 105px;
@@ -81,12 +81,33 @@ $grid-breakpoints: (
     --grid-margin: 20px;
     --half-grid-margin: calc(var(--grid-margin) / 2);
     --double-grid-margin: calc(var(--grid-margin) * 2);
+    --negative-grid-margin: calc(-1 * var(--grid-margin));
 
     --gap-huge: 300px;
     --gap-large: 23px;
     --gap-small: 5px;
 
     --width-brand-left: 350px;
+
+    .formstyle-sharp {
+        --border-radius-large: 0;
+        --border-radius-button: 0;
+        --border-radius-medium: 0;
+        --border-radius-small: 0;
+        --border-radius-tiny: 0;
+
+        .concave-30px {
+            display: none !important;
+        }
+
+        .wp-block-cover__inner-container {
+
+            &::after,
+            &::before {
+                display: none !important;
+            }
+        }
+    }
 }
 
 @media (max-width: 1500px) {
@@ -101,12 +122,21 @@ $grid-breakpoints: (
     :root {
         --border-radius-large: 20px;
         --border-radius-medium: 10px;
+        --border-radius-small: 5px;
 
         --half-block-spacing: 75px;
         --block-spacing: calc(var(--half-block-spacing) * 2);
 
         --grid-margin: 12px;
         --gap-large: 20px;
+
+        .formstyle-sharp {
+            --border-radius-large: 0;
+            --border-radius-button: 0;
+            --border-radius-medium: 0;
+            --border-radius-small: 0;
+            --border-radius-tiny: 0;
+        }
     }
 }
 

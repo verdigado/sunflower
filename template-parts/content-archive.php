@@ -22,50 +22,40 @@
 		?>
 		<div class="p-45">
 			<header class="entry-header mb-2">
-				<?php
+				<div class="entry-meta mb-3">
+					<?php
+					sunflower_posted_on();
+					?>
+					<?php
 					$sunflower_roofline = get_post_meta( $post->ID, '_sunflower_roofline', true );
-				if ( $sunflower_roofline ) {
-					printf( ' <div class="roofline mb-1">%s</div>', esc_attr( $sunflower_roofline ) );
-				}
-				?>
+					if ( $sunflower_roofline ) {
+						printf( ' <div class="roofline metainfo mb-1">%s</div>', esc_attr( $sunflower_roofline ) );
+					}
+					?>
+				</div><!-- .entry-meta -->
 				<?php
 
-				the_title( '<h2 class="card-title h4 mb-3"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				the_title( '<h2 class="card-title h5 mb-3"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 
 				if ( 'post' === get_post_type() ) :
 					?>
-					<div class="entry-meta mb-3">
-						<?php
-						sunflower_posted_on();
-						?>
-					</div><!-- .entry-meta -->
 					<?php
 				endif;
 				?>
 			</header><!-- .entry-header -->
 
-			<div class="entry-content">
-				<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+			<div class="entry-content has-small-font-size">
 				<?php
 				the_excerpt();
-				wp_link_pages(
-					array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sunflower' ),
-						'after'  => '</div>',
-					)
-				);
 				?>
-				</a>
 			</div><!-- .entry-content -->
 
 			<footer class="entry-footer">
-				<?php sunflower_entry_footer(); ?>
 
 				<div class="d-flex flex-row-reverse">
-					<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="continue-reading">
-					<?php
-					esc_attr_e( 'Continue reading', 'sunflower' );
-					?>
+					<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="h6 continue-reading">
+					<span><?php esc_attr_e( 'Continue reading', 'sunflower' ); ?></span>
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/arrow-right.svg' ); ?>" alt="" class="icon-arrow" />
 				</a>
 				</div>
 			</footer><!-- .entry-footer -->

@@ -1,3 +1,5 @@
+@use "sass:map";
+
 html,
 body {
     width: 100%;
@@ -161,11 +163,11 @@ a.continue-reading,
 .continue-reading {
     padding-top: 10px;
     display: block;
-    font-weight: 700;
     font-style: italic;
-    color: $body-color;
+    color: map.get($custom-colors, "tanne") !important;
     text-decoration: none;
-    text-transform: uppercase;
+    margin-bottom: -2px;
+    transition: 300ms ease-out;
 
     &:hover {
         color: $primary;
@@ -268,11 +270,7 @@ iframe {
             right: 0;
             z-index: 20;
             opacity: 0.3;
-            background-color: $black;
-        }
-
-        .wp-block-group__inner-container {
-            position: relative;
+            background-color: map.get($custom-colors, "weiss") !important;
         }
 
     }
@@ -289,6 +287,20 @@ iframe {
         a {
             color: $body-color;
         }
+    }
+
+}
+
+:where(.is-layout-flex),
+.wp-block-cover {
+    gap: 0;
+
+    h2 {
+        margin-bottom: var(--grid-margin) !important;
+    }
+
+    p {
+        margin-bottom: calc(var(--grid-margin) + 10px) !important;
     }
 
 }

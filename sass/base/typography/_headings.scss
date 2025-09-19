@@ -94,7 +94,7 @@ h2:has(mark) {
 
     mark {
         display: inline-block !important;
-        padding: 15px 10px 0 7px;
+        padding: 6px 10px 9px 7px;
         font-size: 60px;
         line-height: 100%;
         position: relative;
@@ -104,12 +104,11 @@ h2:has(mark) {
 
         @include media-breakpoint-down(xl) {
             font-size: 40px;
-            padding: 9px 10px 1px 7px;
+            padding: 4px 10px 6px 7px;
         }
 
         @include media-breakpoint-down(md) {
             font-size: 30px;
-            padding: 8px 10px 2px 7px;
         }
 
 
@@ -193,3 +192,4 @@ h2:has(mark) {
         color: $primary;
     }
 }
+

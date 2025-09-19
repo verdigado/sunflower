@@ -3,7 +3,7 @@
 const stickyElement = document.querySelector( '.top-bar' );
 
 let ticking = false;
-const scrollThreshold = 1;
+const scrollThreshold = 40;
 
 function updateStuckState() {
 	if ( stickyElement ) {

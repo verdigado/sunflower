@@ -11,7 +11,7 @@
     line-height: 130%;
     letter-spacing: 0.6px;
     height: 46px;
-    width: auto;
+    width: initial;
     display: inline-block;
     font-family: "PT Sans", sans-serif;
     padding: 0 35px 4px 35px;
@@ -20,6 +20,7 @@
     background-color: $button-background;
     color: $primary;
 
+
     &:hover {
         color: $white;
         text-decoration: none;
@@ -27,14 +28,14 @@
         border: 2px solid $button-hover;
     }
 
-    &:hover,
-    &:visited {
+    &:hover {
         color: $white;
     }
 
     &:focus {
         color: $white;
-        outline: 3px solid map.get($custom-colors, "schwarzwald");
+        outline: 2px solid map.get($custom-colors, "sonne");
+        background-color: map.get($custom-colors, "tanne");
     }
 
     // Sekundärstil

@@ -9,14 +9,13 @@
 
     max-width: 100vw !important;
     transition: 0.3s ease;
-    margin: var(--half-block-spacing) calc(-1 * var(--grid-margin));
     border-radius: 0;
-    overflow: visible;
-    padding: 0 calc(var(--grid-margin));
+    overflow: hidden;
+    padding: 0 var(--grid-margin);
     position: relative;
-    left: 0;
-    right: calc(-1 * var(--grid-margin));
-    width: calc(100% + var(--double-grid-margin)) !important;
+    margin-left: calc(-1 * var(--grid-margin)) !important;
+    margin-right: calc(-1 * var(--grid-margin)) !important;
+    width: 100vw !important;
 
     @include media-breakpoint-down(xl) {
         min-height: 300px;
@@ -25,7 +24,6 @@
     @include media-breakpoint-down(md) {
         height: fit-content;
         flex-direction: column;
-        overflow: visible;
         min-height: 250px;
     }
 
@@ -58,11 +56,12 @@ body .entry-content > :first-child.wp-block-cover {
     height: calc(100vh - var(--double-grid-margin));
     margin-top: var(--grid-margin);
     margin-bottom: var(--half-block-spacing);
+    margin-left: calc(-1 * var(--grid-margin)) !important;
+    margin-right: calc(-1 * var(--grid-margin)) !important;
     border-radius: var(--border-radius-large);
     padding: 0 !important;
-    overflow: hidden;
+    left: var(--grid-margin) !important;
     width: 100% !important;
-    left: var(--grid-margin);
 
     @include media-breakpoint-down(md) {
         min-height: initial !important;
@@ -89,7 +88,7 @@ body .entry-content > :first-child.wp-block-cover {
 
     .wp-block-cover__inner-container {
         background-color: $white;
-        border-radius: 0 30px 0 0;
+        border-radius: 0 var(--border-radius-large) 0 0;
         position: absolute;
         left: 0;
         bottom: 0;
@@ -103,7 +102,6 @@ body .entry-content > :first-child.wp-block-cover {
         }
 
         @include media-breakpoint-down(xl) {
-            border-radius: 0 20px 0 0;
             max-width: 75%;
         }
 

@@ -480,6 +480,10 @@ p a {
 	flex-direction: column;
 }
 
+.next-events figure {
+	display: none;
+}
+
 a.event-card article .h2 {
 	color: #005437;
 }

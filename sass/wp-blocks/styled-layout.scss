@@ -1,11 +1,9 @@
 .styled-layout {
 
     h1,
-    h2,
     h3,
     h4,
     .h1,
-    .h2,
     .h3,
     .h4 {
         margin-top: 0;
@@ -42,4 +40,11 @@
         margin-bottom: 0;
     }
 
+    h2,
+    .h2 {
+        margin-top: -5px;
+
+    }
+
 }
+

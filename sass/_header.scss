@@ -564,7 +564,7 @@ $text-dark: #222;
 }
 
 .right-bar {
-    border-radius: 0 0 0 20px;
+    border-radius: 0 0 0 var(--border-radius-medium);
     height: 100px;
     padding: var(--grid-margin);
     right: 0;
@@ -692,7 +692,6 @@ $text-dark: #222;
             border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
             width: fit-content;
             margin: 0;
-            outline: 1px solid map.get($custom-colors, "weiss");
             overflow: hidden;
 
             > li > a {
@@ -802,7 +801,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         content: "";
         position: relative;
         left: -7px;
-        top: -33px;
+        top: -27px;
         transform: translateY(-50%);
         width: 0;
         height: 0;
@@ -813,7 +812,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         transition: border-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
-            top: -29px;
+            top: -23.4px;
             left: -6px;
             border-width: 0 0 28px 6px;
             border-color: transparent transparent #005538 transparent;
@@ -824,7 +823,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         content: "";
         position: relative;
         right: -7px;
-        top: 28.8px;
+        top: 26.6px;
         transform: translateY(-50%);
         width: 0;
         height: 0;
@@ -835,7 +834,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         transition: border-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
-            top: 25px;
+            top: 23.4px;
             right: -6px;
             border-width: 28px 6px 0 0;
             border-color: #005538 transparent transparent transparent;
@@ -850,7 +849,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         content: "";
         position: relative;
         left: -7px;
-        top: -33px;
+        top: -27px;
         transform: translateY(-50%);
         width: 0;
         height: 0;
@@ -861,7 +860,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         transition: border-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
-            top: -29px;
+            top: -23.4px;
             left: -6px;
             border-width: 0 0 28px 6px;
             border-color: transparent transparent #8abd24 transparent;
@@ -872,7 +871,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         content: "";
         position: relative;
         right: -7px;
-        top: 28.8px;
+        top: 26.6px;
         transform: translateY(-50%);
         width: 0;
         height: 0;
@@ -883,7 +882,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         transition: border-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
-            top: 25px;
+            top: 23.4px;
             right: -6px;
             border-width: 28px 6px 0 0;
             border-color: #8abd24 transparent transparent transparent;
@@ -898,12 +897,12 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
     font-family: "GrueneType Neue", sans-serif;
     width: fit-content;
     display: inline-block;
-    padding: 0.3rem 0;
+    padding: 3px 0;
     transition: background-color 0.3s ease;
 
     @include media-breakpoint-down(xl) {
         height: 28px;
-        padding: 6px 0 0 0;
+        padding: 4px 0 0 0;
     }
 }
 
@@ -914,6 +913,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
     left: 0;
     position: absolute;
     cursor: pointer;
+    z-index: 200;
 
     @include media-breakpoint-down(xl) {
         margin: var(--double-grid-margin) 80px 0 calc(var(--double-grid-margin) + 7px);
@@ -973,18 +973,20 @@ html body.hamburger-menu .top-bar.stuck {
         border-radius: 0;
         transition: background-color 0.3s ease;
         top: 0;
-        min-width: 260px;
+        min-width: 260px !important;
+        width: initial !important;
         height: 100vh;
         position: fixed;
         overflow: scroll;
         display: flex !important;
         justify-content: flex-start !important;
         align-items: flex-start !important;
-        right: -100%;
+        right: -200%;
         padding: 120px var(--grid-margin) var(--grid-margin) var(--double-grid-margin);
         scrollbar-width: none;
         -ms-overflow-style: none;
         max-width: none;
+
 
         &::-webkit-scrollbar {
             display: none;
@@ -1020,6 +1022,10 @@ html body.hamburger-menu .top-bar.stuck {
     .sub-menu {
         top: 41px;
         padding: 0 0 calc(var(--grid-margin) / 2) 0;
+
+        @include media-breakpoint-down(xl) {
+            top: 40px;
+        }
 
             .sub-menu {
                 top: 0;

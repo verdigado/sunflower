@@ -1,5 +1,9 @@
 @use "sass:map";
 
+.latest-posts:has(.column-slider) {
+    position: relative;
+}
+
 /* Latest-Posts Slider – immer aktiv, mehrere Karten pro Ansicht */
 .latest-posts .row.column-slider {
     overflow: visible;
@@ -9,7 +13,6 @@
     flex-direction: row !important;
     flex-wrap: nowrap !important;
 
-
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -17,12 +20,22 @@
     .entry-header,
     .entry-content,
     .entry-meta,
-    img {
+    img,
+    a:has(.wp-post-image) {
         pointer-events: none;
     }
 
     div {
-        cursor: pointer;
+        cursor: move;
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+
+        &:active {
+            cursor: grabbing;
+            cursor: -moz-grabbing;
+            cursor: -webkit-grabbing;
+        }
     }
 }
 
@@ -36,11 +49,18 @@
 
 /* Nav & Buttons – Latest-Posts */
 .latest-posts .navbuttons {
-    position: relative;
-    right: var(--padding);
-    bottom: -50px;
-    width: 100%;
-    margin-bottom: var(--block-spacing);
+
+    position: absolute;
+    top: 85px;
+    right: var(--block-spacing);
+
+    @include media-breakpoint-down(md) {
+        top: 20px;
+        position: relative;
+        right: var(--grid-margin);
+        width: calc(100% - var(--grid-margin));
+        margin-bottom: var(--block-spacing);
+    }
 }
 
 .latest-posts .slider__button {
@@ -73,17 +93,44 @@
     cursor: pointer;
 }
 
+
+.latest-posts .slider__button .button__direction {
+    position: relative;
+    top: -0.5px;
+}
+
 .latest-posts .slider__button--prev {
-    left: 0;
+    left: -40px;
+
+    @include media-breakpoint-down(md) {
+        left: var(--grid-margin);
+    }
 }
 
 .latest-posts .slider__button--next {
-    right: 0;
+    left: calc(104px - var(--grid-margin));
     transform: rotate(180deg);
+
+    @include media-breakpoint-down(md) {
+        right: 0;
+        left: initial;
+    }
 }
 
-/* Group-Slider (bestehende Logik) – nur <= 950px */
-@media (max-width: 950px) {
+a:has(.continue-reading) {
+    height: 211px;
+    justify-content: center;
+    display: flex !important;
+    align-items: center;
+    background-color: map.get($custom-colors, "weiss") !important;
+    border: 2px solid #000;
+    border-radius: var(--border-radius-medium);
+    visibility: visible !important;
+    position: relative;
+    left: calc(-1 * var(--grid-margin));
+}
+
+@include media-breakpoint-down(md) {
 
     .wp-block-columns.all-columns-start-with-image.more-than-two-columns.column-slider {
         overflow: visible;
@@ -92,7 +139,6 @@
         flex-direction: row !important;
         flex-wrap: nowrap !important;
 
-        /* <<< NEU: auch hier keine Textselektion beim Ziehen >>> */
         -webkit-user-select: none;
         -ms-user-select: none;
         user-select: none;
@@ -117,7 +163,11 @@
         right: var(--padding);
         bottom: -50px;
         width: 100%;
-        margin-bottom: var(--block-spacing);
+        top: 85px;
+
+        @include media-breakpoint-down(md) {
+            top: 0;
+        }
     }
 
     .slider__button {

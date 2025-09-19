@@ -19,36 +19,57 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+
+    @include media-breakpoint-down(xl) {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
 }
 
 .alignwide {
     width: calc(((100% - (11 * var(--grid-margin))) / 12) * 10 + (9 * var(--grid-margin)));
-    max-width: 1400px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 
     @media (max-width: 781px) {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: var(--grid-margin) !important;
-        padding-right: var(--grid-margin) !important;
+        width: 100%;
+        max-width: 100%;
+        padding-left: var(--grid-margin);
+        padding-right: var(--grid-margin);
     }
 
     @media (max-width: 480px) {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
 .alignfull {
-    width: 100% !important;
-    max-width: 100% !important;
+    width: calc(100% + var(--double-grid-margin)) !important;
+    margin-left: calc(-1 * var(--grid-margin)) !important;
+    margin-right: calc(-1 * var(--grid-margin)) !important;
+    max-width: calc(100% + var(--double-grid-margin)) !important;
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin);
 }
 
 .text-left {
     text-align: left;
+}
+
+.row {
+    margin: 0 !important;
+}
+
+.container {
+    padding: 0 !important;
 }
 
 .no-link {
@@ -91,123 +112,298 @@
     z-index: 10;
 }
 
+body.colorscheme-green {
 
-@layer fade;
-
-@layer fade {
-
-    :root {
-        --fade-duration: 0.8s;
+    .wp-block-group .all-columns-start-with-image h4 {
+        color: map.get($custom-colors, "grashalm");
     }
 
 
-    html.preload {
-
-        header,
-        main,
-        section,
-        article,
-        aside,
-        nav,
-        figure,
-        img,
-        .wp-block-group,
-        .right-bar,
-        .brand-left,
-        video,
-        picture,
-        blockquote,
-        ul,
-        ol,
-        li,
-        table,
-        form,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        a,
-        p {
-            opacity: 0;
-        }
+    .wp-block-image figcaption,
+    .concave-30px {
+        color: map.get($custom-colors, "schwarzwald");
     }
 
-    header,
-    main,
-    section,
-    article,
-    aside,
-    nav,
-    .wp-block-group,
-    figure,
-    img,
-    video,
-    picture,
-    .wp-block-buttons,
-    .right-bar,
-    .logo-background,
-    blockquote,
-    ul,
-    ol,
-    li,
-    table,
-    form,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    a,
-    p {
-        transition: opacity var(--fade-duration) ease;
+    .hamburger,
+    .entry-content > :first-child.wp-block-cover .wp-block-cover__inner-container,
+    .main-menu ul .sub-menu {
+        background-color: map.get($custom-colors, "schwarzwald");
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    .entry-content > :first-child.wp-block-cover .wp-block-cover__inner-container::before,
+    .entry-content > :first-child.wp-block-cover .wp-block-cover__inner-container::after {
+        content: url("assets/img/concave-30px_darkmode.svg");
+    }
 
-        header,
-        main,
-        section,
-        article,
-        aside,
-        nav,
-        .wp-block-group,
-        figure,
-        img,
-        video,
-        picture,
-        .wp-block-buttons,
-        .right-bar,
-        .logo-background,
-        blockquote,
-        ul,
-        ol,
-        li,
-        table,
-        form,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        a,
-        p {
-            transition: none;
-        }
+    .menu-item-has-children::after {
+        content: url("/wp-content/themes/sunflower/assets/img/dropdown_darkmode.svg");
     }
 }
 
+body.formstyle-sharp {
 
-.right-bar.js-measuring {
-    visibility: hidden;
-}
+    .brand-left {
+        left: initial;
+        right: 0;
+        margin: 14px 25px;
 
-.wp-block-cover .has-background-dim:not([class*="-background-color"]),
-.wp-block-cover-image .has-background-dim:not([class*="-background-color"]),
-.wp-block-cover-image.has-background-dim:not([class*="-background-color"]),
-.wp-block-cover.has-background-dim:not([class*="-background-color"]) {
-    display: none;
+        @media (max-width: 1200px) {
+            margin: 7px 20px;
+        }
+    }
+
+    .top-bar.stuck {
+
+        .right-bar__content {
+            justify-content: flex-start;
+        }
+    }
+
+    .right-bar {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+
+        &__content {
+            left: var(--grid-margin);
+            position: absolute;
+        }
+    }
+
+    &.hamburger-menu {
+
+        .right-bar__content {
+            left: initial;
+            position: relative;
+        }
+
+        .brand-left {
+            left: 0;
+            right: initial;
+        }
+
+        .hamburger {
+            border-radius: 0 0 0 7px;
+        }
+    }
+
+
+    #content .entry-content {
+
+        .wp-block-cover {
+
+            width: calc(100% + var(--double-grid-margin)) !important;
+
+
+            &.alignfull {
+                left: 0;
+                right: 0;
+            }
+
+            img {
+                height: 100% !important;
+                max-height: 100% !important;
+            }
+
+            &__inner-container {
+                width: 100%;
+            }
+
+        }
+
+        > :first-child.wp-block-cover {
+
+            height: calc(100vh - 85px) !important;
+            margin-top: 85px;
+
+            @include media-breakpoint-down(xl) {
+                height: calc(100vh - 70px) !important;
+            }
+
+            @include media-breakpoint-down(md) {
+                max-height: none;
+            }
+
+            @include media-breakpoint-down(sm) {
+                max-height: none;
+            }
+
+
+            justify-content: flex-start !important;
+            flex-direction: column;
+            overflow: visible;
+            left: 0;
+            right: 0;
+            bottom: 0 !important;
+            z-index: 1;
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0 calc(-1 * var(--grid-margin));
+                z-index: 1;
+                height: 100%;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%) !important;
+                pointer-events: none; /* verhindert, dass der Overlay Klicks blockiert */
+            }
+
+            @media (max-width: 1200px) {
+                margin-top: 70px !important;
+            }
+
+            .wp-block-cover__image-background {
+                margin: 0 calc(-1 * var(--grid-margin));
+                width: calc(100% + var(--double-grid-margin));
+                height: 100%;
+                position: relative;
+                z-index: 0;
+            }
+
+
+            .wp-block-cover__inner-container {
+                position: absolute !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                background-color: initial !important;
+                z-index: 20 !important;
+                margin-bottom: var(--grid-margin);
+
+                @include media-breakpoint-down(md) {
+                    margin-bottom: 0;
+                }
+
+                .wp-block-buttons {
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+
+                    gap: var(--half-grid-margin);
+
+                    .wp-block-button {
+                        min-width: 250px;
+                    }
+                }
+            }
+        }
+
+
+        @layer fade;
+
+        @layer fade {
+
+            :root {
+                --fade-duration: 0.8s;
+            }
+
+
+            html.preload {
+
+                header,
+                main,
+                section,
+                article,
+                aside,
+                nav,
+                figure,
+                img,
+                .wp-block-group,
+                .right-bar,
+                .brand-left,
+                video,
+                picture,
+                blockquote,
+                ul,
+                ol,
+                li,
+                table,
+                form,
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6,
+                a,
+                p {
+                    opacity: 0;
+                }
+            }
+
+            header,
+            main,
+            section,
+            article,
+            aside,
+            nav,
+            .wp-block-group,
+            figure,
+            img,
+            video,
+            picture,
+            .wp-block-buttons,
+            .right-bar,
+            .logo-background,
+            blockquote,
+            ul,
+            ol,
+            li,
+            table,
+            form,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            a,
+            p {
+                transition: opacity var(--fade-duration) ease;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+
+                header,
+                main,
+                section,
+                article,
+                aside,
+                nav,
+                .wp-block-group,
+                figure,
+                img,
+                video,
+                picture,
+                .wp-block-buttons,
+                .right-bar,
+                .logo-background,
+                blockquote,
+                ul,
+                ol,
+                li,
+                table,
+                form,
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6,
+                a,
+                p {
+                    transition: none;
+                }
+            }
+        }
+
+
+        .right-bar.js-measuring {
+            visibility: hidden;
+        }
+
+        .wp-block-cover .has-background-dim:not([class*="-background-color"]),
+        .wp-block-cover-image .has-background-dim:not([class*="-background-color"]),
+        .wp-block-cover-image.has-background-dim:not([class*="-background-color"]),
+        .wp-block-cover.has-background-dim:not([class*="-background-color"]) {
+            display: none;
+        }
+    }
 }

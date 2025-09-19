@@ -45,16 +45,17 @@ if ( ! $sunflower_link || '' === $sunflower_link ) {
 }
 
 
+$sunflower_archive_label = esc_html__( 'Archiv', 'sunflower-latest-posts' );
+
 $sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories, $sunflower_excluded_categories );
 
-$sunflower_title = ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) ? sprintf( '<h2 class="text-center h1">%s</h2>', $attributes['title'] ) : '';
+$sunflower_title = ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) ? sprintf( '<h2 class="text-center">%s</h2>', $attributes['title'] ) : '';
 
 $sunflower_classes = get_block_wrapper_attributes(
 	array(
 		'class' => implode( ' ', $sunflower_classnames ),
 	)
 );
-
 
 $sunflower_list_items = sprintf(
 	'<div %1$s>
@@ -97,7 +98,6 @@ if ( 0 === $sunflower_posts->post_count ) {
 	$sunflower_list_items = sprintf( '<div class="col-12 text-center pb-4">%s</div><div class="col-12">', __( 'No posts found', 'sunflower' ) );
 }
 
-
 if ( $sunflower_is_slider ) {
 	$sunflower_list_items .= sprintf(
 		'<div class="%3$s">
@@ -107,30 +107,27 @@ if ( $sunflower_is_slider ) {
                 </div>
             </a>
         </div>',
-		$sunflower_link,
-		( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'to archive', 'sunflower-latest-posts' ),
+		esc_url( $sunflower_link ),
+		$sunflower_archive_label,
 		$sunflower_css_col
 	);
 }
 
-
 $sunflower_list_items .= '</div>';
 
 if ( ! $sunflower_is_slider ) {
-
 	$sunflower_list_items .= sprintf(
 		'
     <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s" rel="">
         <div class="p-45 row">
-        <span class="continue-reading text-white text-center pt-0">%2$s</span>
+            <span class="continue-reading text-white text-center pt-0">%2$s</span>
         </div>
     </a>
 ',
-		$sunflower_link,
-		( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'to archive', 'sunflower-latest-posts' )
+		esc_url( $sunflower_link ),
+		$sunflower_archive_label
 	);
 }
-
 
 $sunflower_list_items .= '</div></div>';
 

@@ -6,24 +6,14 @@
     padding-bottom: var(--half-block-spacing);
     margin-left: auto;
     margin-right: auto;
-    max-width: 1400px;
 
     @media (max-width: 1200px) {
-        width: calc(100% - calc(var(--double-grid-margin) + calc(var(--gap-large) * 2))) !important;
-    }
-
-    @include media-breakpoint-down(md) {
-        width: 100% !important;
+        width: 100%;
     }
 
 
     &:has(.all-columns-start-with-image) {
-
-        @include media-breakpoint-down(xl) {
-            max-width: 100% !important;
-            padding-left: 4.5px !important;
-            padding-right: var(--half-grid-margin) !important;
-        }
+        margin: 0 auto;
     }
 
 
@@ -45,11 +35,14 @@
                 flex-grow: unset;
             }
         }
+
+        .wp-block-button {
+            width: 100% !important;
+        }
     }
 
     .wp-block-button {
         margin-top: 0;
-        width: 100%;
         max-width: 100%;
 
         .wp-block-button {
@@ -72,7 +65,7 @@
     }
 
     &__inner-container {
-        max-width: map-get($container-max-widths, "xl");
+        max-width: 100%;
     }
 
 }
@@ -128,7 +121,7 @@
 
 
         .wp-block-column .wp-block-image:nth-of-type(1) {
-            border-radius: 20px 20px 0 0;
+            border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
             overflow: hidden;
             margin-bottom: var(--gap-large);
             margin-top: 0;
@@ -148,11 +141,9 @@
 
 .wp-block-media-text {
     width: calc(((100% - (11 * var(--grid-margin))) / 12) * 10 + (9 * var(--grid-margin)));
-    max-width: 1400px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
     padding-top: var(--half-block-spacing);
     padding-bottom: var(--half-block-spacing);
+    margin: 0 auto;
 
     @include media-breakpoint-down(md) {
         display: flex;
@@ -161,8 +152,7 @@
     }
 
     @media (max-width: 1200px) {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100%;
         padding-left: calc(var(--gap-large) * 2) !important;
         padding-right: calc(var(--gap-large) * 2) !important;
     }

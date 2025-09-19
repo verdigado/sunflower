@@ -26,7 +26,7 @@ if ( ! function_exists( 'sunflower_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		echo '<span class="posted-on">' . wp_kses(
+		echo '<span class="posted-on metainfo">' . wp_kses(
 			$time_string,
 			array(
 				'post',
