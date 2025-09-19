@@ -17,14 +17,16 @@
     "url": "https://github.com/Automattic/_s/issues"
   },
   "devDependencies": {
+    "@es-joy/jsdoccomment": "^0.48.0",
     "@fortawesome/fontawesome-free": "^6.4.2",
     "@wordpress/data": "^10.9.0",
     "@wordpress/i18n": "^5.4.0",
     "@wordpress/icons": "^10.9.0",
-    "@wordpress/scripts": "^19.2.4",
+    "@wordpress/scripts": "^30.24.0",
     "@wordpress/stylelint-config": "^23.11.1",
     "dir-archiver": "^2.1.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-jsdoc": "^50.0.1",
     "rtlcss": "^3.5.0",
     "sass": "^1.77.8"
   },
@@ -72,8 +74,5 @@
     "ws": "^8.18.0",
     "lighthouse": "^12.1.0",
     "puppeteer-core": "^22.13.1"
-  },
-	"engines": {
-		"node": "18.x"
-	}
+  }
 }
