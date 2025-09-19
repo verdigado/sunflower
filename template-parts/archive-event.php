@@ -16,14 +16,14 @@ foreach ( $sunflower_tags as $sunflower_tag ) {
 	$sunflower_tag_list[ $sunflower_tag->slug ] = $sunflower_tag->name;
 }
 
-$has_thumb = has_post_thumbnail();
+$sunflower_has_thumb = has_post_thumbnail();
 ?>
 
 <a href="<?php echo esc_url( get_permalink() ); ?>"
 	class="event-card <?php echo esc_attr( implode( ' ', array_keys( $sunflower_tag_list ) ) ); ?>" rel="bookmark">
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'event has-shadow' ); ?>>
 
-		<?php if ( $has_thumb ) : ?>
+		<?php if ( $sunflower_has_thumb ) : ?>
 			<figure class="event-card__media">
 				<?php
 				echo get_the_post_thumbnail();
