@@ -11,3 +11,4 @@ assets/vndr/
 .vscode
 pa11y.json
 docker-compose.yaml
+/user.ini
