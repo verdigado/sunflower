@@ -407,3 +407,11 @@ body.formstyle-sharp {
         }
     }
 }
+
+#page > .container-fluid.bg-darkgreen {
+    display: none;
+}
+
+.row > * {
+    padding: 0;
+}

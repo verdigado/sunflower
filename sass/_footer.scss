@@ -1,25 +1,93 @@
+@use "sass:map";
+
 .social-media-profile {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     display: flex;
     opacity: 0.8;
     justify-content: center;
     align-items: center;
-    background: $white;
+    background: map.get($custom-colors, "weiss");
     border-radius: 50%;
     margin: 3px;
+    border: 2px solid map.get($custom-colors, "tanne");
+    transition: 400ms ease-out;
 
     i {
-        color: $white;
+        color: map.get($custom-colors, "tanne") !important;
+        transition: 400ms ease-out;
+    }
 
+    &:hover {
+        border: 2px solid map.get($custom-colors, "grashalm");
+        background: map.get($custom-colors, "grashalm");
+
+        i {
+            color: map.get($custom-colors, "weiss") !important;
+        }
     }
 }
 
 .site-footer {
 
-    background-color: $darkgreen;
-    color: $white;
-    padding: 50px 0;
+    background-color: map.get($custom-colors, "gruener-sand");
+    padding: 140px var(--grid-margin) var(--grid-margin) var(--grid-margin);
+    position: relative;
+
+    .small {
+        font-weight: 450;
+
+        a {
+            font-weight: 700;
+        }
+    }
+
+    &__content {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        color: map.get($custom-colors, "tanne");
+
+        > div {
+            gap: var(--grid-margin);
+        }
+
+        &--top {
+            margin-bottom: 70px;
+        }
+    }
+
+    .vendorflex {
+        width: 33.3%;
+    }
+
+    .sunflower__socials {
+        display: flex;
+        gap: 0;
+        height: calc(120px - var(--grid-margin));
+        align-items: flex-end;
+
+        a:first-of-type {
+            margin-left: 0;
+        }
+
+        a:last-of-type {
+            margin-right: 0;
+        }
+    }
+
+    .footermenu-1 {
+        width: 33.3%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footermenu-2 {
+        width: 33.3%;
+        display: flex;
+        justify-content: flex-end;
+    }
 
     .social-media-profile {
 
@@ -30,9 +98,7 @@
 
     a {
 
-        &:hover {
-            text-decoration: underline;
-        }
+        font-family: "GrueneType Neue", sans-serif;
 
         &:focus {
             color: $white-90;
@@ -44,26 +110,45 @@
             outline: #fff solid 2px;
         }
 
+        &[title="Menü erstellen"] {
+            color: map.get($custom-colors, "klee");
+        }
+
+
     }
 
     .navbar-nav {
+        flex-direction: column;
         flex-wrap: wrap;
-
+        align-items: flex-start;
 
         .nav-link {
-            padding-left: 0;
+            padding: 3px 0;
         }
     }
 
+    #footer1 {
+        min-width: calc(200px - var(--grid-margin));
+    }
+
     a {
-        color: $white;
+        color: map.get($custom-colors, "klee");
 
         &:hover {
-            color: $white;
+            color: map.get($custom-colors, "tanne");
         }
     }
 
     hr {
         opacity: 0.6;
+    }
+
+    .footerlogo {
+        width: 200px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: map.get($custom-colors, "tanne");
+        border-radius: var(--border-radius-medium) 0 0 0;
     }
 }

@@ -323,7 +323,8 @@ body {
 }
 
 .has-small-font-size,
-.article .has-small-font-size p {
+.article .has-small-font-size p,
+.small {
     font-size: 16px !important;
     line-height: 150%;
 
@@ -332,8 +333,7 @@ body {
     }
 }
 
-.metainfo,
-.small {
+.metainfo {
     font-size: 14px;
     line-height: 150%;
     font-family: "PT Sans", sans-serif;

@@ -120,10 +120,14 @@ function sunflower_get_social_media_profiles() {
 
 		$return .= sprintf(
 			'<a href="%1$s" target="_blank" title="%3$s" class="social-media-profile" rel="me"><i class="%2$s"></i></a>',
-			$url,
-			$class,
-			$title
+			esc_url( $url ),
+			esc_attr( $class ),
+			esc_attr( $title )
 		);
+	}
+
+	if ( ! empty( $return ) ) {
+		$return = sprintf( '<div class="sunflower__socials">%s</div>', $return );
 	}
 
 	return $return;

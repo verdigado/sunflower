@@ -26,6 +26,40 @@
     font-display: block;
 }
 
+
+
+@font-face {
+    font-family: "Font Awesome 6 Brands";
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url("assets/fonts/fa-brands-400.ttf") format("truetype"),
+        url("assets/fonts/fa-brands-400.ttf") format("woff2");
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Font Awesome 6 Free";
+    font-style: normal;
+    font-weight: 900;
+    src:
+        url("assets/fonts/fa-v4compatibility.ttf") format("truetype"),
+        url("assets/fonts/fa-v4compatibility.woff2") format("woff2");
+    font-display: block;
+}
+
+@font-face {
+    font-family: "ForkAwesome";
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url("assets/fonts/forkawesome-webfont.ttf") format("truetype"),
+        url("assets/fonts/forkawesome-webfont.woff") format("woff2"),
+        url("assets/fonts/forkawesome-webfont.woff2") format("woff2");
+    font-display: block;
+}
+
+
 .forkawesome {
     font-family: ForkAwesome !important;
     -webkit-font-smoothing: antialiased;
