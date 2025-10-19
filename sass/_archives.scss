@@ -78,4 +78,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    form {
+        display: flex;
+        justify-content: center;
+        column-gap: var(--grid-margin);
+    }
 }
