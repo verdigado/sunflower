@@ -12,6 +12,27 @@
 }
 
 
+html.preload * {
+    transition: none !important;
+}
+
+.u-fade {
+    opacity: 0;
+    transition: opacity 320ms ease-out;
+}
+
+.u-fade.is-visible {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .u-fade {
+        transition: none;
+    }
+}
+
+
 .full-width {
     width: 100vw;
     position: relative;
@@ -30,25 +51,10 @@
     }
 }
 
-.alignwide {
-    width: calc(((100% - (11 * var(--grid-margin))) / 12) * 10 + (9 * var(--grid-margin)));
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+.alignwide,
+.entry-content > *:not(.alignwide):not(.alignfull) {
 
-    @media (max-width: 781px) {
-        width: 100%;
-        max-width: 100%;
-        padding-left: var(--grid-margin);
-        padding-right: var(--grid-margin);
-    }
-
-    @media (max-width: 480px) {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-    }
+    @include alignwide;
 }
 
 .alignfull {
@@ -65,7 +71,7 @@
 }
 
 .row {
-    margin: 0 !important;
+    margin: 0;
 }
 
 .container {
@@ -414,4 +420,9 @@ body.formstyle-sharp {
 
 .row > * {
     padding: 0;
+}
+
+
+.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    max-width: 100%;
 }

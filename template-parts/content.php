@@ -23,31 +23,11 @@ $sunflower_class               = $args['class'] ?? '';
 		<div class="row position-relative">
 			<div class="col-12">
 		<?php
-		$sunflower_roofline = get_post_meta( $post->ID, '_sunflower_roofline', true );
-		if ( $sunflower_roofline ) {
-			printf( ' <div class="roofline roofline-single">%s</div>', esc_attr( $sunflower_roofline ) );
-		}
-		?>
-		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
-
-		if ( 'post' === get_post_type() ) :
-			?>
-						<div class="entry-meta mb-3">
-						<?php
-						sunflower_posted_on();
-
-						if ( sunflower_get_setting( 'sunflower_show_author' ) ) {
-							sunflower_posted_by();
-						}
-						?>
-						</div><!-- .entry-meta -->
-					<?php
-					endif;
 		?>
 			</div>
 		</div>
@@ -60,6 +40,27 @@ $sunflower_class               = $args['class'] ?? '';
 	if ( $sunflower_show_post_thumbnail ) {
 		sunflower_post_thumbnail( $sunflower_styled_layout, true );
 	}
+
+	if ( 'post' === get_post_type() ) :
+		?>
+		<div class="entry-meta">
+			<?php
+			sunflower_posted_on();
+
+			if ( sunflower_get_setting( 'sunflower_show_author' ) ) {
+				sunflower_posted_by();
+			}
+			?>
+
+			<?php
+			$sunflower_roofline = get_post_meta( $post->ID, '_sunflower_roofline', true );
+			if ( $sunflower_roofline ) {
+				printf( '| <div class="sunflower_post_meta metainfo">%s</div>', esc_attr( $sunflower_roofline ) );
+			}
+			?>
+		</div><!-- .entry-meta -->
+		<?php
+	endif;
 	?>
 
 	<div class="row">
@@ -94,7 +95,7 @@ $sunflower_class               = $args['class'] ?? '';
 		</div>
 		<?php } ?>
 		<div class="order-1 <?php echo ( $sunflower_metadata ) ? 'col-md-9' : 'col-md-12'; ?>">
-			<div class="entry-content accordion">
+			<div class="entry-content">
 				<?php
 				the_content(
 					sprintf(

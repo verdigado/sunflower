@@ -27,7 +27,7 @@ $sunflower_class               = $args['class'] ?? '';
 	}
 	?>
 
-	<div class="entry-content accordion">
+	<div class="entry-content">
 		<?php
 			the_content();
 

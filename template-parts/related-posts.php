@@ -6,10 +6,10 @@
  */
 
 ?>
-<div class="full-width bg-lightgreen mt-5">
+<div class="full-width mt-5">
 	<div class="container related-posts">
 		<div class="row">
-			<div class="col-12 text-center p-5">
+			<div class="col-12 text-center">
 				<h2>
 					<?php
 						echo esc_attr__( 'Related posts', 'sunflower' );

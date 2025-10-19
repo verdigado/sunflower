@@ -3,7 +3,8 @@
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.sunflower-post-navigation a {
     border: 1px solid;
     border-color: $button-border;
     background-color: $button-background;

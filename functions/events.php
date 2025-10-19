@@ -39,9 +39,10 @@ function sunflower_create_event_post_type() {
 			),
 			'public'       => true,
 			'menu_icon'    => 'dashicons-calendar',
-			'has_archive'  => true,
+			'has_archive'  => 'termine',
 			'rewrite'      => array(
-				'slug' => 'termine',
+				'slug'       => 'termine',
+				'with_front' => false,
 			),
 			'show_in_rest' => true,
 			'supports'     => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),

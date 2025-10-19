@@ -9,8 +9,8 @@
 .comment-respond {
     position: relative;
     border-radius: 15px !important;
-    padding: 30px;
-    margin: 50px;
+    padding: var(--double-grid-margin) var(--half-grid-margin) var(--grid-margin) var(--half-grid-margin);
+    margin: var(--half-block-spacing) 0;
 
     @include themed-colorscheme-nested() {
         border: 2px solid t(form-section-border);
@@ -20,7 +20,7 @@
 .comment-respond #contact-form-title {
     position: absolute;
     top: 0;
-    left: 50px;
+    left: 32px;
     margin-top: 0;
     transform: translateY(-50%);
     padding: 0.4em;

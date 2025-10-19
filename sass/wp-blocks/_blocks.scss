@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .wp-block-sunflower-meta-data {
 
     a {
@@ -11,6 +13,8 @@
 }
 
 .latest-posts {
+    width: calc(100% + var(--double-grid-margin)) !important;
+    max-width: calc(100% + var(--double-grid-margin)) !important;
 
     article {
         border-radius: $border-radius;
@@ -45,4 +49,25 @@
 
 .wp-block-sunflower-accordion:last-of-type {
     margin-bottom: 50px;
+}
+
+
+blockquote,
+blockquote.wp-block-quote {
+    margin-bottom: var(--grid-margin);
+    border-radius: var(--border-radius-medium);
+    padding: var(--grid-margin);
+    font-size: 21px;
+
+    &:nth-of-type(odd) {
+        background-color: map.get($custom-colors, "sand");
+    }
+
+    &:nth-of-type(even) {
+        background-color: map.get($custom-colors, "gruener-sand");
+    }
+
+    p {
+        margin: 0;
+    }
 }

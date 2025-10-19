@@ -32,47 +32,76 @@
 		'h6',
 	];
 
+	// Doppelte rAF: Klasse 'preload' nach dem ersten Paint entfernen
 	requestAnimationFrame( () =>
 		requestAnimationFrame( () =>
 			document.documentElement.classList.remove( 'preload' )
 		)
 	);
 
-	if ( ! ( 'IntersectionObserver' in window ) ) {
+	// Respect reduced motion: sofort sichtbar, keine Beobachtung
+	const REDUCED = window.matchMedia(
+		'(prefers-reduced-motion: reduce)'
+	).matches;
+	if ( ! ( 'IntersectionObserver' in window ) || REDUCED ) {
+		SELECTORS.forEach( ( sel ) =>
+			document.querySelectorAll( sel ).forEach( ( el ) => {
+				el.classList.remove( 'u-fade', 'is-visible' );
+			} )
+		);
 		return;
 	}
+
+	const reveal = ( el ) => {
+		el.classList.add( 'is-visible' );
+		io.unobserve( el );
+	};
 
 	const io = new IntersectionObserver(
 		( entries ) => {
 			entries.forEach( ( entry ) => {
 				if ( entry.isIntersecting ) {
-					entry.target.style.opacity = '1';
-					io.unobserve( entry.target );
+					reveal( entry.target );
 				}
 			} );
 		},
 		{ rootMargin: '0px 0px -10% 0px' }
 	);
 
-	const observeIfBelowFold = ( el ) => {
-		if ( el.getBoundingClientRect().top > window.innerHeight ) {
-			el.style.opacity = '0';
+	const prepareIfBelowFold = ( el ) => {
+		const rect = el.getBoundingClientRect();
+		// Nur "unter der Falz" vorbereiten, Above-the-fold bleibt sofort sichtbar
+		if ( rect.top > window.innerHeight ) {
+			// Nur einmal hinzufügen, um Reflow zu minimieren
+			if ( ! el.classList.contains( 'u-fade' ) ) {
+				el.classList.add( 'u-fade' );
+			}
+			// Sichtbar-Status sicher entfernen, falls vorhanden
+			el.classList.remove( 'is-visible' );
 			io.observe( el );
+		} else {
+			// Above-the-fold sofort sichtbar
+			el.classList.remove( 'u-fade' );
+			el.classList.add( 'is-visible' );
 		}
 	};
 
+	// Initial: Kandidaten sammeln
 	SELECTORS.forEach( ( sel ) =>
-		document.querySelectorAll( sel ).forEach( observeIfBelowFold )
+		document.querySelectorAll( sel ).forEach( prepareIfBelowFold )
 	);
 
+	// Tab-Wechsel: sauber aufräumen / reaktivieren
 	document.addEventListener( 'visibilitychange', () => {
 		if ( document.hidden ) {
-			io.disconnect(); // aufräumen
+			io.disconnect();
 		} else {
-			/* verbliebene unsichtbare Elemente erneut beobachten */
 			SELECTORS.forEach( ( sel ) =>
 				document.querySelectorAll( sel ).forEach( ( el ) => {
-					if ( el.style.opacity === '0' ) {
+					if (
+						el.classList.contains( 'u-fade' ) &&
+						! el.classList.contains( 'is-visible' )
+					) {
 						io.observe( el );
 					}
 				} )
@@ -80,6 +109,7 @@
 		}
 	} );
 
+	// Dynamisch hinzugefügte Nodes behandeln
 	const mo = new MutationObserver( ( muts ) => {
 		muts.forEach( ( m ) => {
 			m.addedNodes.forEach( ( node ) => {
@@ -88,13 +118,12 @@
 				}
 
 				if ( SELECTORS.some( ( sel ) => node.matches( sel ) ) ) {
-					observeIfBelowFold( node );
+					prepareIfBelowFold( node );
 				}
-
 				if ( typeof node.querySelectorAll === 'function' ) {
 					SELECTORS.forEach( ( sel ) => {
 						node.querySelectorAll( sel ).forEach(
-							observeIfBelowFold
+							prepareIfBelowFold
 						);
 					} );
 				}

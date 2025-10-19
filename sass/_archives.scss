@@ -1,5 +1,8 @@
 .archive {
 
+    min-height: 100vh;
+
+
     a {
         text-decoration: none;
     }
@@ -9,14 +12,6 @@
         overflow: hidden;
     }
 
-
-    .page-header {
-        padding: 15px 0;
-
-        @include media-breakpoint-up(md) {
-            padding: 80px 0;
-        }
-    }
 
     &-loop {
 
@@ -76,4 +71,11 @@
         }
 
     }
+}
+
+.error404 .archive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

@@ -10,26 +10,28 @@
 get_header();
 ?>
 
-<div id="content" class="container">
+	<div id="content" class="container">
 		<div class="row">
 			<div class="col-12">
 				<main id="primary" class="site-main archive">
-					<header class="page-header mb-5 text-center">
+					<header class="page-header text-center">
 						<?php
 						printf( '<h1 class="page-title">%s</h1>', esc_html__( 'Oops! That page can&rsquo;t be found.', 'sunflower' ) );
 						?>
 					</header><!-- .page-header -->
 
 					<div class="col-12 text-center mb-5    ">
-					<?php
-					esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'sunflower' );
-					get_search_form();
-					?>
+						<p>
+							<?php
+							esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'sunflower' );
+							get_search_form();
+							?>
+						</p>
 					</div>
 				</main><!-- #main -->
 			</div>
 		</div>
-</div>
+	</div>
 <?php
 get_sidebar();
 get_footer();

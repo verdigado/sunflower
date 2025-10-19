@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // Center block
 @mixin center-block {
     display: block;
@@ -8,4 +10,231 @@
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
     width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+@mixin alignwide {
+    width: calc(((100% - (11 * var(--grid-margin))) / 12) * 10 + (9 * var(--grid-margin)));
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 781px) {
+        width: 100%;
+        max-width: 100%;
+        padding-left: var(--grid-margin);
+        padding-right: var(--grid-margin);
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+
+@mixin card {
+    box-shadow: none;
+    position: relative;
+    background-color: map.get($custom-colors, "weiss") !important;
+    padding: 13px 17px 16px 18px;
+    width: calc(100% + var(--double-grid-margin)) !important;
+    border: 2px solid map.get($custom-colors, "klee");
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: var(--border-radius-medium);
+    transition: 300ms ease-out;
+    margin-left: var(--negative-grid-margin);
+    overflow: hidden;
+    max-height: 284px;
+
+    flex-direction: column;
+    flex: 1;
+
+    .entry-content > *:not(.alignwide):not(.alignfull) {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &:has(.wp-post-image) {
+        max-height: initial;
+
+        > div .p-45 {
+            display: block;
+        }
+    }
+
+    a:has(.wp-post-image) {
+        transform-origin: bottom center;
+        position: absolute;
+        width: calc(100% + 4px);
+        max-width: calc(100% + 4px);
+        top: -2px;
+        left: 0;
+        margin-left: -2px;
+        margin-right: -2px;
+        height: 254px;
+        transition: 600ms ease-out;
+        overflow: hidden;
+        border-radius: calc(var(--border-radius-medium) - 2px) calc(var(--border-radius-medium) - 2px) 0 0;
+
+        .wp-post-image {
+            width: 100%;
+            position: relative;
+            height: 254px;
+            transition: 400ms ease-out;
+        }
+    }
+
+
+    .continue-reading span {
+        padding-right: var(--gap-small);
+    }
+
+    &:hover {
+
+        .continue-reading {
+            text-shadow: 0 0 17px rgba(201, 255, 0, 0.4);
+        }
+    }
+
+    &:has(.wp-post-image) {
+        overflow: visible;
+
+        .entry-meta:has(.metainfo:first-child:last-child) {
+            justify-content: flex-end;
+        }
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 0;
+        top: 0;
+        left: 0;
+        background-color: map.get($custom-colors, "tanne");
+        transition: 300ms ease-out;
+        border-radius: 0;
+    }
+
+
+    &:has(.continue-reading:hover) {
+        border: 2px solid map.get($custom-colors, "grashalm");
+
+        .entry-meta {
+            top: 10px !important;
+        }
+
+        &::before {
+            height: 15px;
+            background-color: map.get($custom-colors, "grashalm");
+        }
+
+        &:has(.wp-post-image) {
+
+            .wp-post-image {
+                transform: scale(1.04);
+            }
+
+            .entry-meta {
+                top: 0 !important;
+            }
+
+            &::before {
+                height: 0;
+            }
+
+            border: 2px solid map.get($custom-colors, "grashalm");
+        }
+
+        .continue-reading:hover {
+            color: map.get($custom-colors, "grashalm") !important;
+            text-shadow: none;
+        }
+
+        .p-45 .entry-header .entry-meta .posted-on,
+        .p-45 .entry-header .entry-meta .roofline,
+        .p-45 h2,
+        .p-45 h2 a {
+            color: map.get($custom-colors, "grashalm") !important;
+        }
+
+        .icon-arrow {
+            left: 5px;
+        }
+    }
+
+    .icon-arrow {
+        position: relative;
+        left: 0;
+        transition: 300ms ease-out;
+    }
+
+    &:has(.wp-post-image) {
+
+        .p-45 {
+            margin-top: 254px;
+        }
+    }
+
+    .p-45 {
+        padding: 0 !important;
+        width: 100%;
+
+        .entry-header {
+
+            .entry-meta {
+                display: flex;
+                justify-content: space-between;
+                color: map.get($custom-colors, "klee") !important;
+                margin-bottom: 27px !important;
+                position: relative;
+                transition: 400ms ease-out;
+                top: 0;
+
+                .mb-1 {
+                    margin-bottom: 0 !important;
+                }
+
+                .roofline {
+                    color: map.get($custom-colors, "klee") !important;
+                    transition: 300ms ease-out;
+                    padding-left: var(--grid-margin);
+                }
+
+                .posted-on {
+                    white-space: nowrap;
+                    letter-spacing: 0.5px;
+                    transition: 300ms ease-out;
+                }
+
+                .metainfo {
+                    width: fit-content;
+                    display: inline-block;
+                }
+            }
+
+            h2,
+            h2 a {
+                color: map.get($custom-colors, "klee") !important;
+                transition: 300ms ease-out;
+            }
+
+            h2 {
+                margin-bottom: var(--half-grid-margin) !important;
+            }
+        }
+
+        .entry-content {
+
+            p {
+                margin-bottom: var(--gap-small);
+            }
+        }
+    }
 }

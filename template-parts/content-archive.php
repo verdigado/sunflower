@@ -10,9 +10,9 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'bg-white mb-4 has-shadow' ); ?>>
-	<div class="">
+	<div>
 		<?php if ( has_post_thumbnail() ) { ?>
-			<div class="">
+			<div>
 				<a href="<?php echo esc_url( get_permalink() ); ?>" aria-label="Post Thumbnail" rel="bookmark">
 					<?php sunflower_post_thumbnail( false, false, true ); ?>
 				</a>

@@ -55,6 +55,7 @@ h1,
     font-size: 36px;
     line-height: 1.2em;
     font-weight: 500 !important;
+    margin: var(--grid-margin) 0 var(--double-grid-margin) 0;
 }
 
 h2,
@@ -110,7 +111,8 @@ h5,
 }
 
 h6,
-.h6 {
+.h6,
+blockquote.wp-block-quote p {
 
     // @include themed() {
     //     font-family: t(headingFontBold);
@@ -154,7 +156,8 @@ h6,
     }
 
     h6,
-    .h6 {
+    .h6,
+    blockquote.wp-block-quote p {
         font-size: 22px;
     }
 }
@@ -279,7 +282,7 @@ h1:has(+ h4) {
     }
 }
 
-.smallmenu .right-bar a {
+.right-bar nav > ul:not(:has(:scope > li:nth-child(n+7))) {
     font-size: 18px;
 
     @include media-breakpoint-down(xl) {

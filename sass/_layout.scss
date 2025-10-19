@@ -30,7 +30,6 @@ html:has(.header-personal) {
 }
 
 .site-main {
-    margin-bottom: 50px;
 
     .page-header h1 {
         color: $secondary;
@@ -107,7 +106,7 @@ img.post-thumbnail {
 .page {
 
     &-title {
-        margin-top: $grid-gutter-width;
+        text-align: center;
     }
 }
 
@@ -136,6 +135,14 @@ img.post-thumbnail {
         &:last-child {
             margin-right: 3rem;
         }
+    }
+}
+
+.page .entry-content > :first-child {
+    margin-top: 0;
+
+    &.wp-block-group {
+        padding-top: 0;
     }
 }
 
@@ -276,19 +283,61 @@ iframe {
     }
 }
 
-.related-posts {
+.full-width:has(.related-posts) {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
 
-    a {
-        text-decoration: none;
-    }
+    @include alignwide;
 
-    .entry-content {
+    .related-posts {
+
+        padding: var(--half-block-spacing) 0 !important;
+
+        .row {
+            justify-content: space-between;
+            column-gap: var(--grid-margin);
+
+            .col-12.col-md-6 {
+                padding: 0;
+                width: calc(50% - var(--half-grid-margin));
+
+                @include media-breakpoint-down(md) {
+                    width: 100%;
+                }
+            }
+        }
+
+        > div {
+
+            width: 100%;
+        }
+
+        article {
+
+            @include card;
+
+            margin: var(--grid-margin) 0 !important;
+
+            @include media-breakpoint-down(md) {
+                width: 100% !important;
+            }
+        }
 
         a {
-            color: $body-color;
+            text-decoration: none;
         }
-    }
 
+        .entry-content {
+
+            a {
+                color: $body-color;
+            }
+        }
+
+    }
 }
 
 :where(.is-layout-flex),
@@ -301,6 +350,34 @@ iframe {
 
     p {
         margin-bottom: calc(var(--grid-margin) + 10px) !important;
+    }
+
+}
+
+
+.wp-block-group {
+    padding-top: var(--half-block-spacing);
+    padding-bottom: var(--half-block-spacing);
+
+    .wp-block-group {
+        padding-top: var(--gap-large);
+        padding-bottom: var(--gap-large);
+    }
+
+    &.wp-block-group-is-layout-flow > h2,
+    .wp-block-group__inner-container > h2 {
+        margin-bottom: var(--double-grid-margin);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .h1,
+    .h2,
+    .h3,
+    .h4 {
+        margin-top: 0;
     }
 
 }

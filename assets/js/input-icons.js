@@ -13,7 +13,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		wrapper.classList.add( 'input-with-icon' );
 
 		const icon = document.createElement( 'i' );
-		icon.className = `fa-regular ${ iconClass }`;
+		icon.className = `forkawesome ${ iconClass }`;
 
 		input.parentNode.insertBefore( wrapper, input );
 		wrapper.appendChild( icon );

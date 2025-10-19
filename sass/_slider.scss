@@ -37,6 +37,14 @@
             cursor: -webkit-grabbing;
         }
     }
+
+    .col-12 {
+        align-items: center;
+    }
+
+    .mb-4 {
+        margin-bottom: 0 !important;
+    }
 }
 
 .latest-posts .row.column-slider > .col-12,
@@ -118,16 +126,45 @@
 }
 
 a:has(.continue-reading) {
-    height: 211px;
-    justify-content: center;
+    border-radius: 23px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0.6px;
+    height: 46px;
+    width: initial;
     display: flex !important;
     align-items: center;
+    font-family: "PT Sans", sans-serif;
+    padding: 0 35px 4px 35px !important;
+    transition: 0.3s ease;
+    border: 2px solid  map.get($custom-colors, "tanne") !important;
     background-color: map.get($custom-colors, "weiss") !important;
-    border: 2px solid #000;
-    border-radius: var(--border-radius-medium);
-    visibility: visible !important;
-    position: relative;
-    left: calc(-1 * var(--grid-margin));
+    color: $primary;
+    cursor: pointer;
+
+    .p-45 {
+        height: fit-content;
+
+        span {
+            font-style: normal !important;
+            color: map.get($custom-colors, "tanne");
+        }
+    }
+
+    &:hover {
+        text-decoration: none;
+        background-color: map.get($custom-colors, "grashalm") !important;
+        border: 2px solid map.get($custom-colors, "grashalm") !important;
+
+        .p-45 {
+
+            span {
+                color: map.get($custom-colors, "weiss") !important;
+            }
+        }
+    }
+
 }
 
 @include media-breakpoint-down(md) {

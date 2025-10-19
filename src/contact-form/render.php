@@ -21,14 +21,19 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 ?>
 
 <div class="comment-respond mb-5">
-	<?php printf( '<h2 id="contact-form-title" class="text-center h1">%s</h2>', esc_html( $sunflower_title ) ); ?>
+	<?php if ( ! empty( $sunflower_title ) ) : ?>
+		<h2 id="contact-form-title" class="text-center h1">
+			<?php echo esc_html( $sunflower_title ); ?>
+		</h2>
+	<?php endif; ?>
 
 	<form id="sunflower-contact-form" method="post" class="row">
 		<?php wp_nonce_field( 'sunflower_contact_form' ); ?>
 
 		<div class="col-12 col-md-6">
 			<p class="comment-form-comment">
-				<label for="message"><?php esc_html_e( 'Message', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
+				<label for="message">
+					<?php esc_html_e( 'Message', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
 				<textarea
 					id="message"
 					name="message"
@@ -40,25 +45,15 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 				></textarea>
 			</p>
 
-			<p class="small">
-				<?php echo wp_kses_post( __( 'Please fill in all required (<span class="required">*</span>) fields.', 'sunflower-contact-form' ) ); ?>
-			</p>
-
-			<p class="small">
-				<?php
-				echo wp_kses_post(
-					__(
-						'By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href="#" id="privacy_policy_url">Datenschutzerklärung</a>',
-						'sunflower-contact-form'
-					)
-				);
-				?>
-			</p>
 		</div>
 
 		<div class="col-12 col-md-6">
 			<p class="comment-form-author">
-				<label for="name"><?php esc_html_e( 'Name', 'sunflower-contact-form' ); ?></label>
+				<label for="name">
+					<?php esc_html_e( 'Name', 'sunflower-contact-form' ); ?></label>
+
+				<div class="input-with-icon">
+				<i class="forkawesome fa-user"></i>
 				<input
 					id="name"
 					name="name"
@@ -69,6 +64,7 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 					required
 					placeholder="<?php echo esc_attr( $sunflower_placeholder_name ); ?>"
 				/>
+			</div>
 			</p>
 
 			<p class="comment-form-email">
@@ -88,6 +84,9 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 			<?php if ( $sunflower_display_phone ) : ?>
 				<p class="comment-form-email">
 					<label for="phone"><?php esc_html_e( 'Phone', 'sunflower-contact-form' ); ?></label>
+
+			<div class="input-with-icon">
+				<i class="forkawesome fa-phone"></i>
 					<input
 						id="phone"
 						name="phone"
@@ -98,11 +97,15 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 						<?php echo $sunflower_require_phone ? 'required' : ''; ?>
 						placeholder="<?php echo esc_attr( $sunflower_placeholder_phone ); ?>"
 					/>
+				</div>
 				</p>
 			<?php endif; ?>
 
 			<p class="comment-form-email">
 				<label for="captcha"><?php esc_html_e( 'How much is 1 + 1?', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
+			<div class="input-with-icon">
+				<i class="forkawesome fa-calculator"></i>
+
 				<input
 					id="captcha"
 					name="captcha"
@@ -113,6 +116,17 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 					required
 					placeholder="<?php echo esc_attr( $sunflower_placeholder_captcha ); ?>"
 				/>
+			</div>
+			</p>
+
+			<p class="small">
+				<?php echo wp_kses_post( __( 'Please fill in all required (<span class="required">*</span>) fields.', 'sunflower-contact-form' ) ); ?>
+			</p>
+
+			<p class="small">
+				<?php
+				echo wp_kses_post( __( 'By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href="#" id="privacy_policy_url">Datenschutzerklärung</a>.', 'sunflower-contact-form' ) );
+				?>
 			</p>
 		</div>
 

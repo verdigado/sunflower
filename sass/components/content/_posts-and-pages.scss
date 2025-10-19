@@ -21,3 +21,33 @@
     clear: both;
     margin: 0 0 1.5em;
 }
+
+.display-single {
+
+    .entry-header {
+        padding: 130px 0 0 0;
+
+        @include themed-colorscheme() {
+            background-color: t(background);
+            color: t(text);
+            border-radius: t(border-radius);
+        }
+
+    }
+}
+
+
+.site {
+
+    .page-header {
+        padding: 130px 0 0 0;
+
+        @include themed-colorscheme() {
+            background-color: t(background);
+            color: t(text);
+            border-radius: t(border-radius);
+        }
+
+    }
+}
+

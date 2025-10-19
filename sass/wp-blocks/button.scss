@@ -4,7 +4,13 @@
     gap: var(--grid-margin);
 }
 
-.wp-block-button__link {
+.wp-block-button__link,
+input[type="submit"],
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.sunflower-post-navigation a {
     border-radius: 23px;
     font-weight: 700;
     font-size: 20px;
@@ -12,19 +18,21 @@
     letter-spacing: 0.6px;
     height: 46px;
     width: initial;
-    display: inline-block;
     font-family: "PT Sans", sans-serif;
     padding: 0 35px 4px 35px;
     transition: 0.3s ease;
     border: 2px solid $button-border;
-    background-color: $button-background;
-    color: $primary;
+    background-color: $button-background !important;
+    color: $primary !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 
     &:hover {
-        color: $white;
+        color: $white !important;
         text-decoration: none;
-        background-color: $button-hover;
+        background-color: $button-hover !important;
         border: 2px solid $button-hover;
     }
 

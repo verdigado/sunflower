@@ -525,20 +525,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 } );
 
 /**
- * Menü hat weniger als 7 Einträge
- */
-
-document.addEventListener( 'DOMContentLoaded', function () {
-	const menu = document.querySelector( '.right-bar nav > ul' );
-	if ( menu ) {
-		const items = menu.querySelectorAll( ':scope > li' );
-		if ( items.length <= 6 ) {
-			document.body.classList.add( 'smallmenu' );
-		}
-	}
-} );
-
-/**
  * wechselnde Farbe H2
  */
 
