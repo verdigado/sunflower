@@ -312,26 +312,25 @@ body.navbar-open {
                     box-shadow: 0 25px 20px rgba(0, 0, 0, 0.1);
                 }
 
-                ul li {
-
-                    &:not(:first-child) {
-                        border-top: 1px solid $very-light-gray;
-                    }
+                a {
+                    padding-left: 1rem;
                 }
             }
 
             &-1 {
 
                 a {
-                    padding-left: 1.5rem;
+                    padding-left: 2rem;
                 }
+
             }
 
             &-2 {
 
                 a {
-                    padding-left: 2rem;
+                    padding-left: 3rem;
                 }
+
             }
         }
 
@@ -403,12 +402,24 @@ body.navbar-open {
 
         &.menu-item-has-children {
 
+            .dropdown-menu-level-0 {
+
+                > ul > li {
+
+                    &:first-child {
+                        border-top: 0;
+                    }
+                }
+
+            }
+
             @include media-breakpoint-up(lg) {
                 flex-wrap: nowrap;
             }
 
             ul li {
                 display: block;
+                border-top: 1px solid $very-light-gray;
             }
 
         }
@@ -433,11 +444,11 @@ body.navbar-open {
             .nav-item {
                 text-align: end;
                 border-top: 1px solid $very-light-gray;
-                padding-left: 24px;
 
                 .nav-link {
                     white-space: normal;
                 }
+
             }
         }
 
