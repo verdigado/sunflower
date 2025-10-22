@@ -142,7 +142,7 @@ function sunflower_enqueue_media_script( $hook ) {
 		wp_enqueue_script(
 			'sunflower-media-js',
 			get_template_directory_uri() . '/assets/js/media.js',
-			array( 'jquery' ),
+			array( 'jquery', 'wp-blocks', 'wp-element', 'wp-components' ),
 			SUNFLOWER_VERSION,
 			true
 		);
