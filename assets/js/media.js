@@ -59,7 +59,11 @@ jQuery( function ( $ ) {
 	const { Fragment, useState, useEffect } = wp.element;
 	const { apiFetch } = wp;
 
-	// Prüft, ob das Medienobjekt ein Creator-Feld hat
+	// return early if disabled
+	if ( sunflower.options.mediaCreator === 'disabled' ) {
+		return;
+	}
+	// check if media has creator meta field
 	const checkCreator = ( id, setHasCreator ) => {
 		if ( ! id ) {
 			setHasCreator( true );
