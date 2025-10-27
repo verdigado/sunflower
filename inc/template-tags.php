@@ -224,22 +224,22 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 				);
 				?>
 			<?php
-				if ( $show_caption ) {
-					$caption = array_filter(
-						array(
-							$creator,
-							get_post( get_post_thumbnail_id() )?->post_excerpt,
-						)
-					);
+			if ( $show_caption ) {
+				$caption = array_filter(
+					array(
+						$creator,
+						get_post( get_post_thumbnail_id() )?->post_excerpt,
+					)
+				);
 
-					$caption_string = implode( ' | ', $caption );
-					if ( ! empty( $caption_string ) ) {
-						?>
+				$caption_string = implode( ' | ', $caption );
+				if ( ! empty( $caption_string ) ) {
+					?>
 						<figcaption><?php echo wp_kses_post( $caption_string ); ?></figcaption>
-						<?php
-					}
+					<?php
 				}
-				?>
+			}
+			?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>

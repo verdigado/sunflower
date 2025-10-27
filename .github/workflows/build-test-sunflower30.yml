@@ -76,7 +76,7 @@ jobs:
               run: cs2pr ./phpcs-report.xml
 
             - name: Make bundle
-              run: npm run bundle
+              run: npm run copy-node-modules
 
             - name: fail on fork
               if: github.repository_owner != 'verdigado'
@@ -86,7 +86,12 @@ jobs:
               run: |
                   SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
                   BRANCH_NAME=${GITHUB_REF##*/}
-                  mv ../sunflower.zip sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip
+                  cd ..
+                  cp -r sunflower /tmp/sunflower26
+                  cd /tmp/
+                  zip -r $HOME/sunflower26.zip sunflower26 -x @sunflower26/exclude.lst
+                  cd $HOME
+                  mv sunflower26.zip $HOME/sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip
 
             - name: Provide deploy_key
               env:
@@ -111,5 +116,5 @@ jobs:
               run: |
                   SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
                   BRANCH_NAME=${GITHUB_REF##*/}
-                  rsync sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip dev-server:/var/www/updateserver/
-                  ssh dev-server "cd /var/www && rm -fr wp-content/themes/sunflower/ && wp theme install updateserver/sunflower-${BRANCH_NAME}-${SHORT_SHA}.zip >> /tmp/sunflower-install.log"
+                  rsync $HOME/sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip dev-server:/var/www/updateserver/
+                  ssh dev-server "cd /var/www && rm -fr wp-content/themes/sunflower26/ && wp theme install updateserver/sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip >> /tmp/sunflower-install.log"
