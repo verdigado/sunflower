@@ -442,6 +442,7 @@ class SunflowerSettingsPage {
 			array( 'optional', __( 'optional', 'sunflower' ) ),
 			array( 'required', __( 'required', 'sunflower' ) ),
 			array( 'strict', __( 'strict (The image is blurred if no creator field is filled out.)', 'sunflower' ) ),
+			array( 'disabled', __( 'disabled', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
 			$selected = ( isset( $this->options['sunflower_media_creator'] ) && $this->options['sunflower_media_creator'] === $option[0] ) ? 'selected' : '';

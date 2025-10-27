@@ -190,8 +190,11 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 
 		global $post;
 
-		$creator                          = get_post_meta( get_post_thumbnail_id(), '_media_creator', true );
 		$sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
+		$creator                          = '';
+		if ( 'disabled' !== $sunflower_media_creator_settings ) {
+			$creator = get_post_meta( get_post_thumbnail_id(), '_media_creator', true );
+		}
 
 		$sunflower_media_creator_required = '';
 		if ( 'required' === $sunflower_media_creator_settings || 'strict' === $sunflower_media_creator_settings ) {
@@ -220,11 +223,11 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 					)
 				);
 				?>
-				<?php
+			<?php
 				if ( $show_caption ) {
 					$caption = array_filter(
 						array(
-							get_post_meta( get_post_thumbnail_id(), '_media_creator', true ),
+							$creator,
 							get_post( get_post_thumbnail_id() )?->post_excerpt,
 						)
 					);

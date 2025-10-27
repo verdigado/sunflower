@@ -18,6 +18,10 @@ function sunflower_add_creator_field_to_media( $form_fields, $post ) {
 
 	$sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
 
+	if ( 'disabled' === $sunflower_media_creator_settings ) {
+		return $form_fields;
+	}
+
 	$sunflower_media_creator_required = '';
 	if ( 'required' === $sunflower_media_creator_settings || 'strict' === $sunflower_media_creator_settings ) {
 		$sunflower_media_creator_required = true;
@@ -178,6 +182,10 @@ function sunflower_add_creator_to_image_block( $block_content, $block ) {
 	if ( isset( $block['blockName'] ) && ( 'core/image' === $block['blockName'] || 'core/media-text' === $block['blockName'] ) ) {
 
 		$sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
+
+		if ( 'disabled' === $sunflower_media_creator_settings ) {
+			return $block_content;
+		}
 
 		$attachment_id = 0;
 		if ( isset( $block['attrs']['id'] ) ) {
