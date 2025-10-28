@@ -203,9 +203,12 @@ add_action( 'admin_enqueue_scripts', 'sunflower_admin_style' );
  * Add footer note to all backend pages.
  */
 function sunflower_change_admin_footer() {
-	echo wp_kses_post(
-		'<span id="footer-note"><a href="https://sunflower-theme.de/" target="_blank">Sunflower</a> wurde programmiert von <a href="https://github.com/codeispoetry" target="_blank">Tom Rose</a> für <a href="https://www.verdigado.com/" target="_blank">
-    <img src="' . get_template_directory_uri() . '/assets/img/verdigado-logo.png" /></a></span>'
+	wp_kses_post(
+		sprintf(
+			'<span id="footer-note"><a href="https://sunflower-theme.de/" target="_blank">Sunflower</a> – %s <a href="https://www.verdigado.com/" target="_blank">
+    <img src="' . get_template_directory_uri() . '/assets/img/verdigado-logo.png" alt="Logo of verdigado eG" /></a></span>',
+			__( 'a free WordPress theme by', 'sunflower' )
+		)
 	);
 }
 

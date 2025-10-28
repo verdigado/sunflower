@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-10-27T10:20:27+00:00\n"
+"POT-Creation-Date: 2025-10-28T08:43:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower\n"
@@ -64,7 +64,7 @@ msgid "to upcoming events"
 msgstr ""
 
 #: archive-sunflower_event.php:55
-#: build/next-events/render.php:28
+#: build/next-events/render.php:66
 #: src/next-events/render.php:28
 msgid "all events"
 msgstr ""
@@ -119,12 +119,12 @@ msgstr ""
 msgid "next"
 msgstr ""
 
-#: build/latest-posts/render.php:92
+#: build/latest-posts/render.php:98
 #: src/latest-posts/render.php:92
 msgid "No posts found"
 msgstr ""
 
-#: build/next-events/render.php:52
+#: build/next-events/render.php:51
 #: src/next-events/render.php:52
 msgid "Currently there are no coming events."
 msgstr ""
@@ -144,7 +144,7 @@ msgstr ""
 #. translators: %s is replaced with privacy link
 #: comments.php:35
 #, php-format
-msgid "Your mail will not be published. Required fields are marked with a *. For more info see <a href=\"%s\">privacy</a>"
+msgid "Your mail will not be published. Required fields are marked with a *. For more info see <a href=\"%s\">privacy</a>."
 msgstr ""
 
 #: comments.php:56
@@ -203,7 +203,11 @@ msgid ""
 "            If you continue to use the sunflower icons in menue, footer and as favicon, please read and accept the terms of use."
 msgstr ""
 
-#: functions/admin.php:220
+#: functions/admin.php:209
+msgid "a free WordPress theme by"
+msgstr ""
+
+#: functions/admin.php:221
 #: functions/block-patterns.php:24
 #: functions/blocks.php:19
 #: functions/options/class-sunflowerfirststepspage.php:33
@@ -211,7 +215,7 @@ msgstr ""
 msgid "Sunflower"
 msgstr ""
 
-#: functions/admin.php:247
+#: functions/admin.php:248
 msgid "Help for sunflowers events"
 msgstr ""
 
