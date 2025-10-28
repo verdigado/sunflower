@@ -3,13 +3,8 @@
  * The template for displaying the footer
  *
  * Contains the closing of the #content div and all content after.
- * php version 7.4.11
  *
- * @category Sunflower
- * @package  Sunflower
- * @author   Tom Rose <mail@tom-rose.de>
- * @license  GNU General Public License 3 https://www.gnu.org/licenses/gpl-3.0.html
- * @link     https://github.com/codeispoetry/sunflower
+ * @package  sunflower
  */
 
 ?>
