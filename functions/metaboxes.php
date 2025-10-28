@@ -2,7 +2,7 @@
 /**
  * Methods for the meta box block.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

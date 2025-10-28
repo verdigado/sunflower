@@ -2,7 +2,7 @@
 /**
  * Sunflower Event handling
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

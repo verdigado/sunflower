@@ -2,7 +2,7 @@
 /**
  * Functions for backend admins.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Theme related methods.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

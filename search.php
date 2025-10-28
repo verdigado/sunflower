@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 get_header();

@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 if ( isset( $_GET['format'] ) && 'ics' === $_GET['format'] ) { // phpcs:ignore

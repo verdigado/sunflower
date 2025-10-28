@@ -2,7 +2,7 @@
 /**
  * Render the Sunflower next events block.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_tag         = $attributes['tag'] ?? '';

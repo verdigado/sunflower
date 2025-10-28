@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_ics_link = wp_nonce_url( home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics', 'event_ics_' . $post->ID, 'sunflower_nonce' );

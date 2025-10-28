@@ -2,7 +2,7 @@
 /**
  * Show related posts
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 ?>

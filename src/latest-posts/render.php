@@ -2,7 +2,7 @@
 /**
  * Render the Sunflower latest posts block.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_classnames   = array();

@@ -2,7 +2,7 @@
 /**
  * Jobs doing on activation of the sunflower theme.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

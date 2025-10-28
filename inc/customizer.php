@@ -2,7 +2,7 @@
 /**
  * Sunflower Theme Customizer
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

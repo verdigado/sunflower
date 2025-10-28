@@ -2,7 +2,7 @@
 /**
  * REST API related filters
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

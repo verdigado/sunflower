@@ -4,7 +4,7 @@
  * - featured image
  * - from sunflower settings
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_open_graph_image = get_the_post_thumbnail_url( null, 'medium' ) ? get_the_post_thumbnail_url( null, 'medium' ) : sunflower_get_setting( 'sunflower_open_graph_fallback_image' );

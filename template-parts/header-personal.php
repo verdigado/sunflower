@@ -2,7 +2,7 @@
 /**
  * Personal Header
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 ?>

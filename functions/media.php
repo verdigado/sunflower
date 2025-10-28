@@ -2,7 +2,7 @@
 /**
  * Add creator field to media upload.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

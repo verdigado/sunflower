@@ -2,7 +2,7 @@
 /**
  * Class for the "First Steps" settings page.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

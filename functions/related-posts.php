@@ -2,7 +2,7 @@
 /**
  * Show related posts for given categories.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Class for the Sunflower events settings page.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 if ( ! function_exists( 'sunflower_posted_on' ) ) :

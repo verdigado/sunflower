@@ -2,7 +2,7 @@
 /**
  * Render the Sunflower contact form.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_title         = $attributes['title'] ?? __( 'Contact Form', 'sunflower-contact-form' );

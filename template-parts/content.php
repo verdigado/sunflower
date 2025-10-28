@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_styled_layout = (bool) get_post_meta( $post->ID, '_sunflower_styled_layout', true ) ?? false;

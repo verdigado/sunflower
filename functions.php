@@ -2,7 +2,7 @@
 /**
  * Include all function files.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Check for updates from Sunflower update server.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

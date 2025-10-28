@@ -2,7 +2,7 @@
 /**
  * Method for registring Sunflower blocks.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

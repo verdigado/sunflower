@@ -2,7 +2,7 @@
 /**
  * Get latest posts for sunflower.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

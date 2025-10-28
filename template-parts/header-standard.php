@@ -2,7 +2,7 @@
 /**
  * Custom Header Template
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 ?>

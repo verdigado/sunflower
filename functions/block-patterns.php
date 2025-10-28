@@ -2,7 +2,7 @@
 /**
  * Register Sunflower block patterns.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**
