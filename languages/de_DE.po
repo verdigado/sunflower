@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-git\n"
-"POT-Creation-Date: 2025-10-27T10:20:27+00:00\n"
+"POT-Creation-Date: 2025-10-28T08:43:00+00:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -65,7 +65,7 @@ msgstr "Termine"
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:55 build/next-events/render.php:28
+#: archive-sunflower_event.php:55 build/next-events/render.php:66
 #: src/next-events/render.php:28
 msgid "all events"
 msgstr "Alle Termine"
@@ -111,11 +111,11 @@ msgstr "zurück"
 msgid "next"
 msgstr "vor"
 
-#: build/latest-posts/render.php:92 src/latest-posts/render.php:92
+#: build/latest-posts/render.php:98 src/latest-posts/render.php:92
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: build/next-events/render.php:52 src/next-events/render.php:52
+#: build/next-events/render.php:51 src/next-events/render.php:52
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
@@ -136,7 +136,7 @@ msgstr "abschicken"
 #, php-format
 msgid ""
 "Your mail will not be published. Required fields are marked with a *. For "
-"more info see <a href=\"%s\">privacy</a>"
+"more info see <a href=\"%s\">privacy</a>."
 msgstr ""
 "Ihre E-Mail-Adresse wird nicht veröffentlicht. Erforderliche Felder sind mit "
 "* markiert. Mit der Nutzung dieses Formulars erklärst du dich mit der "
@@ -222,14 +222,18 @@ msgstr ""
 "            Wenn Du weiterhin die Sonnenblume im Menü, im Footer und als "
 "Favicon nutzen möchtest, lies und akzeptiere die Nutzungsbedingungen."
 
-#: functions/admin.php:220 functions/block-patterns.php:24
+#: functions/admin.php:209
+msgid "a free WordPress theme by"
+msgstr "ein kostenloses WordPress-Theme der"
+
+#: functions/admin.php:221 functions/block-patterns.php:24
 #: functions/blocks.php:19
 #: functions/options/class-sunflowerfirststepspage.php:33
 #: functions/options/class-sunflowerfirststepspage.php:34
 msgid "Sunflower"
 msgstr "Sunflower"
 
-#: functions/admin.php:247
+#: functions/admin.php:248
 msgid "Help for sunflowers events"
 msgstr "Hilfe für Sunflower-Termine"
 
@@ -689,10 +693,8 @@ msgid "Next Image"
 msgstr "Nächstes Bild"
 
 #: functions/s.php:171
-#, fuzzy
-#| msgid "previous"
 msgid "Previous Image"
-msgstr "zurück"
+msgstr "Bild zurück"
 
 #: functions/s.php:172
 msgid "Cancel Loading Image"
