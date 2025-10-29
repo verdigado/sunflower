@@ -1,4 +1,4 @@
-# Umzug von Urwahl3000 (wird beim Umstieg auf sunflower 26 nicht mehr weiter angeboten) 
+# ~Umzug von Urwahl3000~ (wird beim Umstieg auf sunflower 26 nicht mehr weiter angeboten) 
 
 Wir versuchen, den Umzug von Urwahl3000 so einfach wie möglich zu gesalten.
 
