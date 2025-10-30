@@ -118,3 +118,41 @@ jobs:
                   BRANCH_NAME=${GITHUB_REF##*/}
                   rsync $HOME/sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip dev-server:/var/www/updateserver/
                   ssh dev-server "cd /var/www && rm -fr wp-content/themes/sunflower26/ && wp theme install updateserver/sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip >> /tmp/sunflower-install.log"
+
+
+    mkdocs:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: mkdocs build
+              uses: Tiryoh/actions-mkdocs@v0
+              with:
+                  mkdocs_version: 'latest' # option
+                  # mkdocs_version: '1.1' # option
+                  requirements: 'mkdocs/requirements.txt' # option
+                  configfile: 'mkdocs/mkdocs.yml' # option
+
+            - name: Provide deploy_key
+              env:
+                  DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+                  SSH_USER: 'github-ci'
+                  SSH_HOST: 'wordpress05.gcms.verdigado.net'
+              run: |
+                  mkdir "$HOME/.ssh"
+                  echo "$DEPLOY_KEY" > "$HOME/.ssh/production.key"
+                  chmod 600 "$HOME/.ssh/production.key"
+                  cat >> ~/.ssh/config <<END
+                  Host production
+                    HostName $SSH_HOST
+                    User $SSH_USER
+                    IdentityFile ~/.ssh/production.key
+                    StrictHostKeyChecking no
+                  END
+
+            - name: save version
+              run: echo ${GITHUB_REF##*/} > version.txt
+
+            - name: rsync documentation
+              run: rsync -a --delete documentation/* production:/var/www/documentation26/

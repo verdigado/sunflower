@@ -10,7 +10,7 @@
  *
  * @param Array  $transient The theme update data with the latest details. Default false.
  * @param Array  $theme_data Theme data array.
- * @param string $theme_slug  The theme slug - 'sunflower' our case.
+ * @param string $theme_slug  The theme slug - 'sunflower26' our case.
  */
 function sunflower_update_theme( $transient, $theme_data, $theme_slug ) {
 	// Include an unmodified $wp_version.
