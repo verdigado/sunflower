@@ -47,17 +47,15 @@
     }
 }
 
-.wp-block-sunflower-accordion:last-of-type {
-    margin-bottom: 50px;
-}
-
 
 blockquote,
 blockquote.wp-block-quote {
     margin-bottom: var(--grid-margin);
     border-radius: var(--border-radius-medium);
-    padding: var(--grid-margin);
+    padding: calc(var(--grid-margin) - 5px) var(--grid-margin) calc(var(--grid-margin) - 2px) var(--grid-margin);
     font-size: 21px;
+    font-family: "GrueneType Neue", sans-serif;
+    color: map.get($custom-colors, "tanne");
 
     &:nth-of-type(odd) {
         background-color: map.get($custom-colors, "sand");

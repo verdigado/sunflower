@@ -91,7 +91,8 @@ h3,
 }
 
 h4,
-.h4 {
+.h4,
+.accordion-button {
 
     // @include themed() {
     //     font-family: t(headingFontBold);
@@ -146,7 +147,8 @@ blockquote.wp-block-quote p {
     }
 
     h4,
-    .h4 {
+    .h4,
+    .accordion-button {
         font-size: 27px;
     }
 

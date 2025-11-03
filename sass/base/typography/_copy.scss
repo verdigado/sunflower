@@ -1,5 +1,9 @@
 p {
-    margin-bottom: var(--gap-large);
+    margin: calc(var(--gap-large) - 5px) 0 var(--gap-large) 0;
+
+    p {
+        margin-top: 0;
+    }
 }
 
 dfn,

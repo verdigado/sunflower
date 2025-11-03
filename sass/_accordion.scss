@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // accordion block of the accordion-blocks plugin
 .c-accordion {
 
@@ -57,7 +59,7 @@
 
     }
 
-    >.c-accordion {
+    > .c-accordion {
 
         &__title {
 
@@ -75,5 +77,103 @@
         &__content {
             padding: 16px 20px;
         }
+    }
+}
+
+
+.wp-block-sunflower-accordion {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    margin-left: calc(-1 * var(--grid-margin)) !important;
+    margin-right: calc(-1 * var(--grid-margin)) !important;
+    padding: calc(var(--half-grid-margin) / 2) 0;
+    background-color: map-get($custom-colors, "sand") !important;
+
+    &:nth-of-type(even) {
+
+        .accordion-button,
+        .accordion-item {
+            background-color: map-get($custom-colors, "gruener-sand") !important;
+            border-radius: var(--border-radius-medium) !important;
+        }
+    }
+
+    &:nth-of-type(odd) {
+
+        .accordion-button,
+        .accordion-item {
+            background-color: map.get($custom-colors, "weiss") !important;
+            border-radius: var(--border-radius-medium) !important;
+        }
+    }
+
+    &:not(:is(.wp-block-sunflower-accordion + &)) {
+        padding-top: var(--half-block-spacing);
+    }
+
+    &:not(:has(+ .wp-block-sunflower-accordion)) {
+        padding-bottom: var(--half-block-spacing);
+    }
+
+
+    .accordion-item {
+
+        @include alignwide;
+
+        .accordion-header {
+
+
+            .accordion-button {
+                width: 100%;
+                min-height: 80px;
+                background-color: map-get($custom-colors, "weiss");
+                justify-content: flex-start;
+                align-items: center;
+                display: inline-flex;
+                flex-direction: row;
+                padding: 0 var(--grid-margin) 4px var(--grid-margin);
+                margin-left: auto;
+                margin-right: auto;
+                transition: 200ms ease;
+
+                font-family: "GrueneType Neue", sans-serif;
+                line-height: 110%;
+                font-weight: 900;
+                font-size: 25px;
+                letter-spacing: 0.5px;
+
+                &:hover {
+                    border: none !important;
+                    outline: 2px solid map.get($custom-colors, "grashalm") !important;
+                    background-color: map.get($custom-colors, "weiss");
+                    color: map.get($custom-colors, "klee") !important;
+                }
+
+                &::before {
+                    content: url("assets/img/arrow-right.svg");
+                    display: inline-flex;
+                    position: relative;
+                    top: 2px;
+                    transition: 300ms ease-out;
+                    width: fit-content;
+                    margin-right: var(--half-grid-margin);
+                }
+            }
+        }
+    }
+
+    .accordion-item:has(.accordion-button:not(.collapsed)) {
+
+        .accordion-button {
+
+            &::before {
+                rotate: -90deg;
+                top: -1px;
+            }
+        }
+    }
+
+    .accordion-collapse {
+        padding: 0 var(--grid-margin) calc(var(--half-grid-margin) / 2) var(--grid-margin);
     }
 }

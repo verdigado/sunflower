@@ -943,3 +943,27 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	document.addEventListener( 'DOMContentLoaded', bootstrap );
 	window.addEventListener( 'resize', bootstrap );
 } )();
+
+document.addEventListener( 'click', function ( e ) {
+	const btn = e.target.closest( '.accordion-button' );
+	if ( ! btn ) {
+		return;
+	}
+
+	const targetSel =
+		btn.getAttribute( 'data-bs-target' ) ||
+		btn.getAttribute( 'data-target' );
+	if ( ! targetSel ) {
+		return;
+	}
+
+	const panel = document.querySelector( targetSel );
+	if ( ! panel ) {
+		return;
+	}
+
+	const isOpen = panel.classList.contains( 'show' );
+	panel.classList.toggle( 'show', ! isOpen );
+	btn.classList.toggle( 'collapsed', isOpen );
+	btn.setAttribute( 'aria-expanded', String( ! isOpen ) );
+} );

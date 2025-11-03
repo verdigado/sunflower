@@ -55,7 +55,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 
 	return (
 		<div { ...blockProps }>
-			<div className="accordion-item">
+			<div className="accordion-item alignfull">
 				<h4 className="accordion-header">
 					<TextControl
 						className="accordion-button"
