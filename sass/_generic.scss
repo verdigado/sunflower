@@ -57,6 +57,15 @@ html.preload * {
     @include alignwide;
 }
 
+
+.entry-content > *:not(.alignwide):not(.alignfull) {
+
+    @media (max-width: 480px) {
+        padding-left: var(--grid-margin);
+        padding-right: var(--grid-margin);
+    }
+}
+
 .alignfull {
     width: calc(100% + var(--double-grid-margin)) !important;
     margin-left: calc(-1 * var(--grid-margin)) !important;
@@ -425,4 +434,8 @@ body.formstyle-sharp {
 
 .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
     max-width: 100%;
+}
+
+.login {
+    background-color: #0a53be !important;
 }

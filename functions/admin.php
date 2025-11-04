@@ -269,6 +269,18 @@ function sunflower_login_logo() {
 			background-image: url(<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/logo-theme.svg);
 			padding-bottom: 30px;
 		}
+
+		.login {
+			background-color: #002216;
+		}
+
+		#login > p a, .privacy-policy-link {
+			color: #8abd24 !important;
+		}
+
+		.language-switcher label span {
+			color: #fff !important;
+		}
 	</style>
 	<?php
 }

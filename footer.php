@@ -23,7 +23,7 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 			<div class="d-flex justify-content-between w-100 site-footer__content--top">
 				<div class="vendorflex row">
 						<p class="small">
-							<?php bloginfo( 'name' ); ?> benutzt das<br>freie
+							<?php bloginfo( 'name' ); ?> benutzt das freie
 							grüne Theme <a href="https://sunflower-theme.de" target="_blank">sunflower</a> &dash; ein
 							Angebot der <a href="https://verdigado.com/" target="_blank">verdigado eG</a>.
 						</p>
@@ -75,15 +75,18 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 
 			</div>
 
-			<div class="d-flex w-100 justify-content-between align-items-end site-footer__content--bottom">
+			<div class="d-flex w-100 justify-content-between site-footer__content--bottom">
 
-				<div class="justify-content-center d-flex">
+				<div class="d-flex">
 					<?php
 					echo wp_kses_post( $sunflower_social_media_profiles );
 					?>
 				</div>
 
 				<div class="footerlogo">
+					<?php
+					sunflower_inline_svg( 'assets/img/concave.svg' );
+					?>
 
 					<?php
 					$sunflower_logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
@@ -96,6 +99,9 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 							printf( '<img src="%s" class="img-fluid" alt="Logo BÜNDNIS 90/DIE GRÜNEN">', esc_attr( sunflower_parent_or_child( 'assets/img/logo-diegruenen.png' ) ) );
 						}
 					}
+					?>
+					<?php
+					sunflower_inline_svg( 'assets/img/concave.svg' );
 					?>
 
 				</div>

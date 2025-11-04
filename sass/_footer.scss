@@ -35,6 +35,10 @@
     padding: 140px var(--grid-margin) var(--grid-margin) var(--grid-margin);
     position: relative;
 
+    @include media-breakpoint-down(md) {
+        padding: var(--double-grid-margin) var(--grid-margin) var(--grid-margin) var(--grid-margin);
+    }
+
     .small {
         font-weight: 450;
 
@@ -52,15 +56,91 @@
 
         > div {
             gap: var(--grid-margin);
+
+            @include media-breakpoint-down(md) {
+                gap: var(--double-grid-margin);
+            }
         }
 
         &--top {
             margin-bottom: 70px;
+
+            @include media-breakpoint-down(md) {
+                flex-direction: column;
+                margin-bottom: var(--grid-margin);
+            }
+        }
+
+        &--bottom {
+
+            .footerlogo {
+                width: 200px;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                background-color: map.get($custom-colors, "tanne");
+                border-radius: var(--border-radius-large) 0 0 0;
+
+                .concave-30px {
+
+                    &:nth-of-type(1) {
+                        left: -24px;
+                        rotate: 90deg;
+                        bottom: -4px;
+                    }
+
+                    &:nth-of-type(2) {
+                        rotate: 90deg;
+                        top: -34px;
+                        right: -6px;
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(xl) {
+                flex-direction: column;
+                align-items: flex-start;
+
+                .d-flex {
+                    width: 100%;
+                }
+
+                .footerlogo {
+                    position: relative;
+                    margin-bottom: calc(-1 * var(--grid-margin));
+                    right: initial;
+                    left: 0;
+                    margin-left: calc(-1 * var(--grid-margin));
+                    border-radius: 0;
+                    width: 100vw;
+                    padding: var(--half-grid-margin);
+                    display: flex;
+                    justify-content: center;
+
+                    .concave-30px {
+                        display: none;
+                    }
+
+                    img {
+                        height: 70px;
+                    }
+                }
+            }
+
         }
     }
 
     .vendorflex {
         width: 33.3%;
+        align-items: center;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
     }
 
     .sunflower__socials {
@@ -68,13 +148,15 @@
         gap: 0;
         height: calc(120px - var(--grid-margin));
         align-items: flex-end;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        width: calc(100vw - 280px);
+        margin-left: -5px;
 
-        a:first-of-type {
-            margin-left: 0;
-        }
-
-        a:last-of-type {
-            margin-right: 0;
+        @include media-breakpoint-down(md) {
+            width: 100%;
+            height: fit-content;
+            margin-bottom: var(--double-grid-margin);
         }
     }
 
@@ -82,12 +164,20 @@
         width: 33.3%;
         display: flex;
         justify-content: center;
+
+        @include media-breakpoint-down(md) {
+            justify-content: flex-start;
+        }
     }
 
     .footermenu-2 {
         width: 33.3%;
         display: flex;
         justify-content: flex-end;
+
+        @include media-breakpoint-down(md) {
+            justify-content: flex-start;
+        }
     }
 
     .social-media-profile {
@@ -100,12 +190,6 @@
     a {
 
         font-family: "GrueneType Neue", sans-serif;
-
-        &:focus {
-            color: $white-90;
-            text-decoration: none;
-
-        }
 
         &:focus-visible {
             outline: #fff solid 2px;
@@ -132,6 +216,14 @@
         min-width: calc(200px - var(--grid-margin));
     }
 
+    #footer1,
+    #footer2 {
+
+        @include media-breakpoint-down(md) {
+            line-height: 275%;
+        }
+    }
+
     a {
         color: map.get($custom-colors, "klee");
 
@@ -142,14 +234,5 @@
 
     hr {
         opacity: 0.6;
-    }
-
-    .footerlogo {
-        width: 200px;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        background-color: map.get($custom-colors, "tanne");
-        border-radius: var(--border-radius-medium) 0 0 0;
     }
 }

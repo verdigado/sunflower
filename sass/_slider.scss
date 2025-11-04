@@ -62,6 +62,10 @@
     top: 85px;
     right: var(--block-spacing);
 
+    @include media-breakpoint-down(xl) {
+        top: 60px;
+    }
+
     @include media-breakpoint-down(md) {
         top: 20px;
         position: relative;
@@ -102,7 +106,7 @@
 }
 
 
-.latest-posts .slider__button .button__direction {
+.slider__button .button__direction {
     position: relative;
     top: -3px;
 }
@@ -175,6 +179,7 @@ a:has(.continue-reading) {
         display: flex;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
+        margin-bottom: var(--double-grid-margin);
 
         -webkit-user-select: none;
         -ms-user-select: none;
@@ -182,10 +187,6 @@ a:has(.continue-reading) {
 
         .wp-block-column {
             max-width: calc(100vw - calc(var(--grid-margin) * 4));
-
-            .wp-block-button {
-                width: initial !important;
-            }
         }
     }
 

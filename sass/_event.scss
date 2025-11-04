@@ -441,9 +441,6 @@ a.event-card {
                             }
                         }
 
-                        @include media-breakpoint-down(md) {
-                            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-                        }
 
                         figure {
                             grid-column: span 3;
@@ -466,6 +463,39 @@ a.event-card {
 
                 @include media-breakpoint-down(sm) {
                     grid-column: span 12;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+
+            div {
+                grid-column: span 12 !important;
+            }
+
+            div:nth-of-type(n+4) {
+                display: none;
+            }
+
+            article {
+                grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+                gap: 0;
+
+                .p-4 {
+                    grid-column: span 12 !important;
+                    padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) var(--grid-margin) !important;
+                }
+            }
+
+            &:has(.event-card__media) article {
+
+                .event-card__media {
+                    grid-column: span 5 !important;
+                }
+
+                .p-4 {
+                    grid-column: span 7 !important;
+                    padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) var(--grid-margin) !important;
                 }
             }
         }

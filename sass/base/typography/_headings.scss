@@ -179,6 +179,11 @@ h2:has(mark) {
 .has-large-font-size {
     font-size: 60px !important;
     letter-spacing: 0 !important;
+
+    @include media-breakpoint-down(md) {
+        font-size: 31px !important;
+        line-height: 1.3em !important;
+    }
 }
 
 
