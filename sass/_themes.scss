@@ -267,4 +267,8 @@ $themes: (
     .footerlogo {
         background: map.get($custom-colors, "schwarzwald") !important;
     }
+
+    .archive article p {
+        color: map.get($custom-colors, "schwarzwald") !important;
+    }
 }
