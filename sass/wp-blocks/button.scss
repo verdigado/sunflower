@@ -30,10 +30,10 @@ input[type="submit"],
 
 
     &:hover {
-        color: $white !important;
+        color: map.get($custom-colors, "schwarzwald") !important;
         text-decoration: none;
         background-color: $button-hover !important;
-        border: 2px solid $button-hover;
+        border: 2px solid map.get($custom-colors, "schwarzwald");
     }
 
     &:hover {

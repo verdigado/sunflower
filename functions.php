@@ -132,3 +132,51 @@ function sunflower_get_social_media_profiles() {
 
 	return $return;
 }
+
+
+/**
+ * Set default options.
+ */
+function sunflower_set_default_options() {
+	$options = get_option( 'sunflower_options' );
+
+	if ( ! is_array( $options ) ) {
+		$options = array();
+	}
+
+	$defaults = array(
+		'sunflower_schema_org'         => 'checked',
+		'sunflower_categories_archive' => 'main-categories',
+		'sunflower_color_scheme'       => 'light',
+		'sunflower_form_style'         => 'rounded',
+		'sunflower_header_layout'      => 'standard',
+		'sunflower_footer_layout'      => 'sand',
+	);
+
+	// Existierende Werte haben Vorrang, Defaults füllen nur Lücken.
+	$options = wp_parse_args( $options, $defaults );
+
+	update_option( 'sunflower_options', $options );
+}
+add_action( 'after_switch_theme', 'sunflower_set_default_options' );
+
+
+/**
+ * Excerpt length default.
+ *
+ * @param int $length The current excerpt length.
+ * @return int Modified excerpt length.
+ */
+function sunflower_filter_excerpt_length( $length ) {
+	$options = get_option( 'sunflower_options' );
+
+	if ( is_array( $options ) && ! empty( $options['excerpt_length'] ) ) {
+		return absint( $options['excerpt_length'] );
+	}
+
+	// Default excerpt length: 15.
+	$length = 15;
+
+	return $length;
+}
+add_filter( 'excerpt_length', 'sunflower_filter_excerpt_length', 20 );

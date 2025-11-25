@@ -90,5 +90,4 @@ $sunflower_metadata      = get_post_meta( $post->ID, '_sunflower_metadata', true
 
 </div>
 <?php
-get_sidebar();
 get_footer();

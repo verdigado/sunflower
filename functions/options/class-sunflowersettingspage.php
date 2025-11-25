@@ -111,7 +111,7 @@ class SunflowerSettingsPage {
 		);
 
 		add_settings_field(
-			'excerps_length',
+			'excerpt_length',
 			__( 'Excerpt length (words)', 'sunflower' ),
 			$this->excerpt_length_callback( ... ),
 			'sunflower-setting-admin',

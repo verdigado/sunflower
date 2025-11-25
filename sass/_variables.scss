@@ -28,7 +28,7 @@ $white: map.get($custom-colors, "weiss");
 
 $button-border: $primary;
 $button-background: $white;
-$button-hover: $secondary;
+$button-hover: map.get($custom-colors, "sonne");
 
 $black: map.get($custom-colors, "schwarzwald");
 //$black-500: map.get($custom-colors, "black-500");
