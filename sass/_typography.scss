@@ -123,6 +123,10 @@ blockquote.wp-block-quote p {
     letter-spacing: 1px;
 }
 
+blockquote.wp-block-quote p {
+    line-height: 150%;
+}
+
 
 @include media-breakpoint-up(md) {
 
@@ -164,13 +168,6 @@ blockquote.wp-block-quote p {
     }
 }
 
-@include media-breakpoint-down(md) {
-
-    body {
-        font-size: 1.125rem;
-    }
-
-}
 
 .has-background.textbalken {
     z-index: 0;
@@ -364,7 +361,7 @@ p {
 ) {
 
     h2 {
-        color: map.get($custom-colors, "grashalm") !important;
+        color: map.get($custom-colors, "weiss");
     }
 }
 
@@ -395,33 +392,29 @@ p {
 
 .colorscheme-green {
 
-    .has-grashalm-background-color,
-    .has-sand-background-color,
-    .has-gray-background-color {
-
-        h2 {
-            color: map.get($custom-colors, "schwarzwald") !important;
-        }
-    }
-
-    .has-klee-background-color {
-
-        h2 {
-            color: map.get($custom-colors, "weiss") !important;
-        }
-    }
-
+    .latest-posts,
     .has-weiss-background-color,
     .has-sonne-background-color,
     .has-sand-background-color,
     .has-gray-background-color,
-    .has-gray-background-color,
     .has-kalk-background-color,
-    .has-white-background-color {
+    .has-white-background-color,
+    .has-gruener-sand-background-color,
+    .wp-block-cover:has(span.has-weiss-background-color),
+    .wp-block-cover:has(span.has-sonne-background-color),
+    .wp-block-cover:has(span.has-sand-background-color),
+    .wp-block-cover:has(span.has-gray-background-color),
+    .wp-block-cover:has(span.has-kalk-background-color),
+    .wp-block-cover:has(span.has-white-background-color),
+    .wp-block-cover:has(span.has-gruener-sand-background-color) {
 
         p,
         body {
             color: map.get($custom-colors, "schwarzwald") !important;
+        }
+
+        h2 {
+            color: map.get($custom-colors, "tanne") !important;
         }
     }
 

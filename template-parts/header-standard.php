@@ -13,7 +13,7 @@
 		<!-- Left: Label Block -->
 
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand-left branding d-flex flex-column text-center">
-			<div class="label-top fw-bold text-uppercase skew-box"><?php esc_attr( bloginfo( 'name' ) ); ?></div>
+			<div class="label-top fw-bold skew-box"><?php esc_attr( bloginfo( 'name' ) ); ?></div>
 			<div class="label-bottom fw-bold skew-box"><?php esc_attr( bloginfo( 'description' ) ); ?></div>
 		</a>
 
@@ -74,6 +74,15 @@
 			?>
 		</nav>
 	</div>
+
+	<?php
+	$sunflower_social_media_icons = '';
+	if ( sunflower_get_setting( 'sunflower_header_social_media' ) ) {
+		$sunflower_social_media_icons = sunflower_get_social_media_profiles();
+	}
+	printf( '<div class="social-media-profiles d-none d-md-flex">%s</div>', wp_kses_post( $sunflower_social_media_icons ) );
+	?>
+
 </header>
 
 <?php wp_body_open(); ?>

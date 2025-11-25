@@ -258,15 +258,13 @@ $themes: (
 
 .colorscheme-green {
 
-    .next-events .row > .col-12:nth-of-type(6) article,
-    .next-events .row > .col-12:nth-of-type(12) article,
-    .next-events .row > .col-12:nth-of-type(18) article {
-        background-color: #000 !important;
-    }
-
     .next-events:has(.event-card__media) .row > .col-12:nth-of-type(6) article,
     .next-events:has(.event-card__media) .row > .col-12:nth-of-type(12) article,
     .next-events:has(.event-card__media) .row > .col-12:nth-of-type(18) article {
         background-color: map.get($custom-colors, "gruener-sand") !important;
+    }
+
+    .footerlogo {
+        background: map.get($custom-colors, "schwarzwald") !important;
     }
 }

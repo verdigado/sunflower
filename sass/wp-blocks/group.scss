@@ -128,6 +128,10 @@
             img {
                 max-height: 250px;
                 width: 100%;
+
+                @include media-breakpoint-down(sm) {
+                    max-height: 210px;
+                }
             }
         }
 
@@ -156,8 +160,8 @@
     }
 
     @include media-breakpoint-down(md) {
-        padding-left: var(--gap-large) !important;
-        padding-right: var(--gap-large) !important;
+        padding-left: var(--grid-margin) !important;
+        padding-right: var(--grid-margin) !important;
     }
 
     @include media-breakpoint-down(sm) {

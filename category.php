@@ -18,7 +18,6 @@ get_header();
 						<header class="page-header">
 						<?php
 						the_archive_title( '<h1 class="page-title">', '</h1>' );
-						the_archive_description( '<div class="archive-description">', '</div>' );
 						?>
 						</header><!-- .page-header -->
 
@@ -50,6 +49,8 @@ get_header();
 							}
 						}
 
+						the_archive_description( '<div class="archive-description">', '</div>' );
+
 						/* Start the Loop */
 						$sunflower_list_items = '';
 						while ( have_posts() ) {
@@ -74,7 +75,7 @@ get_header();
 						}
 						?>
 
-						<div class="archive-loop row" data-masonry='{"percentPosition": true }'>
+						<div class="archive-loop alignwide row" data-masonry='{"percentPosition": true }'>
 								<?php
 								echo wp_kses(
 									$sunflower_list_items,

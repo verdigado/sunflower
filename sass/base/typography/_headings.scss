@@ -65,7 +65,7 @@ $heading-weights: 900;
             $heading-color: t(headings, $tag);
 
             #{$tag} {
-                color: $heading-color;
+                color: $primary;
                 font-family: $heading-font;
                 line-height: $heading-line-heights;
                 font-weight: $heading-weights;
@@ -150,7 +150,7 @@ h2:has(mark) {
 
             @include media-breakpoint-down(xl) {
                 border-width: 0 11.2px 51px 0;
-                right: -11.3px;
+                right: -11px;
             }
 
             @include media-breakpoint-down(md) {
@@ -188,13 +188,20 @@ h2:has(mark) {
 
 
 .colorscheme-light h2 {
+    color: $primary;
+}
 
-    &.odd {
+.colorscheme-green {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .tags-links a,
+    .cat-links a {
         color: $secondary;
-    }
-
-    &.even {
-        color: $primary;
     }
 }
 

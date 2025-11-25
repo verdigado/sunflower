@@ -100,10 +100,6 @@ html.preload * {
     }
 }
 
-.p-45 {
-    padding: 2.25rem !important;
-}
-
 .has-shadow {
     box-shadow: 0 1px 20px rgba(0, 84, 55, 0.09);
 }
@@ -288,13 +284,19 @@ body.formstyle-sharp {
                 }
 
                 .wp-block-buttons {
-                    flex-direction: column !important;
-                    align-items: flex-start !important;
-
+                    align-items: flex-start;
+                    justify-content: flex-start;
                     gap: var(--half-grid-margin);
 
                     .wp-block-button {
-                        min-width: 250px;
+                        width: fit-content;
+                        min-width: 0;
+                        flex: 0 1 auto;
+
+
+                        &__link {
+                            width: fit-content;
+                        }
                     }
                 }
             }

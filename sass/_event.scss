@@ -221,100 +221,31 @@ a.event-card {
                 grid-column: span 3;
             }
 
-            &:nth-of-type(1),
-            &:nth-of-type(7),
-            &:nth-of-type(13) {
 
-                article {
-                    background-color: map.get($custom-colors, "grashalm");
-
-                    &:hover {
-                        box-shadow: 0 0 0 3px map.get($custom-colors, "grashalm") !important;
-                    }
-                }
-
-                .date {
-
-                    &::first-line {
-                        color: map.get($custom-colors, "weiss"); // obere Zeile
-                    }
-
-                    color: map.get($custom-colors, "schwarzwald"); // untere Zeile
-                }
-            }
-
-            &:nth-of-type(2),
-            &:nth-of-type(4),
-            &:nth-of-type(8),
-            &:nth-of-type(10),
-            &:nth-of-type(14),
-            &:nth-of-type(16) {
-
-                article {
-                    background-color: map.get($custom-colors, "klee");
-
-
-                    &:hover {
-                        box-shadow: 0 0 0 3px map.get($custom-colors, "klee") !important;
-                    }
-                }
-
-                .date {
-
-                    &::first-line {
-                        color: map.get($custom-colors, "weiss"); // obere Zeile
-                    }
-
-                    color: map.get($custom-colors, "schwarzwald"); // untere Zeile
-                }
-            }
-
-            &:nth-of-type(3),
-            &:nth-of-type(5),
-            &:nth-of-type(9),
-            &:nth-of-type(11),
-            &:nth-of-type(15),
-            &:nth-of-type(17) {
+            &:nth-of-type(odd) {
 
                 article {
                     background-color: map.get($custom-colors, "tanne");
-
+                    color: map.get($custom-colors, "weiss");
 
                     &:hover {
                         box-shadow: 0 0 0 3px map.get($custom-colors, "tanne") !important;
                     }
                 }
 
-                .date {
-
-                    &::first-line {
-                        color: map.get($custom-colors, "weiss"); // obere Zeile
-                    }
-
-                    color: map.get($custom-colors, "grashalm"); // untere Zeile
-                }
             }
 
-            &:nth-of-type(6),
-            &:nth-of-type(12),
-            &:nth-of-type(18) {
+            &:nth-of-type(even) {
 
                 article {
-                    background-color: map.get($custom-colors, "schwarzwald");
+                    background-color: map.get($custom-colors, "klee");
+                    color: map.get($custom-colors, "weiss");
 
                     &:hover {
-                        box-shadow: 0 0 0 3px map.get($custom-colors, "schwarzwald") !important;
+                        box-shadow: 0 0 0 3px map.get($custom-colors, "klee") !important;
                     }
                 }
 
-                .date {
-
-                    &::first-line {
-                        color: map.get($custom-colors, "weiss"); // obere Zeile
-                    }
-
-                    color: map.get($custom-colors, "grashalm"); // untere Zeile
-                }
             }
 
 
@@ -496,6 +427,16 @@ a.event-card {
                 .p-4 {
                     grid-column: span 7 !important;
                     padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) var(--grid-margin) !important;
+                }
+
+                &:not(.has-post-thumbnail) {
+
+                    @include media-breakpoint-down(md) {
+
+                        .p-4 {
+                            grid-column: span 12 !important;
+                        }
+                    }
                 }
             }
         }

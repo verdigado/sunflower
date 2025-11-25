@@ -2,11 +2,6 @@
     display: block;
 }
 
-.post,
-.page {
-    margin: 0 0 1.5em;
-}
-
 .updated:not(.published) {
     display: none;
 }
@@ -24,8 +19,9 @@
 
 .display-single {
 
+    padding: 130px 0 0 0;
+
     .entry-header {
-        padding: 130px 0 0 0;
 
         @include themed-colorscheme() {
             background-color: t(background);

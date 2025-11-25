@@ -17,7 +17,6 @@
     max-width: calc(100% + var(--double-grid-margin)) !important;
 
     article {
-        border-radius: $border-radius;
         margin-bottom: 10px;
 
         a {
@@ -47,10 +46,33 @@
     }
 }
 
+.wp-block-pullquote {
+    padding: 0 !important;
+
+    blockquote {
+        color: map.get($custom-colors, "tanne");
+        text-align: left;
+        margin: calc(var(--grid-margin) + 4px) 0 var(--grid-margin) 0;
+    }
+
+    cite {
+        margin-top: var(--grid-margin);
+        font-size: 18px;
+        line-height: 150%;
+        letter-spacing: 1.2px;
+        color: map.get($custom-colors, "klee");
+
+        @include media-breakpoint-down(xl) {
+            font-size: 16px;
+            line-height: 150%;
+        }
+    }
+}
+
 
 blockquote,
 blockquote.wp-block-quote {
-    margin-bottom: var(--grid-margin);
+    margin: calc(var(--grid-margin) + 4px) 0 var(--grid-margin) 0;
     border-radius: var(--border-radius-medium);
     padding: calc(var(--grid-margin) - 5px) var(--grid-margin) calc(var(--grid-margin) - 2px) var(--grid-margin);
     font-size: 21px;

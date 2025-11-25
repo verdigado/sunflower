@@ -52,7 +52,7 @@ get_header();
 						}
 						?>
 
-						<div class="archive-loop row" data-masonry='{"percentPosition": true }'>
+						<div class="archive-loop alignwide row" data-masonry='{"percentPosition": true }'>
 								<?php
 								echo wp_kses(
 									$sunflower_list_items,

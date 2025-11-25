@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'bg-white mb-4 has-shadow' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'bg-white mb-4 archive-article' ); ?>>
 	<div>
 		<?php if ( has_post_thumbnail() ) { ?>
 			<div>

@@ -39,12 +39,6 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 								( $sunflower_is_event_archive ) ? esc_html_e( 'Events archive', 'sunflower' ) : esc_html_e( 'Events', 'sunflower' );
 								?>
 							</h1>
-								<?php
-								$sunflower_events_description = sunflower_get_setting( 'sunflower_events_description' ) ?? '';
-								if ( $sunflower_events_description ) {
-									printf( '<p>%s</p>', wp_kses_post( $sunflower_events_description ) );
-								}
-								?>
 						</header><!-- .page-header -->
 
 						<div class="filter-button-group mb-5 text-center">
@@ -76,6 +70,15 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 						}
 						?>
 						</div>
+
+					<div class="archive-description">
+						<?php
+						$sunflower_events_description = sunflower_get_setting( 'sunflower_events_description' ) ?? '';
+						if ( $sunflower_events_description ) {
+							printf( '<p>%s</p>', wp_kses_post( $sunflower_events_description ) );
+						}
+						?>
+					</div>
 
 						<div class="row event-list">
 						<?php

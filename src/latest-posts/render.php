@@ -11,6 +11,14 @@ $sunflower_classnames[] = 'latest-posts';
 
 $sunflower_is_slider = isset( $attributes['blockLayout'] ) && 'slider' === $attributes['blockLayout'];
 
+// Layout-Variante bestimmen und als Modifier-Klasse anhängen.
+$sunflower_layout       = isset( $attributes['blockLayout'] ) ? $attributes['blockLayout'] : 'list';
+$sunflower_classnames[] = 'latest-posts--' . sanitize_html_class( $sunflower_layout );
+
+// Slider-Flag aus Layout ableiten (ersetzt die alte $sunflower_is_slider-Zeile).
+$sunflower_is_slider = ( 'slider' === $sunflower_layout );
+
+
 $sunflower_columns = 1;
 if ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'] ) {
 	if ( isset( $attributes['columns'] ) ) {
@@ -102,7 +110,7 @@ if ( $sunflower_is_slider ) {
 	$sunflower_list_items .= sprintf(
 		'<div class="%3$s">
             <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s" rel="">
-                <div class="p-45 row">
+                <div>
                     <span class="continue-reading text-white text-center pt-0">%2$s</span>
                 </div>
             </a>
@@ -119,7 +127,7 @@ if ( ! $sunflower_is_slider ) {
 	$sunflower_list_items .= sprintf(
 		'
     <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s" rel="">
-        <div class="p-45 row">
+        <div>
             <span class="continue-reading text-white text-center pt-0">%2$s</span>
         </div>
     </a>

@@ -1,6 +1,8 @@
 .archive {
 
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
 
     a {
@@ -14,6 +16,17 @@
 
 
     &-loop {
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+        gap: var(--grid-margin);
+
+        .col-md-6 {
+            position: relative !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: calc(50% - var(--half-grid-margin));
+        }
 
         .entry-content {
 

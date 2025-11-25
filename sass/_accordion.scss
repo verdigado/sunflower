@@ -83,10 +83,9 @@
 
 .wp-block-sunflower-accordion {
     max-width: 100vw !important;
-    width: 100vw !important;
-    margin-left: calc(-1 * var(--grid-margin)) !important;
-    margin-right: calc(-1 * var(--grid-margin)) !important;
-    padding: calc(var(--half-grid-margin) / 2) 0;
+    width: calc(100% + var(--double-grid-margin)) !important;
+    margin: 0 0 0 calc(-1 * var(--grid-margin)) !important;
+    padding: calc(var(--half-grid-margin) / 2) var(--grid-margin) 0 var(--grid-margin);
     background-color: map-get($custom-colors, "sand") !important;
 
     &:nth-of-type(even) {
@@ -109,10 +108,16 @@
 
     &:not(:is(.wp-block-sunflower-accordion + &)) {
         padding-top: var(--half-block-spacing);
+        margin: var(--double-grid-margin) 0 0 calc(-1 * var(--grid-margin)) !important;
     }
 
     &:not(:has(+ .wp-block-sunflower-accordion)) {
         padding-bottom: var(--half-block-spacing);
+        margin: 0 0 var(--double-grid-margin) calc(-1 * var(--grid-margin)) !important;
+    }
+
+    &:last-child {
+        margin: 0 0 0 calc(-1 * var(--grid-margin)) !important;
     }
 
 
@@ -120,8 +125,19 @@
 
         @include alignwide;
 
-        .accordion-header {
+        @media (max-width: 1200px) {
+            width: calc(100% - var(--double-grid-margin));
+        }
 
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+        }
+
+        &:hover {
+            outline: 2px solid map.get($custom-colors, "grashalm") !important;
+        }
+
+        .accordion-header {
 
             .accordion-button {
                 width: 100%;
@@ -131,20 +147,25 @@
                 align-items: center;
                 display: inline-flex;
                 flex-direction: row;
-                padding: 0 var(--grid-margin) 4px var(--grid-margin);
+                padding: var(--grid-margin) var(--grid-margin) calc(var(--grid-margin) + 3px) var(--grid-margin);
                 margin-left: auto;
                 margin-right: auto;
                 transition: 200ms ease;
+                height: fit-content;
 
                 font-family: "GrueneType Neue", sans-serif;
-                line-height: 110%;
+                line-height: 125%;
                 font-weight: 900;
                 font-size: 25px;
-                letter-spacing: 0.5px;
+                letter-spacing: 0.8px;
+
+                @include media-breakpoint-down(xl) {
+                    font-size: 25px;
+                }
 
                 &:hover {
                     border: none !important;
-                    outline: 2px solid map.get($custom-colors, "grashalm") !important;
+                    outline: none !important;
                     background-color: map.get($custom-colors, "weiss");
                     color: map.get($custom-colors, "klee") !important;
                 }
@@ -156,7 +177,7 @@
                     top: 2px;
                     transition: 300ms ease-out;
                     width: fit-content;
-                    margin-right: var(--half-grid-margin);
+                    margin-right: 15px;
                 }
             }
         }

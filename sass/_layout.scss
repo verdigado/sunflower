@@ -283,6 +283,18 @@ iframe {
     }
 }
 
+.latest-posts--grid .archive-article,
+.archive .archive-article {
+
+    @include card;
+
+    margin: 0 !important;
+
+    @include media-breakpoint-down(md) {
+        width: 100% !important;
+    }
+}
+
 .full-width:has(.related-posts) {
     width: 100%;
     left: 0;

@@ -17,6 +17,13 @@
     -ms-user-select: none;
     user-select: none;
 
+    .entry-content {
+
+        > * {
+            padding: 0;
+        }
+    }
+
     .entry-header,
     .entry-content,
     .entry-meta,
@@ -142,7 +149,7 @@ a:has(.continue-reading) {
     font-family: "PT Sans", sans-serif;
     padding: 0 35px 4px 35px !important;
     transition: 0.3s ease;
-    border: 2px solid  map.get($custom-colors, "tanne") !important;
+    border: 2px solid map.get($custom-colors, "tanne") !important;
     background-color: map.get($custom-colors, "weiss") !important;
     color: $primary;
     cursor: pointer;

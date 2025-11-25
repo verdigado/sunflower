@@ -515,9 +515,7 @@ $text-dark: #222;
             background-color: rgba(255, 255, 255, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.15);
 
-            @include themed-colorscheme-nested() {
-                color: t(text);
-            }
+            color: map.get($custom-colors, "schwarzwald");
         }
 
 
@@ -843,7 +841,12 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
 }
 
 .label-bottom {
-    background-color: map.get($custom-colors, "grashalm");
+    background-color: map.get($custom-colors, "klee");
+
+    &:empty {
+            display: none;
+        }
+
 
     &::before {
         content: "";
@@ -856,14 +859,14 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 0 0 32px 7px;
-        border-color: transparent transparent #8abd24 transparent;
+        border-color: transparent transparent #008939 transparent;
         transition: border-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
             top: -23.4px;
             left: -6px;
             border-width: 0 0 28px 6px;
-            border-color: transparent transparent #8abd24 transparent;
+            border-color: transparent transparent #008939 transparent;
         }
     }
 
@@ -878,14 +881,14 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 32px 7px 0 0;
-        border-color: #8abd24 transparent transparent transparent;
+        border-color: #008939 transparent transparent transparent;
         transition: border-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
             top: 23.4px;
             right: -6px;
             border-width: 28px 6px 0 0;
-            border-color: #8abd24 transparent transparent transparent;
+            border-color: #008939 transparent transparent transparent;
         }
     }
 
@@ -922,14 +925,14 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
     &:hover {
 
         .label-top {
-            background-color: map.get($custom-colors, "grashalm");
+            background-color: map.get($custom-colors, "klee");
 
             &::before {
-                border-color: transparent transparent map.get($custom-colors, "grashalm") transparent;
+                border-color: transparent transparent map.get($custom-colors, "klee") transparent;
             }
 
             &::after {
-                border-color: map.get($custom-colors, "grashalm") transparent transparent transparent;
+                border-color: map.get($custom-colors, "klee") transparent transparent transparent;
             }
         }
 
@@ -1080,3 +1083,8 @@ html body.hamburger-menu .top-bar.stuck {
 }
 
 
+.colorscheme-green .top-bar.stuck .right-bar {
+    a {
+        color: map.get($custom-colors, "schwarzwald");
+    }
+}

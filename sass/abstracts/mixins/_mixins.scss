@@ -90,10 +90,6 @@
     }
 
 
-    .continue-reading span {
-        padding-right: var(--gap-small);
-    }
-
     &:hover {
 
         .continue-reading {
@@ -233,7 +229,7 @@
         .entry-content {
 
             p {
-                margin-bottom: var(--gap-small);
+                margin-bottom: 30px;
             }
         }
     }
