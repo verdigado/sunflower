@@ -1,12 +1,24 @@
 /* stylelint-disable */
 @use "sass:map";
 
-header {
+header .social-media-profiles {
+    position: absolute;
+    right: 36px;
+    top: 117px;
 
-    .social-media-profile {
-        background: transparent;
+    @include media-breakpoint-down(xl) {
+        top: 102px;
     }
 
+    @media (max-width: 1200px) {
+        top: 83px;
+        right: 25px;
+    }
+
+    .sunflower__socials {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .stuck .hamburger {
@@ -439,14 +451,6 @@ body.admin-bar {
         img {
             height: 100%;
         }
-
-        .social-media-profile {
-            background: none;
-
-            i {
-                color: $body-color;
-            }
-        }
     }
 }
 
@@ -562,7 +566,7 @@ $text-dark: #222;
 }
 
 .right-bar {
-    border-radius: 0 0 0 var(--border-radius-medium);
+    border-radius: 0 0 0 20px;
     height: 100px;
     padding: var(--grid-margin);
     right: 0;
@@ -803,7 +807,6 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         transform: translateY(-50%);
         width: 0;
         height: 0;
-        -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 0 0 32px 7px;
         border-color: transparent transparent #005538 transparent;
@@ -825,7 +828,6 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         transform: translateY(-50%);
         width: 0;
         height: 0;
-        -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 32px 7px 0 0;
         border-color: #005538 transparent transparent transparent;
@@ -856,7 +858,6 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         transform: translateY(-50%);
         width: 0;
         height: 0;
-        -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 0 0 32px 7px;
         border-color: transparent transparent #008939 transparent;
@@ -878,7 +879,6 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         transform: translateY(-50%);
         width: 0;
         height: 0;
-        -webkit-transform: rotate(360deg);
         border-style: solid;
         border-width: 32px 7px 0 0;
         border-color: #008939 transparent transparent transparent;

@@ -1,33 +1,5 @@
 @use "sass:map";
 
-.social-media-profile {
-    width: 38px;
-    height: 38px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: map.get($custom-colors, "weiss");
-    border-radius: 50%;
-    margin: 3px;
-    border: 2px solid map.get($custom-colors, "tanne");
-    transition: 400ms ease-out;
-    opacity: 1 !important;
-
-    i {
-        color: map.get($custom-colors, "tanne") !important;
-        transition: 400ms ease-out;
-        opacity: 1 !important;
-    }
-
-    &:hover {
-        border: 2px solid map.get($custom-colors, "grashalm");
-        background: map.get($custom-colors, "grashalm");
-
-        i {
-            color: map.get($custom-colors, "weiss") !important;
-        }
-    }
-}
 
 .site-footer {
 

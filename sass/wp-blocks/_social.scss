@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .wp-block-social-links .wp-block-social-link.wp-social-link {
     display: inline-block;
     margin: 0;
@@ -16,5 +18,35 @@
         background-color: t(pagination-hover-background);
         color: t(pagination-hover-text);
         border-color: t(pagination-hover-background);
+    }
+}
+
+
+.social-media-profile {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: map.get($custom-colors, "weiss");
+    border-radius: 50%;
+    margin: 3px;
+    border: 2px solid map.get($custom-colors, "tanne");
+    transition: 400ms ease-out;
+    opacity: 1 !important;
+
+    i {
+        color: map.get($custom-colors, "tanne") !important;
+        transition: 400ms ease-out;
+        opacity: 1 !important;
+    }
+
+    &:hover {
+        border: 2px solid map.get($custom-colors, "klee");
+        background: map.get($custom-colors, "klee");
+
+        i {
+            color: map.get($custom-colors, "weiss") !important;
+        }
     }
 }
