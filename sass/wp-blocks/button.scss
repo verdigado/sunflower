@@ -42,7 +42,8 @@ input[type="submit"],
 
     &:focus {
         color: $white;
-        outline: 2px solid map.get($custom-colors, "sonne");
+        outline: 2px solid map.get($custom-colors, "klee");
+        border: 2px solid map.get($custom-colors, "klee");
         background-color: map.get($custom-colors, "tanne");
     }
 
@@ -86,7 +87,7 @@ input[type="submit"],
         }
 
         &::before {
-            font-family: "Font Awesome 6 Free";
+            font-family: "Font Awesome 6 Free", sans-serif;
             font-weight: 900;
             position: absolute;
             margin-left: -1.5em;
@@ -110,7 +111,7 @@ input[type="submit"],
         }
 
         &::before {
-            font-family: "Font Awesome 6 Free";
+            font-family: "Font Awesome 6 Free", sans-serif;
             font-weight: 900;
             position: absolute;
             left: 1em;
