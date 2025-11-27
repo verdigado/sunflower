@@ -80,9 +80,15 @@
 					<a href="<?php echo esc_url( get_home_url() ); ?>" class="d-block h5 text-white bloginfo-name no-link">
 						<?php esc_attr( bloginfo( 'name' ) ); ?>
 					</a>
-					<a href="<?php echo esc_url( get_home_url() ); ?>" class="d-block text-white mb-0 bloginfo-description no-link">
-						<?php esc_attr( bloginfo( 'description' ) ); ?>
-					</a>
+					<?php
+					if ( ! empty( get_bloginfo( 'description' ) ) ) {
+						printf(
+							'<a href="%s" class="d-block text-white mb-0 bloginfo-description no-link">%s</a>',
+							esc_url( get_home_url() ),
+							esc_attr( get_bloginfo( 'description' ) )
+						);
+					}
+					?>
 				</div>
 			</div>
 		</div>
