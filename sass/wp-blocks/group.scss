@@ -151,27 +151,17 @@
     padding-bottom: var(--half-block-spacing);
     margin: 0 auto;
 
+    @include media-breakpoint-down(xl) {
+        width: 100% !important;
+    }
+
     @include media-breakpoint-down(md) {
         display: flex;
         flex-direction: column !important;
         row-gap: var(--double-grid-margin);
+
     }
 
-    @media (max-width: 1200px) {
-        width: 100%;
-        padding-left: calc(var(--gap-large) * 2) !important;
-        padding-right: calc(var(--gap-large) * 2) !important;
-    }
-
-    @include media-breakpoint-down(md) {
-        padding-left: var(--grid-margin) !important;
-        padding-right: var(--grid-margin) !important;
-    }
-
-    @include media-breakpoint-down(sm) {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
 
     &__media {
         border-radius: var(--border-radius-large);
@@ -180,12 +170,20 @@
 
     &__content {
         padding: 0 0 0 var(--double-grid-margin) !important;
+
+        @include media-breakpoint-down(md) {
+            padding: 0 !important;
+        }
     }
 
     &.has-media-on-the-right {
 
         .wp-block-media-text__content {
             padding: 0 var(--double-grid-margin) 0 0 !important;
+
+            @include media-breakpoint-down(md) {
+                padding: 0 !important;
+            }
         }
     }
 }

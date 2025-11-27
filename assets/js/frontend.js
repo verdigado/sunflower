@@ -524,25 +524,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		} );
 } );
 
-/**
- * wechselnde Farbe H2
- */
-
-document.addEventListener( 'DOMContentLoaded', function () {
-	const headlines = document.querySelectorAll( '.colorscheme-light h2' );
-	headlines.forEach( ( el, index ) => {
-		if ( ( index + 1 ) % 2 === 0 ) {
-			el.classList.add( 'even' );
-		} else {
-			el.classList.add( 'odd' );
-		}
-	} );
-} );
-
-/*
- * Slider
- */
-
 /*
  * Slider
  */
@@ -969,3 +950,200 @@ document.addEventListener( 'click', function ( e ) {
 } );
 
 // Headline mit Hinterlegung bei Umbruch: Hinterlegung raus
+
+( function () {
+	let resizeTimeout;
+
+	function isMultilineMark( mark ) {
+		if ( ! mark || ! mark.firstChild ) {
+			return false;
+		}
+
+		const range = document.createRange();
+		range.selectNodeContents( mark );
+
+		const rects = range.getClientRects();
+
+		if ( typeof range.detach === 'function' ) {
+			range.detach();
+		}
+
+		return rects.length > 1;
+	}
+
+	function getHeadlineColor( heading ) {
+		const lightBgClasses = [
+			'has-weiss-background-color',
+			'has-sonne-background-color',
+			'has-sand-background-color',
+			'has-kalk-background-color',
+			'has-white-background-color',
+			'has-gruener-sand-background-color',
+		];
+
+		const darkBgClasses = [
+			'has-gray-background-color',
+			'has-tanne-background-color',
+			'has-klee-background-color',
+			'has-himmel-background-color',
+		];
+
+		const schwarzwaldClasses = [ 'has-schwarzwald-background-color' ];
+
+		const grashalmClasses = [ 'has-grashalm-background-color' ];
+
+		function findContextWithClasses( classNames ) {
+			let el = heading;
+
+			while ( el && el !== document.body ) {
+				// 1. Der Vorfahr selbst
+				if (
+					classNames.some( function ( cls ) {
+						return el.classList.contains( cls );
+					} )
+				) {
+					return el;
+				}
+
+				// 2. Typischer WP-Cover-Fall: Hintergrund-Span im Cover
+				const bg = el.querySelector( '.wp-block-cover__background' );
+				if (
+					bg &&
+					classNames.some( function ( cls ) {
+						return bg.classList.contains( cls );
+					} )
+				) {
+					return bg;
+				}
+
+				el = el.parentElement;
+			}
+
+			return null;
+		}
+
+		// Reihenfolge nach Priorität:
+
+		// helle Hintergründe → #005538
+		if ( findContextWithClasses( lightBgClasses ) ) {
+			return '#005538';
+		}
+
+		// dunkle Hintergründe → #ffffff
+		if ( findContextWithClasses( darkBgClasses ) ) {
+			return '#ffffff';
+		}
+
+		// schwarzwald → #8abd24
+		if ( findContextWithClasses( schwarzwaldClasses ) ) {
+			return '#8abd24';
+		}
+
+		// grashalm → #002216
+		if ( findContextWithClasses( grashalmClasses ) ) {
+			return '#002216';
+		}
+
+		// Fallback: Body-Colorscheme
+		const body = document.body;
+
+		if ( body.classList.contains( 'colorscheme-light' ) ) {
+			return '#005538';
+		}
+
+		if ( body.classList.contains( 'colorscheme-green' ) ) {
+			return '#8abd24';
+		}
+
+		// Kein Override -> Originalfarbe lassen
+		return null;
+	}
+
+	function processHeadings() {
+		const headings = document.querySelectorAll( 'h1, h2, h3, h4, h5, h6' );
+
+		headings.forEach( function ( heading ) {
+			const hasMarkNow = !! heading.querySelector( 'mark' );
+
+			// Wenn noch nie initialisiert und auch keine Marks drin sind -> uninteressant
+			if ( ! heading.dataset.markOriginalHtml && ! hasMarkNow ) {
+				return;
+			}
+
+			// Initialisierung: Originalzustand merken (nur einmal)
+			if ( ! heading.dataset.markOriginalHtml && hasMarkNow ) {
+				heading.dataset.markOriginalHtml = heading.innerHTML;
+				heading.dataset.markOriginalStyle =
+					heading.getAttribute( 'style' ) || '';
+			}
+
+			// Falls wir keinen gespeicherten Zustand haben, können wir nichts tun
+			if ( ! heading.dataset.markOriginalHtml ) {
+				return;
+			}
+
+			// 1. IMMER erst in den Originalzustand zurücksetzen
+			if ( heading.innerHTML !== heading.dataset.markOriginalHtml ) {
+				heading.innerHTML = heading.dataset.markOriginalHtml;
+			}
+
+			const originalStyle = heading.dataset.markOriginalStyle || '';
+			if ( originalStyle ) {
+				heading.setAttribute( 'style', originalStyle );
+			} else {
+				heading.removeAttribute( 'style' );
+			}
+
+			// 2b. Falls Headline im ersten Cover der entry-content sitzt → left:0
+			const firstCoverInner = document.querySelector(
+				'body .entry-content > .wp-block-cover:first-child .wp-block-cover__inner-container'
+			);
+			if ( firstCoverInner && firstCoverInner.contains( heading ) ) {
+				heading.style.left = '0';
+			}
+
+			// 2. Marks nach dem Restore holen
+			const marks = heading.querySelectorAll( 'mark' );
+			if ( ! marks.length ) {
+				return;
+			}
+
+			// 3. Prüfen, ob irgendein Mark mehrzeilig ist
+			let hasMultiline = false;
+
+			marks.forEach( function ( mark ) {
+				if ( ! hasMultiline && isMultilineMark( mark ) ) {
+					hasMultiline = true;
+				}
+			} );
+
+			// Wenn kein Umbruch -> Headline bleibt im Originalzustand mit Marks
+			if ( ! hasMultiline ) {
+				return;
+			}
+
+			// 4. Farbe nach deinen Regeln bestimmen
+			const newColor = getHeadlineColor( heading );
+			if ( newColor ) {
+				heading.style.color = newColor;
+			}
+
+			// 5. Alle Marks entfernen, Inhalt behalten
+			heading.querySelectorAll( 'mark' ).forEach( function ( mark ) {
+				const parent = mark.parentNode;
+				while ( mark.firstChild ) {
+					parent.insertBefore( mark.firstChild, mark );
+				}
+				parent.removeChild( mark );
+			} );
+		} );
+	}
+
+	function debouncedProcess() {
+		clearTimeout( resizeTimeout );
+		resizeTimeout = setTimeout( processHeadings, 150 );
+	}
+
+	window.addEventListener( 'load', processHeadings );
+	window.addEventListener( 'resize', debouncedProcess );
+} )();
