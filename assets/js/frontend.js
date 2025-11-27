@@ -967,3 +967,5 @@ document.addEventListener( 'click', function ( e ) {
 	btn.classList.toggle( 'collapsed', isOpen );
 	btn.setAttribute( 'aria-expanded', String( ! isOpen ) );
 } );
+
+// Headline mit Hinterlegung bei Umbruch: Hinterlegung raus
