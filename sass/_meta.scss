@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .tags-links {
 
     a {
@@ -32,10 +34,10 @@
         position: relative;
     }
 
-    background: $primary;
+    background: map.get($custom-colors, "gruener-sand");
     border-radius: $border-radius;
-    color: $white;
-    padding: $grid-gutter-width;
+    color: map.get($custom-colors, "tanne");
+    padding: 0 var(--gap-large);
     z-index: 20;
     text-align: left;
     height: fit-content;

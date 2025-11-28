@@ -318,6 +318,7 @@ iframe {
 
                 @include media-breakpoint-down(md) {
                     width: 100%;
+                    padding: 0 var(--grid-margin);
                 }
             }
         }

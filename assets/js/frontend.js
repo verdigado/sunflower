@@ -925,6 +925,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	window.addEventListener( 'resize', bootstrap );
 } )();
 
+// Accordion: immer nur EIN Panel geöffnet
 document.addEventListener( 'click', function ( e ) {
 	const btn = e.target.closest( '.accordion-button' );
 	if ( ! btn ) {
@@ -934,6 +935,7 @@ document.addEventListener( 'click', function ( e ) {
 	const targetSel =
 		btn.getAttribute( 'data-bs-target' ) ||
 		btn.getAttribute( 'data-target' );
+
 	if ( ! targetSel ) {
 		return;
 	}
@@ -943,10 +945,58 @@ document.addEventListener( 'click', function ( e ) {
 		return;
 	}
 
+	// Bootstrap-Collapse ausbremsen
+	e.preventDefault();
+	e.stopPropagation();
+
 	const isOpen = panel.classList.contains( 'show' );
-	panel.classList.toggle( 'show', ! isOpen );
-	btn.classList.toggle( 'collapsed', isOpen );
-	btn.setAttribute( 'aria-expanded', String( ! isOpen ) );
+
+	// 1. Scope bestimmen: wenn es einen .accordion-Wrapper gibt → innerhalb,
+	//    sonst global über die ganze Seite
+	const accordion = btn.closest( '.accordion' );
+	const allPanels = accordion
+		? accordion.querySelectorAll( '.accordion-collapse' )
+		: document.querySelectorAll( '.accordion-collapse' );
+
+	// 2. Alle anderen Panels schließen
+	allPanels.forEach( ( el ) => {
+		if ( el === panel ) {
+			return;
+		}
+
+		el.classList.remove( 'show' );
+
+		const otherBtn = el
+			.closest( '.accordion-item' )
+			?.querySelector( '.accordion-button' );
+
+		if ( otherBtn ) {
+			otherBtn.classList.add( 'collapsed' );
+			otherBtn.setAttribute( 'aria-expanded', 'false' );
+		}
+	} );
+
+	// 3. Geklicktes Panel toggeln
+	if ( isOpen ) {
+		// war offen → schließen, dann ist ggf. gar kein Panel offen
+		panel.classList.remove( 'show' );
+		btn.classList.add( 'collapsed' );
+		btn.setAttribute( 'aria-expanded', 'false' );
+	} else {
+		// war zu → öffnen
+		panel.classList.add( 'show' );
+		btn.classList.remove( 'collapsed' );
+		btn.setAttribute( 'aria-expanded', 'true' );
+	}
+} );
+
+// Bootstrap-Collapse an den Buttons deaktivieren, damit nichts doppelt toggelt
+document.addEventListener( 'DOMContentLoaded', function () {
+	document
+		.querySelectorAll( '.accordion-button[data-bs-toggle="collapse"]' )
+		.forEach( function ( btn ) {
+			btn.removeAttribute( 'data-bs-toggle' );
+		} );
 } );
 
 // Headline mit Hinterlegung bei Umbruch: Hinterlegung raus
@@ -996,22 +1046,16 @@ document.addEventListener( 'click', function ( e ) {
 			let el = heading;
 
 			while ( el && el !== document.body ) {
-				// 1. Der Vorfahr selbst
 				if (
-					classNames.some( function ( cls ) {
-						return el.classList.contains( cls );
-					} )
+					classNames.some( ( cls ) => el.classList.contains( cls ) )
 				) {
 					return el;
 				}
 
-				// 2. Typischer WP-Cover-Fall: Hintergrund-Span im Cover
 				const bg = el.querySelector( '.wp-block-cover__background' );
 				if (
 					bg &&
-					classNames.some( function ( cls ) {
-						return bg.classList.contains( cls );
-					} )
+					classNames.some( ( cls ) => bg.classList.contains( cls ) )
 				) {
 					return bg;
 				}
@@ -1022,40 +1066,28 @@ document.addEventListener( 'click', function ( e ) {
 			return null;
 		}
 
-		// Reihenfolge nach Priorität:
-
-		// helle Hintergründe → #005538
 		if ( findContextWithClasses( lightBgClasses ) ) {
 			return '#005538';
 		}
-
-		// dunkle Hintergründe → #ffffff
 		if ( findContextWithClasses( darkBgClasses ) ) {
 			return '#ffffff';
 		}
-
-		// schwarzwald → #8abd24
 		if ( findContextWithClasses( schwarzwaldClasses ) ) {
 			return '#8abd24';
 		}
-
-		// grashalm → #002216
 		if ( findContextWithClasses( grashalmClasses ) ) {
 			return '#002216';
 		}
 
-		// Fallback: Body-Colorscheme
 		const body = document.body;
 
 		if ( body.classList.contains( 'colorscheme-light' ) ) {
 			return '#005538';
 		}
-
 		if ( body.classList.contains( 'colorscheme-green' ) ) {
 			return '#8abd24';
 		}
 
-		// Kein Override -> Originalfarbe lassen
 		return null;
 	}
 
@@ -1065,24 +1097,20 @@ document.addEventListener( 'click', function ( e ) {
 		headings.forEach( function ( heading ) {
 			const hasMarkNow = !! heading.querySelector( 'mark' );
 
-			// Wenn noch nie initialisiert und auch keine Marks drin sind -> uninteressant
 			if ( ! heading.dataset.markOriginalHtml && ! hasMarkNow ) {
 				return;
 			}
 
-			// Initialisierung: Originalzustand merken (nur einmal)
 			if ( ! heading.dataset.markOriginalHtml && hasMarkNow ) {
 				heading.dataset.markOriginalHtml = heading.innerHTML;
 				heading.dataset.markOriginalStyle =
 					heading.getAttribute( 'style' ) || '';
 			}
 
-			// Falls wir keinen gespeicherten Zustand haben, können wir nichts tun
 			if ( ! heading.dataset.markOriginalHtml ) {
 				return;
 			}
 
-			// 1. IMMER erst in den Originalzustand zurücksetzen
 			if ( heading.innerHTML !== heading.dataset.markOriginalHtml ) {
 				heading.innerHTML = heading.dataset.markOriginalHtml;
 			}
@@ -1094,21 +1122,20 @@ document.addEventListener( 'click', function ( e ) {
 				heading.removeAttribute( 'style' );
 			}
 
-			// 2b. Falls Headline im ersten Cover der entry-content sitzt → left:0
+			// 2b. Sonderregel für erstes Cover → left:0 + margin-top:0
 			const firstCoverInner = document.querySelector(
 				'body .entry-content > .wp-block-cover:first-child .wp-block-cover__inner-container'
 			);
 			if ( firstCoverInner && firstCoverInner.contains( heading ) ) {
 				heading.style.left = '0';
+				heading.style.marginTop = '0';
 			}
 
-			// 2. Marks nach dem Restore holen
 			const marks = heading.querySelectorAll( 'mark' );
 			if ( ! marks.length ) {
 				return;
 			}
 
-			// 3. Prüfen, ob irgendein Mark mehrzeilig ist
 			let hasMultiline = false;
 
 			marks.forEach( function ( mark ) {
@@ -1117,18 +1144,15 @@ document.addEventListener( 'click', function ( e ) {
 				}
 			} );
 
-			// Wenn kein Umbruch -> Headline bleibt im Originalzustand mit Marks
 			if ( ! hasMultiline ) {
 				return;
 			}
 
-			// 4. Farbe nach deinen Regeln bestimmen
 			const newColor = getHeadlineColor( heading );
 			if ( newColor ) {
 				heading.style.color = newColor;
 			}
 
-			// 5. Alle Marks entfernen, Inhalt behalten
 			heading.querySelectorAll( 'mark' ).forEach( function ( mark ) {
 				const parent = mark.parentNode;
 				while ( mark.firstChild ) {

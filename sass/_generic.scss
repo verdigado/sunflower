@@ -64,15 +64,18 @@ html.preload * {
         padding-left: var(--grid-margin);
         padding-right: var(--grid-margin);
     }
+
+    @media (max-width: 480px) {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .alignfull {
-    width: calc(100% + var(--double-grid-margin)) !important;
-    margin-left: calc(-1 * var(--grid-margin)) !important;
-    margin-right: calc(-1 * var(--grid-margin)) !important;
-    max-width: calc(100% + var(--double-grid-margin)) !important;
-    padding-left: var(--grid-margin);
-    padding-right: var(--grid-margin);
+
+    @include alignfull;
 }
 
 .text-left {

@@ -12,6 +12,15 @@
     width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
 
+@mixin alignfull {
+    width: calc(100% + var(--double-grid-margin)) !important;
+    margin-left: calc(-1 * var(--grid-margin)) !important;
+    margin-right: calc(-1 * var(--grid-margin)) !important;
+    max-width: calc(100% + var(--double-grid-margin)) !important;
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin);
+}
+
 @mixin alignwide {
     width: calc(((100% - (11 * var(--grid-margin))) / 12) * 10 + (9 * var(--grid-margin)));
     max-width: 1400px;

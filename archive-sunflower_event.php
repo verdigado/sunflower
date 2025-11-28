@@ -71,14 +71,14 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 						?>
 						</div>
 
-					<div class="archive-description">
+					<h3 class="archive-description">
 						<?php
 						$sunflower_events_description = sunflower_get_setting( 'sunflower_events_description' ) ?? '';
 						if ( $sunflower_events_description ) {
 							printf( '<p>%s</p>', wp_kses_post( $sunflower_events_description ) );
 						}
 						?>
-					</div>
+					</h3>
 
 						<div class="row event-list">
 						<?php

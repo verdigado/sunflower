@@ -1,8 +1,23 @@
+@use "sass:map";
+
 .archive {
 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    &-description {
+        text-align: center;
+        margin-bottom: 0;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
 
 
     a {
@@ -20,12 +35,26 @@
         margin-left: auto !important;
         margin-right: auto !important;
         gap: var(--grid-margin);
+        height: auto !important;
+        display: grid;
+        grid-template-columns: repeat(10, minmax(0, 1fr));
+        margin-bottom: var(--half-block-spacing);
+
+        @include media-breakpoint-down(xl) {
+            width: 100%;
+        }
 
         .col-md-6 {
-            position: relative !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: calc(50% - var(--half-grid-margin));
+
+            position: static !important; /* überschreibt inline position:absolute */
+            top: auto !important;
+            left: auto !important;
+            display: flex;
+
+            /* Standard: auf Mobile volle Breite (10 von 10 Spalten) */
+            grid-column: span 10;
+
+            width: 100%;
         }
 
         .entry-content {
@@ -36,13 +65,47 @@
         }
     }
 
+    .archive-loop > .col-md-6:nth-child(4n+1),
+    .archive-loop > .col-md-6:nth-child(4n+4) {
+
+        /* 1., 4., 5., 8., 9., 12., ... -> 4 Spalten */
+        grid-column: span 4;
+
+        @include media-breakpoint-down(md) {
+            grid-column: span 5;
+        }
+
+        @media (max-width: 700px) {
+            grid-column: span 10;
+        }
+    }
+
+    .archive-loop > .col-md-6:nth-child(4n+2),
+    .archive-loop > .col-md-6:nth-child(4n+3) {
+
+        /* 2., 3., 6., 7., 10., 11., ... -> 6 Spalten */
+        grid-column: span 6;
+
+        @include media-breakpoint-down(md) {
+            grid-column: span 5;
+        }
+
+        @media (max-width: 700px) {
+            grid-column: span 10;
+        }
+    }
+
     .sunflower-categories {
+
+        margin-top: 0;
 
         ul.wp-block-categories-list {
             display: inline-flex;
             flex-wrap: wrap;
             justify-content: center;
             list-style-type: none;
+            column-gap: var(--half-grid-margin);
+            margin-top: var(--half-grid-margin);
 
             li {
 
@@ -51,17 +114,20 @@
                     @include themed-colorscheme() {
                         font-family: t(standardFont);
                     }
-
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
                     font-weight: 700;
-                    font-size: 16px;
+                    font-size: 13px;
                     color: $black;
-                    letter-spacing: 0.05em;
-                    background: none;
-                    border: 0;
-                    padding: 0;
-                    margin: 0 1em;
-                    border-bottom: 2px solid transparent;
-                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    line-height: 100%;
+                    background: map.get($custom-colors, "sand");
+                    border: 2px solid map.get($custom-colors, "schwarzwald");
+                    padding: 0 15px 2px 15px;
+                    height: 30px !important;
+                    border-radius: 15px;
+                    margin-top: var(--half-grid-margin);
 
                     &:focus {
                         outline: none;
@@ -78,7 +144,12 @@
                 }
 
                 &.current-cat {
-                    border-bottom: 2px solid $black;
+
+                    a {
+                        background-color: map.get($custom-colors, "klee");
+                        color: map.get($custom-colors, "weiss");
+                        border: 2px solid map.get($custom-colors, "klee");
+                    }
                 }
             }
         }

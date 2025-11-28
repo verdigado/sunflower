@@ -50,13 +50,22 @@
         @include alignwide;
 
         position: relative;
-        border-radius: var(--border-radius-large);
         overflow: hidden;
         max-height: 630px;
         object-fit: cover;
         margin-top: 0;
         margin-bottom: 0;
         height: fit-content;
+
+        img {
+            border-radius: var(--border-radius-large);
+        }
+
+        @include media-breakpoint-down(md) {
+
+            @include alignfull;
+
+        }
 
         figcaption {
             width: 100%;
@@ -79,6 +88,26 @@
     .entry-footer {
 
         @include alignwide;
+
+        @include media-breakpoint-down(md) {
+            margin-top: 0 !important;
+        }
+
+        > div {
+
+            @include media-breakpoint-down(md) {
+                flex-direction: column;
+
+                .social-media-sharers {
+                    order: 2;
+                    margin-top: var(--grid-margin);
+                }
+
+                > div:has(.cat-links, .tag-links) {
+                    margin-top: 0;
+                }
+            }
+        }
     }
 }
 
