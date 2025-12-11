@@ -313,22 +313,26 @@ h1:has(+ h4) {
 }
 
 body {
-    font-size: 18px;
-    line-height: 150%;
+    font-size: 20px;
+    line-height: 175%;
     letter-spacing: 0.6px;
     font-family: "PT Sans", sans-serif;
 
     @include media-breakpoint-down(xl) {
-        font-size: 16px;
-        line-height: 150%;
+        font-size: 18px;
+        line-height: 155%;
     }
 }
 
 .has-small-font-size,
 .article .has-small-font-size p,
+:where(.is-layout-flex) p.has-small-font-size,
 .small {
     font-size: 16px !important;
     line-height: 150%;
+    letter-spacing: 0.9px;
+    margin: calc(var(--gap-large) - 16px) 0 var(--gap-large) 0 !important;
+
 
     @include media-breakpoint-down(xl) {
         font-size: 14px !important;
@@ -426,3 +430,7 @@ p {
     }
 }
 
+
+.has-medium-font-size {
+    line-height: 33px;
+}

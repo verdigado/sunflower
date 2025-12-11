@@ -6,6 +6,24 @@
     margin-left: auto;
     margin-right: auto;
 
+    .wp-block-group {
+        padding-top: var(--gap-large);
+        padding-bottom: var(--gap-large);
+    }
+
+    &.wp-block-group-is-layout-flow > h2,
+    .wp-block-group__inner-container > h2 {
+        margin-bottom: var(--double-grid-margin);
+    }
+
+    &.is-layout-flex {
+        column-gap: var(--gap-large);
+
+        .wp-block-group.is-layout-flex {
+            column-gap: var(--grid-margin);
+        }
+    }
+
     @media (max-width: 1200px) {
         width: 100%;
     }
@@ -185,5 +203,12 @@
                 padding: 0 !important;
             }
         }
+    }
+}
+
+
+.wp-block-group.is-vertical, .wp-block-column {
+    figure {
+        margin-bottom: var(--gap-large);
     }
 }

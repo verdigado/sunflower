@@ -13,9 +13,7 @@
     overflow: hidden;
     padding: 0 var(--grid-margin);
     position: relative;
-    margin-left: calc(-1 * var(--grid-margin)) !important;
-    margin-right: calc(-1 * var(--grid-margin)) !important;
-    width: 100vw !important;
+    width: calc(100% + var(--double-grid-margin)) !important;
 
     @include media-breakpoint-down(xl) {
         min-height: 300px;
@@ -25,6 +23,10 @@
         height: fit-content;
         flex-direction: column;
         min-height: 250px;
+    }
+
+    &__background {
+
     }
 
     .wp-block-cover__inner-container {

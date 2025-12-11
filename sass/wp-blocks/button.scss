@@ -22,8 +22,8 @@ input[type="submit"],
     padding: 0 35px 4px 35px;
     transition: 0.3s ease;
     border: 2px solid $button-border;
-    background-color: $button-background !important;
-    color: $primary !important;
+    background-color: $button-background;
+    color: $primary;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -7,10 +7,18 @@
         text-align: center;
     }
 
+    // Standard: Single-Ansicht
     .entry-meta {
         width: calc((100% - 11 * var(--grid-margin)) / 12 * 10 + 9 * var(--grid-margin));
         max-width: 1400px;
         margin: var(--half-grid-margin) auto;
+    }
+
+    // Ausnahme: innerhalb eines Posts-Sliders → zurück auf „normal“
+    .posts-slider .entry-meta {
+        width: unset;
+        max-width:  unset;
+        margin: unset;
     }
 
     .sunflower_post_meta {
@@ -108,6 +116,13 @@
                 }
             }
         }
+    }
+
+    .posts-slider .entry-footer {
+        width: unset;
+        max-width: unset;
+        margin-left: unset;
+        margin-right: unset;
     }
 }
 

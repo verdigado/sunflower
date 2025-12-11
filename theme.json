@@ -47,6 +47,11 @@
 					"slug": "sand"
 				},
 				{
+					"color": "#F3FAF6",
+					"name": "Grüner Sand",
+					"slug": "gruener-sand"
+				},
+				{
 					"color": "#374951",
 					"name": "Maus",
 					"slug": "gray"
@@ -76,6 +81,13 @@
 		"typography": {
 			"dropCap": false,
 			"fluid": true,
+			"defaultFontSizes": false,
+			"fontSizes": [
+				{ "slug": "small", "size": "18px", "name": "Small" },
+				{ "slug": "medium", "size": "20px", "name": "Medium" },
+				{ "slug": "large", "size": "40px", "name": "Large" },
+				{ "slug": "huge", "size": "60px", "name": "Huge" }
+			],
 			"fontFamilies": [
 				{
 					"fontFace": [

@@ -4,7 +4,37 @@ ol {
 }
 
 ul {
-    list-style: disc;
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    li {
+        position: relative;
+        padding-left: 30px;
+
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 21px;
+            height: 21px;
+            mask: url("../sunflower/assets/img/bullet.svg") no-repeat center;
+            mask-size: contain;
+            background-color: currentColor;
+
+            svg {
+                color: #0dcaf0 !important;
+            }
+        }
+    }
 }
 
 ol {
@@ -23,4 +53,13 @@ dt {
 
 dd {
     margin: 0 1.5em 1.5em;
+}
+
+
+nav, header, footer {
+    ul li {
+        &::before {
+            display: none;
+        }
+    }
 }

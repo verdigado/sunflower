@@ -55,7 +55,7 @@ $heading-letter-spacings-mobile: (
 
 $heading-font: "GrueneType Neue";
 $heading-line-heights: 110.00000000000001%;
-$heading-weights: 900;
+$heading-weights: 500;
 
 @include themed-colorscheme() {
 
@@ -123,7 +123,7 @@ h2:has(mark) {
 
         &::before {
             top: -1px;
-            left: -19.1px;
+            left: -19px;
             border-style: solid;
             border-width: 0 0 76px 19.3px;
             border-color: transparent transparent var(--bg) transparent;
