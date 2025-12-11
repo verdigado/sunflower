@@ -28,7 +28,7 @@ ul {
             height: 21px;
             mask: url("../sunflower/assets/img/bullet.svg") no-repeat center;
             mask-size: contain;
-            background-color: currentColor;
+            background-color: currentcolor;
 
             svg {
                 color: #0dcaf0 !important;
@@ -56,8 +56,12 @@ dd {
 }
 
 
-nav, header, footer {
+nav,
+header,
+footer {
+
     ul li {
+
         &::before {
             display: none;
         }

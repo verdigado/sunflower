@@ -354,7 +354,9 @@ iframe {
 }
 
 :where(.is-layout-flex) {
+
     h2 {
+
         &:first-child {
             margin-top: calc(-1 * var(---half-grid-margin));
         }
@@ -362,6 +364,7 @@ iframe {
 }
 
 .wp-block-cover {
+
     h2 {
         margin-bottom: 0;
     }
@@ -393,10 +396,6 @@ iframe {
 }
 
 
-
-
-
-
 .wp-block-group {
     padding-top: var(--half-block-spacing);
     padding-bottom: var(--half-block-spacing);
@@ -422,7 +421,8 @@ iframe {
         margin-top: 0;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
         margin-bottom: var(--grid-margin);
     }
 

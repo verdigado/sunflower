@@ -207,7 +207,9 @@
 }
 
 
-.wp-block-group.is-vertical, .wp-block-column {
+.wp-block-group.is-vertical,
+.wp-block-column {
+
     figure {
         margin-bottom: var(--gap-large);
     }

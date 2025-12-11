@@ -187,46 +187,70 @@ add_filter( 'excerpt_length', 'sunflower_filter_excerpt_length', 20 );
  */
 
 /**
- * SVG-MIME erlauben
+ * SVG-MIME-Typen für Uploads erlauben.
+ *
+ * @param array<string, string> $mimes Vorhandene MIME-Typen.
+ * @return array<string, string> Angepasste MIME-Typen.
  */
-function theme_allow_svg_uploads( $mimes ) {
+function sunflower_allow_svg_uploads( $mimes ) {
 	$mimes['svg']  = 'image/svg+xml';
 	$mimes['svgz'] = 'image/svg+xml';
+
 	return $mimes;
 }
-add_filter( 'upload_mimes', 'theme_allow_svg_uploads' );
+add_filter( 'upload_mimes', 'sunflower_allow_svg_uploads' );
 
 /**
- * Fehlerhafte SVG-MIME-Typen beim Upload korrigieren
+ * Fehlerhafte SVG-MIME-Typen beim Upload korrigieren.
+ *
+ * @param array<string, mixed> $data     Dateidaten und MIME-Infos.
+ * @param string               $file     Dateipfad.
+ * @param string               $filename Dateiname.
+ * @return array<string, mixed> Angepasste Dateidaten.
  */
-function theme_fix_svg_mime_type( $data, $file, $filename, $mimes ) {
+function sunflower_fix_svg_mime_type( $data, $file, $filename ) {
 
 	$ext = strtolower( pathinfo( $filename, PATHINFO_EXTENSION ) );
 
-	if ( $ext === 'svg' ) {
+	if ( 'svg' === $ext ) {
 		$data['ext']  = 'svg';
 		$data['type'] = 'image/svg+xml';
 	}
 
 	return $data;
 }
-add_filter( 'wp_check_filetype_and_ext', 'theme_fix_svg_mime_type', 10, 4 );
+add_filter( 'wp_check_filetype_and_ext', 'sunflower_fix_svg_mime_type', 10, 3 );
 
 /**
- * SVG-Code strippen
+ * SVG-Code bereinigen (Skripte, Event-Handler usw. entfernen).
+ *
+ * @param array<string, mixed> $file Daten der hochgeladenen Datei.
+ * @return array<string, mixed> Bereinigte Dateidaten.
  */
-function theme_sanitize_svg( $file ) {
-	if ( isset( $file['type'] ) && $file['type'] === 'image/svg+xml' ) {
-		$svg = file_get_contents( $file['tmp_name'] );
+function sunflower_sanitize_svg( $file ) {
 
-		// Entfernt Skripte, Event-Handler, iframes usw.
-		$svg = preg_replace( '/<script.*?<\/script>/is', '', $svg );
-		$svg = preg_replace( '/on\w+="[^"]*"/i', '', $svg );
-		$svg = preg_replace( '/<iframe.*?<\/iframe>/is', '', $svg );
+	if ( isset( $file['type'] ) && 'image/svg+xml' === $file['type'] ) {
+		global $wp_filesystem;
 
-		file_put_contents( $file['tmp_name'], $svg );
+		if ( ! $wp_filesystem ) {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+			WP_Filesystem();
+		}
+
+		if ( $wp_filesystem ) {
+			$contents = $wp_filesystem->get_contents( $file['tmp_name'] );
+
+			if ( false !== $contents ) {
+				// Entfernt Skripte, Event-Handler, iframes usw.
+				$contents = preg_replace( '/<script.*?<\/script>/is', '', $contents );
+				$contents = preg_replace( '/on\w+="[^"]*"/i', '', $contents );
+				$contents = preg_replace( '/<iframe.*?<\/iframe>/is', '', $contents );
+
+				$wp_filesystem->put_contents( $file['tmp_name'], $contents );
+			}
+		}
 	}
 
 	return $file;
 }
-add_filter( 'wp_handle_upload_prefilter', 'theme_sanitize_svg' );
+add_filter( 'wp_handle_upload_prefilter', 'sunflower_sanitize_svg' );
