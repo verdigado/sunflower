@@ -20,7 +20,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div class="full-width bg-lightgreen pt-5 pb-5">
+<div class="full-width commentbox bg-lightgreen pt-5 pb-5">
 	<div class="container">
 		<h4 class="h2 text-center mt-3 mb-5"><?php esc_html_e( 'Comment article', 'sunflower' ); ?></h4>
 		<?php

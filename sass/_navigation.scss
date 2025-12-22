@@ -92,6 +92,8 @@ body.navbar-open {
 
 .sunflower-post-navigation {
 
+    padding-bottom: var(--half-block-spacing);
+
     @media (max-width: 1000px) {
         display: none !important;
     }

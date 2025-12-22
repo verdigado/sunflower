@@ -45,7 +45,7 @@ $sunflower_metadata      = get_post_meta( $post->ID, '_sunflower_metadata', true
 				</main><!-- #main -->
 			</div>
 		</div>
-			<div class="row sunflower-post-navigation mb-3">
+			<div class="row sunflower-post-navigation">
 				<?php
 
 				if ( ! sunflower_get_setting( 'sunflower_hide_prev_next' ) ) {

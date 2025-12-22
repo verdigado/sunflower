@@ -6,11 +6,17 @@
     display: block;
 }
 
+.commentbox {
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin);
+}
+
 .comment-respond {
     position: relative;
     border-radius: var(--border-radius-medium) !important;
     padding: var(--double-grid-margin) var(--half-grid-margin) var(--grid-margin) var(--half-grid-margin);
     margin: var(--half-block-spacing) 0;
+
 
     @include themed-colorscheme-nested() {
         border: 2px solid t(form-section-border);

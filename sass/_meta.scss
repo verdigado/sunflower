@@ -35,13 +35,14 @@
     }
 
     background: map.get($custom-colors, "gruener-sand");
-    border-radius: $border-radius;
     color: map.get($custom-colors, "tanne");
-    padding: 0 var(--gap-large);
+    padding: calc(var(--gap-large) - 3px) var(--gap-large) var(--gap-large) var(--gap-large);
     z-index: 20;
+    width: 280px;
     text-align: left;
     height: fit-content;
     margin-bottom: 20px;
+    border-radius: var(--border-radius-medium);
 
     .date {
         font-size: 150%;
@@ -57,10 +58,17 @@
     }
 
     a {
-        color: $white;
+        color: map.get($custom-colors, "tanne") !important;
+        font-weight: 700;
+
+        transition: 300ms ease-in-out;
 
         &.location {
             margin-left: 5px;
+        }
+
+        &:hover {
+            color: map.get($custom-colors, "grashalm") !important;
         }
     }
 

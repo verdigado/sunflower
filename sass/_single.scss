@@ -1,3 +1,43 @@
+@use "sass:map";
+
+.single .display-single {
+
+    > .row:has(.entry-content) {
+        margin-top: var(--grid-margin);
+    }
+
+    .entry-content {
+
+        @include alignwide;
+    }
+}
+
+.display-single:has(.metabox) {
+
+    .entry-content {
+        width: calc(100% - 280px - var(--gap-large));
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    >.row:has(.metabox) {
+        display: flex;
+        justify-content: space-between;
+
+        @include alignwide;
+
+        @media (max-width: 1200px) {
+            width: 100%;
+            max-width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: var(--gap-large);
+            margin-bottom: var(--gap-large);
+        }
+    }
+}
+
 .display-single {
 
     min-height: 100vh;

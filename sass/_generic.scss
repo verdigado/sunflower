@@ -57,6 +57,12 @@ html.preload * {
     @include alignwide;
 }
 
+.single .alignwide,
+.single .entry-content > *:not(.alignwide):not(.alignfull) {
+    width: 100%;
+    max-width: 100%;
+}
+
 
 .entry-content > *:not(.alignwide):not(.alignfull) {
 

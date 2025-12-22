@@ -294,63 +294,61 @@ iframe {
     }
 }
 
-.full-width:has(.related-posts) {
+
+.related-posts {
+
+    padding: var(--half-block-spacing) 0 !important;
     width: 100%;
     left: 0;
     right: 0;
     margin: 0;
-    padding: 0;
 
     @include alignwide;
 
-    .related-posts {
+    .row {
+        justify-content: space-between;
+        column-gap: var(--grid-margin);
 
-        padding: var(--half-block-spacing) 0 !important;
-
-        .row {
-            justify-content: space-between;
-            column-gap: var(--grid-margin);
-
-            .col-12.col-md-6 {
-                padding: 0;
-                width: calc(50% - var(--half-grid-margin));
-
-                @include media-breakpoint-down(md) {
-                    width: 100%;
-                    padding: 0 var(--grid-margin);
-                }
-            }
-        }
-
-        > div {
-
-            width: 100%;
-        }
-
-        article {
-
-            @include card;
-
-            margin: var(--grid-margin) 0 !important;
+        .col-12.col-md-6 {
+            padding: 0;
+            width: calc(50% - var(--half-grid-margin));
 
             @include media-breakpoint-down(md) {
-                width: 100% !important;
+                width: 100%;
+                padding: 0 var(--grid-margin);
             }
         }
+    }
+
+    > div {
+
+        width: 100%;
+    }
+
+    article {
+
+        @include card;
+
+        margin: var(--grid-margin) 0 !important;
+
+        @include media-breakpoint-down(md) {
+            width: 100% !important;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .entry-content {
 
         a {
-            text-decoration: none;
+            color: $body-color;
         }
-
-        .entry-content {
-
-            a {
-                color: $body-color;
-            }
-        }
-
     }
+
 }
+
 
 :where(.is-layout-flex) {
 
@@ -420,4 +418,9 @@ body #content :where(.is-layout-flex),
         margin-top: 0 !important;
     }
 
+}
+
+.sunflower-post-navigation a {
+    background-color: map.get($custom-colors, "weiss") !important;
+    color: map.get($custom-colors, "tanne") !important;
 }

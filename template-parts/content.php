@@ -94,7 +94,6 @@ $sunflower_class               = $args['class'] ?? '';
 		</div>
 		</div>
 		<?php } ?>
-		<div class="order-1 <?php echo ( $sunflower_metadata ) ? 'col-md-9' : 'col-md-12'; ?>">
 			<div class="entry-content">
 				<?php
 				the_content(
@@ -121,15 +120,15 @@ $sunflower_class               = $args['class'] ?? '';
 				?>
 			</div><!-- .entry-content -->
 
-		</div><!-- .col-md-9 -->
 		<?php
 		if ( $sunflower_metadata ) {
 			printf(
-				'<div class="col-md-3 order-md-1 metabox small">%s</div>',
+				'<aside class="metabox small">%s</aside>',
 				wp_kses_post( $sunflower_metadata )
 			);
 		}
 		?>
+
 	</div>
 
 	<div class="row">
