@@ -73,6 +73,13 @@
         .wp-block-button {
             width: 100% !important;
         }
+
+        p {
+            font-size: 16px;
+            line-height: 150%;
+            letter-spacing: 0.9px;
+            margin: calc(var(--gap-large) - 16px) 0 var(--gap-large) 0;
+        }
     }
 
     .wp-block-button {

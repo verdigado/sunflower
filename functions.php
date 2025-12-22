@@ -162,27 +162,6 @@ add_action( 'after_switch_theme', 'sunflower_set_default_options' );
 
 
 /**
- * Excerpt length default.
- *
- * @param int $length The current excerpt length.
- * @return int Modified excerpt length.
- */
-function sunflower_filter_excerpt_length( $length ) {
-	$options = get_option( 'sunflower_options' );
-
-	if ( is_array( $options ) && ! empty( $options['excerpt_length'] ) ) {
-		return absint( $options['excerpt_length'] );
-	}
-
-	// Default excerpt length: 15.
-	$length = 15;
-
-	return $length;
-}
-add_filter( 'excerpt_length', 'sunflower_filter_excerpt_length', 20 );
-
-
-/**
  * SVG Upload
  */
 
@@ -254,3 +233,114 @@ function sunflower_sanitize_svg( $file ) {
 	return $file;
 }
 add_filter( 'wp_handle_upload_prefilter', 'sunflower_sanitize_svg' );
+
+
+
+/**
+ * Sunflower defaults and excerpt length.
+ *
+ * @package Sunflower_26
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Return Sunflower default options.
+ *
+ * @return array<string, mixed>
+ */
+function sunflower_get_default_options(): array {
+	return array(
+		'excerpt_length' => 15,
+	);
+}
+
+/**
+ * Ensure sunflower_options exist and contain required defaults (without overwriting user values).
+ *
+ * @return void
+ */
+function sunflower_ensure_default_options(): void {
+	$options  = get_option( 'sunflower_options' );
+	$defaults = sunflower_get_default_options();
+
+	if ( ! is_array( $options ) ) {
+		$options = array();
+	}
+
+	foreach ( $defaults as $key => $default_value ) {
+		if ( ! array_key_exists( $key, $options ) || '' === $options[ $key ] || null === $options[ $key ] ) {
+			$options[ $key ] = $default_value;
+		}
+	}
+
+	update_option( 'sunflower_options', $options );
+}
+
+/**
+ * Set defaults on theme activation.
+ *
+ * @return void
+ */
+function sunflower_set_defaults_on_theme_activation(): void {
+	sunflower_ensure_default_options();
+}
+add_action( 'after_switch_theme', 'sunflower_set_defaults_on_theme_activation' );
+
+/**
+ * Set / migrate defaults on theme updates (runs once per version in wp-admin).
+ *
+ * @return void
+ */
+function sunflower_set_defaults_on_theme_update(): void {
+	$theme           = wp_get_theme();
+	$current_version = (string) $theme->get( 'Version' );
+	$stored_version  = (string) get_option( 'sunflower_theme_version', '' );
+
+	if ( $stored_version === $current_version ) {
+		return;
+	}
+
+	update_option( 'sunflower_theme_version', $current_version );
+
+	sunflower_ensure_default_options();
+}
+add_action( 'admin_init', 'sunflower_set_defaults_on_theme_update' );
+
+/**
+ * Apply excerpt length from sunflower_options with fallback to default.
+ *
+ * @param int $length Default excerpt length.
+ * @return int
+ */
+function sunflower_filter_excerpt_length( int $length ): int {
+	$options  = get_option( 'sunflower_options' );
+	$defaults = sunflower_get_default_options();
+
+	if ( is_array( $options ) && isset( $options['excerpt_length'] ) && '' !== $options['excerpt_length'] ) {
+		$value = absint( $options['excerpt_length'] );
+
+		return ( 0 < $value ) ? $value : $length;
+	}
+
+	return (int) $defaults['excerpt_length'];
+}
+add_filter( 'excerpt_length', 'sunflower_filter_excerpt_length', 999 );
+
+
+
+if ( ! function_exists( 'sunflower_filter_excerpt_more' ) ) {
+	/**
+	 * Replace default excerpt more string.
+	 *
+	 * @param string $more Default excerpt more.
+	 * @return string
+	 */
+	function sunflower_filter_excerpt_more( string $more ): string {
+		return $more;
+	}
+
+	add_filter( 'excerpt_more', 'sunflower_filter_excerpt_more' );
+}

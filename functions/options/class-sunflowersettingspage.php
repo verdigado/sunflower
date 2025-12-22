@@ -52,6 +52,10 @@ class SunflowerSettingsPage {
 		}
 
 		// Set default values.
+		$this->options['excerpt_length'] = isset( $this->options['excerpt_length'] ) && '' !== $this->options['excerpt_length']
+			? absint( $this->options['excerpt_length'] )
+			: 15;
+
 		$this->options['sunflower_categories_archive'] = $this->options['sunflower_categories_archive'] ?? 'main-categories';
 
 		?>

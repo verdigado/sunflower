@@ -357,9 +357,13 @@ body #content {
 
 body #content {
 
+
+    h1 {
+        margin-bottom: var(--gap-large);
+    }
+
     h3,
     h2,
-    h1,
     p {
         margin-bottom: var(--grid-margin);
 
@@ -367,6 +371,7 @@ body #content {
             margin-bottom: 0;
         }
     }
+
 
     h4,
     h5,

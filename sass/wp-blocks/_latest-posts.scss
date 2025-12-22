@@ -85,6 +85,10 @@
                 }
             }
 
+            p {
+                margin-bottom: var(--double-grid-margin) !important;
+            }
+
             .continue-reading {
                 position: absolute;
                 bottom: var(--grid-margin);
