@@ -339,7 +339,12 @@ if ( ! function_exists( 'sunflower_filter_excerpt_more' ) ) {
 	 * @return string
 	 */
 	function sunflower_filter_excerpt_more( string $more ): string {
-		return $more;
+		// Use parameter (PHPCS) even though we override the output.
+		if ( '' === $more ) {
+			$more = '';
+		}
+
+		return '...';
 	}
 
 	add_filter( 'excerpt_more', 'sunflower_filter_excerpt_more' );

@@ -108,6 +108,12 @@
             margin-top: var(--half-grid-margin);
 
             li {
+                padding-left: 0;
+                margin-bottom: 0;
+
+                &::before {
+                    display: none;
+                }
 
                 a {
 

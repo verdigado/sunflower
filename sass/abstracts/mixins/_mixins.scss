@@ -56,8 +56,7 @@
     transition: 300ms ease-out;
     margin-left: var(--negative-grid-margin);
     overflow: hidden;
-    max-height: 284px;
-
+    height: fit-content;
     flex-direction: column;
     flex: 1;
 
