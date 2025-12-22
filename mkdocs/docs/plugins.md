@@ -12,7 +12,7 @@ Das Plugin muss einmalig unter `Einstellungen -> ActivityPub` konfiguriert werde
 
 1. Unter Einstellungen -> Profile wähle "Nur Blog-Profil"
 2. Unter Blog-Profil wähle
-  	* einen "Avatar". Die Sonnenblume aus dem Sunflower-Theme wird nicht automatisch übernommen. Nimm z.B. [sunflower.png](https://sunflower-theme.de/wp-content/themes/sunflower/assets/img/sunflower.png), wenn es die Sonnenblume sein soll.
+  	* einen "Avatar". Die Sonnenblume aus dem Sunflower-Theme wird nicht automatisch übernommen. Nimm z.B. [sunflower.png](https://sunflower-theme.de/wp-content/themes/sunflower26/assets/img/sunflower.png), wenn es die Sonnenblume sein soll.
 	* ein Header-Bild
 
 ## Embed Privacy
