@@ -83,33 +83,42 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 				<div class="footerlogo">
 					<?php
 					sunflower_inline_svg( 'assets/img/concave.svg' );
-					?>
 
-					<?php
-					$sunflower_logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
-
+					// 1. Custom Logo hat immer Priorität
 					if ( has_custom_logo() ) {
-						printf(
-							'<img src="%s" class="img-fluid" alt="Logo %s">',
-							esc_url( $sunflower_logo[0] ),
-							esc_attr( get_bloginfo( 'name' ) )
+
+						$sunflower_custom_logo = wp_get_attachment_image_src(
+							get_theme_mod( 'custom_logo' ),
+							'full'
 						);
-					} else {
-						$sunflower_options = get_option( 'sunflower_first_steps_options' );
-						if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
+
+						if ( ! empty( $sunflower_custom_logo[0] ) ) {
 							printf(
-								'<img src="%s" class="img-fluid" alt="Logo BÜNDNIS 90/DIE GRÜNEN">',
-								esc_attr( sunflower_parent_or_child( 'assets/img/logo-diegruenen.png' ) )
+								'<img src="%s" class="img-fluid" alt="%s">',
+								esc_url( $sunflower_custom_logo[0] ),
+								esc_attr( 'Logo ' . get_bloginfo( 'name' ) )
 							);
 						}
-					}
-					?>
+					} else {
 
-					<?php
+						$sunflower_options      = get_option( 'sunflower_options' );
+						$sunflower_color_scheme = $sunflower_options['sunflower_color_scheme'] ?? 'green';
+
+						if ( 'light' === $sunflower_color_scheme ) {
+							$sunflower_logo_path = 'assets/img/logo-diegruenen.svg';
+						} else {
+							$sunflower_logo_path = 'assets/img/logo-diegruenen-auf-tanne.svg';
+						}
+
+						printf(
+							'<img src="%s" class="img-fluid" alt="%s">',
+							esc_url( sunflower_parent_or_child( $sunflower_logo_path ) ),
+							esc_attr( 'Logo BÜNDNIS 90/DIE GRÜNEN' )
+						);
+					}
+
 					sunflower_inline_svg( 'assets/img/concave.svg' );
 					?>
-
-				</div>
 
 			</div>
 

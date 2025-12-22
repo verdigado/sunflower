@@ -324,18 +324,21 @@ body {
     }
 }
 
-.has-small-font-size,
-.article .has-small-font-size p,
-:where(.is-layout-flex) p.has-small-font-size,
-.small {
-    font-size: 16px !important;
-    line-height: 150%;
-    letter-spacing: 0.9px;
-    margin: calc(var(--gap-large) - 16px) 0 var(--gap-large) 0 !important;
+body #content {
+
+    .has-small-font-size,
+    .article .has-small-font-size p,
+    :where(.is-layout-flex) p.has-small-font-size,
+    .small {
+        font-size: 16px !important;
+        line-height: 150%;
+        letter-spacing: 0.9px;
+        margin: calc(var(--gap-large) - 16px) 0 var(--gap-large) 0;
 
 
-    @include media-breakpoint-down(xl) {
-        font-size: 14px !important;
+        @include media-breakpoint-down(xl) {
+            font-size: 14px !important;
+        }
     }
 }
 
@@ -352,10 +355,64 @@ body {
     }
 }
 
+body #content {
 
-h2,
-p {
-    margin-bottom: var(--grid-margin);
+    h3,
+    h2,
+    h1,
+    p {
+        margin-bottom: var(--grid-margin);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h4,
+    h5,
+    h6 {
+        margin-bottom: var(--half-grid-margin);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+
+    .wp-block-group.is-layout-flex:not(.is-vertical)
+    :not(.is-vertical) > h1,
+    .wp-block-group.is-layout-flex:not(.is-vertical)
+    :not(.is-vertical) > h2,
+    .wp-block-group.is-layout-flex:not(.is-vertical)
+    :not(.is-vertical) > p {
+        margin-bottom: 0;
+    }
+
+    .wp-block-group.is-layout-flex.is-vertical {
+
+        > h1,
+        > h2,
+        > h3,
+        > h4 {
+            margin-bottom: 0;
+        }
+    }
+
+    h5:has(+ h1),
+    h5:has(+ h2),
+    h5:has(+ h3),
+    h5:has(+ h4),
+    .overline {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .wp-block-cover {
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
 }
 
 

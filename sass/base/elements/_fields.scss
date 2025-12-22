@@ -15,13 +15,13 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
     border-radius: 23px;
-    padding: 3px;
+    padding: 2px 20px 5px 50px;
     min-height: 46px;
     font-size: 20px;
-    font-family: "PT Sans";
+    font-family: "PT Sans", sans-serif;
+    font-weight: 600;
     line-height: 35px;
     letter-spacing: 0.6px;
-    padding-left: 17px;
     max-width: 100%;
     width: 100%;
 

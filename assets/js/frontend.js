@@ -557,7 +557,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		document
 			.querySelectorAll(
 				/* <<< GEÄNDERT: Latest-Posts-Track zusätzlich zulassen >>> */
-				'.wp-block-columns.all-columns-start-with-image.more-than-two-columns, .latest-posts .row.posts-slider'
+				'.wp-block-columns.all-columns-start-with-image.more-than-two-columns, .latest-posts .row.posts-slider, .tarife'
 			)
 			.forEach( ( trackEl ) => {
 				const isActive =

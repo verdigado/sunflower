@@ -14,6 +14,7 @@
     padding: 0 var(--grid-margin);
     position: relative;
     width: calc(100% + var(--double-grid-margin)) !important;
+    margin-left: calc(-1 * var(--grid-margin)) !important;
 
     @include media-breakpoint-down(xl) {
         min-height: 300px;

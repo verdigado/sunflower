@@ -60,6 +60,10 @@ a.event-card {
     padding-top: 100px;
     padding-bottom: 100px;
 
+    .small {
+        margin: 0 !important;
+    }
+
     .row {
         display: grid;
         grid-auto-flow: dense;

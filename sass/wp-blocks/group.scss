@@ -1,14 +1,27 @@
 .wp-block-group {
 
     position: relative;
-    padding-top: var(--half-block-spacing);
-    padding-bottom: var(--half-block-spacing);
     margin-left: auto;
     margin-right: auto;
 
+    &.has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events) {
+        overflow: hidden;
+        padding: var(--grid-margin);
+        margin-top: var(--half-block-spacing);
+        margin-bottom: var(--half-block-spacing);
+    }
+
     .wp-block-group {
-        padding-top: var(--gap-large);
-        padding-bottom: var(--gap-large);
+
+        @include padding-vert;
+
+        &:only-child {
+            padding: var(--grid-margin);
+        }
+
+        &.has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events) {
+            padding: var(--gap-large);
+        }
     }
 
     &.wp-block-group-is-layout-flow > h2,
@@ -18,14 +31,18 @@
 
     &.is-layout-flex {
         column-gap: var(--gap-large);
+        padding-top: var(--grid-margin);
+        padding-bottom: var(--grid-margin);
+
+        &:first-child:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events),
+        &:last-child:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events) {
+            padding-top: var(--grid-margin);
+            padding-bottom: var(--grid-margin);
+        }
 
         .wp-block-group.is-layout-flex {
             column-gap: var(--grid-margin);
         }
-    }
-
-    @media (max-width: 1200px) {
-        width: 100%;
     }
 
 
@@ -189,6 +206,10 @@
     &__content {
         padding: 0 0 0 var(--double-grid-margin) !important;
 
+        .wp-block-image {
+            margin-bottom: var(--grid-margin);
+        }
+
         @include media-breakpoint-down(md) {
             padding: 0 !important;
         }
@@ -213,4 +234,23 @@
     figure {
         margin-bottom: var(--gap-large);
     }
+}
+
+
+.wp-block-media-text {
+
+    .wp-block-group {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+
+        &:not(:has(> :not(p, h1, h2, h3, h4, h5, h6, figure))) {
+            margin-bottom: calc(-1 * var(--grid-margin));
+        }
+    }
+}
+
+.entry-content > .wp-block-group {
+    padding-top: var(--half-block-spacing);
+    padding-bottom: var(--half-block-spacing);
 }

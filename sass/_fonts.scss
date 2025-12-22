@@ -1,4 +1,4 @@
-/* stylelint-disable */
+    /* stylelint-disable */
 @font-face {
     font-family: "GrueneType Neue";
     src:
@@ -72,8 +72,14 @@
 .gruenetype {
     font-family: "GrueneType Neue" !important;
     font-weight: 400;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizelegibility;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .ptsans {
     font-family: "PT Sans" !important;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizelegibility;
+    -moz-osx-font-smoothing: grayscale;
 }

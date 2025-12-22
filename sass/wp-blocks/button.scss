@@ -2,6 +2,30 @@
 
 .wp-block-buttons {
     gap: var(--grid-margin);
+    row-gap: var(--grid-margin) !important;
+
+    @include padding-vert;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    ~ .wp-block-buttons, {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        &:first-child,
+        &:last-child,
+        &:only-child {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
 }
 
 .wp-block-button__link,

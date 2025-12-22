@@ -29,6 +29,13 @@ header .social-media-profiles {
 
 }
 
+.hamburger, .menubar {
+    li {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+}
+
 .hamburger {
     display: none;
     position: fixed;

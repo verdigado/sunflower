@@ -3,12 +3,16 @@
 
 .site-footer {
 
-    background-color: map.get($custom-colors, "gruener-sand");
-    padding: 140px var(--grid-margin) var(--grid-margin) var(--grid-margin);
+    padding: 70px var(--grid-margin) var(--grid-margin) var(--grid-margin);
     position: relative;
 
     @include media-breakpoint-down(md) {
         padding: var(--double-grid-margin) var(--grid-margin) var(--grid-margin) var(--grid-margin);
+    }
+
+    li {
+        margin-bottom: 0;
+        padding-left: 0;
     }
 
     .small {
@@ -39,7 +43,11 @@
 
             @include media-breakpoint-down(md) {
                 flex-direction: column;
-                margin-bottom: var(--grid-margin);
+                margin-bottom: var(--double-grid-margin);
+
+                li {
+                    padding-left: 0;
+                }
             }
         }
 
@@ -48,10 +56,9 @@
             .footerlogo {
                 width: 200px;
                 position: absolute;
+                border-radius: var(--border-radius-large) 0 0 0;
                 right: 0;
                 bottom: 0;
-                background-color: map.get($custom-colors, "tanne");
-                border-radius: var(--border-radius-large) 0 0 0;
 
                 .concave-30px {
 
@@ -84,7 +91,7 @@
                     left: 0;
                     margin-left: calc(-1 * var(--grid-margin));
                     border-radius: 0;
-                    width: 100vw;
+                    width: calc(100% + var(--double-grid-margin));
                     padding: var(--half-grid-margin);
                     display: flex;
                     justify-content: center;
@@ -129,7 +136,6 @@
         @include media-breakpoint-down(md) {
             width: 100%;
             height: fit-content;
-            margin-bottom: var(--double-grid-margin);
         }
     }
 
@@ -209,3 +215,4 @@
         opacity: 0.6;
     }
 }
+

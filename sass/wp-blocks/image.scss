@@ -1,6 +1,7 @@
 .wp-block-image {
     margin-bottom: 0;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius-medium);
+    overflow: hidden;
     position: relative;
 
     &:not(.is-style-rounded) {

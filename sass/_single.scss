@@ -3,7 +3,7 @@
     min-height: 100vh;
 
     .entry-title {
-        margin-bottom: var(--grid-margin);
+        margin-bottom: var(--grid-margin) !important;
         text-align: center;
     }
 
