@@ -38,3 +38,16 @@
         }
     }
 }
+
+.blocks-gallery-grid {
+
+    li {
+
+        &::before {
+            display: none;
+            margin-bottom: 0;
+            padding-left: 0;
+        }
+    }
+
+}
