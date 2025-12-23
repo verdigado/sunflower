@@ -93,6 +93,10 @@
         padding-right: var(--grid-margin) !important;
     }
 
+    h4 {
+        margin-bottom: 0 !important;
+    }
+
     &:nth-of-type(even) {
 
         .accordion-button,
@@ -158,6 +162,7 @@
                 transition: 200ms ease;
                 height: fit-content;
                 border: 0 solid #fff;
+                color: map-get($custom-colors, "tanne");
 
                 font-family: "GrueneType Neue", sans-serif;
                 line-height: 125%;
@@ -201,6 +206,6 @@
     }
 
     .accordion-collapse {
-        padding: 0 var(--grid-margin) calc(var(--half-grid-margin) / 2) var(--grid-margin);
+        padding: 0 var(--grid-margin) var(--half-grid-margin) var(--grid-margin);
     }
 }

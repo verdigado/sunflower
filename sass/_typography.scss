@@ -374,6 +374,11 @@ body #content {
         &:first-child {
             margin-top: 0;
         }
+
+        &:only-child {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
     }
 
 
@@ -383,6 +388,11 @@ body #content {
         margin-bottom: var(--half-grid-margin);
 
         &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:only-child {
+            margin-top: 0;
             margin-bottom: 0;
         }
     }
