@@ -18,15 +18,15 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.4.2",
-    "@wordpress/data": "^10.19.2",
-    "@wordpress/i18n": "^5.4.0",
-    "@wordpress/icons": "^10.19.2",
-    "@wordpress/scripts": "^30.12.1",
-    "@wordpress/stylelint-config": "^23.11.1",
+    "@wordpress/data": "^10.33.0",
+    "@wordpress/i18n": "^5.26.0",
+    "@wordpress/icons": "^10.32.0",
+    "@wordpress/scripts": "^30.27.0",
+    "@wordpress/stylelint-config": "^23.30.0",
     "dir-archiver": "^2.1.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "rtlcss": "^3.5.0",
-    "sass": "^1.77.8"
+    "sass": "^1.93.2"
   },
   "rtlcssConfig": {
     "options": {
@@ -58,7 +58,7 @@
     "packages-update": "wp-scripts packages-update"
   },
   "dependencies": {
-    "bootstrap": "^5.3.6",
+    "bootstrap": "^5.3.8",
     "copyfiles": "^2.4.1",
     "fork-awesome": "^1.2.0",
     "jquery-datetimepicker": "^2.5.21",
