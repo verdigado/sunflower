@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-git\n"
-"POT-Creation-Date: 2025-10-28T08:43:00+00:00\n"
+"POT-Creation-Date: 2026-01-16T14:38:20+00:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -57,7 +57,7 @@ msgstr "Vergangene Veranstaltungen"
 #: archive-sunflower_event.php:39 functions/events.php:37
 #: functions/options/class-sunflowereventsettingspage.php:34
 #: functions/options/class-sunflowereventsettingspage.php:35
-#: functions/options/class-sunflowereventsettingspage.php:169
+#: functions/options/class-sunflowereventsettingspage.php:204
 msgid "Events"
 msgstr "Termine"
 
@@ -65,7 +65,7 @@ msgstr "Termine"
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:55 build/next-events/render.php:66
+#: archive-sunflower_event.php:55 build/next-events/render.php:28
 #: src/next-events/render.php:28
 msgid "all events"
 msgstr "Alle Termine"
@@ -75,7 +75,7 @@ msgid "Archive"
 msgstr "Archiv"
 
 #: archive-sunflower_event.php:63 functions/events.php:291
-#: functions/options/class-sunflowereventsettingspage.php:146
+#: functions/options/class-sunflowereventsettingspage.php:181
 msgid "Map"
 msgstr "Landkarte"
 
@@ -111,11 +111,11 @@ msgstr "zurück"
 msgid "next"
 msgstr "vor"
 
-#: build/latest-posts/render.php:98 src/latest-posts/render.php:92
+#: build/latest-posts/render.php:92 src/latest-posts/render.php:92
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: build/next-events/render.php:51 src/next-events/render.php:52
+#: build/next-events/render.php:52 src/next-events/render.php:52
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
@@ -222,18 +222,18 @@ msgstr ""
 "            Wenn Du weiterhin die Sonnenblume im Menü, im Footer und als "
 "Favicon nutzen möchtest, lies und akzeptiere die Nutzungsbedingungen."
 
-#: functions/admin.php:209
+#: functions/admin.php:210
 msgid "a free WordPress theme by"
 msgstr "ein kostenloses WordPress-Theme der"
 
-#: functions/admin.php:221 functions/block-patterns.php:24
+#: functions/admin.php:223 functions/block-patterns.php:24
 #: functions/blocks.php:19
 #: functions/options/class-sunflowerfirststepspage.php:33
 #: functions/options/class-sunflowerfirststepspage.php:34
 msgid "Sunflower"
 msgstr "Sunflower"
 
-#: functions/admin.php:248
+#: functions/admin.php:250
 msgid "Help for sunflowers events"
 msgstr "Hilfe für Sunflower-Termine"
 
@@ -307,11 +307,11 @@ msgstr "Datum der Veranstaltung"
 msgid "Event location"
 msgstr "Ort"
 
-#: functions/icalimport.php:105
+#: functions/icalimport.php:104
 msgid "More Information"
 msgstr "Weitere Informationen"
 
-#: functions/icalimport.php:123
+#: functions/icalimport.php:122
 msgid "Failed to import event"
 msgstr "Import der Veranstaltung fehlgeschlagen"
 
@@ -382,77 +382,85 @@ msgstr "Sunflower-Einstellungen"
 msgid "ICS Calendar Import"
 msgstr "ICS Kalender Import"
 
-#: functions/options/class-sunflowereventsettingspage.php:73
-msgid "ICS calendar has been imported."
-msgstr "ICS Kalender wurde importiert."
+#: functions/options/class-sunflowereventsettingspage.php:71
+msgid "Import Line"
+msgstr "Import von Zeile"
 
-#: functions/options/class-sunflowereventsettingspage.php:74
-msgid "new"
+#: functions/options/class-sunflowereventsettingspage.php:78
+msgid "ICS calendar imported from:"
+msgstr "ICS Kalender Import von"
+
+#: functions/options/class-sunflowereventsettingspage.php:87
+msgid "Error:"
+msgstr ""
+
+#: functions/options/class-sunflowereventsettingspage.php:95
+msgid "New"
 msgstr "neu"
 
-#: functions/options/class-sunflowereventsettingspage.php:75
-msgid "deleted"
-msgstr "gelöscht"
-
-#: functions/options/class-sunflowereventsettingspage.php:76
-msgid "updated"
+#: functions/options/class-sunflowereventsettingspage.php:99
+msgid "Updated"
 msgstr "aktualisiert"
 
-#: functions/options/class-sunflowereventsettingspage.php:83
+#: functions/options/class-sunflowereventsettingspage.php:103
+msgid "Deleted"
+msgstr "gelöscht"
+
+#: functions/options/class-sunflowereventsettingspage.php:118
 msgid "See all events (Frontend)"
 msgstr "Alle Veranstaltungen auf der Webseite"
 
-#: functions/options/class-sunflowereventsettingspage.php:84
+#: functions/options/class-sunflowereventsettingspage.php:119
 msgid "Edit events (Backend)"
 msgstr "Veranstaltungen bearbeiten (Backend)"
 
-#: functions/options/class-sunflowereventsettingspage.php:88
-#: functions/options/class-sunflowereventsettingspage.php:93
+#: functions/options/class-sunflowereventsettingspage.php:123
+#: functions/options/class-sunflowereventsettingspage.php:128
 msgid "Import calendars now"
 msgstr "Kalender jetzt importieren"
 
-#: functions/options/class-sunflowereventsettingspage.php:112
+#: functions/options/class-sunflowereventsettingspage.php:147
 msgid "Adjust geo marker for:"
 msgstr "Marker-Position für diesen Ort anpassen:"
 
-#: functions/options/class-sunflowereventsettingspage.php:113
+#: functions/options/class-sunflowereventsettingspage.php:148
 msgid "please choose"
 msgstr "bitte wählen"
 
-#: functions/options/class-sunflowereventsettingspage.php:129
+#: functions/options/class-sunflowereventsettingspage.php:164
 msgid "Delete geo data for this location"
 msgstr "Geo-Daten für diesen Ort löschen"
 
-#: functions/options/class-sunflowereventsettingspage.php:147
+#: functions/options/class-sunflowereventsettingspage.php:182
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/options/class-sunflowereventsettingspage.php:176
+#: functions/options/class-sunflowereventsettingspage.php:211
 msgid "Description shown on the events page"
 msgstr "Beschreibung für die Termineseite"
 
-#: functions/options/class-sunflowereventsettingspage.php:184
+#: functions/options/class-sunflowereventsettingspage.php:219
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options/class-sunflowereventsettingspage.php:192
-#: functions/options/class-sunflowereventsettingspage.php:196
+#: functions/options/class-sunflowereventsettingspage.php:227
+#: functions/options/class-sunflowereventsettingspage.php:231
 msgid "Rectify time zone"
 msgstr "Zeitzone korrigieren"
 
-#: functions/options/class-sunflowereventsettingspage.php:201
-#: functions/options/class-sunflowereventsettingspage.php:205
+#: functions/options/class-sunflowereventsettingspage.php:236
+#: functions/options/class-sunflowereventsettingspage.php:240
 msgid "Show overall map"
 msgstr "Übersichtskarte zeigen"
 
-#: functions/options/class-sunflowereventsettingspage.php:210
-#: functions/options/class-sunflowereventsettingspage.php:214
-#: functions/options/class-sunflowereventsettingspage.php:226
-#: functions/options/class-sunflowereventsettingspage.php:230
+#: functions/options/class-sunflowereventsettingspage.php:245
+#: functions/options/class-sunflowereventsettingspage.php:249
+#: functions/options/class-sunflowereventsettingspage.php:261
+#: functions/options/class-sunflowereventsettingspage.php:265
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
-#: functions/options/class-sunflowereventsettingspage.php:219
+#: functions/options/class-sunflowereventsettingspage.php:254
 msgid "Zoom-level of overall map"
 msgstr "Zoomlevel für Übersichtskarte"
 
@@ -850,8 +858,8 @@ msgid "none"
 msgstr "keine"
 
 #: template-parts/header-standard.php:40 template-parts/header-standard.php:41
-#: template-parts/header-standard.php:44 template-parts/header-standard.php:156
-#: template-parts/header-standard.php:159
+#: template-parts/header-standard.php:44 template-parts/header-standard.php:162
+#: template-parts/header-standard.php:165
 msgid "Search"
 msgstr "Suche"
 
@@ -922,6 +930,9 @@ msgstr ""
 msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
+
+#~ msgid "ICS calendar has been imported."
+#~ msgstr "ICS Kalender wurde importiert."
 
 #~ msgid "increase contrast"
 #~ msgstr "Kontrast erhöhen"

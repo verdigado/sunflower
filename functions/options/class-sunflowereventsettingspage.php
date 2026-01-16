@@ -61,20 +61,55 @@ class SunflowerEventSettingsPage {
 			<?php
 
 			if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( $_GET['_wpnonce'], 'sunflower_events_options-icalimport' ) && isset( $_GET['icalimport'] ) ) {
-				$count = sunflower_import_icals( true );
-				printf(
-					'<div>%1$s<ul>
-					<li>%2$s</li>
-					<li>%3$s</li>
-					<li>%4$s</li>
-					</ul>
+				$sunflower_icalimport_report = sunflower_import_icals( true );
+				foreach ( $sunflower_icalimport_report as $index => $report ) :
+					$has_error = ! empty( $report['error'] );
+					?>
+					<div class="sunflower-import-card <?php echo $has_error ? 'has-error' : ''; ?>">
+						<div class="sunflower-import-header">
+							<strong>
+								<?php echo esc_html__( 'Import Line', 'sunflower' ); ?>
+								#<?php echo (int) $index; ?>
+							</strong>
+						</div>
+
+						<div class="sunflower-import-body">
+							<p class="sunflower-import-source">
+								<?php echo esc_html__( 'ICS calendar imported from:', 'sunflower' ); ?>
+								<a href="<?php echo esc_url( $report['url'] ); ?>" target="_blank" rel="noopener noreferrer">
+									<?php echo esc_html( $report['url'] ); ?>
+								</a>
+							</p>
+
+							<?php if ( $has_error ) : ?>
+
+								<div class="sunflower-import-error">
+									<strong><?php echo esc_html__( 'Error:', 'sunflower' ); ?></strong><br>
+									<?php echo esc_html( $report['error'] ); ?>
+								</div>
+
+							<?php else : ?>
+
+								<ul class="sunflower-import-stats">
+									<li class="new">
+										<?php echo esc_html__( 'New', 'sunflower' ); ?>
+										<span><?php echo (int) $report['new_events']; ?></span>
+									</li>
+									<li class="updated">
+										<?php echo esc_html__( 'Updated', 'sunflower' ); ?>
+										<span><?php echo (int) $report['updated_events']; ?></span>
+									</li>
+									<li class="deleted">
+										<?php echo esc_html__( 'Deleted', 'sunflower' ); ?>
+										<span><?php echo (int) $report['deleted_events']; ?></span>
+									</li>
+								</ul>
+
+							<?php endif; ?>
+						</div>
 					</div>
-					',
-					esc_attr__( 'ICS calendar has been imported.', 'sunflower' ),
-					esc_attr__( 'new', 'sunflower' ) . ': ' . (int) $count['new_events'],
-					esc_attr__( 'deleted', 'sunflower' ) . ': ' . (int) $count['deleted_events'],
-					esc_attr__( 'updated', 'sunflower' ) . ': ' . (int) $count['updated_events'],
-				);
+					<?php
+				endforeach;
 				printf(
 					'<div>
 					<a href="../?post_type=sunflower_event" class="button button-secondary">%s</a>

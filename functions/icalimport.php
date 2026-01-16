@@ -28,7 +28,6 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			)
 		);
 	} catch ( ParseException $parse_exception ) {
-		// Rethrow the exception to abstract the type.
 		return $parse_exception->getMessage();
 	}
 
@@ -212,8 +211,10 @@ function sunflower_get_event_by_uid( $uid ) {
 
 /**
  * Get all sunflower events with an uid set.
+ *
+ * @param int $source The hash value of the source URL.
  */
-function sunflower_get_events_having_uid() {
+function sunflower_get_events_having_uid( $source ) {
 	$events_with_uid = new WP_Query(
 		array(
 			'nopaging'   => true,
@@ -221,9 +222,15 @@ function sunflower_get_events_having_uid() {
 			'meta_key'   => '_sunflower_event_uid',
 			'orderby'    => 'meta_value',
 			'meta_query' => array(
+				'relation' => 'AND',
+
 				array(
 					'key'     => '_sunflower_event_uid',
 					'compare' => 'EXISTS',
+				),
+				array(
+					'key'   => '_sunflower_event_source',
+					'value' => $source,
 				),
 			),
 		)
@@ -282,7 +289,7 @@ function sunflower_import_icals( $force = false ) {
 
 	$ids_from_remote = array();
 	$ids_from_source = array();
-	foreach ( $lines as $line ) {
+	foreach ( $lines as $index => $line ) {
 		$info = explode( ';', $line );
 
 		$url             = trim( $info[0] );
@@ -305,24 +312,33 @@ function sunflower_import_icals( $force = false ) {
 		if ( ! empty( $response ) && is_array( $response ) && is_array( $response[0] ) ) {
 			$ids_from_remote = array_merge( $ids_from_remote, $response[0] );
 		} else {
-			// Keep known events as the response might only be temporarily unavailable.
-			$ids_from_remote = array_merge( $ids_from_remote, $ids_from_source );
+			$report[ $index ] = array(
+				'url'            => $url,
+				'error'          => $response,
+				'new_events'     => 0,
+				'updated_events' => 0,
+				'deleted_events' => 0,
+			);
+			continue;
 		}
+
+		$deleted_on_remote = array_diff( sunflower_get_events_having_uid( md5( $url ) ), $ids_from_remote );
+
+		$deleted_events = 0;
+		foreach ( $deleted_on_remote as $to_be_deleted ) {
+			wp_delete_post( $to_be_deleted );
+			++$deleted_events;
+		}
+
+		$report[ $index ] = array(
+			'url'            => $url,
+			'new_events'     => $response['new_events'] ?? 0,
+			'updated_events' => $response['updated_events'] ?? 0,
+			'deleted_events' => $deleted_events,
+		);
 	}
 
-	$deleted_on_remote = array_diff( sunflower_get_events_having_uid(), $ids_from_remote );
-
-	$deleted_events = 0;
-	foreach ( $deleted_on_remote as $to_be_deleted ) {
-		wp_delete_post( $to_be_deleted );
-		++$deleted_events;
-	}
-
-	return array(
-		'deleted_events' => $deleted_events,
-		'updated_events' => $response['updated_events'],
-		'new_events'     => $response['new_events'],
-	);
+	return $report;
 }
 
 add_action( 'init', 'sunflower_import_icals' );

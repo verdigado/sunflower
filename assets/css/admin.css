@@ -100,3 +100,82 @@ p a img {
 .compat-item .label span {
 	width: unset;
 }
+
+/* iCal Import Report Styles */
+.sunflower-import-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    margin: 16px 0;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+.sunflower-import-header {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ccd0d4;
+    background: #f6f7f7;
+    font-size: 13px;
+}
+
+.sunflower-import-body {
+    padding: 12px;
+}
+
+.sunflower-import-source {
+    margin: 0 0 12px 0;
+    font-size: 13px;
+}
+
+.sunflower-import-source a {
+    word-break: break-all;
+}
+
+.sunflower-import-stats {
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sunflower-import-stats li {
+    flex: 1;
+    padding: 8px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 12px;
+    background: #f6f7f7;
+}
+
+.sunflower-import-stats li span {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.sunflower-import-stats .new {
+    border-left: 4px solid #46b450;
+}
+
+.sunflower-import-stats .updated {
+    border-left: 4px solid #007cba;
+}
+
+.sunflower-import-stats .deleted {
+    border-left: 4px solid #dc3232;
+}
+
+.sunflower-import-card.has-error {
+    border-left: 4px solid #dc3232;
+}
+
+.sunflower-import-error {
+    padding: 10px 12px;
+    background: #fbeaea;
+    border: 1px solid #dc3232;
+    border-radius: 3px;
+    color: #8a1f1f;
+    font-size: 13px;
+    line-height: 1.4;
+}
