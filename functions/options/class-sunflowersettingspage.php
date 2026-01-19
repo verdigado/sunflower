@@ -180,15 +180,6 @@ class SunflowerSettingsPage {
 		);
 
 		add_settings_field(
-			'sunflower_header_layout',
-			__( 'Use this header layout', 'sunflower' ),
-			$this->sunflower_header_layout( ... ),
-			'sunflower-setting-admin',
-			'sunflower_layout',
-			array( 'sunflower_header_layout', __( 'Use this header layout', 'sunflower' ) )
-		);
-
-		add_settings_field(
 			'sunflower_header_social_media',
 			__( 'Show social media icons in header', 'sunflower' ),
 			$this->sunflower_header_social_media( ... ),
@@ -317,29 +308,6 @@ class SunflowerSettingsPage {
 			'<input type="email" id="sunflower_contact_form_to" name="sunflower_options[sunflower_contact_form_to]" value="%s" />',
 			isset( $this->options['sunflower_contact_form_to'] ) ? esc_attr( $this->options['sunflower_contact_form_to'] ) : ''
 		);
-	}
-
-	/**
-	 * Header layout variant field
-	 */
-	public function sunflower_header_layout(): void {
-		echo '<select id="sunflower_header_layout" name="sunflower_options[sunflower_header_layout]">';
-
-		$options = array(
-			array( 'standard', __( 'Standard', 'sunflower' ) ),
-			array( 'personal', __( 'Personal', 'sunflower' ) ),
-		);
-		foreach ( $options as $option ) {
-			$selected = ( isset( $this->options['sunflower_header_layout'] ) && $this->options['sunflower_header_layout'] === $option[0] ) ? 'selected' : '';
-			printf(
-				'<option value="%1$s" %2$s>%3$s</option>',
-				esc_attr( $option[0] ),
-				esc_attr( $selected ),
-				esc_attr( $option[1] )
-			);
-		}
-
-		echo '</select>';
 	}
 
 	/**

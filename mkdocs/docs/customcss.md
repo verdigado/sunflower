@@ -40,13 +40,6 @@ Die folgende Einstellung setzt die Hintergrundfarbe für das eigene Logo im Stic
 	background-color: #005437;
 }
 ```
-Die folgende Einstellung setzt die Hintergrundfarbe für das eigene Logo im Personal-Header:
-```
-.header-personal .img-container {
-    background-color: #005437;
-}
-```
-Die Beispiele setzen die Hintergrundfarbe auf "Tanne", wie es mit der Sonnenblume der Fall ist.
 
 ## Suche in der oberen Menüleiste ausblenden
 

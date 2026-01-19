@@ -50,10 +50,6 @@ function sunflower_add_body_classes( $classes ) {
 		$classes[] = 'colorscheme-' . sanitize_html_class( $options['sunflower_color_scheme'] );
 	}
 
-	if ( ! empty( $options['sunflower_header_layout'] ) ) {
-		$classes[] = 'header-' . sanitize_html_class( $options['sunflower_header_layout'] );
-	}
-
 	if ( ! empty( $options['sunflower_footer_layout'] ) ) {
 		$classes[] = 'footer-' . sanitize_html_class( $options['sunflower_footer_layout'] );
 	}
@@ -149,7 +145,6 @@ function sunflower_set_default_options() {
 		'sunflower_categories_archive' => 'main-categories',
 		'sunflower_color_scheme'       => 'light',
 		'sunflower_form_style'         => 'rounded',
-		'sunflower_header_layout'      => 'standard',
 		'sunflower_footer_layout'      => 'sand',
 	);
 

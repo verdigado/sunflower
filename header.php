@@ -33,7 +33,5 @@
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sunflower' ); ?></a>
 
 		<?php
-		$sunflower_header_layout = sunflower_get_setting( 'sunflower_header_layout' ) ? sunflower_get_setting( 'sunflower_header_layout' ) : 'standard';
-
-		get_template_part( 'template-parts/header', $sunflower_header_layout );
+		get_template_part( 'template-parts/header', 'standard' );
 		?>
