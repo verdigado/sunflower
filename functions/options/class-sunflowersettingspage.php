@@ -311,14 +311,14 @@ class SunflowerSettingsPage {
 	}
 
 	/**
-	 * Form Style layout variant field
+	 * Form style layout variant field
 	 */
 	public function sunflower_form_style_callback(): void {
 		echo '<select id="sunflower_form_style" name="sunflower_options[sunflower_form_style]">';
 
 		$options = array(
-			array( 'rounded', __( 'Abgerundet', 'sunflower' ) ),
-			array( 'sharp', __( 'Eckig', 'sunflower' ) ),
+			array( 'rounded', __( 'rounded', 'sunflower' ) ),
+			array( 'sharp', __( 'sharp', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
 			$selected = ( isset( $this->options['sunflower_form_style'] ) && $this->options['sunflower_form_style'] === $option[0] ) ? 'selected' : '';
@@ -334,14 +334,14 @@ class SunflowerSettingsPage {
 	}
 
 	/**
-	 * Color Sheme layout variant field
+	 * Color theme layout variant field
 	 */
 	public function sunflower_color_scheme_callback(): void {
 		echo '<select id="sunflower_color_scheme" name="sunflower_options[sunflower_color_scheme]">';
 
 		$options = array(
-			array( 'light', __( 'Hell', 'sunflower' ) ),
-			array( 'green', __( 'Grün', 'sunflower' ) ),
+			array( 'light', __( 'light', 'sunflower' ) ),
+			array( 'green', __( 'green', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
 			$selected = ( isset( $this->options['sunflower_color_scheme'] ) && $this->options['sunflower_color_scheme'] === $option[0] ) ? 'selected' : '';
@@ -363,8 +363,8 @@ class SunflowerSettingsPage {
 		echo '<select id="sunflower_footer_layout" name="sunflower_options[sunflower_footer_layout]">';
 
 		$options = array(
-			array( 'sand', __( 'Sand', 'sunflower' ) ),
-			array( 'green', __( 'Grün', 'sunflower' ) ),
+			array( 'sand', __( 'sand', 'sunflower' ) ),
+			array( 'green', __( 'green', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
 			$selected = ( isset( $this->options['sunflower_footer_layout'] ) && $this->options['sunflower_footer_layout'] === $option[0] ) ? 'selected' : '';
