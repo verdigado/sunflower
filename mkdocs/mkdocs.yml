@@ -5,7 +5,6 @@ nav:
     - Besonderheiten: specials.md
     - Einrichtung:
           - Einrichtung: setup.md
-          - Umzug von Urwahl3000: urwahl3000.md
           - Startseite: homepage.md
           - Menüs: menus.md
           - Individuelles CSS: customcss.md

@@ -19,10 +19,6 @@ Um die Sonnenblume als Logo und Icon nutzen zu können, musst Du Dir die Nutzung
   <figcaption>Das Sunflower-Menü im Dashboard</figcaption>
 </figure>
 
-### Umzug von Urwahl 3000
-
-Hier gibt es ausführlichere Hinweise zum [Umzug von Urwahl3000](urwahl3000.md).
-
 ## Einstellungen
 
 ### Menüs

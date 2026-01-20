@@ -15,7 +15,6 @@ Die aktuellsten Neuerungen (Releases) der Version von Sunflower sind bei [github
 
 ## Features
 * [Barrierefrei nach WCAG 2.1 AA](accessibility.md)
-* einfacher Umzug von Urwahl3000
 * eine Musterstartseite erstellt man mit nur einem Knopfdruck
 * eigene Terminverwaltung, Kalender können per ics importiert werden
 * responsives Layout für verschiedene Bildschirmgrößen (Handys, Tablet, Desktops)
