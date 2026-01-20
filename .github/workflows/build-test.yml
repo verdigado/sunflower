@@ -3,16 +3,16 @@
 name: Build Test
 
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - dev*
-            - main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - dev*
+      - main
 
 env:
-    NODE_VERSION: 22
+  NODE_VERSION: 22
 
 jobs:
     build:
@@ -62,8 +62,8 @@ jobs:
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: 8.2
-                  tools: cs2pr
+                php-version: 8.3
+                tools: cs2pr
 
             - name: run install composer
               run: |

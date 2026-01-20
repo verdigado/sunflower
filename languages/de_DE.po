@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
-"POT-Creation-Date: 2026-01-20T15:38:48+01:00\n"
+"POT-Creation-Date: 2026-01-20T17:01:00+01:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -475,23 +475,39 @@ msgstr "Erste Schritte"
 msgid "About Sunflower"
 msgstr "Über Sunflower"
 
-#: functions/options/class-sunflowerfirststepspage.php:83
+#: functions/options/class-sunflowerfirststepspage.php:77
 #: functions/options/class-sunflowersettingspage.php:34
 #: functions/options/class-sunflowersettingspage.php:35
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: functions/options/class-sunflowerfirststepspage.php:102
+#: functions/options/class-sunflowerfirststepspage.php:96
 msgid "Activate Theme"
 msgstr "Theme aktivieren"
 
-#: functions/options/class-sunflowerfirststepspage.php:109
+#: functions/options/class-sunflowerfirststepspage.php:103
 msgid "Sunflower Terms of Use"
 msgstr "Sunflower-Nutzungsbedingungen"
 
-#: functions/options/class-sunflowerfirststepspage.php:113
+#: functions/options/class-sunflowerfirststepspage.php:107
 msgid "Accept Terms of Use"
 msgstr "Nutzungsbedingungen akzeptieren"
+
+#: functions/options/class-sunflowerfirststepspage.php:112
+msgid "Sunflower Update Channel"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:116
+msgid "Update Channel"
+msgstr "Aktualisierungs-Kanal"
+
+#: functions/options/class-sunflowerfirststepspage.php:183
+msgid "stable"
+msgstr "stabile Version"
+
+#: functions/options/class-sunflowerfirststepspage.php:184
+msgid "beta"
+msgstr "beta (Testversionen)"
 
 #: functions/options/class-sunflowersettingspage.php:88
 msgid "Reimport permalink structure"
