@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-16T14:38:20+00:00\n"
+"POT-Creation-Date: 2026-01-20T16:09:27+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower\n"
@@ -461,6 +461,22 @@ msgstr ""
 
 #: functions/options/class-sunflowerfirststepspage.php:113
 msgid "Accept Terms of Use"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:118
+msgid "Sunflower Update Channel"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:122
+msgid "Update Channel"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:189
+msgid "stable"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:190
+msgid "beta"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:84
