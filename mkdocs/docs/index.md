@@ -11,7 +11,7 @@ Die aktuellsten Neuerungen (Releases) der Version von Sunflower sind bei [github
 ## Voraussetzungen
 * WordPress 6.3
 * Sunflower Theme 2.0.x: PHP 7.4 oder 8.2
-* Sunflower Theme 2.1, 2.2: PHP 8.2
+* Sunflower Theme 2.1, 2.2: PHP 8.2, 8.3
 
 ## Features
 * [Barrierefrei nach WCAG 2.1 AA](accessibility.md)

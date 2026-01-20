@@ -510,13 +510,13 @@ function sunflower_prepare_event_time_data( $post ) {
 	$weekday   = sprintf(
 		'%s%s',
 		date_i18n( 'l', $_sunflower_event_from ),
-		( $event_more_days ) ? ' - ' . date_i18n( 'l', $_sunflower_event_until ) : ''
+		( $event_more_days ) ? ' – ' . date_i18n( 'l', $_sunflower_event_until ) : ''
 	);
 	$untildate = '';
 	$untiltime = '';
 	$fromdate  = date_i18n( 'd.m.Y', $_sunflower_event_from );
 	if ( $_sunflower_event_until ) {
-		$untildate = ' - ' . date_i18n( 'd.m.Y', $_sunflower_event_until );
+		$untildate = ' – ' . date_i18n( 'd.m.Y', $_sunflower_event_until );
 
 		if ( date_i18n( 'd.m.Y', $_sunflower_event_from ) === date_i18n( 'd.m.Y', $_sunflower_event_until ) ) {
 			// On same day there is no until day.
@@ -535,10 +535,10 @@ function sunflower_prepare_event_time_data( $post ) {
 				$weekday = sprintf(
 					'%s%s',
 					date_i18n( 'l', $_sunflower_event_from ),
-					( $event_more_days ) ? ' - ' . date_i18n( 'l', $_sunflower_event_until - 1 ) : ''
+					( $event_more_days ) ? ' – ' . date_i18n( 'l', $_sunflower_event_until - 1 ) : ''
 				);
 				// The - 1 leads to 1 seconds before midnight, that means the day before.
-				$untildate = ' - ' . date_i18n( 'd.m.Y', $_sunflower_event_until - 1 );
+				$untildate = ' – ' . date_i18n( 'd.m.Y', $_sunflower_event_until - 1 );
 			}
 		} elseif ( date_i18n( 'm', $_sunflower_event_from ) === date_i18n( 'm', $_sunflower_event_until ) ) {
 			// The same month.
@@ -548,7 +548,7 @@ function sunflower_prepare_event_time_data( $post ) {
 			$fromdate = date_i18n( 'd.m.', $_sunflower_event_from );
 		}
 
-		$untiltime = '- ' . date_i18n( ' H:i', $_sunflower_event_until );
+		$untiltime = '–' . date_i18n( ' H:i', $_sunflower_event_until );
 	}
 
 	$days = sprintf(
