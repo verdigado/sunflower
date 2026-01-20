@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-git\n"
-"POT-Creation-Date: 2026-01-16T14:38:20+00:00\n"
+"POT-Creation-Date: 2026-01-20T16:09:27+01:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -392,7 +392,7 @@ msgstr "ICS Kalender Import von"
 
 #: functions/options/class-sunflowereventsettingspage.php:87
 msgid "Error:"
-msgstr ""
+msgstr "Fehler:"
 
 #: functions/options/class-sunflowereventsettingspage.php:95
 msgid "New"
@@ -490,6 +490,22 @@ msgstr "Sunflower-Nutzungsbedingungen"
 #: functions/options/class-sunflowerfirststepspage.php:113
 msgid "Accept Terms of Use"
 msgstr "Nutzungsbedingungen akzeptieren"
+
+#: functions/options/class-sunflowerfirststepspage.php:118
+msgid "Sunflower Update Channel"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:122
+msgid "Update Channel"
+msgstr "Aktualisierungs-Kanal"
+
+#: functions/options/class-sunflowerfirststepspage.php:189
+msgid "stable"
+msgstr "stabile Version"
+
+#: functions/options/class-sunflowerfirststepspage.php:190
+msgid "beta"
+msgstr "beta (Testversionen)"
 
 #: functions/options/class-sunflowersettingspage.php:84
 msgid "Reimport permalink structure"

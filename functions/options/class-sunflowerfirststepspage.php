@@ -112,6 +112,15 @@ class SunflowerFirstStepsPage {
 			'sunflower-first-steps', // The section ID.
 			array( 'sunflower_terms_of_use', __( 'Accept Terms of Use', 'sunflower' ) )
 		);
+
+		add_settings_field(
+			'sunflower_update_channel', // The field ID.
+			__( 'Sunflower Update Channel', 'sunflower' ),
+			$this->sunflower_update_channel( ... ), // The callback function.
+			'sunflower_admin', // The page ID.
+			'sunflower-first-steps', // The section ID.
+			array( 'sunflower_update_channel', __( 'Update Channel', 'sunflower' ) )
+		);
 	}
 
 	/**
@@ -168,6 +177,29 @@ class SunflowerFirstStepsPage {
             einzuräumen, dass der Anschein eigene Meinungen und Äußerungen seien Positionen des Bundesverbandes oder anderer Gebietsverbände vermieden
             werden muss. Auch hier besteht ein Widerrufsvorbehalt zugunsten des Bundesverbandes.'
 		);
+	}
+
+	/**
+	 * Update channel field
+	 */
+	public function sunflower_update_channel(): void {
+		echo '<select id="sunflower_update_channel" name="sunflower_first_steps_options[sunflower_update_channel]">';
+
+		$options = array(
+			array( 'stable', __( 'stable', 'sunflower' ) ),
+			array( 'beta', __( 'beta', 'sunflower' ) ),
+		);
+		foreach ( $options as $option ) {
+			$selected = ( isset( $this->options['sunflower_update_channel'] ) && $this->options['sunflower_update_channel'] === $option[0] ) ? 'selected' : '';
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_attr( $option[1] )
+			);
+		}
+
+		echo '</select>';
 	}
 }
 

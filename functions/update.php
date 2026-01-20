@@ -17,10 +17,13 @@ function sunflower_update_theme( $transient, $theme_data, $theme_slug ) {
 	require ABSPATH . WPINC . '/version.php';
 	$php_version = PHP_VERSION;
 
-	$request = array(
-		'version' => $theme_data['Version'],
-		'php'     => $php_version,
-		'url'     => get_bloginfo( 'url' ),
+	$sunflower_options = get_option( 'sunflower_first_steps_options' );
+	$update_channel    = $sunflower_options['sunflower_update_channel'] ?? 'stable';
+	$request           = array(
+		'version'        => $theme_data['Version'],
+		'php'            => $php_version,
+		'url'            => get_bloginfo( 'url' ),
+		'update_channel' => $update_channel,
 	);
 	// Start checking for an update.
 	$send_for_check = array(
