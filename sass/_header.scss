@@ -190,15 +190,6 @@ body.admin-bar {
         }
     }
 
-    .stuck.header-personal ~ #content {
-
-        margin-top: 141px;
-
-        @include media-breakpoint-up(md) {
-            margin-top: 127px;
-        }
-    }
-
     #wp-admin-bar-sunflower {
 
         > .ab-item {
@@ -460,17 +451,6 @@ body.admin-bar {
         }
     }
 }
-
-// avoid flickering
-#navbar-sticky-detector.header-personal {
-    height: 1px;
-    margin-top: -1px;
-}
-
-.header-personal.stuck ~ #content {
-    margin-top: 100px;
-}
-
 
 $green-bg: #030;
 $light-bg: #fff;

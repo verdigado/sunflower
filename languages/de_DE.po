@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-git\n"
-"POT-Creation-Date: 2025-10-28T09:18:54+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
+"POT-Creation-Date: 2026-01-19T15:44:49+01:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,8 +17,10 @@ msgstr ""
 
 #. Theme Name of the theme
 #: style.css
-msgid "sunflower"
-msgstr "sunflower"
+#, fuzzy
+#| msgid "Sunflower"
+msgid "Sunflower 26"
+msgstr "Sunflower"
 
 #. Theme URI of the theme
 #: style.css
@@ -61,33 +63,33 @@ msgstr "Vergangene Veranstaltungen"
 msgid "Events"
 msgstr "Termine"
 
-#: archive-sunflower_event.php:53
+#: archive-sunflower_event.php:47
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:55 build/next-events/render.php:66
+#: archive-sunflower_event.php:49 build/next-events/render.php:66
 #: src/next-events/render.php:66
 msgid "all events"
 msgstr "Alle Termine"
 
-#: archive-sunflower_event.php:57
+#: archive-sunflower_event.php:51
 msgid "Archive"
 msgstr "Archiv"
 
-#: archive-sunflower_event.php:63 functions/events.php:292
+#: archive-sunflower_event.php:57 functions/events.php:292
 #: functions/options/class-sunflowereventsettingspage.php:146
 msgid "Map"
 msgstr "Landkarte"
 
-#: archive-sunflower_event.php:121
+#: archive-sunflower_event.php:124
 msgid "more info"
 msgstr "mehr Infos"
 
-#: archive-sunflower_event.php:178 single-sunflower_event.php:151
+#: archive-sunflower_event.php:181 single-sunflower_event.php:151
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: archive-sunflower_event.php:181 single-sunflower_event.php:154
+#: archive-sunflower_event.php:184 single-sunflower_event.php:154
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
@@ -95,23 +97,23 @@ msgstr ""
 "<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: archive-sunflower_event.php:185 single-sunflower_event.php:162
+#: archive-sunflower_event.php:188 single-sunflower_event.php:162
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: archive-sunflower_event.php:195 functions/s.php:167
+#: archive-sunflower_event.php:198 functions/s.php:148
 msgid "calendar in ics-format"
 msgstr "Kalender im ics-Format"
 
-#: archive.php:69 category.php:96 index.php:76 search.php:73
+#: archive.php:71 category.php:97 index.php:76 search.php:73
 msgid "previous"
 msgstr "zurück"
 
-#: archive.php:70 category.php:97 index.php:77 search.php:74
+#: archive.php:72 category.php:98 index.php:77 search.php:74
 msgid "next"
 msgstr "vor"
 
-#: build/latest-posts/render.php:98 src/latest-posts/render.php:98
+#: build/latest-posts/render.php:106 src/latest-posts/render.php:106
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
@@ -261,7 +263,7 @@ msgstr "Veranstaltungsort (Name)"
 
 #: functions/events.php:17
 msgid "Street"
-msgstr "Straße und Hausnr."
+msgstr "Straße"
 
 #: functions/events.php:18
 msgid "City"
@@ -336,7 +338,7 @@ msgstr ""
 "Barrierefreiheit zu verbessern."
 
 #: functions/metaboxes.php:15
-#: functions/options/class-sunflowersettingspage.php:108
+#: functions/options/class-sunflowersettingspage.php:112
 msgid "Layout"
 msgstr "Layout"
 
@@ -373,7 +375,7 @@ msgid "use Shift + Enter to prevent line between"
 msgstr "Wähle SHIFT + ENTER, um  Zwischenzeile zu verhindern"
 
 #: functions/options/class-sunflowereventsettingspage.php:50
-#: functions/options/class-sunflowersettingspage.php:59
+#: functions/options/class-sunflowersettingspage.php:63
 #: functions/options/class-sunflowersocialmediasettingspage.php:50
 msgid "Sunflower Settings"
 msgstr "Sunflower-Einstellungen"
@@ -483,137 +485,124 @@ msgstr "Sunflower-Nutzungsbedingungen"
 msgid "Accept Terms of Use"
 msgstr "Nutzungsbedingungen akzeptieren"
 
-#: functions/options/class-sunflowersettingspage.php:84
+#: functions/options/class-sunflowersettingspage.php:88
 msgid "Reimport permalink structure"
 msgstr "Permalinkstruktur neu einlesen"
 
-#: functions/options/class-sunflowersettingspage.php:115
+#: functions/options/class-sunflowersettingspage.php:119
 msgid "Excerpt length (words)"
 msgstr "Anzahl der Wörter im Vorschautext"
 
-#: functions/options/class-sunflowersettingspage.php:123
-#: functions/options/class-sunflowersettingspage.php:129
+#: functions/options/class-sunflowersettingspage.php:127
+#: functions/options/class-sunflowersettingspage.php:133
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options/class-sunflowersettingspage.php:135
+#: functions/options/class-sunflowersettingspage.php:139
 msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
-#: functions/options/class-sunflowersettingspage.php:141
+#: functions/options/class-sunflowersettingspage.php:145
 msgid "Show post author on post details and via REST api."
 msgstr "Zeige den/die Autor*in im Beitrag und über die REST-API."
 
-#: functions/options/class-sunflowersettingspage.php:147
-#: functions/options/class-sunflowersettingspage.php:153
+#: functions/options/class-sunflowersettingspage.php:151
+#: functions/options/class-sunflowersettingspage.php:157
 msgid "hide previous and next links"
 msgstr "Verstecke Vor- und Zurück-Links"
 
-#: functions/options/class-sunflowersettingspage.php:159
 #: functions/options/class-sunflowersettingspage.php:163
+#: functions/options/class-sunflowersettingspage.php:167
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/class-sunflowersettingspage.php:168
+#: functions/options/class-sunflowersettingspage.php:172
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/class-sunflowersettingspage.php:174
+#: functions/options/class-sunflowersettingspage.php:178
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/class-sunflowersettingspage.php:180
 #: functions/options/class-sunflowersettingspage.php:184
-msgid "Use this header layout"
-msgstr "Layout für den Header"
-
-#: functions/options/class-sunflowersettingspage.php:189
-#: functions/options/class-sunflowersettingspage.php:193
+#: functions/options/class-sunflowersettingspage.php:188
 msgid "Show social media icons in header"
 msgstr "Social-Media-Icons im Header anzeigen"
 
-#: functions/options/class-sunflowersettingspage.php:198
+#: functions/options/class-sunflowersettingspage.php:193
 msgid "Use this form style"
 msgstr "Form Style"
 
-#: functions/options/class-sunflowersettingspage.php:206
+#: functions/options/class-sunflowersettingspage.php:201
 msgid "Use this color scheme"
 msgstr "Farbschema"
 
-#: functions/options/class-sunflowersettingspage.php:214
+#: functions/options/class-sunflowersettingspage.php:209
 msgid "Use this footer layout"
 msgstr "Footer Layout"
 
-#: functions/options/class-sunflowersettingspage.php:222
+#: functions/options/class-sunflowersettingspage.php:217
 msgid "Show list of categories on category archive"
 msgstr "Zeige Liste von Kategorien auf Kategorie-Seite"
 
-#: functions/options/class-sunflowersettingspage.php:230
+#: functions/options/class-sunflowersettingspage.php:225
 msgid "Enhance SEO"
 msgstr "SEO verbessern"
 
-#: functions/options/class-sunflowersettingspage.php:236
+#: functions/options/class-sunflowersettingspage.php:231
 msgid "Set website name in page metadata"
 msgstr "Webseitenname in den Seiten-Metadaten"
 
-#: functions/options/class-sunflowersettingspage.php:242
+#: functions/options/class-sunflowersettingspage.php:237
 msgid "Media creator field"
 msgstr "Medien Urheber*in"
 
-#: functions/options/class-sunflowersettingspage.php:325
-msgid "Standard"
-msgstr ""
+#: functions/options/class-sunflowersettingspage.php:320
+msgid "rounded"
+msgstr "abgerundet"
 
-#: functions/options/class-sunflowersettingspage.php:326
-msgid "Personal"
-msgstr "Persönlich"
+#: functions/options/class-sunflowersettingspage.php:321
+msgid "sharp"
+msgstr "eckig"
 
-#: functions/options/class-sunflowersettingspage.php:348
-msgid "Abgerundet"
-msgstr ""
+#: functions/options/class-sunflowersettingspage.php:343
+msgid "light"
+msgstr "hell"
 
-#: functions/options/class-sunflowersettingspage.php:349
-msgid "Eckig"
-msgstr ""
+#: functions/options/class-sunflowersettingspage.php:344
+#: functions/options/class-sunflowersettingspage.php:367
+msgid "green"
+msgstr "grün"
 
-#: functions/options/class-sunflowersettingspage.php:371
-msgid "Hell"
-msgstr ""
+#: functions/options/class-sunflowersettingspage.php:366
+msgid "sand"
+msgstr "sandfarben"
 
-#: functions/options/class-sunflowersettingspage.php:372
-#: functions/options/class-sunflowersettingspage.php:395
-msgid "Grün"
-msgstr ""
-
-#: functions/options/class-sunflowersettingspage.php:394
-msgid "Sand"
-msgstr ""
-
-#: functions/options/class-sunflowersettingspage.php:418
+#: functions/options/class-sunflowersettingspage.php:390
 msgid "do not show"
 msgstr "keine Anzeige"
 
-#: functions/options/class-sunflowersettingspage.php:419
+#: functions/options/class-sunflowersettingspage.php:391
 msgid "main categories"
 msgstr "Hauptkategorien"
 
-#: functions/options/class-sunflowersettingspage.php:420
+#: functions/options/class-sunflowersettingspage.php:392
 msgid "only sub-categories"
 msgstr "nur Unter-Kategorien"
 
-#: functions/options/class-sunflowersettingspage.php:442
+#: functions/options/class-sunflowersettingspage.php:414
 msgid "optional"
 msgstr "optional"
 
-#: functions/options/class-sunflowersettingspage.php:443
+#: functions/options/class-sunflowersettingspage.php:415
 msgid "required"
 msgstr "verpflichtend"
 
-#: functions/options/class-sunflowersettingspage.php:444
+#: functions/options/class-sunflowersettingspage.php:416
 msgid "strict (The image is blurred if no creator field is filled out.)"
 msgstr "streng (Bild wird verpixelt, wenn Urheber*in leer ist.)"
 
-#: functions/options/class-sunflowersettingspage.php:445
+#: functions/options/class-sunflowersettingspage.php:417
 msgid "disabled"
 msgstr "deaktiviert"
 
@@ -673,7 +662,7 @@ msgid "Show share buttons on single post page"
 msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:264
-#: functions/s.php:153
+#: functions/s.php:134
 msgid "Select Open Graph Fallback Image"
 msgstr "Ersatzbild für Open-Graph-Tag wählen"
 
@@ -705,35 +694,27 @@ msgstr "Fußzeilenmenü 1"
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/s.php:110
-msgid "Sidebar"
-msgstr "Seitenleiste"
-
-#: functions/s.php:112
-msgid "Add widgets here."
-msgstr "Widgets hier hinzufügen."
-
-#: functions/s.php:166 template-parts/content-archive.php:57
+#: functions/s.php:147 template-parts/content-archive.php:57
 msgid "Continue reading"
 msgstr "weiterlesen"
 
-#: functions/s.php:169
+#: functions/s.php:150
 msgid "Image %1 of %2"
 msgstr "Bild %1 von %2"
 
-#: functions/s.php:170
+#: functions/s.php:151
 msgid "Next Image"
 msgstr "Nächstes Bild"
 
-#: functions/s.php:171
+#: functions/s.php:152
 msgid "Previous Image"
 msgstr "Bild zurück"
 
-#: functions/s.php:172
+#: functions/s.php:153
 msgid "Cancel Loading Image"
 msgstr "Bild laden abbrechen"
 
-#: functions/s.php:173
+#: functions/s.php:154
 msgid "Close Lightbox"
 msgstr "Lightbox schließen"
 
@@ -847,7 +828,7 @@ msgstr ""
 "Anscheinend können wir nicht finden, wonach du suchst. Vielleicht hilft eine "
 "Internetsuche."
 
-#: template-parts/content-page.php:36 template-parts/content.php:117
+#: template-parts/content-page.php:36 template-parts/content.php:116
 msgid "Pages:"
 msgstr "Seiten:"
 
@@ -872,7 +853,7 @@ msgid "Save and Share"
 msgstr "Speichern und teilen"
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:104
+#: template-parts/content.php:103
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
@@ -880,19 +861,6 @@ msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 #: template-parts/event-json-ld.php:20
 msgid "none"
 msgstr "keine"
-
-#: template-parts/header-standard copy.php:40 copy.php:43 copy.php:156
-#: copy.php:159
-msgid "Search"
-msgstr "Suche"
-
-#: template-parts/header-standard copy.php:45
-msgid "show search"
-msgstr "zeige Suche"
-
-#: template-parts/header-standard copy.php:48
-msgid "increase contrast"
-msgstr "Kontrast erhöhen"
 
 #: template-parts/related-posts.php:15
 msgid "Related posts"
@@ -930,6 +898,11 @@ msgstr ""
 
 #: theme.json
 msgctxt "Color name"
+msgid "Grüner Sand"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
 msgid "Maus"
 msgstr ""
 
@@ -949,6 +922,26 @@ msgid "Himmel"
 msgstr ""
 
 #: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge"
+msgstr ""
+
+#: theme.json
 msgctxt "Font family name"
 msgid "PT Sans"
 msgstr ""
@@ -957,6 +950,30 @@ msgstr ""
 msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
+
+#~ msgid "sunflower"
+#~ msgstr "sunflower"
+
+#~ msgid "Use this header layout"
+#~ msgstr "Layout für den Header"
+
+#~ msgid "Personal"
+#~ msgstr "Persönlich"
+
+#~ msgid "Sidebar"
+#~ msgstr "Seitenleiste"
+
+#~ msgid "Add widgets here."
+#~ msgstr "Widgets hier hinzufügen."
+
+#~ msgid "Search"
+#~ msgstr "Suche"
+
+#~ msgid "show search"
+#~ msgstr "zeige Suche"
+
+#~ msgid "increase contrast"
+#~ msgstr "Kontrast erhöhen"
 
 #~ msgctxt "Color name"
 #~ msgid "Gray"

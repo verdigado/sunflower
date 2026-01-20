@@ -60,20 +60,6 @@ if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
 }
 
 /**
- * Add options to gutenberg blocks.
- */
-function sunflower_enqueue_block_editor_assets() {
-	wp_enqueue_script(
-		'sunflower-block-theme-options',
-		get_template_directory_uri() . '/assets/js/block-theme-options.js',
-		array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-compose', 'wp-hooks' ),
-		filemtime( get_template_directory() . '/assets/js/block-theme-options.js' ),
-		true
-	);
-}
-add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_editor_assets' );
-
-/**
  * Input-Icon-Script
  */
 function sunflower_load_input_icon_script() {

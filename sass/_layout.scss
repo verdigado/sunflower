@@ -16,11 +16,6 @@ html {
     }
 }
 
-// personal header
-html:has(.header-personal) {
-    scroll-padding-top: 90px;
-}
-
 @include media-breakpoint-up(lg) {
 
     .container-narrow {

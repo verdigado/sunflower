@@ -87,16 +87,6 @@ $themes: (
     /* Form Style*/
     formstyle-sharp: (border-radius: 0),
     formstyle-rounded: (border-radius: 16px),
-    /* Header-Layout*/
-    header-standard: (
-        width: 100%,
-        height: 140px,
-        left: 70%
-    ),
-    header-personal: (
-        width: 100%,
-        height: 100px
-    ),
     /* Footer-Layout*/
     footer-sand: (
         footer-bg: map-get($custom-colors, "sand"),
