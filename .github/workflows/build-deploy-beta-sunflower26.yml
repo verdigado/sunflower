@@ -1,11 +1,11 @@
 # .github/workflows/release.yml
 
-name: Build Test for Sunflower 3.0
+name: Build Sunflower 3.0 and Deploy Beta release
 
 on:
-  push:
-    branches:
-      - sunflower2.0
+  release:
+    types: [published]
+
 
 env:
   NODE_VERSION: 24
@@ -13,6 +13,14 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    if: |
+      ${{
+        startsWith(github.event.release.tag_name, 'v') &&
+        contains(github.event.release.tag_name, '-alpha') ||
+        contains(github.event.release.tag_name, '-beta') ||
+        contains(github.event.release.tag_name, '-rc')
+      }}
 
     steps:
       - uses: actions/checkout@v4
@@ -84,55 +92,12 @@ jobs:
 
       - name: Rename ZIP file
         run: |
-            SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
-            BRANCH_NAME=${GITHUB_REF##*/}
             cd ..
             cp -r sunflower /tmp/sunflower26
             cd /tmp/
             zip -r $HOME/sunflower26.zip sunflower26 -x @sunflower26/exclude.lst
             cd $HOME
-            mv sunflower26.zip $HOME/sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip
-
-      - name: Provide deploy_key
-        env:
-            DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
-            SSH_USER: 'github-ci'
-            SSH_HOST: 'wordpress71.gcms.verdigado.net'
-        run: |
-            mkdir "$HOME/.ssh"
-            echo "$DEPLOY_KEY" > "$HOME/.ssh/dev-server.key"
-            chmod 600 "$HOME/.ssh/dev-server.key"
-            cat >> ~/.ssh/config <<END
-            Host dev-server
-              HostName $SSH_HOST
-              User $SSH_USER
-              IdentityFile ~/.ssh/dev-server.key
-              StrictHostKeyChecking no
-            END
-
-      - name: rsync zipfile
-        env:
-            PAGEID: 1952
-        run: |
-            SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
-            BRANCH_NAME=${GITHUB_REF##*/}
-            rsync $HOME/sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip dev-server:/var/www/updateserver/
-            ssh dev-server "cd /var/www && rm -fr wp-content/themes/sunflower26/ && wp theme install updateserver/sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip >> /tmp/sunflower-install.log"
-
-
-  mkdocs:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: mkdocs build
-        uses: Tiryoh/actions-mkdocs@v0
-        with:
-            mkdocs_version: 'latest' # option
-            # mkdocs_version: '1.1' # option
-            requirements: 'mkdocs/requirements.txt' # option
-            configfile: 'mkdocs/mkdocs.yml' # option
+            mv sunflower26.zip $HOME/sunflower-${{ github.event.release.tag_name }}.zip
 
       - name: Provide deploy_key
         env:
@@ -151,8 +116,45 @@ jobs:
               StrictHostKeyChecking no
             END
 
-      - name: save version
-        run: echo ${GITHUB_REF##*/} > version.txt
+      - name: rsync zipfile
+        env:
+            PAGEID: 1952
+        run: |
+            rsync -a sunflower-${{ github.event.release.tag_name }}.zip version.txt changelog.html production:/var/www/updateserver/sunflower26/
 
-      - name: rsync documentation
-        run: rsync -a --delete documentation/* production:/var/www/documentation26/
+  mkdocs:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+        - uses: actions/checkout@v4
+
+        - name: mkdocs build
+          uses: Tiryoh/actions-mkdocs@v0
+          with:
+              mkdocs_version: 'latest' # option
+              # mkdocs_version: '1.1' # option
+              requirements: 'mkdocs/requirements.txt' # option
+              configfile: 'mkdocs/mkdocs.yml' # option
+
+        - name: Provide deploy_key
+          env:
+              DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+              SSH_USER: 'github-ci'
+              SSH_HOST: 'wordpress05.gcms.verdigado.net'
+          run: |
+              mkdir "$HOME/.ssh"
+              echo "$DEPLOY_KEY" > "$HOME/.ssh/production.key"
+              chmod 600 "$HOME/.ssh/production.key"
+              cat >> ~/.ssh/config <<END
+              Host production
+                HostName $SSH_HOST
+                User $SSH_USER
+                IdentityFile ~/.ssh/production.key
+                StrictHostKeyChecking no
+              END
+
+        - name: save version
+          run: echo ${GITHUB_REF##*/} > version.txt
+
+        - name: rsync documentation
+          run: rsync -a --delete documentation/* production:/var/www/documentation26/
