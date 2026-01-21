@@ -375,10 +375,6 @@ body.admin-bar {
 
     &-name {
 
-        // @include themed() {
-        //     font-family: t(headingFontBold);
-        // }
-
         font-weight: 500;
         font-size: 22px;
         letter-spacing: 1px;
@@ -884,7 +880,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
 .skew-box {
     height: 32px;
     color: $white;
-    font-family: "GrueneType Neue", sans-serif;
+    font-family: var(--wp--preset--font-family--gruenetypeneue);
     width: fit-content;
     display: inline-block;
     padding: 3px 0;

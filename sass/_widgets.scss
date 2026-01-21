@@ -24,10 +24,6 @@
 
     &-title {
 
-        // @include themed() {
-        //     font-family: t(standardFont);
-        // }
-
         font-weight: 700;
         font-size: 1.3rem;
         color: $white;
@@ -68,10 +64,6 @@
             label {
 
                 &.wp-block-search__label {
-
-                    // @include themed() {
-                    //     font-family: t(standardFont);
-                    // }
 
                     font-weight: 700;
                     font-size: 1.3rem;

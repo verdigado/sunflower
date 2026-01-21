@@ -13,8 +13,8 @@
 		<!-- Left: Label Block -->
 
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand-left branding d-flex flex-column text-center">
-			<div class="label-top fw-bold skew-box"><?php esc_attr( bloginfo( 'name' ) ); ?></div>
-			<div class="label-bottom fw-bold skew-box"><?php esc_attr( bloginfo( 'description' ) ); ?></div>
+			<div class="label-top skew-box"><?php esc_attr( bloginfo( 'name' ) ); ?></div>
+			<div class="label-bottom skew-box"><?php esc_attr( bloginfo( 'description' ) ); ?></div>
 		</a>
 
 

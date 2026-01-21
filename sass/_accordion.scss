@@ -7,10 +7,6 @@
 
         font-size: 1.1875rem;
 
-        @include themed-colorscheme() {
-            font-family: t(standardFont);
-        }
-
         color: var(--wp--preset--color--white);
         padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
         background-color: var(--bs-primary);
@@ -164,9 +160,8 @@
                 border: 0 solid #fff;
                 color: map-get($custom-colors, "tanne");
 
-                font-family: "GrueneType Neue", sans-serif;
+                font-family: var(--wp--preset--font-family--gruenetypeneue);
                 line-height: 125%;
-                font-weight: 900;
                 font-size: 25px;
                 letter-spacing: 0.8px;
 

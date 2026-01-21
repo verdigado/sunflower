@@ -17,10 +17,6 @@
 
     .small {
         font-weight: 450;
-
-        a {
-            font-weight: 700;
-        }
     }
 
     &__content {
@@ -168,7 +164,7 @@
 
     a {
 
-        font-family: "GrueneType Neue", sans-serif;
+        font-family: var(--wp--preset--font-family--gruenetypeneue);
 
         &:focus-visible {
             outline: #fff solid 2px;
@@ -215,4 +211,3 @@
         opacity: 0.6;
     }
 }
-

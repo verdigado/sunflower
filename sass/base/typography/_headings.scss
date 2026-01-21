@@ -53,7 +53,7 @@ $heading-letter-spacings-mobile: (
     h6: 1px
 );
 
-$heading-font: "GrueneType Neue";
+$heading-font: var(--wp--preset--font-family--gruenetypeneue);
 $heading-line-heights: 110.00000000000001%;
 $heading-weights: 500;
 
@@ -204,4 +204,3 @@ h2:has(mark) {
         color: $secondary;
     }
 }
-
