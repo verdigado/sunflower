@@ -16,7 +16,7 @@ jobs:
     if: |
       ${{
         startsWith(github.event.release.tag_name, 'v') &&
-        ( contains(github.event.release.tag_name, '-alpha') ||
+        ! ( contains(github.event.release.tag_name, '-alpha') ||
         contains(github.event.release.tag_name, '-beta') ||
         contains(github.event.release.tag_name, '-rc') )
       }}
@@ -146,9 +146,6 @@ jobs:
               IdentityFile ~/.ssh/production.key
               StrictHostKeyChecking no
             END
-
-      - name: save version
-        run: echo ${GITHUB_REF##*/} > version.txt
 
       - name: rsync documentation
         run: rsync -a --delete documentation/* production:/var/www/documentation/
