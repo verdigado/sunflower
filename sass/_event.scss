@@ -30,21 +30,13 @@ a.event-card {
 
             .event-archive-meta {
 
-                // @include themed() {
-                //     font-family: t(standardFont);
-                // }
             }
 
 
             .date {
 
-                // @include themed() {
-                //     font-family: t(standardFont);
-                // }
-
-                font-weight: 700;
                 font-size: 25px;
-                font-family: "GrueneType Neue", sans-serif;
+                font-family: var(--wp--preset--font-family--gruenetypeneue);
                 margin-bottom: var(--half-grid-margin);
             }
         }

@@ -76,7 +76,7 @@ blockquote.wp-block-quote {
     border-radius: var(--border-radius-medium);
     padding: calc(var(--grid-margin) - 5px) var(--grid-margin) calc(var(--grid-margin) - 2px) var(--grid-margin);
     font-size: 21px;
-    font-family: "GrueneType Neue", sans-serif;
+    font-family: var(--wp--preset--font-family--gruenetypeneue);
     color: map.get($custom-colors, "tanne");
 
     &:nth-of-type(odd) {
