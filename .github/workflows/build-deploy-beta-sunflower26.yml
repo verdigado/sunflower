@@ -121,7 +121,7 @@ jobs:
 
       - name: rsync zipfile
         run: |
-            rsync -a $HOME/sunflower-${{ github.event.release.tag_name }}.zip $HOME/version_beta.txt $HOME/changelog.html production:/var/www/updateserver/sunflower26/
+            rsync -a $HOME/sunflower-${{ github.event.release.tag_name }}.zip version_beta.txt changelog.html production:/var/www/updateserver/sunflower26/
 
   mkdocs:
     runs-on: ubuntu-latest
