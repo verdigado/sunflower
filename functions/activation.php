@@ -8,8 +8,9 @@
 /**
  * Jobs run after activation of sunflower theme.
  */
-function sunflower_activate_theme() {
-	// Placeholder for future activation tasks.
+function sunflower_activate_theme( $old_name, $old_theme ) {
+	// Flush rewrite rules to avoid 404 errors after theme activation.
+	flush_rewrite_rules();
 }
 
 add_action( 'after_switch_theme', 'sunflower_activate_theme', 10, 2 );
