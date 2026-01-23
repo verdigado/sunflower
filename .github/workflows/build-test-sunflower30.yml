@@ -6,6 +6,10 @@ on:
   push:
     branches:
       - sunflower2.0
+  pull_request:
+    branches:
+      - dev*
+      - sunflower2.0
 
 env:
   NODE_VERSION: 24
