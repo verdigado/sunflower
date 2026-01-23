@@ -8,7 +8,12 @@
     width: calc(100% + var(--double-grid-margin)) !important;
     margin: 0 0 0 calc(-1 * var(--grid-margin)) !important;
     padding: calc(var(--half-grid-margin) / 2) var(--grid-margin) 0 var(--grid-margin);
-    background-color: map-get($custom-colors, "sand") !important;
+    // background-color: map-get($custom-colors, "sand");
+
+    @include themed-colorscheme-nested() {
+        background-color: t(btn-pr-background);
+        color: t(btn-sk-text);
+    }
 
     @media (max-width: 480px) {
         padding-left: var(--grid-margin) !important;
@@ -141,6 +146,10 @@
 
     .wp-block-accordion-item {
 
+        @include themed-colorscheme-nested() {
+            color: t(btn-sk-text);
+        }
+
         &:hover {
             outline: 2px solid map.get($custom-colors, "grashalm");
         }
@@ -161,28 +170,40 @@
         .wp-block-accordion-heading {
 
 
-            .wp-block-accordion-heading__toggle-icon {
-
-                display: block;
-
-                &::before {
-                    content: url("assets/img/arrow-right.svg");
-                    display: inline-flex;
-                    position: relative;
-                    top: 2px;
-                    transition: 300ms ease-out;
-                    width: fit-content;
-                    margin-right: 15px;
-                }
-
-                content: "";
-            }
-
             .wp-block-accordion-heading__toggle {
+
+                border-radius: 0;
 
                 &:focus,
                 &:hover {
                     text-decoration: none;
+
+                    .wp-block-accordion-heading__toggle-title {
+                        text-decoration: none;
+                    }
+                }
+
+                &-icon {
+
+                    display: block;
+                    width: 1em;
+
+                    &::before {
+                        content: url("assets/img/arrow-right.svg");
+                        display: inline-flex;
+                        position: relative;
+                        transition: 300ms ease-out;
+                        width: fit-content;
+                        margin-right: 15px;
+                    }
+                }
+
+                &-title {
+                    padding-left: 2px;
+
+                    @include themed-colorscheme-nested() {
+                        color: t(btn-sk-text);
+                    }
                 }
 
                 .wp-block-accordion-heading__toggle-icon,
@@ -190,10 +211,11 @@
 
                     &:focus,
                     &:hover {
-                        text-decoration: none !important;
+                        text-decoration: none;
                     }
                 }
             }
+
         }
 
         &.is-open > .wp-block-accordion-heading .wp-block-accordion-heading__toggle-icon {

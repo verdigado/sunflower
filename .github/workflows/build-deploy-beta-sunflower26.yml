@@ -98,7 +98,7 @@ jobs:
             cd /tmp/
             zip -r $HOME/sunflower26.zip sunflower26 -x @sunflower26/exclude.lst
             cd $HOME
-            mv sunflower26.zip $HOME/sunflower-${{ github.event.release.tag_name }}.zip
+            mv sunflower26.zip sunflower-${{ github.event.release.tag_name }}.zip
 
       - name: Upload Release
         uses: ncipollo/release-action@v1
@@ -131,7 +131,7 @@ jobs:
 
       - name: rsync zipfile
         run: |
-            rsync -a $HOME/sunflower-${{ github.event.release.tag_name }}.zip version_beta.txt changelog.html production:/var/www/updateserver/sunflower26/
+            rsync -a sunflower-${{ github.event.release.tag_name }}.zip version_beta.txt changelog.html production:/var/www/updateserver/sunflower26/
 
   mkdocs:
     runs-on: ubuntu-latest
