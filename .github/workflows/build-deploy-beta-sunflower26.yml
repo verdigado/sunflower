@@ -103,7 +103,7 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-            artifacts: '$HOME/sunflower-${{ github.event.release.tag_name }}.zip'
+            artifacts: 'sunflower-${{ github.event.release.tag_name }}.zip'
             makeLatest: false
             prerelease: true
             allowUpdates: true
