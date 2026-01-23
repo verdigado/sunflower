@@ -54,9 +54,9 @@ input[type="submit"],
 
 
     &:hover {
-        color: map.get($custom-colors, "schwarzwald") !important;
+        color: map.get($custom-colors, "schwarzwald");
         text-decoration: none;
-        background-color: $button-hover !important;
+        background-color: $button-hover;
         border: 2px solid map.get($custom-colors, "schwarzwald");
     }
 
