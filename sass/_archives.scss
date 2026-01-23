@@ -117,9 +117,6 @@
 
                 a {
 
-                    @include themed-colorscheme() {
-                        font-family: t(standardFont);
-                    }
                     display: inline-flex;
                     justify-content: center;
                     align-items: center;

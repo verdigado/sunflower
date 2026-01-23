@@ -178,15 +178,12 @@ header .social-media-profiles {
 
 body.admin-bar {
 
-    .navbar {
+    .right-bar {
 
-        &-main.stuck {
+        top: 46px;
 
-            top: 46px;
-
-            @include media-breakpoint-up(md) {
-                top: 32px;
-            }
+        @include media-breakpoint-up(md) {
+            top: 32px;
         }
     }
 

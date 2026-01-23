@@ -55,7 +55,7 @@ $heading-letter-spacings-mobile: (
 
 $heading-font: var(--wp--preset--font-family--gruenetypeneue);
 $heading-line-heights: 110.00000000000001%;
-$heading-weights: 500;
+$heading-weights: 400;
 
 @include themed-colorscheme() {
 
@@ -70,6 +70,7 @@ $heading-weights: 500;
                 line-height: $heading-line-heights;
                 font-weight: $heading-weights;
                 font-size: $size;
+                font-style: normal;
                 letter-spacing: map-get($heading-letter-spacings, $tag);
 
                 @include media-breakpoint-down(xl) {

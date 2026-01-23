@@ -99,6 +99,13 @@ jobs:
             cd $HOME
             mv sunflower26.zip $HOME/sunflower-${{ github.event.release.tag_name }}.zip
 
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+            artifacts: '$HOME/sunflower-${{ github.event.release.tag_name }}.zip'
+            allowUpdates: true
+            token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Provide deploy_key
         env:
             DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

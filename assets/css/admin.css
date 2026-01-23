@@ -179,3 +179,23 @@ p a img {
     font-size: 13px;
     line-height: 1.4;
 }
+
+
+/* Settings Page Styles */
+.sunflower-setting-admin .form-table {
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.sunflower-setting-admin .form-table th {
+  width: 200px;
+  padding-top: 16px;
+  vertical-align: top;
+}
+
+.sunflower-setting-admin .form-table td {
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
