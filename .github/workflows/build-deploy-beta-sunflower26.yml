@@ -103,6 +103,8 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
             artifacts: '$HOME/sunflower-${{ github.event.release.tag_name }}.zip'
+            makeLatest: false
+            prerelease: true
             allowUpdates: true
             token: ${{ secrets.GITHUB_TOKEN }}
 
