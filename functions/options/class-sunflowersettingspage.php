@@ -219,7 +219,6 @@ class SunflowerSettingsPage {
 			array( 'sunflower_header_social_media', __( 'Show social media icons in header', 'sunflower' ) )
 		);
 
-
 		add_settings_field(
 			'sunflower_categories_archive',
 			__( 'Show list of categories on category archive', 'sunflower' ),
