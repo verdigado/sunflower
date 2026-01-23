@@ -62,7 +62,7 @@ class SunflowerFirstStepsPage {
 			<h2>Erste Schritte</h2>
 			<div class="notice-info sunflower-settings">
 				Eine ausführliche Dokumentation gibt es unter
-				<a href="https://sunflower-theme.de/documentation/" target="_blank">https://sunflower-theme.de/documentation/</a>.
+				<a href="https://sunflower-theme.de/documentation26/" target="_blank">https://sunflower-theme.de/documentation26/</a>.
 			</div>
 
 			<form method="post" action="options.php">

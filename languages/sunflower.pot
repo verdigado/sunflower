@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sunflower 26 3.0.0\n"
+"Project-Id-Version: Sunflower 26 3.0.0-alpha-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-20T17:01:00+01:00\n"
+"POT-Creation-Date: 2026-01-23T09:39:08+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower\n"
@@ -309,7 +309,7 @@ msgid "No alternative text provided. Please consider adding a description for be
 msgstr ""
 
 #: functions/metaboxes.php:15
-#: functions/options/class-sunflowersettingspage.php:112
+#: functions/options/class-sunflowersettingspage.php:143
 msgid "Layout"
 msgstr ""
 
@@ -481,120 +481,135 @@ msgstr ""
 msgid "Reimport permalink structure"
 msgstr ""
 
+#: functions/options/class-sunflowersettingspage.php:112
+msgid "Theme variant"
+msgstr ""
+
 #: functions/options/class-sunflowersettingspage.php:119
-msgid "Excerpt length (words)"
+msgid "Shape Style"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:127
-#: functions/options/class-sunflowersettingspage.php:133
+msgid "Color Mood"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:135
+msgid "Footer Color Variant"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:150
+msgid "Excerpt length (words)"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:158
+#: functions/options/class-sunflowersettingspage.php:164
 msgid "show related posts"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:139
+#: functions/options/class-sunflowersettingspage.php:170
 msgid "show author of posts"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:145
+#: functions/options/class-sunflowersettingspage.php:176
 msgid "Show post author on post details and via REST api."
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:151
-#: functions/options/class-sunflowersettingspage.php:157
+#: functions/options/class-sunflowersettingspage.php:182
+#: functions/options/class-sunflowersettingspage.php:188
 msgid "hide previous and next links"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:163
-#: functions/options/class-sunflowersettingspage.php:167
+#: functions/options/class-sunflowersettingspage.php:194
+#: functions/options/class-sunflowersettingspage.php:198
 msgid "to-field for contact-forms"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:172
+#: functions/options/class-sunflowersettingspage.php:203
 msgid "items in menu"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:178
+#: functions/options/class-sunflowersettingspage.php:209
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:184
-#: functions/options/class-sunflowersettingspage.php:188
+#: functions/options/class-sunflowersettingspage.php:215
+#: functions/options/class-sunflowersettingspage.php:219
 msgid "Show social media icons in header"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:193
-msgid "Use this form style"
-msgstr ""
-
-#: functions/options/class-sunflowersettingspage.php:201
-msgid "Use this color scheme"
-msgstr ""
-
-#: functions/options/class-sunflowersettingspage.php:209
-msgid "Use this footer layout"
-msgstr ""
-
-#: functions/options/class-sunflowersettingspage.php:217
+#: functions/options/class-sunflowersettingspage.php:225
 msgid "Show list of categories on category archive"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:225
+#: functions/options/class-sunflowersettingspage.php:233
 msgid "Enhance SEO"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:231
+#: functions/options/class-sunflowersettingspage.php:239
 msgid "Set website name in page metadata"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:237
+#: functions/options/class-sunflowersettingspage.php:245
 msgid "Media creator field"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:320
-msgid "rounded"
+#: functions/options/class-sunflowersettingspage.php:283
+msgid "Select the visual appearance of your theme."
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:321
-msgid "sharp"
+#: functions/options/class-sunflowersettingspage.php:295
+msgid "Various theme settings"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:343
-msgid "light"
+#: functions/options/class-sunflowersettingspage.php:346
+msgid "Rounded"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:344
-#: functions/options/class-sunflowersettingspage.php:367
-msgid "green"
+#: functions/options/class-sunflowersettingspage.php:347
+msgid "Sharp"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:366
-msgid "sand"
+#: functions/options/class-sunflowersettingspage.php:369
+msgid "Light"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:390
-msgid "do not show"
-msgstr ""
-
-#: functions/options/class-sunflowersettingspage.php:391
-msgid "main categories"
+#: functions/options/class-sunflowersettingspage.php:370
+msgid "Dark"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:392
-msgid "only sub-categories"
+msgid "Sand"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:414
-msgid "optional"
-msgstr ""
-
-#: functions/options/class-sunflowersettingspage.php:415
-msgid "required"
+#: functions/options/class-sunflowersettingspage.php:393
+msgid "Light Green"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:416
-msgid "strict (The image is blurred if no creator field is filled out.)"
+msgid "do not show"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:417
+msgid "main categories"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:418
+msgid "only sub-categories"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:440
+msgid "optional"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:441
+msgid "required"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:442
+msgid "strict (The image is blurred if no creator field is filled out.)"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:443
 msgid "disabled"
 msgstr ""
 

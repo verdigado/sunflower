@@ -59,7 +59,7 @@ class SunflowerSettingsPage {
 		$this->options['sunflower_categories_archive'] = $this->options['sunflower_categories_archive'] ?? 'main-categories';
 
 		?>
-		<div class="wrap">
+		<div class="wrap sunflower-setting-admin">
 			<h1><?php esc_html_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
 			<form method="post" action="options.php">
 			<?php
@@ -108,9 +108,40 @@ class SunflowerSettingsPage {
 		);
 
 		add_settings_section(
+			'sunflower_theme_variant',
+			__( 'Theme variant', 'sunflower' ),
+			$this->print_section_info_theme_variant( ... ),
+			'sunflower-setting-admin'
+		);
+
+		add_settings_field(
+			'sunflower_form_style',
+			__( 'Shape Style', 'sunflower' ),
+			array( $this, 'sunflower_form_style_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_theme_variant'
+		);
+
+		add_settings_field(
+			'sunflower_color_scheme',
+			__( 'Color Mood', 'sunflower' ),
+			array( $this, 'sunflower_color_scheme_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_theme_variant'
+		);
+
+		add_settings_field(
+			'sunflower_footer_layout',
+			__( 'Footer Color Variant', 'sunflower' ),
+			array( $this, 'sunflower_footer_layout_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_theme_variant'
+		);
+
+		add_settings_section(
 			'sunflower_layout',
 			__( 'Layout', 'sunflower' ),
-			$this->print_section_info( ... ),
+			$this->print_section_info_layout( ... ),
 			'sunflower-setting-admin'
 		);
 
@@ -188,29 +219,6 @@ class SunflowerSettingsPage {
 			array( 'sunflower_header_social_media', __( 'Show social media icons in header', 'sunflower' ) )
 		);
 
-		add_settings_field(
-			'sunflower_form_style',
-			__( 'Use this form style', 'sunflower' ),
-			array( $this, 'sunflower_form_style_callback' ),
-			'sunflower-setting-admin',
-			'sunflower_layout'
-		);
-
-		add_settings_field(
-			'sunflower_color_scheme',
-			__( 'Use this color scheme', 'sunflower' ),
-			array( $this, 'sunflower_color_scheme_callback' ),
-			'sunflower-setting-admin',
-			'sunflower_layout'
-		);
-
-		add_settings_field(
-			'sunflower_footer_layout',
-			__( 'Use this footer layout', 'sunflower' ),
-			array( $this, 'sunflower_footer_layout_callback' ),
-			'sunflower-setting-admin',
-			'sunflower_layout'
-		);
 
 		add_settings_field(
 			'sunflower_categories_archive',
@@ -267,7 +275,25 @@ class SunflowerSettingsPage {
 	/**
 	 * Print the Section text
 	 */
-	public function print_section_info() {
+	public function print_section_info_theme_variant() {
+		printf(
+			'<div class="sunflower-section">
+				<p class="description">%s</p>
+			</div>',
+			esc_attr__( 'Select the visual appearance of your theme.', 'sunflower' )
+		);
+	}
+
+	/**
+	 * Print the Section text
+	 */
+	public function print_section_info_layout() {
+		printf(
+			'<div class="sunflower-section">
+				<p class="description">%s</p>
+			</div>',
+			esc_attr__( 'Various theme settings', 'sunflower' )
+		);
 	}
 
 	/**
@@ -317,8 +343,8 @@ class SunflowerSettingsPage {
 		echo '<select id="sunflower_form_style" name="sunflower_options[sunflower_form_style]">';
 
 		$options = array(
-			array( 'rounded', __( 'rounded', 'sunflower' ) ),
-			array( 'sharp', __( 'sharp', 'sunflower' ) ),
+			array( 'rounded', __( 'Rounded', 'sunflower' ) ),
+			array( 'sharp', __( 'Sharp', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
 			$selected = ( isset( $this->options['sunflower_form_style'] ) && $this->options['sunflower_form_style'] === $option[0] ) ? 'selected' : '';
@@ -340,8 +366,8 @@ class SunflowerSettingsPage {
 		echo '<select id="sunflower_color_scheme" name="sunflower_options[sunflower_color_scheme]">';
 
 		$options = array(
-			array( 'light', __( 'light', 'sunflower' ) ),
-			array( 'green', __( 'green', 'sunflower' ) ),
+			array( 'light', __( 'Light', 'sunflower' ) ),
+			array( 'green', __( 'Dark', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
 			$selected = ( isset( $this->options['sunflower_color_scheme'] ) && $this->options['sunflower_color_scheme'] === $option[0] ) ? 'selected' : '';
@@ -363,8 +389,8 @@ class SunflowerSettingsPage {
 		echo '<select id="sunflower_footer_layout" name="sunflower_options[sunflower_footer_layout]">';
 
 		$options = array(
-			array( 'sand', __( 'sand', 'sunflower' ) ),
-			array( 'green', __( 'green', 'sunflower' ) ),
+			array( 'sand', __( 'Sand', 'sunflower' ) ),
+			array( 'green', __( 'Light Green', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
 			$selected = ( isset( $this->options['sunflower_footer_layout'] ) && $this->options['sunflower_footer_layout'] === $option[0] ) ? 'selected' : '';
