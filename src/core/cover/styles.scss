@@ -48,8 +48,8 @@
     $secondary-pos,
     $rotate,
     $size: 30px,
-  $offset-x: -1px,
-  $offset-y: -17px
+    $offset-x: -1px,
+    $offset-y: -17px
 ) {
     content: url("../../../assets/img/concave-30px.svg");
     height: $size;
