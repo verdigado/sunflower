@@ -114,24 +114,6 @@ function sunflower_meta_box_layout() {
 	);
 }
 
-/**
- * Add the styled_layout class in backend editor if set.
- *
- * @param string $classes The editor body classes.
- * @return string The modified classes
- */
-function sunflower_admin_classes_layout( $classes ) {
-
-	global $post;
-
-	if ( $post ) {
-		$sunflower_styled_layout = get_post_meta( $post->ID, '_sunflower_styled_layout', true ) ? 'styled-layout' : '';
-		$classes                .= ' ' . $sunflower_styled_layout;
-	}
-
-	return trim( $classes );
-}
-add_filter( 'admin_body_class', 'sunflower_admin_classes_layout' );
 
 /**
  * Get the rendered metabox for backend.

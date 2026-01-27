@@ -1,3 +1,99 @@
+@use "sass:map";
+
+$custom-colors: (
+    schwarzwald:#002216,
+    tanne: #005538,
+    klee: #008939,
+    grashalm: #8abd24,
+    sonne: #fff17a,
+    sand: #f5f1e9,
+    maus: #374951,
+    kalk: #e8eae9,
+    gruener-sand: #f3faf6,
+    weiss: #fff,
+    white: #fff,
+    himmel: #0ba1dd,
+);
+
+$themes: (
+    /* Color scheme*/
+    colorscheme-light: (
+        background: map-get($custom-colors, "weiss"),
+        text: map-get($custom-colors, "schwarzwald"),
+        headings: (
+            h1: map-get($custom-colors, "tanne"),
+            h2: map-get($custom-colors, "grashalm"),
+            h3: map-get($custom-colors, "tanne"),
+            h4: map-get($custom-colors, "grashalm"),
+            h5: map-get($custom-colors, "tanne"),
+            h6: map-get($custom-colors, "grashalm")
+        ),
+        cover-concave-img: "../../../assets/img/concave-30px.svg"
+    ),
+    colorscheme-green: (
+        background: map-get($custom-colors, "schwarzwald"),
+        text: map-get($custom-colors, "weiss"),
+        headings: (
+            h1: map-get($custom-colors, "weiss"),
+            h2: map-get($custom-colors, "grashalm"),
+            h3: map-get($custom-colors, "weiss"),
+            h4: map-get($custom-colors, "grashalm"),
+            h5: map-get($custom-colors, "weiss"),
+            h6: map-get($custom-colors, "grashalm")
+        ),
+        cover-concave-img: "../../../assets/img/concave-30px_darkmode.svg"
+    ),
+);
+// Nested
+@mixin themed-colorscheme-nested() {
+
+    @each $theme, $map in $themes {
+
+        @if str-index($theme, "colorscheme-") {
+
+            @at-root .#{$theme} & {
+                $theme-map: () !global;
+
+                @each $key, $value in $map {
+                    $theme-map: map-merge($theme-map, ($key: $value)) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
+            }
+        }
+    }
+}
+@function t($key, $subkey: null) {
+
+    @if global-variable-exists(theme-map) == false or not $theme-map {
+
+        @error "t(): $theme-map ist null oder nicht initialisiert.";
+    }
+
+    $value: map-get($theme-map, $key);
+
+    @if not $subkey {
+
+        @return $value;
+    }
+
+    @if type-of($value) != "map" {
+
+        @error 't(): Der Wert zu "#{$key}" ist keine Map. Aktueller Wert: #{$value}';
+    }
+
+    $subvalue: map-get($value, $subkey);
+
+    @if not $subvalue {
+
+        @error 't(): Kein Wert gefunden für subkey "#{$subkey}" in "#{$key}".';
+    }
+
+    @return $subvalue;
+}
+
+
 // ----------------------------------------------------------------
 // 0.1  Breakpoint helper (Bootstrap‑style)
 // ----------------------------------------------------------------
@@ -26,9 +122,6 @@
     }
 }
 
-// ----------------------------------------------------------------
-// 0.2  Absolute‑fill helper
-// ----------------------------------------------------------------
 @mixin absolute-fill {
     top: 0;
     left: 0;
@@ -36,13 +129,6 @@
     height: 100%;
 }
 
-// ----------------------------------------------------------------
-// 0.3  Concave pseudo‑element mixin
-// ----------------------------------------------------------------
-
-/* -------------------------------------------------
- * 0.2  Pseudo‑Element‑Mixin für das Concave‑SVG
- * ------------------------------------------------- */
 @mixin concave-pseudo(
     $primary-pos,
     $secondary-pos,
@@ -51,7 +137,11 @@
     $offset-x: -1px,
     $offset-y: -17px
 ) {
-    content: url("../../../assets/img/concave-30px.svg");
+
+    @include themed-colorscheme-nested() {
+        content: url(#{t(cover-concave-img)});
+    }
+
     height: $size;
     width: $size * 1.272;               // 38.16 px / 30 px → original aspect ratio
     position: absolute;
@@ -72,14 +162,15 @@
     }
 }
 
-// ----------------------------------------------------------------
-// 0.4  Reusable inner‑container placeholder
-// ----------------------------------------------------------------
 %hero-inner-base {
     padding: var(--grid-margin);
     display: flex;
     justify-content: center;
     flex-direction: column;
+
+    @include themed-colorscheme-nested() {
+        background-color: t(background);
+    }
 
     @include breakpoint-down(md) {
         padding: var(--gap-huge) var(--gap-large);
@@ -126,13 +217,7 @@
             }
         }
     }
-}
 
-/* ----------------------------------------------------------------
- * 2️⃣  First hero cover – special styling for the first child
- * ---------------------------------------------------------------- */
-:first-child.wp-block-cover.is-style-sunflower-hero {
-    height: calc(100vh - var(--double-grid-margin));
     margin: var(--grid-margin) 0 var(--half-block-spacing) 0;
     margin-left: calc(-1 * var(--grid-margin)) !important;
     margin-right: calc(-1 * var(--grid-margin)) !important;
@@ -143,7 +228,7 @@
 
     @include breakpoint-down(md) {
         min-height: initial !important;
-        height: fit-content !important;
+        height: fit-content;
         margin-bottom: 0 !important;
     }
 
@@ -163,7 +248,7 @@
     }
 
     .wp-block-cover__inner-container {
-        background: #fff;
+
         border-radius: 0 var(--border-radius-large) 0 0;
         position: absolute;
         left: 0;
@@ -192,7 +277,7 @@
             position: relative !important;
 
             h1 {
-                margin-top: -32px !important;
+                margin-top: -32px;
             }
         }
 
@@ -201,18 +286,27 @@
             align-items: flex-start;
 
             h1 {
-                margin-top: 0 !important;
+                margin-top: 0;
             }
         }
 
         h1 {
             text-align: left;
-            margin-bottom: calc(var(--grid-margin) * 2);
             position: relative;
             left: -8px;
 
             @include breakpoint-down(lg) {
                 margin-top: 0;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: -22px;
+                left: -11px;
+                transform: rotate(90deg);
+                border:#002216 2px solid;
+                @include concave-pseudo(top, left, -180deg);
             }
         }
 
@@ -234,6 +328,7 @@
         // pseudo‑elements (concave SVG)
         &::before {
 
+            border: 2px solid pink;
             @include concave-pseudo(top, left, -180deg);
         }
 
@@ -250,9 +345,14 @@
     }
 }
 
-/* ----------------------------------------------------------------
- * 3️⃣  Columns – cover inside a column
- * ---------------------------------------------------------------- */
+body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - (var(--double-grid-margin) + 32px ));
+
+    @include breakpoint-down(md) {
+        height: calc(100vh - (var(--double-grid-margin) + 48px ));
+    }
+}
+
 .wp-block-column {
 
     .wp-block-cover {
