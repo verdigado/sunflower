@@ -14,9 +14,17 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PROJECT_ROOT: ${{ github.workspace }}/sunflower26
+
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_ROOT }}
 
     steps:
       - uses: actions/checkout@v4
+        with:
+            path: sunflower26
 
       - name: check theme version against tag
         run: |
