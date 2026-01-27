@@ -64,6 +64,7 @@ $themes: (
         }
     }
 }
+
 @function t($key, $subkey: null) {
 
     @if global-variable-exists(theme-map) == false or not $theme-map {
@@ -182,11 +183,7 @@ $themes: (
  * ---------------------------------------------------------------- */
 .wp-block-cover.is-style-sunflower-hero {
     max-width: 100vw;
-    width: calc(100% + var(--double-grid-margin)) !important;
-    margin-left: calc(-1 * var(--grid-margin)) !important;
-    padding: 0 var(--grid-margin);
     overflow: hidden;
-    border-radius: 0;
     position: relative;
     transition: 0.3s ease;
 
@@ -299,15 +296,6 @@ $themes: (
                 margin-top: 0;
             }
 
-            &::before {
-                content: "";
-                position: absolute;
-                top: -22px;
-                left: -11px;
-                transform: rotate(90deg);
-                border:#002216 2px solid;
-                @include concave-pseudo(top, left, -180deg);
-            }
         }
 
         .wp-block-buttons {
@@ -328,7 +316,6 @@ $themes: (
         // pseudo‑elements (concave SVG)
         &::before {
 
-            border: 2px solid pink;
             @include concave-pseudo(top, left, -180deg);
         }
 
