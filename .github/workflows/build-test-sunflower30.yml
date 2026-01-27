@@ -1,11 +1,8 @@
 # .github/workflows/release.yml
 
-name: Build Test for Sunflower 3.0
+name: Build Test for Sunflower 3.0 (on PR)
 
 on:
-  push:
-    branches:
-      - sunflower2.0
   pull_request:
     branches:
       - dev*
