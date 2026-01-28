@@ -1,0 +1,291 @@
+@use "sass:map";
+
+// ============================================================================
+// WP Block Navigation - Styles passend zum Hauptmenü (.main-menu)
+// Kein Hamburger - bricht bei kleinen Screens vertikal um
+// ============================================================================
+
+.wp-block-navigation {
+    margin-top: -4px;
+
+    // Reset alle WordPress Standard-Styles
+    *,
+    *::before,
+    *::after {
+        border: none !important;
+        outline: none !important;
+    }
+
+    // Navigation Container (entspricht .nav)
+    .wp-block-navigation__container {
+        gap: var(--gap-large);
+        margin: 0;
+        margin-right: var(--grid-margin);
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    // Menü-Items (entspricht .main-menu ul > li)
+    .wp-block-navigation-item {
+        position: relative;
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style: none;
+    }
+
+    // Links (entspricht .main-menu .nav-link)
+    .wp-block-navigation-item__content {
+        display: block;
+        text-decoration: none !important;
+        font-weight: 700;
+        padding: 0.5rem 0.75rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+            text-decoration: none !important;
+        }
+    }
+
+    // =========================================================================
+    // Untermenüs (entspricht .main-menu .sub-menu)
+    // =========================================================================
+
+    .wp-block-navigation__submenu-container {
+        list-style: none;
+        padding: 8px 0 8px 0 !important;
+        position: absolute;
+        left: calc(-1 * calc(var(--gap-large) / 2));
+        right: auto;
+        top: 100%;
+        background: map.get($custom-colors, "weiss") !important;
+        z-index: 100;
+        display: none;
+        min-width: calc(100% + 20px);
+        border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium) !important;
+        width: fit-content;
+        margin: 0 !important;
+        overflow: hidden;
+
+        // Links im Untermenü
+        > .wp-block-navigation-item > .wp-block-navigation-item__content {
+            padding: 6px 12px !important;
+            white-space: normal;
+            max-width: 280px;
+            font-weight: 500;
+        }
+
+        // Verschachteltes Untermenü (2. Ebene+)
+        .wp-block-navigation__submenu-container {
+            left: 0;
+            top: initial !important;
+            transform: none;
+            display: block;
+            position: relative;
+            padding: 0 0 0 16px !important;
+            border-radius: 0 !important;
+            min-width: 100%;
+            background: transparent !important;
+        }
+    }
+
+    // Hover auf Parent zeigt Untermenü
+    .wp-block-navigation-item.has-child:hover > .wp-block-navigation__submenu-container {
+        display: block !important;
+    }
+
+    // =========================================================================
+    // Dropdown-Pfeil (entspricht .menu-item-has-children::after)
+    // =========================================================================
+
+    // Submenu-Icon von WordPress komplett ausblenden
+    .wp-block-navigation__submenu-icon {
+        display: none !important;
+    }
+
+    .wp-block-navigation-item.has-child {
+
+        > .wp-block-navigation-item__content {
+            padding-right: 18px;
+            position: relative;
+            z-index: 140;
+        }
+
+        // Dropdown-Pfeil wie im Original
+        &::after {
+            content: url("/wp-content/themes/sunflower26/assets/img/dropdown.svg");
+            display: block;
+            width: 13px;
+            height: 13px;
+            position: absolute;
+            right: 0;
+            top: -9.8px;
+
+            @include media-breakpoint-down(xl) {
+                top: -7.6px;
+            }
+        }
+
+        // Keine Pfeile in Untermenüs
+        .wp-block-navigation-item.has-child::after {
+            display: none !important;
+        }
+    }
+
+    // Erstes Item im Submenu
+    .wp-block-navigation-item.has-child > .wp-block-navigation__submenu-container > .wp-block-navigation-item:first-child > .wp-block-navigation-item__content {
+        padding-top: 0 !important;
+    }
+
+    // =========================================================================
+    // Hamburger komplett ausblenden - wir nutzen ihn nicht
+    // =========================================================================
+
+    .wp-block-navigation__responsive-container-open,
+    .wp-block-navigation__responsive-container-close {
+        display: none !important;
+    }
+
+    .wp-block-navigation__responsive-container {
+        display: contents !important;
+    }
+
+    .wp-block-navigation__responsive-container-content {
+        display: contents !important;
+    }
+
+    // =========================================================================
+    // Responsive: Vertikal umbrechen bei kleinen Screens
+    // =========================================================================
+
+    @media (max-width: 991px) {
+
+        .wp-block-navigation__container {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: var(--gap-large);
+            margin-right: 0;
+            width: 100%;
+        }
+
+        .wp-block-navigation-item {
+            width: 100%;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+        }
+
+        .wp-block-navigation-item.has-child {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+        }
+
+        .wp-block-navigation-item.has-child > .wp-block-navigation__submenu-container,
+        .wp-block-navigation__submenu-container,
+        .wp-block-navigation-item .wp-block-navigation__submenu-container {
+            position: relative !important;
+            display: flex !important;
+            flex-direction: column !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            height: auto !important;
+            overflow: visible !important;
+            padding: 8px 0 0 var(--gap-large) !important;
+            top: 0 !important;
+            left: 0 !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+            min-width: 100% !important;
+            width: 100% !important;
+            transform: none !important;
+            pointer-events: auto !important;
+
+            > .wp-block-navigation-item > .wp-block-navigation-item__content {
+                font-weight: 500;
+                padding: 4px 0 !important;
+            }
+
+            .wp-block-navigation__submenu-container {
+                padding-top: 0 !important;
+                padding-left: var(--gap-large) !important;
+            }
+        }
+
+        // Keine Pfeile im vertikalen Layout
+        .wp-block-navigation-item.has-child::after {
+            display: none !important;
+        }
+    }
+}
+
+// =============================================================================
+// Stuck Header - wp-block-navigation im fixierten Header
+// =============================================================================
+
+.top-bar.stuck .wp-block-navigation {
+
+    .wp-block-navigation-item.has-child {
+
+        &:hover {
+            padding-bottom: 24px;
+            margin-bottom: -24px;
+        }
+
+        &::after {
+            top: -7.6px;
+
+            @include media-breakpoint-down(xl) {
+                top: -5.6px;
+            }
+        }
+
+        .wp-block-navigation__submenu-container {
+            top: 41px !important;
+            padding: 0 0 8px 0 !important;
+
+            @include media-breakpoint-down(xl) {
+                top: 40px !important;
+            }
+
+            .wp-block-navigation__submenu-container {
+                top: 0 !important;
+                padding: 0 0 0 16px !important;
+            }
+        }
+
+        > .wp-block-navigation__submenu-container > .wp-block-navigation-item:first-child > .wp-block-navigation-item__content {
+            padding-top: 6px !important;
+        }
+    }
+
+    // Im Stuck Header auch responsive vertikal
+    @media (max-width: 991px) {
+
+        .wp-block-navigation-item.has-child {
+
+            &:hover {
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+
+            .wp-block-navigation__submenu-container {
+                top: 0 !important;
+                padding: 12px 0 0 16px !important;
+            }
+        }
+    }
+}
+
+// =============================================================================
+// Farbschema Anpassungen
+// =============================================================================
+
+.colorscheme-green .top-bar.stuck .wp-block-navigation {
+
+    .wp-block-navigation-item__content {
+        color: map.get($custom-colors, "schwarzwald");
+    }
+}
