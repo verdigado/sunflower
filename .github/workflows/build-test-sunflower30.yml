@@ -52,6 +52,9 @@ jobs:
             ls -l
             npm ci
 
+      - name: Copy node modules
+        run: npm run copy-node-modules
+
       - name: Lint SCSS
         run: npm run lint:scss
 
