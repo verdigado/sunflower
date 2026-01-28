@@ -53,7 +53,11 @@ jobs:
             npm ci
 
       - name: Copy node modules
-        run: npm run copy-node-modules
+        run: |
+          pwd
+          ls -l
+          npm run copy-node-modules
+          ls -l assets/vndr
 
       - name: Lint SCSS
         run: npm run lint:scss
@@ -91,7 +95,11 @@ jobs:
         run: cs2pr ./phpcs-report.xml
 
       - name: Make bundle
-        run: npm run bundle
+        run: |
+          npm run bundle
+          ls -l
+          ls -l assets/vndr
+          ls -l ../
 
       - name: fail on fork
         if: github.repository_owner != 'verdigado'
