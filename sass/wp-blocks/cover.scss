@@ -93,6 +93,7 @@
     border-radius: 0;
     position: relative;
     transition: 0.3s ease;
+    height: calc(100vh - (2 * var(--grid-margin)));
 
     @include breakpoint-down(xl) {
         min-height: 300px;
@@ -120,6 +121,17 @@
                 text-align: left !important;
             }
         }
+    }
+}
+
+.entry-content > .wp-block-cover:first-child {
+    padding: var(--grid-margin);
+    width: 100% !important;
+    margin: var(--grid-margin) 0 0 0 !important;
+    border-radius: var(--border-radius-large);
+
+    &.alignfull {
+        width: 100%;
     }
 }
 
