@@ -102,8 +102,6 @@ jobs:
 
       - name: Rename ZIP file
         run: |
-            pwd
-            ls -l
             mv ../sunflower26.zip sunflower-${{ github.event.release.tag_name }}.zip
 
       - name: Upload Release
