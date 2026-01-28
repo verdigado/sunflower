@@ -22,17 +22,17 @@ th,
 td {
     padding: calc(var(--half-grid-margin) - 3px) var(--half-grid-margin) var(--half-grid-margin) var(--half-grid-margin) !important;
     text-align: left;
-    border: 2px solid map.get($custom-colors, "grashalm") !important;
+    border: 2px solid map.get($custom-colors, grashalm) !important;
 }
 
 thead {
-    border: 2px solid map.get($custom-colors, "tanne");
+    border: 2px solid map.get($custom-colors, tanne);
     border-collapse: collapse !important;
 
-    border-bottom: 2px solid map.get($custom-colors, "tanne") !important;
+    border-bottom: 2px solid map.get($custom-colors, tanne) !important;
 
     th {
-        background-color: map.get($custom-colors, "tanne");
+        background-color: map.get($custom-colors, tanne);
         color: map.get($custom-colors, "weiss");
         font-weight: 700;
     }
@@ -80,7 +80,7 @@ td:last-child {
 caption {
     text-align: center;
     font-size: $small-font-size;
-    color: map.get($custom-colors, "tanne");
+    color: map.get($custom-colors, tanne);
     background: none;
 }
 
@@ -94,4 +94,3 @@ caption {
     margin-top: var(--half-block-spacing);
     margin-bottom: var(--half-block-spacing);
 }
-

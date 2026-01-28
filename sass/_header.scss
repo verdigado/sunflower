@@ -51,7 +51,7 @@ header .social-media-profiles {
     right: 0;
     top: 0;
     padding: var(--grid-margin);
-    background-color: map.get($custom-colors, "weiss");
+    background-color: map.get($custom-colors, white);
     width: 75px;
     height: 64px;
     z-index: 500;
@@ -61,19 +61,19 @@ header .social-media-profiles {
     &:hover {
 
         div {
-            background-color: map.get($custom-colors, "tanne");
+            background-color: map.get($custom-colors, tanne);
         }
     }
 
     .concave-30px {
-        color: map.get($custom-colors, "weiss");
+        color: map.get($custom-colors, white);
     }
 
     div {
         height: 8px;
         width: 50px;
         border-radius: var(--border-radius-tiny);
-        background-color: map.get($custom-colors, "grashalm");
+        background-color: map.get($custom-colors, grashalm);
         position: absolute;
         rotate: 0deg;
         transition: 0.3s ease !important;
@@ -122,7 +122,7 @@ header .social-media-profiles {
 .hamburger-menu {
 
     .top-bar:has(.unfold) {
-        background-color: map.get($custom-colors, "schwarzwald");
+        background-color: map.get($custom-colors, schwarzwald);
         height: 100%;
         border-radius: 0;
         position: fixed;
@@ -509,7 +509,7 @@ $text-dark: #222;
             background-color: rgba(255, 255, 255, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.15);
 
-            color: map.get($custom-colors, "schwarzwald");
+            color: map.get($custom-colors, schwarzwald);
         }
 
 
@@ -529,15 +529,15 @@ $text-dark: #222;
         transition: 0.3s background-color ease;
 
         &:hover {
-            background-color: map.get($custom-colors, "grashalm");
+            background-color: map.get($custom-colors, grashalm);
 
             .logo-img {
-                color: map.get($custom-colors, "weiss");
+                color: map.get($custom-colors, white);
             }
         }
 
         .logo-img {
-            color: map.get($custom-colors, "sonne");
+            color: map.get($custom-colors, sonne);
             width: 46px !important;
             height: 46px !important;
         }
@@ -712,7 +712,7 @@ $text-dark: #222;
             position: absolute;
             left: calc(-1 * calc(var(--gap-large) / 2));
             right: auto;
-            background: map.get($custom-colors, "weiss");
+            background: map.get($custom-colors, white);
             z-index: 100;
             display: none;
             min-width: calc(100% + 20px);
@@ -821,7 +821,7 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
 }
 
 .label-top {
-    background-color: map.get($custom-colors, "tanne");
+    background-color: map.get($custom-colors, tanne);
     position: relative;
     right: calc(-1 * var(--gap-large));
     z-index: 1;
@@ -916,10 +916,10 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
         }
 
         .label-bottom {
-            background-color: map.get($custom-colors, "tanne");
+            background-color: map.get($custom-colors, tanne);
 
             &::before {
-                background-color: map.get($custom-colors, "tanne");
+                background-color: map.get($custom-colors, tanne);
             }
         }
     }
@@ -1059,6 +1059,6 @@ html body.hamburger-menu .top-bar.stuck {
 
 .colorscheme-green .top-bar.stuck .right-bar {
     a {
-        color: map.get($custom-colors, "schwarzwald");
+        color: map.get($custom-colors, schwarzwald);
     }
 }

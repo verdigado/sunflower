@@ -130,7 +130,7 @@ body .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
 
 
         h1 {
-            color: map.get($custom-colors, "tanne") !important;
+            color: map.get($custom-colors, tanne) !important;
             text-align: left;
             margin-bottom: calc(var(--grid-margin) * 2);
             position: relative;

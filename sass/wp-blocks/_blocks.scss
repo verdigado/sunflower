@@ -8,7 +8,7 @@
         transition: 300ms ease-out;
 
         &:hover {
-            color: map.get($custom-colors, "grashalm") !important;
+            color: map.get($custom-colors, grashalm) !important;
         }
     }
 
@@ -147,8 +147,8 @@ body #content {
 .wp-block-code {
     font-family: "PT Sans", sans-serif;
     border-radius: var(--border-radius-medium);
-    background-color: map.get($custom-colors, "schwarzwald");
-    color: map.get($custom-colors, "grashalm");
+    background-color: map.get($custom-colors, schwarzwald);
+    color: map.get($custom-colors, grashalm);
     margin-top: var(--grid-margin);
     margin-bottom: var(--grid-margin);
 }

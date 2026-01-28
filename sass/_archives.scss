@@ -27,7 +27,7 @@ ul.wp-block-categories-list {
             letter-spacing: 0.5px;
             line-height: 100%;
             background: map.get($custom-colors, "sand");
-            border: 2px solid map.get($custom-colors, "schwarzwald");
+            border: 2px solid map.get($custom-colors, schwarzwald);
             padding: 0 15px 2px 15px;
             height: 30px !important;
             border-radius: 15px;
@@ -155,6 +155,65 @@ ul.wp-block-categories-list {
 
     .sunflower-categories {
         margin-top: 0;
+
+        ul.wp-block-categories-list {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style-type: none;
+            column-gap: var(--half-grid-margin);
+            margin-top: var(--half-grid-margin);
+
+            li {
+                padding-left: 0;
+                margin-bottom: 0;
+
+                &::before {
+                    display: none;
+                }
+
+                a {
+
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 700;
+                    font-size: 13px;
+                    color: $black;
+                    letter-spacing: 0.5px;
+                    line-height: 100%;
+                    background: map.get($custom-colors, "sand");
+                    border: 2px solid map.get($custom-colors, schwarzwald);
+                    padding: 0 15px 2px 15px;
+                    height: 30px !important;
+                    border-radius: 15px;
+                    margin-top: var(--half-grid-margin);
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        color: $primary;
+                        border-bottom-color: $primary;
+                    }
+
+                }
+
+                &.current-cat {
+
+                    a {
+                        background-color: map.get($custom-colors, "klee");
+                        color: map.get($custom-colors, white);
+                        border: 2px solid map.get($custom-colors, "klee");
+                    }
+                }
+            }
+        }
+
     }
 }
 

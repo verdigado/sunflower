@@ -3,87 +3,87 @@
 $themes: (
     /* Color scheme*/
     colorscheme-light: (
-        background: map-get($custom-colors, "weiss"),
-        text: map-get($custom-colors, "schwarzwald"),
+        background: map-get($custom-colors, white),
+        text: map-get($custom-colors, schwarzwald),
         headings: (
-            h1: map-get($custom-colors, "tanne"),
-            h2: map-get($custom-colors, "grashalm"),
-            h3: map-get($custom-colors, "tanne"),
-            h4: map-get($custom-colors, "grashalm"),
-            h5: map-get($custom-colors, "tanne"),
-            h6: map-get($custom-colors, "grashalm")
+            h1: map-get($custom-colors, tanne),
+            h2: map-get($custom-colors, grashalm),
+            h3: map-get($custom-colors, tanne),
+            h4: map-get($custom-colors, grashalm),
+            h5: map-get($custom-colors, tanne),
+            h6: map-get($custom-colors, grashalm)
         ),
-        btn-pr-background: map-get($custom-colors, "tanne"),
-        btn-pr-text: map-get($custom-colors, "sand"),
-        btn-sk-background: map-get($custom-colors, "weiss"),
-        btn-sk-text: map-get($custom-colors, "tanne"),
-        btn-sk-border: map-get($custom-colors, "tanne"),
-        btn-sk-icon: map-get($custom-colors, "klee"),
-        btn-hover-background: map-get($custom-colors, "grashalm"),
-        btn-hover-text: map-get($custom-colors, "schwarzwald"),
-        btn-hl-background: map-get($custom-colors, "himmel"),
-        btn-hl-text: map-get($custom-colors, "weiss"),
-        btn-hl-hover-background: map-get($custom-colors, "klee"),
-        btn-hl-hover-text: map-get($custom-colors, "weiss"),
-        input-text: map-get($custom-colors, "maus"),
-        input-border: map-get($custom-colors, "tanne"),
-        input-background: map-get($custom-colors, "weiss"),
-        input-icon: map-get($custom-colors, "klee"),
-        input-fokus-text: map-get($custom-colors, "klee"),
-        input-fokus-border: map-get($custom-colors, "grashalm"),
-        pagination-background: map-get($custom-colors, "weiss"),
-        pagination-text: map-get($custom-colors, "tanne"),
-        pagination-border: map-get($custom-colors, "tanne"),
-        pagination-hover-background: map-get($custom-colors, "grashalm"),
-        pagination-hover-text: map-get($custom-colors, "weiss"),
-        pagination-current-text: map-get($custom-colors, "grashalm"),
-        pagination-current-border: map-get($custom-colors, "grashalm"),
-        pagination-current-background: map-get($custom-colors, "schwarzwald"),
-        form-section-border: map-get($custom-colors, "klee"),
-        form-section-title-color: map-get($custom-colors, "weiss"),
-        form-section-title-background: map-get($custom-colors, "klee"),
+        btn-pr-background: map-get($custom-colors, tanne),
+        btn-pr-text: map-get($custom-colors, sand),
+        btn-sk-background: map-get($custom-colors, white),
+        btn-sk-text: map-get($custom-colors, tanne),
+        btn-sk-border: map-get($custom-colors, tanne),
+        btn-sk-icon: map-get($custom-colors, klee),
+        btn-hover-background: map-get($custom-colors, grashalm),
+        btn-hover-text: map-get($custom-colors, schwarzwald),
+        btn-hl-background: map-get($custom-colors, himmel),
+        btn-hl-text: map-get($custom-colors, white),
+        btn-hl-hover-background: map-get($custom-colors, klee),
+        btn-hl-hover-text: map-get($custom-colors, white),
+        input-text: map-get($custom-colors, maus),
+        input-border: map-get($custom-colors, tanne),
+        input-background: map-get($custom-colors, white),
+        input-icon: map-get($custom-colors, klee),
+        input-fokus-text: map-get($custom-colors, klee),
+        input-fokus-border: map-get($custom-colors, grashalm),
+        pagination-background: map-get($custom-colors, white),
+        pagination-text: map-get($custom-colors, tanne),
+        pagination-border: map-get($custom-colors, tanne),
+        pagination-hover-background: map-get($custom-colors, grashalm),
+        pagination-hover-text: map-get($custom-colors, white),
+        pagination-current-text: map-get($custom-colors, grashalm),
+        pagination-current-border: map-get($custom-colors, grashalm),
+        pagination-current-background: map-get($custom-colors, schwarzwald),
+        form-section-border: map-get($custom-colors, klee),
+        form-section-title-color: map-get($custom-colors, white),
+        form-section-title-background: map-get($custom-colors, klee),
         cover-concave-img: "assets/img/concave-30px.svg"
     ),
     colorscheme-green: (
-        background: map-get($custom-colors, "schwarzwald"),
-        text: map-get($custom-colors, "weiss"),
+        background: map-get($custom-colors, schwarzwald),
+        text: map-get($custom-colors, white),
         headings: (
-            h1: map-get($custom-colors, "weiss"),
-            h2: map-get($custom-colors, "grashalm"),
-            h3: map-get($custom-colors, "weiss"),
-            h4: map-get($custom-colors, "grashalm"),
-            h5: map-get($custom-colors, "weiss"),
-            h6: map-get($custom-colors, "grashalm")
+            h1: map-get($custom-colors, white),
+            h2: map-get($custom-colors, grashalm),
+            h3: map-get($custom-colors, white),
+            h4: map-get($custom-colors, grashalm),
+            h5: map-get($custom-colors, white),
+            h6: map-get($custom-colors, grashalm)
         ),
-        btn-pr-background: map-get($custom-colors, "tanne"),
-        btn-pr-text: map-get($custom-colors, "sand"),
-        btn-sk-background: map-get($custom-colors, "weiss"),
-        btn-sk-text: map-get($custom-colors, "tanne"),
-        btn-sk-border: map-get($custom-colors, "grashalm"),
-        btn-sk-icon: map-get($custom-colors, "klee"),
-        btn-hover-background: map-get($custom-colors, "grashalm"),
-        btn-hover-text: map-get($custom-colors, "sand"),
-        btn-hl-background: map-get($custom-colors, "klee"),
-        btn-hl-text: map-get($custom-colors, "weiss"),
-        btn-hl-hover-background: map-get($custom-colors, "himmel"),
-        btn-hl-hover-text: map-get($custom-colors, "weiss"),
-        input-text: map-get($custom-colors, "maus"),
-        input-border: map-get($custom-colors, "tanne"),
-        input-background: map-get($custom-colors, "weiss"),
-        input-icon: map-get($custom-colors, "klee"),
-        input-fokus-text: map-get($custom-colors, "klee"),
-        input-fokus-border: map-get($custom-colors, "grashalm"),
-        pagination-background: map-get($custom-colors, "weiss"),
-        pagination-text: map-get($custom-colors, "himmel"),
-        pagination-border: map-get($custom-colors, "himmel"),
-        pagination-hover-background: map-get($custom-colors, "grashalm"),
-        pagination-hover-text: map-get($custom-colors, "weiss"),
-        pagination-current-text: map-get($custom-colors, "grashalm"),
-        pagination-current-border: map-get($custom-colors, "grashalm"),
-        pagination-current-background: map-get($custom-colors, "schwarzwald"),
-        form-section-border: map-get($custom-colors, "weiss"),
-        form-section-title-color: map-get($custom-colors, "weiss"),
-        form-section-title-background: map-get($custom-colors, "himmel"),
+        btn-pr-background: map-get($custom-colors, tanne),
+        btn-pr-text: map-get($custom-colors, sand),
+        btn-sk-background: map-get($custom-colors, white),
+        btn-sk-text: map-get($custom-colors, tanne),
+        btn-sk-border: map-get($custom-colors, grashalm),
+        btn-sk-icon: map-get($custom-colors, klee),
+        btn-hover-background: map-get($custom-colors, grashalm),
+        btn-hover-text: map-get($custom-colors, sand),
+        btn-hl-background: map-get($custom-colors, klee),
+        btn-hl-text: map-get($custom-colors, white),
+        btn-hl-hover-background: map-get($custom-colors, himmel),
+        btn-hl-hover-text: map-get($custom-colors, white),
+        input-text: map-get($custom-colors, maus),
+        input-border: map-get($custom-colors, tanne),
+        input-background: map-get($custom-colors, white),
+        input-icon: map-get($custom-colors, klee),
+        input-fokus-text: map-get($custom-colors, klee),
+        input-fokus-border: map-get($custom-colors, grashalm),
+        pagination-background: map-get($custom-colors, white),
+        pagination-text: map-get($custom-colors, himmel),
+        pagination-border: map-get($custom-colors, himmel),
+        pagination-hover-background: map-get($custom-colors, grashalm),
+        pagination-hover-text: map-get($custom-colors, white),
+        pagination-current-text: map-get($custom-colors, grashalm),
+        pagination-current-border: map-get($custom-colors, grashalm),
+        pagination-current-background: map-get($custom-colors, schwarzwald),
+        form-section-border: map-get($custom-colors, white),
+        form-section-title-color: map-get($custom-colors, white),
+        form-section-title-background: map-get($custom-colors, himmel),
         cover-concave-img: "assets/img/concave-30px_darkmode.svg"
     ),
     /* Form Style*/
@@ -91,12 +91,12 @@ $themes: (
     formstyle-rounded: (border-radius: 16px),
     /* Footer-Layout*/
     footer-sand: (
-        footer-bg: map-get($custom-colors, "sand"),
-        footer-text: map-get($custom-colors, "schwarzwald")
+        footer-bg: map-get($custom-colors, sand),
+        footer-text: map-get($custom-colors, schwarzwald)
     ),
     footer-green: (
-        footer-bg: map-get($custom-colors, "schwarzwald"),
-        footer-text: map-get($custom-colors, "weiss")
+        footer-bg: map-get($custom-colors, schwarzwald),
+        footer-text: map-get($custom-colors, white)
     )
 );
 
@@ -206,7 +206,6 @@ $themes: (
     $subvalue: map-get($value, $subkey);
 
     @if not $subvalue {
-
         @error 't(): Kein Wert gefunden für subkey "#{$subkey}" in "#{$key}".';
     }
 
@@ -257,7 +256,7 @@ $themes: (
     }
 
     .archive article p {
-        color: map.get($custom-colors, "schwarzwald") !important;
+        color: map.get($custom-colors, schwarzwald) !important;
     }
 }
 
@@ -300,14 +299,14 @@ body.colorscheme-green {
     footer.site-footer {
 
         .footerlogo {
-            background-color: map.get($custom-colors, "schwarzwald");
+            background-color: map.get($custom-colors, schwarzwald);
 
             .concave-30px {
-                color: map.get($custom-colors, "schwarzwald");
+                color: map.get($custom-colors, schwarzwald);
             }
 
             @include media-breakpoint-down(xl) {
-                background-color: map.get($custom-colors, "schwarzwald");
+                background-color: map.get($custom-colors, schwarzwald);
             }
         }
     }
@@ -319,11 +318,11 @@ body.colorscheme-light {
     footer.site-footer {
 
         .footerlogo {
-            background-color: map.get($custom-colors, "weiss");
-            border-color: map.get($custom-colors, "schwarzwald") !important;
+            background-color: map.get($custom-colors, white);
+            border-color: map.get($custom-colors, schwarzwald) !important;
 
             .concave-30px {
-                color: map.get($custom-colors, "weiss");
+                color: map.get($custom-colors, white);
             }
         }
     }

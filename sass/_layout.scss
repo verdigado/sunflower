@@ -169,7 +169,7 @@ a.continue-reading,
     padding-top: 10px;
     display: block;
     font-style: italic;
-    color: map.get($custom-colors, "tanne") !important;
+    color: map.get($custom-colors, tanne) !important;
     text-decoration: none;
     margin-bottom: -2px;
     transition: 300ms ease-out;
@@ -271,7 +271,7 @@ iframe {
             right: 0;
             z-index: 20;
             opacity: 0.3;
-            background-color: map.get($custom-colors, "weiss") !important;
+            background-color: map.get($custom-colors, "white") !important;
         }
 
     }
@@ -425,6 +425,6 @@ body #content .wp-block-cover {
 }
 
 .sunflower-post-navigation a {
-    background-color: map.get($custom-colors, "weiss") !important;
-    color: map.get($custom-colors, "tanne") !important;
+    background-color: map.get($custom-colors, "white") !important;
+    color: map.get($custom-colors, tanne) !important;
 }

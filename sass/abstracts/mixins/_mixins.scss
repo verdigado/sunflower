@@ -46,7 +46,7 @@
 @mixin card {
     box-shadow: none;
     position: relative;
-    background-color: map.get($custom-colors, "weiss") !important;
+    background-color: map.get($custom-colors, "white") !important;
     padding: 13px 17px 16px 18px;
     width: calc(100% + var(--double-grid-margin)) !important;
     border: 2px solid map.get($custom-colors, "klee");
@@ -121,14 +121,14 @@
         height: 0;
         top: 0;
         left: 0;
-        background-color: map.get($custom-colors, "tanne");
+        background-color: map.get($custom-colors, tanne);
         transition: 300ms ease-out;
         border-radius: 0;
     }
 
 
     &:has(.continue-reading:hover) {
-        border: 2px solid map.get($custom-colors, "grashalm");
+        border: 2px solid map.get($custom-colors, grashalm);
 
         .entry-meta {
             top: 10px !important;
@@ -136,7 +136,7 @@
 
         &::before {
             height: 15px;
-            background-color: map.get($custom-colors, "grashalm");
+            background-color: map.get($custom-colors, grashalm);
         }
 
         &:has(.wp-post-image) {
@@ -153,11 +153,11 @@
                 height: 0;
             }
 
-            border: 2px solid map.get($custom-colors, "grashalm");
+            border: 2px solid map.get($custom-colors, grashalm);
         }
 
         .continue-reading:hover {
-            color: map.get($custom-colors, "grashalm") !important;
+            color: map.get($custom-colors, grashalm) !important;
             text-shadow: none;
         }
 
@@ -165,7 +165,7 @@
         .p-45 .entry-header .entry-meta .roofline,
         .p-45 h2,
         .p-45 h2 a {
-            color: map.get($custom-colors, "grashalm") !important;
+            color: map.get($custom-colors, grashalm) !important;
         }
 
         .icon-arrow {

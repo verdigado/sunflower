@@ -24,7 +24,7 @@
         width: 100%;
         flex-direction: column;
         justify-content: space-between;
-        color: map.get($custom-colors, "tanne");
+        color: map.get($custom-colors, tanne);
 
         > div {
             gap: var(--grid-margin);
@@ -216,7 +216,7 @@
         color: map.get($custom-colors, "klee");
 
         &:hover {
-            color: map.get($custom-colors, "tanne");
+            color: map.get($custom-colors, tanne);
         }
     }
 

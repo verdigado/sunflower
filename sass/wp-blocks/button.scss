@@ -56,7 +56,7 @@ input[type="submit"],
 
 
     &:hover {
-        color: map.get($custom-colors, "schwarzwald") !important;
+        color: map.get($custom-colors, schwarzwald) !important;
         text-decoration: none;
         background-color: $button-hover !important;
     }
@@ -65,7 +65,7 @@ input[type="submit"],
         color: $white;
         outline: 2px solid map.get($custom-colors, "klee");
         border: 2px solid map.get($custom-colors, "klee");
-        background-color: map.get($custom-colors, "tanne");
+        background-color: map.get($custom-colors, tanne);
     }
 
     // Sekundärstil
@@ -167,4 +167,3 @@ input[type="submit"],
         padding: 0 25px 4px 25px;
     }
 }
-

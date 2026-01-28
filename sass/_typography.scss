@@ -204,7 +204,7 @@ h1:has(+ h4) {
     text-align: center;
     display: table-cell;
     vertical-align: middle;
-    background: map-get($custom-colors, "himmel");
+    background: map-get($custom-colors, himmel);
     -moz-transform: rotate(-7deg); /* Firefox 3.6 Firefox 4 */
     -webkit-transform: rotate(-7deg); /* Safari */
     -o-transform: rotate(-7deg); /* Opera */
@@ -261,11 +261,11 @@ h1:has(+ h4) {
 .colorscheme-light .right-bar .current_page_item {
 
     a {
-        color: map-get($custom-colors, "klee") !important;
+        color: map-get($custom-colors, klee) !important;
     }
 
     .sub-menu a {
-        color: map-get($custom-colors, "schwarzwald") !important;
+        color: map-get($custom-colors, schwarzwald) !important;
     }
 }
 
@@ -273,7 +273,7 @@ h1:has(+ h4) {
 .colorscheme-light .right-bar a {
 
     &:hover {
-        color: map-get($custom-colors, "klee");
+        color: map-get($custom-colors, klee);
     }
 }
 
@@ -417,7 +417,7 @@ body #content {
 ) {
 
     h2 {
-        color: map.get($custom-colors, "weiss");
+        color: map.get($custom-colors, white);
     }
 }
 
@@ -427,7 +427,7 @@ body #content {
 ) {
 
     h2 {
-        color: map.get($custom-colors, "weiss") !important;
+        color: map.get($custom-colors, "white") !important;
     }
 }
 
@@ -436,12 +436,12 @@ body #content {
 .has-gray-background-color,
 .has-kalk-background-color,
 .has-white-background-color,
-.has-weiss-background-color,
+.has-white-background-color,
 .has-gruener-sand-background-color,
 .has-himmel-background-color {
 
     h2 {
-        color: map.get($custom-colors, "tanne") !important;
+        color: map.get($custom-colors, tanne) !important;
     }
 }
 
@@ -449,14 +449,14 @@ body #content {
 .colorscheme-green {
 
     .latest-posts,
-    .has-weiss-background-color,
+    .has-white-background-color,
     .has-sonne-background-color,
     .has-sand-background-color,
     .has-gray-background-color,
     .has-kalk-background-color,
     .has-white-background-color,
     .has-gruener-sand-background-color,
-    .wp-block-cover:has(span.has-weiss-background-color),
+    .wp-block-cover:has(span.has-white-background-color),
     .wp-block-cover:has(span.has-sonne-background-color),
     .wp-block-cover:has(span.has-sand-background-color),
     .wp-block-cover:has(span.has-gray-background-color),
@@ -466,18 +466,18 @@ body #content {
 
         p,
         body {
-            color: map.get($custom-colors, "schwarzwald") !important;
+            color: map.get($custom-colors, schwarzwald) !important;
         }
 
         h2 {
-            color: map.get($custom-colors, "tanne") !important;
+            color: map.get($custom-colors, tanne) !important;
         }
     }
 
     .posts-slider {
 
         .p-45 p {
-            color: map.get($custom-colors, "schwarzwald") !important;
+            color: map.get($custom-colors, schwarzwald) !important;
         }
     }
 }

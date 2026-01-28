@@ -16,7 +16,7 @@
     padding: var(--grid-margin) 0;
 
     blockquote {
-        color: map.get($custom-colors, "tanne");
+        color: map.get($custom-colors, tanne);
         text-align: left;
         margin: calc(var(--grid-margin) + 4px) 0 var(--grid-margin) 0;
     }

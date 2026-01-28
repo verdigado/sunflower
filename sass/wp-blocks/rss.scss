@@ -79,13 +79,13 @@
 
 
             a {
-                color: map.get($custom-colors, "tanne") !important;
+                color: map.get($custom-colors, tanne) !important;
             }
         }
 
         time {
             margin-bottom: var(--half-grid-margin) !important;
-            color: map.get($custom-colors, "tanne") !important;
+            color: map.get($custom-colors, tanne) !important;
         }
     }
 

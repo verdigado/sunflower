@@ -140,18 +140,18 @@ html.preload * {
 body.colorscheme-green {
 
     .wp-block-group .all-columns-start-with-image h4 {
-        color: map.get($custom-colors, "grashalm");
+        color: map.get($custom-colors, grashalm);
     }
 
 
     .wp-block-image figcaption,
     .concave-30px {
-        color: map.get($custom-colors, "schwarzwald");
+        color: map.get($custom-colors, schwarzwald);
     }
 
     .hamburger,
     .main-menu ul .sub-menu {
-        background-color: map.get($custom-colors, "schwarzwald");
+        background-color: map.get($custom-colors, schwarzwald);
     }
 
     .menu-item-has-children::after {

@@ -65,7 +65,7 @@ a.event-card {
         margin-bottom: var(--grid-margin) !important;
 
         article {
-            box-shadow: 0 0 0 0 map.get($custom-colors, "grashalm") !important;
+            box-shadow: 0 0 0 0 map.get($custom-colors, grashalm) !important;
             height: fit-content;
             border: none;
             border-radius: var(--border-radius-medium);
@@ -74,7 +74,7 @@ a.event-card {
             gap: var(--grid-margin);
             position: relative;
             transition: 290ms ease-out;
-            outline: 0 solid map.get($custom-colors, "weiss");
+            outline: 0 solid map.get($custom-colors, white);
 
             &:hover {
                 margin-top: 0 !important;
@@ -118,7 +118,7 @@ a.event-card {
 
             h2 {
                 font-size: 21px;
-                color: map.get($custom-colors, "weiss");
+                color: map.get($custom-colors, white);
                 letter-spacing: 0.7px;
             }
 
@@ -150,7 +150,7 @@ a.event-card {
                 .date {
 
                     &::first-line {
-                        color: map.get($custom-colors, "tanne"); // obere Zeile
+                        color: map.get($custom-colors, tanne); // obere Zeile
                     }
 
                     color: map.get($custom-colors, "klee"); // untere Zeile
@@ -184,7 +184,7 @@ a.event-card {
             width: 100% !important;
 
             .small {
-                color: map.get($custom-colors, "weiss");
+                color: map.get($custom-colors, white);
                 font-weight: 450;
             }
 
@@ -221,11 +221,11 @@ a.event-card {
             &:nth-of-type(odd) {
 
                 article {
-                    background-color: map.get($custom-colors, "tanne");
-                    color: map.get($custom-colors, "weiss");
+                    background-color: map.get($custom-colors, tanne);
+                    color: map.get($custom-colors, white);
 
                     &:hover {
-                        box-shadow: 0 0 0 3px map.get($custom-colors, "tanne") !important;
+                        box-shadow: 0 0 0 3px map.get($custom-colors, tanne) !important;
                     }
                 }
 
@@ -235,7 +235,7 @@ a.event-card {
 
                 article {
                     background-color: map.get($custom-colors, "klee");
-                    color: map.get($custom-colors, "weiss");
+                    color: map.get($custom-colors, white);
 
                     &:hover {
                         box-shadow: 0 0 0 3px map.get($custom-colors, "klee") !important;
@@ -264,7 +264,7 @@ a.event-card {
             }
 
             .small {
-                color: map.get($custom-colors, "schwarzwald");
+                color: map.get($custom-colors, schwarzwald);
             }
 
             .date {
@@ -273,7 +273,7 @@ a.event-card {
                     color: map.get($custom-colors, "klee") !important; // obere Zeile
                 }
 
-                color: map.get($custom-colors, "tanne") !important; // untere Zeile
+                color: map.get($custom-colors, tanne) !important; // untere Zeile
             }
 
             > .col-12 {

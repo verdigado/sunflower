@@ -86,7 +86,7 @@ select {
     background-size: 18px auto;
 
     &:hover {
-        color: map.get($custom-colors, "schwarzwald");
+        color: map.get($custom-colors, schwarzwald);
         text-decoration: none;
         background-color: $button-hover;
     }
@@ -95,7 +95,7 @@ select {
         color: $white;
         outline: 2px solid map.get($custom-colors, "klee");
         border: 2px solid map.get($custom-colors, "klee");
-        background-color: map.get($custom-colors, "tanne");
+        background-color: map.get($custom-colors, tanne);
     }
 }
 

@@ -8,8 +8,6 @@
     width: calc(100% + var(--double-grid-margin)) !important;
     margin: 0 0 0 calc(-1 * var(--grid-margin)) !important;
     padding: calc(var(--half-grid-margin) / 2) var(--grid-margin) 0 var(--grid-margin);
-    background-color: map-get($custom-colors, "sand");
-
 
     @media (max-width: 480px) {
         padding-left: var(--grid-margin) !important;
@@ -33,7 +31,7 @@
 
         .accordion-button,
         .accordion-item {
-            background-color: map.get($custom-colors, "weiss") !important;
+            background-color: map.get($custom-colors, "white") !important;
             border-radius: var(--border-radius-medium) !important;
         }
     }
@@ -64,7 +62,7 @@
         }
 
         &:hover {
-            outline: 2px solid map.get($custom-colors, "grashalm");
+            outline: 2px solid map.get($custom-colors, grashalm);
         }
 
         .accordion-header {
@@ -72,7 +70,7 @@
             .accordion-button {
                 width: 100%;
                 min-height: 80px;
-                background-color: map-get($custom-colors, "weiss");
+                background-color: map-get($custom-colors, white);
                 justify-content: flex-start;
                 align-items: center;
                 display: inline-flex;
@@ -83,7 +81,7 @@
                 transition: 200ms ease;
                 height: fit-content;
                 border: 0 solid #fff;
-                color: map-get($custom-colors, "tanne");
+                color: map-get($custom-colors, tanne);
 
                 font-family: var(--wp--preset--font-family--gruenetypeneue);
                 font-weight: 400;
@@ -104,7 +102,7 @@
                 &:hover {
                     border: none !important;
                     outline: none !important;
-                    background-color: map.get($custom-colors, "weiss");
+                    background-color: map.get($custom-colors, white);
                     color: map.get($custom-colors, "klee") !important;
                 }
 
@@ -151,11 +149,12 @@
         }
 
         &:hover {
-            outline: 2px solid map.get($custom-colors, "grashalm");
+            outline: 2px solid map.get($custom-colors, grashalm);
         }
 
         &:nth-of-type(odd) {
-            background-color: map.get($custom-colors, "weiss");
+
+            background-color: map.get($custom-colors, white);
             border-radius: var(--border-radius-medium);
         }
 
@@ -251,7 +250,7 @@
     }
 
     &:hover {
-        outline: 2px solid map.get($custom-colors, "grashalm");
+        outline: 2px solid map.get($custom-colors, grashalm);
     }
 
     &:nth-of-type(odd) {

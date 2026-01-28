@@ -28,15 +28,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: map.get($custom-colors, "weiss");
+    background: map.get($custom-colors, white);
     border-radius: 50%;
     margin: 3px;
-    border: 2px solid map.get($custom-colors, "tanne");
+    border: 2px solid map.get($custom-colors, tanne);
     transition: 400ms ease-out;
     opacity: 1 !important;
 
     i {
-        color: map.get($custom-colors, "tanne") !important;
+        color: map.get($custom-colors, tanne) !important;
         transition: 400ms ease-out;
         opacity: 1 !important;
     }
@@ -46,7 +46,7 @@
         background: map.get($custom-colors, "klee");
 
         i {
-            color: map.get($custom-colors, "weiss") !important;
+            color: map.get($custom-colors, "white") !important;
         }
     }
 }

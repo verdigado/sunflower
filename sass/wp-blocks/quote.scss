@@ -32,7 +32,7 @@ blockquote.wp-block-quote {
     padding: calc(var(--grid-margin) - 5px) var(--grid-margin) calc(var(--grid-margin) - 2px) var(--grid-margin);
     font-size: 21px;
     font-family: var(--wp--preset--font-family--gruenetypeneue);
-    color: map.get($custom-colors, "tanne");
+    color: map.get($custom-colors, tanne);
 
     &:nth-of-type(odd) {
         background-color: map.get($custom-colors, "sand");
