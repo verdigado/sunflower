@@ -11,6 +11,58 @@
 add_theme_support( 'custom-logo' );
 
 /**
+ * Filter custom_logo theme mod to verify the attachment still exists.
+ * Returns 0 if the attachment was deleted or doesn't exist.
+ *
+ * @param mixed $value The custom_logo attachment ID.
+ * @return mixed The attachment ID if valid, 0 otherwise.
+ */
+function sunflower_validate_custom_logo( $value ) {
+	if ( empty( $value ) ) {
+		return $value;
+	}
+
+	$attachment_id = (int) $value;
+
+	// Check if the attachment exists and is an image.
+	$attachment = get_post( $attachment_id );
+	if ( ! $attachment || 'attachment' !== $attachment->post_type || ! wp_attachment_is_image( $attachment_id ) ) {
+		return 0;
+	}
+
+	return $attachment_id;
+}
+add_filter( 'theme_mod_custom_logo', 'sunflower_validate_custom_logo', 10 );
+
+/**
+ * Clean up orphaned custom_logo theme mod when an attachment is deleted.
+ *
+ * @param int $post_id The deleted attachment ID.
+ */
+function sunflower_cleanup_deleted_logo( $post_id ) {
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+	if ( $custom_logo_id && (int) $custom_logo_id === (int) $post_id ) {
+		remove_theme_mod( 'custom_logo' );
+	}
+}
+add_action( 'delete_attachment', 'sunflower_cleanup_deleted_logo' );
+
+/**
+ * Clean up the site_icon option when its attachment is deleted.
+ *
+ * @param int $post_id The deleted attachment ID.
+ */
+function sunflower_cleanup_deleted_site_icon( $post_id ) {
+	$site_icon_id = (int) get_option( 'site_icon' );
+
+	if ( $site_icon_id && $site_icon_id === (int) $post_id ) {
+		update_option( 'site_icon', 0 );
+	}
+}
+add_action( 'delete_attachment', 'sunflower_cleanup_deleted_site_icon' );
+
+/**
  * Echo CSS class depending on theme setting.
  */
 function sunflower_theme_class() {
@@ -19,19 +71,30 @@ function sunflower_theme_class() {
 
 /**
  * Change URL to site icon to sunflower as default.
+ * Only applies to frontend - admin uses native WordPress behavior.
  *
  * @param string $url     Site icon URL.
  * @param string $size    Size in pixel.
  */
 function sunflower_get_site_icon_url_defaults( $url, $size ) {
 
-	$site_icon_id = (int) get_option( 'site_icon' );
-
-	// A custom site icon seems to be set. Keep it untouched.
-	if ( $site_icon_id && filter_var( $url, FILTER_VALIDATE_URL ) ) {
+	// Don't modify in admin area - let WordPress handle it natively.
+	if ( is_admin() ) {
 		return $url;
 	}
 
+	$site_icon_id = (int) get_option( 'site_icon' );
+
+	// If a custom site icon is set and the attachment exists, use it.
+	if ( $site_icon_id ) {
+		$attachment = get_post( $site_icon_id );
+		if ( $attachment && 'attachment' === $attachment->post_type && wp_attachment_is_image( $site_icon_id ) ) {
+			// Return the original URL from WordPress.
+			return $url;
+		}
+	}
+
+	// No valid custom icon set - use sunflower defaults.
 	switch ( $size ) {
 		case 32:
 			$icon_url = sunflower_parent_or_child( 'assets/img/favicon.ico' );
@@ -49,7 +112,7 @@ function sunflower_get_site_icon_url_defaults( $url, $size ) {
 			$icon_url = sunflower_parent_or_child( 'assets/img/sunflower.png' );
 			break;
 	}
-	// Set default site icon to sunflower.
+
 	return $icon_url;
 }
 

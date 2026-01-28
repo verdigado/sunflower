@@ -17,6 +17,14 @@
     padding: var(--double-grid-margin) var(--half-grid-margin) var(--grid-margin) var(--half-grid-margin);
     margin: var(--half-block-spacing) 0;
 
+    &:not(:has(#contact-form-title)) {
+        padding: var(--grid-margin) var(--half-grid-margin);
+    }
+
+    &:has(.is-feedback) {
+        padding: var(--double-grid-margin);
+    }
+
 
     @include themed-colorscheme-nested() {
         border: 2px solid t(form-section-border);
@@ -33,7 +41,7 @@
     font-family: "GrueneType Neue", serif;
     font-size: 18px;
     line-height: 100%;
-    letter-spacing: 0;
+    letter-spacing: 0.8px;
 
     @include themed-colorscheme-nested() {
         background-color: t(form-section-title-background);
@@ -76,4 +84,3 @@
 
 
 }
-

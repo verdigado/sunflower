@@ -57,8 +57,10 @@ h2,
 
 h3,
 .h3,
-.has-medium-font-size {
-
+.has-medium-font-size,
+.wp-block-query .wp-block-post-title,
+.wp-block-rss__item-title {
+    line-height: 130%;
     font-size: 25px;
 }
 
@@ -115,7 +117,9 @@ blockquote.wp-block-quote p {
 
     h3,
     .h3,
-    .has-medium-font-size {
+    .has-medium-font-size,
+    .wp-block-query .wp-block-post-title,
+    .wp-block-rss__item-title {
         font-size: 27px;
     }
 
@@ -290,7 +294,11 @@ body #content {
     .has-small-font-size,
     .article .has-small-font-size p,
     :where(.is-layout-flex) p.has-small-font-size,
-    .small {
+    .small,
+    label,
+    table,
+    time,
+    .wp-block-query .wp-block-post-excerpt {
         font-size: 16px !important;
         line-height: 150%;
         letter-spacing: 0.9px;
@@ -300,6 +308,11 @@ body #content {
         @include media-breakpoint-down(xl) {
             font-size: 14px !important;
         }
+    }
+
+    label {
+        margin: 0;
+        padding: 0 20px;
     }
 }
 
@@ -325,7 +338,9 @@ body #content {
 
     h3,
     h2,
-    p {
+    p,
+    .wp-block-query .wp-block-post-title,
+    .wp-block-rss__item-title {
         margin-bottom: var(--grid-margin);
 
         &:last-child {
@@ -470,4 +485,9 @@ body #content {
 
 .has-medium-font-size {
     line-height: 33px;
+}
+
+pre {
+    background: transparent;
+    padding: calc(var(--grid-margin) - 10px) var(--grid-margin) calc(var(--grid-margin) - 6px) var(--grid-margin);
 }

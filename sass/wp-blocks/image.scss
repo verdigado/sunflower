@@ -1,8 +1,21 @@
-.wp-block-image {
-    margin-bottom: 0;
+.entry-content {
+
+    > .wp-block-image {
+        margin-top: var(--half-block-spacing);
+        margin-bottom: var(--half-block-spacing);
+    }
+}
+
+.wp-block-image,
+.wp-block-latest-posts__featured-image,
+.wp-block-post-featured-image {
+    margin-bottom: var(--half-grid-margin);
     border-radius: var(--border-radius-medium);
     overflow: hidden;
     position: relative;
+
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 
     &:not(.is-style-rounded) {
 

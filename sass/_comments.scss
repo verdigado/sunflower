@@ -147,3 +147,17 @@
 .comments-area {
     min-height: 100px;
 }
+
+
+.entry-content > .wp-block-latest-comments {
+    margin-top: var(--half-block-spacing);
+    margin-bottom: var(--half-block-spacing);
+}
+
+.wp-block-latest-comments {
+    padding-left: 0;
+}
+
+time {
+    font-weight: 700;
+}

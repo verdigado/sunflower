@@ -16,17 +16,25 @@ header .social-media-profiles {
     }
 
     .sunflower__socials {
-        display: flex;
-        flex-direction: column;
+        display: grid !important;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(7, auto);
     }
 }
 
-.stuck .hamburger {
+.stuck {
 
-    .concave-30px {
-        top: -100px !important;
+    .social-media-profiles {
+        display: none !important;
     }
 
+    .hamburger {
+
+        .concave-30px {
+            top: -100px !important;
+        }
+
+    }
 }
 
 .hamburger, .menubar {
@@ -119,7 +127,7 @@ header .social-media-profiles {
         border-radius: 0;
         position: fixed;
 
-        .hamburger__top,.hamburger__bottom, .hamburger__center {
+        .hamburger__top, .hamburger__bottom, .hamburger__center {
             z-index: 200;
         }
 
@@ -134,6 +142,7 @@ header .social-media-profiles {
             &:nth-of-type(1) {
                 top: -50px;
             }
+
             &:nth-of-type(1) {
                 right: -50px;
             }
@@ -641,6 +650,41 @@ $text-dark: #222;
     }
 }
 
+// Custom Logo im Header - gleiche Größe wie .logo-background
+.right-bar__content > .custom-logo-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+
+    .custom-logo {
+        max-height: 60px;
+        max-width: 60px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    @include media-breakpoint-down(xl) {
+        height: 46px;
+
+        .custom-logo {
+            max-height: 46px;
+            max-width: 46px;
+        }
+    }
+}
+
+// Custom Logo im stuck Header
+.top-bar.stuck .right-bar__content > .custom-logo-link {
+    height: 46px;
+
+    .custom-logo {
+        max-height: 46px;
+        max-width: 46px;
+    }
+}
+
 .logo-img {
     height: 40px;
     width: 40px;
@@ -699,7 +743,7 @@ $text-dark: #222;
     }
 }
 
-html body.hamburger-menu header div .right-bar .main-menu ul li::after, html body.hamburger-menu header.stuck div .right-bar .main-menu ul li::after{
+html body.hamburger-menu header div .right-bar .main-menu ul li::after, html body.hamburger-menu header.stuck div .right-bar .main-menu ul li::after {
     display: none;
 }
 
@@ -708,6 +752,7 @@ html body.hamburger-menu .top-bar.stuck, html body.hamburger-menu .top-bar {
         position: absolute !important;
         top: 0;
     }
+
     .menu-item-has-children a ~ ul:nth-of-type(1) li:nth-of-type(1) a {
         padding-top: 0;
     }
@@ -778,99 +823,56 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
     background-color: map.get($custom-colors, "tanne");
     position: relative;
     right: calc(-1 * var(--gap-large));
+    z-index: 1;
+    transition: background-color 0.3s ease;
 
     &::before {
-        content: "";
-        position: relative;
-        left: -7px;
-        top: -27px;
-        transform: translateY(-50%);
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 0 32px 7px;
-        border-color: transparent transparent #005538 transparent;
-        transition: border-color 0.3s ease;
+        position: absolute;
+        top: 0;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: 100%;
+        content: '';
+        z-index: -1;
+        transform: skewX(-12deg);
+        background-color: #005538;
+        transition: background-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
-            top: -23.4px;
-            left: -6px;
-            border-width: 0 0 28px 6px;
-            border-color: transparent transparent #005538 transparent;
-        }
-    }
-
-    &::after {
-        content: "";
-        position: relative;
-        right: -7px;
-        top: 26.6px;
-        transform: translateY(-50%);
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 32px 7px 0 0;
-        border-color: #005538 transparent transparent transparent;
-        transition: border-color 0.3s ease;
-
-        @include media-breakpoint-down(xl) {
-            top: 23.4px;
-            right: -6px;
-            border-width: 28px 6px 0 0;
-            border-color: #005538 transparent transparent transparent;
+            left: -7px;
+            width: calc(100% + 14px);
         }
     }
 }
 
 .label-bottom {
     background-color: map.get($custom-colors, "klee");
+    position: relative;
+    transition: background-color 0.3s ease;
 
     &:empty {
-            display: none;
-        }
-
+        display: none;
+    }
 
     &::before {
-        content: "";
-        position: relative;
-        left: -7px;
-        top: -27px;
-        transform: translateY(-50%);
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 0 32px 7px;
-        border-color: transparent transparent #008939 transparent;
-        transition: border-color 0.3s ease;
+        position: absolute;
+        top: 0;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: 100%;
+        content: '';
+        z-index: -1;
+        transform: skewX(-12deg);
+        background-color: map.get($custom-colors, "klee");
+        transition: background-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
-            top: -23.4px;
-            left: -6px;
-            border-width: 0 0 28px 6px;
-            border-color: transparent transparent #008939 transparent;
+            left: -7px;
+            width: calc(100% + 14px);
         }
     }
 
-    &::after {
-        content: "";
-        position: relative;
-        right: -7px;
-        top: 26.6px;
-        transform: translateY(-50%);
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 32px 7px 0 0;
-        border-color: #008939 transparent transparent transparent;
-        transition: border-color 0.3s ease;
 
-        @include media-breakpoint-down(xl) {
-            top: 23.4px;
-            right: -6px;
-            border-width: 28px 6px 0 0;
-            border-color: #008939 transparent transparent transparent;
-        }
-    }
 
 }
 
@@ -908,28 +910,19 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
             background-color: map.get($custom-colors, "klee");
 
             &::before {
-                border-color: transparent transparent map.get($custom-colors, "klee") transparent;
-            }
-
-            &::after {
-                border-color: map.get($custom-colors, "klee") transparent transparent transparent;
+                background-color: map.get($custom-colors, "klee");
             }
         }
 
         .label-bottom {
             background-color: map.get($custom-colors, "tanne");
 
-            &::after {
-                border-color: map.get($custom-colors, "tanne") transparent transparent transparent;
-            }
-
             &::before {
-                border-color: transparent transparent map.get($custom-colors, "tanne") transparent;
+                background-color: map.get($custom-colors, "tanne");
             }
         }
     }
 }
-
 
 
 html body.hamburger-menu .top-bar.stuck {
@@ -1010,10 +1003,10 @@ html body.hamburger-menu .top-bar.stuck {
             top: 40px;
         }
 
-            .sub-menu {
-                top: 0;
-                padding: 0 0 0 var(--gap-large);
-            }
+        .sub-menu {
+            top: 0;
+            padding: 0 0 0 var(--gap-large);
+        }
     }
 
     a {

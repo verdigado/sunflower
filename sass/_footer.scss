@@ -50,11 +50,22 @@
         &--bottom {
 
             .footerlogo {
-                width: 200px;
+                width: fit-content;
                 position: absolute;
                 border-radius: var(--border-radius-large) 0 0 0;
                 right: 0;
                 bottom: 0;
+
+                img {
+                    height: 120px;
+                    width: auto;
+                    object-fit: contain;
+
+                    &.custom-logo {
+                        padding: var(--grid-margin) 0 0 var(--grid-margin);
+                        max-width: 200px;
+                    }
+                }
 
                 .concave-30px {
 
@@ -98,6 +109,8 @@
 
                     img {
                         height: 70px;
+                        max-height: 70px;
+                        max-width: 70px;
                         opacity: 1 !important;
                     }
                 }

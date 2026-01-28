@@ -1,24 +1,97 @@
+@use "sass:map";
+
 .wp-block-table {
+    overflow-x: auto;
+    margin: var(--grid-margin) 0;
+}
 
-    thead {
+table {
+    width: 100%;
+    border-collapse: collapse !important;
+    border-spacing: 0;
+    overflow: hidden !important;
+    background-color: map.get($custom-colors, "weiss");
+    font-family: "PT Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: var(--grid-margin) !important;
+    margin-bottom: var(--grid-margin) !important;
+}
 
-        tr {
-            border-bottom: 2px solid $black;
-        }
-    }
+th,
+td {
+    padding: calc(var(--half-grid-margin) - 3px) var(--half-grid-margin) var(--half-grid-margin) var(--half-grid-margin) !important;
+    text-align: left;
+    border: 2px solid map.get($custom-colors, "grashalm") !important;
+}
 
-    tbody {
+thead {
+    border: 2px solid map.get($custom-colors, "tanne");
+    border-collapse: collapse !important;
 
-        tr {
-            border-bottom: 1px solid $lightgray;
-        }
-    }
+    border-bottom: 2px solid map.get($custom-colors, "tanne") !important;
 
-    figcaption {
-        text-align: right;
-        font-size: $small-font-size;
-        background: none;
-        margin-right: 0.3em;
-        margin-top: 0.5em;
+    th {
+        background-color: map.get($custom-colors, "tanne");
+        color: map.get($custom-colors, "weiss");
+        font-weight: 700;
     }
 }
+
+tbody {
+    border-collapse: collapse !important;
+
+    tr {
+        transition: background-color 0.3s ease;
+
+        &:nth-child(odd) {
+            background-color: map.get($custom-colors, "gruener-sand");
+        }
+
+        &:nth-child(even) {
+            background-color: map.get($custom-colors, "sand");
+        }
+
+        &:hover {
+            background-color: map.get($custom-colors, "gruener-sand");
+        }
+    }
+
+}
+
+tfoot {
+    border: none !important;
+
+    td {
+        border: none !important;
+    }
+}
+
+th:first-child,
+td:first-child {
+    padding-left: var(--grid-margin);
+}
+
+th:last-child,
+td:last-child {
+    padding-right: var(--grid-margin);
+}
+
+caption {
+    text-align: center;
+    font-size: $small-font-size;
+    color: map.get($custom-colors, "tanne");
+    background: none;
+}
+
+
+.wp-block-calendar {
+    margin-top: var(--grid-margin);
+    margin-bottom: var(--grid-margin);
+}
+
+.entry-content > .wp-block-calendar {
+    margin-top: var(--half-block-spacing);
+    margin-bottom: var(--half-block-spacing);
+}
+

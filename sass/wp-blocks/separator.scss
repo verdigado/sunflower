@@ -1,4 +1,18 @@
+@use "sass:map";
+
 .wp-block-separator {
-    margin: 0;
-    height: 150px;
+    margin-top: var(--half-block-spacing);
+    margin-bottom: var(--half-block-spacing);
+    margin-left: 0;
+    margin-right: 0;
+    background-color: transparent;
+    color: map.get($custom-colors, "klee");
+    opacity: 1;
+
+    width: 33.3% !important;
+
+    &.is-style-wide,
+    &.is-style-dots {
+        width: 100% !important;
+    }
 }

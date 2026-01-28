@@ -84,7 +84,7 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 					<?php
 					sunflower_inline_svg( 'assets/img/concave.svg' );
 
-					// 1. Custom Logo hat immer Priorität
+					// 1. Custom Logo hat immer Priorität.
 					if ( has_custom_logo() ) {
 
 						$sunflower_custom_logo = wp_get_attachment_image_src(
@@ -94,7 +94,7 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 
 						if ( ! empty( $sunflower_custom_logo[0] ) ) {
 							printf(
-								'<img src="%s" class="img-fluid" alt="%s">',
+								'<img src="%s" class="img-fluid custom-logo" alt="%s">',
 								esc_url( $sunflower_custom_logo[0] ),
 								esc_attr( 'Logo ' . get_bloginfo( 'name' ) )
 							);
@@ -111,7 +111,7 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 						}
 
 						printf(
-							'<img src="%s" class="img-fluid" alt="%s">',
+							'<img src="%s" class="img-fluid default-logo" alt="%s">',
 							esc_url( sunflower_parent_or_child( $sunflower_logo_path ) ),
 							esc_attr( 'Logo BÜNDNIS 90/DIE GRÜNEN' )
 						);

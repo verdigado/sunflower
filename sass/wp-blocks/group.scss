@@ -1,15 +1,41 @@
+.entry-content > .wp-block-group.has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events) {
+    overflow: hidden;
+    padding: var(--grid-margin);
+    margin-top: var(--half-block-spacing);
+    margin-bottom: var(--half-block-spacing);
+}
+
+.entry-content > * .wp-block-group.is-layout-flex {
+
+    &:first-child:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events),
+    &:last-child:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events) {
+        padding-top: var(--grid-margin);
+        padding-bottom: var(--grid-margin);
+    }
+}
+
+.is-layout-grid {
+
+    gap: calc(2 * var(--gap-large));
+
+    @include media-breakpoint-down(sm) {
+        gap: var(--gap-large);
+    }
+
+    @include media-breakpoint-down(md) {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    @include media-breakpoint-down(sm) {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+}
+
 .wp-block-group {
 
     position: relative;
     margin-left: auto;
     margin-right: auto;
-
-    &.has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events) {
-        overflow: hidden;
-        padding: var(--grid-margin);
-        margin-top: var(--half-block-spacing);
-        margin-bottom: var(--half-block-spacing);
-    }
 
     .wp-block-group {
 
@@ -33,12 +59,6 @@
         column-gap: var(--gap-large);
         padding-top: var(--grid-margin);
         padding-bottom: var(--grid-margin);
-
-        &:first-child:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events),
-        &:last-child:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events) {
-            padding-top: var(--grid-margin);
-            padding-bottom: var(--grid-margin);
-        }
 
         .wp-block-group.is-layout-flex {
             column-gap: var(--grid-margin);
@@ -113,7 +133,7 @@
 }
 
 :where(.wp-block-columns.is-layout-flex) {
-    column-gap: 20px !important;
+
     row-gap: var(--double-grid-margin);
 
     @include media-breakpoint-down(md) {
@@ -258,6 +278,16 @@
 }
 
 .entry-content > .wp-block-group {
+    padding-top: var(--half-block-spacing);
+    padding-bottom: var(--half-block-spacing);
+}
+
+.wp-block-columns {
+    padding-top: var(--grid-margin);
+    padding-bottom: var(--grid-margin);
+}
+
+.entry-content > .wp-block-columns {
     padding-top: var(--half-block-spacing);
     padding-bottom: var(--half-block-spacing);
 }

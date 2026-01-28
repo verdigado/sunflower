@@ -111,7 +111,7 @@ if ( $sunflower_is_slider ) {
 		'<div class="%3$s">
             <a class="text-white no-link d-block has-green-550-hover-background-color border-radius" href="%1$s" rel="">
                 <div>
-                    <button class="text-white text-center pt-0">%2$s</button>
+                    <button class="text-center pt-0">%2$s</button>
                 </div>
             </a>
         </div>',
@@ -128,7 +128,7 @@ if ( ! $sunflower_is_slider ) {
 		'
     <a class="text-white no-link d-block has-green-550-hover-background-color border-radius" href="%1$s" rel="">
         <div>
-            <button class="text-white text-center pt-0">%2$s</button>
+            <button class="text-center pt-0">%2$s</button>
         </div>
     </a>
 ',

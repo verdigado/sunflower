@@ -89,7 +89,8 @@ $heading-weights: 400;
 
 
 h1:has(mark),
-h2:has(mark) {
+h2:has(mark),
+h3:has(mark) {
 
     line-height: 0 !important;
 
@@ -102,6 +103,7 @@ h2:has(mark) {
         --bg: transparent;
         margin-left: 20px;
         margin-right: 20px;
+        z-index: 1;
 
         @include media-breakpoint-down(xl) {
             font-size: 40px;
@@ -113,51 +115,25 @@ h2:has(mark) {
         }
 
 
-        &::before,
-        &::after {
-            width: 0;
-            height: 0;
-            content: "";
-            position: absolute;
-            bottom: 0;
-        }
-
         &::before {
-            top: -1px;
-            left: -19px;
-            border-style: solid;
-            border-width: 0 0 76px 19.3px;
-            border-color: transparent transparent var(--bg) transparent;
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: 100%;
+            content: "";
+            z-index: -1;
+            transform: skewX(-12deg);
+            background-color: var(--bg);
 
             @include media-breakpoint-down(xl) {
-                border-width: 0 0 51px 11.2px;
-                left: -11.1px;
+                left: -7px;
+                width: calc(100% + 14px);
             }
 
             @include media-breakpoint-down(md) {
-                border-width: 0 0 40.5px 8.5px;
-                left: -8.25px;
-                top: -0.53px;
-            }
-        }
-
-        &::after {
-            transform: scaleX(-1);
-            bottom: -1px;
-            right: -18.5px;
-            border-style: solid;
-            border-width: 0 19.3px 76px 0;
-            border-color: transparent var(--bg) transparent transparent;
-
-            @include media-breakpoint-down(xl) {
-                border-width: 0 11.2px 51px 0;
-                right: -11px;
-            }
-
-            @include media-breakpoint-down(md) {
-                border-width: 0 8.5px 40.5px 0;
-                bottom: -0.53px;
-                right: -8.25px;
+                left: -4px;
+                width: calc(100% + 8px);
             }
         }
 

@@ -1,5 +1,63 @@
 @use "sass:map";
 
+ul.wp-block-categories-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    column-gap: var(--half-grid-margin);
+    margin-top: var(--half-grid-margin);
+
+    li {
+        padding-left: 0;
+        margin-bottom: 0;
+
+        &::before {
+            display: none;
+        }
+
+        a {
+
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 13px;
+            color: $black;
+            letter-spacing: 0.5px;
+            line-height: 100%;
+            background: map.get($custom-colors, "sand");
+            border: 2px solid map.get($custom-colors, "schwarzwald");
+            padding: 0 15px 2px 15px;
+            height: 30px !important;
+            border-radius: 15px;
+            margin-top: var(--half-grid-margin);
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $primary;
+                border-bottom-color: $primary;
+            }
+
+        }
+
+        &.current-cat {
+
+            a {
+                background-color: map.get($custom-colors, "klee");
+                color: map.get($custom-colors, "weiss");
+                border: 2px solid map.get($custom-colors, "klee");
+            }
+        }
+    }
+}
+
 .archive {
 
     min-height: 100vh;
@@ -96,67 +154,7 @@
     }
 
     .sunflower-categories {
-
         margin-top: 0;
-
-        ul.wp-block-categories-list {
-            display: inline-flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            list-style-type: none;
-            column-gap: var(--half-grid-margin);
-            margin-top: var(--half-grid-margin);
-
-            li {
-                padding-left: 0;
-                margin-bottom: 0;
-
-                &::before {
-                    display: none;
-                }
-
-                a {
-
-                    display: inline-flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-weight: 700;
-                    font-size: 13px;
-                    color: $black;
-                    letter-spacing: 0.5px;
-                    line-height: 100%;
-                    background: map.get($custom-colors, "sand");
-                    border: 2px solid map.get($custom-colors, "schwarzwald");
-                    padding: 0 15px 2px 15px;
-                    height: 30px !important;
-                    border-radius: 15px;
-                    margin-top: var(--half-grid-margin);
-
-                    &:focus {
-                        outline: none;
-                        box-shadow: none;
-                    }
-
-                    &:hover,
-                    &:focus,
-                    &:active {
-                        color: $primary;
-                        border-bottom-color: $primary;
-                    }
-
-                }
-
-                &.current-cat {
-
-                    a {
-                        background-color: map.get($custom-colors, "klee");
-                        color: map.get($custom-colors, "weiss");
-                        border: 2px solid map.get($custom-colors, "klee");
-                    }
-                }
-            }
-        }
-
     }
 }
 
@@ -170,5 +168,84 @@
         display: flex;
         justify-content: center;
         column-gap: var(--grid-margin);
+    }
+}
+
+.wp-block-archives {
+
+    padding: var(--grid-margin);
+
+    &-list {
+
+        li {
+
+            font-weight: 700;
+
+            a {
+                transition: 300ms ease-out;
+            }
+
+            &::before {
+                mask: url(../sunflower26/assets/img/arrow-right.svg) no-repeat center;
+                background-color: map.get($custom-colors, "klee");
+                mask-size: 18px;
+                top: 8px;
+
+                @include media-breakpoint-down(xl) {
+                    top: 4px;
+                }
+            }
+        }
+    }
+}
+
+.wp-block-page-list {
+    margin: var(--grid-margin) 0 !important;
+
+    li {
+
+        font-weight: 700;
+
+        a {
+            transition: 300ms ease-out;
+        }
+
+        &::before {
+            mask: url(../sunflower26/assets/img/arrow-right.svg) no-repeat center;
+            background-color: map.get($custom-colors, "klee");
+            mask-size: 18px;
+            top: 8px;
+
+            @include media-breakpoint-down(xl) {
+                top: 4px;
+            }
+        }
+    }
+}
+
+.wp-block-rss,
+.wp-block-social-links {
+    margin-top: var(--grid-margin);
+    margin-bottom: var(--grid-margin);
+
+    li {
+
+        &::before {
+            display: none;
+        }
+    }
+}
+
+.wp-block-query {
+
+    .wp-block-post {
+
+        > .wp-block-group {
+            padding: 0 !important;
+        }
+    }
+
+    time {
+        color: map.get($custom-colors, "klee");
     }
 }

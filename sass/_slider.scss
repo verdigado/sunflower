@@ -4,6 +4,10 @@
     position: relative;
 }
 
+.latest-posts:has(.column-slider):not(:has(h2.text-center)) .column-slider {
+    margin-top: 86px;
+}
+
 /* Latest-Posts Slider – immer aktiv, mehrere Karten pro Ansicht */
 .latest-posts .row.column-slider {
     overflow: visible;

@@ -181,7 +181,9 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function ( e ) {
 				return;
 			}
 
-			jQuery( '#sunflower-contact-form' ).html( response.text );
+			jQuery( '#sunflower-contact-form' )
+				.addClass( 'is-feedback' )
+				.html( response.text );
 		} );
 
 	return false;
@@ -192,14 +194,20 @@ function addRssReadMore() {
 	// loop over every title with link and add it as "read more" link
 	jQuery( '.wp-block-rss .wp-block-rss__item' ).each( function () {
 		const titlelink = jQuery( '.wp-block-rss__item-title a', this );
-		const mydiv = jQuery( '<div class="d-flex flex-row-reverse">' );
+		const mydiv = jQuery(
+			'<div class="d-flex justify-content-between align-items-center rss-item-footer">'
+		);
+		const rssIcon = jQuery( '<i />', {
+			class: 'fa-solid fa-rss rss-icon',
+			'aria-hidden': 'true',
+		} );
 		const moreLink = jQuery( '<a />', {
 			href: titlelink.attr( 'href' ),
 			class: 'continue-reading',
 			rel: 'bookmark',
 			text: sunflower.texts.readmore,
 		} );
-		jQuery( this ).append( mydiv.append( moreLink ) );
+		jQuery( this ).append( mydiv.append( rssIcon ).append( moreLink ) );
 
 		// convert excerpt into link to have same behaviour as latest-posts
 		const excerpt = jQuery( '.wp-block-rss__item-excerpt', this ).text();

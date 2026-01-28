@@ -8,12 +8,8 @@
     width: calc(100% + var(--double-grid-margin)) !important;
     margin: 0 0 0 calc(-1 * var(--grid-margin)) !important;
     padding: calc(var(--half-grid-margin) / 2) var(--grid-margin) 0 var(--grid-margin);
-    // background-color: map-get($custom-colors, "sand");
+    background-color: map-get($custom-colors, "sand");
 
-    @include themed-colorscheme-nested() {
-        background-color: t(btn-pr-background);
-        color: t(btn-sk-text);
-    }
 
     @media (max-width: 480px) {
         padding-left: var(--grid-margin) !important;
@@ -44,12 +40,10 @@
 
     &:not(:is(.wp-block-sunflower-accordion + &)) {
         padding-top: var(--half-block-spacing);
-        margin: var(--double-grid-margin) 0 0 calc(-1 * var(--grid-margin)) !important;
     }
 
     &:not(:has(+ .wp-block-sunflower-accordion)) {
         padding-bottom: var(--half-block-spacing);
-        margin: 0 0 var(--double-grid-margin) calc(-1 * var(--grid-margin)) !important;
     }
 
     &:last-child {
@@ -97,8 +91,14 @@
                 font-size: 25px;
                 letter-spacing: 0.8px;
 
-                @include media-breakpoint-down(xl) {
-                    font-size: 25px;
+                @include media-breakpoint-down(lg) {
+                    font-size: 22px;
+                    line-height: 130%;
+                }
+
+                @include media-breakpoint-down(sm) {
+                    font-size: 20px;
+                    line-height: 135%;
                 }
 
                 &:hover {
@@ -155,7 +155,6 @@
         }
 
         &:nth-of-type(odd) {
-
             background-color: map.get($custom-colors, "weiss");
             border-radius: var(--border-radius-medium);
         }
@@ -227,4 +226,114 @@
         }
     }
 
+}
+
+
+.wp-block-details {
+    border-radius: var(--border-radius-medium);
+    margin-bottom: calc(var(--half-grid-margin) / 2);
+    min-height: 80px;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--grid-margin) var(--grid-margin) calc(var(--grid-margin) + 3px) var(--grid-margin);
+
+    // Erster Block in einer Gruppe bekommt margin-top
+    &:not(.wp-block-details + &) {
+        margin-top: var(--half-block-spacing);
+    }
+
+    // Letzter Block in einer Gruppe bekommt margin-bottom
+    &:not(:has(+ .wp-block-details)) {
+        margin-bottom: var(--half-block-spacing);
+    }
+
+    &:hover {
+        outline: 2px solid map.get($custom-colors, "grashalm");
+    }
+
+    &:nth-of-type(odd) {
+        background-color: map.get($custom-colors, "sand");
+    }
+
+    &:nth-of-type(even) {
+        background-color: map-get($custom-colors, "gruener-sand");
+    }
+
+    summary {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        display: inline-flex;
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+        transition: 200ms ease;
+        height: fit-content;
+        border: 0 solid #fff;
+        color: map-get($custom-colors, "tanne");
+        cursor: pointer;
+        list-style: none;
+
+        font-family: var(--wp--preset--font-family--gruenetypeneue);
+        font-weight: 400;
+        line-height: 125%;
+        font-size: 25px;
+        letter-spacing: 0.8px;
+
+        @include media-breakpoint-down(lg) {
+            font-size: 22px;
+            line-height: 130%;
+        }
+
+        @include media-breakpoint-down(sm) {
+            font-size: 20px;
+            line-height: 135%;
+        }
+
+        &:hover {
+            border: none !important;
+            outline: none !important;
+            color: map.get($custom-colors, "klee") !important;
+        }
+
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &::marker {
+            display: none;
+            content: "";
+        }
+
+        &::before {
+            content: url("assets/img/arrow-right.svg");
+            display: inline-flex;
+            position: relative;
+            top: 2px;
+            transition: 300ms ease-out;
+            width: fit-content;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+    }
+
+
+    &[open] summary::before {
+        rotate: -90deg;
+        top: -1px;
+    }
+
+
+    p {
+        padding: 0 var(--grid-margin) 0 var(--grid-margin) 0;
+    }
+
+
+    > summary + * {
+        padding-top: 0;
+    }
 }

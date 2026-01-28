@@ -1,5 +1,17 @@
+@use "sass:map";
+
+.entry-content > .wp-block-pullquote {
+    padding-top: var(--half-block-spacing);
+    padding-bottom: var(--half-block-spacing);
+}
+
+.entry-content > .wp-block-quote {
+    margin-top: var(--half-block-spacing);
+    margin-bottom: var(--half-block-spacing);
+}
+
 .wp-block-quote {
-    padding: 2em;
+    padding: var(--grid-margin);
 
     p {
 
@@ -10,5 +22,27 @@
     cite {
         font-style: normal;
         font-size: $small-font-size;
+    }
+}
+
+blockquote,
+blockquote.wp-block-quote {
+    margin: calc(var(--grid-margin) + 4px) 0 var(--grid-margin) 0;
+    border-radius: var(--border-radius-medium);
+    padding: calc(var(--grid-margin) - 5px) var(--grid-margin) calc(var(--grid-margin) - 2px) var(--grid-margin);
+    font-size: 21px;
+    font-family: var(--wp--preset--font-family--gruenetypeneue);
+    color: map.get($custom-colors, "tanne");
+
+    &:nth-of-type(odd) {
+        background-color: map.get($custom-colors, "sand");
+    }
+
+    &:nth-of-type(even) {
+        background-color: map.get($custom-colors, "gruener-sand");
+    }
+
+    p {
+        margin: 0;
     }
 }

@@ -10,6 +10,7 @@
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
     display: inline-block;
+
 }
 
 .wp-block-image {
@@ -31,4 +32,9 @@ figcaption {
     -webkit-backdrop-filter: blur(25px) saturate(200%);
     background-color: rgba(255, 255, 255, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.wp-block-video {
+    border-radius: var(--border-radius-small);
+    overflow: hidden;
 }

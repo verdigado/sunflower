@@ -311,3 +311,37 @@
         }
     }
 }
+
+
+.wp-block-latest-posts {
+    list-style: none;
+
+    li {
+        padding-left: 0;
+        margin-bottom: var(--double-grid-margin);
+
+        &::before {
+            display: none;
+        }
+    }
+
+    .wp-block-latest-posts__post-author,
+    time {
+        display: inline-block;
+        margin: 0 var(--grid-margin) 0 0;
+        font-weight: 700;
+    }
+
+    .wp-block-latest-posts__post-excerpt {
+        margin-top: 0;
+    }
+
+    .wp-block-latest-posts__post-title {
+        display: block;
+    }
+}
+
+.wp-block-preformatted {
+    background: transparent;
+    padding: var(--grid-margin);
+}

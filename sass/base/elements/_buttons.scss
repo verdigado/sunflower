@@ -1,34 +1,16 @@
 @use "sass:map";
 
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-.sunflower-post-navigation a {
-    border: 1px solid;
-    border-color: $button-border;
-    background-color: $button-background;
-    line-height: 1;
-    padding: 0.6em 1em 0.4em;
-    transition: 0.3s ease;
 
-    @include themed-colorscheme-nested() {
-        background-color: t(btn-pr-background);
-        color: t(btn-pr-text);
+.entry-content {
+
+    > .wp-block-buttons {
+        justify-content: center;
+        margin-top: var(--half-block-spacing);
+        margin-bottom: var(--half-block-spacing);
     }
+}
 
-    &:hover {
-        border-color: $button-hover;
-        background-color: $button-hover;
-
-        @include themed-colorscheme-nested() {
-            background-color: t(btn-pr-background);
-            color: t(btn-pr-text);
-        }
-    }
-
-    &:active,
-    &:focus {
-        border-color: $color__border-button-focus;
-    }
+.wp-block-buttons {
+    gap: var(--grid-margin) !important;
+    column-gap: var(--grid-margin) !important;
 }

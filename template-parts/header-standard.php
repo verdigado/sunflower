@@ -26,18 +26,22 @@
 
 			<div class="right-bar__content">
 
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-					rel="home"
-					class="logo-background">
-					<?php
-					$sunflower_options = get_option( 'sunflower_first_steps_options' );
-					if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
-						the_custom_logo();
-					} elseif ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
-						sunflower_inline_svg( 'assets/img/sunflower-3.0.svg' );
-					}
+				<?php
+				$sunflower_options = get_option( 'sunflower_first_steps_options' );
+				if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
+					// Custom Logo wird direkt angezeigt (erzeugt eigenen Link).
+					the_custom_logo();
+				} elseif ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
+					// Standard Sunflower Logo mit Hintergrund.
 					?>
-				</a>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+						rel="home"
+						class="logo-background">
+						<?php sunflower_inline_svg( 'assets/img/sunflower-3.0.svg' ); ?>
+					</a>
+					<?php
+				}
+				?>
 
 				<nav class="main-menu">
 					<?php

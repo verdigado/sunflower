@@ -31,6 +31,8 @@ h6 {
 .wp-block-button__link,
 input[type="submit"],
 button,
+.wp-block-file__button,
+button[type="submit"],
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
@@ -54,14 +56,9 @@ input[type="submit"],
 
 
     &:hover {
-        color: map.get($custom-colors, "schwarzwald");
+        color: map.get($custom-colors, "schwarzwald") !important;
         text-decoration: none;
-        background-color: $button-hover;
-        border: 2px solid map.get($custom-colors, "schwarzwald");
-    }
-
-    &:hover {
-        color: $white;
+        background-color: $button-hover !important;
     }
 
     &:focus {
@@ -170,3 +167,4 @@ input[type="submit"],
         padding: 0 25px 4px 25px;
     }
 }
+

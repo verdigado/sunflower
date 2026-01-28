@@ -1,24 +1,42 @@
 .wp-block-gallery {
+    // WordPress Core nutzt diese Variable für die Breitenberechnung der Bilder
+    --wp--style--gallery-gap-default: var(--grid-margin);
+    gap: var(--grid-margin) !important;
+    display: flex;
 
-    .wp-element-caption {
+    > .wp-element-caption {
+        grid-column: 1 / -1; // Caption über volle Breite, damit sie keine Spalte "wegnimmt"
         text-shadow: none !important;
+    }
+
+    .wp-block-image {
+
+        &::before {
+            display: none;
+        }
     }
 
     figcaption {
         width: 100% !important;
         color: inherit !important;
         text-align: center !important;
-        font-size: 12px !important;
         line-height: 125% !important;
         background: none !important;
         padding: calc(var(--gap-small) / 2) var(--gap-small) !important;
         position: absolute !important;
         bottom: 0 !important;
+        text-shadow: none !important;
+        font-weight: 500 !important;
 
         backdrop-filter: blur(25px) saturate(200%) !important;
         -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
         background-color: rgba(255, 255, 255, 0.7) !important;
         border: 1px solid rgba(255, 255, 255, 0.15) !important;
+
+        &.blocks-gallery-caption {
+            position: relative !important;
+
+        }
     }
 
     .blocks-gallery-item {

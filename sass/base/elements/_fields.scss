@@ -1,3 +1,5 @@
+@use "sass:map";
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -60,6 +62,43 @@ textarea {
     }
 }
 
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 23px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0.6px;
+    height: 46px;
+    width: 100%;
+    font-family: "PT Sans", sans-serif;
+    padding: 0 50px 4px 20px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: 2px solid $button-border;
+    background-color: $button-background;
+    color: $primary;
+    background-image: url("/wp-content/themes/sunflower26/assets/img/dropdown.svg");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 18px auto;
+
+    &:hover {
+        color: map.get($custom-colors, "schwarzwald");
+        text-decoration: none;
+        background-color: $button-hover;
+    }
+
+    &:focus {
+        color: $white;
+        outline: 2px solid map.get($custom-colors, "klee");
+        border: 2px solid map.get($custom-colors, "klee");
+        background-color: map.get($custom-colors, "tanne");
+    }
+}
+
 @include media-breakpoint-down(md) {
 
     input[type="text"],
@@ -77,7 +116,8 @@ textarea {
     input[type="datetime"],
     input[type="datetime-local"],
     input[type="color"],
-    textarea {
+    textarea,
+    select {
         font-size: 16px;
     }
 }
@@ -277,5 +317,20 @@ label {
         position: relative;
         width: fit-content;
         right: var(--half-grid-margin);
+        margin-bottom: 0;
+
+        input {
+            letter-spacing: 2px;
+        }
+    }
+
+    textarea {
+        border-radius: var(--border-radius-medium);
+        padding: 2px 20px 5px 20px;
+    }
+
+    &.is-feedback {
+        justify-content: center;
+        text-align: center;
     }
 }

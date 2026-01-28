@@ -1,6 +1,6 @@
 document.addEventListener( 'DOMContentLoaded', function () {
 	const iconMap = {
-		email: 'fa-envelope',
+		email: 'fa-solid fa-envelope',
 	};
 
 	const inputs = document.querySelectorAll( 'input[type="email"]' );

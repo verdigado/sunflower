@@ -20,7 +20,7 @@ $sunflower_placeholder_phone   = __( 'Phone', 'sunflower-contact-form' ) . ( $su
 $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*';
 ?>
 
-<div class="comment-respond mb-5">
+<div class="comment-respond">
 	<?php if ( ! empty( $sunflower_title ) ) : ?>
 		<h2 id="contact-form-title" class="text-center h1">
 			<?php echo esc_html( $sunflower_title ); ?>
