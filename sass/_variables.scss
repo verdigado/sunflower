@@ -58,14 +58,14 @@ $transition-easing:   ease !default;
 $transition-delay:    0.3s !default;
 
 
-$grid-breakpoints: (
-    xs: 0,
-    sm: 470px,
-    md: 950px,
-    lg: 1200px,
-    xl: 1500px,
-    xxl: 2100px
-);
+// $grid-breakpoints: (
+//     xs: 0,
+//     sm: 470px,
+//     md: 950px,
+//     lg: 1200px,
+//     xl: 1500px,
+//     xxl: 2100px
+// );
 
 
 :root {
@@ -150,12 +150,12 @@ $grid-breakpoints: (
     }
 }
 
-$container-max-widths: (
-    sm: 450px,
-    md: 880px,
-    lg: 1140px,
-    xl: 1380px,
-    xxl: 1680px) !default;
+// $container-max-widths: (
+//     sm: 450px,
+//     md: 880px,
+//     lg: 1140px,
+//     xl: 1380px,
+//     xxl: 1680px) !default;
 
 
 $font-size-base: 1.1875rem;

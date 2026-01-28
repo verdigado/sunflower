@@ -115,3 +115,48 @@ function sunflower_enqueue_block_icon_picker() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_icon_picker' );
+
+/**
+ * Block styles for Gutenberg.
+ */
+function sunflower_enqueue_block_core_assets() {
+
+	wp_enqueue_script(
+		'sunflower-core-list-variations',
+		get_template_directory_uri() . '/build/core/cover/index.js',
+		array(
+			'wp-blocks',
+			'wp-i18n',
+			'wp-element',
+		),
+		SUNFLOWER_VERSION,
+		true
+	);
+
+	wp_enqueue_script(
+		'sunflower-core-list-variations',
+		get_template_directory_uri() . '/build/core/list/index.js',
+		array(
+			'wp-blocks',
+			'wp-i18n',
+			'wp-element',
+		),
+		SUNFLOWER_VERSION,
+		true
+	);
+
+	// Styles for the editor.
+	wp_enqueue_style(
+		'sunflower-core-list-variations',
+		get_template_directory_uri() . '/build/core/cover/index.css',
+		array(),
+		SUNFLOWER_VERSION
+	);
+	wp_enqueue_style(
+		'sunflower-core-list-variations',
+		get_template_directory_uri() . '/build/core/list/index.css',
+		array(),
+		SUNFLOWER_VERSION
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_core_assets' );

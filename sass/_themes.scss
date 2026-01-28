@@ -42,6 +42,7 @@ $themes: (
         form-section-border: map-get($custom-colors, "klee"),
         form-section-title-color: map-get($custom-colors, "weiss"),
         form-section-title-background: map-get($custom-colors, "klee"),
+        cover-concave-img: "assets/img/concave-30px.svg"
     ),
     colorscheme-green: (
         background: map-get($custom-colors, "schwarzwald"),
@@ -83,6 +84,7 @@ $themes: (
         form-section-border: map-get($custom-colors, "weiss"),
         form-section-title-color: map-get($custom-colors, "weiss"),
         form-section-title-background: map-get($custom-colors, "himmel"),
+        cover-concave-img: "assets/img/concave-30px_darkmode.svg"
     ),
     /* Form Style*/
     formstyle-sharp: (border-radius: 0),

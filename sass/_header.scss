@@ -190,6 +190,7 @@ body.admin-bar {
     .right-bar {
 
         top: 46px;
+        bottom: -46px;
 
         @include media-breakpoint-up(md) {
             top: 32px;

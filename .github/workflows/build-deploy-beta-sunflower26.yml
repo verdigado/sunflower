@@ -13,6 +13,12 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PROJECT_ROOT: ${{ github.workspace }}/sunflower26
+
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_ROOT }}
 
     if: |
       ${{
@@ -23,13 +29,16 @@ jobs:
       }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        with:
+            path: sunflower26
 
       - name: check theme version against tag
         run: |
             THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
             V="v"
             echo Version in style.scss: $THEME_VERSION
+            echo Tag name: ${{ github.event.release.tag_name }}
             if [ "$V$THEME_VERSION" != "${{ github.event.release.tag_name }}" ]; then exit 1; fi
 
       - uses: actions/setup-node@v4
@@ -85,7 +94,7 @@ jobs:
         run: cs2pr ./phpcs-report.xml
 
       - name: Make bundle
-        run: npm run copy-node-modules
+        run: npm run bundle
 
       - name: fail on fork
         if: github.repository_owner != 'verdigado'
@@ -93,12 +102,9 @@ jobs:
 
       - name: Rename ZIP file
         run: |
-            cd ..
-            cp -r sunflower /tmp/sunflower26
-            cd /tmp/
-            zip -r $HOME/sunflower26.zip sunflower26 -x @sunflower26/exclude.lst
-            cd $HOME
-            mv sunflower26.zip sunflower-${{ github.event.release.tag_name }}.zip
+            pwd
+            ls -l
+            mv ../sunflower26.zip sunflower-${{ github.event.release.tag_name }}.zip
 
       - name: Upload Release
         uses: ncipollo/release-action@v1

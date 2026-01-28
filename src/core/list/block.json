@@ -1,0 +1,8 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  	"name": "sunflower/core-list",
+	"title": "Modified List Block Styles for Sunflower Theme",
+	"editorScript": "file:./index.js",
+	"style": "file:./index.css"
+}

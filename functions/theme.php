@@ -153,3 +153,61 @@ function sunflower_inline_svg( $file ) {
 		echo '<!-- SVG not found: ' . esc_html( $filename ) . ' -->';
 	}
 }
+
+/**
+ * Get body classes depending on theme options
+ *
+ * @return array Array of body classes.
+ */
+function sunflower_get_body_classes() {
+
+	$options = get_option( 'sunflower_options' );
+
+	if ( ! empty( $options['sunflower_form_style'] ) ) {
+		$classes[] = 'formstyle-' . sanitize_html_class( $options['sunflower_form_style'] );
+	}
+
+	if ( ! empty( $options['sunflower_color_scheme'] ) ) {
+		$classes[] = 'colorscheme-' . sanitize_html_class( $options['sunflower_color_scheme'] );
+	}
+
+	if ( ! empty( $options['sunflower_footer_layout'] ) ) {
+		$classes[] = 'footer-' . sanitize_html_class( $options['sunflower_footer_layout'] );
+	}
+
+	return $classes;
+}
+
+/**
+ * Add body classes to the theme options
+ *
+ * @param array $classes Array containing all set body classes.
+ */
+function sunflower_add_body_classes( $classes ) {
+
+	$classes = array_merge( $classes, sunflower_get_body_classes() );
+
+	return $classes;
+}
+add_filter( 'body_class', 'sunflower_add_body_classes' );
+
+/**
+ * Add the styled_layout class in backend editor if set.
+ *
+ * @param string $classes The editor body classes.
+ * @return string The modified classes
+ */
+function sunflower_admin_classes_layout( $classes ) {
+
+	global $post;
+
+	if ( $post ) {
+		$sunflower_styled_layout = get_post_meta( $post->ID, '_sunflower_styled_layout', true ) ? 'styled-layout' : '';
+		$classes                .= ' ' . $sunflower_styled_layout;
+	}
+
+	$classes .= ' ' . implode( ' ', sunflower_get_body_classes() );
+
+	return trim( $classes );
+}
+add_filter( 'admin_body_class', 'sunflower_admin_classes_layout' );

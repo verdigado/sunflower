@@ -17,6 +17,13 @@ ul {
             margin-bottom: 0;
         }
 
+    }
+}
+
+ul.wp-block-list.is-style-sunflower-checkmark {
+
+    li {
+
         &::before {
             content: "";
             position: absolute;

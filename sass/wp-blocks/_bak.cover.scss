@@ -1,0 +1,213 @@
+@use "sass:map";
+
+
+.entry-content > .wp-block-cover.is-style-sunflower-hero {
+
+    max-width: 100vw;
+    transition: 0.3s ease;
+    border-radius: 0;
+    overflow: hidden;
+    padding: 0 var(--grid-margin);
+    position: relative;
+    width: calc(100% + var(--double-grid-margin)) !important;
+    margin-left: calc(-1 * var(--grid-margin)) !important;
+
+    @include media-breakpoint-down(xl) {
+        min-height: 300px;
+    }
+
+    @include media-breakpoint-down(md) {
+        height: fit-content;
+        flex-direction: column;
+        min-height: 250px;
+    }
+
+    .wp-block-cover__inner-container {
+        padding: var(--grid-margin);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        @include media-breakpoint-down(md) {
+            padding: var(--gap-huge) var(--gap-large);
+        }
+
+        &:has(> :is(h1,h2,h3,h4)):not(:has(> :not(:is(h1,h2,h3,h4,.wp-block-buttons)))) {
+            padding-top: var(--gap-huge);
+            padding-bottom: var(--gap-huge);
+
+            h1:has(mark),
+            h2:has(mark),
+            h3:has(mark) {
+                text-align: left !important;
+            }
+        }
+    }
+
+}
+
+body .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - var(--double-grid-margin));
+    margin-top: var(--grid-margin);
+    margin-bottom: var(--half-block-spacing);
+    margin-left: calc(-1 * var(--grid-margin)) !important;
+    margin-right: calc(-1 * var(--grid-margin)) !important;
+    border-radius: var(--border-radius-large);
+    padding: 0 !important;
+    left: var(--grid-margin) !important;
+    width: 100% !important;
+
+    @include media-breakpoint-down(md) {
+        min-height: initial !important;
+        height: fit-content !important;
+        margin-bottom: 0 !important;
+    }
+
+    .wp-block-cover__image-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+
+        @include media-breakpoint-down(md) {
+            height: auto;
+            border-radius: var(--border-radius-large);
+            min-height: 350px;
+            position: relative !important;
+        }
+    }
+
+    .wp-block-cover__inner-container {
+        background-color: $white;
+        border-radius: 0 var(--border-radius-large) 0 0;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: fit-content;
+        padding: 25px 50px 0 25px !important;
+        max-width: 70%;
+
+        &:has(> :is(h1,h2,h3,h4)):not(:has(> :not(:is(h1,h2,h3,h4,.wp-block-buttons)))) {
+            padding-top: inherit;
+            padding-bottom: inherit;
+        }
+
+        @include media-breakpoint-down(xl) {
+            max-width: 75%;
+        }
+
+        @include media-breakpoint-down(lg) {
+            padding: 24px 24px 0 12px;
+        }
+
+        @include media-breakpoint-down(md) {
+            max-width: 100%;
+            width: 100%;
+            border-radius: 0;
+            padding: 12px 0 0 0 !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative !important;
+
+            h1 {
+                margin-top: -32px !important;
+            }
+        }
+
+        @media (max-width: 550px) {
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            h1 {
+                margin-top: 0 !important;
+            }
+        }
+
+
+        h1 {
+            color: map.get($custom-colors, "tanne") !important;
+            text-align: left;
+            margin-bottom: calc(var(--grid-margin) * 2);
+            position: relative;
+
+            @include media-breakpoint-down(lg) {
+                margin-top: 0;
+            }
+
+            left: -8px;
+
+        }
+
+        .wp-block-buttons {
+            margin-bottom: var(--grid-margin);
+            flex-wrap: wrap;
+
+            @include media-breakpoint-down(lg) {
+                justify-content: center;
+                width: 100%;
+
+                .wp-block-button {
+                    flex: 1 1 auto;
+                    max-width: 100%;
+                }
+            }
+        }
+
+        &::before {
+            content: url("assets/img/concave-30px.svg");
+            height: 30px;
+            width: 38.16px;
+            position: absolute;
+            rotate: -180deg;
+            top: -16.8px;
+            left: -0.3px;
+
+            @include media-breakpoint-down(xl) {
+                height: 20px;
+                width: 25.44px;
+                top: -11.5px;
+                left: 0;
+            }
+        }
+
+        &::after {
+            content: url("assets/img/concave-30px.svg");
+            height: 30px;
+            width: 38.16px;
+            position: absolute;
+            rotate: 180deg;
+            bottom: -12.5px;
+            right: -37.7px;
+
+            @include media-breakpoint-down(xl) {
+                height: 20px;
+                width: 25.44px;
+                right: -25.2px;
+                bottom: -8.5px;
+            }
+
+            @include media-breakpoint-down(md) {
+                bottom: initial;
+                top: -22.4px;
+                rotate: 90deg;
+                right: -11px;
+            }
+
+        }
+    }
+
+}
+
+
+.wp-block-column {
+
+    .wp-block-cover {
+        overflow: hidden;
+        border-radius: var(--border-radius-medium);
+    }
+}
