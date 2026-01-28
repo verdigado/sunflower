@@ -47,7 +47,10 @@ jobs:
 
       - name: Install npm packages
         if: steps.npm-cache-dir.outputs.cache-hit != 'true'
-        run: npm ci
+        run: |
+            pwd
+            ls -l
+            npm ci
 
       - name: Lint SCSS
         run: npm run lint:scss
