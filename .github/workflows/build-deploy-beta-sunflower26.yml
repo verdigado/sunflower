@@ -46,7 +46,7 @@ jobs:
             node-version: ${{ env.NODE_VERSION }}
 
       - name: Cache node_modules directory
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: npm-cache-dir
         with:
             path: node_modules
@@ -102,8 +102,6 @@ jobs:
 
       - name: Rename ZIP file
         run: |
-            pwd
-            ls -l
             mv ../sunflower26.zip sunflower-${{ github.event.release.tag_name }}.zip
 
       - name: Upload Release

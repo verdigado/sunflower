@@ -60,7 +60,7 @@
         left: calc(-1 * calc(var(--gap-large) / 2));
         right: auto;
         top: 100%;
-        background: map.get($custom-colors, "weiss") !important;
+        background: map.get($custom-colors, "white") !important;
         z-index: 100;
         display: none;
         min-width: calc(100% + 20px);

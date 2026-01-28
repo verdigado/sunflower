@@ -46,7 +46,7 @@
 @mixin card {
     box-shadow: none;
     position: relative;
-    background-color: map.get($custom-colors, "weiss") !important;
+    background-color: map.get($custom-colors, "white") !important;
     padding: 13px 17px 16px 18px;
     width: calc(100% + var(--double-grid-margin)) !important;
     border: 2px solid map.get($custom-colors, "klee");

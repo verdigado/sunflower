@@ -93,7 +93,7 @@
     padding: 0;
     cursor: pointer;
     z-index: 10;
-    background-color: map.get($custom-colors, "weiss") !important;
+    background-color: map.get($custom-colors, "white") !important;
     border: 2px solid $primary !important;
     border-radius: 23px;
 
@@ -106,7 +106,7 @@
         border: 2px solid $secondary !important;
 
         div svg {
-            color: map.get($custom-colors, "weiss");
+            color: map.get($custom-colors, "white");
         }
     }
 }
@@ -154,7 +154,7 @@ a:has(.continue-reading) {
     padding: 0 35px 4px 35px !important;
     transition: 0.3s ease;
     border: 2px solid map.get($custom-colors, "tanne") !important;
-    background-color: map.get($custom-colors, "weiss") !important;
+    background-color: map.get($custom-colors, "white") !important;
     color: $primary;
     cursor: pointer;
 
@@ -175,7 +175,7 @@ a:has(.continue-reading) {
         .p-45 {
 
             span {
-                color: map.get($custom-colors, "weiss") !important;
+                color: map.get($custom-colors, "white") !important;
             }
         }
     }
@@ -226,7 +226,7 @@ a:has(.continue-reading) {
         padding: 0;
         cursor: pointer;
         z-index: 10;
-        background-color: map.get($custom-colors, "weiss") !important;
+        background-color: map.get($custom-colors, "white") !important;
         border: 2px solid $primary !important;
         border-radius: 23px;
 
@@ -239,7 +239,7 @@ a:has(.continue-reading) {
             border: 2px solid $secondary !important;
 
             div svg {
-                color: map.get($custom-colors, "weiss");
+                color: map.get($custom-colors, "white");
             }
         }
     }

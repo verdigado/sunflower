@@ -74,7 +74,7 @@ a.event-card {
             gap: var(--grid-margin);
             position: relative;
             transition: 290ms ease-out;
-            outline: 0 solid map.get($custom-colors, "weiss");
+            outline: 0 solid map.get($custom-colors, "white");
 
             &:hover {
                 margin-top: 0 !important;
@@ -118,7 +118,7 @@ a.event-card {
 
             h2 {
                 font-size: 21px;
-                color: map.get($custom-colors, "weiss");
+                color: map.get($custom-colors, "white");
                 letter-spacing: 0.7px;
             }
 
@@ -184,7 +184,7 @@ a.event-card {
             width: 100% !important;
 
             .small {
-                color: map.get($custom-colors, "weiss");
+                color: map.get($custom-colors, "white");
                 font-weight: 450;
             }
 
@@ -222,7 +222,7 @@ a.event-card {
 
                 article {
                     background-color: map.get($custom-colors, "tanne");
-                    color: map.get($custom-colors, "weiss");
+                    color: map.get($custom-colors, "white");
 
                     &:hover {
                         box-shadow: 0 0 0 3px map.get($custom-colors, "tanne") !important;
@@ -235,7 +235,7 @@ a.event-card {
 
                 article {
                     background-color: map.get($custom-colors, "klee");
-                    color: map.get($custom-colors, "weiss");
+                    color: map.get($custom-colors, "white");
 
                     &:hover {
                         box-shadow: 0 0 0 3px map.get($custom-colors, "klee") !important;

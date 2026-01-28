@@ -1,37 +1,29 @@
 @use "sass:map";
 $custom-colors: (
-    schwarzwald:#002216,
-    tanne: #005538,
-    klee: #008939,
-    grashalm: #8abd24,
-    sonne: #fff17a,
-    sand: #f5f1e9,
-    maus: #374951,
-    kalk: #e8eae9,
-    gruener-sand: #f3faf6,
-    weiss: #fff,
-    white: #fff,
-    himmel: #0ba1dd,
+    "schwarzwald": #002216,
+    "tanne": #005538,
+    "klee": #008939,
+    "grashalm": #8abd24,
+    "sonne": #fff17a,
+    "sand": #f5f1e9,
+    "maus": #374951,
+    "kalk": #e8eae9,
+    "gruener-sand": #f3faf6,
+    "white": #fff,
+    "himmel": #0ba1dd,
 
-    //black: #000,
-    //black-500: #201d1b,
-    //gray: #eff2ed,
-    //gray-500: #6b7a80,
-    //white: #fff
-    //klee-700: #006e2e,
 );
 
 
 $primary: map.get($custom-colors, "tanne");
 $secondary: map.get($custom-colors, "grashalm");
-$white: map.get($custom-colors, "weiss");
+$white: map.get($custom-colors, "white");
 
 $button-border: $primary;
 $button-background: $white;
 $button-hover: map.get($custom-colors, "sonne");
 
 $black: map.get($custom-colors, "schwarzwald");
-//$black-500: map.get($custom-colors, "black-500");
 
 $white-90: rgba(255, 255, 255, 0.9);
 
@@ -149,14 +141,6 @@ $grid-breakpoints: (
         --gap-huge: 75px;
     }
 }
-
-// $container-max-widths: (
-//     sm: 450px,
-//     md: 880px,
-//     lg: 1140px,
-//     xl: 1380px,
-//     xxl: 1680px) !default;
-
 
 $font-size-base: 1.1875rem;
 $small-font-size: 14px;
