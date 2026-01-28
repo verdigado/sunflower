@@ -35,14 +35,14 @@ jobs:
         with:
             node-version: ${{ env.NODE_VERSION }}
 
-      - name: Cache node_modules directory
-        uses: actions/cache@v5
-        id: npm-cache-dir
-        with:
-            path: sunflower26/node_modules
-            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: |
-                ${{ runner.os }}-node-
+      # - name: Cache node_modules directory
+      #   uses: actions/cache@v5
+      #   id: npm-cache-dir
+      #   with:
+      #       path: sunflower26/node_modules
+      #       key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #       restore-keys: |
+      #           ${{ runner.os }}-node-
 
       - name: Install npm packages
         if: steps.npm-cache-dir.outputs.cache-hit != 'true'
@@ -85,3 +85,33 @@ jobs:
 
       - name: Make bundle
         run: npm run bundle
+
+      - name: Rename ZIP file
+        run: |
+            SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+            BRANCH_NAME=${GITHUB_REF##*/}
+            mv ../sunflower26.zip sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip
+
+      - name: Provide deploy_key
+        env:
+            DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
+            SSH_USER: 'github-ci'
+            SSH_HOST: 'wordpress71.gcms.verdigado.net'
+        run: |
+            mkdir "$HOME/.ssh"
+            echo "$DEPLOY_KEY" > "$HOME/.ssh/dev-server.key"
+            chmod 600 "$HOME/.ssh/dev-server.key"
+            cat >> ~/.ssh/config <<END
+            Host dev-server
+              HostName $SSH_HOST
+              User $SSH_USER
+              IdentityFile ~/.ssh/dev-server.key
+              StrictHostKeyChecking no
+            END
+
+      - name: rsync zipfile
+        run: |
+            SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+            BRANCH_NAME=${GITHUB_REF##*/}
+            rsync sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip dev-server:/var/www/updateserver/
+            ssh dev-server "cd /var/www && rm -fr wp-content/themes/sunflower26/ && wp theme install updateserver/sunflower26-${BRANCH_NAME}-${SHORT_SHA}.zip >> /tmp/sunflower-install.log"

@@ -88,11 +88,7 @@ jobs:
         run: cs2pr ./phpcs-report.xml
 
       - name: Make bundle
-        run: |
-          npm run bundle
-          ls -l
-          ls -l assets/vndr
-          ls -l ../
+        run: npm run bundle
 
       - name: fail on fork
         if: github.repository_owner != 'verdigado'
@@ -122,8 +118,6 @@ jobs:
             END
 
       - name: rsync zipfile
-        env:
-            PAGEID: 1952
         run: |
             SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
             BRANCH_NAME=${GITHUB_REF##*/}
