@@ -36,28 +36,21 @@ jobs:
         with:
             node-version: ${{ env.NODE_VERSION }}
 
-      - name: Cache node_modules directory
-        uses: actions/cache@v5
-        id: npm-cache-dir
-        with:
-            path: node_modules
-            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: |
-                ${{ runner.os }}-node-
+      # - name: Cache node_modules directory
+      #   uses: actions/cache@v5
+      #   id: npm-cache-dir
+      #   with:
+      #       path: node_modules
+      #       key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #       restore-keys: |
+      #           ${{ runner.os }}-node-
 
       - name: Install npm packages
         if: steps.npm-cache-dir.outputs.cache-hit != 'true'
-        run: |
-            pwd
-            ls -l
-            npm ci
+        run: npm ci
 
       - name: Copy node modules
-        run: |
-          pwd
-          ls -l
-          npm run copy-node-modules
-          ls -l assets/vndr
+        run: npm run copy-node-modules
 
       - name: Lint SCSS
         run: npm run lint:scss
