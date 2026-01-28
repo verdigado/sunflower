@@ -1,24 +1,23 @@
 @use "sass:map";
 $custom-colors: (
-    schwarzwald:#002216,
-    tanne: #005538,
-    klee: #008939,
-    grashalm: #8abd24,
-    sonne: #fff17a,
-    sand: #f5f1e9,
-    maus: #374951,
-    kalk: #e8eae9,
-    gruener-sand: #f3faf6,
-    "weiss": #fff,
-    white: #fff,
-    himmel: #0ba1dd,
+    "schwarzwald": #002216,
+    "tanne": #005538,
+    "klee": #008939,
+    "grashalm": #8abd24,
+    "sonne": #fff17a,
+    "sand": #f5f1e9,
+    "maus": #374951,
+    "kalk": #e8eae9,
+    "gruener-sand": #f3faf6,
+    "white": #fff,
+    "himmel": #0ba1dd,
 
 );
 
 
 $primary: map.get($custom-colors, "tanne");
 $secondary: map.get($custom-colors, "grashalm");
-$white: map.get($custom-colors, "weiss");
+$white: map.get($custom-colors, "white");
 
 $button-border: $primary;
 $button-background: $white;

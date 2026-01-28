@@ -33,7 +33,7 @@
 
         .accordion-button,
         .accordion-item {
-            background-color: map.get($custom-colors, "weiss") !important;
+            background-color: map.get($custom-colors, "white") !important;
             border-radius: var(--border-radius-medium) !important;
         }
     }
@@ -72,7 +72,7 @@
             .accordion-button {
                 width: 100%;
                 min-height: 80px;
-                background-color: map-get($custom-colors, "weiss");
+                background-color: map-get($custom-colors, "white");
                 justify-content: flex-start;
                 align-items: center;
                 display: inline-flex;
@@ -104,7 +104,7 @@
                 &:hover {
                     border: none !important;
                     outline: none !important;
-                    background-color: map.get($custom-colors, "weiss");
+                    background-color: map.get($custom-colors, "white");
                     color: map.get($custom-colors, "klee") !important;
                 }
 
@@ -155,7 +155,7 @@
         }
 
         &:nth-of-type(odd) {
-            background-color: map.get($custom-colors, "weiss");
+            background-color: map.get($custom-colors, "white");
             border-radius: var(--border-radius-medium);
         }
 

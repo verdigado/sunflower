@@ -28,7 +28,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: map.get($custom-colors, "weiss");
+    background: map.get($custom-colors, "white");
     border-radius: 50%;
     margin: 3px;
     border: 2px solid map.get($custom-colors, "tanne");
@@ -46,7 +46,7 @@
         background: map.get($custom-colors, "klee");
 
         i {
-            color: map.get($custom-colors, "weiss") !important;
+            color: map.get($custom-colors, "white") !important;
         }
     }
 }

@@ -10,7 +10,7 @@ table {
     border-collapse: collapse !important;
     border-spacing: 0;
     overflow: hidden !important;
-    background-color: map.get($custom-colors, "weiss");
+    background-color: map.get($custom-colors, "white");
     font-family: "PT Sans", sans-serif;
     font-size: 18px;
     line-height: 1.5;
@@ -33,7 +33,7 @@ thead {
 
     th {
         background-color: map.get($custom-colors, "tanne");
-        color: map.get($custom-colors, "weiss");
+        color: map.get($custom-colors, "white");
         font-weight: 700;
     }
 }
@@ -94,4 +94,3 @@ caption {
     margin-top: var(--half-block-spacing);
     margin-bottom: var(--half-block-spacing);
 }
-

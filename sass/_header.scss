@@ -51,7 +51,7 @@ header .social-media-profiles {
     right: 0;
     top: 0;
     padding: var(--grid-margin);
-    background-color: map.get($custom-colors, "weiss");
+    background-color: map.get($custom-colors, "white");
     width: 75px;
     height: 64px;
     z-index: 500;
@@ -66,7 +66,7 @@ header .social-media-profiles {
     }
 
     .concave-30px {
-        color: map.get($custom-colors, "weiss");
+        color: map.get($custom-colors, "white");
     }
 
     div {
@@ -532,7 +532,7 @@ $text-dark: #222;
             background-color: map.get($custom-colors, "grashalm");
 
             .logo-img {
-                color: map.get($custom-colors, "weiss");
+                color: map.get($custom-colors, "white");
             }
         }
 
@@ -712,7 +712,7 @@ $text-dark: #222;
             position: absolute;
             left: calc(-1 * calc(var(--gap-large) / 2));
             right: auto;
-            background: map.get($custom-colors, "weiss");
+            background: map.get($custom-colors, "white");
             z-index: 100;
             display: none;
             min-width: calc(100% + 20px);

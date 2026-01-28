@@ -417,7 +417,7 @@ body #content {
 ) {
 
     h2 {
-        color: map.get($custom-colors, "weiss");
+        color: map.get($custom-colors, "white");
     }
 }
 
@@ -427,7 +427,7 @@ body #content {
 ) {
 
     h2 {
-        color: map.get($custom-colors, "weiss") !important;
+        color: map.get($custom-colors, "white") !important;
     }
 }
 
