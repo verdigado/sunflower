@@ -120,6 +120,58 @@ function sunflower_get_site_icon_url_defaults( $url, $size ) {
 $sunflower_options = get_option( 'sunflower_first_steps_options' );
 if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
 	add_filter( 'get_site_icon_url', 'sunflower_get_site_icon_url_defaults', 10, 3 );
+	add_filter( 'render_block_core/site-logo', 'sunflower_site_logo_fallback', 10, 2 );
+}
+
+/**
+ * Show Sunflower SVG as fallback in wp-block-site-logo when no custom logo is set.
+ *
+ * @param string $block_content The block content.
+ * @param array  $block         The full block, including name and attributes.
+ * @return string Modified block content.
+ */
+function sunflower_site_logo_fallback( $block_content, $block ) {
+	// If there's already content (custom logo exists), return it.
+	if ( has_custom_logo() && ! empty( trim( $block_content ) ) ) {
+		return $block_content;
+	}
+
+	// Get the SVG content.
+	$svg_path = get_template_directory() . '/assets/img/sunflower-3.0.svg';
+	if ( ! file_exists( $svg_path ) ) {
+		return $block_content;
+	}
+
+	$wpfsd = new WP_Filesystem_Direct( false );
+	$svg   = $wpfsd->get_contents( $svg_path );
+
+	if ( empty( $svg ) ) {
+		return $block_content;
+	}
+
+	// Build the fallback output with same structure as wp-block-site-logo.
+	$is_link   = isset( $block['attrs']['isLink'] ) ? $block['attrs']['isLink'] : true;
+	$classname = 'wp-block-site-logo';
+
+	if ( ! empty( $block['attrs']['className'] ) ) {
+		$classname .= ' ' . $block['attrs']['className'];
+	}
+
+	$output = sprintf( '<div class="%s">', esc_attr( $classname ) );
+
+	if ( $is_link ) {
+		$output .= sprintf(
+			'<a href="%s" class="custom-logo-link logo-background" rel="home">%s</a>',
+			esc_url( home_url( '/' ) ),
+			$svg
+		);
+	} else {
+		$output .= sprintf( '<span class="logo-background">%s</span>', $svg );
+	}
+
+	$output .= '</div>';
+
+	return $output;
 }
 
 /**

@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // ----------------------------------------------------------------
 // 0.1  Breakpoint helper (Bootstrap‑style)
 // ----------------------------------------------------------------
@@ -267,3 +269,13 @@ body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-h
         border-radius: var(--border-radius-medium);
     }
 }
+
+
+.wp-block-cover .wp-block-cover__inner-container {
+
+    h1,
+    h2 {
+        color: #fff;
+    }
+}
+

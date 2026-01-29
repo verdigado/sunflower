@@ -31,7 +31,7 @@ ul.wp-block-categories-list {
             padding: 0 15px 2px 15px;
             height: 30px !important;
             border-radius: 15px;
-            margin-top: var(--half-grid-margin);
+            transition: 300ms ease-out;
 
             &:focus {
                 outline: none;
@@ -41,8 +41,9 @@ ul.wp-block-categories-list {
             &:hover,
             &:focus,
             &:active {
-                color: $primary;
-                border-bottom-color: $primary;
+                background: map.get($custom-colors, "schwarzwald");
+                color: map.get($custom-colors, "grashalm") !important;
+                border: 2px solid map.get($custom-colors, "grasshalm") !important;
             }
 
         }
@@ -247,5 +248,72 @@ ul.wp-block-categories-list {
 
     time {
         color: map.get($custom-colors, "klee");
+    }
+}
+
+.wp-block-avatar {
+    width: 100px;
+    flex: 0 0 100px;
+
+    @include media-breakpoint-down(xl) {
+        width: 80px;
+        flex: 0 0 80px;
+    }
+
+    @include media-breakpoint-down(md) {
+        width: 60px;
+        flex: 0 0 60px;
+    }
+}
+
+
+body #content {
+
+    .wp-block-post-author-name {
+        font-weight: 700;
+        transition: 400ms ease-out;
+        color: map.get($custom-colors, "klee");
+        font-family: "PT Sans", sans-serif;
+        font-style: italic;
+    }
+
+    .wp-block-post-author {
+        align-items: center;
+
+        &__name {
+            font-weight: 700;
+            transition: 400ms ease-out;
+            color: map.get($custom-colors, "klee");
+            font-family: "PT Sans", sans-serif;
+            font-style: italic;
+        }
+
+        &__byline {
+            font-size: 16px;
+            line-height: 100%;
+            margin-bottom: 0;
+            padding-top: var(--half-grid-margin);
+
+            @include media-breakpoint-down(xl) {
+                font-size: 14px;
+            }
+        }
+
+        &__avatar {
+            margin: 0;
+
+            img {
+                width: 60px;
+                margin: var(--half-grid-margin);
+
+                @include media-breakpoint-down(xl) {
+                    width: 50px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    width: 40px;
+                }
+            }
+        }
     }
 }

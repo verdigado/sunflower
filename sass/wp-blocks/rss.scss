@@ -22,39 +22,6 @@
             }
         }
 
-        .continue-reading {
-            line-height: 100%;
-            color: map.get($custom-colors, "klee") !important;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            &::after {
-                content: "";
-                display: inline-block;
-                width: 23px;
-                height: 20px;
-                mask-image: url("assets/img/arrow-right.svg");
-                mask-size: contain;
-                mask-repeat: no-repeat;
-                mask-position: center;
-                -webkit-mask-image: url("assets/img/arrow-right.svg");
-                -webkit-mask-size: contain;
-                -webkit-mask-repeat: no-repeat;
-                -webkit-mask-position: center;
-                background-color: map.get($custom-colors, "klee");
-                transition: background-color 0.3s ease, transform 0.3s ease;
-            }
-
-            &:hover {
-
-                &::after {
-                    transform: translateX(3px);
-                }
-            }
-        }
-
-
         &:nth-of-type(odd) {
             background-color: map.get($custom-colors, "sand") !important;
         }

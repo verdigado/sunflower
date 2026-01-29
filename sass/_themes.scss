@@ -311,6 +311,21 @@ body.colorscheme-green {
             }
         }
     }
+
+    .wp-block-separator {
+        color: map.get($custom-colors, "grashalm");
+    }
+
+    .wp-block-sunflower-accordion {
+
+        p {
+            color: map.get($custom-colors, "schwarzwald");
+        }
+    }
+
+    .wp-block-sunflower-meta-data a {
+        color: map.get($custom-colors, "grashalm");
+    }
 }
 
 

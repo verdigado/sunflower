@@ -73,3 +73,84 @@
     }
 
 }
+
+.wp-block-site-title a,
+.wp-block-site-tagline {
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 150%;
+    position: relative;
+    height: 32px;
+    color: #fff;
+    font-family: "GrueneType Neue", sans-serif;
+    width: fit-content;
+    display: inline-block;
+    padding: 3px 0;
+    transition: background-color 0.3s ease;
+}
+
+
+body .wp-block-site-title {
+    line-height: 0;
+    font-size: 0;
+}
+
+.wp-block-site-title a {
+    background-color: map.get($custom-colors, "tanne");
+    right: calc(-1 * var(--gap-large));
+    z-index: 1;
+
+    &:hover {
+
+        &::before {
+            background-color: map.get($custom-colors, "klee");
+        }
+    }
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: 100%;
+        content: "";
+        z-index: -1;
+        transform: skewX(-12deg);
+        background-color: #005538;
+        transition: background-color 0.3s ease;
+
+        @include media-breakpoint-down(xl) {
+            left: -7px;
+            width: calc(100% + 14px);
+        }
+    }
+}
+
+.wp-block-site-tagline {
+    background-color: map.get($custom-colors, "klee");
+    position: relative;
+    margin: 0;
+
+    &:empty {
+        display: none;
+    }
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: 100%;
+        content: "";
+        z-index: -1;
+        transform: skewX(-12deg);
+        background-color: map.get($custom-colors, "klee");
+        transition: background-color 0.3s ease;
+
+        @include media-breakpoint-down(xl) {
+            left: -7px;
+            width: calc(100% + 14px);
+        }
+    }
+}
+

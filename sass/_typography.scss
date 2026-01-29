@@ -297,7 +297,6 @@ body #content {
     .small,
     label,
     table,
-    time,
     .wp-block-query .wp-block-post-excerpt {
         font-size: 16px !important;
         line-height: 150%;
@@ -309,6 +308,22 @@ body #content {
             font-size: 14px !important;
         }
     }
+
+    time,
+    .wp-block-latest-posts__post-author {
+        font-size: 16px;
+        line-height: 175%;
+        letter-spacing: 0.9px;
+
+        @include media-breakpoint-down(xl) {
+            font-size: 14px;
+        }
+    }
+
+    .wp-block-latest-posts__post-author {
+        font-style: italic;
+    }
+
 
     label {
         margin: 0;

@@ -60,6 +60,12 @@
         padding-top: var(--grid-margin);
         padding-bottom: var(--grid-margin);
 
+        .wp-block-group {
+
+            padding: 0;
+
+        }
+
         .wp-block-group.is-layout-flex {
             column-gap: var(--grid-margin);
         }
@@ -280,6 +286,19 @@
 .entry-content > .wp-block-group {
     padding-top: var(--half-block-spacing);
     padding-bottom: var(--half-block-spacing);
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+
+    &:only-child {
+        padding-top: var(--grid-margin);
+        padding-bottom: var(--grid-margin);
+    }
 }
 
 .wp-block-columns {
@@ -290,4 +309,17 @@
 .entry-content > .wp-block-columns {
     padding-top: var(--half-block-spacing);
     padding-bottom: var(--half-block-spacing);
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+
+    &:only-child {
+        padding-top: var(--grid-margin);
+        padding-bottom: var(--grid-margin);
+    }
 }

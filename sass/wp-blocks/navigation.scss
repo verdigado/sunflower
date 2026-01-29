@@ -1,12 +1,8 @@
 @use "sass:map";
 
-// ============================================================================
-// WP Block Navigation - Styles passend zum Hauptmenü (.main-menu)
-// Kein Hamburger - bricht bei kleinen Screens vertikal um
-// ============================================================================
-
 .wp-block-navigation {
-    margin-top: -4px;
+    margin-top: var(--grid-margin);
+    margin-bottom: var(--grid-margin);
 
     // Reset alle WordPress Standard-Styles
     *,
@@ -16,11 +12,10 @@
         outline: none !important;
     }
 
-    // Navigation Container (entspricht .nav)
     .wp-block-navigation__container {
-        gap: var(--gap-large);
         margin: 0;
         margin-right: var(--grid-margin);
+        gap: var(--gap-large);
         padding: 0;
         list-style: none;
         display: flex;
@@ -28,7 +23,6 @@
         align-items: center;
     }
 
-    // Menü-Items (entspricht .main-menu ul > li)
     .wp-block-navigation-item {
         position: relative;
         margin-bottom: 0;
@@ -36,7 +30,6 @@
         list-style: none;
     }
 
-    // Links (entspricht .main-menu .nav-link)
     .wp-block-navigation-item__content {
         display: block;
         text-decoration: none !important;
@@ -48,10 +41,6 @@
             text-decoration: none !important;
         }
     }
-
-    // =========================================================================
-    // Untermenüs (entspricht .main-menu .sub-menu)
-    // =========================================================================
 
     .wp-block-navigation__submenu-container {
         list-style: none;
@@ -69,7 +58,6 @@
         margin: 0 !important;
         overflow: hidden;
 
-        // Links im Untermenü
         > .wp-block-navigation-item > .wp-block-navigation-item__content {
             padding: 6px 12px !important;
             white-space: normal;
@@ -77,7 +65,6 @@
             font-weight: 500;
         }
 
-        // Verschachteltes Untermenü (2. Ebene+)
         .wp-block-navigation__submenu-container {
             left: 0;
             top: initial !important;
@@ -91,16 +78,11 @@
         }
     }
 
-    // Hover auf Parent zeigt Untermenü
     .wp-block-navigation-item.has-child:hover > .wp-block-navigation__submenu-container {
         display: block !important;
     }
 
-    // =========================================================================
-    // Dropdown-Pfeil (entspricht .menu-item-has-children::after)
-    // =========================================================================
 
-    // Submenu-Icon von WordPress komplett ausblenden
     .wp-block-navigation__submenu-icon {
         display: none !important;
     }
@@ -110,10 +92,8 @@
         > .wp-block-navigation-item__content {
             padding-right: 18px;
             position: relative;
-            z-index: 140;
         }
 
-        // Dropdown-Pfeil wie im Original
         &::after {
             content: url("/wp-content/themes/sunflower26/assets/img/dropdown.svg");
             display: block;
@@ -121,27 +101,21 @@
             height: 13px;
             position: absolute;
             right: 0;
-            top: -9.8px;
+            top: 4px;
 
             @include media-breakpoint-down(xl) {
-                top: -7.6px;
+                top: 5px;
             }
         }
 
-        // Keine Pfeile in Untermenüs
         .wp-block-navigation-item.has-child::after {
             display: none !important;
         }
     }
 
-    // Erstes Item im Submenu
     .wp-block-navigation-item.has-child > .wp-block-navigation__submenu-container > .wp-block-navigation-item:first-child > .wp-block-navigation-item__content {
         padding-top: 0 !important;
     }
-
-    // =========================================================================
-    // Hamburger komplett ausblenden - wir nutzen ihn nicht
-    // =========================================================================
 
     .wp-block-navigation__responsive-container-open,
     .wp-block-navigation__responsive-container-close {
@@ -156,16 +130,12 @@
         display: contents !important;
     }
 
-    // =========================================================================
-    // Responsive: Vertikal umbrechen bei kleinen Screens
-    // =========================================================================
-
     @media (max-width: 991px) {
 
         .wp-block-navigation__container {
             flex-direction: column !important;
             align-items: flex-start !important;
-            gap: var(--gap-large);
+            gap: var(--gap-small);
             margin-right: 0;
             width: 100%;
         }
@@ -214,16 +184,11 @@
             }
         }
 
-        // Keine Pfeile im vertikalen Layout
         .wp-block-navigation-item.has-child::after {
             display: none !important;
         }
     }
 }
-
-// =============================================================================
-// Stuck Header - wp-block-navigation im fixierten Header
-// =============================================================================
 
 .top-bar.stuck .wp-block-navigation {
 
@@ -261,7 +226,6 @@
         }
     }
 
-    // Im Stuck Header auch responsive vertikal
     @media (max-width: 991px) {
 
         .wp-block-navigation-item.has-child {
@@ -279,13 +243,73 @@
     }
 }
 
-// =============================================================================
-// Farbschema Anpassungen
-// =============================================================================
-
 .colorscheme-green .top-bar.stuck .wp-block-navigation {
 
     .wp-block-navigation-item__content {
         color: map.get($custom-colors, "schwarzwald");
+    }
+}
+
+// Site Logo Block - Fallback SVG Styles
+.wp-block-site-logo {
+
+    .logo-background {
+        background-color: #005538;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+
+        @include media-breakpoint-down(xl) {
+            border-radius: 6px;
+            width: 46px;
+            height: 46px;
+        }
+
+        .logo-img {
+            color: map.get($custom-colors, "sonne");
+            width: 46px !important;
+            height: 46px !important;
+
+            @include media-breakpoint-down(xl) {
+                width: 35px !important;
+                height: 35px !important;
+            }
+        }
+
+        &:hover {
+            background-color: map.get($custom-colors, "grashalm");
+
+            .logo-img {
+                color: map.get($custom-colors, "weiss");
+            }
+        }
+    }
+
+    // Custom Logo im Site-Logo Block - gleiche Größe wie logo-background
+    .custom-logo-link:not(.logo-background) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+
+        .custom-logo {
+            max-height: 60px;
+            max-width: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        @include media-breakpoint-down(xl) {
+            height: 46px;
+
+            .custom-logo {
+                max-height: 46px;
+                max-width: 46px;
+            }
+        }
     }
 }
