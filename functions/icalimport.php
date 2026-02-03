@@ -274,6 +274,8 @@ function sunflower_get_event_by_source( $source ) {
  * @param boolean $force Force the import even if transient time is not past.
  */
 function sunflower_import_icals( $force = false ) {
+
+
 	if ( ! $force && get_transient( 'sunflower_ical_imported' ) ) {
 		return false;
 	}
@@ -341,8 +343,12 @@ function sunflower_import_icals( $force = false ) {
 	return $report;
 }
 
-add_action( 'init', 'sunflower_import_icals' );
+;
+if (sunflower_get_setting( 'sunflower_events_enabled' )) {
 
+	add_action( 'init', 'sunflower_import_icals' );
+
+}
 
 /**
  * Make georeferencing via nominatim for unknown locations and cache result in database.

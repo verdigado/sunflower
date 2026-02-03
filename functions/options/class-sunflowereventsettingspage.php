@@ -52,11 +52,12 @@ class SunflowerEventSettingsPage {
 			<?php
 				// This prints out all hidden setting fields.
 				settings_fields( 'sunflower_events_option_group' );
-			do_settings_sections( 'sunflower-setting-events' );
-			submit_button();
+				do_settings_sections( 'sunflower-setting-events' );
+				submit_button();
 			?>
 			</form>
 
+			<div class="sunflower-ical-import sunflower-events-activated">
 			<h2><?php esc_attr_e( 'ICS Calendar Import', 'sunflower' ); ?></h2>
 			<?php
 
@@ -133,59 +134,61 @@ class SunflowerEventSettingsPage {
 				echo 'Um einen Kalender importieren zu können, trage die URL bitte unter Sunflower-Einstellungen ein.';
 			}
 			?>
-
-			<h2>Korrektur der Marker auf Landkarten von importierten Terminen</h2>
-			<input type="hidden" name="_sunflower_event_lat" id="_sunflower_event_lat">
-			<input type="hidden" name="_sunflower_event_lon" id="_sunflower_event_lon">
-			<?php wp_nonce_field( 'sunflower_location', '_wpnonce-locationfix' ); ?>
-			<div id="sunflower-location-row" style="display:none">
-				<?php
-				printf(
-					'%1$s
-					<select name="sunflower_location" id="sunflower-location">
-						<option value="">%2$s</option>',
-					esc_attr__( 'Adjust geo marker for:', 'sunflower' ),
-					esc_attr__( 'please choose', 'sunflower' )
-				);
-				global $wpdb;
-				$transients = $wpdb->get_results( sprintf( "SELECT * FROM %s WHERE option_name LIKE '_transient_sunflower_geocache_%%'", $wpdb->options ) );
-
-				foreach ( $transients as $transient ) {
-					[$lon, $lat] = get_option( (string) $transient->option_name );
-					$location    = preg_replace( '/_transient_sunflower_geocache_/', '', (string) $transient->option_name );
-					printf( '<option value="%s;%s">%s</option>', esc_attr( $lat ), esc_attr( $lon ), esc_attr( $location ) );
-				}
-
-				?>
-				</select>
-				<?php
-				printf(
-					'<button class="button-secondary" id="sunflower-fix-location-delete">%s</button>',
-					esc_attr__( 'Delete geo data for this location', 'sunflower' )
-				);
-				?>
-				<br>
-
-				Die Änderung wird automatisch nach Setzen der Markierung gespeichert. Wirksam wird sie beim nächsten Import. Den Import kannst Du per Hand auslösen.
 			</div>
-			<?php
-			$lat  = 49.5;
-			$lon  = 12;
-			$zoom = 5;
-			printf(
-				'
-                <div>
-                    <button id="sunflowerShowMap" class="button-primary" onClick="sunflowerShowLeaflet( %3$s, %4$s, %5$s, false );">%2$s</button>
-                </div>
-                <div id="leaflet" style="height:400px"></div>',
-				esc_attr__( 'Map', 'sunflower' ),
-				esc_attr__( 'load map', 'sunflower' ),
-				esc_attr( $lat ),
-				esc_attr( $lon ),
-				esc_attr( $zoom )
-			);
-			?>
-		</div>
+
+			<div class="sunflower-event-location-fix sunflower-events-activated">
+				<h2>Korrektur der Marker auf Landkarten von importierten Terminen</h2>
+				<input type="hidden" name="_sunflower_event_lat" id="_sunflower_event_lat">
+				<input type="hidden" name="_sunflower_event_lon" id="_sunflower_event_lon">
+				<?php wp_nonce_field( 'sunflower_location', '_wpnonce-locationfix' ); ?>
+				<div id="sunflower-location-row" style="display:none">
+					<?php
+					printf(
+						'%1$s
+						<select name="sunflower_location" id="sunflower-location">
+							<option value="">%2$s</option>',
+						esc_attr__( 'Adjust geo marker for:', 'sunflower' ),
+						esc_attr__( 'please choose', 'sunflower' )
+					);
+					global $wpdb;
+					$transients = $wpdb->get_results( sprintf( "SELECT * FROM %s WHERE option_name LIKE '_transient_sunflower_geocache_%%'", $wpdb->options ) );
+
+					foreach ( $transients as $transient ) {
+						[$lon, $lat] = get_option( (string) $transient->option_name );
+						$location    = preg_replace( '/_transient_sunflower_geocache_/', '', (string) $transient->option_name );
+						printf( '<option value="%s;%s">%s</option>', esc_attr( $lat ), esc_attr( $lon ), esc_attr( $location ) );
+					}
+
+					?>
+					</select>
+					<?php
+					printf(
+						'<button class="button-secondary" id="sunflower-fix-location-delete">%s</button>',
+						esc_attr__( 'Delete geo data for this location', 'sunflower' )
+					);
+					?>
+					<br>
+
+					Die Änderung wird automatisch nach Setzen der Markierung gespeichert. Wirksam wird sie beim nächsten Import. Den Import kannst Du per Hand auslösen.
+				</div>
+				<?php
+				$lat  = 49.5;
+				$lon  = 12;
+				$zoom = 5;
+				printf(
+					'
+					<div>
+						<button id="sunflowerShowMap" class="button-primary" onClick="sunflowerShowLeaflet( %3$s, %4$s, %5$s, false );">%2$s</button>
+					</div>
+					<div id="leaflet" style="height:400px"></div>',
+					esc_attr__( 'Map', 'sunflower' ),
+					esc_attr__( 'load map', 'sunflower' ),
+					esc_attr( $lat ),
+					esc_attr( $lon ),
+					esc_attr( $zoom )
+				);
+				?>
+			</div>
 		<?php
 	}
 
@@ -193,16 +196,57 @@ class SunflowerEventSettingsPage {
 	 * Register and add event settings
 	 */
 	public function sunflower_event_page_init(): void {
+
 		register_setting(
 			'sunflower_events_option_group',
 			'sunflower_events_options',
-			$this->sanitize( ... )
+			array(
+				'sanitize_callback' => array( $this, 'sanitize' ),
+				'default'           => array(
+					'sunflower_events_enabled'     => 1,
+					'sunflower_show_event_archive' => 1,
+				),
+			)
+		);
+
+		add_settings_section(
+			'sunflower-setting-events-enabled',
+			__( 'Events Feature', 'sunflower' ),
+			$this->print_section_info_events_enabled( ... ),
+			'sunflower-setting-events',
+			array(
+				'before_section' => '<div class="%s">',
+				'after_section'  => '</div><br><hr>',
+				'section_class'  => 'sunflower-events-enable',
+			)
 		);
 
 		add_settings_section(
 			'sunflower-setting-events',
 			__( 'Events', 'sunflower' ),
 			$this->print_section_info( ... ),
+			'sunflower-setting-events',
+			array(
+				'before_section' => '<div class="%s">',
+				'after_section'  => '</div>',
+				'section_class'  => 'sunflower-events-activated',
+			)
+		);
+
+		add_settings_field(
+			'sunflower_events_enabled',
+			__( 'Enable events feature', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-events',
+			'sunflower-setting-events-enabled',
+			array( 'sunflower_events_enabled', __( 'Enable events feature', 'sunflower' ) )
+		);
+
+		add_settings_field(
+			'sunflower_events_slug',
+			__( 'Events page slug', 'sunflower' ),
+			$this->sunflower_events_slug_callback( ... ),
+			'sunflower-setting-events',
 			'sunflower-setting-events'
 		);
 
@@ -272,31 +316,75 @@ class SunflowerEventSettingsPage {
 	 * @param array $input Contains all settings fields as array keys.
 	 */
 	public function sanitize( $input ) {
+
 		$new_input = array();
 
 		// Sanitize everything element of the input array.
 		foreach ( $input as $key => $value ) {
-			if ( isset( $input[ $key ] ) ) {
-				$new_input[ $key ] = sanitize_text_field( $value );
+
+			switch ( $key ) {
+
+				case 'sunflower_events_enabled':
+					$new_input[ $key ] = $value ? 1 : 0;
+					break;
+
+				case 'sunflower_ical_urls':
+				case 'sunflower_events_description':
+					$new_input[ $key ] = $value;
+					break;
+
+				default:
+					$new_input[ $key ] = sanitize_text_field( $value );
 			}
 		}
 
-		// Sanitize special values.
-		if ( isset( $input['sunflower_ical_urls'] ) ) {
-			$new_input['sunflower_ical_urls'] = $input['sunflower_ical_urls'] ?? '';
-		}
-
-		if ( isset( $input['sunflower_events_description'] ) ) {
-			$new_input['sunflower_events_description'] = $input['sunflower_events_description'] ?? '';
-		}
-
 		return $new_input;
+	}
+
+
+	/**
+	 * Print the Section text
+	 */
+	public function print_section_info_events_enabled() {
+		printf(
+			'<p class="description">%s</p>',
+			esc_attr__( 'Enable or disable the events feature of the Sunflower theme.', 'sunflower' )
+		);
 	}
 
 	/**
 	 * Print the Section text
 	 */
 	public function print_section_info() {
+		printf(
+			'<p class="description">%s</p>',
+			esc_attr__( 'Configure how events behave on your website.', 'sunflower' )
+		);
+		?>
+		<div class="sunflower-events-activated">
+			<table class="form-table" role="presentation">
+				<tbody>
+					<tr>
+						<th scope="row">Permalinks</th>
+						<td>
+
+						<?php
+						if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( $_GET['_wpnonce'], 'sunflower_options-flushpermalinks' ) && isset( $_GET['flush_permalinks'] ) ) {
+							flush_rewrite_rules();
+							printf('<p>%s</p>', esc_attr__( 'The permalink structure has been reimported.', 'sunflower' ));
+						} else {
+								printf('<p>%s</p>', esc_attr__( 'After changing the event page slug, you need to reimport the permalink structure.', 'sunflower' ));
+								printf('<p>%s</p>', esc_attr__( 'This can be safely done any time. E.g. if the event page does not show up correctly.', 'sunflower' ));
+								$sunflower_flushpermalinks_url = wp_nonce_url( 'admin.php?page=sunflower_events_options&flush_permalinks=1', 'sunflower_options-flushpermalinks' );
+								printf( '<a href="%s" class="button button-primary">%s</a>', esc_html( $sunflower_flushpermalinks_url ), esc_attr__( 'Reimport permalink structure', 'sunflower' ) );
+						}
+						?>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<?php
 	}
 
 	/**
@@ -304,18 +392,38 @@ class SunflowerEventSettingsPage {
 	 *
 	 * @param array $args The field arguments.
 	 */
-	public function sunflower_checkbox_callback( $args ): void {
-		$field = $args[0];
-		$label = $args[1];
+	public function sunflower_checkbox_callback( $args ) {
 
+		$options = get_option( 'sunflower_events_options' );
+		$key     = $args[0];
+		$label   = $args[1];
+		$value   = $options[ $key ] ?? 0;
+		?>
+
+		<input type="hidden"
+				name="sunflower_events_options[<?php echo esc_attr( $key ); ?>]"
+				value="0">
+
+		<label>
+			<input type="checkbox"
+				name="sunflower_events_options[<?php echo esc_attr( $key ); ?>]"
+				value="1"
+				<?php checked( $value, 1 ); ?>>
+			<?php echo esc_html( $label ); ?>
+		</label>
+
+		<?php
+	}
+
+	/**
+	 * Excerpt length field
+	 */
+	public function sunflower_events_slug_callback(): void {
 		printf(
-			'<label>
-                    <input type="checkbox" id="%1$s" name="sunflower_events_options[%1$s]" value="checked" %2$s />
-                    %3$s
-                </label>',
-			esc_attr( $field ),
-			isset( $this->options[ $field ] ) ? 'checked' : '',
-			esc_attr( $label )
+			'
+			<input type="text" id="sunflower_events_slug" name="sunflower_events_options[sunflower_events_slug]" value="%s" />
+			</div>',
+			(isset( $this->options['sunflower_events_slug'] ) && !empty($this->options['sunflower_events_slug'])) ? esc_attr( $this->options['sunflower_events_slug'] ) : 'termine'
 		);
 	}
 
@@ -342,7 +450,6 @@ class SunflowerEventSettingsPage {
         Importierte Termine dürfen nicht im WordPress-Backend bearbeitet werden, weil Änderungen beim nächsten
         Import überschrieben werden.<br>
         Jede URL muss mit http:// oder https:// beginnen. Automatische Kategorien pro Kalender bitte mit ; anfügen.
-
         </div>';
 	}
 
@@ -361,3 +468,57 @@ class SunflowerEventSettingsPage {
 if ( is_admin() ) {
 	$sunflower_settings_page = new SunflowerEventSettingsPage();
 }
+
+/**
+ * On theme update, ensure that the 'sunflower_events_enabled' option is set.
+*/
+add_action(
+	'admin_init',
+	function () {
+
+		$options = get_option( 'sunflower_events_options' );
+
+		if ( ! is_array( $options ) ) {
+			return;
+		}
+
+		// Set only if the option does not exist yet.
+		if ( ! array_key_exists( 'sunflower_events_enabled', $options ) ) {
+
+			$options['sunflower_events_enabled'] = 1;
+			update_option( 'sunflower_events_options', $options );
+		}
+	}
+);
+
+
+/**
+ * Add inline script to handle dependent fields.
+*/
+add_action(
+	'admin_enqueue_scripts',
+	function ( $hook ) {
+
+		if ( 'sunflower_page_sunflower_events_options' !== $hook ) {
+			return;
+		}
+
+		wp_add_inline_script(
+			'jquery-core',
+			'
+		jQuery(function ($) {
+
+			const checkbox = $("input[name=\'sunflower_events_options[sunflower_events_enabled]\']");
+			const dependentRow = $(".sunflower-events-activated");
+
+			function toggleFields() {
+				dependentRow.toggle( checkbox.is(":checked") );
+			}
+
+			toggleFields();
+			checkbox.on("change", toggleFields);
+		});
+		'
+		);
+	}
+);
