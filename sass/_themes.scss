@@ -364,7 +364,7 @@ body.colorscheme-green {
 
     tbody,
     .wp-block-button__link,
-    .comment-reply-title {
+    .comment-reply-title, .figcaption {
         color: map.get($custom-colors, "tanne");
     }
 
