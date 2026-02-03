@@ -38,7 +38,8 @@ input[type="reset"],
 input[type="submit"],
 .sunflower-post-navigation a,
 .comment-reply-link,
-.post-page-numbers {
+.post-page-numbers,
+.page-numbers:not(.next, .prev) {
     border-radius: 23px;
     font-weight: 700;
     font-size: 20px;

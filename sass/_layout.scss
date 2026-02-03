@@ -260,27 +260,10 @@ a.eventlist {
 }
 
 .sunflower-pagination {
-    background: $white;
-    border-radius: $border-radius;
+    border-radius: 50%;
     display: flex;
-    align-items: baseline;
-    font-size: 80%;
-
-    > * {
-        padding: 20px 30px;
-        display: block;
-    }
-
-    .current {
-        font-size: 150%;
-    }
-
-    .prev,
-    .next {
-        text-transform: uppercase;
-        color: $black;
-        font-style: italic;
-    }
+    align-items: center;
+    justify-content: center;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
@@ -466,4 +449,30 @@ body #content .wp-block-cover {
 .sunflower-post-navigation a {
     background-color: map.get($custom-colors, "white") !important;
     color: map.get($custom-colors, "tanne") !important;
+}
+
+.sunflower-pagination {
+
+    gap: var(--half-grid-margin);
+
+    .page-numbers:not(.next, .prev) {
+        padding: 0 0 4px 0 !important;
+        width: 46px !important;
+
+        &.current {
+            background-color: map.get($custom-colors, "schwarzwald");
+            color: map.get($custom-colors, "grashalm");
+            border-color: map.get($custom-colors, "grashalm");
+            pointer-events: none;
+        }
+    }
+
+    .prev {
+        margin-right: var(--half-grid-margin);
+    }
+
+    .next {
+        margin-left: var(--half-grid-margin);
+    }
+
 }

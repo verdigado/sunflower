@@ -12,13 +12,8 @@
     }
 
     .children {
-        border-left: 2px solid $primary;
         margin-bottom: 65px;
-        margin-left: 0;
-
-        @include media-breakpoint-up(md) {
-            margin-left: 1.5em;
-        }
+        margin-left: 40px;
 
     }
 
@@ -279,6 +274,10 @@ time {
         text-transform: none;
         margin: var(--half-grid-margin) 0;
     }
+}
+
+.no-comments {
+    font-weight: 700;
 }
 
 .wp-block-comments,

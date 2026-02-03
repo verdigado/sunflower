@@ -12,7 +12,7 @@
 			<div class="col-12 text-center">
 				<h2>
 					<?php
-						echo esc_attr__( 'Related posts', 'sunflower' );
+						echo esc_attr__( 'Aktuelles', 'sunflower' );
 					?>
 				</h2>
 			</div>
