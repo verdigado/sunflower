@@ -526,3 +526,20 @@ add_action(
 		);
 	}
 );
+
+/**
+ * Flush rewrite rules if the event slug has changed.
+ */
+add_action(
+	'update_option_sunflower_events_options',
+	function ( $old_value, $new_value ) {
+		$old_slug = $old_value['sunflower_events_slug'] ?? '';
+		$new_slug = $new_value['sunflower_events_slug'] ?? '';
+
+		if ( $old_slug !== $new_slug ) {
+			flush_rewrite_rules();
+		}
+	},
+	10,
+	3
+);
