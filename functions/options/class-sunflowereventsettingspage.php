@@ -328,6 +328,10 @@ class SunflowerEventSettingsPage {
 					$new_input[ $key ] = $value ? 1 : 0;
 					break;
 
+				case 'sunflower_events_slug':
+					$new_input[ $key ] = sanitize_title( $value );
+					break;
+
 				case 'sunflower_ical_urls':
 				case 'sunflower_events_description':
 					$new_input[ $key ] = $value;
