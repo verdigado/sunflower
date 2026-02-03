@@ -371,10 +371,10 @@ class SunflowerEventSettingsPage {
 						<?php
 						if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( $_GET['_wpnonce'], 'sunflower_options-flushpermalinks' ) && isset( $_GET['flush_permalinks'] ) ) {
 							flush_rewrite_rules();
-							printf('<p>%s</p>', esc_attr__( 'The permalink structure has been reimported.', 'sunflower' ));
+							printf( '<p>%s</p>', esc_attr__( 'The permalink structure has been reimported.', 'sunflower' ) );
 						} else {
-								printf('<p>%s</p>', esc_attr__( 'After changing the event page slug, you need to reimport the permalink structure.', 'sunflower' ));
-								printf('<p>%s</p>', esc_attr__( 'This can be safely done any time. E.g. if the event page does not show up correctly.', 'sunflower' ));
+								printf( '<p>%s</p>', esc_attr__( 'After changing the event page slug, you need to reimport the permalink structure.', 'sunflower' ) );
+								printf( '<p>%s</p>', esc_attr__( 'This can be safely done any time. E.g. if the event page does not show up correctly.', 'sunflower' ) );
 								$sunflower_flushpermalinks_url = wp_nonce_url( 'admin.php?page=sunflower_events_options&flush_permalinks=1', 'sunflower_options-flushpermalinks' );
 								printf( '<a href="%s" class="button button-primary">%s</a>', esc_html( $sunflower_flushpermalinks_url ), esc_attr__( 'Reimport permalink structure', 'sunflower' ) );
 						}
@@ -423,7 +423,7 @@ class SunflowerEventSettingsPage {
 			'
 			<input type="text" id="sunflower_events_slug" name="sunflower_events_options[sunflower_events_slug]" value="%s" />
 			</div>',
-			(isset( $this->options['sunflower_events_slug'] ) && !empty($this->options['sunflower_events_slug'])) ? esc_attr( $this->options['sunflower_events_slug'] ) : 'termine'
+			( isset( $this->options['sunflower_events_slug'] ) && ! empty( $this->options['sunflower_events_slug'] ) ) ? esc_attr( $this->options['sunflower_events_slug'] ) : 'termine'
 		);
 	}
 

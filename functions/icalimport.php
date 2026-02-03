@@ -275,7 +275,6 @@ function sunflower_get_event_by_source( $source ) {
  */
 function sunflower_import_icals( $force = false ) {
 
-
 	if ( ! $force && get_transient( 'sunflower_ical_imported' ) ) {
 		return false;
 	}
@@ -342,9 +341,7 @@ function sunflower_import_icals( $force = false ) {
 
 	return $report;
 }
-
-;
-if (sunflower_get_setting( 'sunflower_events_enabled' )) {
+if ( sunflower_get_setting( 'sunflower_events_enabled' ) ) {
 
 	add_action( 'init', 'sunflower_import_icals' );
 
