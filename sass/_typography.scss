@@ -390,11 +390,11 @@ body #content {
 
 
     .wp-block-group.is-layout-flex:not(.is-vertical)
-    :not(.is-vertical) > h1,
+    :not(.is-vertical, .is-layout-contrained, .wp-block-post-excerpt) > h1,
     .wp-block-group.is-layout-flex:not(.is-vertical)
-    :not(.is-vertical) > h2,
+    :not(.is-vertical, .is-layout-contrained, .wp-block-post-excerpt) > h2,
     .wp-block-group.is-layout-flex:not(.is-vertical)
-    :not(.is-vertical) > p {
+    :not(.is-vertical, .is-layout-contrained, .wp-block-post-excerpt) > p {
         margin-bottom: 0;
     }
 
