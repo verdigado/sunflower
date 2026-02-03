@@ -19,7 +19,7 @@
     .wp-block-navigation__container {
         margin: 0;
         margin-right: var(--grid-margin);
-        gap: var(--gap-large);
+        gap: var(--gap-large) !important;
         padding: 0;
         list-style: none;
         display: flex;
@@ -32,6 +32,10 @@
         margin-bottom: 0;
         padding-left: 0;
         list-style: none;
+
+        &::before {
+            display: none !important;
+        }
     }
 
     .wp-block-navigation-item__content {
@@ -45,6 +49,7 @@
             text-decoration: none !important;
         }
     }
+
 
     .wp-block-navigation__submenu-container {
         list-style: none;
