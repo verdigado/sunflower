@@ -506,3 +506,7 @@ pre {
     background: transparent;
     padding: calc(var(--grid-margin) - 10px) var(--grid-margin) calc(var(--grid-margin) - 6px) var(--grid-margin);
 }
+
+.fa-envelope {
+    font-family: ForkAwesome, sans-serif !important;
+}

@@ -9,6 +9,11 @@
     .entry-content {
 
         @include alignwide;
+
+        .wp-block-gallery {
+            padding-top: var(--grid-margin);
+            padding-bottom: var(--grid-margin);
+        }
     }
 }
 
@@ -34,6 +39,47 @@
             margin-right: 0;
             margin-top: var(--gap-large);
             margin-bottom: var(--gap-large);
+        }
+    }
+
+    // Wenn der entry-content leer ist, Metabox und Footer zentrieren
+    &.content-empty {
+
+        > .row:has(.metabox) {
+            justify-content: center;
+
+            .entry-content {
+                display: none;
+            }
+
+            .metabox {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        > .row:has(.entry-footer) {
+            justify-content: center;
+
+            .entry-footer {
+                width: auto;
+                max-width: none;
+                margin-left: 0;
+                margin-right: 0;
+                text-align: center;
+
+                > div {
+                    justify-content: center;
+                }
+
+                .social-media-sharers {
+                    justify-content: center;
+
+                    > a:first-child {
+                        margin-left: var(--grid-margin);
+                    }
+                }
+            }
         }
     }
 }

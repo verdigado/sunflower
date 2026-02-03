@@ -22,3 +22,19 @@ function sunflower_related_posts( $exclude = false, $cats = false ) {
 		)
 	);
 }
+
+/**
+ * Find latest posts (for event single pages).
+ *
+ * @param int $count Number of posts to return.
+ */
+function sunflower_latest_posts( $count = 2 ) {
+	return new WP_Query(
+		array(
+			'post_type'      => 'post',
+			'posts_per_page' => $count,
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		)
+	);
+}

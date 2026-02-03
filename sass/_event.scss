@@ -1,5 +1,315 @@
 @use "sass:map";
 
+.single-sunflower_event {
+
+    .display-single {
+        min-height: calc(100vh - 180px);
+    }
+
+}
+
+.post-type-archive-sunflower_event {
+
+
+    .filter-button-group {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: var(--half-grid-margin);
+        row-gap: var(--half-grid-margin);
+        margin-top: var(--half-grid-margin);
+        margin-bottom: var(--grid-margin);
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+            margin-top: 0;
+        }
+
+        button.filter {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 13px;
+            color: $black;
+            letter-spacing: 0.5px;
+            line-height: 100%;
+            background: map.get($custom-colors, "sand");
+            border: 2px solid map.get($custom-colors, "schwarzwald");
+            padding: 0 15px 2px 15px;
+            height: 30px !important;
+            border-radius: 15px;
+            transition: 300ms ease-out;
+            margin: 0;
+            text-transform: none;
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                background: map.get($custom-colors, "schwarzwald");
+                color: map.get($custom-colors, "grashalm") !important;
+                border: 2px solid map.get($custom-colors, "grashalm") !important;
+            }
+
+            &.filter-active {
+                background-color: map.get($custom-colors, "klee");
+                color: map.get($custom-colors, "white");
+                border: 2px solid map.get($custom-colors, "klee");
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background: map.get($custom-colors, "schwarzwald");
+                    color: map.get($custom-colors, "grashalm") !important;
+                    border: 2px solid map.get($custom-colors, "grashalm") !important;
+                }
+            }
+        }
+    }
+
+    // Event-Liste wie archive-loop stylen
+    .event-list {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        gap: var(--grid-margin);
+        height: auto !important;
+        display: grid;
+        grid-template-columns: repeat(10, minmax(0, 1fr));
+        margin-bottom: var(--half-block-spacing);
+
+        @include media-breakpoint-down(xl) {
+            width: 100%;
+        }
+
+        .date {
+            font-family: "PT Sans", sans-serif !important;
+        }
+
+        .event-archive-meta {
+
+            display: flex;
+            flex-direction: column;
+
+            .weekday,
+            .date {
+                width: fit-content;
+                margin: 0 !important;
+                line-height: 150% !important;
+            }
+
+            .weekday {
+                margin-right: var(--half-grid-margin) !important;
+            }
+
+            .date {
+                font-size: 16px !important;
+
+                time {
+                    line-height: 150% !important;
+                }
+
+                @include media-breakpoint-down(xl) {
+                    font-size: 14px !important;
+                }
+            }
+        }
+
+        > .col-12 {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+            display: flex;
+            grid-column: span 10;
+            width: 100%;
+            padding: 0 !important;
+            margin: 0 !important;
+
+            // Alternierendes Grid-Layout wie bei normalen Archives
+            &:nth-child(4n+1),
+            &:nth-child(4n+4) {
+                grid-column: span 4;
+
+                @include media-breakpoint-down(md) {
+                    grid-column: span 5;
+                }
+
+                @media (max-width: 700px) {
+                    grid-column: span 10;
+                }
+            }
+
+            &:nth-child(4n+2),
+            &:nth-child(4n+3) {
+                grid-column: span 6;
+
+                @include media-breakpoint-down(md) {
+                    grid-column: span 5;
+                }
+
+                @media (max-width: 700px) {
+                    grid-column: span 10;
+                }
+            }
+        }
+    }
+
+    // Event-Cards wie normale Archive-Cards stylen
+    a.event-card {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        cursor: pointer;
+
+        article {
+
+            @include card;
+
+            display: flex;
+            flex-direction: column;
+            background-color: map.get($custom-colors, "white") !important;
+            border: 2px solid map.get($custom-colors, "klee");
+            border-radius: var(--border-radius-medium);
+            box-shadow: none !important;
+            min-height: auto;
+            height: 100%;
+            padding: 0;
+            margin: 0 !important;
+            width: 100% !important;
+            overflow: hidden;
+
+            &:hover {
+                border-color: map.get($custom-colors, "grashalm");
+
+                .event-card__icon--green img {
+                    transform: translateX(5px);
+                }
+
+                figure.event-card__media img {
+                    transform: scale(1.04);
+                }
+            }
+
+            // ::before Effekt nur bei Cards OHNE Bild
+            &:not(:has(.event-card__media)) {
+
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 0;
+                    top: 0;
+                    left: 0;
+                    background-color: map.get($custom-colors, "tanne");
+                    transition: 300ms ease-out;
+                    border-radius: 0;
+                    z-index: 1;
+                }
+
+                &:hover::before {
+                    height: 6px;
+                    background-color: map.get($custom-colors, "grashalm");
+                }
+
+            }
+
+            figure.event-card__media {
+                position: relative;
+                width: 100%;
+                height: 254px;
+                overflow: hidden;
+                border-radius: calc(var(--border-radius-medium) - 2px) calc(var(--border-radius-medium) - 2px) 0 0;
+                margin: 0;
+                grid-column: unset;
+                transition: none;
+
+                img {
+                    width: 100%;
+                    height: 254px;
+                    object-fit: cover;
+                    transition: 400ms ease-out;
+                }
+            }
+
+            .p-4 {
+                padding: 13px 17px 16px 18px !important;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                grid-column: unset;
+
+                .event-archive-meta {
+                    margin-bottom: var(--half-grid-margin);
+
+                    .text-uppercase {
+                        color: map.get($custom-colors, "klee");
+                        font-size: 14px;
+                        font-weight: 700;
+                        letter-spacing: 0.5px;
+                        margin-bottom: 0;
+                    }
+
+                    .date {
+                        font-family: var(--wp--preset--font-family--gruenetypeneue);
+                        font-size: 25px;
+                        color: map.get($custom-colors, "klee");
+                        margin-bottom: 0;
+
+                        time {
+                            color: inherit;
+                        }
+                    }
+                }
+
+                .mt-2 {
+                    margin-top: 0 !important;
+
+                    .entry-header {
+                        padding: 0 !important;
+
+                        .h2 {
+                            font-size: 21px;
+                            color: map.get($custom-colors, "schwarzwald");
+                            letter-spacing: 0.6px;
+                            margin-bottom: 0;
+                            transition: 300ms ease-out;
+                        }
+                    }
+                }
+
+                .fst-italic {
+                    margin-top: auto;
+                    padding-top: 0;
+                    color: map.get($custom-colors, "schwarzwald");
+                    font-style: italic;
+                    font-weight: 450;
+                    margin-bottom: 35px;
+                }
+            }
+
+            .event-card__icon--green {
+                position: absolute;
+                bottom: 16px;
+                right: 17px;
+                display: block;
+
+                img {
+                    transition: 300ms ease-out;
+                }
+            }
+
+            .event-card__icon--white {
+                display: none;
+            }
+        }
+    }
+}
+
 a.event-card {
     text-decoration: none;
 
@@ -34,7 +344,6 @@ a.event-card {
 
 
             .date {
-
                 font-size: 25px;
                 font-family: var(--wp--preset--font-family--gruenetypeneue);
                 margin-bottom: var(--half-grid-margin);

@@ -41,7 +41,7 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 							</h1>
 						</header><!-- .page-header -->
 
-						<div class="filter-button-group mb-5 text-center">
+						<div class="filter-button-group text-center">
 						<?php
 						if ( $sunflower_is_event_archive ) {
 							printf( '<a href="?archive=false" class="eventlist" >%s</a>', esc_html__( 'to upcoming events', 'sunflower' ) );
@@ -71,16 +71,16 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 						?>
 						</div>
 
-					<h3 class="archive-description">
+					<div class="archive-description alignwide">
 						<?php
 						$sunflower_events_description = sunflower_get_setting( 'sunflower_events_description' ) ?? '';
 						if ( $sunflower_events_description ) {
 							printf( '<p>%s</p>', wp_kses_post( $sunflower_events_description ) );
 						}
 						?>
-					</h3>
+					</div>
 
-						<div class="row event-list">
+						<div class="row event-list alignwide">
 						<?php
 
 						/* Start the Loop */

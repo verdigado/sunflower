@@ -185,7 +185,8 @@ body #content {
 .entry-content > .wp-block-table,
 .entry-content > .wp-block-code,
 .entry-content > .wp-block-audio,
-.entry-content > .wp-block-search {
+.entry-content > .wp-block-search,
+.entry-content > .wp-block-comments {
     margin-top: var(--half-block-spacing);
     margin-bottom: var(--half-block-spacing);
 
@@ -219,6 +220,12 @@ body #content {
     }
 }
 
+.entry-content > .wp-block-comments {
+
+    &:last-child {
+        margin-bottom: var(--half-block-spacing);
+    }
+}
 
 .entry-content > .wp-block-post-featured-image {
     margin-top: var(--half-block-spacing);

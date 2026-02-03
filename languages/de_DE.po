@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.7\n"
 
 #. Theme Name of the theme
 #: style.css
@@ -130,8 +130,8 @@ msgid "comment article"
 msgstr "Artikel kommentieren"
 
 #: comments.php:31
-msgid "send"
-msgstr "abschicken"
+msgid "Send"
+msgstr "Abschicken"
 
 #. translators: %s is replaced with privacy link
 #: comments.php:35
@@ -188,8 +188,8 @@ msgstr "PHP-Version veraltet"
 #: functions/admin.php:84
 #, php-format
 msgid ""
-"<p>You are using PHP <strong>%1$s</strong> which <a href=\"https://www.php."
-"net/supported-versions.php\">is not supported</a> anymore!</p>\n"
+"<p>You are using PHP <strong>%1$s</strong> which <a href=\"https://"
+"www.php.net/supported-versions.php\">is not supported</a> anymore!</p>\n"
 "                <p>Please note, that Sunflower theme <strong>will require at "
 "least PHP 8.2+</strong> as of release 2.1.0. <br />\n"
 "                If you want to continue receiving updates, you must update "
@@ -902,8 +902,8 @@ msgid "none"
 msgstr "keine"
 
 #: template-parts/related-posts.php:15
-msgid "Related posts"
-msgstr "Ähnliche Beiträge"
+msgid "Recent News"
+msgstr "Aktuelles"
 
 #: theme.json
 msgctxt "Color name"

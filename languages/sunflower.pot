@@ -1,17 +1,18 @@
 # Copyright (C) 2026 verdigado eG
 # This file is distributed under the GNU General Public License v2 or later.
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Sunflower 26 3.0.0-alpha-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
+"POT-Creation-Date: 2026-02-03 14:53+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-23T09:39:08+01:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"X-Generator: Poedit 3.7\n"
 "X-Domain: sunflower\n"
 
 #. Theme Name of the theme
@@ -51,8 +52,7 @@ msgstr ""
 msgid "Events archive"
 msgstr ""
 
-#: archive-sunflower_event.php:39
-#: functions/events.php:37
+#: archive-sunflower_event.php:39 functions/events.php:37
 #: functions/options/class-sunflowereventsettingspage.php:34
 #: functions/options/class-sunflowereventsettingspage.php:35
 #: functions/options/class-sunflowereventsettingspage.php:204
@@ -63,8 +63,7 @@ msgstr ""
 msgid "to upcoming events"
 msgstr ""
 
-#: archive-sunflower_event.php:49
-#: build/next-events/render.php:66
+#: archive-sunflower_event.php:49 build/next-events/render.php:66
 #: src/next-events/render.php:66
 msgid "all events"
 msgstr ""
@@ -73,8 +72,7 @@ msgstr ""
 msgid "Archive"
 msgstr ""
 
-#: archive-sunflower_event.php:57
-#: functions/events.php:292
+#: archive-sunflower_event.php:57 functions/events.php:292
 #: functions/options/class-sunflowereventsettingspage.php:181
 msgid "Map"
 msgstr ""
@@ -83,47 +81,35 @@ msgstr ""
 msgid "more info"
 msgstr ""
 
-#: archive-sunflower_event.php:181
-#: single-sunflower_event.php:151
+#: archive-sunflower_event.php:181 single-sunflower_event.php:151
 msgid "Show event location on map"
 msgstr ""
 
-#: archive-sunflower_event.php:184
-#: single-sunflower_event.php:154
+#: archive-sunflower_event.php:184 single-sunflower_event.php:154
 msgid "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
 
-#: archive-sunflower_event.php:188
-#: single-sunflower_event.php:162
+#: archive-sunflower_event.php:188 single-sunflower_event.php:162
 msgid "Show map"
 msgstr ""
 
-#: archive-sunflower_event.php:198
-#: functions/s.php:148
+#: archive-sunflower_event.php:198 functions/s.php:148
 msgid "calendar in ics-format"
 msgstr ""
 
-#: archive.php:71
-#: category.php:97
-#: index.php:76
-#: search.php:73
+#: archive.php:71 category.php:97 index.php:76 search.php:73
 msgid "previous"
 msgstr ""
 
-#: archive.php:72
-#: category.php:98
-#: index.php:77
-#: search.php:74
+#: archive.php:72 category.php:98 index.php:77 search.php:74
 msgid "next"
 msgstr ""
 
-#: build/latest-posts/render.php:106
-#: src/latest-posts/render.php:106
+#: build/latest-posts/render.php:106 src/latest-posts/render.php:106
 msgid "No posts found"
 msgstr ""
 
-#: build/next-events/render.php:51
-#: src/next-events/render.php:51
+#: build/next-events/render.php:51 src/next-events/render.php:51
 msgid "Currently there are no coming events."
 msgstr ""
 
@@ -205,8 +191,7 @@ msgstr ""
 msgid "a free WordPress theme by"
 msgstr ""
 
-#: functions/admin.php:223
-#: functions/block-patterns.php:24
+#: functions/admin.php:223 functions/block-patterns.php:24
 #: functions/blocks.php:19
 #: functions/options/class-sunflowerfirststepspage.php:33
 #: functions/options/class-sunflowerfirststepspage.php:34
@@ -261,8 +246,7 @@ msgstr ""
 msgid "Show map on event"
 msgstr ""
 
-#: functions/events.php:38
-#: functions/events.php:94
+#: functions/events.php:38 functions/events.php:94
 msgid "Event"
 msgstr ""
 
@@ -298,13 +282,11 @@ msgstr ""
 msgid "Creator / Source of this media (may contain links)"
 msgstr ""
 
-#: functions/media.php:129
-#: functions/media.php:164
+#: functions/media.php:129 functions/media.php:164
 msgid "The creator field is mandatory and must not be left empty."
 msgstr ""
 
-#: functions/media.php:132
-#: functions/media.php:165
+#: functions/media.php:132 functions/media.php:165
 msgid "No alternative text provided. Please consider adding a description for better accessibility."
 msgstr ""
 
@@ -313,8 +295,7 @@ msgstr ""
 msgid "Layout"
 msgstr ""
 
-#: functions/metaboxes.php:24
-#: functions/metaboxes.php:150
+#: functions/metaboxes.php:24 functions/metaboxes.php:150
 msgid "Metadata"
 msgstr ""
 
@@ -697,8 +678,7 @@ msgstr ""
 msgid "Footer Menu 2"
 msgstr ""
 
-#: functions/s.php:147
-#: template-parts/content-archive.php:57
+#: functions/s.php:147 template-parts/content-archive.php:57
 msgid "Continue reading"
 msgstr ""
 
@@ -779,8 +759,7 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: single-sunflower_event.php:61
-#: template-parts/archive-event.php:54
+#: single-sunflower_event.php:61 template-parts/archive-event.php:54
 msgid "o'clock"
 msgstr ""
 
@@ -792,8 +771,7 @@ msgstr ""
 msgid "Link to webinar"
 msgstr ""
 
-#: single-sunflower_event.php:111
-#: single-sunflower_event.php:113
+#: single-sunflower_event.php:111 single-sunflower_event.php:113
 msgid "organized by"
 msgstr ""
 
@@ -801,8 +779,7 @@ msgstr ""
 msgid "Download as ics"
 msgstr ""
 
-#: template-parts/content-no-events.php:14
-#: template-parts/content-none.php:14
+#: template-parts/content-no-events.php:14 template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
 
@@ -824,8 +801,7 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:36
-#: template-parts/content.php:116
+#: template-parts/content-page.php:36 template-parts/content.php:116
 msgid "Pages:"
 msgstr ""
 
@@ -860,7 +836,7 @@ msgid "none"
 msgstr ""
 
 #: template-parts/related-posts.php:15
-msgid "Related posts"
+msgid "Recent News"
 msgstr ""
 
 #: theme.json

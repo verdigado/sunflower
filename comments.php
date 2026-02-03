@@ -20,17 +20,16 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div class="full-width commentbox bg-lightgreen pt-5 pb-5">
+<div class="commentbox alignwide">
 	<div class="container">
-		<h4 class="h2 text-center mt-3 mb-5"><?php esc_html_e( 'Comment article', 'sunflower' ); ?></h4>
 		<?php
-		$sunflower_divider = ( is_user_logged_in() ) ? '' : '</div><div class="col-12 col-md-6">';
+		$sunflower_divider = ( is_user_logged_in() ) ? '' : '</div><div>';
 
 		$sunflower_args = array(
 			'title_reply'          => __( 'comment article', 'sunflower' ),
-			'label_submit'         => __( 'send', 'sunflower' ),
-			'comment_notes_before' => '<div class="col-12 col-md-6">',
-			'comment_notes_after'  => '<p>' . sprintf(
+			'label_submit'         => __( 'Send', 'sunflower' ),
+			'comment_notes_before' => '<div>',
+			'comment_notes_after'  => '<p class="small mb-2">' . sprintf(
 			/* translators: %s is replaced with privacy link */
 				__( 'Your mail will not be published. Required fields are marked with a *. For more info see <a href="%s">privacy</a>.', 'sunflower' ),
 				get_privacy_policy_url()
@@ -43,13 +42,13 @@ if ( post_password_required() ) {
 	</div>
 </div>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area alignwide">
 
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
+		<h3 class="comments-title">
 		<?php
 		$sunflower_comment_count = get_comments_number();
 		if ( '1' === $sunflower_comment_count ) {
@@ -62,7 +61,7 @@ if ( post_password_required() ) {
 			);
 		}
 		?>
-		</h2><!-- .comments-title -->
+		</h3><!-- .comments-title -->
 
 		<?php the_comments_navigation(); ?>
 

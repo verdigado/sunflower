@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .sticky {
     display: block;
 }
@@ -14,7 +16,29 @@
 
 .page-links {
     clear: both;
-    margin: 0 0 1.5em;
+    margin: 0 0 var(--half-block-spacing) 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--half-grid-margin);
+    flex-wrap: wrap;
+
+    font-size: 16px;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 14px;
+    }
+
+    .post-page-numbers {
+        width: 46px !important;
+        padding: 0 0 3px 1px;
+
+        &.current {
+            background-color: map.get($custom-colors, "schwarzwald") !important;
+            border: 2px solid map.get($custom-colors, "grashalm") !important;
+            color: map.get($custom-colors, "grashalm") !important;
+        }
+    }
 }
 
 .display-single {

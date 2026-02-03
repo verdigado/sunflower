@@ -71,7 +71,7 @@ ul.wp-block-categories-list {
 
     &-description {
         text-align: center;
-        margin-bottom: 0;
+        margin-bottom: var(--grid-margin);
 
         p {
             margin-bottom: 0;
@@ -110,7 +110,6 @@ ul.wp-block-categories-list {
             left: auto !important;
             display: flex;
 
-            /* Standard: auf Mobile volle Breite (10 von 10 Spalten) */
             grid-column: span 10;
 
             width: 100%;
@@ -127,7 +126,6 @@ ul.wp-block-categories-list {
     .archive-loop > .col-md-6:nth-child(4n+1),
     .archive-loop > .col-md-6:nth-child(4n+4) {
 
-        /* 1., 4., 5., 8., 9., 12., ... -> 4 Spalten */
         grid-column: span 4;
 
         @include media-breakpoint-down(md) {
@@ -142,7 +140,6 @@ ul.wp-block-categories-list {
     .archive-loop > .col-md-6:nth-child(4n+2),
     .archive-loop > .col-md-6:nth-child(4n+3) {
 
-        /* 2., 3., 6., 7., 10., 11., ... -> 6 Spalten */
         grid-column: span 6;
 
         @include media-breakpoint-down(md) {
@@ -189,8 +186,13 @@ ul.wp-block-categories-list {
             &::before {
                 mask: url(../sunflower26/assets/img/arrow-right.svg) no-repeat center;
                 background-color: map.get($custom-colors, "klee");
+                content: "";
                 mask-size: 18px;
-                top: 8px;
+                top: 3px;
+                width: 35px;
+                height: 20px;
+                position: relative;
+                display: inline-block;
 
                 @include media-breakpoint-down(xl) {
                     top: 4px;
@@ -212,10 +214,15 @@ ul.wp-block-categories-list {
         }
 
         &::before {
+            content: "";
+            display: inline-block;
+            width: 35px;
+            height: 20px;
             mask: url(../sunflower26/assets/img/arrow-right.svg) no-repeat center;
-            background-color: map.get($custom-colors, "klee");
+            background-color: #008939;
             mask-size: 18px;
-            top: 8px;
+            position: relative;
+            top: 2px;
 
             @include media-breakpoint-down(xl) {
                 top: 4px;
@@ -266,13 +273,15 @@ ul.wp-block-categories-list {
     }
 }
 
+.wp-block-post-author-name {
+    color: map.get($custom-colors, "klee");
+}
 
 body #content {
 
     .wp-block-post-author-name {
         font-weight: 700;
         transition: 400ms ease-out;
-        color: map.get($custom-colors, "klee");
         font-family: "PT Sans", sans-serif;
         font-style: italic;
     }
@@ -283,7 +292,6 @@ body #content {
         &__name {
             font-weight: 700;
             transition: 400ms ease-out;
-            color: map.get($custom-colors, "klee");
             font-family: "PT Sans", sans-serif;
             font-style: italic;
         }

@@ -326,6 +326,52 @@ body.colorscheme-green {
     .wp-block-sunflower-meta-data a {
         color: map.get($custom-colors, "grashalm");
     }
+
+    .comment-respond p,
+    .wp-block-details,
+    .wp-block-comment-reply-link a {
+        color: map.get($custom-colors, "tanne");
+    }
+
+    a {
+        color: map.get($custom-colors, "grashalm");
+    }
+
+    .wp-block-post-excerpt__more-link,
+    .wp-block-read-more {
+        color: map.get($custom-colors, "grashalm") !important;
+    }
+
+    .wp-block-read-more,
+    .continue-reading {
+        color: map.get($custom-colors, "klee");
+    }
+
+    .comment-body footer .comment-metadata time,
+    .wp-block-comments .wp-block-comment-template .wp-block-comment-date time a {
+        color: map.get($custom-colors, "white");
+    }
+
+    .wp-block-code {
+        background-color: map.get($custom-colors, "tanne");
+    }
+
+    .wp-block-social-links .wp-block-social-link.wp-social-link {
+        background-color: map.get($custom-colors, "tanne");
+        color: map.get($custom-colors, "grashalm");
+        border: 2px solid map.get($custom-colors, "grasshalm");
+    }
+
+    tbody,
+    .wp-block-button__link,
+    .comment-reply-title {
+        color: map.get($custom-colors, "tanne");
+    }
+
+    .wp-block-post-author__name,
+    .comment-body footer .comment-metadata .edit-link {
+        color: map.get($custom-colors, "grashalm");
+    }
 }
 
 

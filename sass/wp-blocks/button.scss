@@ -36,7 +36,9 @@ button[type="submit"],
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-.sunflower-post-navigation a {
+.sunflower-post-navigation a,
+.comment-reply-link,
+.post-page-numbers {
     border-radius: 23px;
     font-weight: 700;
     font-size: 20px;

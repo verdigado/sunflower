@@ -182,5 +182,36 @@ $sunflower_metadata .= sprintf(
 			</div>
 	</div>
 </div>
+
+<?php
+if ( sunflower_get_setting( 'sunflower_show_related_posts' ) ) {
+	?>
+	<div class="container related-posts">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2>
+					<?php
+						echo esc_attr__( 'Aktuelles', 'sunflower' );
+					?>
+				</h2>
+			</div>
+
+			<?php
+				$sunflower_latest_posts = sunflower_latest_posts( 2 );
+			while ( $sunflower_latest_posts->have_posts() ) {
+				$sunflower_latest_posts->the_post();
+
+				echo '<div class="col-12 col-md-6">';
+				get_template_part( 'template-parts/content', 'archive' );
+				echo '</div>';
+			}
+			wp_reset_postdata();
+			?>
+		</div>
+	</div>
+	<?php
+}
+?>
+
 <?php
 get_footer();

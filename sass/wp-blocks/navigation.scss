@@ -12,6 +12,10 @@
         outline: none !important;
     }
 
+    a:hover {
+        color: map.get($custom-colors, "klee") !important;
+    }
+
     .wp-block-navigation__container {
         margin: 0;
         margin-right: var(--grid-margin);

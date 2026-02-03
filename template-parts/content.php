@@ -15,6 +15,12 @@ if ( 'sunflower_event' === get_post_type() ) {
 $sunflower_show_post_thumbnail = has_post_thumbnail() && ! get_post_meta( $post->ID, '_sunflower_hide_feature_image', true );
 $sunflower_metadata            = $args['metadata'] ?? '';
 $sunflower_class               = $args['class'] ?? '';
+
+// Check if content is empty for layout purposes.
+$sunflower_content_empty = empty( trim( wp_strip_all_tags( get_the_content() ) ) );
+if ( $sunflower_content_empty ) {
+	$sunflower_class .= ' content-empty';
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $sunflower_class ); ?>>

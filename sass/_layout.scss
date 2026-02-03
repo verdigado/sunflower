@@ -127,7 +127,7 @@ img.post-thumbnail {
         }
 
         &:last-child {
-            margin-right: 3rem;
+            margin-right: var(--grid-margin);
         }
     }
 }

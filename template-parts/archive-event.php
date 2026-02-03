@@ -42,7 +42,7 @@ $sunflower_has_thumb = has_post_thumbnail();
 
 			<div>
 				<div class="event-archive-meta">
-					<div class="text-uppercase small">
+					<div class="weekday text-uppercase small">
 						<?php echo esc_html( $sunflower_weekday ); ?>
 					</div>
 					<div class="date">

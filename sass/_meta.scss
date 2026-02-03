@@ -45,7 +45,8 @@
     border-radius: var(--border-radius-medium);
 
     .date {
-        font-size: 150%;
+        font-size: 200%;
+        line-height: 110%;
         font-weight: 700;
 
         @include media-breakpoint-up(lg) {

@@ -97,6 +97,10 @@ select {
         border: 2px solid map.get($custom-colors, "klee");
         background-color: map.get($custom-colors, "tanne");
     }
+
+    @include media-breakpoint-down(md) {
+        padding: 0 50px 2px 20px;
+    }
 }
 
 @include media-breakpoint-down(md) {
@@ -188,10 +192,8 @@ select {
     }
 }
 
-form label[for^="author"],
-form label[for^="email"],
+
 form label[for^="mail"],
-form label[for^="url"],
 form label[for^="name"],
 form label[for^="tel"],
 form label[for^="phone"],
@@ -212,9 +214,9 @@ input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 5px;
+    width: 46px;
+    height: 46px;
+    border-radius: 23px;
     position: relative;
     vertical-align: middle;
     cursor: pointer;
@@ -255,10 +257,11 @@ input[type="radio"]::after {
     content: "";
     display: block;
     position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 15px;
-    height: 15px;
+    top: 9px;
+    left: 9px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
     background-color: transparent;
     transition: background-color 0.2s ease;
 }
@@ -324,13 +327,13 @@ label {
         }
     }
 
-    textarea {
-        border-radius: var(--border-radius-medium);
-        padding: 2px 20px 5px 20px;
-    }
-
     &.is-feedback {
         justify-content: center;
         text-align: center;
     }
+}
+
+textarea {
+    border-radius: var(--border-radius-medium);
+    padding: 2px 20px 5px 20px;
 }

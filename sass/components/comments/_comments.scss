@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .comment-content a {
     word-wrap: break-word;
 }
@@ -6,16 +8,12 @@
     display: block;
 }
 
-.commentbox {
-    padding-left: var(--grid-margin);
-    padding-right: var(--grid-margin);
-}
-
 .comment-respond {
     position: relative;
     border-radius: var(--border-radius-medium) !important;
     padding: var(--double-grid-margin) var(--half-grid-margin) var(--grid-margin) var(--half-grid-margin);
     margin: var(--half-block-spacing) 0;
+    background-color: map.get($custom-colors, "sand");
 
     &:not(:has(#contact-form-title)) {
         padding: var(--grid-margin) var(--half-grid-margin);
@@ -81,6 +79,5 @@
         }
 
     }
-
 
 }
