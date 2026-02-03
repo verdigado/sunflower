@@ -283,7 +283,8 @@
     }
 }
 
-.entry-content > .wp-block-group {
+.entry-content > .wp-block-group,
+.entry-content > wp-block-group.is-layout-flex {
     padding-top: var(--half-block-spacing);
     padding-bottom: var(--half-block-spacing);
 

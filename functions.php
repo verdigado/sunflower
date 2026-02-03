@@ -318,11 +318,3 @@ if ( ! function_exists( 'sunflower_filter_excerpt_more' ) ) {
 
 	add_filter( 'excerpt_more', 'sunflower_filter_excerpt_more' );
 }
-
-
-add_action('init', function () {
-	@ini_set('upload_max_filesize', '256M');
-	@ini_set('post_max_size', '256M');
-	@ini_set('memory_limit', '512M');
-	@ini_set('max_execution_time', '300');
-});
