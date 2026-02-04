@@ -92,6 +92,8 @@ function sunflower_get_event_in_ics( $post ) {
 	$_sunflower_event_location_street = get_post_meta( $post->ID, '_sunflower_event_location_street', true ) ?? false;
 	$_sunflower_event_location_city   = get_post_meta( $post->ID, '_sunflower_event_location_city', true ) ?? false;
 
+	$_sunflower_event_url = get_post_meta( $post->ID, '_sunflower_event_url', true ) ?? false;
+
 	$from  = sunflower_get_ical_date( $_sunflower_event_from, ! $_sunflower_event_whole_day );
 	$until = ( $_sunflower_event_until ) ? sunflower_get_ical_date( $_sunflower_event_until, ! $_sunflower_event_whole_day ) : sunflower_get_ical_date( 3600 + $_sunflower_event_from, ! $_sunflower_event_whole_day );
 
@@ -109,10 +111,20 @@ function sunflower_get_event_in_ics( $post ) {
 			)
 		)
 	);
+	if ( $_sunflower_event_url ) {
+		$permalink = $_sunflower_event_url;
+	} else {
+		$permalink = get_permalink( $post->ID );
+	}
+	$url = '';
+	if ( filter_var( $permalink, FILTER_VALIDATE_URL ) ) {
+		$url = sunflower_textfold( 'URL;VALUE=URI:' . $permalink );
+	}
 
 	return <<<"ICALEVENT"
 BEGIN:VEVENT\r
 UID:{$uid}\r
+{$url}\r
 {$location}\r
 {$summary}\r
 {$description}\r
