@@ -166,6 +166,10 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			}
 		}
 
+		if ( isset( $event->URL ) ) { // phpcs:ignore
+			update_post_meta( $id, '_sunflower_event_url', (string) $event->URL ); // phpcs:ignore
+		}
+
 		$categories  = $event->CATEGORIES ?? ''; // phpcs:ignore
 		$categories .= ( $auto_categories ) ? ',' . $auto_categories : '';
 		if ( '' === $categories ) {
