@@ -12,8 +12,8 @@
         text-decoration: none;
         color: variables.$body-color;
 
-        &.text-danger {
-            color: #f00;
+        &.is-empty {
+            opacity: 0.6;
         }
 
     }

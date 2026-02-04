@@ -15,6 +15,11 @@
     }
 }
 
-.osm-map {
-    border-radius: var(--border-radius-small);
+.wp-block-group:has(.osm) {
+    padding-top: var(--grid-margin) !important;
+    padding-bottom: var(--grid-margin) !important;
+
+    .osm-map {
+        border-radius: var(--border-radius-small);
+    }
 }

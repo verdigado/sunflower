@@ -65,7 +65,7 @@ body #content {
             position: relative;
 
             &::before {
-                content: url(assets/img/search.svg);
+                content: url("#{$sunflower-img-path}/search.svg");
                 position: absolute;
                 left: 18px;
                 top: 8px;
@@ -103,7 +103,7 @@ body #content {
             padding: 0;
 
             &::before {
-                content: url(assets/img/search.svg);
+                content: url("#{$sunflower-img-path}/search.svg");
                 position: absolute;
                 left: 18px;
                 top: 8px;

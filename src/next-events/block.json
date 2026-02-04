@@ -20,10 +20,6 @@
 			"type": "number",
 			"default": 6
 		},
-		"blockLayout": {
-			"type": "string",
-			"default": "grid"
-		},
 		"excerptLength": {
 			"type": "number",
 			"default": 55

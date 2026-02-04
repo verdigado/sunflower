@@ -109,7 +109,7 @@
                 }
 
                 &::before {
-                    content: url("assets/img/arrow-right.svg");
+                    content: url("#{$sunflower-img-path}/arrow-right.svg");
                     display: inline-flex;
                     position: relative;
                     top: 2px;
@@ -188,7 +188,7 @@
                     width: 1em;
 
                     &::before {
-                        content: url("assets/img/arrow-right.svg");
+                        content: url("#{$sunflower-img-path}/arrow-right.svg");
                         display: inline-flex;
                         position: relative;
                         transition: 300ms ease-out;
@@ -310,7 +310,7 @@
         }
 
         &::before {
-            content: url("assets/img/arrow-right.svg");
+            content: url("#{$sunflower-img-path}/arrow-right.svg");
             display: inline-flex;
             position: relative;
             top: 2px;

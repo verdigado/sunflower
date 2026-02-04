@@ -29,12 +29,15 @@ if ( function_exists( 'register_block_pattern_category' ) ) {
 		foreach ( $sunflower_files as $sunflower_file ) {
 			$sunflower_basename_file = basename( $sunflower_file, '.html' );
 
+			$sunflower_pattern_content = $sunflower_filesystem->get_contents( $sunflower_file );
+			$sunflower_pattern_content = str_replace( '{{theme_url}}', get_template_directory_uri(), $sunflower_pattern_content );
+
 			register_block_pattern(
 				'sunflower/' . $sunflower_basename_file,
 				array(
 					'title'      => ucfirst( $sunflower_basename_file ),
 					'categories' => array( 'sunflower-' . $sunflower_basename_dir ),
-					'content'    => $sunflower_filesystem->get_contents( $sunflower_file ),
+					'content'    => $sunflower_pattern_content,
 				)
 			);
 		}

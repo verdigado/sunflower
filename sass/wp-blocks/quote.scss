@@ -1,13 +1,7 @@
 @use "sass:map";
 
 .entry-content > .wp-block-pullquote {
-    padding-top: var(--half-block-spacing);
-    padding-bottom: var(--half-block-spacing);
-}
-
-.entry-content > .wp-block-quote {
-    margin-top: var(--half-block-spacing);
-    margin-bottom: var(--half-block-spacing);
+    padding: 0;
 }
 
 .wp-block-quote {

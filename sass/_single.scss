@@ -84,13 +84,24 @@
     }
 }
 
+
 .display-single {
 
     min-height: 100vh;
 
+    .entry-header {
+
+        div:has(>.entry-title) {
+            padding: 0;
+
+            @include alignwide;
+        }
+    }
+
     .entry-title {
         margin-bottom: var(--grid-margin) !important;
         text-align: center;
+
     }
 
     // Standard: Single-Ansicht
@@ -235,3 +246,41 @@
 
     @include alignwide;
 }
+
+
+.styled-layout {
+
+    .post-thumbnail {
+        padding-top: 130px;
+    }
+
+    .archive-article .post-thumbnail {
+        padding-top: 0;
+    }
+}
+
+
+.styled-layout:not(:has(.display-single > .post-thumbnail)) {
+
+    .display-single > .entry-meta {
+        display: none;
+    }
+
+    .entry-content {
+
+        > *:first-child {
+            padding-top: 130px;
+        }
+    }
+
+    .archive-article {
+
+        .entry-content {
+
+            > *:first-child {
+                padding-top: 0;
+            }
+        }
+    }
+}
+

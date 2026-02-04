@@ -42,7 +42,7 @@
     .blocks-gallery-item {
 
         img {
-            border-radius: $border-radius;
+            border-radius: var(--border-radius-tiny, 3px);
         }
 
         figure {

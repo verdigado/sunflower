@@ -45,7 +45,10 @@
   },
   "scripts": {
     "watch": "sass sass/style.scss ./style.css -w",
+    "watch:editor": "sass sass/editor.scss ./assets/css/editor-style-compiled.css -w",
     "compile:css": "sass sass/style.scss ./style.css && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+    "compile:editor": "sass sass/editor.scss ./assets/css/editor-style-compiled.css",
+    "compile:all": "npm run compile:css && npm run compile:editor",
     "compile:build": "sass sass/style.scss ./style.css",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss' 'src/**/*.scss'",

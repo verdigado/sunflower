@@ -9,7 +9,6 @@ $sunflower_tag         = $attributes['tag'] ?? '';
 $sunflower_count       = isset( $attributes['count'] ) ? (int) $attributes['count'] : 3;
 $sunflower_title       = ( $attributes['title'] ?? '' ) ? ( $attributes['title'] ?? '' ) : __( 'Next events', 'sunflower-next-events' );
 $sunflower_classes     = $attributes['className'] ?? '';
-$sunflower_is_grid     = ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'] );
 $sunflower_archive_url = get_post_type_archive_link( 'sunflower_event' );
 
 $sunflower_next_events = sunflower_get_next_events( $sunflower_count, $sunflower_tag );
@@ -26,15 +25,11 @@ $sunflower_return = sprintf(
 
 ob_start();
 
-if ( $sunflower_is_grid ) {
-	$sunflower_cols = match ( (int) $sunflower_next_events->post_count ) {
-		1 => '',
-		2 => 'col-md-6',
-		default => 'col-md-6 col-lg-4',
-	};
-} else {
-	$sunflower_cols = '';
-}
+$sunflower_cols = match ( (int) $sunflower_next_events->post_count ) {
+	1 => '',
+	2 => 'col-md-6',
+	default => 'col-md-6 col-lg-4',
+};
 
 while ( $sunflower_next_events->have_posts() ) {
 	$sunflower_next_events->the_post();

@@ -117,6 +117,27 @@ function sunflower_enqueue_block_icon_picker() {
 add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_icon_picker' );
 
 /**
+ * Enqueue script for setting --bg CSS variable on mark elements in editor.
+ * This replicates the frontend.js behavior for skewed headlines in the block editor.
+ * Uses enqueue_block_assets to ensure it runs inside the editor iframe (WP 5.9+).
+ */
+function sunflower_enqueue_editor_mark_bg() {
+	// Nur im Admin/Editor laden, nicht im Frontend.
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	wp_enqueue_script(
+		'sunflower-editor-mark-bg',
+		get_template_directory_uri() . '/assets/js/editor-mark-bg.js',
+		array(),
+		filemtime( get_template_directory() . '/assets/js/editor-mark-bg.js' ),
+		true
+	);
+}
+add_action( 'enqueue_block_assets', 'sunflower_enqueue_editor_mark_bg' );
+
+/**
  * Block styles for Gutenberg.
  */
 function sunflower_enqueue_block_core_assets() {

@@ -318,3 +318,12 @@ if ( ! function_exists( 'sunflower_filter_excerpt_more' ) ) {
 
 	add_filter( 'excerpt_more', 'sunflower_filter_excerpt_more' );
 }
+
+// Core Block Patterns deaktivieren.
+add_action(
+	'after_setup_theme',
+	function () {
+		remove_theme_support( 'core-block-patterns' );
+	},
+	20
+);

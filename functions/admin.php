@@ -190,9 +190,16 @@ add_action( 'admin_init', 'sunflower_admin' );
  */
 function sunflower_admin_style() {
 	wp_enqueue_style(
+		'sunflower-admin-fontawesome',
+		get_template_directory_uri() . '/assets/css/admin-fontawesome.css',
+		null,
+		SUNFLOWER_VERSION
+	);
+
+	wp_enqueue_style(
 		'sunflower-admin-styles',
 		get_template_directory_uri() . '/assets/css/admin.css',
-		null,
+		array( 'sunflower-admin-fontawesome' ),
 		SUNFLOWER_VERSION
 	);
 }

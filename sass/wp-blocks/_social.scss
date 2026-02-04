@@ -21,6 +21,30 @@
     }
 }
 
+.wp-block-social-links .wp-block-social-link-anchor {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    height: auto;
+    min-height: 0;
+    box-shadow: none;
+    line-height: 1;
+    font-weight: 400;
+    color: inherit;
+}
+
+.wp-block-social-links .wp-block-social-link-anchor.wp-element-button {
+    border-radius: 50%;
+}
+
+.wp-block-sunflower-meta-data a.text-danger {
+    color: inherit;
+}
+
 
 .social-media-profile {
     width: 38px;

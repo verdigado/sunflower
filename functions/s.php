@@ -79,8 +79,8 @@ if ( ! function_exists( 'sunflower_setup' ) ) :
 		add_theme_support( 'responsive-embeds' );
 
 		add_theme_support( 'editor-styles' );
-		add_editor_style( '/assets/css/editor-style.css' );
-		add_editor_style( '/assets/css/admin-fontawesome.css' );
+		// Kompiliertes Editor-Stylesheet mit allen relevanten Frontend-Styles.
+		add_editor_style( '/assets/css/editor-style-compiled.css' );
 	}
 endif;
 
@@ -208,6 +208,12 @@ function sunflower_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'sunflower_scripts' );
+
+/**
+ * Editor-Styles werden über add_editor_style() in sunflower_setup() geladen.
+ * Dies stellt sicher, dass sie NUR im Editor-Canvas (iframe) wirken,
+ * nicht in der Admin-UI (Sidebar, List-View, etc.).
+ */
 
 /**
  * Custom template tags for this theme.

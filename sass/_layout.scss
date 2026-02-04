@@ -191,11 +191,11 @@ a.continue-reading,
         height: 20px;
         left: 5px;
         top: 2px;
-        mask-image: url("assets/img/arrow-right.svg");
+        mask-image: url("#{$sunflower-img-path}/arrow-right.svg");
         mask-size: contain;
         mask-repeat: no-repeat;
         mask-position: center;
-        -webkit-mask-image: url("assets/img/arrow-right.svg");
+        -webkit-mask-image: url("#{$sunflower-img-path}/arrow-right.svg");
         -webkit-mask-size: contain;
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center;

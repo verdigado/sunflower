@@ -81,8 +81,8 @@ export default function Edit( { attributes, setAttributes } ) {
 							target="_blank"
 							className={
 								url === '#' || url === ''
-									? 'text-danger'
-									: 'text-ok'
+									? 'sunflower-meta-data__link is-empty'
+									: 'sunflower-meta-data__link'
 							}
 							rel="noopener noreferrer"
 						>

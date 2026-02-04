@@ -203,7 +203,7 @@ body.admin-bar {
 
             &::before {
                 content: "";
-                background-image: url("assets/img/sunflower.svg") !important;
+                background-image: url("#{$sunflower-img-path}/sunflower.svg") !important;
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;

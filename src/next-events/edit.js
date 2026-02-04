@@ -11,11 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	useBlockProps,
-	BlockControls,
-	InspectorControls,
-} from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 
 import {
 	Disabled,
@@ -23,10 +19,8 @@ import {
 	PanelBody,
 	RangeControl,
 	TextControl,
-	ToolbarGroup,
 } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
-import { grid, list } from '@wordpress/icons';
 import { useState, useEffect } from '@wordpress/element';
 import { useEntityRecords } from '@wordpress/core-data';
 
@@ -56,22 +50,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		className: 'row',
 	} );
 
-	const { title, tag, count, blockLayout } = attributes;
-
-	const toolbarControls = [
-		{
-			icon: list,
-			title: __( 'List view' ),
-			onClick: () => setAttributes( { blockLayout: 'list' } ),
-			isActive: blockLayout === 'list',
-		},
-		{
-			icon: grid,
-			title: __( 'Grid view' ),
-			onClick: () => setAttributes( { blockLayout: 'grid' } ),
-			isActive: blockLayout === 'grid',
-		},
-	];
+	const { title, tag, count } = attributes;
 
 	const [ tagFormSuggestions, setTagFormSuggestions ] =
 		useState( EMPTY_ARRAY );
@@ -123,25 +102,17 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	return (
 		<div { ...blockProps }>
-			{
-				<>
-					<BlockControls>
-						<ToolbarGroup controls={ toolbarControls } />
-					</BlockControls>
-					<Disabled>
-						<ServerSideRender
-							block={ 'sunflower/next-events' }
-							attributes={ {
-								title,
-								blockLayout,
-								tag,
-								count,
-								tagFormValue,
-							} }
-						/>
-					</Disabled>
-				</>
-			}
+			<Disabled>
+				<ServerSideRender
+					block={ 'sunflower/next-events' }
+					attributes={ {
+						title,
+						tag,
+						count,
+						tagFormValue,
+					} }
+				/>
+			</Disabled>
 			{
 				<InspectorControls>
 					<PanelBody title={ __( 'Filter' ) } initialOpen>

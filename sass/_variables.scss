@@ -1,4 +1,9 @@
 @use "sass:map";
+
+$sunflower-assets-path: "assets" !default;
+$sunflower-vndr-path: "#{$sunflower-assets-path}/vndr" !default;
+$sunflower-fonts-path: "#{$sunflower-assets-path}/fonts" !default;
+$sunflower-img-path: "#{$sunflower-assets-path}/img" !default;
 $custom-colors: (
     "schwarzwald": #002216,
     "tanne": #005538,

@@ -1,61 +1,128 @@
 /**
  * The following styles get applied inside the editor only.
  *
- * Try to style the editor accordion like in the frontend without bootstrap
+ * Style the editor accordion like in the frontend
  */
 
-@use "../../sass/variables";
+@use "sass:map";
+@use "../../sass/variables" as *;
 
 .wp-block-sunflower-accordion {
+    max-width: 100vw !important;
+    width: calc(100% + var(--double-grid-margin, 40px)) !important;
+    margin: 0 0 0 calc(-1 * var(--grid-margin, 20px)) !important;
+    padding: calc(var(--half-grid-margin, 10px) / 2) var(--grid-margin, 20px) 0 var(--grid-margin, 20px);
+    background-color: map.get($custom-colors, "sand");
+
+    &:nth-of-type(even) {
+
+        .accordion-item {
+            background-color: map.get($custom-colors, "gruener-sand") !important;
+        }
+    }
+
+    &:nth-of-type(odd) {
+
+        .accordion-item {
+            background-color: map.get($custom-colors, "white") !important;
+        }
+    }
 
     .accordion-item {
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-        margin-bottom: 6px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+        border-radius: var(--border-radius-medium, 15px) !important;
+        margin-bottom: calc(var(--half-grid-margin, 10px) / 2);
+        overflow: hidden;
+
+        &:hover {
+            outline: 2px solid map.get($custom-colors, "grashalm");
+        }
 
         h4.accordion-header {
-            margin: 0;
+            margin: 0 !important;
         }
 
         .accordion-button {
             position: relative;
             width: 100%;
-            padding: 1rem 1.25rem;
-            font-size: 1.1875rem;
-            text-align: left;
-            background-color: variables.$secondary;
-            border: 0;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            overflow-anchor: none;
+            min-height: 80px;
+            background-color: transparent !important;
+            justify-content: flex-start;
+            align-items: center;
+            display: inline-flex;
+            flex-direction: row;
+            padding: var(--grid-margin, 20px) var(--grid-margin, 20px) calc(var(--grid-margin, 20px) + 3px) var(--grid-margin, 20px) !important;
+            margin-left: auto;
+            margin-right: auto;
+            transition: 200ms ease;
+            height: auto !important;
+            border: 0 solid #fff !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            color: map.get($custom-colors, "tanne") !important;
 
-            input[type="text"] {
-                color: #fff;
-                background-color: variables.$secondary;
-                padding: 2px;
-                border: none;
-                font-size: 19px;
-                font-family: PTSans;
-                font-weight: 400;
+            font-family: var(--wp--preset--font-family--gruenetypeneue, sans-serif) !important;
+            font-weight: 400 !important;
+            line-height: 125% !important;
+            font-size: 25px !important;
+            letter-spacing: 0.8px !important;
+
+            &::before {
+                content: url("../../assets/img/arrow-right.svg");
+                display: inline-flex;
+                position: relative;
+                top: 2px;
+                transition: 300ms ease-out;
+                width: fit-content;
+                margin-right: 15px;
+                flex-shrink: 0;
+            }
+
+            .components-base-control,
+            .components-base-control__field {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            input[type="text"],
+            .components-text-control__input {
+                color: map.get($custom-colors, "tanne") !important;
+                background-color: transparent !important;
+                padding: 2px !important;
+                border: none !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                font-size: 25px !important;
+                font-family: var(--wp--preset--font-family--gruenetypeneue, sans-serif) !important;
+                font-weight: 400 !important;
+                line-height: 125% !important;
+                letter-spacing: 0.8px !important;
+                min-height: auto !important;
+                height: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 1 1 auto !important;
+                display: block !important;
 
                 &:focus-visible {
-                    border: 1px solid #ccc;
+                    border: 1px solid map.get($custom-colors, "grashalm") !important;
+                    outline: none !important;
                 }
 
                 &::placeholder {
-                    color: #fff;
+                    color: map.get($custom-colors, "maus") !important;
                     opacity: 0.7;
                 }
             }
-
-
         }
 
         .accordion-body {
-            padding: 16px 20px;
+            padding: 0 var(--grid-margin, 20px) var(--half-grid-margin, 10px) calc(var(--grid-margin, 20px) + 30px);
+
+            p {
+                color: map.get($custom-colors, "tanne");
+                font-size: 1rem;
+                line-height: 1.6;
+            }
         }
-
     }
-
 }
