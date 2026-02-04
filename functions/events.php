@@ -35,7 +35,9 @@ function sunflower_create_event_post_type() {
 	if ( ! $is_events_enabled ) {
 		return;
 	}
-	$events_slug = sunflower_get_setting( 'sunflower_events_slug' ) ?? 'events';
+
+	// Get the events slug from settings or use default 'termine' for compatibility reasons.
+	$events_slug = sunflower_get_setting( 'sunflower_events_slug' ) ? sunflower_get_setting( 'sunflower_events_slug' ) : 'termine';
 
 	register_post_type(
 		'sunflower_event',
