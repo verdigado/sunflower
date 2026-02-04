@@ -6,3 +6,15 @@
         max-width: 100%;
     }
 }
+
+#leaflet {
+
+    > div {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.osm-map {
+    border-radius: var(--border-radius-small);
+}
