@@ -59,42 +59,7 @@ class SunflowerSettingsPage {
 		$this->options['sunflower_categories_archive'] = $this->options['sunflower_categories_archive'] ?? 'main-categories';
 
 		?>
-		<div class="wrap sunflower-setting-admin">
-			<h1><?php esc_html_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
-			<form method="post" action="options.php">
-			<?php
-				// This prints out all hidden setting fields.
-				settings_fields( 'sunflower_option_group' );
-			do_settings_sections( 'sunflower-setting-admin' );
-			submit_button();
-			?>
-			</form>
-
-			<table class="form-table" role="presentation">
-				<tbody>
-					<tr>
-						<th scope="row">Permalinks</th>
-						<td>
-
-						<?php
-						if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( $_GET['_wpnonce'], 'sunflower_options-flushpermalinks' ) && isset( $_GET['flush_permalinks'] ) ) {
-							flush_rewrite_rules();
-							?>
-							Die Permalinkstruktur wurde neu eingelesen.
-								<?php } else { ?>
-							<p>Falls der Link für die Termineseite fehlerhaft ist, kannst Du die Permalinkstruktur neu einlesen. </p><br>
-							<?php
-								$sunflower_flushpermalinks_url = wp_nonce_url( 'admin.php?page=sunflower_settings&flush_permalinks=1', 'sunflower_options-flushpermalinks' );
-								printf( '<a href="%s" class="button button-primary">%s</a>', esc_html( $sunflower_flushpermalinks_url ), esc_attr__( 'Reimport permalink structure', 'sunflower' ) );
-								}
-								?>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-
-		</div>
-		<?php
+				<?php
 	}
 
 	/**

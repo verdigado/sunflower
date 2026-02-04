@@ -30,6 +30,13 @@ function sunflower_get_event_fields() {
  * Create sunflower event post type.
  */
 function sunflower_create_event_post_type() {
+
+	$is_events_enabled = sunflower_get_setting( 'sunflower_events_enabled' );
+	if ( ! $is_events_enabled ) {
+		return;
+	}
+	$events_slug = sunflower_get_setting( 'sunflower_events_slug' ) ?? 'events';
+
 	register_post_type(
 		'sunflower_event',
 		array(
@@ -41,8 +48,7 @@ function sunflower_create_event_post_type() {
 			'menu_icon'    => 'dashicons-calendar',
 			'has_archive'  => 'termine',
 			'rewrite'      => array(
-				'slug'       => 'termine',
-				'with_front' => false,
+				'slug' => $events_slug,
 			),
 			'show_in_rest' => true,
 			'supports'     => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
