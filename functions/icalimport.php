@@ -351,11 +351,11 @@ if ( sunflower_get_setting( 'sunflower_events_enabled' ) ) {
  * Make georeferencing via nominatim for unknown locations and cache result in database.
  *
  * @param string $location The location as human readable string.
- * @return array
+ * @return array | false The lon/lat array or false on failure.
  */
 function sunflower_geocode( $location ) {
 	static $i  = 0;
-	$transient = sprintf( 'sunflower_geocache_%s', $location );
+	$transient = sprintf( 'sunflower_geocache_%s', sanitize_title( $location ) );
 
 	$cached = get_transient( $transient );
 	if ( $cached ) {
@@ -367,17 +367,29 @@ function sunflower_geocode( $location ) {
 		return false;
 	}
 
-	$url     = sprintf( 'https://nominatim.openstreetmap.org/search?q=%s&format=geocodejson', rawurlencode( (string) $location ) );
-	$opts    = array(
-		'http' => array(
-			'method' => 'GET',
-			'header' => "Accept-language: en\r\n" .
-							"user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36\r\n",
-		),
-	);
-	$context = stream_context_create( $opts );
+	$url = sprintf( 'https://nominatim.openstreetmap.org/search?q=%s&format=geocodejson', rawurlencode( (string) $location ) );
 
-	$json = json_decode( wp_remote_retrieve_body( wp_remote_get( $url, false, $context ) ) );
+	$response = wp_remote_get(
+		$url,
+		array(
+			'headers' => array(
+				'User-Agent'        => 'SunflowerTheme/' . SUNFLOWER_VERSION . ' (technik@verdigado.com)',
+				'Accepted-Language' => 'en-US,en;q=0.9',
+			),
+			'timeout' => 15,
+		)
+	);
+
+	if ( is_wp_error( $response ) ) {
+		return false;
+	}
+
+	$body = wp_remote_retrieve_body( $response );
+	$json = json_decode( $body );
+
+	if ( ! $json ) {
+		return false;
+	}
 
 	$lonlat = isset( $json->features[0] ) ? $json->features[0]->geometry->coordinates : false;
 
