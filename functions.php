@@ -60,7 +60,7 @@ function sunflower_get_setting( $option ) {
 	}
 
 	if ( empty( $options[ $option ] ) ) {
-		return false;
+		return 0;
 	}
 
 	return $options[ $option ];

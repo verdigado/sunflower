@@ -474,29 +474,6 @@ if ( is_admin() ) {
 }
 
 /**
- * On theme update, ensure that the 'sunflower_events_enabled' option is set.
-*/
-add_action(
-	'admin_init',
-	function () {
-
-		$options = get_option( 'sunflower_events_options' );
-
-		if ( ! is_array( $options ) ) {
-			return;
-		}
-
-		// Set only if the option does not exist yet.
-		if ( ! array_key_exists( 'sunflower_events_enabled', $options ) ) {
-
-			$options['sunflower_events_enabled'] = 1;
-			update_option( 'sunflower_events_options', $options );
-		}
-	}
-);
-
-
-/**
  * Add inline script to handle dependent fields.
 */
 add_action(
