@@ -30,6 +30,15 @@ function sunflower_get_event_fields() {
  * Create sunflower event post type.
  */
 function sunflower_create_event_post_type() {
+
+	$is_events_enabled = sunflower_get_setting( 'sunflower_events_enabled' );
+	if ( ! $is_events_enabled ) {
+		return;
+	}
+
+	// Get the events slug from settings or use default 'termine' for compatibility reasons.
+	$events_slug = sunflower_get_setting( 'sunflower_events_slug' ) ? sunflower_get_setting( 'sunflower_events_slug' ) : 'termine';
+
 	register_post_type(
 		'sunflower_event',
 		array(
@@ -41,8 +50,7 @@ function sunflower_create_event_post_type() {
 			'menu_icon'    => 'dashicons-calendar',
 			'has_archive'  => 'termine',
 			'rewrite'      => array(
-				'slug'       => 'termine',
-				'with_front' => false,
+				'slug' => $events_slug,
 			),
 			'show_in_rest' => true,
 			'supports'     => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
@@ -78,6 +86,14 @@ function sunflower_create_event_post_type() {
 			'show_in_rest'      => true,
 		)
 	);
+
+	if ( get_option( 'sunflower_flush_rewrite_rules' ) ) {
+
+		// Flush rewrite rules to make the new post type available immediately.
+		flush_rewrite_rules();
+
+		delete_option( 'sunflower_flush_rewrite_rules' );
+	}
 }
 
 add_action( 'init', 'sunflower_create_event_post_type' );

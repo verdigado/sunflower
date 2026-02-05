@@ -55,14 +55,13 @@ header( 'Pragma: public' );
 header( 'Expires: 0' );
 header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );
 header( 'Cache-Control: private', false );
-header( 'Content-Type: application/force-download' );
-header( 'Content-Type: application/octet-stream' );
-header( 'Content-Type: application/download' );
+header( 'Content-Type: text/calendar; charset=utf-8' );
 header( sprintf( 'Content-Disposition: attachment; filename="%s";', $sunflower_filename ) );
 header( 'Content-Description: File Transfer' );
 header( 'Content-Transfer-Encoding: binary' );
 
-echo wp_kses_post( $sunflower_ical );
+// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+echo $sunflower_ical;
 die();
 
 /**
@@ -92,6 +91,8 @@ function sunflower_get_event_in_ics( $post ) {
 	$_sunflower_event_location_street = get_post_meta( $post->ID, '_sunflower_event_location_street', true ) ?? false;
 	$_sunflower_event_location_city   = get_post_meta( $post->ID, '_sunflower_event_location_city', true ) ?? false;
 
+	$_sunflower_event_url = get_post_meta( $post->ID, '_sunflower_event_url', true ) ?? false;
+
 	$from  = sunflower_get_ical_date( $_sunflower_event_from, ! $_sunflower_event_whole_day );
 	$until = ( $_sunflower_event_until ) ? sunflower_get_ical_date( $_sunflower_event_until, ! $_sunflower_event_whole_day ) : sunflower_get_ical_date( 3600 + $_sunflower_event_from, ! $_sunflower_event_whole_day );
 
@@ -99,8 +100,22 @@ function sunflower_get_event_in_ics( $post ) {
 	$summary          = sunflower_textfold( 'SUMMARY:' . html_entity_decode( (string) get_the_title() ) );
 	$sunflower_prodid = wp_parse_url( (string) get_bloginfo( 'url' ), PHP_URL_HOST );
 	$uid              = md5( uniqid( wp_rand(), true ) ) . '@' . $sunflower_prodid;
-	$description      = sunflower_textfold( 'DESCRIPTION:' . wp_strip_all_tags( get_the_content() ) );
-	$location         = sunflower_textfold(
+
+	$html = get_the_content( null, false, $post );
+	$html = strip_shortcodes( $html );
+	$html = do_blocks( $html );
+	$html = wp_kses_post( $html );
+
+	$altrep = rawurlencode( $html );
+
+	$plain = wp_strip_all_tags( $html );
+	$plain = html_entity_decode( $plain, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+	$plain = sunflower_replace( $plain );
+
+	$description = sunflower_textfold(
+		'DESCRIPTION;ALTREP="data:text/html,' . $altrep . '":' . $plain
+	);
+	$location    = sunflower_textfold(
 		'LOCATION:' . implode(
 			', ',
 			array_diff(
@@ -109,10 +124,20 @@ function sunflower_get_event_in_ics( $post ) {
 			)
 		)
 	);
+	if ( $_sunflower_event_url ) {
+		$permalink = $_sunflower_event_url;
+	} else {
+		$permalink = get_permalink( $post->ID );
+	}
+	$url = '';
+	if ( filter_var( $permalink, FILTER_VALIDATE_URL ) ) {
+		$url = sunflower_textfold( 'URL;VALUE=URI:' . $permalink );
+	}
 
 	return <<<"ICALEVENT"
 BEGIN:VEVENT\r
 UID:{$uid}\r
+{$url}\r
 {$location}\r
 {$summary}\r
 {$description}\r
@@ -131,16 +156,51 @@ ICALEVENT;
  *
  * @param string $text The text to fold.
  */
-function sunflower_textfold( $text ) {
+function sunflower_replace( $text ) {
 	// Replace ",", ";" and "\".
 	$searchandreplace = array(
-		','  => '\,',
-		';'  => '\;',
-		'\\' => '\\\\',
+		','    => '\,',
+		';'    => '\;',
+		'\\'   => '\\\\',
+		'\r\n' => '\\n',
+		'\n'   => '\\n',
+		'\r'   => '\\n',
 	);
-	$text             = strtr( $text, $searchandreplace );
+
+	$text = strtr( $text, $searchandreplace );
+
 	// Remove empty lines and replace all new lines with "\n\n".
-	$text = preg_replace( '/\s*(\n)/', '\n\n', $text );
-	// Fold all lines after 75 signs.
-	return rtrim( chunk_split( (string) $text, 74, "\r\n " ), "\r\n " );
+	$text = preg_replace( '/\s*(\n)/', '\\n\\n', $text );
+
+	return $text;
+}
+
+/**
+ * This folds the text line for SUMMARY and DESCRIPTION
+ *
+ * Reference: https://www.kanzaki.com/docs/ical/text.html
+ *
+ * @param string $text The text to fold.
+ * @param int    $max_bytes Maximum bytes per line.
+ * @return string The folded text.
+ */
+function sunflower_textfold( string $text, int $max_bytes = 73 ): string {
+	$result = '';
+	$line   = '';
+
+	$len = mb_strlen( $text, 'UTF-8' );
+
+	for ( $i = 0; $i < $len; $i++ ) {
+		$char = mb_substr( $text, $i, 1, 'UTF-8' );
+
+		// Count bytes, not characters.
+		if ( strlen( $line . $char ) > $max_bytes ) {
+			$result .= $line . "\r\n ";
+			$line    = $char;
+		} else {
+			$line .= $char;
+		}
+	}
+
+	return $result . $line;
 }

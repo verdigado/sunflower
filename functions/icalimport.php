@@ -166,6 +166,10 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			}
 		}
 
+		if ( isset( $event->URL ) ) { // phpcs:ignore
+			update_post_meta( $id, '_sunflower_event_url', (string) $event->URL ); // phpcs:ignore
+		}
+
 		$categories  = $event->CATEGORIES ?? ''; // phpcs:ignore
 		$categories .= ( $auto_categories ) ? ',' . $auto_categories : '';
 		if ( '' === $categories ) {
@@ -274,6 +278,7 @@ function sunflower_get_event_by_source( $source ) {
  * @param boolean $force Force the import even if transient time is not past.
  */
 function sunflower_import_icals( $force = false ) {
+
 	if ( ! $force && get_transient( 'sunflower_ical_imported' ) ) {
 		return false;
 	}
@@ -340,19 +345,21 @@ function sunflower_import_icals( $force = false ) {
 
 	return $report;
 }
+if ( sunflower_get_setting( 'sunflower_events_enabled' ) ) {
 
-add_action( 'init', 'sunflower_import_icals' );
+	add_action( 'init', 'sunflower_import_icals' );
 
+}
 
 /**
  * Make georeferencing via nominatim for unknown locations and cache result in database.
  *
  * @param string $location The location as human readable string.
- * @return array
+ * @return array | false The lon/lat array or false on failure.
  */
 function sunflower_geocode( $location ) {
 	static $i  = 0;
-	$transient = sprintf( 'sunflower_geocache_%s', $location );
+	$transient = sprintf( 'sunflower_geocache_%s', sanitize_title( $location ) );
 
 	$cached = get_transient( $transient );
 	if ( $cached ) {
@@ -364,17 +371,29 @@ function sunflower_geocode( $location ) {
 		return false;
 	}
 
-	$url     = sprintf( 'https://nominatim.openstreetmap.org/search?q=%s&format=geocodejson', rawurlencode( (string) $location ) );
-	$opts    = array(
-		'http' => array(
-			'method' => 'GET',
-			'header' => "Accept-language: en\r\n" .
-							"user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36\r\n",
-		),
-	);
-	$context = stream_context_create( $opts );
+	$url = sprintf( 'https://nominatim.openstreetmap.org/search?q=%s&format=geocodejson', rawurlencode( (string) $location ) );
 
-	$json = json_decode( wp_remote_retrieve_body( wp_remote_get( $url, false, $context ) ) );
+	$response = wp_remote_get(
+		$url,
+		array(
+			'headers' => array(
+				'User-Agent'        => 'SunflowerTheme/' . SUNFLOWER_VERSION . ' (technik@verdigado.com)',
+				'Accepted-Language' => 'en-US,en;q=0.9',
+			),
+			'timeout' => 15,
+		)
+	);
+
+	if ( is_wp_error( $response ) ) {
+		return false;
+	}
+
+	$body = wp_remote_retrieve_body( $response );
+	$json = json_decode( $body );
+
+	if ( ! $json ) {
+		return false;
+	}
 
 	$lonlat = isset( $json->features[0] ) ? $json->features[0]->geometry->coordinates : false;
 
