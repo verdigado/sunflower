@@ -59,7 +59,7 @@ class SunflowerSettingsPage {
 		$this->options['sunflower_categories_archive'] = $this->options['sunflower_categories_archive'] ?? 'main-categories';
 
 		?>
-		<div class="wrap">
+		<div class="wrap sunflower-setting-admin">
 			<h1><?php esc_html_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
 			<form method="post" action="options.php">
 			<?php
