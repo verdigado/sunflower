@@ -59,7 +59,19 @@ class SunflowerSettingsPage {
 		$this->options['sunflower_categories_archive'] = $this->options['sunflower_categories_archive'] ?? 'main-categories';
 
 		?>
-				<?php
+		<div class="wrap">
+			<h1><?php esc_html_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
+			<form method="post" action="options.php">
+			<?php
+				// This prints out all hidden setting fields.
+				settings_fields( 'sunflower_option_group' );
+				do_settings_sections( 'sunflower-setting-admin' );
+				submit_button();
+			?>
+			</form>
+
+		</div>
+		<?php
 	}
 
 	/**

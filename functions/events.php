@@ -86,6 +86,14 @@ function sunflower_create_event_post_type() {
 			'show_in_rest'      => true,
 		)
 	);
+
+	if ( get_option( 'sunflower_flush_rewrite_rules' ) ) {
+
+		// Flush rewrite rules to make the new post type available immediately.
+		flush_rewrite_rules();
+
+		delete_option( 'sunflower_flush_rewrite_rules' );
+	}
 }
 
 add_action( 'init', 'sunflower_create_event_post_type' );
