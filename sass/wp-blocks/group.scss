@@ -214,53 +214,6 @@
 }
 
 
-.wp-block-media-text {
-    padding-top: var(--half-block-spacing);
-    padding-bottom: var(--half-block-spacing);
-    margin: 0 auto;
-
-    @include media-breakpoint-down(xl) {
-        width: 100% !important;
-    }
-
-    @include media-breakpoint-down(md) {
-        display: flex;
-        flex-direction: column !important;
-        row-gap: var(--double-grid-margin);
-
-    }
-
-
-    &__media {
-        border-radius: var(--border-radius-large);
-        overflow: hidden;
-    }
-
-    &__content {
-        padding: 0 0 0 var(--double-grid-margin) !important;
-
-        .wp-block-image {
-            margin-bottom: var(--grid-margin);
-        }
-
-        @include media-breakpoint-down(md) {
-            padding: 0 !important;
-        }
-    }
-
-    &.has-media-on-the-right {
-
-        .wp-block-media-text__content {
-            padding: 0 var(--double-grid-margin) 0 0 !important;
-
-            @include media-breakpoint-down(md) {
-                padding: 0 !important;
-            }
-        }
-    }
-}
-
-
 .wp-block-group.is-vertical,
 .wp-block-column {
 
@@ -269,19 +222,6 @@
     }
 }
 
-
-.wp-block-media-text {
-
-    .wp-block-group {
-        padding-top: 0;
-        padding-bottom: 0;
-        margin-bottom: 0;
-
-        &:not(:has(> :not(p, h1, h2, h3, h4, h5, h6, figure))) {
-            margin-bottom: calc(-1 * var(--grid-margin));
-        }
-    }
-}
 
 .entry-content > .wp-block-group,
 .entry-content > wp-block-group.is-layout-flex {
