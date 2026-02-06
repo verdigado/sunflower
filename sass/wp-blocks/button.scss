@@ -59,9 +59,9 @@ input[type="submit"],
 
 
     &:hover {
-        color: map.get($custom-colors, "schwarzwald") !important;
+        color: map.get($custom-colors, "schwarzwald");
         text-decoration: none;
-        background-color: $button-hover !important;
+        background-color: $button-hover;
     }
 
     &:focus {
@@ -170,4 +170,3 @@ input[type="submit"],
         padding: 0 25px 4px 25px;
     }
 }
-
