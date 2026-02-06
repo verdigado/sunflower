@@ -60,17 +60,16 @@ add_filter( 'update_themes_sunflower-theme.de', 'sunflower_update_theme', 10, 3 
  */
 function sunflower_maybe_run_theme_update() {
 
-	$theme   = wp_get_theme();
-	$version = $theme->get( 'Version' );
-	$stored  = get_option( 'sunflower_theme_version' );
+	$theme  = wp_get_theme();
+	$stored = get_option( 'sunflower_theme_version' );
 
-	if ( $stored === $version ) {
+	if ( SUNFLOWER_VERSION === $stored ) {
 		return;
 	}
 
-	sunflower_run_update_tasks( $stored, $version );
+	sunflower_run_update_tasks( $stored );
 
-	update_option( 'sunflower_theme_version', $version );
+	update_option( 'sunflower_theme_version', SUNFLOWER_VERSION );
 }
 add_action( 'init', 'sunflower_maybe_run_theme_update' );
 
@@ -90,6 +89,10 @@ function sunflower_run_update_tasks( $from_version ) {
 		}
 
 		$options = get_option( 'sunflower_events_options', array() );
+
+		if ( ! is_array( $options ) ) {
+			$options = array();
+		}
 
 		$options['sunflower_events_enabled'] = 1;
 		update_option( 'sunflower_events_options', $options );
