@@ -103,11 +103,13 @@ jobs:
       - name: Rename ZIP file
         run: |
             mv ../sunflower26.zip sunflower-${{ github.event.release.tag_name }}.zip
+            pwd
+            ls -l sunflower-*.zip
 
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-            artifacts: 'sunflower-${{ github.event.release.tag_name }}.zip'
+            artifacts: '${{ env.PROJECT_ROOT }}/sunflower-${{ github.event.release.tag_name }}.zip'
             makeLatest: false
             prerelease: true
             allowUpdates: true
