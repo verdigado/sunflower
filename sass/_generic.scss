@@ -19,16 +19,23 @@ html.preload * {
 .u-fade {
     opacity: 0;
     transition: opacity 320ms ease-out;
-}
+    visibility: hidden;
+    pointer-events: none;
 
-.u-fade.is-visible {
-    opacity: 1;
+    &.is-visible {
+        opacity: 1;
+        transform: none;
+        visibility: visible;
+        pointer-events: auto;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
 
     .u-fade {
+        opacity: 1;
         transition: none;
+        visibility: visible;
     }
 }
 
