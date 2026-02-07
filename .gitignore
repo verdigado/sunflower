@@ -9,5 +9,6 @@ build/
 assets/vndr/
 .favorites.json
 .vscode
+.idea
 pa11y.json
 docker-compose.yaml
