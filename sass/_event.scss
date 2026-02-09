@@ -25,7 +25,8 @@
             margin-top: 0;
         }
 
-        button.filter {
+        button.filter,
+        .eventlist {
             display: inline-flex;
             justify-content: center;
             align-items: center;

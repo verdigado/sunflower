@@ -7,6 +7,29 @@
 
 ?>
 
+<?php if ( has_nav_menu( 'topmenu' ) ) : ?>
+	<div class="topmenu">
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-lg py-0" aria-label="<?php esc_attr_e( 'Top menu', 'sunflower' ); ?>">
+				<div class="navbar-collapse">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'topmenu',
+							'menu_class'     => 'navbar-nav nav flex-row',
+							'container'      => false,
+							'fallback_cb'    => false,
+							'item_class'     => 'nav-item',
+							'link_class'     => 'nav-link',
+						)
+					);
+					?>
+				</div>
+			</nav>
+		</div>
+	</div>
+<?php endif; ?>
+
 <header class="top-bar">
 	<div class="container-fluid d-flex align-items-center justify-content-between flex-wrap">
 

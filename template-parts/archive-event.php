@@ -12,8 +12,14 @@
 <?php
 $sunflower_tags     = wp_get_object_terms( get_the_ID(), 'sunflower_event_tag' );
 $sunflower_tag_list = array();
-foreach ( $sunflower_tags as $sunflower_tag ) {
-	$sunflower_tag_list[ $sunflower_tag->slug ] = $sunflower_tag->name;
+if ( ! is_wp_error( $sunflower_tags ) && is_array( $sunflower_tags ) ) {
+	foreach ( $sunflower_tags as $sunflower_tag ) {
+		$sunflower_slug = is_object( $sunflower_tag ) ? $sunflower_tag->slug : ( $sunflower_tag['slug'] ?? '' );
+		$sunflower_name = is_object( $sunflower_tag ) ? $sunflower_tag->name : ( $sunflower_tag['name'] ?? '' );
+		if ( '' !== $sunflower_slug ) {
+			$sunflower_tag_list[ $sunflower_slug ] = $sunflower_name;
+		}
+	}
 }
 
 $sunflower_has_thumb = has_post_thumbnail();

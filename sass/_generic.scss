@@ -192,7 +192,9 @@ body.formstyle-sharp {
 
         &__content {
             left: var(--grid-margin);
+            right: var(--width-brand-left);
             position: absolute;
+            justify-content: flex-start;
         }
     }
 
@@ -200,6 +202,7 @@ body.formstyle-sharp {
 
         .right-bar__content {
             left: initial;
+            right: initial;
             position: relative;
         }
 

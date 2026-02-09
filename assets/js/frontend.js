@@ -1179,3 +1179,39 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	window.addEventListener( 'load', processHeadings );
 	window.addEventListener( 'resize', debouncedProcess );
 } )();
+
+( function () {
+	const menu = document.querySelector( '.topmenu .navbar-nav' );
+	if ( ! menu ) {
+		return;
+	}
+
+	let resizeTimeout;
+
+	function checkMenuWrap() {
+		const items = menu.children;
+		if ( items.length === 0 ) {
+			return;
+		}
+
+		const firstTop = items[ 0 ].offsetTop;
+		let isWrapped = false;
+
+		for ( let i = 1; i < items.length; i++ ) {
+			if ( items[ i ].offsetTop > firstTop ) {
+				isWrapped = true;
+				break;
+			}
+		}
+
+		document.body.classList.toggle( 'topmenu-large', isWrapped );
+	}
+
+	function debouncedCheck() {
+		clearTimeout( resizeTimeout );
+		resizeTimeout = setTimeout( checkMenuWrap, 150 );
+	}
+
+	window.addEventListener( 'load', checkMenuWrap );
+	window.addEventListener( 'resize', debouncedCheck );
+} )();

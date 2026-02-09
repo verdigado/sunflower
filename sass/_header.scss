@@ -466,7 +466,7 @@ $text-dark: #222;
     border-radius: 0 0 40px 40px;
     background-color: transparent;
     transition: background-color 0.3s ease;
-    position: absolute;
+    position: relative;
     top: 0;
     width: 100%;
     z-index: 110;
@@ -785,20 +785,6 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
     box-shadow: none;
     padding-left: 1rem;
 }
-
-/* === Responsive: Mobile (bis 991 px) ==================================== */
-@media (max-width: 991px) {
-
-    #menu-main {
-        flex-direction: column; // vertikale Hauptnavigation
-
-        .sub-menu {
-            position: static;
-            box-shadow: none;
-        }
-    }
-}
-
 
 .main-menu .nav-link {
     font-weight: 700;

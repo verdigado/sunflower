@@ -86,6 +86,7 @@
 /* ----------------------------------------------------------------
  * 1️⃣  Base hero block – applies to every .is-style-sunflower-hero
  * ---------------------------------------------------------------- */
+
 .entry-content > .wp-block-cover.is-style-sunflower-hero {
     max-width: 100vw;
     width: calc(100% + var(--double-grid-margin)) !important;
@@ -102,7 +103,7 @@
     }
 
     @include breakpoint-down(md) {
-        height: fit-content;
+        height: fit-content !important;
         flex-direction: column;
         min-height: 250px;
     }
@@ -141,6 +142,18 @@
             }
         }
     }
+}
+
+body:has(.topmenu) .entry-content > .wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - ((2 * var(--grid-margin)) + 50px));
+}
+
+body:has(.topmenu).topmenu-large .entry-content > .wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - ((2 * var(--grid-margin)) + 77px));
+}
+
+body:has(.topmenu).hamburger-menu .entry-content > .wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - (2 * var(--grid-margin)));
 }
 
 .entry-content > .wp-block-cover:first-child {
@@ -260,7 +273,7 @@
 
         &::after {
 
-            @include concave-pseudo(bottom, right, 180deg, 30px, -36px, -13px);
+            @include concave-pseudo(bottom, right, 180deg, 30px, -38px, -13px);
 
             @include breakpoint-down(md) {
                 top: -22px;

@@ -1,3 +1,5 @@
+@use "sass:map";
+
 body.navbar-open {
     overflow: hidden;
 }
@@ -29,10 +31,91 @@ body.navbar-open {
     }
 }
 
+.hamburger-menu .topmenu {
+    display: none;
+}
+
 .topmenu {
 
-    background: $secondary;
-    color: $white;
+    background-color: map.get($custom-colors, "weiss");
+    position: relative;
+    top: 0;
+
+    ul {
+        font-size: 0;
+        line-height: 0;
+        padding-top: var(--grid-margin);
+        gap: calc(var(--gap-small) - 2px);
+        justify-content: flex-end;
+    }
+
+    .navbar-collapse {
+        margin: 0;
+        justify-content: flex-end;
+    }
+
+    .container-fluid {
+        padding: 0 var(--grid-margin);
+    }
+
+    .menu-item {
+
+        padding: 0;
+        margin: 0;
+
+        &.current_page_item a {
+            background: map.get($custom-colors, "schwarzwald");
+            color: map.get($custom-colors, "grashalm") !important;
+            border: 2px solid map.get($custom-colors, "grashalm");
+        }
+
+        a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            line-height: 100%;
+            border: 2px solid map.get($custom-colors, "grashalm") !important;
+            background: map.get($custom-colors, "sand");
+            color: $black !important;
+
+            padding: 0 15px 2px 15px;
+            height: 30px !important;
+            border-radius: 15px;
+            transition: 300ms ease-out;
+            margin: 0;
+            text-transform: none;
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                background: map.get($custom-colors, "schwarzwald");
+                color: map.get($custom-colors, "grashalm") !important;
+                border: 2px solid map.get($custom-colors, "grashalm");
+            }
+
+            &.filter-active {
+                background-color: map.get($custom-colors, "klee");
+                color: map.get($custom-colors, "white");
+                border: 2px solid map.get($custom-colors, "klee");
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background: map.get($custom-colors, "schwarzwald");
+                    color: map.get($custom-colors, "grashalm") !important;
+                    border: 2px solid map.get($custom-colors, "grashalm") !important;
+                }
+            }
+        }
+    }
 
     .search {
 
@@ -88,6 +171,14 @@ body.navbar-open {
         color: $very-light-gray;
     }
 
+}
+
+.formstyle-sharp .topmenu {
+
+    ul,
+    .navbar-collapse {
+        justify-content: flex-start;
+    }
 }
 
 .sunflower-post-navigation {
