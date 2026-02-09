@@ -243,3 +243,11 @@ body #content {
         margin-top: 0;
     }
 }
+
+.wp-social-link {
+    display: flex !important;
+    width: 39px;
+    height: 39px;
+    justify-content: center;
+    align-items: center;
+}
