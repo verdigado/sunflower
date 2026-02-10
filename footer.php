@@ -119,7 +119,7 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 
 					sunflower_inline_svg( 'assets/img/concave.svg' );
 					?>
-
+				</div>
 			</div>
 
 		</div>
