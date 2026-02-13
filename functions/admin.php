@@ -35,9 +35,14 @@ add_action( 'admin_bar_menu', 'sunflower_admin_bar', 999 );
  * Show sunflower note.
  */
 function sunflower_notice() {
+	global $pagenow;
+
+	if ( ! in_array( $pagenow, array( 'themes.php', 'index.php', 'admin.php' ), true ) ) {
+		return;
+	}
 	?>
 	<div id="sunflower-plugins" class="notice notice-info notice-large sunflower-plugins is-dismissible">
-		<?php wp_nonce_field( 'sunflower_update_notice' ); ?>
+		<?php wp_nonce_field( 'sunflower_update_notice', '_sunflower_nonce' ); ?>
 		<p>
 		<?php
 			$linkgithub    = "<a href='https://github.com/verdigado/sunflower' target='_blank'>open source</a>";
@@ -67,10 +72,14 @@ if ( empty( get_option( 'sunflower-plugins-dismissed' ) ) ) {
  * Show sunflower note about deprecated PHP version.
  */
 function sunflower_notice_php() {
+	global $pagenow;
 
+	if ( ! in_array( $pagenow, array( 'themes.php', 'index.php', 'admin.php' ), true ) ) {
+		return;
+	}
 	?>
 	<div id="sunflower-plugins-php-82" class="notice notice-error update-nag sunflower-plugins is-dismissible">
-		<?php wp_nonce_field( 'sunflower_update_notice' ); ?>
+		<?php wp_nonce_field( 'sunflower_update_notice', '_sunflower_nonce' ); ?>
 		<p class="h3"><?php esc_attr_e( 'PHP Version End of Life', 'sunflower' ); ?></p>
 		<p>
 		<?php
@@ -107,10 +116,14 @@ if ( empty( get_option( 'sunflower-plugins-php-82-dismissed' ) ) && version_comp
  * Sunflower note about the new terms of use setting.
  */
 function sunflower_notice_terms() {
+	global $pagenow;
 
+	if ( ! in_array( $pagenow, array( 'themes.php', 'index.php', 'admin.php' ), true ) ) {
+		return;
+	}
 	?>
 	<div id="sunflower-notice-terms" class="notice notice-error update-nag sunflower-plugins is-dismissible">
-		<?php wp_nonce_field( 'sunflower_update_notice' ); ?>
+		<?php wp_nonce_field( 'sunflower_update_notice', '_sunflower_nonce' ); ?>
 		<p class="h3"><?php esc_attr_e( 'New Terms and Use Settings', 'sunflower' ); ?></p>
 		<p>
 			<?php
@@ -163,7 +176,7 @@ add_action( 'admin_enqueue_scripts', 'sunflower_load_admin_scripts' );
  */
 function sunflower_update_notice() {
 	// Do not save, if nonce is invalid.
-	if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'sunflower_update_notice' ) ) {
+	if ( ! isset( $_POST['_sunflower_nonce'] ) || ! wp_verify_nonce( $_POST['_sunflower_nonce'], 'sunflower_update_notice' ) ) {
 		return;
 	}
 
