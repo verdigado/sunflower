@@ -91,20 +91,16 @@ body.navbar-open {
             &:hover,
             &:focus,
             &:active {
-                background: map.get($custom-colors, "schwarzwald");
-                color: map.get($custom-colors, "grashalm") !important;
-                border: 2px solid map.get($custom-colors, "grashalm");
+                color: map.get($custom-colors, "klee") !important;
             }
 
             &.filter-active {
-                background-color: map.get($custom-colors, "klee");
-                color: map.get($custom-colors, "white");
-                border: 2px solid map.get($custom-colors, "klee");
+                color: map.get($custom-colors, "klee");
 
                 &:hover,
                 &:focus,
                 &:active {
-                    color: map.get($custom-colors, "grashalm") !important;
+                    color: map.get($custom-colors, "tanne") !important;
                 }
             }
         }
