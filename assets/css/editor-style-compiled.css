@@ -22660,9 +22660,10 @@ h3,
 .h3,
 .has-medium-font-size,
 .wp-block-query .wp-block-post-title,
-.wp-block-rss__item-title {
+.wp-block-rss__item-title,
+.all-columns-start-with-image .h2 {
   line-height: 130%;
-  font-size: 25px;
+  font-size: 24px;
 }
 
 .has-white-background-color .h1,
@@ -22684,7 +22685,7 @@ h5,
 
 h6,
 .h6,
-blockquote.wp-block-quote p {
+blockquote.wp-block-quote p, .person-name {
   font-size: 18px;
   letter-spacing: 1px;
 }
@@ -22710,8 +22711,9 @@ blockquote.wp-block-quote p {
   .h3,
   .has-medium-font-size,
   .wp-block-query .wp-block-post-title,
-  .wp-block-rss__item-title {
-    font-size: 27px;
+  .wp-block-rss__item-title,
+  .all-columns-start-with-image .h2 {
+    font-size: 40px;
   }
   h4,
   .h4,
@@ -22724,7 +22726,7 @@ blockquote.wp-block-quote p {
   }
   h6,
   .h6,
-  blockquote.wp-block-quote p {
+  blockquote.wp-block-quote p, .person-name {
     font-size: 22px;
   }
 }
@@ -23139,15 +23141,21 @@ html.preload * {
 .u-fade {
   opacity: 0;
   transition: opacity 320ms ease-out;
+  visibility: hidden;
+  pointer-events: none;
 }
-
 .u-fade.is-visible {
   opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .u-fade {
+    opacity: 1;
     transition: none;
+    visibility: visible;
   }
 }
 .full-width {
@@ -23311,10 +23319,13 @@ body.formstyle-sharp .right-bar {
 }
 body.formstyle-sharp .right-bar__content {
   left: var(--grid-margin);
+  right: var(--width-brand-left);
   position: absolute;
+  justify-content: flex-start;
 }
 body.formstyle-sharp.hamburger-menu .right-bar__content {
   left: initial;
+  right: initial;
   position: relative;
 }
 body.formstyle-sharp.hamburger-menu .brand-left {
@@ -23923,7 +23934,8 @@ body .wp-block-site-title {
     margin-top: 0;
   }
 }
-.post-type-archive-sunflower_event .filter-button-group button.filter {
+.post-type-archive-sunflower_event .filter-button-group button.filter,
+.post-type-archive-sunflower_event .filter-button-group .eventlist {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -23941,21 +23953,29 @@ body .wp-block-site-title {
   margin: 0;
   text-transform: none;
 }
-.post-type-archive-sunflower_event .filter-button-group button.filter:focus {
+.post-type-archive-sunflower_event .filter-button-group button.filter:focus,
+.post-type-archive-sunflower_event .filter-button-group .eventlist:focus {
   outline: none;
   box-shadow: none;
 }
-.post-type-archive-sunflower_event .filter-button-group button.filter:hover, .post-type-archive-sunflower_event .filter-button-group button.filter:focus, .post-type-archive-sunflower_event .filter-button-group button.filter:active {
+.post-type-archive-sunflower_event .filter-button-group button.filter:hover, .post-type-archive-sunflower_event .filter-button-group button.filter:focus, .post-type-archive-sunflower_event .filter-button-group button.filter:active,
+.post-type-archive-sunflower_event .filter-button-group .eventlist:hover,
+.post-type-archive-sunflower_event .filter-button-group .eventlist:focus,
+.post-type-archive-sunflower_event .filter-button-group .eventlist:active {
   background: #002216;
   color: #8abd24 !important;
   border: 2px solid #8abd24 !important;
 }
-.post-type-archive-sunflower_event .filter-button-group button.filter.filter-active {
+.post-type-archive-sunflower_event .filter-button-group button.filter.filter-active,
+.post-type-archive-sunflower_event .filter-button-group .eventlist.filter-active {
   background-color: #008939;
   color: #fff;
   border: 2px solid #008939;
 }
-.post-type-archive-sunflower_event .filter-button-group button.filter.filter-active:hover, .post-type-archive-sunflower_event .filter-button-group button.filter.filter-active:focus, .post-type-archive-sunflower_event .filter-button-group button.filter.filter-active:active {
+.post-type-archive-sunflower_event .filter-button-group button.filter.filter-active:hover, .post-type-archive-sunflower_event .filter-button-group button.filter.filter-active:focus, .post-type-archive-sunflower_event .filter-button-group button.filter.filter-active:active,
+.post-type-archive-sunflower_event .filter-button-group .eventlist.filter-active:hover,
+.post-type-archive-sunflower_event .filter-button-group .eventlist.filter-active:focus,
+.post-type-archive-sunflower_event .filter-button-group .eventlist.filter-active:active {
   background: #002216;
   color: #8abd24 !important;
   border: 2px solid #8abd24 !important;
@@ -25721,7 +25741,7 @@ iframe {
 }
 
 body #content .is-layout-flex:not(.is-vertical) {
-  column-gap: calc(2 * var(--gap-large));
+  column-gap: var(--gap-large);
   row-gap: var(--gap-large);
 }
 body #content .is-layout-flex:not(.is-vertical) > * {
@@ -25773,15 +25793,24 @@ body #content .wp-block-cover ol + ol {
   margin-left: var(--half-grid-margin);
 }
 
-.wp-block-sunflower-meta-data a {
+.wp-block-sunflower-meta-data {
+  margin-right: var(--grid-margin);
+}
+
+.wp-block-group:has(.wp-block-sunflower-meta-data) {
+  flex-wrap: wrap;
+  row-gap: var(--half-grid-margin);
+}
+
+a {
   color: #008939;
-  margin-right: var(--half-grid-margin);
   transition: 300ms ease-out;
 }
-.wp-block-sunflower-meta-data a:hover {
+a:hover {
   color: #8abd24 !important;
 }
-.wp-block-sunflower-meta-data .fas {
+
+.fas {
   font-family: ForkAwesome;
 }
 
@@ -25982,6 +26011,14 @@ body #content .search-form .search-submit {
   margin-top: 0;
 }
 
+.wp-social-link {
+  display: flex !important;
+  width: 39px;
+  height: 39px;
+  justify-content: center;
+  align-items: center;
+}
+
 .entry-content > .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
   padding: var(--grid-margin);
   display: flex;
@@ -26023,7 +26060,7 @@ body #content .search-form .search-submit {
 }
 @media (max-width: 768px) {
   .entry-content > .wp-block-cover.is-style-sunflower-hero {
-    height: fit-content;
+    height: fit-content !important;
     flex-direction: column;
     min-height: 250px;
   }
@@ -26075,6 +26112,18 @@ body #content .search-form .search-submit {
   .entry-content > .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h2 .mark:nth-of-type(2) {
     margin-left: 75px;
   }
+}
+
+body:has(.topmenu) .entry-content > .wp-block-cover.is-style-sunflower-hero {
+  height: calc(100vh - (2 * var(--grid-margin) + 50px));
+}
+
+body:has(.topmenu).topmenu-large .entry-content > .wp-block-cover.is-style-sunflower-hero {
+  height: calc(100vh - (2 * var(--grid-margin) + 77px));
+}
+
+body:has(.topmenu).hamburger-menu .entry-content > .wp-block-cover.is-style-sunflower-hero {
+  height: calc(100vh - 2 * var(--grid-margin));
 }
 
 .entry-content > .wp-block-cover:first-child {
@@ -26230,7 +26279,7 @@ body #content .search-form .search-submit {
   /* -------- Primary (top / bottom) -------- */
   bottom: -13px;
   /* -------- Secondary (left / right) -------- */
-  right: -36px;
+  right: -38px;
   /* ---- XL‑Breakpoint‑Anpassungen ---- */
 }
 @media (max-width: 768px) {
@@ -26430,14 +26479,6 @@ body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-h
     row-gap: var(--half-block-spacing) !important;
   }
 }
-.wp-block-group:has(.all-columns-start-with-image) h2, .wp-block-group:has(.all-columns-start-with-image) .h2 {
-  text-align: center !important;
-}
-@media (max-width: 781px) {
-  .wp-block-group:has(.all-columns-start-with-image) h2, .wp-block-group:has(.all-columns-start-with-image) .h2 {
-    text-align: inherit !important;
-  }
-}
 .wp-block-group:has(.all-columns-start-with-image) .wp-block-columns.all-columns-start-with-image .wp-block-column .wp-block-image {
   border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
   overflow: hidden !important;
@@ -26457,59 +26498,22 @@ body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-h
   font-weight: 300;
 }
 
-.wp-block-media-text {
-  padding-top: var(--half-block-spacing);
-  padding-bottom: var(--half-block-spacing);
-  margin: 0 auto;
-}
-@media (max-width: 1499.98px) {
-  .wp-block-media-text {
-    width: 100% !important;
-  }
-}
-@media (max-width: 949.98px) {
-  .wp-block-media-text {
-    display: flex;
-    flex-direction: column !important;
-    row-gap: var(--double-grid-margin);
-  }
-}
-.wp-block-media-text__media {
-  border-radius: var(--border-radius-large);
-  overflow: hidden;
-}
-.wp-block-media-text__content {
-  padding: 0 0 0 var(--double-grid-margin) !important;
-}
-.wp-block-media-text__content .wp-block-image {
-  margin-bottom: var(--grid-margin);
-}
-@media (max-width: 949.98px) {
-  .wp-block-media-text__content {
-    padding: 0 !important;
-  }
-}
-.wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
-  padding: 0 var(--double-grid-margin) 0 0 !important;
-}
-@media (max-width: 949.98px) {
-  .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
-    padding: 0 !important;
-  }
-}
-
 .wp-block-group.is-vertical figure,
 .wp-block-column figure {
   margin-bottom: var(--gap-large);
 }
-
-.wp-block-media-text .wp-block-group {
-  padding-top: 0;
-  padding-bottom: 0;
+.wp-block-group.is-vertical figure:first-child,
+.wp-block-column figure:first-child {
+  margin-top: 0;
+}
+.wp-block-group.is-vertical figure:last-child,
+.wp-block-column figure:last-child {
   margin-bottom: 0;
 }
-.wp-block-media-text .wp-block-group:not(:has(> :not(p, h1, h2, h3, h4, h5, h6, figure))) {
-  margin-bottom: calc(-1 * var(--grid-margin));
+.wp-block-group.is-vertical figure:only-child,
+.wp-block-column figure:only-child {
+  margin-top: var(--grid-margin);
+  margin-bottom: var(--grid-margin);
 }
 
 .entry-content > .wp-block-group,
@@ -26540,16 +26544,6 @@ body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-h
   padding-top: var(--half-block-spacing);
   padding-bottom: var(--half-block-spacing);
 }
-.entry-content > .wp-block-columns:first-child {
-  padding-top: 0;
-}
-.entry-content > .wp-block-columns:last-child {
-  padding-bottom: 0;
-}
-.entry-content > .wp-block-columns:only-child {
-  padding-top: var(--grid-margin);
-  padding-bottom: var(--grid-margin);
-}
 
 a.wp-block-file__button {
   color: #fff !important;
@@ -26561,17 +26555,13 @@ a.wp-block-file__button {
   flex-direction: column;
   height: 100%;
 }
-.wp-block-media-text.person .person-name {
-  font-size: 30px;
+.wp-block-media-text.person .person-name, .wp-block-media-text.person .h4 {
   font-weight: 700;
-}
-.wp-block-media-text.person .h4 {
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #005538;
 }
 .wp-block-media-text.person .wp-block-media-text__content {
-  padding: 20px;
+  padding: var(--grid-margin);
   align-self: start;
   width: 100%;
   height: 100%;
@@ -26596,6 +26586,13 @@ a.wp-block-file__button {
   max-height: 300px;
 }
 
+/* Unterhalb von 1400 px: Person-Columns auf volle Breite */
+@media (max-width: 1400px) {
+  body #content .wp-block-columns:has(.columns-with-person), .columns-with-person {
+    width: 100%;
+    max-width: 100%;
+  }
+}
 .wp-block-buttons {
   gap: var(--grid-margin);
   row-gap: var(--grid-margin) !important;
@@ -26711,9 +26708,9 @@ input[type=submit]:hover,
 .comment-reply-link:hover,
 .post-page-numbers:hover,
 .page-numbers:not(.next, .prev):hover {
-  color: #002216 !important;
+  color: #005538;
   text-decoration: none;
-  background-color: #fff17a !important;
+  background-color: #fff17a;
 }
 .wp-block-button__link:focus,
 input[type=submit]:focus,
@@ -27419,7 +27416,6 @@ blockquote.wp-block-quote p {
     font-size: 25px;
   }
 }
-
 .wp-block-pullquote {
   padding: var(--grid-margin) 0;
 }
@@ -28027,10 +28023,75 @@ caption {
   padding: var(--grid-margin);
 }
 
-.wp-block-media-text .wp-block-media-text__media figcaption {
+.wp-block-media-text {
+  padding-top: var(--half-block-spacing);
+  padding-bottom: var(--half-block-spacing);
+  margin: 0 auto;
+}
+.wp-block-media-text .wp-block-group {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.wp-block-media-text .wp-block-group:not(:has(> :not(p, h1, h2, h3, h4, h5, h6, figure))) {
+  margin-bottom: calc(-1 * var(--grid-margin));
+}
+@media (max-width: 1499.98px) {
+  .wp-block-media-text {
+    width: 100% !important;
+  }
+}
+@media (max-width: 949.98px) {
+  .wp-block-media-text {
+    display: flex;
+    flex-direction: column !important;
+    row-gap: var(--double-grid-margin);
+  }
+}
+.wp-block-media-text__media {
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+}
+.wp-block-media-text__media figcaption {
   font-size: 14px;
   text-align: right;
   margin: 0.3em 0.3em 0.5em 0.3em;
+}
+.wp-block-media-text__content {
+  padding: 0 0 0 var(--double-grid-margin) !important;
+}
+.wp-block-media-text__content .wp-block-image {
+  margin-bottom: var(--grid-margin);
+}
+@media (max-width: 949.98px) {
+  .wp-block-media-text__content {
+    padding: 0 !important;
+  }
+}
+.wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
+  padding: 0 var(--double-grid-margin) 0 0 !important;
+}
+@media (max-width: 949.98px) {
+  .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
+    padding: 0 !important;
+  }
+}
+
+.wp-block-column .wp-block-media-text {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: fit-content;
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  row-gap: var(--half-grid-margin);
+}
+.wp-block-column .wp-block-media-text__content {
+  padding: var(--half-grid-margin) var(--grid-margin) var(--grid-margin) var(--grid-margin) !important;
+}
+.wp-block-column .wp-block-media-text figure {
+  height: 100%;
+  border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
 }
 
 /**
@@ -28140,10 +28201,10 @@ caption {
   }
 }
 .wp-block-sunflower-accordion .accordion-item .accordion-header .accordion-button:hover {
-  border: none !important;
-  outline: none !important;
+  border: none;
+  outline: none;
   background-color: #fff;
-  color: #008939 !important;
+  color: #008939;
 }
 .wp-block-sunflower-accordion .accordion-item .accordion-header .accordion-button::before {
   content: url("../img/arrow-right.svg");
@@ -28160,162 +28221,6 @@ caption {
 }
 .wp-block-sunflower-accordion .accordion-collapse {
   padding: 0 var(--grid-margin) var(--half-grid-margin) var(--grid-margin);
-}
-
-/**
- * Style for the WordPress Accordion Block
- */
-.colorscheme-light .wp-block-accordion .wp-block-accordion-item {
-  color: #005538;
-}
-
-.colorscheme-green .wp-block-accordion .wp-block-accordion-item {
-  color: #005538;
-}
-
-.wp-block-accordion .wp-block-accordion-item:hover {
-  outline: 2px solid #8abd24;
-}
-.wp-block-accordion .wp-block-accordion-item:nth-of-type(odd) {
-  background-color: #fff;
-  border-radius: var(--border-radius-medium);
-}
-.wp-block-accordion .wp-block-accordion-item:nth-of-type(even) {
-  background-color: #f3faf6;
-  border-radius: var(--border-radius-medium);
-}
-.wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle {
-  border-radius: 0;
-}
-.wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle:focus, .wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle:hover {
-  text-decoration: none;
-}
-.wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle:focus .wp-block-accordion-heading__toggle-title, .wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle:hover .wp-block-accordion-heading__toggle-title {
-  text-decoration: none;
-}
-.wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle-icon {
-  display: block;
-  width: 1em;
-}
-.wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle-icon::before {
-  content: url("../img/arrow-right.svg");
-  display: inline-flex;
-  position: relative;
-  transition: 300ms ease-out;
-  width: fit-content;
-  margin-right: 15px;
-}
-.wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle-title {
-  padding-left: 2px;
-}
-.colorscheme-light .wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle-title {
-  color: #005538;
-}
-
-.colorscheme-green .wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle-title {
-  color: #005538;
-}
-
-.wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle .wp-block-accordion-heading__toggle-icon:focus, .wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle .wp-block-accordion-heading__toggle-icon:hover,
-.wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle .wp-block-accordion-heading__toggle-title:focus,
-.wp-block-accordion .wp-block-accordion-item .wp-block-accordion-heading .wp-block-accordion-heading__toggle .wp-block-accordion-heading__toggle-title:hover {
-  text-decoration: none;
-}
-.wp-block-accordion .wp-block-accordion-item.is-open > .wp-block-accordion-heading .wp-block-accordion-heading__toggle-icon {
-  transform: none;
-}
-.wp-block-accordion .wp-block-accordion-item.is-open > .wp-block-accordion-heading .wp-block-accordion-heading__toggle-icon::before {
-  rotate: -90deg;
-}
-
-.wp-block-details {
-  border-radius: var(--border-radius-medium);
-  margin-bottom: calc(var(--half-grid-margin) / 2);
-  min-height: 80px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: center;
-  padding: var(--grid-margin) var(--grid-margin) calc(var(--grid-margin) + 3px) var(--grid-margin);
-}
-.wp-block-details:not(.wp-block-details + .wp-block-details) {
-  margin-top: var(--half-block-spacing);
-}
-.wp-block-details:not(:has(+ .wp-block-details)) {
-  margin-bottom: var(--half-block-spacing);
-}
-.wp-block-details:hover {
-  outline: 2px solid #8abd24;
-}
-.wp-block-details:nth-of-type(odd) {
-  background-color: #f5f1e9;
-}
-.wp-block-details:nth-of-type(even) {
-  background-color: #f3faf6;
-}
-.wp-block-details summary {
-  width: 100%;
-  justify-content: flex-start;
-  align-items: center;
-  display: inline-flex;
-  flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
-  transition: 200ms ease;
-  height: fit-content;
-  border: 0 solid #fff;
-  color: #005538;
-  cursor: pointer;
-  list-style: none;
-  font-family: var(--wp--preset--font-family--gruenetypeneue);
-  font-weight: 400;
-  line-height: 125%;
-  font-size: 25px;
-  letter-spacing: 0.8px;
-}
-@media (max-width: 1199.98px) {
-  .wp-block-details summary {
-    font-size: 22px;
-    line-height: 130%;
-  }
-}
-@media (max-width: 469.98px) {
-  .wp-block-details summary {
-    font-size: 20px;
-    line-height: 135%;
-  }
-}
-.wp-block-details summary:hover {
-  border: none !important;
-  outline: none !important;
-  color: #008939 !important;
-}
-.wp-block-details summary::-webkit-details-marker {
-  display: none;
-}
-.wp-block-details summary::marker {
-  display: none;
-  content: "";
-}
-.wp-block-details summary::before {
-  content: url("../img/arrow-right.svg");
-  display: inline-flex;
-  position: relative;
-  top: 2px;
-  transition: 300ms ease-out;
-  width: fit-content;
-  margin-right: 15px;
-  flex-shrink: 0;
-}
-.wp-block-details[open] summary::before {
-  rotate: -90deg;
-  top: -1px;
-}
-.wp-block-details p {
-  padding: 0 var(--grid-margin) 0 var(--grid-margin) 0;
-}
-.wp-block-details > summary + * {
-  padding-top: 0;
 }
 
 .nav {
@@ -28631,7 +28536,7 @@ figcaption {
 }
 
 .display-single {
-  padding: 130px 0 0 0;
+  padding: 180px 0 0 0;
 }
 .display-single .entry-header.colorscheme-light {
   background-color: #fff;
@@ -28648,7 +28553,7 @@ figcaption {
 }
 
 .site .page-header {
-  padding: 130px 0 0 0;
+  padding: 180px 0 0 0;
 }
 .site .page-header.colorscheme-light {
   background-color: #fff;
@@ -28658,6 +28563,184 @@ figcaption {
 .site .page-header.colorscheme-green {
   background-color: #002216;
   color: #fff;
+}
+
+/* ----------------------------------------------------------------
+ * Sunflower Hero Cover – inner container styling for editor
+ * (Frontend uses .entry-content > which doesn't exist in editor)
+ * ---------------------------------------------------------------- */
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero {
+  position: relative;
+  border-radius: var(--border-radius-large) var(--border-radius-large) 0 var(--border-radius-large);
+  overflow: hidden;
+}
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__image-background {
+  border-radius: var(--border-radius-large) var(--border-radius-large) 0 var(--border-radius-large);
+}
+@media (max-width: 768px) {
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__image-background {
+    border-radius: var(--border-radius-large) var(--border-radius-large) 0 var(--border-radius-large);
+  }
+}
+
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: fit-content;
+  max-width: 70%;
+  padding: 25px 50px 0 25px !important;
+  border-radius: 0 var(--border-radius-large) 0 0;
+}
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .has-text-align-center mark:nth-of-type(2), .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .has-text-align-center .mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h1 mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h1 .mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h1 .mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h2 mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h2 .mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h2 .mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h3 mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h3 .mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h3 .mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h1 mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h2 mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h3 mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .wp-block-heading mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .wp-block-heading .mark:nth-of-type(2) {
+  margin-left: 100px !important;
+  margin-top: 12px !important;
+}
+@media (max-width: 1200px) {
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .has-text-align-center mark:nth-of-type(2), .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .has-text-align-center .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h1 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h1 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h1 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h2 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h2 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h2 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h3 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h3 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h3 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h1 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h2 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h3 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .wp-block-heading mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .wp-block-heading .mark:nth-of-type(2) {
+    margin-left: 85px !important;
+  }
+}
+@media (max-width: 768px) {
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .has-text-align-center mark:nth-of-type(2), .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .has-text-align-center .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h1 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h1 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h1 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h2 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h2 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h2 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h3 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h3 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h3 .mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h1 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h2 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h3 mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .wp-block-heading mark:nth-of-type(2),
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .wp-block-heading .mark:nth-of-type(2) {
+    margin-left: 75px !important;
+  }
+}
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .has-text-align-center mark:nth-of-type(2), .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .has-text-align-center .mark:nth-of-type(2),
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container [data-type="core/heading"] .has-text-align-center mark:nth-of-type(2) {
+  margin-left: 0 !important;
+}
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h1, .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h1 {
+  text-align: left;
+  position: relative;
+  left: -8px;
+}
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .wp-block-buttons {
+  margin-bottom: var(--grid-margin);
+}
+@media (max-width: 1200px) {
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
+    max-width: 75%;
+  }
+}
+@media (max-width: 992px) {
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
+    padding: 24px 24px 0 12px !important;
+  }
+}
+@media (max-width: 768px) {
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0;
+    padding: 12px 0 0 0 !important;
+    position: relative !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h1, .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h1 {
+    margin-top: -32px;
+  }
+}
+@media (max-width: 550px) {
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container h1, .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container .h1 {
+    margin-top: 0;
+  }
+}
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container::before {
+  content: url("../img/concave-30px.svg");
+  height: 30px;
+  width: 38.16px;
+  position: absolute;
+  transform: rotate(-180deg);
+  top: -17px;
+  left: -1px;
+}
+@media (max-width: 768px) {
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container::before {
+    height: 20px;
+    width: 25.44px;
+    top: -11px;
+    left: -1px;
+  }
+}
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container::after {
+  content: url("../img/concave-30px.svg");
+  height: 30px;
+  width: 38.16px;
+  position: absolute;
+  transform: rotate(180deg);
+  bottom: -13px;
+  right: -38px;
+}
+@media (max-width: 768px) {
+  .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container::after {
+    height: 20px;
+    width: 25.44px;
+    top: -22px;
+    right: -11px;
+    bottom: auto;
+    transform: rotate(90deg);
+  }
+}
+
+.editor-styles-wrapper .colorscheme-green .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
+  background-color: #002216;
+}
+.editor-styles-wrapper .colorscheme-green .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container::before {
+  content: url("../img/concave-30px_darkmode.svg");
+}
+.editor-styles-wrapper .colorscheme-green .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container::after {
+  content: url("../img/concave-30px_darkmode.svg");
 }
 
 .editor-styles-wrapper {
@@ -28910,10 +28993,24 @@ figcaption {
   }
 }
 
-.editor-styles-wrapper h1:has(mark, .mark), .editor-styles-wrapper h2:has(mark, .mark), .editor-styles-wrapper h3:has(mark, .mark), .editor-styles-wrapper .h1:has(mark, .mark), .editor-styles-wrapper .h2:has(mark, .mark), .editor-styles-wrapper .h3:has(mark, .mark) {
+.editor-styles-wrapper h1:has(mark, .mark),
+.editor-styles-wrapper h2:has(mark, .mark),
+.editor-styles-wrapper h3:has(mark, .mark),
+.editor-styles-wrapper .h1:has(mark, .mark),
+.editor-styles-wrapper .h2:has(mark, .mark),
+.editor-styles-wrapper .h3:has(mark, .mark) {
   line-height: 0 !important;
 }
-.editor-styles-wrapper h1 mark, .editor-styles-wrapper h1 .mark, .editor-styles-wrapper .h1 .mark, .editor-styles-wrapper h2 mark, .editor-styles-wrapper h2 .mark, .editor-styles-wrapper .h2 .mark, .editor-styles-wrapper h3 mark, .editor-styles-wrapper h3 .mark, .editor-styles-wrapper .h3 .mark, .editor-styles-wrapper .h1 mark, .editor-styles-wrapper .h2 mark, .editor-styles-wrapper .h3 mark {
+.editor-styles-wrapper h1 mark, .editor-styles-wrapper h1 .mark, .editor-styles-wrapper .h1 .mark,
+.editor-styles-wrapper h2 mark,
+.editor-styles-wrapper h2 .mark,
+.editor-styles-wrapper .h2 .mark,
+.editor-styles-wrapper h3 mark,
+.editor-styles-wrapper h3 .mark,
+.editor-styles-wrapper .h3 .mark,
+.editor-styles-wrapper .h1 mark,
+.editor-styles-wrapper .h2 mark,
+.editor-styles-wrapper .h3 mark {
   display: inline-block !important;
   padding: 6px 10px 9px 7px;
   font-size: 60px;
@@ -28925,51 +29022,177 @@ figcaption {
   z-index: 1;
   background-color: transparent !important;
 }
-.editor-styles-wrapper h1 mark.has-schwarzwald-background-color, .editor-styles-wrapper h1 .has-schwarzwald-background-color.mark, .editor-styles-wrapper .h1 .has-schwarzwald-background-color.mark, .editor-styles-wrapper h2 mark.has-schwarzwald-background-color, .editor-styles-wrapper h2 .has-schwarzwald-background-color.mark, .editor-styles-wrapper .h2 .has-schwarzwald-background-color.mark, .editor-styles-wrapper h3 mark.has-schwarzwald-background-color, .editor-styles-wrapper h3 .has-schwarzwald-background-color.mark, .editor-styles-wrapper .h3 .has-schwarzwald-background-color.mark, .editor-styles-wrapper .h1 mark.has-schwarzwald-background-color, .editor-styles-wrapper .h2 mark.has-schwarzwald-background-color, .editor-styles-wrapper .h3 mark.has-schwarzwald-background-color {
+.editor-styles-wrapper h1 mark.has-schwarzwald-background-color, .editor-styles-wrapper h1 .has-schwarzwald-background-color.mark, .editor-styles-wrapper .h1 .has-schwarzwald-background-color.mark,
+.editor-styles-wrapper h2 mark.has-schwarzwald-background-color,
+.editor-styles-wrapper h2 .has-schwarzwald-background-color.mark,
+.editor-styles-wrapper .h2 .has-schwarzwald-background-color.mark,
+.editor-styles-wrapper h3 mark.has-schwarzwald-background-color,
+.editor-styles-wrapper h3 .has-schwarzwald-background-color.mark,
+.editor-styles-wrapper .h3 .has-schwarzwald-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-schwarzwald-background-color,
+.editor-styles-wrapper .h2 mark.has-schwarzwald-background-color,
+.editor-styles-wrapper .h3 mark.has-schwarzwald-background-color {
   --bg: #002216;
 }
-.editor-styles-wrapper h1 mark.has-tanne-background-color, .editor-styles-wrapper h1 .has-tanne-background-color.mark, .editor-styles-wrapper .h1 .has-tanne-background-color.mark, .editor-styles-wrapper h2 mark.has-tanne-background-color, .editor-styles-wrapper h2 .has-tanne-background-color.mark, .editor-styles-wrapper .h2 .has-tanne-background-color.mark, .editor-styles-wrapper h3 mark.has-tanne-background-color, .editor-styles-wrapper h3 .has-tanne-background-color.mark, .editor-styles-wrapper .h3 .has-tanne-background-color.mark, .editor-styles-wrapper .h1 mark.has-tanne-background-color, .editor-styles-wrapper .h2 mark.has-tanne-background-color, .editor-styles-wrapper .h3 mark.has-tanne-background-color {
+.editor-styles-wrapper h1 mark.has-tanne-background-color, .editor-styles-wrapper h1 .has-tanne-background-color.mark, .editor-styles-wrapper .h1 .has-tanne-background-color.mark,
+.editor-styles-wrapper h2 mark.has-tanne-background-color,
+.editor-styles-wrapper h2 .has-tanne-background-color.mark,
+.editor-styles-wrapper .h2 .has-tanne-background-color.mark,
+.editor-styles-wrapper h3 mark.has-tanne-background-color,
+.editor-styles-wrapper h3 .has-tanne-background-color.mark,
+.editor-styles-wrapper .h3 .has-tanne-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-tanne-background-color,
+.editor-styles-wrapper .h2 mark.has-tanne-background-color,
+.editor-styles-wrapper .h3 mark.has-tanne-background-color {
   --bg: #005538;
 }
-.editor-styles-wrapper h1 mark.has-klee-background-color, .editor-styles-wrapper h1 .has-klee-background-color.mark, .editor-styles-wrapper .h1 .has-klee-background-color.mark, .editor-styles-wrapper h2 mark.has-klee-background-color, .editor-styles-wrapper h2 .has-klee-background-color.mark, .editor-styles-wrapper .h2 .has-klee-background-color.mark, .editor-styles-wrapper h3 mark.has-klee-background-color, .editor-styles-wrapper h3 .has-klee-background-color.mark, .editor-styles-wrapper .h3 .has-klee-background-color.mark, .editor-styles-wrapper .h1 mark.has-klee-background-color, .editor-styles-wrapper .h2 mark.has-klee-background-color, .editor-styles-wrapper .h3 mark.has-klee-background-color {
+.editor-styles-wrapper h1 mark.has-klee-background-color, .editor-styles-wrapper h1 .has-klee-background-color.mark, .editor-styles-wrapper .h1 .has-klee-background-color.mark,
+.editor-styles-wrapper h2 mark.has-klee-background-color,
+.editor-styles-wrapper h2 .has-klee-background-color.mark,
+.editor-styles-wrapper .h2 .has-klee-background-color.mark,
+.editor-styles-wrapper h3 mark.has-klee-background-color,
+.editor-styles-wrapper h3 .has-klee-background-color.mark,
+.editor-styles-wrapper .h3 .has-klee-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-klee-background-color,
+.editor-styles-wrapper .h2 mark.has-klee-background-color,
+.editor-styles-wrapper .h3 mark.has-klee-background-color {
   --bg: #008939;
 }
-.editor-styles-wrapper h1 mark.has-grashalm-background-color, .editor-styles-wrapper h1 .has-grashalm-background-color.mark, .editor-styles-wrapper .h1 .has-grashalm-background-color.mark, .editor-styles-wrapper h2 mark.has-grashalm-background-color, .editor-styles-wrapper h2 .has-grashalm-background-color.mark, .editor-styles-wrapper .h2 .has-grashalm-background-color.mark, .editor-styles-wrapper h3 mark.has-grashalm-background-color, .editor-styles-wrapper h3 .has-grashalm-background-color.mark, .editor-styles-wrapper .h3 .has-grashalm-background-color.mark, .editor-styles-wrapper .h1 mark.has-grashalm-background-color, .editor-styles-wrapper .h2 mark.has-grashalm-background-color, .editor-styles-wrapper .h3 mark.has-grashalm-background-color {
+.editor-styles-wrapper h1 mark.has-grashalm-background-color, .editor-styles-wrapper h1 .has-grashalm-background-color.mark, .editor-styles-wrapper .h1 .has-grashalm-background-color.mark,
+.editor-styles-wrapper h2 mark.has-grashalm-background-color,
+.editor-styles-wrapper h2 .has-grashalm-background-color.mark,
+.editor-styles-wrapper .h2 .has-grashalm-background-color.mark,
+.editor-styles-wrapper h3 mark.has-grashalm-background-color,
+.editor-styles-wrapper h3 .has-grashalm-background-color.mark,
+.editor-styles-wrapper .h3 .has-grashalm-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-grashalm-background-color,
+.editor-styles-wrapper .h2 mark.has-grashalm-background-color,
+.editor-styles-wrapper .h3 mark.has-grashalm-background-color {
   --bg: #8abd24;
 }
-.editor-styles-wrapper h1 mark.has-sonne-background-color, .editor-styles-wrapper h1 .has-sonne-background-color.mark, .editor-styles-wrapper .h1 .has-sonne-background-color.mark, .editor-styles-wrapper h2 mark.has-sonne-background-color, .editor-styles-wrapper h2 .has-sonne-background-color.mark, .editor-styles-wrapper .h2 .has-sonne-background-color.mark, .editor-styles-wrapper h3 mark.has-sonne-background-color, .editor-styles-wrapper h3 .has-sonne-background-color.mark, .editor-styles-wrapper .h3 .has-sonne-background-color.mark, .editor-styles-wrapper .h1 mark.has-sonne-background-color, .editor-styles-wrapper .h2 mark.has-sonne-background-color, .editor-styles-wrapper .h3 mark.has-sonne-background-color {
+.editor-styles-wrapper h1 mark.has-sonne-background-color, .editor-styles-wrapper h1 .has-sonne-background-color.mark, .editor-styles-wrapper .h1 .has-sonne-background-color.mark,
+.editor-styles-wrapper h2 mark.has-sonne-background-color,
+.editor-styles-wrapper h2 .has-sonne-background-color.mark,
+.editor-styles-wrapper .h2 .has-sonne-background-color.mark,
+.editor-styles-wrapper h3 mark.has-sonne-background-color,
+.editor-styles-wrapper h3 .has-sonne-background-color.mark,
+.editor-styles-wrapper .h3 .has-sonne-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-sonne-background-color,
+.editor-styles-wrapper .h2 mark.has-sonne-background-color,
+.editor-styles-wrapper .h3 mark.has-sonne-background-color {
   --bg: #fff17a;
 }
-.editor-styles-wrapper h1 mark.has-sand-background-color, .editor-styles-wrapper h1 .has-sand-background-color.mark, .editor-styles-wrapper .h1 .has-sand-background-color.mark, .editor-styles-wrapper h2 mark.has-sand-background-color, .editor-styles-wrapper h2 .has-sand-background-color.mark, .editor-styles-wrapper .h2 .has-sand-background-color.mark, .editor-styles-wrapper h3 mark.has-sand-background-color, .editor-styles-wrapper h3 .has-sand-background-color.mark, .editor-styles-wrapper .h3 .has-sand-background-color.mark, .editor-styles-wrapper .h1 mark.has-sand-background-color, .editor-styles-wrapper .h2 mark.has-sand-background-color, .editor-styles-wrapper .h3 mark.has-sand-background-color {
+.editor-styles-wrapper h1 mark.has-sand-background-color, .editor-styles-wrapper h1 .has-sand-background-color.mark, .editor-styles-wrapper .h1 .has-sand-background-color.mark,
+.editor-styles-wrapper h2 mark.has-sand-background-color,
+.editor-styles-wrapper h2 .has-sand-background-color.mark,
+.editor-styles-wrapper .h2 .has-sand-background-color.mark,
+.editor-styles-wrapper h3 mark.has-sand-background-color,
+.editor-styles-wrapper h3 .has-sand-background-color.mark,
+.editor-styles-wrapper .h3 .has-sand-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-sand-background-color,
+.editor-styles-wrapper .h2 mark.has-sand-background-color,
+.editor-styles-wrapper .h3 mark.has-sand-background-color {
   --bg: #f5f1e9;
 }
-.editor-styles-wrapper h1 mark.has-maus-background-color, .editor-styles-wrapper h1 .has-maus-background-color.mark, .editor-styles-wrapper .h1 .has-maus-background-color.mark, .editor-styles-wrapper h2 mark.has-maus-background-color, .editor-styles-wrapper h2 .has-maus-background-color.mark, .editor-styles-wrapper .h2 .has-maus-background-color.mark, .editor-styles-wrapper h3 mark.has-maus-background-color, .editor-styles-wrapper h3 .has-maus-background-color.mark, .editor-styles-wrapper .h3 .has-maus-background-color.mark, .editor-styles-wrapper .h1 mark.has-maus-background-color, .editor-styles-wrapper .h2 mark.has-maus-background-color, .editor-styles-wrapper .h3 mark.has-maus-background-color {
+.editor-styles-wrapper h1 mark.has-maus-background-color, .editor-styles-wrapper h1 .has-maus-background-color.mark, .editor-styles-wrapper .h1 .has-maus-background-color.mark,
+.editor-styles-wrapper h2 mark.has-maus-background-color,
+.editor-styles-wrapper h2 .has-maus-background-color.mark,
+.editor-styles-wrapper .h2 .has-maus-background-color.mark,
+.editor-styles-wrapper h3 mark.has-maus-background-color,
+.editor-styles-wrapper h3 .has-maus-background-color.mark,
+.editor-styles-wrapper .h3 .has-maus-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-maus-background-color,
+.editor-styles-wrapper .h2 mark.has-maus-background-color,
+.editor-styles-wrapper .h3 mark.has-maus-background-color {
   --bg: #374951;
 }
-.editor-styles-wrapper h1 mark.has-kalk-background-color, .editor-styles-wrapper h1 .has-kalk-background-color.mark, .editor-styles-wrapper .h1 .has-kalk-background-color.mark, .editor-styles-wrapper h2 mark.has-kalk-background-color, .editor-styles-wrapper h2 .has-kalk-background-color.mark, .editor-styles-wrapper .h2 .has-kalk-background-color.mark, .editor-styles-wrapper h3 mark.has-kalk-background-color, .editor-styles-wrapper h3 .has-kalk-background-color.mark, .editor-styles-wrapper .h3 .has-kalk-background-color.mark, .editor-styles-wrapper .h1 mark.has-kalk-background-color, .editor-styles-wrapper .h2 mark.has-kalk-background-color, .editor-styles-wrapper .h3 mark.has-kalk-background-color {
+.editor-styles-wrapper h1 mark.has-kalk-background-color, .editor-styles-wrapper h1 .has-kalk-background-color.mark, .editor-styles-wrapper .h1 .has-kalk-background-color.mark,
+.editor-styles-wrapper h2 mark.has-kalk-background-color,
+.editor-styles-wrapper h2 .has-kalk-background-color.mark,
+.editor-styles-wrapper .h2 .has-kalk-background-color.mark,
+.editor-styles-wrapper h3 mark.has-kalk-background-color,
+.editor-styles-wrapper h3 .has-kalk-background-color.mark,
+.editor-styles-wrapper .h3 .has-kalk-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-kalk-background-color,
+.editor-styles-wrapper .h2 mark.has-kalk-background-color,
+.editor-styles-wrapper .h3 mark.has-kalk-background-color {
   --bg: #e8eae9;
 }
-.editor-styles-wrapper h1 mark.has-gruener-sand-background-color, .editor-styles-wrapper h1 .has-gruener-sand-background-color.mark, .editor-styles-wrapper .h1 .has-gruener-sand-background-color.mark, .editor-styles-wrapper h2 mark.has-gruener-sand-background-color, .editor-styles-wrapper h2 .has-gruener-sand-background-color.mark, .editor-styles-wrapper .h2 .has-gruener-sand-background-color.mark, .editor-styles-wrapper h3 mark.has-gruener-sand-background-color, .editor-styles-wrapper h3 .has-gruener-sand-background-color.mark, .editor-styles-wrapper .h3 .has-gruener-sand-background-color.mark, .editor-styles-wrapper .h1 mark.has-gruener-sand-background-color, .editor-styles-wrapper .h2 mark.has-gruener-sand-background-color, .editor-styles-wrapper .h3 mark.has-gruener-sand-background-color {
+.editor-styles-wrapper h1 mark.has-gruener-sand-background-color, .editor-styles-wrapper h1 .has-gruener-sand-background-color.mark, .editor-styles-wrapper .h1 .has-gruener-sand-background-color.mark,
+.editor-styles-wrapper h2 mark.has-gruener-sand-background-color,
+.editor-styles-wrapper h2 .has-gruener-sand-background-color.mark,
+.editor-styles-wrapper .h2 .has-gruener-sand-background-color.mark,
+.editor-styles-wrapper h3 mark.has-gruener-sand-background-color,
+.editor-styles-wrapper h3 .has-gruener-sand-background-color.mark,
+.editor-styles-wrapper .h3 .has-gruener-sand-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-gruener-sand-background-color,
+.editor-styles-wrapper .h2 mark.has-gruener-sand-background-color,
+.editor-styles-wrapper .h3 mark.has-gruener-sand-background-color {
   --bg: #f3faf6;
 }
-.editor-styles-wrapper h1 mark.has-white-background-color, .editor-styles-wrapper h1 .has-white-background-color.mark, .editor-styles-wrapper .h1 .has-white-background-color.mark, .editor-styles-wrapper h2 mark.has-white-background-color, .editor-styles-wrapper h2 .has-white-background-color.mark, .editor-styles-wrapper .h2 .has-white-background-color.mark, .editor-styles-wrapper h3 mark.has-white-background-color, .editor-styles-wrapper h3 .has-white-background-color.mark, .editor-styles-wrapper .h3 .has-white-background-color.mark, .editor-styles-wrapper .h1 mark.has-white-background-color, .editor-styles-wrapper .h2 mark.has-white-background-color, .editor-styles-wrapper .h3 mark.has-white-background-color {
+.editor-styles-wrapper h1 mark.has-white-background-color, .editor-styles-wrapper h1 .has-white-background-color.mark, .editor-styles-wrapper .h1 .has-white-background-color.mark,
+.editor-styles-wrapper h2 mark.has-white-background-color,
+.editor-styles-wrapper h2 .has-white-background-color.mark,
+.editor-styles-wrapper .h2 .has-white-background-color.mark,
+.editor-styles-wrapper h3 mark.has-white-background-color,
+.editor-styles-wrapper h3 .has-white-background-color.mark,
+.editor-styles-wrapper .h3 .has-white-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-white-background-color,
+.editor-styles-wrapper .h2 mark.has-white-background-color,
+.editor-styles-wrapper .h3 mark.has-white-background-color {
   --bg: #fff;
 }
-.editor-styles-wrapper h1 mark.has-himmel-background-color, .editor-styles-wrapper h1 .has-himmel-background-color.mark, .editor-styles-wrapper .h1 .has-himmel-background-color.mark, .editor-styles-wrapper h2 mark.has-himmel-background-color, .editor-styles-wrapper h2 .has-himmel-background-color.mark, .editor-styles-wrapper .h2 .has-himmel-background-color.mark, .editor-styles-wrapper h3 mark.has-himmel-background-color, .editor-styles-wrapper h3 .has-himmel-background-color.mark, .editor-styles-wrapper .h3 .has-himmel-background-color.mark, .editor-styles-wrapper .h1 mark.has-himmel-background-color, .editor-styles-wrapper .h2 mark.has-himmel-background-color, .editor-styles-wrapper .h3 mark.has-himmel-background-color {
+.editor-styles-wrapper h1 mark.has-himmel-background-color, .editor-styles-wrapper h1 .has-himmel-background-color.mark, .editor-styles-wrapper .h1 .has-himmel-background-color.mark,
+.editor-styles-wrapper h2 mark.has-himmel-background-color,
+.editor-styles-wrapper h2 .has-himmel-background-color.mark,
+.editor-styles-wrapper .h2 .has-himmel-background-color.mark,
+.editor-styles-wrapper h3 mark.has-himmel-background-color,
+.editor-styles-wrapper h3 .has-himmel-background-color.mark,
+.editor-styles-wrapper .h3 .has-himmel-background-color.mark,
+.editor-styles-wrapper .h1 mark.has-himmel-background-color,
+.editor-styles-wrapper .h2 mark.has-himmel-background-color,
+.editor-styles-wrapper .h3 mark.has-himmel-background-color {
   --bg: #0ba1dd;
 }
 @media (max-width: 1499.98px) {
-  .editor-styles-wrapper h1 mark, .editor-styles-wrapper h1 .mark, .editor-styles-wrapper .h1 .mark, .editor-styles-wrapper h2 mark, .editor-styles-wrapper h2 .mark, .editor-styles-wrapper .h2 .mark, .editor-styles-wrapper h3 mark, .editor-styles-wrapper h3 .mark, .editor-styles-wrapper .h3 .mark, .editor-styles-wrapper .h1 mark, .editor-styles-wrapper .h2 mark, .editor-styles-wrapper .h3 mark {
+  .editor-styles-wrapper h1 mark, .editor-styles-wrapper h1 .mark, .editor-styles-wrapper .h1 .mark,
+  .editor-styles-wrapper h2 mark,
+  .editor-styles-wrapper h2 .mark,
+  .editor-styles-wrapper .h2 .mark,
+  .editor-styles-wrapper h3 mark,
+  .editor-styles-wrapper h3 .mark,
+  .editor-styles-wrapper .h3 .mark,
+  .editor-styles-wrapper .h1 mark,
+  .editor-styles-wrapper .h2 mark,
+  .editor-styles-wrapper .h3 mark {
     font-size: 40px;
     padding: 4px 10px 6px 7px;
   }
 }
 @media (max-width: 949.98px) {
-  .editor-styles-wrapper h1 mark, .editor-styles-wrapper h1 .mark, .editor-styles-wrapper .h1 .mark, .editor-styles-wrapper h2 mark, .editor-styles-wrapper h2 .mark, .editor-styles-wrapper .h2 .mark, .editor-styles-wrapper h3 mark, .editor-styles-wrapper h3 .mark, .editor-styles-wrapper .h3 .mark, .editor-styles-wrapper .h1 mark, .editor-styles-wrapper .h2 mark, .editor-styles-wrapper .h3 mark {
+  .editor-styles-wrapper h1 mark, .editor-styles-wrapper h1 .mark, .editor-styles-wrapper .h1 .mark,
+  .editor-styles-wrapper h2 mark,
+  .editor-styles-wrapper h2 .mark,
+  .editor-styles-wrapper .h2 .mark,
+  .editor-styles-wrapper h3 mark,
+  .editor-styles-wrapper h3 .mark,
+  .editor-styles-wrapper .h3 .mark,
+  .editor-styles-wrapper .h1 mark,
+  .editor-styles-wrapper .h2 mark,
+  .editor-styles-wrapper .h3 mark {
     font-size: 30px;
   }
 }
-.editor-styles-wrapper h1 mark::before, .editor-styles-wrapper h1 .mark::before, .editor-styles-wrapper .h1 .mark::before, .editor-styles-wrapper h2 mark::before, .editor-styles-wrapper h2 .mark::before, .editor-styles-wrapper .h2 .mark::before, .editor-styles-wrapper h3 mark::before, .editor-styles-wrapper h3 .mark::before, .editor-styles-wrapper .h3 .mark::before, .editor-styles-wrapper .h1 mark::before, .editor-styles-wrapper .h2 mark::before, .editor-styles-wrapper .h3 mark::before {
+.editor-styles-wrapper h1 mark::before, .editor-styles-wrapper h1 .mark::before, .editor-styles-wrapper .h1 .mark::before,
+.editor-styles-wrapper h2 mark::before,
+.editor-styles-wrapper h2 .mark::before,
+.editor-styles-wrapper .h2 .mark::before,
+.editor-styles-wrapper h3 mark::before,
+.editor-styles-wrapper h3 .mark::before,
+.editor-styles-wrapper .h3 .mark::before,
+.editor-styles-wrapper .h1 mark::before,
+.editor-styles-wrapper .h2 mark::before,
+.editor-styles-wrapper .h3 mark::before {
   position: absolute;
   top: 0;
   left: -10px;
@@ -28981,31 +29204,85 @@ figcaption {
   background-color: var(--bg);
 }
 @media (max-width: 1499.98px) {
-  .editor-styles-wrapper h1 mark::before, .editor-styles-wrapper h1 .mark::before, .editor-styles-wrapper .h1 .mark::before, .editor-styles-wrapper h2 mark::before, .editor-styles-wrapper h2 .mark::before, .editor-styles-wrapper .h2 .mark::before, .editor-styles-wrapper h3 mark::before, .editor-styles-wrapper h3 .mark::before, .editor-styles-wrapper .h3 .mark::before, .editor-styles-wrapper .h1 mark::before, .editor-styles-wrapper .h2 mark::before, .editor-styles-wrapper .h3 mark::before {
+  .editor-styles-wrapper h1 mark::before, .editor-styles-wrapper h1 .mark::before, .editor-styles-wrapper .h1 .mark::before,
+  .editor-styles-wrapper h2 mark::before,
+  .editor-styles-wrapper h2 .mark::before,
+  .editor-styles-wrapper .h2 .mark::before,
+  .editor-styles-wrapper h3 mark::before,
+  .editor-styles-wrapper h3 .mark::before,
+  .editor-styles-wrapper .h3 .mark::before,
+  .editor-styles-wrapper .h1 mark::before,
+  .editor-styles-wrapper .h2 mark::before,
+  .editor-styles-wrapper .h3 mark::before {
     left: -7px;
     width: calc(100% + 14px);
   }
 }
 @media (max-width: 949.98px) {
-  .editor-styles-wrapper h1 mark::before, .editor-styles-wrapper h1 .mark::before, .editor-styles-wrapper .h1 .mark::before, .editor-styles-wrapper h2 mark::before, .editor-styles-wrapper h2 .mark::before, .editor-styles-wrapper .h2 .mark::before, .editor-styles-wrapper h3 mark::before, .editor-styles-wrapper h3 .mark::before, .editor-styles-wrapper .h3 .mark::before, .editor-styles-wrapper .h1 mark::before, .editor-styles-wrapper .h2 mark::before, .editor-styles-wrapper .h3 mark::before {
+  .editor-styles-wrapper h1 mark::before, .editor-styles-wrapper h1 .mark::before, .editor-styles-wrapper .h1 .mark::before,
+  .editor-styles-wrapper h2 mark::before,
+  .editor-styles-wrapper h2 .mark::before,
+  .editor-styles-wrapper .h2 .mark::before,
+  .editor-styles-wrapper h3 mark::before,
+  .editor-styles-wrapper h3 .mark::before,
+  .editor-styles-wrapper .h3 .mark::before,
+  .editor-styles-wrapper .h1 mark::before,
+  .editor-styles-wrapper .h2 mark::before,
+  .editor-styles-wrapper .h3 mark::before {
     left: -4px;
     width: calc(100% + 8px);
   }
 }
-.editor-styles-wrapper h1 mark:nth-of-type(2), .editor-styles-wrapper h1 .mark:nth-of-type(2), .editor-styles-wrapper .h1 .mark:nth-of-type(2), .editor-styles-wrapper h2 mark:nth-of-type(2), .editor-styles-wrapper h2 .mark:nth-of-type(2), .editor-styles-wrapper .h2 .mark:nth-of-type(2), .editor-styles-wrapper h3 mark:nth-of-type(2), .editor-styles-wrapper h3 .mark:nth-of-type(2), .editor-styles-wrapper .h3 .mark:nth-of-type(2), .editor-styles-wrapper .h1 mark:nth-of-type(2), .editor-styles-wrapper .h2 mark:nth-of-type(2), .editor-styles-wrapper .h3 mark:nth-of-type(2) {
+.editor-styles-wrapper h1 mark:nth-of-type(2), .editor-styles-wrapper h1 .mark:nth-of-type(2), .editor-styles-wrapper .h1 .mark:nth-of-type(2),
+.editor-styles-wrapper h2 mark:nth-of-type(2),
+.editor-styles-wrapper h2 .mark:nth-of-type(2),
+.editor-styles-wrapper .h2 .mark:nth-of-type(2),
+.editor-styles-wrapper h3 mark:nth-of-type(2),
+.editor-styles-wrapper h3 .mark:nth-of-type(2),
+.editor-styles-wrapper .h3 .mark:nth-of-type(2),
+.editor-styles-wrapper .h1 mark:nth-of-type(2),
+.editor-styles-wrapper .h2 mark:nth-of-type(2),
+.editor-styles-wrapper .h3 mark:nth-of-type(2) {
   margin-left: 100px;
 }
 @media (max-width: 1499.98px) {
-  .editor-styles-wrapper h1 mark:nth-of-type(2), .editor-styles-wrapper h1 .mark:nth-of-type(2), .editor-styles-wrapper .h1 .mark:nth-of-type(2), .editor-styles-wrapper h2 mark:nth-of-type(2), .editor-styles-wrapper h2 .mark:nth-of-type(2), .editor-styles-wrapper .h2 .mark:nth-of-type(2), .editor-styles-wrapper h3 mark:nth-of-type(2), .editor-styles-wrapper h3 .mark:nth-of-type(2), .editor-styles-wrapper .h3 .mark:nth-of-type(2), .editor-styles-wrapper .h1 mark:nth-of-type(2), .editor-styles-wrapper .h2 mark:nth-of-type(2), .editor-styles-wrapper .h3 mark:nth-of-type(2) {
+  .editor-styles-wrapper h1 mark:nth-of-type(2), .editor-styles-wrapper h1 .mark:nth-of-type(2), .editor-styles-wrapper .h1 .mark:nth-of-type(2),
+  .editor-styles-wrapper h2 mark:nth-of-type(2),
+  .editor-styles-wrapper h2 .mark:nth-of-type(2),
+  .editor-styles-wrapper .h2 .mark:nth-of-type(2),
+  .editor-styles-wrapper h3 mark:nth-of-type(2),
+  .editor-styles-wrapper h3 .mark:nth-of-type(2),
+  .editor-styles-wrapper .h3 .mark:nth-of-type(2),
+  .editor-styles-wrapper .h1 mark:nth-of-type(2),
+  .editor-styles-wrapper .h2 mark:nth-of-type(2),
+  .editor-styles-wrapper .h3 mark:nth-of-type(2) {
     margin-left: 85px;
   }
 }
 @media (max-width: 949.98px) {
-  .editor-styles-wrapper h1 mark:nth-of-type(2), .editor-styles-wrapper h1 .mark:nth-of-type(2), .editor-styles-wrapper .h1 .mark:nth-of-type(2), .editor-styles-wrapper h2 mark:nth-of-type(2), .editor-styles-wrapper h2 .mark:nth-of-type(2), .editor-styles-wrapper .h2 .mark:nth-of-type(2), .editor-styles-wrapper h3 mark:nth-of-type(2), .editor-styles-wrapper h3 .mark:nth-of-type(2), .editor-styles-wrapper .h3 .mark:nth-of-type(2), .editor-styles-wrapper .h1 mark:nth-of-type(2), .editor-styles-wrapper .h2 mark:nth-of-type(2), .editor-styles-wrapper .h3 mark:nth-of-type(2) {
+  .editor-styles-wrapper h1 mark:nth-of-type(2), .editor-styles-wrapper h1 .mark:nth-of-type(2), .editor-styles-wrapper .h1 .mark:nth-of-type(2),
+  .editor-styles-wrapper h2 mark:nth-of-type(2),
+  .editor-styles-wrapper h2 .mark:nth-of-type(2),
+  .editor-styles-wrapper .h2 .mark:nth-of-type(2),
+  .editor-styles-wrapper h3 mark:nth-of-type(2),
+  .editor-styles-wrapper h3 .mark:nth-of-type(2),
+  .editor-styles-wrapper .h3 .mark:nth-of-type(2),
+  .editor-styles-wrapper .h1 mark:nth-of-type(2),
+  .editor-styles-wrapper .h2 mark:nth-of-type(2),
+  .editor-styles-wrapper .h3 mark:nth-of-type(2) {
     margin-left: 75px;
   }
 }
-.editor-styles-wrapper h1.has-text-align-center mark:nth-of-type(2), .editor-styles-wrapper h1.has-text-align-center .mark:nth-of-type(2), .editor-styles-wrapper .has-text-align-center.h1 .mark:nth-of-type(2), .editor-styles-wrapper h2.has-text-align-center mark:nth-of-type(2), .editor-styles-wrapper h2.has-text-align-center .mark:nth-of-type(2), .editor-styles-wrapper .has-text-align-center.h2 .mark:nth-of-type(2), .editor-styles-wrapper h3.has-text-align-center mark:nth-of-type(2), .editor-styles-wrapper h3.has-text-align-center .mark:nth-of-type(2), .editor-styles-wrapper .has-text-align-center.h3 .mark:nth-of-type(2), .editor-styles-wrapper .h1.has-text-align-center mark:nth-of-type(2), .editor-styles-wrapper .h2.has-text-align-center mark:nth-of-type(2), .editor-styles-wrapper .h3.has-text-align-center mark:nth-of-type(2) {
+.editor-styles-wrapper h1.has-text-align-center mark:nth-of-type(2), .editor-styles-wrapper h1.has-text-align-center .mark:nth-of-type(2), .editor-styles-wrapper .has-text-align-center.h1 .mark:nth-of-type(2),
+.editor-styles-wrapper h2.has-text-align-center mark:nth-of-type(2),
+.editor-styles-wrapper h2.has-text-align-center .mark:nth-of-type(2),
+.editor-styles-wrapper .has-text-align-center.h2 .mark:nth-of-type(2),
+.editor-styles-wrapper h3.has-text-align-center mark:nth-of-type(2),
+.editor-styles-wrapper h3.has-text-align-center .mark:nth-of-type(2),
+.editor-styles-wrapper .has-text-align-center.h3 .mark:nth-of-type(2),
+.editor-styles-wrapper .h1.has-text-align-center mark:nth-of-type(2),
+.editor-styles-wrapper .h2.has-text-align-center mark:nth-of-type(2),
+.editor-styles-wrapper .h3.has-text-align-center mark:nth-of-type(2) {
   margin-left: 0;
 }
 

@@ -414,7 +414,7 @@ iframe {
 
 body #content .is-layout-flex:not(.is-vertical) {
 
-    column-gap: calc(2 * var(--gap-large));
+    column-gap: var(--gap-large);
     row-gap: var(--gap-large);
 
     >  * {

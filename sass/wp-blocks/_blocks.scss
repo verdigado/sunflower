@@ -1,22 +1,28 @@
 @use "sass:map";
 
 .wp-block-sunflower-meta-data {
+    margin-right: var(--grid-margin);
+}
 
-    a {
-        color: map.get($custom-colors, "klee");
-        margin-right: var(--half-grid-margin);
-        transition: 300ms ease-out;
-
-        &:hover {
-            color: map.get($custom-colors, "grashalm") !important;
-        }
-    }
-
-    .fas {
-        font-family: ForkAwesome;
-    }
+.wp-block-group:has(.wp-block-sunflower-meta-data) {
+    flex-wrap: wrap;
+    row-gap: var(--half-grid-margin);
 
 }
+
+a:not(.wp-block-button__link) {
+    color: map.get($custom-colors, "klee");
+    transition: 300ms ease-out;
+
+    &:hover {
+        color: map.get($custom-colors, "grashalm") !important;
+    }
+}
+
+.fas {
+    font-family: ForkAwesome;
+}
+
 
 .latest-posts {
     width: calc(100% + var(--double-grid-margin)) !important;

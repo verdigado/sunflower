@@ -93,7 +93,7 @@
     padding: 0;
     cursor: pointer;
     z-index: 10;
-    background-color: map.get($custom-colors, "white") !important;
+    background-color: map.get($custom-colors, "weiss") !important;
     border: 2px solid $primary !important;
     border-radius: 23px;
 
@@ -106,7 +106,7 @@
         border: 2px solid $secondary !important;
 
         div svg {
-            color: map.get($custom-colors, "white");
+            color: map.get($custom-colors, "weiss");
         }
     }
 }
@@ -154,7 +154,7 @@ a:has(.continue-reading) {
     padding: 0 35px 4px 35px !important;
     transition: 0.3s ease;
     border: 2px solid map.get($custom-colors, "tanne") !important;
-    background-color: map.get($custom-colors, "white") !important;
+    background-color: map.get($custom-colors, "weiss") !important;
     color: $primary;
     cursor: pointer;
 
@@ -175,16 +175,25 @@ a:has(.continue-reading) {
         .p-45 {
 
             span {
-                color: map.get($custom-colors, "white") !important;
+                color: map.get($custom-colors, "weiss") !important;
             }
         }
     }
 
 }
 
+/* Person-Slider: doppeltes Padding im Content-Bereich */
+.wp-block-columns.columns-with-person.column-slider {
+
+    .person .wp-block-media-text__content {
+        padding: calc(var(--grid-margin) * 2);
+    }
+}
+
 @include media-breakpoint-down(md) {
 
-    .wp-block-columns.all-columns-start-with-image.more-than-two-columns.column-slider {
+    .wp-block-columns.all-columns-start-with-image.more-than-two-columns.column-slider,
+    .wp-block-columns.columns-with-person.column-slider {
         overflow: visible;
         margin-left: 0;
         display: flex;
@@ -213,6 +222,7 @@ a:has(.continue-reading) {
         bottom: -50px;
         width: 100%;
         top: 85px;
+        height: 46px;
 
         @include media-breakpoint-down(md) {
             top: 0;
@@ -226,7 +236,7 @@ a:has(.continue-reading) {
         padding: 0;
         cursor: pointer;
         z-index: 10;
-        background-color: map.get($custom-colors, "white") !important;
+        background-color: map.get($custom-colors, "weiss") !important;
         border: 2px solid $primary !important;
         border-radius: 23px;
 
@@ -239,7 +249,7 @@ a:has(.continue-reading) {
             border: 2px solid $secondary !important;
 
             div svg {
-                color: map.get($custom-colors, "white");
+                color: map.get($custom-colors, "weiss");
             }
         }
     }

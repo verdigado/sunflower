@@ -304,6 +304,14 @@ document.querySelectorAll( '.wp-block-columns' ).forEach( ( columns ) => {
 	if ( allColumns.length >= 3 ) {
 		columns.classList.add( 'more-than-two-columns' );
 	}
+
+	// Spalten, die mindestens ein .person enthalten → Slider-Kandidat
+	const hasPersonChild = Array.from( allColumns ).some( ( col ) =>
+		col.querySelector( '.person' )
+	);
+	if ( allColumns.length > 1 && hasPersonChild ) {
+		columns.classList.add( 'columns-with-person' );
+	}
 } );
 
 document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
@@ -521,13 +529,68 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 /**
  * mark before & after bekommen die selbe linienfarbe wie mark background / border
+ * Im Cover-Block: Hintergrund von inner-container oder wp-block-cover__background
  */
+
+/**
+ * @param {HTMLElement} mark
+ * @param {boolean}     useContainerColor – true nur bei Zeilenumbruch im Cover (::before soll mit Container verschmelzen)
+ */
+function getContainerBackgroundForMark( mark, useContainerColor ) {
+	const heading = mark.closest( 'h1, h2, h3, h4, h5, h6' );
+	const innerContainer = heading
+		? heading.closest( '.wp-block-cover__inner-container' )
+		: null;
+
+	// Nur bei Zeilenumbruch im Cover: Container-Farbe (::before verschmilzt mit Hintergrund)
+	if ( useContainerColor && innerContainer ) {
+		const innerBg = getComputedStyle( innerContainer ).backgroundColor;
+		if (
+			innerBg &&
+			innerBg !== 'transparent' &&
+			innerBg !== 'rgba(0, 0, 0, 0)'
+		) {
+			return innerBg;
+		}
+		const cover = innerContainer.closest( '.wp-block-cover' );
+		if ( cover ) {
+			const overlayEl = cover.querySelector(
+				'.wp-block-cover__background'
+			);
+			if ( overlayEl ) {
+				const overlayBg = getComputedStyle( overlayEl ).backgroundColor;
+				if (
+					overlayBg &&
+					overlayBg !== 'transparent' &&
+					overlayBg !== 'rgba(0, 0, 0, 0)'
+				) {
+					return overlayBg;
+				}
+			}
+			const coverComputedBg = getComputedStyle( cover ).backgroundColor;
+			if (
+				coverComputedBg &&
+				coverComputedBg !== 'transparent' &&
+				coverComputedBg !== 'rgba(0, 0, 0, 0)'
+			) {
+				return coverComputedBg;
+			}
+		}
+	}
+
+	// Standard: Mark-Hintergrund (::before sichtbar in Mark-Farbe)
+	const bg = getComputedStyle( mark ).backgroundColor;
+	if ( bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)' ) {
+		return bg;
+	}
+	return bg;
+}
 
 document.addEventListener( 'DOMContentLoaded', () => {
 	document
 		.querySelectorAll( 'h1 mark, h2 mark, h3 mark' )
 		.forEach( ( mark ) => {
-			const bg = getComputedStyle( mark ).backgroundColor;
+			const bg = getContainerBackgroundForMark( mark, false );
 			mark.style.setProperty( '--bg', bg );
 		} );
 } );
@@ -565,7 +628,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		document
 			.querySelectorAll(
 				/* <<< GEÄNDERT: Latest-Posts-Track zusätzlich zulassen >>> */
-				'.wp-block-columns.all-columns-start-with-image.more-than-two-columns, .latest-posts .row.posts-slider, .tarife'
+				'.wp-block-columns.all-columns-start-with-image.more-than-two-columns, .wp-block-columns.columns-with-person, .latest-posts .row.posts-slider, .tarife'
 			)
 			.forEach( ( trackEl ) => {
 				const isActive =
@@ -633,6 +696,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			track.classList.contains( 'posts-slider' ) ||
 			( track.classList.contains( 'row' ) &&
 				track.closest( '.latest-posts' ) );
+		const isColumnsWithPerson = track.classList.contains(
+			'columns-with-person'
+		);
 
 		const slides = Array.from( track.children ).filter( ( el ) => {
 			if ( isLatestPosts ) {
@@ -662,6 +728,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			/* <<< NEU: wie viele Karten pro „Seite“ bei Latest-Posts >>> */
 			slidesPerView: 1,
 			isLatestPosts,
+			isColumnsWithPerson,
 		};
 
 		function step() {
@@ -742,6 +809,23 @@ document.addEventListener( 'DOMContentLoaded', () => {
 					el.style.minWidth = `${ state.slideWidth }px`;
 					el.style.maxWidth = `${ state.slideWidth }px`;
 				} );
+			} else if ( state.isColumnsWithPerson ) {
+				/* Person-Slider: 2 Spalten, auf sehr schmalen Screens 1 */
+				const vw = window.innerWidth;
+				state.slidesPerView = vw < 600 ? 1 : 2;
+				const totalGap = state.gap * ( state.slidesPerView - 1 );
+				state.slideWidth = Math.max(
+					0,
+					Math.floor(
+						( contentWidth - totalGap ) / state.slidesPerView
+					)
+				);
+				state.slides.forEach( ( el ) => {
+					el.style.flex = `0 0 ${ state.slideWidth }px`;
+					el.style.width = `${ state.slideWidth }px`;
+					el.style.minWidth = `${ state.slideWidth }px`;
+					el.style.maxWidth = `${ state.slideWidth }px`;
+				} );
 			} else {
 				/* Group-Slider: weiter 1 Karte pro „Seite“ <= 950px */
 				state.slidesPerView = 1;
@@ -812,7 +896,10 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			state.isDragging = false;
 
 			const moved = state.currentTranslate - state.previousTranslate;
-			const inc = state.isLatestPosts ? state.slidesPerView : 1;
+			const inc =
+				state.isLatestPosts || state.isColumnsWithPerson
+					? state.slidesPerView
+					: 1;
 
 			const maxIndex = Math.max( 0, state.total - state.slidesPerView );
 
@@ -836,7 +923,10 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 		// Buttons
 		const onNext = () => {
-			const inc = state.isLatestPosts ? state.slidesPerView : 1;
+			const inc =
+				state.isLatestPosts || state.isColumnsWithPerson
+					? state.slidesPerView
+					: 1;
 			const maxIndex = Math.max( 0, state.total - state.slidesPerView );
 			if ( state.index < maxIndex ) {
 				state.index = Math.min( maxIndex, state.index + inc );
@@ -844,7 +934,10 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			}
 		};
 		const onPrev = () => {
-			const inc = state.isLatestPosts ? state.slidesPerView : 1;
+			const inc =
+				state.isLatestPosts || state.isColumnsWithPerson
+					? state.slidesPerView
+					: 1;
 			if ( state.index > 0 ) {
 				state.index = Math.max( 0, state.index - inc );
 				setByIndex();
@@ -1087,6 +1180,44 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			return '#002216';
 		}
 
+		// Cover-Block: Hintergrund von inner-container oder wp-block-cover__background
+		const innerContainer = heading.closest(
+			'.wp-block-cover__inner-container'
+		);
+		if ( innerContainer ) {
+			let bgColor = getComputedStyle( innerContainer ).backgroundColor;
+			if (
+				! bgColor ||
+				bgColor === 'transparent' ||
+				bgColor === 'rgba(0, 0, 0, 0)'
+			) {
+				const cover = innerContainer.closest( '.wp-block-cover' );
+				if ( cover ) {
+					const coverBg = cover.querySelector(
+						'.wp-block-cover__background'
+					);
+					if ( coverBg ) {
+						bgColor = getComputedStyle( coverBg ).backgroundColor;
+					}
+					if (
+						! bgColor ||
+						bgColor === 'transparent' ||
+						bgColor === 'rgba(0, 0, 0, 0)'
+					) {
+						bgColor = getComputedStyle( cover ).backgroundColor;
+					}
+				}
+			}
+			if (
+				bgColor &&
+				bgColor !== 'transparent' &&
+				bgColor !== 'rgba(0, 0, 0, 0)'
+			) {
+				const isLight = isColorLight( bgColor );
+				return isLight ? '#005538' : '#ffffff';
+			}
+		}
+
 		const body = document.body;
 
 		if ( body.classList.contains( 'colorscheme-light' ) ) {
@@ -1097,6 +1228,30 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		}
 
 		return null;
+	}
+
+	function isColorLight( color ) {
+		const m = color.match(
+			/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)$/
+		);
+		if ( m ) {
+			const r = parseInt( m[ 1 ], 10 ) / 255;
+			const g = parseInt( m[ 2 ], 10 ) / 255;
+			const b = parseInt( m[ 3 ], 10 ) / 255;
+			const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+			return luminance > 0.5;
+		}
+		if ( color.startsWith( '#' ) ) {
+			const hex = color
+				.slice( 1 )
+				.replace( /^(.)(.)(.)$/, '$1$1$2$2$3$3' );
+			const r = parseInt( hex.slice( 0, 2 ), 16 ) / 255;
+			const g = parseInt( hex.slice( 2, 4 ), 16 ) / 255;
+			const b = parseInt( hex.slice( 4, 6 ), 16 ) / 255;
+			const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+			return luminance > 0.5;
+		}
+		return true;
 	}
 
 	function processHeadings() {
@@ -1152,22 +1307,35 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				}
 			} );
 
+			// --bg: bei Zeilenumbruch im Cover = Container-Farbe, sonst = Mark-Farbe
+			marks.forEach( function ( mark ) {
+				const bg = getContainerBackgroundForMark( mark, hasMultiline );
+				mark.style.setProperty( '--bg', bg );
+			} );
+
 			if ( ! hasMultiline ) {
 				return;
 			}
 
+			// Marks behalten, nur Farbe anpassen – angeschrägter Effekt bleibt
+			// background-color, padding und margin am mark entfernen (nur ::before bleibt)
 			const newColor = getHeadlineColor( heading );
-			if ( newColor ) {
-				heading.style.color = newColor;
-			}
-
-			heading.querySelectorAll( 'mark' ).forEach( function ( mark ) {
-				const parent = mark.parentNode;
-				while ( mark.firstChild ) {
-					parent.insertBefore( mark.firstChild, mark );
+			heading.querySelectorAll( 'mark' ).forEach( function ( m ) {
+				m.style.setProperty(
+					'background-color',
+					'transparent',
+					'important'
+				);
+				m.style.setProperty( 'padding', '0', 'important' );
+				m.style.setProperty( 'margin-left', '0', 'important' );
+				m.style.setProperty( 'margin-right', '0', 'important' );
+				if ( newColor ) {
+					m.style.setProperty( 'color', newColor, 'important' );
 				}
-				parent.removeChild( mark );
 			} );
+			if ( newColor ) {
+				heading.style.setProperty( 'color', newColor, 'important' );
+			}
 		} );
 	}
 

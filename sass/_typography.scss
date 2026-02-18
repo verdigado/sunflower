@@ -55,9 +55,10 @@ h3,
 .h3,
 .has-medium-font-size,
 .wp-block-query .wp-block-post-title,
-.wp-block-rss__item-title {
+.wp-block-rss__item-title,
+.all-columns-start-with-image .h2 {
     line-height: 130%;
-    font-size: 25px;
+    font-size: 24px;
 }
 
 .has-white-background-color {
@@ -84,7 +85,8 @@ h5,
 
 h6,
 .h6,
-blockquote.wp-block-quote p {
+blockquote.wp-block-quote p,
+.person-name {
 
     font-size: 18px;
     letter-spacing: 1px;
@@ -115,8 +117,9 @@ blockquote.wp-block-quote p {
     .h3,
     .has-medium-font-size,
     .wp-block-query .wp-block-post-title,
-    .wp-block-rss__item-title {
-        font-size: 27px;
+    .wp-block-rss__item-title,
+    .all-columns-start-with-image .h2 {
+        font-size: 40px;
     }
 
     h4,
@@ -132,7 +135,8 @@ blockquote.wp-block-quote p {
 
     h6,
     .h6,
-    blockquote.wp-block-quote p {
+    blockquote.wp-block-quote p,
+    .person-name {
         font-size: 22px;
     }
 }

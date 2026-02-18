@@ -67,6 +67,156 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
 @import "components/media/galleries";
 @import "components/content/posts-and-pages";
 
+/* ----------------------------------------------------------------
+ * Sunflower Hero Cover – inner container styling for editor
+ * (Frontend uses .entry-content > which doesn't exist in editor)
+ * ---------------------------------------------------------------- */
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero {
+    position: relative;
+    border-radius: var(--border-radius-large) var(--border-radius-large) 0 var(--border-radius-large);
+    overflow: hidden;
+
+    .wp-block-cover__image-background {
+        border-radius: var(--border-radius-large) var(--border-radius-large) 0 var(--border-radius-large);
+
+        @media (max-width: 768px) {
+            border-radius: var(--border-radius-large) var(--border-radius-large) 0 var(--border-radius-large);
+        }
+    }
+}
+
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
+    background-color: map-get($custom-colors, "white");
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: fit-content;
+    max-width: 70%;
+    padding: 25px 50px 0 25px !important;
+    border-radius: 0 var(--border-radius-large) 0 0;
+
+    .has-text-align-center,
+    h1,
+    h2,
+    h3,
+    .h1,
+    .h2,
+    .h3,
+    .wp-block-heading {
+
+        mark:nth-of-type(2) {
+            margin-left: 100px !important;
+            margin-top: 12px !important; // Abstand zur oberen Mark bei Zeilenumbruch
+
+            @media (max-width: 1200px) {
+                margin-left: 85px !important;
+            }
+
+            @media (max-width: 768px) {
+                margin-left: 75px !important;
+            }
+        }
+    }
+
+    .has-text-align-center mark:nth-of-type(2),
+    [data-type="core/heading"] .has-text-align-center mark:nth-of-type(2) {
+        margin-left: 0 !important;
+    }
+
+    h1 {
+        text-align: left;
+        position: relative;
+        left: -8px;
+    }
+
+    .wp-block-buttons {
+        margin-bottom: var(--grid-margin);
+    }
+
+    @media (max-width: 1200px) {
+        max-width: 75%;
+    }
+
+    @media (max-width: 992px) {
+        padding: 24px 24px 0 12px !important;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 0;
+        padding: 12px 0 0 0 !important;
+        position: relative !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            margin-top: -32px;
+        }
+    }
+
+    @media (max-width: 550px) {
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        h1 {
+            margin-top: 0;
+        }
+    }
+
+    // Pseudo-elements (concave SVG) – light theme default
+    &::before {
+        content: url("#{$sunflower-img-path}/concave-30px.svg");
+        height: 30px;
+        width: 38.16px;
+        position: absolute;
+        transform: rotate(-180deg);
+        top: -17px;
+        left: -1px;
+
+        @media (max-width: 768px) {
+            height: 20px;
+            width: 25.44px;
+            top: -11px;
+            left: -1px;
+        }
+    }
+
+    &::after {
+        content: url("#{$sunflower-img-path}/concave-30px.svg");
+        height: 30px;
+        width: 38.16px;
+        position: absolute;
+        transform: rotate(180deg);
+        bottom: -13px;
+        right: -38px;
+
+        @media (max-width: 768px) {
+            height: 20px;
+            width: 25.44px;
+            top: -22px;
+            right: -11px;
+            bottom: auto;
+            transform: rotate(90deg);
+        }
+    }
+}
+
+// Green colorscheme variant (when editor iframe has .colorscheme-green)
+.editor-styles-wrapper .colorscheme-green .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
+    background-color: map-get($custom-colors, "schwarzwald");
+
+    &::before {
+        content: url("#{$sunflower-img-path}/concave-30px_darkmode.svg");
+    }
+
+    &::after {
+        content: url("#{$sunflower-img-path}/concave-30px_darkmode.svg");
+    }
+}
+
 .editor-styles-wrapper {
     font-family: var(--wp--preset--font-family--pt-sans), "PT Sans", sans-serif;
     font-size: 1.1875rem;

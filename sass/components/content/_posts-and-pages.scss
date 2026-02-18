@@ -43,7 +43,7 @@
 
 .display-single {
 
-    padding: 130px 0 0 0;
+    padding: 180px 0 0 0;
 
     .entry-header {
 
@@ -63,7 +63,7 @@
 .site {
 
     .page-header {
-        padding: 130px 0 0 0;
+        padding: 180px 0 0 0;
 
         @include themed-colorscheme() {
             background-color: t(background);

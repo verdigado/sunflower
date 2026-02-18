@@ -59,3 +59,25 @@
         }
     }
 }
+
+
+.wp-block-column .wp-block-media-text {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: fit-content;
+
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+
+    row-gap: var(--half-grid-margin);
+
+    &__content {
+        padding: var(--half-grid-margin) var(--grid-margin) var(--grid-margin) var(--grid-margin) !important;
+    }
+
+    figure {
+        height: 100%;
+        border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+    }
+}

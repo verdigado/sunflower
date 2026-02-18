@@ -161,7 +161,7 @@
 			"core/button": {
 				"color": {
 					"background": "var:preset|color|klee",
-					"text": "var:preset|color|white"
+					"text": "var:preset|color|tanne"
 				}
 			},
 			"core/heading": {

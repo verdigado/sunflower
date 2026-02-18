@@ -8,6 +8,16 @@
 
 .wp-block-sunflower-meta-data {
 
+    margin: var(--half-grid-margin);
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+
     a {
         text-decoration: none;
         color: variables.$body-color;
