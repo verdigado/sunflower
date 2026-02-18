@@ -1136,6 +1136,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			'has-gray-background-color',
 			'has-tanne-background-color',
 			'has-klee-background-color',
+			'has-klee-700-background-color',
 			'has-himmel-background-color',
 		];
 

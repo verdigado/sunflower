@@ -121,8 +121,19 @@ html.preload * {
     }
 }
 
-.has-shadow {
-    box-shadow: 0 1px 20px rgba(0, 84, 55, 0.09);
+body .container .entry-content {
+
+    .has-shadow {
+        -webkit-box-shadow: 0 0 23px 0 rgba(0, 34, 22, 0.06);
+        -moz-box-shadow: 0 0 23px 0 rgba(0, 34, 22, 0.06);
+        box-shadow: 0 0 23px 0 rgba(0, 34, 22, 0.06);
+        padding: var(--grid-margin);
+        border-radius: var(--border-radius-medium);
+    }
+
+    .event.has-shadow {
+        padding: 0;
+    }
 }
 
 .max-800 {

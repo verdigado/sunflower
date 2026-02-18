@@ -422,6 +422,13 @@ body #content .is-layout-flex:not(.is-vertical) {
     }
 }
 
+.entry-content > .candidate {
+
+    &:first-child {
+        padding-top: 200px !important;
+    }
+}
+
 body #content .wp-block-cover {
 
     row-gap: 0;

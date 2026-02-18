@@ -61,6 +61,12 @@ h3,
     font-size: 24px;
 }
 
+body .wp-block-post-title.has-background,
+body .wp-block-post-title.has-shadow {
+    border-radius: var(--border-radius-small);
+    padding: calc(var(--grid-margin) - 5px) var(--grid-margin) var(--grid-margin) var(--grid-margin);
+}
+
 .has-white-background-color {
 
     .h1,
@@ -147,7 +153,9 @@ blockquote.wp-block-quote p {
     width: fit-content;
     line-height: 150%;
     position: relative;
-    text-transform: uppercase;
+    margin-left: 12px !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
 
     &::before {
         background: inherit;
@@ -163,18 +171,18 @@ blockquote.wp-block-quote p {
     }
 
     &.links-eins {
-        left: 1em;
+        margin-left: 52px !important;
 
         @include media-breakpoint-down(md) {
-            left: 0.5em;
+            margin-left: 32px !important;
         }
     }
 
     &.links-zwei {
-        left: 3em;
+        margin-left: 92px !important;
 
         @include media-breakpoint-down(md) {
-            left: 2.5em;
+            margin-left: 52px !important;
         }
     }
 }
@@ -185,25 +193,28 @@ h1:has(+ h4) {
 
 
 .has-background.textbalken.links-drei {
-    left: 5em;
+    margin-left: 132px !important;
 
     @include media-breakpoint-down(md) {
-        left: 4.5em;
+        margin-left: 92px !important;
     }
 }
 
 .stoerer {
-    width: 200px;
-    height: 200px;
-    font-size: 30pt;
-
-    padding: 8pt;
+    width: fit-content;
+    aspect-ratio: 1 / 1;
+    font-size: 30px;
+    font-family: "GrueneType Neue", sans-serif;
+    max-width: 300px !important;
+    max-height: 300px !important;
+    padding: 10px 25px 17px 25px !important;
     border-radius: 50%;
     line-height: 100%;
     color: $white;
     text-align: center;
-    display: table-cell;
-    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: map-get($custom-colors, "himmel");
     -moz-transform: rotate(-7deg); /* Firefox 3.6 Firefox 4 */
     -webkit-transform: rotate(-7deg); /* Safari */
@@ -211,12 +222,13 @@ h1:has(+ h4) {
     -ms-transform: rotate(-7deg); /* IE9 */
     transform: rotate(-7deg); /* W3C */
     position: relative;
-    left: 20rem;
-    top: 5rem;
+    margin: var(--double-grid-margin);
 
-    @include media-breakpoint-down(md) {
-        left: 8rem;
-        top: 2rem;
+    @include media-breakpoint-down(xl) {
+        max-width: 230px !important;
+        max-height: 230px !important;
+        font-size: 24px;
+        padding: 10px 25px 17px 25px !important;
     }
 }
 
@@ -438,6 +450,7 @@ body #content {
 
 .wp-block-group.has-background:is(
 .has-klee-background-color,
+.has-klee-700-background-color,
 .has-grashalm-background-color
 ) {
 

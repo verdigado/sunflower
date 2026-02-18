@@ -25,6 +25,23 @@
     }
 }
 
+/* Legacy: klee-700 → Klee (nicht im Backend wählbar) */
+.has-klee-700-color {
+    color: map-get($custom-colors, "klee");
+}
+
+.has-klee-700-background-color {
+    background-color: map-get($custom-colors, "klee");
+}
+
+.has-klee-700-border-color {
+    border-color: map-get($custom-colors, "klee");
+}
+
+.has-klee-700-hover-background-color:hover {
+    background-color: map-get($custom-colors, "klee");
+}
+
 .has-white-color.has-tanne-background-color {
 
     a:focus-visible {

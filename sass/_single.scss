@@ -112,7 +112,8 @@
     }
 
     // Ausnahme: innerhalb eines Posts-Sliders → zurück auf „normal“
-    .posts-slider .entry-meta {
+    .posts-slider .entry-meta,
+    .archive-article .entry-meta {
         width: unset;
         max-width: unset;
         margin: unset;

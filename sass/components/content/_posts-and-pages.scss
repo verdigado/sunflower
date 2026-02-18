@@ -54,6 +54,29 @@
         }
 
     }
+
+}
+
+.wp-singular:not(:has(.styled-layout)) {
+
+    .entry-content {
+
+        > .wp-block-group,
+        .wp-block-media-text, {
+
+            &:first-child {
+                padding-top: var(--grid-margin) !important;
+            }
+        }
+
+        > figure,
+        table {
+
+            &:first-child {
+                margin-top: var(--grid-margin) !important;
+            }
+        }
+    }
 }
 
 .styled-layout .display-single {

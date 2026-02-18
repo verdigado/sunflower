@@ -192,7 +192,8 @@ body #content {
 .entry-content > .wp-block-code,
 .entry-content > .wp-block-audio,
 .entry-content > .wp-block-search,
-.entry-content > .wp-block-comments {
+.entry-content > .wp-block-comments,
+.entry-content > .comment-respond {
     margin-top: var(--half-block-spacing);
     margin-bottom: var(--half-block-spacing);
 
