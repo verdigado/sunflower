@@ -135,9 +135,17 @@ jobs:
       - name: save version
         run: echo ${{ github.event.release.tag_name }} > version_beta.txt
 
-      - name: rsync zipfile
+      - name: rsync zipfile, version and changelog
+        env:
+            PAGEID: 5
         run: |
             rsync -a sunflower-${{ github.event.release.tag_name }}.zip version_beta.txt changelog.html production:/var/www/updateserver/sunflower26/
+            THEME_VERSION=$(cat version_beta.txt | sed -e 's/^v//')
+            sudo locale-gen de_DE.UTF-8
+            THEME_UPDATE=$(LANG=de_DE.UTF-8 && date +'%B %Y')
+            ssh production "cd /var/www && wp post get $PAGEID --field=content --url=sunflower-theme.de/sunflower26 | sed -e 's/<version>[^<]*/<version>$THEME_VERSION/g' | sed -e 's/<versionupdate>[^<]*/<versionupdate>$THEME_UPDATE/g' | sed -E 's/\/updateserver\/sunflower26\/sunflower-v(.*)\.zip/\/updateserver\/sunflower26\/sunflower-v$THEME_VERSION.zip/g' > /tmp/content-$PAGEID.txt"
+            ssh production "cd /var/www && wp post update $PAGEID - --url=sunflower-theme.de/sunflower26 < /tmp/content-$PAGEID.txt && wp option update blogdescription 'Demoseite für das WordPress-Theme Sunflower $THEME_VERSION' --url=sunflower-theme.de/sunflower26 && wp menu item update 26 --url=https://sunflower-theme.de/sunflower26 --link=https://sunflower-theme.de/updateserver/sunflower26/sunflower-v$THEME_VERSION.zip"
+            ssh production "cd /var/www && rm -fr wp-content/themes/sunflower26/ && wp theme install updateserver/sunflower26/sunflower-v$THEME_VERSION.zip >> /tmp/sunflower-install.log"
 
   mkdocs:
     runs-on: ubuntu-latest

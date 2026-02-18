@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-// Send POST request to peristent dismiss sunflower notices in backend.
+// Send POST request to persistent dismiss sunflower notices in backend.
 jQuery( function ( $ ) {
 	$( document ).on(
 		'click',
@@ -12,7 +12,9 @@ jQuery( function ( $ ) {
 				method: 'POST',
 				data: {
 					id,
-					_wpnonce: $( '#' + id + ' #_wpnonce' ).val(),
+					_sunflower_nonce: $(
+						'#' + id + ' #_sunflower_nonce'
+					).val(),
 					action: 'sunflower_plugins_dismiss',
 				},
 			} );
