@@ -225,8 +225,8 @@
         }
 
         &:only-child {
-            margin-top: var(--grid-margin);
-            margin-bottom: var(--grid-margin);
+            margin-top: 0;
+            margin-bottom: 0;
         }
     }
 

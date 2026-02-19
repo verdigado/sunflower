@@ -37,15 +37,6 @@
         }
     }
 
-    &.no-gap.is-layout-flex {
-        gap: 0;
-
-        p,
-        ul {
-            padding: 0 1em;
-        }
-    }
-
 }
 
 @include media-breakpoint-up(sm) {

@@ -196,3 +196,41 @@ h3:has(mark) {
         color: $secondary;
     }
 }
+
+.wp-block-group.has-background:not(.next-events),
+.wp-block-cover.has-background,
+.wp-block-cover:has(.wp-block-cover__background) {
+
+    h1,
+    h2,
+    .h1,
+    .h2 {
+        color: inherit;
+    }
+}
+
+.wp-block-cover.is-style-sunflower-hero {
+    color: $primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+
+    a:not(.wp-block-button__link):hover {
+        color: inherit !important;
+    }
+
+    em {
+        font-style: normal;
+    }
+}

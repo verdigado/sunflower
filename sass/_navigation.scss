@@ -45,7 +45,8 @@ body.navbar-open {
         font-size: 0;
         line-height: 0;
         padding-top: var(--grid-margin);
-        gap: calc(var(--gap-large));
+        column-gap: calc(var(--gap-large));
+        row-gap: var(--gap-small);
         justify-content: flex-end;
         margin-right: var(--grid-margin);
     }

@@ -285,3 +285,9 @@
     }
 }
 
+.wp-singular .display-single:has(.entry-content > .wp-block-cover:first-child) {
+
+    padding: 0;
+
+}
+

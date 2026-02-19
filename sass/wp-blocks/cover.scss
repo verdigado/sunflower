@@ -145,11 +145,11 @@
 }
 
 body:has(.topmenu) .entry-content > .wp-block-cover.is-style-sunflower-hero {
-    height: calc(100vh - ((2 * var(--grid-margin)) + 50px));
+    height: calc(100vh - ((2 * var(--grid-margin)) + 35px));
 }
 
 body:has(.topmenu).topmenu-large .entry-content > .wp-block-cover.is-style-sunflower-hero {
-    height: calc(100vh - ((2 * var(--grid-margin)) + 77px));
+    height: calc(100vh - ((2 * var(--grid-margin)) + 49px));
 }
 
 body:has(.topmenu).hamburger-menu .entry-content > .wp-block-cover.is-style-sunflower-hero {
@@ -240,7 +240,9 @@ body:has(.topmenu).hamburger-menu .entry-content > .wp-block-cover.is-style-sunf
             }
         }
 
-        h1 {
+        h1,
+        h2,
+        h3 {
             text-align: left;
             position: relative;
             left: -8px;
@@ -273,7 +275,7 @@ body:has(.topmenu).hamburger-menu .entry-content > .wp-block-cover.is-style-sunf
 
         &::after {
 
-            @include concave-pseudo(bottom, right, 180deg, 30px, -38px, -13px);
+            @include concave-pseudo(bottom, right, 180deg, 30px, -37px, -13px);
 
             @include breakpoint-down(md) {
                 top: -22px;
@@ -301,7 +303,7 @@ body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-h
 }
 
 
-.wp-block-cover .wp-block-cover__inner-container {
+body main #content .wp-block-cover:not(.is-style-sunflower-hero):has(.wp-block-cover__background) .wp-block-cover__inner-container {
 
     h1,
     h2 {

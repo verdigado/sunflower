@@ -203,12 +203,12 @@ h1:has(+ h4) {
 .stoerer {
     width: fit-content;
     aspect-ratio: 1 / 1;
-    font-size: 30px;
+    font-size: 30px !important;
     font-family: "GrueneType Neue", sans-serif;
     max-width: 300px !important;
     max-height: 300px !important;
     padding: 10px 25px 17px 25px !important;
-    border-radius: 50%;
+    border-radius: 50% !important;
     line-height: 100%;
     color: $white;
     text-align: center;

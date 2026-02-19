@@ -27,19 +27,19 @@
 
 /* Legacy: klee-700 → Klee (nicht im Backend wählbar) */
 .has-klee-700-color {
-    color: map-get($custom-colors, "klee");
+    color: map-get($custom-colors, "gruener-sand");
 }
 
 .has-klee-700-background-color {
-    background-color: map-get($custom-colors, "klee");
+    background-color: map-get($custom-colors, "gruener-sand");
 }
 
 .has-klee-700-border-color {
-    border-color: map-get($custom-colors, "klee");
+    border-color: map-get($custom-colors, "gruener-sand");
 }
 
 .has-klee-700-hover-background-color:hover {
-    background-color: map-get($custom-colors, "klee");
+    background-color: map-get($custom-colors, "gruener-sand");
 }
 
 .has-white-color.has-tanne-background-color {
@@ -48,4 +48,8 @@
         outline: #fff solid 2px;
     }
 
+}
+
+.has-link-color {
+    color: inherit;
 }
