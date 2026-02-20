@@ -207,6 +207,21 @@ body.navbar-open {
     }
 }
 
+body.colorscheme-green .topmenu .menu-item a {
+    color: map-get($custom-colors, "grashalm") !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: map.get($custom-colors, "white") !important;
+    }
+}
+
+body.colorscheme-green .topmenu .current-menu-item a {
+    color: map.get($custom-colors, "white") !important;
+}
+
+
 .navbar {
 
     $dropdown-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$body-color}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>") !default;

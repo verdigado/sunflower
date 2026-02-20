@@ -23,6 +23,10 @@
             }
         }
 
+        .kandidaten-vorlage .wp-block-group:has(.textbalken) p:empty {
+            display: none;
+        }
+
         p,
         ul {
 

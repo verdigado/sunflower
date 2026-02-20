@@ -205,8 +205,8 @@ h1:has(+ h4) {
     aspect-ratio: 1 / 1;
     font-size: 30px !important;
     font-family: "GrueneType Neue", sans-serif;
-    max-width: 300px !important;
-    max-height: 300px !important;
+    max-width: 220px !important;
+    max-height: 220px !important;
     padding: 10px 25px 17px 25px !important;
     border-radius: 50% !important;
     line-height: 100%;
@@ -225,8 +225,8 @@ h1:has(+ h4) {
     margin: var(--double-grid-margin);
 
     @include media-breakpoint-down(xl) {
-        max-width: 230px !important;
-        max-height: 230px !important;
+        max-width: 180px !important;
+        max-height: 180px !important;
         font-size: 24px;
         padding: 10px 25px 17px 25px !important;
     }
