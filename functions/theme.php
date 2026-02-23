@@ -14,20 +14,35 @@ add_theme_support( 'custom-logo' );
  * Filter custom_logo theme mod to verify the attachment still exists.
  * Returns 0 if the attachment was deleted or doesn't exist.
  *
- * @param mixed $value The custom_logo attachment ID.
- * @return mixed The attachment ID if valid, 0 otherwise.
+ * @param mixed $value The custom_logo attachment ID or stdClass in customizer preview.
+ * @return int|false The attachment ID if valid, false otherwise.
  */
 function sunflower_validate_custom_logo( $value ) {
+
+	// Handle the case where $value is an object (e.g. stdClass from customizer preview).
+	if ( is_object( $value ) ) {
+		if ( isset( $value->ID ) ) {
+			$value = $value->ID;
+		} elseif ( isset( $value->value ) ) {
+			$value = $value->value;
+		} else {
+			return false;
+		}
+	}
+
 	if ( empty( $value ) ) {
-		return $value;
+		return false;
 	}
 
 	$attachment_id = (int) $value;
+	if ( $attachment_id <= 0 ) {
+		return false;
+	}
 
 	// Check if the attachment exists and is an image.
 	$attachment = get_post( $attachment_id );
 	if ( ! $attachment || 'attachment' !== $attachment->post_type || ! wp_attachment_is_image( $attachment_id ) ) {
-		return 0;
+		return false;
 	}
 
 	return $attachment_id;
@@ -214,6 +229,8 @@ function sunflower_inline_svg( $file ) {
 function sunflower_get_body_classes() {
 
 	$options = get_option( 'sunflower_options' );
+
+	$classes = array();
 
 	if ( ! empty( $options['sunflower_form_style'] ) ) {
 		$classes[] = 'formstyle-' . sanitize_html_class( $options['sunflower_form_style'] );
