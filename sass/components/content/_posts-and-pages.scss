@@ -51,6 +51,17 @@
     }
 }
 
+.styled-layout {
+
+    .display-single,
+    .type-page {
+
+        &:has(.entry-content>.wp-block-cover.is-style-sunflower-hero:first-child) {
+            padding: 0;
+        }
+    }
+}
+
 .display-single {
 
     .entry-header {

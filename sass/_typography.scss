@@ -321,7 +321,6 @@ body #content {
         }
     }
 
-    time,
     .wp-block-latest-posts__post-author {
         font-size: 16px;
         line-height: 175%;
@@ -343,7 +342,8 @@ body #content {
     }
 }
 
-.metainfo {
+.metainfo,
+.archive-article .time {
     font-size: 14px;
     line-height: 150%;
     font-family: "PT Sans", sans-serif;
