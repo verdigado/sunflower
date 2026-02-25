@@ -564,3 +564,35 @@ figure.no-creator div {
 .editor-styles-wrapper .no-creator:hover img {
     filter: blur(4px);
 }
+
+
+.sunflower-candidate {
+  gap: 1rem;
+}
+.sunflower-candidate h1, .sunflower-candidate .h1 {
+  padding: 0;
+  margin: 0;
+}
+.sunflower-candidate h2, .sunflower-candidate .h2 {
+  padding: 0;
+  margin: 0;
+}
+.sunflower-candidate.wp-block-columns .wp-block-column .wp-block-group {
+  padding: 1.5rem;
+}
+.sunflower-candidate p {
+  padding: 0;
+}
+.sunflower-candidate p.has-background.textbalken {
+  left: -2em;
+}
+.sunflower-candidate p.has-background.textbalken.links-eins {
+  left: -1em;
+}
+.sunflower-candidate p.has-background.textbalken.links-zwei {
+  left: 1em;
+}
+.sunflower-candidate .wp-block-cover p {
+  margin: 0;
+  line-height: normal;
+}
