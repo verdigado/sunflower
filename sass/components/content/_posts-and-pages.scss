@@ -41,9 +41,17 @@
     }
 }
 
-.display-single {
+.display-single,
+.type-page {
 
     padding: 180px 0 0 0;
+
+    @include media-breakpoint-down(md) {
+        padding: 110px 0 0 0;
+    }
+}
+
+.display-single {
 
     .entry-header {
 
