@@ -107,10 +107,6 @@
 
     &:has(.wp-post-image) {
         overflow: visible;
-
-        .entry-meta:has(.metainfo:first-child:last-child) {
-            justify-content: flex-end;
-        }
     }
 
     &::before {

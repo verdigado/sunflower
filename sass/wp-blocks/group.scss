@@ -83,15 +83,6 @@
 
     .all-columns-start-with-image {
 
-        h2.even,
-        h2.odd,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: $primary;
-        }
-
         @include media-breakpoint-down(xl) {
 
             .wp-block-column {
