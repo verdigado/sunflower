@@ -36,10 +36,14 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    padding-top: var(--half-block-spacing);
+    padding-bottom: var(--half-block-spacing);
 
     .wp-block-group {
 
         @include padding-vert;
+        padding-top: var(--gap-large);
+        padding-bottom: var(--gap-large);
 
         &:only-child {
             padding: var(--grid-margin);
@@ -134,6 +138,17 @@
 
     &__inner-container {
         max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .h1,
+    .h2,
+    .h3,
+    .h4 {
+        margin-top: 0;
     }
 
 }
