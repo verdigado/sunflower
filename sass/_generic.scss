@@ -175,6 +175,18 @@ body.colorscheme-green {
     .menu-item-has-children::after {
         content: url("/wp-content/themes/sunflower26/assets/img/dropdown_darkmode.svg");
     }
+
+    .stuck {
+
+        .menu-item-has-children::after {
+            content: url("/wp-content/themes/sunflower26/assets/img/dropdown.svg");
+        }
+
+        .hamburger,
+        .main-menu ul .sub-menu {
+            background-color: map.get($custom-colors, "white");
+        }
+    }
 }
 
 body.formstyle-sharp {

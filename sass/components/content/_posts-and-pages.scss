@@ -41,9 +41,28 @@
     }
 }
 
-.display-single {
+.display-single,
+.type-page {
 
     padding: 180px 0 0 0;
+
+    @include media-breakpoint-down(md) {
+        padding: 110px 0 0 0;
+    }
+}
+
+.styled-layout {
+
+    .display-single,
+    .type-page {
+
+        &:has(.entry-content>.wp-block-cover.is-style-sunflower-hero:first-child) {
+            padding: 0;
+        }
+    }
+}
+
+.display-single {
 
     .entry-header {
 

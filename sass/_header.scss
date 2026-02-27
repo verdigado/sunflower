@@ -983,7 +983,7 @@ html body.hamburger-menu .top-bar.stuck {
     }
 
     .sub-menu {
-        top: 41px;
+        top: 40px;
         padding: 0 0 calc(var(--grid-margin) / 2) 0;
 
         @include media-breakpoint-down(xl) {

@@ -352,6 +352,10 @@ body.colorscheme-green {
         color: map.get($custom-colors, "white");
     }
 
+    .archive-article {
+        color: map.get($custom-colors, "schwarzwald");
+    }
+
     .wp-block-code {
         background-color: map.get($custom-colors, "tanne");
     }
