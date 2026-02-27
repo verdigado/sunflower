@@ -13,3 +13,5 @@ assets/vndr/
 pa11y.json
 docker-compose.yaml
 /sunflower26.iml
+
+.DS_Store
