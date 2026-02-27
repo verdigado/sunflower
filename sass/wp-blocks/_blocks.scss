@@ -38,7 +38,7 @@ a:not(.wp-block-button__link) {
         .post-thumbnail {
 
             img {
-                border-radius: $border-radius $border-radius 0 0;
+                border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
             }
         }
     }

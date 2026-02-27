@@ -16,7 +16,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-    border-radius: 23px;
+    border-radius: var(--border-radius-large);
     padding: 2px 20px 5px 50px;
     min-height: 46px;
     font-size: 20px;
@@ -66,7 +66,7 @@ select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border-radius: 23px;
+    border-radius: var(--border-radius-large);
     font-weight: 700;
     font-size: 20px;
     line-height: 130%;
@@ -151,7 +151,6 @@ select {
     box-sizing: border-box;
     padding-left: 50px;
     height: 46px;
-    border-radius: 23px;
     font-size: 20px;
     font-family: "PT Sans";
     line-height: 35px;
@@ -216,7 +215,6 @@ input[type="radio"] {
     -moz-appearance: none;
     width: 46px;
     height: 46px;
-    border-radius: 23px;
     position: relative;
     vertical-align: middle;
     cursor: pointer;

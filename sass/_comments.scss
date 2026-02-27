@@ -77,8 +77,7 @@
     &-respond {
 
         background-color: $white;
-        border-radius: $border-radius;
-
+        border-radius: var(--border-radius-large);
 
         label {
             display: block;

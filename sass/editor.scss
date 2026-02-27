@@ -455,7 +455,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
             height: 100% !important;
             aspect-ratio: 1 / 1;
             object-fit: cover;
-            border-radius: $border-radius;
+            border-radius: var(--border-radius-large);
         }
     }
 

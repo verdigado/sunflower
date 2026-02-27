@@ -31,8 +31,6 @@ $black: map.get($custom-colors, "schwarzwald");
 
 $white-90: rgba(255, 255, 255, 0.9);
 
-//$dark: #ddd;
-//$gray-500: map.get($custom-colors, "gray-500");
 $darkgray: #333;
 $lightgray: #aeb2ad;
 $very-light-gray: #d6d9d6;
@@ -45,14 +43,9 @@ $sidebar-color: #afafaf;
 $lightgreen: #f3faf6;
 $darkgreen: #002216;
 
-$border-radius: 3px;
-$border-radius-small: 1px;
-
-
 $transition-duration: 0.3s !default;
 $transition-easing:   ease !default;
 $transition-delay:    0.3s !default;
-
 
 $grid-breakpoints: (
     xs: 0,
@@ -104,18 +97,16 @@ $grid-breakpoints: (
             }
         }
     }
-}
 
-@media (max-width: 1500px) {
+    --bs-accordion-inner-border-radius: var(--border-radius-large);
 
-    :root {
+    @media (max-width: 1500px) {
+
         --gap-huge: 200px;
     }
-}
 
-@media (max-width: 1200px) {
+    @media (max-width: 1200px) {
 
-    :root {
         --border-radius-large: 20px;
         --border-radius-medium: 10px;
         --border-radius-small: 5px;
@@ -134,11 +125,9 @@ $grid-breakpoints: (
             --border-radius-tiny: 0;
         }
     }
-}
 
-@media (max-width: 950px) {
+    @media (max-width: 950px) {
 
-    :root {
         --half-block-spacing: 50px;
         --block-spacing: calc(var(--half-block-spacing) * 2);
 
@@ -150,16 +139,6 @@ $font-size-base: 1.1875rem;
 $small-font-size: 14px;
 
 $primary-text-emphasis: $white;
-
-$accordion-button-color: #fff;
-$accordion-button-active-color: #fff;
-
-$accordion-icon-active-color: #fff;
-$accordion-icon-color: #fff;
-$accordion-button-active-bg: $secondary;
-$accordion-button-bg: #008939;
-
-$accordion-border-radius: 6px;
 
 // underline links only on hover
 $link-decoration: none;
