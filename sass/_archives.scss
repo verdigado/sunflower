@@ -84,7 +84,7 @@ ul.wp-block-categories-list {
     }
 
     article {
-        border-radius: $border-radius;
+        border-radius: var(--border-radius-medium);
         overflow: hidden;
     }
 

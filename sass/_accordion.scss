@@ -1,5 +1,6 @@
 @use "sass:map";
 
+
 /**
  * Styles for the Sunflower Accordion Block
  */
@@ -25,7 +26,7 @@
         .accordion-button,
         .accordion-item {
             background-color: map-get($custom-colors, "gruener-sand") !important;
-            border-radius: var(--border-radius-medium) !important;
+            border-radius: var(--border-radius-medium);
         }
     }
 
@@ -34,7 +35,7 @@
         .accordion-button,
         .accordion-item {
             background-color: map.get($custom-colors, "white") !important;
-            border-radius: var(--border-radius-medium) !important;
+            border-radius: var(--border-radius-medium);
         }
     }
 
@@ -49,7 +50,6 @@
     &:last-child {
         margin: 0 0 0 calc(-1 * var(--grid-margin)) !important;
     }
-
 
     .accordion-item {
 

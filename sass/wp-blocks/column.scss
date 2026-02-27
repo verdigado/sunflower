@@ -23,10 +23,6 @@
             }
         }
 
-        .kandidaten-vorlage .wp-block-group:has(.textbalken) p:empty {
-            display: none;
-        }
-
         p,
         ul {
 
@@ -37,7 +33,6 @@
 
         img {
             object-fit: cover;
-            border-radius: $border-radius;
         }
     }
 

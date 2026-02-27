@@ -273,7 +273,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 iframe {
-    border-radius: $border-radius;
+    border-radius: var(--border-radius-large);
 }
 
 .sunflower {
@@ -376,7 +376,6 @@ iframe {
         }
     }
 }
-
 
 
 .has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events) {
