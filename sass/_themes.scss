@@ -323,10 +323,6 @@ body.colorscheme-green {
         }
     }
 
-    .wp-block-sunflower-meta-data a {
-        color: map.get($custom-colors, "grashalm");
-    }
-
     .comment-respond p,
     .wp-block-details,
     .wp-block-comment-reply-link a {
@@ -358,12 +354,6 @@ body.colorscheme-green {
 
     .wp-block-code {
         background-color: map.get($custom-colors, "tanne");
-    }
-
-    .wp-block-social-links .wp-block-social-link.wp-social-link {
-        background-color: map.get($custom-colors, "tanne");
-        color: map.get($custom-colors, "grashalm");
-        border: 2px solid map.get($custom-colors, "grasshalm");
     }
 
     tbody,

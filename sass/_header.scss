@@ -16,7 +16,7 @@ header .social-media-profiles {
     }
 
     .sunflower__socials {
-        display: grid !important;
+        display: grid;
         grid-auto-flow: column;
         grid-template-rows: repeat(7, auto);
     }
