@@ -21,13 +21,12 @@
     a {
         text-decoration: none;
         color: variables.$body-color;
-
-        &.is-empty {
-            opacity: 0.6;
-        }
-
     }
 
+    .is-empty {
+        opacity: 0.6;
+        color: inherit !important;
+    }
 
 }
 

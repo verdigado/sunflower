@@ -76,18 +76,18 @@ export default function Edit( { attributes, setAttributes } ) {
 			{
 				<>
 					<Disabled>
-						<a
-							href={ url }
-							target="_blank"
-							className={
-								url === '#' || url === ''
-									? 'sunflower-meta-data__link is-empty'
-									: 'sunflower-meta-data__link'
-							}
-							rel="noopener noreferrer"
-						>
-							<i className={ icon }></i>
-						</a>
+						{ url ? (
+							<a
+								href={ url }
+								target="_blank"
+								className="sunflower-meta-data__link"
+								rel="noopener noreferrer"
+							>
+								<i className={ icon }></i>
+							</a>
+						) : (
+							<i className={ `${ icon } is-empty` }></i>
+						) }
 					</Disabled>
 				</>
 			}

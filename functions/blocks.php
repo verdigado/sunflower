@@ -143,7 +143,7 @@ add_action( 'enqueue_block_assets', 'sunflower_enqueue_editor_mark_bg' );
 function sunflower_enqueue_block_core_assets() {
 
 	wp_enqueue_script(
-		'sunflower-core-list-variations',
+		'sunflower-core-cover-variations',
 		get_template_directory_uri() . '/build/core/cover/index.js',
 		array(
 			'wp-blocks',
@@ -168,7 +168,7 @@ function sunflower_enqueue_block_core_assets() {
 
 	// Styles for the editor.
 	wp_enqueue_style(
-		'sunflower-core-list-variations',
+		'sunflower-core-cover-variations',
 		get_template_directory_uri() . '/build/core/cover/index.css',
 		array(),
 		SUNFLOWER_VERSION

@@ -10,15 +10,6 @@
 
 }
 
-a:not(.wp-block-button__link) {
-    color: map.get($custom-colors, "klee");
-    transition: 300ms ease-out;
-
-    &:hover {
-        color: map.get($custom-colors, "grashalm") !important;
-    }
-}
-
 .fas {
     font-family: ForkAwesome;
 }

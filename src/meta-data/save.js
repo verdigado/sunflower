@@ -17,16 +17,22 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function Save( props ) {
 	const blockProps = useBlockProps.save();
+	const { url, icon } = props.attributes;
 
 	return (
 		<div { ...blockProps }>
-			<a
-				href={ props.attributes.url }
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<i className={ props.attributes.icon }></i>
-			</a>
+			{ url ? (
+				<a
+					href={ url }
+					target="_blank"
+					rel="noopener noreferrer"
+					className="sunflower-meta-data__link"
+				>
+					<i className={ icon }></i>
+				</a>
+			) : (
+				<i className={ `${ icon } is-empty` }></i>
+			) }
 		</div>
 	);
 }
