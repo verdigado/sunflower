@@ -86,7 +86,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								<i className={ icon }></i>
 							</a>
 						) : (
-							<i className={`${icon} is-empty`}></i>
+							<i className={ `${ icon } is-empty` }></i>
 						) }
 					</Disabled>
 				</>

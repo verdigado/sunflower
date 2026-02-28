@@ -20,15 +20,19 @@ export default function Save( props ) {
 	const { url, icon } = props.attributes;
 
 	return (
-        <div { ...blockProps }>
-            { url ? (
-                <a href={ url } target="_blank" rel="noopener noreferrer"
-                   className="sunflower-meta-data__link">
-                    <i className={ icon }></i>
-                </a>
-            ) : (
-                <i className={`${icon} is-empty`}></i>
-            ) }
-        </div>
-    );
+		<div { ...blockProps }>
+			{ url ? (
+				<a
+					href={ url }
+					target="_blank"
+					rel="noopener noreferrer"
+					className="sunflower-meta-data__link"
+				>
+					<i className={ icon }></i>
+				</a>
+			) : (
+				<i className={ `${ icon } is-empty` }></i>
+			) }
+		</div>
+	);
 }
