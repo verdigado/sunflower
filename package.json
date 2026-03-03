@@ -71,7 +71,7 @@
     "leaflet": "^1.9.3",
     "lightbox2": "^2.11.5",
     "masonry-layout": "^4.2.2",
-    "pa11y": "^8.0"
+    "pa11y": "^9.1"
   },
   "overrides": {
     "ws": "^8.18.0",
