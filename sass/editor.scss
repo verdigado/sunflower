@@ -86,7 +86,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
 }
 
 .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
-    background-color: map-get($custom-colors, "white");
+    background-color: map.get($custom-colors, "white");
     position: absolute;
     left: 0;
     bottom: 0;
@@ -206,7 +206,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
 
 // Green colorscheme variant (when editor iframe has .colorscheme-green)
 .editor-styles-wrapper .colorscheme-green .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
-    background-color: map-get($custom-colors, "schwarzwald");
+    background-color: map.get($custom-colors, "schwarzwald");
 
     &::before {
         content: url("#{$sunflower-img-path}/concave-30px_darkmode.svg");
@@ -258,16 +258,16 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
             font-weight: 400;
             font-size: $size;
             font-style: normal;
-            letter-spacing: map-get($heading-letter-spacings, $tag);
+            letter-spacing: map.get($heading-letter-spacings, $tag);
 
             @include media-breakpoint-down(xl) {
-                font-size: map-get($heading-sizes-tablet, $tag);
-                letter-spacing: map-get($heading-letter-spacings-tablet, $tag);
+                font-size: map.get($heading-sizes-tablet, $tag);
+                letter-spacing: map.get($heading-letter-spacings-tablet, $tag);
             }
 
             @include media-breakpoint-down(md) {
-                font-size: map-get($heading-sizes-mobile, $tag);
-                letter-spacing: map-get($heading-letter-spacings-mobile, $tag);
+                font-size: map.get($heading-sizes-mobile, $tag);
+                letter-spacing: map.get($heading-letter-spacings-mobile, $tag);
             }
         }
     }

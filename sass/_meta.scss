@@ -8,7 +8,7 @@
         &::before {
 
             content: "#";
-            color: map-get($custom-colors, "black");
+            color: map.get($custom-colors, "black");
         }
     }
 }
@@ -155,4 +155,3 @@ body .wp-block-site-title {
         }
     }
 }
-

@@ -208,7 +208,7 @@ body.navbar-open {
 }
 
 body.colorscheme-green .topmenu .menu-item a {
-    color: map-get($custom-colors, "grashalm") !important;
+    color: map.get($custom-colors, "grashalm") !important;
 
     &:hover,
     &:focus,
