@@ -289,7 +289,7 @@ body.admin-bar {
                 padding: 0.2rem 0.5rem;
 
                 &:hover {
-                    background-color: map-get($custom-colors, "sonne");
+                    background-color: map.get($custom-colors, "sonne");
                     border-bottom: 4px solid $white;
                 }
 

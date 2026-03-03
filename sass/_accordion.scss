@@ -9,7 +9,7 @@
     width: calc(100% + var(--double-grid-margin)) !important;
     margin: 0 0 0 calc(-1 * var(--grid-margin)) !important;
     padding: calc(var(--half-grid-margin) / 2) var(--grid-margin) 0 var(--grid-margin);
-    background-color: map-get($custom-colors, "sand");
+    background-color: map.get($custom-colors, "sand");
 
 
     @media (max-width: 480px) {
@@ -25,7 +25,7 @@
 
         .accordion-button,
         .accordion-item {
-            background-color: map-get($custom-colors, "gruener-sand") !important;
+            background-color: map.get($custom-colors, "gruener-sand") !important;
             border-radius: var(--border-radius-medium);
         }
     }
@@ -72,7 +72,7 @@
             .accordion-button {
                 width: 100%;
                 min-height: 80px;
-                background-color: map-get($custom-colors, "white");
+                background-color: map.get($custom-colors, "white");
                 justify-content: flex-start;
                 align-items: center;
                 display: inline-flex;
@@ -83,7 +83,7 @@
                 transition: 200ms ease;
                 height: fit-content;
                 border: 0 solid #fff;
-                color: map-get($custom-colors, "tanne");
+                color: map.get($custom-colors, "tanne");
 
                 font-family: var(--wp--preset--font-family--gruenetypeneue);
                 font-weight: 400;

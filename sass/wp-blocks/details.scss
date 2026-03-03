@@ -36,7 +36,7 @@
     }
 
     &:nth-of-type(even) {
-        background-color: map-get($custom-colors, "gruener-sand");
+        background-color: map.get($custom-colors, "gruener-sand");
     }
 
     summary {
@@ -50,7 +50,7 @@
         transition: 200ms ease;
         height: fit-content;
         border: 0 solid #fff;
-        color: map-get($custom-colors, "tanne");
+        color: map.get($custom-colors, "tanne");
         cursor: pointer;
         list-style: none;
 
