@@ -810,4 +810,8 @@ a.event-card {
             margin-bottom: 0.5em;
         }
     }
+
+    &-pane {
+        z-index: 4 !important;
+    }
 }
