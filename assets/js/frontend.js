@@ -285,44 +285,11 @@ document.addEventListener( 'DOMContentLoaded', function () {
 } );
 /* eslint-enable no-undef */
 
-/* -------------------------------------------
-Columns, deren jede Spalte mit einem Bild beginnt
- * ------------------------------------------- */
-document.querySelectorAll( '.wp-block-columns' ).forEach( ( columns ) => {
-	const allColumns = columns.querySelectorAll( ':scope > .wp-block-column' );
-
-	// Prüfen, ob jede Spalte mit einem Bild‑Block startet
-	const allStartWithImage = Array.from( allColumns ).every( ( col ) => {
-		const firstChild = col.firstElementChild;
-		return firstChild && firstChild.classList.contains( 'wp-block-image' );
-	} );
-
-	if ( allColumns.length > 1 && allStartWithImage ) {
-		columns.classList.add( 'all-columns-start-with-image' );
-	}
-
-	if ( allColumns.length >= 3 ) {
-		columns.classList.add( 'more-than-two-columns' );
-	}
-
-	// Spalten, die mindestens ein .person enthalten → Slider-Kandidat
-	const hasPersonChild = Array.from( allColumns ).some( ( col ) =>
-		col.querySelector( '.person' )
-	);
-	if ( allColumns.length > 1 && hasPersonChild ) {
-		columns.classList.add( 'columns-with-person' );
-	}
-} );
-
 document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
 	const cols = group.querySelectorAll(
 		':scope > .wp-block-columns > .wp-block-column'
 	);
 	const numCols = cols.length;
-
-	if ( numCols >= 3 ) {
-		group.classList.add( 'more-than-two-columns' );
-	}
 
 	if ( numCols === 2 ) {
 		const headlineOnly = ( col ) =>
@@ -602,7 +569,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 ( () => {
 	'use strict';
 
-	const breakpoint = 950; // px (nur für Group-Slider)
 	const dragThreshold = 35; // px
 	const verticalScrollThreshold = 5; // px
 
@@ -623,39 +589,15 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	};
 
 	function bootstrap() {
-		const viewportWidth = window.innerWidth;
-
 		document
-			.querySelectorAll(
-				/* <<< GEÄNDERT: Latest-Posts-Track zusätzlich zulassen >>> */
-				'.wp-block-columns.all-columns-start-with-image.more-than-two-columns, .wp-block-columns.columns-with-person, .latest-posts .row.posts-slider, .tarife'
-			)
+			.querySelectorAll( '.latest-posts .row.posts-slider, .tarife' )
 			.forEach( ( trackEl ) => {
 				const isActive =
 					trackEl.classList.contains( 'js-column-slider' );
 
-				/* <<< NEU: Latest-Posts sollen IMMER sliden; Groups nur <= breakpoint >>> */
-				const isLatestPostsTrack =
-					trackEl.classList.contains( 'posts-slider' ) ||
-					( trackEl.classList.contains( 'row' ) &&
-						trackEl.closest( '.latest-posts' ) );
-
-				if ( isLatestPostsTrack ) {
-					if ( ! isActive ) {
-						initSlider( trackEl );
-					} else {
-						const inst = instances.find(
-							( ins ) => ins.track === trackEl
-						);
-						if ( inst ) {
-							inst.recalc();
-						}
-					}
-				} else if ( viewportWidth <= breakpoint && ! isActive ) {
+				if ( ! isActive ) {
 					initSlider( trackEl );
-				} else if ( viewportWidth > breakpoint && isActive ) {
-					destroySlider( trackEl );
-				} else if ( isActive ) {
+				} else {
 					const inst = instances.find(
 						( ins ) => ins.track === trackEl
 					);
@@ -691,21 +633,15 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		`;
 		track.parentNode.insertBefore( nav, track.nextSibling );
 
-		/* <<< GEÄNDERT: Slides je nach Track-Typ ermitteln >>> */
 		const isLatestPosts =
 			track.classList.contains( 'posts-slider' ) ||
 			( track.classList.contains( 'row' ) &&
 				track.closest( '.latest-posts' ) );
-		const isColumnsWithPerson = track.classList.contains(
-			'columns-with-person'
-		);
 
 		const slides = Array.from( track.children ).filter( ( el ) => {
 			if ( isLatestPosts ) {
-				// Latest-Posts (Bootstrap-Grid): Spalten sind .col-*
 				return el.matches( '.col-12, .col-md-6, .col-md-4' );
 			}
-			// Bestehende Group-Slider
 			return el.classList.contains( 'wp-block-column' );
 		} );
 
@@ -725,10 +661,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			currentTranslate: 0,
 			previousTranslate: 0,
 			rafId: 0,
-			/* <<< NEU: wie viele Karten pro „Seite“ bei Latest-Posts >>> */
 			slidesPerView: 1,
 			isLatestPosts,
-			isColumnsWithPerson,
 		};
 
 		function step() {
@@ -809,25 +743,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 					el.style.minWidth = `${ state.slideWidth }px`;
 					el.style.maxWidth = `${ state.slideWidth }px`;
 				} );
-			} else if ( state.isColumnsWithPerson ) {
-				/* Person-Slider: 2 Spalten, auf sehr schmalen Screens 1 */
-				const vw = window.innerWidth;
-				state.slidesPerView = vw < 600 ? 1 : 2;
-				const totalGap = state.gap * ( state.slidesPerView - 1 );
-				state.slideWidth = Math.max(
-					0,
-					Math.floor(
-						( contentWidth - totalGap ) / state.slidesPerView
-					)
-				);
-				state.slides.forEach( ( el ) => {
-					el.style.flex = `0 0 ${ state.slideWidth }px`;
-					el.style.width = `${ state.slideWidth }px`;
-					el.style.minWidth = `${ state.slideWidth }px`;
-					el.style.maxWidth = `${ state.slideWidth }px`;
-				} );
 			} else {
-				/* Group-Slider: weiter 1 Karte pro „Seite“ <= 950px */
 				state.slidesPerView = 1;
 				state.slideWidth = contentWidth;
 				state.slides.forEach( ( el ) => {
@@ -896,10 +812,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			state.isDragging = false;
 
 			const moved = state.currentTranslate - state.previousTranslate;
-			const inc =
-				state.isLatestPosts || state.isColumnsWithPerson
-					? state.slidesPerView
-					: 1;
+			const inc = state.isLatestPosts ? state.slidesPerView : 1;
 
 			const maxIndex = Math.max( 0, state.total - state.slidesPerView );
 
@@ -923,10 +836,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 		// Buttons
 		const onNext = () => {
-			const inc =
-				state.isLatestPosts || state.isColumnsWithPerson
-					? state.slidesPerView
-					: 1;
+			const inc = state.isLatestPosts ? state.slidesPerView : 1;
 			const maxIndex = Math.max( 0, state.total - state.slidesPerView );
 			if ( state.index < maxIndex ) {
 				state.index = Math.min( maxIndex, state.index + inc );
@@ -934,10 +844,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			}
 		};
 		const onPrev = () => {
-			const inc =
-				state.isLatestPosts || state.isColumnsWithPerson
-					? state.slidesPerView
-					: 1;
+			const inc = state.isLatestPosts ? state.slidesPerView : 1;
 			if ( state.index > 0 ) {
 				state.index = Math.max( 0, state.index - inc );
 				setByIndex();
@@ -1009,17 +916,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 				nav.remove();
 			},
 		} );
-	}
-
-	function destroySlider( track ) {
-		const i = instances.findIndex( ( ins ) => ins.track === track );
-		if ( i === -1 ) {
-			return;
-		}
-
-		instances[ i ].remove();
-		track.classList.remove( 'column-slider', 'js-column-slider' );
-		instances.splice( i, 1 );
 	}
 
 	document.addEventListener( 'DOMContentLoaded', bootstrap );
