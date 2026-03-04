@@ -53,7 +53,7 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 					<?php esc_html_e( 'Name', 'sunflower-contact-form' ); ?></label>
 
 				<div class="input-with-icon">
-				<i class="forkawesome fa-user"></i>
+				<i class="fa-solid fa-user"></i>
 				<input
 					id="name"
 					name="name"
@@ -69,16 +69,20 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 
 			<p class="comment-form-email">
 				<label for="mail"><?php esc_html_e( 'E-Mail', 'sunflower-contact-form' ); ?></label>
+				<div class="input-with-icon">
+				<i class="fa-solid fa-envelope"></i>
 				<input
 					id="mail"
 					name="mail"
 					type="email"
 					value=""
 					size="30"
+					minlength="5"
 					maxlength="100"
 					<?php echo $sunflower_require_mail ? 'required' : ''; ?>
 					placeholder="<?php echo esc_attr( $sunflower_placeholder_email ); ?>"
 				/>
+				</div>
 			</p>
 
 			<?php if ( $sunflower_display_phone ) : ?>
@@ -86,7 +90,7 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 					<label for="phone"><?php esc_html_e( 'Phone', 'sunflower-contact-form' ); ?></label>
 
 			<div class="input-with-icon">
-				<i class="forkawesome fa-phone"></i>
+				<i class="fa-solid fa-phone"></i>
 					<input
 						id="phone"
 						name="phone"
@@ -104,7 +108,7 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 			<p class="comment-form-email">
 				<label for="captcha"><?php esc_html_e( 'How much is 1 + 1?', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
 			<div class="input-with-icon">
-				<i class="forkawesome fa-calculator"></i>
+				<i class="fa-solid fa-calculator"></i>
 
 				<input
 					id="captcha"
