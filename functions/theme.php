@@ -190,21 +190,6 @@ function sunflower_site_logo_fallback( $block_content, $block ) {
 }
 
 /**
- * Input-Icon-Script
- */
-function sunflower_load_input_icon_script() {
-	wp_enqueue_script(
-		'input-icons',
-		get_template_directory_uri() . '/assets/js/input-icons.js',
-		array(),
-		filemtime( get_template_directory() . '/assets/js/input-icons.js' ),
-		true
-	);
-}
-add_action( 'wp_enqueue_scripts', 'sunflower_load_input_icon_script' );
-
-
-/**
  * Load file content and echo
  *
  * @param string $file     The file name with full path.
