@@ -1,6 +1,7 @@
+@use "sass:map";
+
 a {
     color: $color__link;
-    font-weight: 700;
 
     &:visited {
         color: $color__link-visited;
@@ -33,6 +34,16 @@ a {
         outline: 0;
     }
 
+}
+
+.entry-content p a:not(.wp-block-button__link) {
+    color: map.get($custom-colors, "klee");
+    transition: 300ms ease-out;
+    font-weight: 700;
+
+    &:hover {
+        color: map.get($custom-colors, "tanne") !important;
+    }
 }
 
 // avoid link underline as of WordPress 6.6
