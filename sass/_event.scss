@@ -156,6 +156,11 @@
                     grid-column: span 10;
                 }
             }
+
+            &:has(#leaflet) {
+                grid-column: span 12;
+                display: block;
+            }
         }
     }
 
@@ -786,8 +791,10 @@ a.event-card {
 }
 
 #leaflet {
-    height: 350px;
+    height: 500px;
     margin-bottom: 100px;
+
+    @include alignfull;
 
     i {
         font-size: 60px;
