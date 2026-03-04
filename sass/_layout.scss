@@ -144,6 +144,14 @@ img.post-thumbnail {
     }
 }
 
+body.page #content .entry-content > :last-child {
+    margin-bottom: var(--half-block-spacing);
+}
+
+body #content .archive-article .entry-content > :last-child {
+    margin-bottom: 0;
+}
+
 article.post {
 
     h2 {
@@ -387,7 +395,7 @@ iframe {
 body #content .is-layout-flex:not(.is-vertical) {
 
     column-gap: var(--gap-large);
-    row-gap: var(--gap-large);
+    row-gap: calc(2 * var(--gap-large));
 
     >  * {
         margin: 0;

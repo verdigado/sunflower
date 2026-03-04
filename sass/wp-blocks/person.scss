@@ -10,7 +10,8 @@ body.colorscheme-green .container .entry-content .wp-block-media-text.person {
     }
 }
 
-.wp-block-media-text.person {
+
+body #content .entry-content .wp-block-media-text.person {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -19,6 +20,7 @@ body.colorscheme-green .container .entry-content .wp-block-media-text.person {
     .person-name,
     .h4 {
         font-weight: 700;
+        line-height: 110%;
         text-transform: uppercase;
         color: map.get($custom-colors, "tanne");
     }
@@ -60,12 +62,3 @@ body.colorscheme-green .container .entry-content .wp-block-media-text.person {
     }
 }
 
-/* Unterhalb von 1400 px: Person-Columns auf volle Breite */
-@media (max-width: 1400px) {
-
-    body #content .wp-block-columns:has(.columns-with-person),
-    .columns-with-person {
-        width: 100%;
-        max-width: 100%;
-    }
-}

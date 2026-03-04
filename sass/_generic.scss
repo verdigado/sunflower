@@ -157,11 +157,6 @@ body .container .entry-content {
 
 body.colorscheme-green {
 
-    .wp-block-group .all-columns-start-with-image h4 {
-        color: map.get($custom-colors, "grashalm");
-    }
-
-
     .wp-block-image figcaption,
     .concave-30px {
         color: map.get($custom-colors, "schwarzwald");
@@ -242,7 +237,7 @@ body.formstyle-sharp {
 
     #content .entry-content {
 
-        .wp-block-cover {
+        > .wp-block-cover {
 
             width: calc(100% + var(--double-grid-margin)) !important;
 

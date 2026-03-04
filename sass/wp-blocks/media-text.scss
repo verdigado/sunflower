@@ -22,7 +22,6 @@
         display: flex;
         flex-direction: column !important;
         row-gap: var(--double-grid-margin);
-
     }
 
     &__media {
@@ -78,6 +77,6 @@
 
     figure {
         height: 100%;
-        border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+        border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
     }
 }
