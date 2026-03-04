@@ -27,7 +27,7 @@ html {
 .site-main {
 
     .page-header h1 {
-        color: $secondary;
+        color: map.get($custom-colors, "tanne");
     }
 }
 
