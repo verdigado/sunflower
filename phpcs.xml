@@ -49,6 +49,7 @@
 		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
 		<exclude name="WordPress.Security.EscapeOutput"/>
 		-->
+		<exclude name="Generic.Functions.CallTimePassByReference"/>
 	</rule>
 
 	<!-- Let's also check that everything is properly documented. -->
