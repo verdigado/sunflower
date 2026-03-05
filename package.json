@@ -21,7 +21,7 @@
     "@wordpress/data": "^10.33.1",
     "@wordpress/i18n": "^6.6.1",
     "@wordpress/icons": "^11.0.1",
-    "@wordpress/scripts": "^30.27.0",
+    "@wordpress/scripts": "^31.6.0",
     "@wordpress/stylelint-config": "^23.30.0",
     "dir-archiver": "^2.2.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
