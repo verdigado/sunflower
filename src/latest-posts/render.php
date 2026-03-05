@@ -73,7 +73,7 @@ $sunflower_list_items = sprintf(
 	$sunflower_classes,
 	$sunflower_title,
 	$sunflower_is_slider ? 'posts-slider' : '',
-	$sunflower_is_slider ? '' : 'data-masonry=\'{"percentPosition": true }\''
+	''
 );
 
 switch ( $sunflower_columns ) {

@@ -320,6 +320,25 @@ iframe {
     @include card;
 
     margin: 0 !important;
+    height: 100%;
+    display: flex;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+    }
+
+    .p-45 {
+        display: flex !important;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .entry-footer {
+        margin-top: auto;
+    }
 
     @include media-breakpoint-down(md) {
         width: 100% !important;
