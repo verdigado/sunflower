@@ -131,6 +131,11 @@ $sunflower_class               = $args['class'] ?? '';
 		?>
 	</div>
 
+	<?php
+		// Hook for adding content before the footer of a post.
+		do_action( 'sunflower_content_before_footer', get_post() );
+	?>
+
 	<div class="row">
 		<footer class="entry-footer mt-4">
 			<?php sunflower_entry_footer( true ); ?>
