@@ -6,6 +6,23 @@
  */
 
 /**
+ * Force the core/latest-posts block to use "medium" images instead of "thumbnail".
+ *
+ * @param array<string, mixed> $parsed_block The parsed block data.
+ * @return array<string, mixed>
+ */
+function sunflower_latest_posts_image_size( $parsed_block ) {
+	if ( 'core/latest-posts' === ( $parsed_block['blockName'] ?? '' ) ) {
+		if ( empty( $parsed_block['attrs']['featuredImageSizeSlug'] )
+			|| 'thumbnail' === $parsed_block['attrs']['featuredImageSizeSlug'] ) {
+			$parsed_block['attrs']['featuredImageSizeSlug'] = 'medium';
+		}
+	}
+	return $parsed_block;
+}
+add_filter( 'render_block_data', 'sunflower_latest_posts_image_size' );
+
+/**
  * Get the latest posts for given category ids.
  *
  * @param int                 $number The amount of posts to fetch. -1 for all.
