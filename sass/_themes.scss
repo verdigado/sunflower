@@ -330,7 +330,7 @@ body.colorscheme-green {
         color: map.get($custom-colors, "tanne");
     }
 
-    a {
+    .entry-content p a {
         color: map.get($custom-colors, "grashalm");
     }
 
