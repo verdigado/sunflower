@@ -90,7 +90,6 @@
             }
 
             .continue-reading {
-                position: absolute;
                 bottom: var(--grid-margin);
 
                 span {
@@ -159,13 +158,32 @@
                 }
 
 
-                .col-md-6 {
+                .col-md-6,
+                .col-md-4 {
                     width: 100%;
                     position: relative !important;
                     left: 0 !important;
                     top: 0 !important;
                     height: 100%;
                     display: grid !important;
+                }
+
+                &:has(.col-md-4) {
+                    grid-template-columns: repeat(3, 1fr);
+
+                    > * {
+                        grid-column: span 1 !important;
+                    }
+
+                    @media (max-width: 1000px) {
+
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+
+                    @media (max-width: 700px) {
+
+                        grid-template-columns: 1fr;
+                    }
                 }
             }
         }
@@ -187,7 +205,6 @@
 
             @include card;
 
-            cursor: move;
             cursor: grab;
             cursor: -moz-grab;
             cursor: -webkit-grab;
