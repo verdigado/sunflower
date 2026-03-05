@@ -48,7 +48,7 @@ get_header();
 						}
 						?>
 
-						<div class="archive-loop alignwide row" data-masonry='{"percentPosition": true }'>
+						<div class="archive-loop alignwide row">
 								<?php
 
 								echo wp_kses(
