@@ -47,6 +47,7 @@ $transition-duration: 0.3s !default;
 $transition-easing:   ease !default;
 $transition-delay:    0.3s !default;
 
+// overwrite bootstrap breakpoints
 $grid-breakpoints: (
     xs: 0,
     sm: 470px,
@@ -55,7 +56,6 @@ $grid-breakpoints: (
     xl: 1500px,
     xxl: 2100px
 );
-
 
 :root {
     --border-radius-large: 30px;
