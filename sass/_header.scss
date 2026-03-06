@@ -187,12 +187,21 @@ header .social-media-profiles {
 
 body.admin-bar {
 
-    .hamburger {
+    .hamburger,
+    .stuck .right-bar {
 
         top: 46px;
 
-        @include media-breakpoint-up(md) {
+        // WordPress Admin Bar has breakpoint at 768px (smaller admin bar).
+        @media (min-width: 768px) {
             top: 32px;
+        }
+    }
+
+    .stuck .hamburger {
+        // WordPress Admin Bar has breakpoint at 600px (admin bar stuck on scroll).
+        @media (max-width: 600px) {
+            top: 0px;
         }
     }
 
