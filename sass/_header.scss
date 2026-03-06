@@ -187,10 +187,9 @@ header .social-media-profiles {
 
 body.admin-bar {
 
-    .right-bar {
+    .hamburger {
 
         top: 46px;
-        bottom: -46px;
 
         @include media-breakpoint-up(md) {
             top: 32px;
