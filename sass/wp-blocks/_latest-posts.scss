@@ -204,6 +204,15 @@
         article {
 
             @include card;
+            height: 100%;
+            display: flex;
+
+            > div {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                width: 100%;
+            }
 
             cursor: grab;
             cursor: -moz-grab;
@@ -255,6 +264,9 @@
             .p-45 {
                 padding: 0 !important;
                 width: 100%;
+                display: flex !important;
+                flex-direction: column;
+                flex: 1;
 
                 .entry-header {
 
@@ -295,6 +307,14 @@
                         transition: 300ms ease-out;
                     }
 
+                    h2 a {
+                        cursor: pointer;
+
+                        &:hover {
+                            color: map.get($custom-colors, "grashalm") !important;
+                        }
+                    }
+
                     h2 {
                         margin-bottom: var(--half-grid-margin) !important;
                     }
@@ -305,6 +325,10 @@
                     p {
                         margin-bottom: var(--gap-small);
                     }
+                }
+
+                .entry-footer {
+                    margin-top: auto;
                 }
             }
         }
