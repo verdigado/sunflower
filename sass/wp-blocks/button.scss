@@ -67,10 +67,8 @@ body {
         }
 
         &:focus {
-            color: $white;
             outline: 2px solid map.get($custom-colors, "klee");
             border: 2px solid map.get($custom-colors, "klee");
-            background-color: map.get($custom-colors, "tanne");
         }
 
         &::before {
