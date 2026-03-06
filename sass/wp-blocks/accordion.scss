@@ -94,17 +94,20 @@
 
                 &-icon {
 
+                    font-size: 0;
+                    line-height: 0;
                     display: block;
-                    width: 1em;
-                    padding: 2px;
+                    width: 23px;
+                    height: 20px;
+                    margin-right: 15px;
+                    flex-shrink: 0;
 
                     &::before {
                         content: url("#{$sunflower-img-path}/arrow-right.svg");
-                        display: inline-flex;
-                        position: relative;
-                        transition: 300ms ease-out;
-                        width: fit-content;
-                        margin-right: 15px;
+                        display: block;
+                        transition: rotate 300ms ease-out;
+                        width: 23px;
+                        height: 20px;
                     }
                 }
 

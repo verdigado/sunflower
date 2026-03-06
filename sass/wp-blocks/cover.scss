@@ -49,7 +49,7 @@
     }
 
     height: $size;
-    width: $size * 1.272;               // 38.16 px / 30 px → original aspect ratio
+    width: $size * 1.272;               // 38.16 px / 30 px → original aspect ratio
     position: absolute;
     transform: rotate($rotate);         // korrekte Rotation
 
@@ -62,7 +62,7 @@
     /* ---- XL‑Breakpoint‑Anpassungen ---- */
     @include breakpoint-down(md) {
         height: 20px;
-        width: 20px * 1.272;               // 25.44 px → gleiche Proportion
+        width: 20px * 1.272;               // 25.44 px → gleiche Proportion
         #{$primary-pos}: -11px;          // nur den primary‑Wert ändern
         #{$secondary-pos}: -1px;              // secondary wird zu 0
     }
@@ -88,15 +88,14 @@
  * ---------------------------------------------------------------- */
 
 .entry-content > .wp-block-cover.is-style-sunflower-hero {
-    max-width: 100vw;
-    width: calc(100% + var(--double-grid-margin)) !important;
-    margin-left: calc(-1 * var(--grid-margin)) !important;
-    padding: 0 var(--grid-margin);
     overflow: hidden;
-    border-radius: 0;
+    border-radius: var(--border-radius-large);
     position: relative;
     transition: 0.3s ease;
-    height: calc(100vh - (2 * var(--grid-margin)));
+    min-height: 60vh;
+    margin: var(--half-block-spacing) 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
 
     @include breakpoint-down(xl) {
         min-height: 300px;
@@ -106,80 +105,7 @@
         height: fit-content !important;
         flex-direction: column;
         min-height: 250px;
-    }
-
-    .wp-block-cover__inner-container {
-
-        @extend %hero-inner-base;
-
-        // extra padding when only headings (no buttons) are present
-        &:has(> :is(h1, h2, h3, h4)):not(
-        :has(> :not(:is(h1, h2, h3, h4, .wp-block-buttons)))) {
-            padding-top: var(--gap-huge);
-            padding-bottom: var(--gap-huge);
-
-            h1:has(mark),
-            h2:has(mark),
-            h3:has(mark) {
-                text-align: left !important;
-            }
-        }
-
-        .has-text-align-center,
-        h1,
-        h2 {
-
-            mark:nth-of-type(2) {
-                margin-left: 100px;
-
-                @include media-breakpoint-down(xl) {
-                    margin-left: 85px;
-                }
-
-                @include media-breakpoint-down(md) {
-                    margin-left: 75px;
-                }
-            }
-        }
-    }
-}
-
-body:has(.topmenu) .entry-content > .wp-block-cover.is-style-sunflower-hero {
-    height: calc(100vh - ((2 * var(--grid-margin)) + 35px));
-}
-
-body:has(.topmenu).topmenu-large .entry-content > .wp-block-cover.is-style-sunflower-hero {
-    height: calc(100vh - ((2 * var(--grid-margin)) + 49px));
-}
-
-body:has(.topmenu).hamburger-menu .entry-content > .wp-block-cover.is-style-sunflower-hero {
-    height: calc(100vh - (2 * var(--grid-margin)));
-}
-
-.entry-content > .wp-block-cover:first-child {
-    padding: var(--grid-margin);
-    width: 100% !important;
-    margin: var(--grid-margin) 0 0 0 !important;
-    border-radius: var(--border-radius-large);
-
-    &.alignfull {
-        width: 100%;
-    }
-}
-
-:first-child.wp-block-cover.is-style-sunflower-hero {
-    margin: var(--grid-margin) 0 var(--half-block-spacing) 0;
-    margin-left: calc(-1 * var(--grid-margin)) !important;
-    margin-right: calc(-1 * var(--grid-margin)) !important;
-    width: 100% !important;
-    border-radius: var(--border-radius-large) 0;
-    padding: 0 !important;
-    left: var(--grid-margin) !important;
-
-    @include breakpoint-down(md) {
-        min-height: initial !important;
-        height: fit-content;
-        margin-bottom: 0 !important;
+        padding: 0 !important;
     }
 
     .wp-block-cover__image-background {
@@ -198,6 +124,8 @@ body:has(.topmenu).hamburger-menu .entry-content > .wp-block-cover.is-style-sunf
     }
 
     .wp-block-cover__inner-container {
+
+        @extend %hero-inner-base;
 
         border-radius: 0 var(--border-radius-large) 0 0;
         position: absolute;
@@ -240,6 +168,18 @@ body:has(.topmenu).hamburger-menu .entry-content > .wp-block-cover.is-style-sunf
             }
         }
 
+        &:has(> :is(h1, h2, h3, h4)):not(
+        :has(> :not(:is(h1, h2, h3, h4, .wp-block-buttons)))) {
+            padding-top: var(--gap-huge);
+            padding-bottom: var(--gap-huge);
+
+            h1:has(mark),
+            h2:has(mark),
+            h3:has(mark) {
+                text-align: left !important;
+            }
+        }
+
         h1,
         h2,
         h3 {
@@ -249,6 +189,23 @@ body:has(.topmenu).hamburger-menu .entry-content > .wp-block-cover.is-style-sunf
 
             @include breakpoint-down(lg) {
                 margin-top: 0;
+            }
+        }
+
+        .has-text-align-center,
+        h1,
+        h2 {
+
+            mark:nth-of-type(2) {
+                margin-left: 100px;
+
+                @include media-breakpoint-down(xl) {
+                    margin-left: 85px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    margin-left: 75px;
+                }
             }
         }
 
@@ -286,12 +243,65 @@ body:has(.topmenu).hamburger-menu .entry-content > .wp-block-cover.is-style-sunf
     }
 }
 
+/* ----------------------------------------------------------------
+ * 2️⃣  First-child overrides – viewport height + top-of-page positioning
+ * ---------------------------------------------------------------- */
+
+.entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    max-width: 100vw;
+    width: calc(100% + var(--double-grid-margin)) !important;
+    margin-left: calc(-1 * var(--grid-margin)) !important;
+    margin-right: calc(-1 * var(--grid-margin)) !important;
+    padding: 0 !important;
+    height: calc(100vh - (2 * var(--grid-margin)));
+
+    @include breakpoint-down(md) {
+        min-height: initial !important;
+        height: fit-content;
+        margin-bottom: 0 !important;
+    }
+}
+
+body:has(.topmenu) .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - ((2 * var(--grid-margin)) + 35px));
+}
+
+body:has(.topmenu).topmenu-large .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - ((2 * var(--grid-margin)) + 49px));
+}
+
+body:has(.topmenu).hamburger-menu .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - (2 * var(--grid-margin)));
+}
+
+.entry-content > .wp-block-cover.is-style-sunflower-hero:first-child {
+    padding: var(--grid-margin);
+    width: 100% !important;
+    margin: var(--grid-margin) 0 var(--half-block-spacing) 0 !important;
+    border-radius: var(--border-radius-large);
+
+    &.alignfull {
+        width: 100%;
+    }
+}
+
 body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
     height: calc(100vh - (var(--double-grid-margin) + 32px ));
 
     @include breakpoint-down(md) {
         height: calc(100vh - (var(--double-grid-margin) + 48px ));
     }
+}
+
+.entry-content > .wp-block-cover:not(.is-style-sunflower-hero):first-child {
+    margin-top: var(--grid-margin);
+    margin-bottom: var(--grid-margin);
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    min-height: 750px;
+    width: 100% !important;
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
 }
 
 .wp-block-column {
@@ -310,4 +320,3 @@ body main #content .wp-block-cover:not(.is-style-sunflower-hero):has(.wp-block-c
         color: #fff;
     }
 }
-
