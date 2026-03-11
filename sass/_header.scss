@@ -482,7 +482,7 @@ $text-dark: #222;
     &.stuck {
         height: 60px;
         width: 100%;
-        z-index: 50;
+        z-index: 500;
         border-radius: 0;
         position: fixed;
 
@@ -723,16 +723,42 @@ $text-dark: #222;
             background: map.get($custom-colors, "white");
             z-index: 100;
             display: none;
-            min-width: calc(100% + 20px);
+            min-width: 250px;
             border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
             width: fit-content;
             margin: 0;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(0, 0, 0, 0.15);
+                border-radius: 4px;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.3);
+                }
+            }
 
             > li > a {
-                padding: calc(var(--gap-large) / 2);
+                padding: var(--gap-small);
                 white-space: wrap;
-                max-width: 280px;
+                max-width: 600px;
+                font-size: 14px;
+
+                @include media-breakpoint-down(md) {
+                    max-width: 280px;
+                }
             }
 
             .sub-menu {
@@ -773,6 +799,8 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
     position: relative !important;
     top: 0;
     padding-left: var(--gap-large);
+    max-height: none;
+    overflow-y: visible;
 
     a {
         font-weight: 500;
