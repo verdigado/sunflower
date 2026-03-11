@@ -936,6 +936,16 @@ html body.hamburger-menu .top-bar.stuck {
 html body.hamburger-menu .top-bar,
 html body.hamburger-menu .top-bar.stuck {
 
+.custom-logo-link {
+    position: fixed;
+    top: var(--grid-margin);
+
+    img {
+        max-width: 130px !important;
+    }
+}
+
+
     .nav {
         margin-bottom: var(--grid-margin);
     }
