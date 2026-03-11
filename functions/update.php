@@ -13,6 +13,11 @@
  * @param string $theme_slug  The theme slug - 'sunflower26' our case.
  */
 function sunflower_update_theme( $transient, $theme_data, $theme_slug ) {
+
+	if ( 'sunflower26' !== $theme_slug ) {
+		return $transient;
+	}
+
 	// Include an unmodified $wp_version.
 	require ABSPATH . WPINC . '/version.php';
 	$php_version = PHP_VERSION;
@@ -20,6 +25,7 @@ function sunflower_update_theme( $transient, $theme_data, $theme_slug ) {
 	$sunflower_options = get_option( 'sunflower_first_steps_options' );
 	$update_channel    = $sunflower_options['sunflower_update_channel'] ?? 'stable';
 	$request           = array(
+		'slug'           => $theme_slug,
 		'version'        => $theme_data['Version'],
 		'php'            => $php_version,
 		'url'            => get_bloginfo( 'url' ),
