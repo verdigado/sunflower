@@ -345,6 +345,9 @@ p a {
 	line-height: 150%;
 	position: relative;
 	text-transform: uppercase;
+	background-color: transparent !important;
+	border-radius: 0 !important;
+	padding: 6px 10px 9px 18px !important;
 }
 
 .editor-styles-wrapper .has-background.textbalken {
@@ -352,7 +355,6 @@ p a {
 }
 
 .has-background.textbalken::before {
-	background: inherit;
 	content: "";
 	position: absolute;
 	top: 0;
@@ -363,6 +365,18 @@ p a {
 	transform: skew(-12deg);
 	transform-origin: bottom;
 }
+
+.has-background.textbalken.has-schwarzwald-background-color::before { background-color: #002216; }
+.has-background.textbalken.has-tanne-background-color::before { background-color: #005538; }
+.has-background.textbalken.has-klee-background-color::before { background-color: #008939; }
+.has-background.textbalken.has-grashalm-background-color::before { background-color: #8abd24; }
+.has-background.textbalken.has-sonne-background-color::before { background-color: #fff17a; }
+.has-background.textbalken.has-sand-background-color::before { background-color: #f5f1e9; }
+.has-background.textbalken.has-maus-background-color::before { background-color: #374951; }
+.has-background.textbalken.has-kalk-background-color::before { background-color: #e8eae9; }
+.has-background.textbalken.has-gruener-sand-background-color::before { background-color: #f3faf6; }
+.has-background.textbalken.has-white-background-color::before { background-color: #fff; }
+.has-background.textbalken.has-himmel-background-color::before { background-color: #0ba1dd; }
 
 .has-background.textbalken.links-eins {
 	left: 1em;

@@ -137,10 +137,16 @@ if ( $sunflower_content_empty ) {
 
 	</div>
 
+	<?php
+		// Hook for adding content before the footer of a post.
+		do_action( 'sunflower_content_before_footer', get_post() );
+	?>
+
 	<div class="row">
 		<footer class="entry-footer mt-4">
 			<?php sunflower_entry_footer( true ); ?>
 		</footer><!-- .entry-footer -->
 	</div>
+
 
 </article><!-- #post-<?php the_ID(); ?> -->

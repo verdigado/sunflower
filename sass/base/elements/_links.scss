@@ -50,3 +50,13 @@ a {
 :root :where(a:where(:not(.wp-element-button))) {
     text-decoration-line: none;
 }
+
+.wp-block-rss__item a,
+a.wp-block-read-more,
+.wp-block-comment-author-name a,
+.wp-block-comment-edit-link a,
+.wp-block-loginout a,
+.comment-respond a,
+.comment-edit-link a {
+    font-weight: 700;
+}

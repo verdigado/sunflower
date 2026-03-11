@@ -187,13 +187,21 @@ header .social-media-profiles {
 
 body.admin-bar {
 
-    .right-bar {
+    .hamburger,
+    .stuck .right-bar {
 
         top: 46px;
-        bottom: -46px;
 
-        @include media-breakpoint-up(md) {
+        // WordPress Admin Bar has breakpoint at 768px (smaller admin bar).
+        @media (min-width: 768px) {
             top: 32px;
+        }
+    }
+
+    .stuck .hamburger {
+        // WordPress Admin Bar has breakpoint at 600px (admin bar stuck on scroll).
+        @media (max-width: 600px) {
+            top: 0px;
         }
     }
 
@@ -474,7 +482,7 @@ $text-dark: #222;
     &.stuck {
         height: 60px;
         width: 100%;
-        z-index: 50;
+        z-index: 500;
         border-radius: 0;
         position: fixed;
 
@@ -715,16 +723,42 @@ $text-dark: #222;
             background: map.get($custom-colors, "white");
             z-index: 100;
             display: none;
-            min-width: calc(100% + 20px);
+            min-width: 250px;
             border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
             width: fit-content;
             margin: 0;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(0, 0, 0, 0.15);
+                border-radius: 4px;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.3);
+                }
+            }
 
             > li > a {
-                padding: calc(var(--gap-large) / 2);
+                padding: var(--gap-small);
                 white-space: wrap;
-                max-width: 280px;
+                max-width: 600px;
+                font-size: 14px;
+
+                @include media-breakpoint-down(md) {
+                    max-width: 280px;
+                }
             }
 
             .sub-menu {
@@ -765,6 +799,8 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
     position: relative !important;
     top: 0;
     padding-left: var(--gap-large);
+    max-height: none;
+    overflow-y: visible;
 
     a {
         font-weight: 500;
@@ -927,6 +963,16 @@ html body.hamburger-menu .top-bar.stuck {
 
 html body.hamburger-menu .top-bar,
 html body.hamburger-menu .top-bar.stuck {
+
+.custom-logo-link {
+    position: fixed;
+    top: var(--grid-margin);
+
+    img {
+        max-width: 130px !important;
+    }
+}
+
 
     .nav {
         margin-bottom: var(--grid-margin);

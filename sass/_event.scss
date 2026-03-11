@@ -130,9 +130,10 @@
             padding: 0 !important;
             margin: 0 !important;
 
-            // Alternierendes Grid-Layout wie bei normalen Archives
-            &:nth-child(4n+1),
-            &:nth-child(4n+4) {
+            // Alternierendes Grid-Layout – zählt nur sichtbare Elemente,
+            // damit der Rhythmus nach Filterung per .d-none erhalten bleibt
+            &:nth-child(4n+1 of .col-12:not(.d-none)),
+            &:nth-child(4n+4 of .col-12:not(.d-none)) {
                 grid-column: span 4;
 
                 @include media-breakpoint-down(md) {
@@ -144,8 +145,8 @@
                 }
             }
 
-            &:nth-child(4n+2),
-            &:nth-child(4n+3) {
+            &:nth-child(4n+2 of .col-12:not(.d-none)),
+            &:nth-child(4n+3 of .col-12:not(.d-none)) {
                 grid-column: span 6;
 
                 @include media-breakpoint-down(md) {
@@ -809,5 +810,9 @@ a.event-card {
             display: block;
             margin-bottom: 0.5em;
         }
+    }
+
+    &-pane {
+        z-index: 4 !important;
     }
 }

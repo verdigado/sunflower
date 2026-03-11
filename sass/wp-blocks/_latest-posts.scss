@@ -13,6 +13,11 @@
 
     &--list {
 
+        > .wp-block-group__inner-container {
+            max-width: 1100px;
+            width: 100%;
+        }
+
         .entry-meta {
             display: flex;
             column-gap: var(--grid-margin);
@@ -21,48 +26,104 @@
         .col-12 {
             padding: 0;
             top: 0;
-            height: 170px;
+            border: 2px solid map.get($custom-colors, "klee");
             border-radius: var(--border-radius-medium);
             overflow: hidden;
             margin-bottom: var(--half-grid-margin);
+            background: map.get($custom-colors, "white");
+            position: relative;
+            cursor: pointer;
+            height: auto;
 
             article {
-
-                .post-thumbnail {
-                    height: 170px;
-                }
+                margin-bottom: 0 !important;
 
                 > div {
-                    grid-template-columns: repeat(12, 1fr);
-                    gap: var(--grid-margin);
                     display: grid;
+                    grid-template-columns: 220px 1fr;
+                    column-gap: var(--grid-margin);
+                    min-height: 140px;
 
+                    > div:not(.p-45) {
+                        overflow: hidden;
+
+                        a {
+                            display: block;
+                            height: 100%;
+                        }
+
+                        img {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
 
                     .p-45 {
                         display: flex;
                         flex-direction: column;
-                        justify-content: space-between;
-
-                        height: 170px;
+                        justify-content: center;
                         padding: var(--grid-margin) var(--grid-margin) var(--grid-margin) 0;
+
+                        .entry-header {
+                            margin-bottom: 0 !important;
+
+                            .entry-meta {
+                                margin-bottom: var(--gap-small) !important;
+                            }
+
+                            h2 {
+                                margin-bottom: var(--gap-small) !important;
+                            }
+                        }
+
+                        .entry-content p {
+                            margin: 0 !important;
+                            padding-left: 0 !important;
+                            padding-right: 0 !important;
+                        }
+
+                        .entry-footer {
+                            display: none;
+                        }
                     }
 
-
-                    div {
-                        grid-column: span 3;
-
-                        &.p-45 {
-                            grid-column: span 9;
-                        }
-
-                        &.p-45:only-child {
-                            grid-column: span 12;
-                            padding: var(--grid-margin);
-                        }
+                    .p-45:only-child {
+                        grid-column: 1 / -1;
+                        padding: var(--grid-margin);
                     }
 
                     p {
                         margin: 0 !important;
+                    }
+                }
+
+                h2 a::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                min-height: 0;
+
+                article > div {
+                    grid-template-columns: 160px 1fr;
+                    min-height: 110px;
+                }
+
+
+            }
+
+            @include media-breakpoint-down(sm) {
+
+                article > div {
+                    grid-template-columns: 120px 1fr;
+
+                    .p-45 .entry-content {
+                        display: none;
                     }
                 }
             }
@@ -87,6 +148,8 @@
 
             p {
                 margin-bottom: var(--double-grid-margin) !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
 
             .continue-reading {
@@ -194,7 +257,7 @@
     }
 
     .posts-slider {
-        align-items: stretch;
+        align-items: flex-start;
 
         .col-12 {
             display: flex;
@@ -204,15 +267,6 @@
         article {
 
             @include card;
-            height: 100%;
-            display: flex;
-
-            > div {
-                display: flex;
-                flex-direction: column;
-                flex: 1;
-                width: 100%;
-            }
 
             cursor: grab;
             cursor: -moz-grab;
@@ -264,9 +318,6 @@
             .p-45 {
                 padding: 0 !important;
                 width: 100%;
-                display: flex !important;
-                flex-direction: column;
-                flex: 1;
 
                 .entry-header {
 
@@ -307,14 +358,6 @@
                         transition: 300ms ease-out;
                     }
 
-                    h2 a {
-                        cursor: pointer;
-
-                        &:hover {
-                            color: map.get($custom-colors, "grashalm") !important;
-                        }
-                    }
-
                     h2 {
                         margin-bottom: var(--half-grid-margin) !important;
                     }
@@ -325,10 +368,6 @@
                     p {
                         margin-bottom: var(--gap-small);
                     }
-                }
-
-                .entry-footer {
-                    margin-top: auto;
                 }
             }
         }
@@ -358,7 +397,8 @@
     list-style: none;
 
     &:not(.is-grid) {
-        max-width: 1000px !important;
+
+        max-width: 1100px !important;
 
         li {
             display: grid;
@@ -373,6 +413,7 @@
             background: map.get($custom-colors, "white");
             position: relative;
             cursor: pointer;
+            padding: var(--grid-margin) 0;
 
             > *:not(.wp-block-latest-posts__featured-image) {
                 grid-column: 2;
@@ -428,7 +469,7 @@
                 font-weight: 700;
                 line-height: 150% !important;
                 letter-spacing: 0.5px !important;
-                padding-right: var(--grid-margin);
+                padding: var(--gap-small) var(--gap-small) 0 0;
 
                 @include media-breakpoint-down(xl) {
                     font-size: 12px !important;
@@ -444,6 +485,8 @@
                 overflow: hidden;
                 font-size: $small-font-size;
                 line-height: 140%;
+                padding-top: var(--gap-small);
+                margin-bottom: 0;
 
                 p {
                     margin: 0 !important;
@@ -453,7 +496,6 @@
             @include media-breakpoint-down(md) {
                 min-height: 110px;
                 grid-template-columns: 160px 1fr;
-                padding-top: 8px;
 
                 .wp-block-latest-posts__featured-image {
                     width: 160px;
@@ -490,9 +532,16 @@
 
     &.is-grid {
 
+        width: 100% !important;
+
         @include media-breakpoint-down(md) {
             grid-template-columns: 1fr !important;
             columns: 1 !important;
+
+            li {
+                width: 100% !important;
+                margin-right: 0 !important;
+            }
         }
 
         li {
@@ -506,6 +555,10 @@
             display: flex;
             flex-wrap: wrap;
             align-content: start;
+
+            @media (max-width: 600px) {
+                margin: 0 0 1.25em 0;
+            }
 
             .wp-block-latest-posts__featured-image {
                 width: calc(100% + 4px);
@@ -626,6 +679,20 @@
 
     .wp-block-latest-posts__post-title {
         display: block;
+    }
+}
+
+.colorscheme-green .latest-posts {
+    background-color: map.get($custom-colors, "grashalm") !important;
+
+    h2,
+    h2 a {
+        color: map.get($custom-colors, "schwarzwald") !important;
+    }
+
+    .slider__button:hover {
+        background-color: map.get($custom-colors, "schwarzwald") !important;
+        border-color: map.get($custom-colors, "schwarzwald") !important;
     }
 }
 

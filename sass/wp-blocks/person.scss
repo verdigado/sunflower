@@ -4,10 +4,17 @@
 body.colorscheme-green .container .entry-content .wp-block-media-text.person {
     background-color: #000;
     border-radius: var(--border-radius-large);
+    color: map.get($custom-colors, "white");
 
-    .person-name {
+    .person-name,
+    .h4 {
         color: map.get($custom-colors, "white");
     }
+}
+
+body.colorscheme-light .container .entry-content .wp-block-media-text.person {
+    background-color: #fff;
+    border-radius: var(--border-radius-large);
 }
 
 
@@ -23,13 +30,13 @@ body #content .entry-content .wp-block-media-text.person {
         line-height: 110%;
         text-transform: uppercase;
         color: map.get($custom-colors, "tanne");
+        margin-top: 0;
     }
 
     .wp-block-media-text__content {
-        padding: var(--grid-margin);
+        padding: calc(var(--grid-margin) / 4) var(--grid-margin) var(--grid-margin);
         align-self: start;
         width: 100%;
-        height: 100%;
         border-bottom-left-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
     }
@@ -61,4 +68,3 @@ body #content .entry-content .wp-block-media-text.person {
         }
     }
 }
-

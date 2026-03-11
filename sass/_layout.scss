@@ -36,6 +36,10 @@ html {
     .page-header h1 {
         color: map.get($custom-colors, "grashalm");
     }
+
+    #leaflet {
+        background: map.get($custom-colors, "schwarzwald");
+    }
 }
 
 .container-xxl,
@@ -412,7 +416,7 @@ iframe {
 }
 
 
-.has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events) {
+.has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events, .textbalken) {
     padding: var(--grid-margin);
     border-radius: var(--border-radius-large);
 }

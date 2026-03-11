@@ -67,10 +67,17 @@ body {
         }
 
         &:focus {
-            color: $white;
             outline: 2px solid map.get($custom-colors, "klee");
             border: 2px solid map.get($custom-colors, "klee");
-            background-color: map.get($custom-colors, "tanne");
+        }
+
+        &::before {
+            font-family: ForkAwesome, sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            top: 2px;
+            position: relative;
+            margin-right: var(--gap-small);
         }
 
         &::before {
