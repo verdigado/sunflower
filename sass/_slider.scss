@@ -70,11 +70,11 @@
 .latest-posts .navbuttons {
 
     position: absolute;
-    top: 85px;
+    top: 115px;
     right: var(--block-spacing);
 
-    @include media-breakpoint-down(xl) {
-        top: 60px;
+    @media (max-width: 1200px) {
+        top: 65px;
     }
 
     @include media-breakpoint-down(md) {
