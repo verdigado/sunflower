@@ -65,7 +65,28 @@
         border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium) !important;
         width: fit-content;
         margin: 0 !important;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 80vh;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+        }
 
         > .wp-block-navigation-item > .wp-block-navigation-item__content {
             padding: 6px 12px !important;
@@ -171,6 +192,7 @@
             visibility: visible !important;
             opacity: 1 !important;
             height: auto !important;
+            max-height: none !important;
             overflow: visible !important;
             padding: 8px 0 0 var(--gap-large) !important;
             top: 0 !important;
