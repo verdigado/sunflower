@@ -114,7 +114,7 @@
                     min-height: 110px;
                 }
 
-                
+
             }
 
             @include media-breakpoint-down(sm) {
@@ -556,9 +556,9 @@
             flex-wrap: wrap;
             align-content: start;
 
-            @media(max-width: 600px) {
-                margin:0 0 1.25em 0;
-            }   
+            @media (max-width: 600px) {
+                margin: 0 0 1.25em 0;
+            }
 
             .wp-block-latest-posts__featured-image {
                 width: calc(100% + 4px);

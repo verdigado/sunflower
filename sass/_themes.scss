@@ -283,6 +283,14 @@ body.formstyle-rounded {
 
 body.formstyle-sharp {
 
+    .brand-left {
+
+        .label-top {
+            left: calc(-1 * var(--gap-large));
+            right: 0;
+        }
+    }
+
     footer.site-footer {
 
         .footerlogo {
