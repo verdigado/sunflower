@@ -36,6 +36,10 @@ html {
     .page-header h1 {
         color: map.get($custom-colors, "grashalm");
     }
+
+    #leaflet {
+        background: map.get($custom-colors, "schwarzwald");
+    }
 }
 
 .container-xxl,
