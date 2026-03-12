@@ -23,7 +23,7 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 					<p class="small">
 						<?php bloginfo( 'name' ); ?> benutzt das freie
 						grüne Theme <a href="https://sunflower-theme.de" target="_blank">sunflower</a> &dash; ein
-						Angebot der <a href="https://verdigado.com/" target="_blank">verdigado eG</a>.
+						Angebot der <nobr><a href="https://verdigado.com/" target="_blank">verdigado eG</a></nobr>
 					</p>
 				</div>
 
