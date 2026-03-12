@@ -128,6 +128,12 @@
                 }
             }
         }
+
+        .row > .col-12:nth-child(n+5) {
+            @media (max-width: 700px) {
+                display: none;
+            }
+        }
     }
 
     &--grid {
@@ -246,6 +252,12 @@
                     @media (max-width: 700px) {
 
                         grid-template-columns: 1fr;
+                    }
+                }
+
+                @media (max-width: 700px) {
+                    > *:nth-child(n+5) {
+                        display: none !important;
                     }
                 }
             }

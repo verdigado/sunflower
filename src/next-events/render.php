@@ -42,7 +42,7 @@ wp_reset_postdata();
 
 if ( 0 === (int) $sunflower_next_events->post_count ) {
 	printf(
-		'<div class="col-12 text-center h4 text-white">%s</div>',
+		'<div class="col-12 h4 text-white">%s</div>',
 		esc_html__( 'Currently there are no coming events.', 'sunflower' )
 	);
 }
