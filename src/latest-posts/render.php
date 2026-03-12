@@ -33,12 +33,25 @@ $sunflower_link = false;
 $sunflower_categories = array();
 if ( isset( $attributes['categories'] ) && ! empty( $attributes['categories'] ) ) {
 	$sunflower_categories = $attributes['categories'];
-	$sunflower_link       = get_category_link( get_category_by_slug( trim( (string) $sunflower_categories[0] ) ) );
 }
 
 $sunflower_excluded_categories = array();
 if ( isset( $attributes['excludedCategories'] ) && ! empty( $attributes['excludedCategories'] ) ) {
 	$sunflower_excluded_categories = $attributes['excludedCategories'];
+}
+
+$sunflower_cat_tax = get_taxonomy( 'category' );
+$sunflower_cat_archives_enabled = $sunflower_cat_tax && $sunflower_cat_tax->publicly_queryable;
+
+if ( $sunflower_cat_archives_enabled && ! empty( $sunflower_categories ) ) {
+	$sunflower_first_cat = trim( (string) $sunflower_categories[0] );
+	$sunflower_cat       = is_numeric( $sunflower_first_cat )
+		? get_category( (int) $sunflower_first_cat )
+		: get_category_by_slug( $sunflower_first_cat );
+
+	if ( $sunflower_cat && ! is_wp_error( $sunflower_cat ) ) {
+		$sunflower_link = get_category_link( $sunflower_cat );
+	}
 }
 
 if ( ! $sunflower_link || '' === $sunflower_link ) {
