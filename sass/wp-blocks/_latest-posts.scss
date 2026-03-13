@@ -593,6 +593,10 @@
             flex-wrap: wrap;
             align-content: start;
 
+            &:not(:has(.wp-block-latest-posts__featured-image)) {
+                align-content: center;
+            }
+
             @media (max-width: 600px) {
                 margin: 0 0 1.25em 0;
             }
