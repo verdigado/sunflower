@@ -816,3 +816,16 @@ a.event-card {
         z-index: 4 !important;
     }
 }
+
+
+.calendar-download {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: var(--double-grid-margin) !important;
+}
+
+.post-type-archive-sunflower_event .no-results .page-content {
+    text-align: center;
+}
