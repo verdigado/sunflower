@@ -40,7 +40,7 @@ if ( isset( $attributes['excludedCategories'] ) && ! empty( $attributes['exclude
 	$sunflower_excluded_categories = $attributes['excludedCategories'];
 }
 
-$sunflower_cat_tax = get_taxonomy( 'category' );
+$sunflower_cat_tax              = get_taxonomy( 'category' );
 $sunflower_cat_archives_enabled = $sunflower_cat_tax && $sunflower_cat_tax->publicly_queryable;
 
 if ( $sunflower_cat_archives_enabled && ! empty( $sunflower_categories ) ) {
