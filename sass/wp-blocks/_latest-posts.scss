@@ -130,6 +130,7 @@
         }
 
         .row > .col-12:nth-child(n+5) {
+
             @media (max-width: 700px) {
                 display: none;
             }
@@ -256,6 +257,7 @@
                 }
 
                 @media (max-width: 700px) {
+
                     > *:nth-child(n+5) {
                         display: none !important;
                     }
