@@ -343,11 +343,16 @@ a.event-card {
             margin-bottom: 2px;
         }
 
+        .entry-header {
+            line-height: 125%;
+        }
+
         .event-archive-meta {
 
 
             .date {
                 font-size: 25px;
+                line-height: 125%;
                 font-family: var(--wp--preset--font-family--gruenetypeneue);
                 margin-bottom: var(--half-grid-margin);
             }
@@ -378,7 +383,7 @@ a.event-card {
 
         article {
             box-shadow: 0 0 0 0 map.get($custom-colors, "grashalm") !important;
-            height: fit-content;
+            height: 100%;
             border: none;
             border-radius: var(--border-radius-medium);
             display: grid;
@@ -494,6 +499,19 @@ a.event-card {
             margin: 0 !important;
             padding: 0 !important;
             width: 100% !important;
+            display: flex;
+            flex-direction: column;
+
+            > a.event-card {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                min-height: 0;
+
+                > article {
+                    flex: 1;
+                }
+            }
 
             .small {
                 color: map.get($custom-colors, "white");
