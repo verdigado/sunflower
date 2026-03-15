@@ -4,6 +4,32 @@
 
     .display-single {
         min-height: calc(100vh - 180px);
+
+        @include media-breakpoint-down(md) {
+            &:has(.metabox) {
+                > .row:has(.metabox) {
+                    flex-direction: column;
+                    width: 100%;
+                    max-width: 100%;
+                    padding-left: 0;
+                    padding-right: 0;
+                    margin-left: 0;
+                    margin-right: 0;
+
+                    .metabox {
+                        order: -1;
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
+                }
+
+                .entry-content {
+                    width: 100%;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
     }
 
 }
