@@ -49,8 +49,8 @@ $sunflower_metadata      = get_post_meta( $post->ID, '_sunflower_metadata', true
 				<?php
 
 				if ( ! sunflower_get_setting( 'sunflower_hide_prev_next' ) ) {
-					$sunflower_arrow_left  = '<img src="' . esc_url( get_template_directory_uri() . '/assets/img/arrow-left.svg' ) . '" alt="" class="icon-arrow icon-arrow--left" />';
-					$sunflower_arrow_right = '<img src="' . esc_url( get_template_directory_uri() . '/assets/img/arrow-right.svg' ) . '" alt="" class="icon-arrow icon-arrow--right" />';
+					$sunflower_arrow_left       = '<img src="' . esc_url( get_template_directory_uri() . '/assets/img/arrow-left.svg' ) . '" alt="" class="icon-arrow icon-arrow--left" />';
+					$sunflower_arrow_right      = '<img src="' . esc_url( get_template_directory_uri() . '/assets/img/arrow-right.svg' ) . '" alt="" class="icon-arrow icon-arrow--right" />';
 					$sunflower_max_title_length = 30;
 
 					$sunflower_prev_post = get_previous_post();
@@ -62,7 +62,7 @@ $sunflower_metadata      = get_post_meta( $post->ID, '_sunflower_metadata', true
 						printf(
 							'<div class="sunflower-post-navigation__prev"><div class="sunflower-post-navigation__item sunflower-post-navigation__item--prev"><a href="%s">%s%s</a></div></div>',
 							esc_url( get_permalink( $sunflower_prev_post ) ),
-							$sunflower_arrow_left,
+							wp_kses_post( $sunflower_arrow_left ),
 							esc_html( $sunflower_prev_title )
 						);
 					}
@@ -77,7 +77,7 @@ $sunflower_metadata      = get_post_meta( $post->ID, '_sunflower_metadata', true
 							'<div class="sunflower-post-navigation__next"><div class="sunflower-post-navigation__item sunflower-post-navigation__item--next"><a href="%s">%s%s</a></div></div>',
 							esc_url( get_permalink( $sunflower_next_post ) ),
 							esc_html( $sunflower_next_title ),
-							$sunflower_arrow_right
+							wp_kses_post( $sunflower_arrow_right )
 						);
 					}
 				}
