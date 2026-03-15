@@ -6,7 +6,9 @@
         min-height: calc(100vh - 180px);
 
         @include media-breakpoint-down(md) {
+
             &:has(.metabox) {
+
                 > .row:has(.metabox) {
                     flex-direction: column;
                     width: 100%;
