@@ -51,28 +51,33 @@ $sunflower_metadata      = get_post_meta( $post->ID, '_sunflower_metadata', true
 				if ( ! sunflower_get_setting( 'sunflower_hide_prev_next' ) ) {
 					$sunflower_arrow_left  = '<img src="' . esc_url( get_template_directory_uri() . '/assets/img/arrow-left.svg' ) . '" alt="" class="icon-arrow icon-arrow--left" />';
 					$sunflower_arrow_right = '<img src="' . esc_url( get_template_directory_uri() . '/assets/img/arrow-right.svg' ) . '" alt="" class="icon-arrow icon-arrow--right" />';
+					$sunflower_max_title_length = 30;
 
-					$sunflower_previous = get_previous_post_link(
-						'<div class="sunflower-post-navigation__item sunflower-post-navigation__item--prev">%link</div>',
-						$sunflower_arrow_left . '%title'
-					);
-
-					$sunflower_next = get_next_post_link(
-						'<div class="sunflower-post-navigation__item sunflower-post-navigation__item--next">%link</div>',
-						'%title ' . $sunflower_arrow_right
-					);
-
-					if ( $sunflower_previous ) {
+					$sunflower_prev_post = get_previous_post();
+					if ( $sunflower_prev_post ) {
+						$sunflower_prev_title = get_the_title( $sunflower_prev_post );
+						if ( mb_strlen( $sunflower_prev_title ) > $sunflower_max_title_length ) {
+							$sunflower_prev_title = mb_substr( $sunflower_prev_title, 0, $sunflower_max_title_length ) . '…';
+						}
 						printf(
-							'<div class="sunflower-post-navigation__prev">%s</div>',
-							wp_kses_post( $sunflower_previous )
+							'<div class="sunflower-post-navigation__prev"><div class="sunflower-post-navigation__item sunflower-post-navigation__item--prev"><a href="%s">%s%s</a></div></div>',
+							esc_url( get_permalink( $sunflower_prev_post ) ),
+							$sunflower_arrow_left,
+							esc_html( $sunflower_prev_title )
 						);
 					}
 
-					if ( $sunflower_next ) {
+					$sunflower_next_post = get_next_post();
+					if ( $sunflower_next_post ) {
+						$sunflower_next_title = get_the_title( $sunflower_next_post );
+						if ( mb_strlen( $sunflower_next_title ) > $sunflower_max_title_length ) {
+							$sunflower_next_title = mb_substr( $sunflower_next_title, 0, $sunflower_max_title_length ) . '…';
+						}
 						printf(
-							'<div class="sunflower-post-navigation__next">%s</div>',
-							wp_kses_post( $sunflower_next )
+							'<div class="sunflower-post-navigation__next"><div class="sunflower-post-navigation__item sunflower-post-navigation__item--next"><a href="%s">%s%s</a></div></div>',
+							esc_url( get_permalink( $sunflower_next_post ) ),
+							esc_html( $sunflower_next_title ),
+							$sunflower_arrow_right
 						);
 					}
 				}
