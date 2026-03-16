@@ -846,6 +846,8 @@ a.event-card {
     i {
         font-size: 60px;
     }
+
+    z-index: 1;
 }
 
 .leaflet {
@@ -856,10 +858,6 @@ a.event-card {
             display: block;
             margin-bottom: 0.5em;
         }
-    }
-
-    &-pane {
-        z-index: 4 !important;
     }
 }
 
