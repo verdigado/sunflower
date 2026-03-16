@@ -187,7 +187,8 @@ body.navbar-open {
 
         a {
 
-            padding: 0 var(--grid-margin) 4px var(--grid-margin);
+            font-size: 18px !important;
+            padding: 0 20px 3px 20px !important;
 
             .icon-arrow {
                 position: relative;
