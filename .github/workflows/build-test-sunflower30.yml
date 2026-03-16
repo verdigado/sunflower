@@ -22,7 +22,7 @@ jobs:
         working-directory: ${{ env.PROJECT_ROOT }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
             path: sunflower26
 
@@ -32,7 +32,7 @@ jobs:
             V="v"
             echo Version in style.scss: $THEME_VERSION
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
             node-version: ${{ env.NODE_VERSION }}
 

@@ -12,14 +12,14 @@ on:
       - main
 
 env:
-  NODE_VERSION: 22
+  NODE_VERSION: 24
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: check theme version against tag
         run: |
@@ -27,12 +27,12 @@ jobs:
             V="v"
             echo Version in style.scss: $THEME_VERSION
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
             node-version: ${{ env.NODE_VERSION }}
 
       - name: Cache node_modules directory
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: npm-cache-dir
         with:
             path: node_modules
@@ -62,7 +62,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: 8.4
           tools: cs2pr
 
       - name: run install composer
