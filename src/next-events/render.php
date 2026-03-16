@@ -15,7 +15,7 @@ $sunflower_next_events = sunflower_get_next_events( $sunflower_count, $sunflower
 
 
 $sunflower_return = sprintf(
-	'<div class="wp-block-group alignfull has-text-color has-white-color has-background is-vertical is-content-justification-center is-layout-flex wp-block-group-is-layout-flex next-events %s">
+	'<div class="wp-block-group has-text-color has-white-color has-background is-vertical is-content-justification-center is-layout-flex wp-block-group-is-layout-flex next-events %s">
 		<div class="wp-block-group__inner-container">
 			<h2 class="wp-block-heading has-text-align-center h1">%s</h2>
 			<div class="row">',
