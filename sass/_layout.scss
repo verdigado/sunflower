@@ -416,7 +416,7 @@ iframe {
 }
 
 
-.has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events, .textbalken) {
+.has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events, .textbalken, .wp-block-separator) {
     padding: var(--grid-margin);
     border-radius: var(--border-radius-large);
 }
