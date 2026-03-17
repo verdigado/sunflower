@@ -4,7 +4,21 @@ import metadata from './block.json';
 
 const { attributes } = metadata;
 
-// change type of count attribute from string -> number
+const v2 = {
+	attributes,
+	save( props ) {
+		const blockProps = useBlockProps.save();
+		const { url, icon } = props.attributes;
+		return (
+			<div { ...blockProps }>
+				<a href={ url } target="_blank" rel="noopener noreferrer">
+					<i className={ icon }></i>
+				</a>
+			</div>
+		);
+	},
+};
+
 const v1 = {
 	attributes,
 	save( props ) {
@@ -28,4 +42,4 @@ const v1 = {
  *
  * See block-deprecation.md
  */
-export default [ v1 ];
+export default [ v2, v1 ];

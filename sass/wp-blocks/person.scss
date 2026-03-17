@@ -17,6 +17,10 @@ body.colorscheme-light .container .entry-content .wp-block-media-text.person {
     border-radius: var(--border-radius-large);
 }
 
+body #content .mb-md-4:has(.person) {
+    margin-bottom: 0 !important;
+}
+
 
 body #content .entry-content .wp-block-media-text.person {
     display: flex;
@@ -52,19 +56,7 @@ body #content .entry-content .wp-block-media-text.person {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             width: 100%;
-
         }
 
-    }
-}
-
-.wp-block-columns {
-
-    .person {
-
-        img {
-            height: 300px;
-            max-height: 300px;
-        }
     }
 }
