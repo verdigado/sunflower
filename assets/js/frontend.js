@@ -463,7 +463,7 @@ document.addEventListener( 'keydown', ( e ) => {
 	if ( e.key !== 'Escape' ) {
 		return;
 	}
-	const focused = document.activeElement;
+	const focused = e.target;
 	const submenu = focused?.closest( '.main-menu .sub-menu' );
 	if ( ! submenu ) {
 		return;
@@ -751,8 +751,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		function updateSlideVisibility() {
 			state.slides.forEach( ( slide, i ) => {
 				const isVisible =
-					i >= state.index &&
-					i < state.index + state.slidesPerView;
+					i >= state.index && i < state.index + state.slidesPerView;
 				slide.inert = ! isVisible;
 			} );
 		}

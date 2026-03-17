@@ -2,8 +2,11 @@
 
 
 /* Text meant only for screen readers. */
-body, html {
+body,
+html {
+
     * {
+
         &:focus, {
             outline: none;
             border: none;
