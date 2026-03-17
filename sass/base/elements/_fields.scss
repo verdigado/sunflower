@@ -17,7 +17,7 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
     border-radius: var(--border-radius-large);
-    padding: 2px 20px 5px 50px;
+    padding: 2px 20px 5px 20px;
     min-height: 46px;
     font-size: 20px;
     font-family: "PT Sans", sans-serif;
@@ -220,6 +220,7 @@ input[type="radio"] {
     cursor: pointer;
     margin-right: 8px;
     transition: all 0.2s ease;
+    border-radius: 50%;
 
     @include themed-colorscheme-nested() {
         background-color: t(input-background);
@@ -305,8 +306,13 @@ label {
             }
         }
 
-        p:nth-of-type(1) {
-            margin: 0 !important;
+        > :first-child {
+            margin-top: 0 !important;
+        }
+
+        .comment-form-author,
+        .comment-form-email {
+            margin-bottom: 1rem;
         }
     }
 

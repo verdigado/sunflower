@@ -48,80 +48,80 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 		</div>
 
 		<div class="col-12 col-md-6">
-			<p class="comment-form-author">
-				<label for="name">
-					<?php esc_html_e( 'Name', 'sunflower-contact-form' ); ?></label>
+		<div class="comment-form-author">
+			<label for="name">
+				<?php esc_html_e( 'Name', 'sunflower-contact-form' ); ?></label>
 
-				<div class="input-with-icon">
-				<i class="fa-solid fa-user"></i>
-				<input
-					id="name"
-					name="name"
-					type="text"
-					value=""
-					size="30"
-					maxlength="245"
-					required
-					placeholder="<?php echo esc_attr( $sunflower_placeholder_name ); ?>"
-				/>
+			<div class="input-with-icon">
+			<i class="fa-solid fa-user"></i>
+			<input
+				id="name"
+				name="name"
+				type="text"
+				value=""
+				size="30"
+				maxlength="245"
+				required
+				placeholder="<?php echo esc_attr( $sunflower_placeholder_name ); ?>"
+			/>
+		</div>
+		</div>
+
+		<div class="comment-form-email">
+			<label for="mail"><?php esc_html_e( 'E-Mail', 'sunflower-contact-form' ); ?></label>
+			<div class="input-with-icon">
+			<i class="fa-solid fa-envelope"></i>
+			<input
+				id="mail"
+				name="mail"
+				type="email"
+				value=""
+				size="30"
+				minlength="5"
+				maxlength="100"
+				<?php echo $sunflower_require_mail ? 'required' : ''; ?>
+				placeholder="<?php echo esc_attr( $sunflower_placeholder_email ); ?>"
+			/>
 			</div>
-			</p>
-
-			<p class="comment-form-email">
-				<label for="mail"><?php esc_html_e( 'E-Mail', 'sunflower-contact-form' ); ?></label>
-				<div class="input-with-icon">
-				<i class="fa-solid fa-envelope"></i>
-				<input
-					id="mail"
-					name="mail"
-					type="email"
-					value=""
-					size="30"
-					minlength="5"
-					maxlength="100"
-					<?php echo $sunflower_require_mail ? 'required' : ''; ?>
-					placeholder="<?php echo esc_attr( $sunflower_placeholder_email ); ?>"
-				/>
-				</div>
-			</p>
+		</div>
 
 			<?php if ( $sunflower_display_phone ) : ?>
-				<p class="comment-form-email">
-					<label for="phone"><?php esc_html_e( 'Phone', 'sunflower-contact-form' ); ?></label>
+			<div class="comment-form-email">
+				<label for="phone"><?php esc_html_e( 'Phone', 'sunflower-contact-form' ); ?></label>
 
-			<div class="input-with-icon">
-				<i class="fa-solid fa-phone"></i>
-					<input
-						id="phone"
-						name="phone"
-						type="tel"
-						value=""
-						size="30"
-						pattern="[0-9\-\+\s]*"
-						<?php echo $sunflower_require_phone ? 'required' : ''; ?>
-						placeholder="<?php echo esc_attr( $sunflower_placeholder_phone ); ?>"
-					/>
-				</div>
-				</p>
-			<?php endif; ?>
-
-			<p class="comment-form-email">
-				<label for="captcha"><?php esc_html_e( 'How much is 1 + 1?', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
-			<div class="input-with-icon">
-				<i class="fa-solid fa-calculator"></i>
-
+		<div class="input-with-icon">
+			<i class="fa-solid fa-phone"></i>
 				<input
-					id="captcha"
-					name="captcha"
-					type="text"
+					id="phone"
+					name="phone"
+					type="tel"
 					value=""
 					size="30"
-					maxlength="100"
-					required
-					placeholder="<?php echo esc_attr( $sunflower_placeholder_captcha ); ?>"
+					pattern="[0-9\-\+\s]*"
+					<?php echo $sunflower_require_phone ? 'required' : ''; ?>
+					placeholder="<?php echo esc_attr( $sunflower_placeholder_phone ); ?>"
 				/>
 			</div>
-			</p>
+			</div>
+			<?php endif; ?>
+
+		<div class="comment-form-email">
+			<label for="captcha"><?php esc_html_e( 'How much is 1 + 1?', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
+		<div class="input-with-icon">
+			<i class="fa-solid fa-calculator"></i>
+
+			<input
+				id="captcha"
+				name="captcha"
+				type="text"
+				value=""
+				size="30"
+				maxlength="100"
+				required
+				placeholder="<?php echo esc_attr( $sunflower_placeholder_captcha ); ?>"
+			/>
+		</div>
+		</div>
 
 			<p class="small">
 				<?php echo wp_kses_post( __( 'Please fill in all required (<span class="required">*</span>) fields.', 'sunflower-contact-form' ) ); ?>
