@@ -245,3 +245,11 @@ body #content {
     justify-content: center;
     align-items: center;
 }
+
+.wp-block-social-links.has-visible-labels {
+
+    .wp-social-link {
+        width: fit-content;
+        padding: 0 20px 4px 20px !important;
+    }
+}
