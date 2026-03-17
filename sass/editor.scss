@@ -899,3 +899,61 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
         }
     }
 }
+
+.editor-styles-wrapper .wp-block-media-text.person {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 !important;
+
+    .person-name,
+    .h4 {
+        font-weight: 700;
+        line-height: 110%;
+        text-transform: uppercase;
+        color: map.get($custom-colors, "tanne");
+        margin-top: 0;
+    }
+
+    .wp-block-media-text__content {
+        padding: calc(var(--grid-margin) / 4) var(--grid-margin) var(--grid-margin);
+        align-self: start;
+        width: 100%;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+
+    .wp-block-media-text__media {
+        align-self: auto;
+    }
+
+    .wp-block-media-text__media,
+    .wp-block-image {
+
+        img {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            width: 100%;
+        }
+    }
+}
+
+.editor-styles-wrapper .colorscheme-green .wp-block-media-text.person {
+    background-color: #000;
+    border-radius: var(--border-radius-large);
+    color: map.get($custom-colors, "white");
+
+    .person-name,
+    .h4 {
+        color: map.get($custom-colors, "white");
+    }
+}
+
+.editor-styles-wrapper .colorscheme-light .wp-block-media-text.person {
+    background-color: #fff;
+    border-radius: var(--border-radius-large);
+}
+
+.editor-styles-wrapper .mb-md-4:has(.person) {
+    margin-bottom: 0 !important;
+}
