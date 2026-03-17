@@ -1,4 +1,20 @@
 /* eslint-disable no-undef */
+
+/**
+ * Positive tabindex-Werte brechen die natürliche Tab-Reihenfolge.
+ * WordPress-Core oder Plugins können diese auf Blöcke setzen.
+ */
+function removePositiveTabindex() {
+	document.querySelectorAll( '[tabindex]' ).forEach( ( el ) => {
+		const val = parseInt( el.getAttribute( 'tabindex' ), 10 );
+		if ( val > 0 ) {
+			el.removeAttribute( 'tabindex' );
+		}
+	} );
+}
+removePositiveTabindex();
+document.addEventListener( 'DOMContentLoaded', removePositiveTabindex );
+
 // get the sticky element
 const stickyElement = document.querySelector( '.top-bar' );
 
@@ -408,19 +424,55 @@ document.addEventListener( 'DOMContentLoaded', () => {
  */
 
 document.addEventListener( 'DOMContentLoaded', () => {
-	const burger = document.querySelector( '.hamburger' ); // Klasse!
+	const burger = document.querySelector( '.hamburger' );
 	const rightBar = document.querySelector( '.right-bar' );
 
 	if ( ! burger || ! rightBar ) {
 		return;
-	} // Sicherheits-Check
+	}
 
-	burger.addEventListener( 'click', () => {
+	function toggleMenu() {
 		rightBar.classList.toggle( 'unfold' );
-
 		const expanded = rightBar.classList.contains( 'unfold' );
-		burger.setAttribute( 'aria-expanded', expanded );
+		burger.setAttribute( 'aria-expanded', String( expanded ) );
+	}
+
+	function closeMenu() {
+		if ( ! rightBar.classList.contains( 'unfold' ) ) {
+			return;
+		}
+		rightBar.classList.remove( 'unfold' );
+		burger.setAttribute( 'aria-expanded', 'false' );
+		burger.focus();
+	}
+
+	burger.addEventListener( 'click', toggleMenu );
+
+	document.addEventListener( 'keydown', ( e ) => {
+		if ( e.key === 'Escape' ) {
+			closeMenu();
+		}
 	} );
+} );
+
+/**
+ * Escape schließt offene Untermenüs und gibt Fokus an Elternelement zurück
+ */
+
+document.addEventListener( 'keydown', ( e ) => {
+	if ( e.key !== 'Escape' ) {
+		return;
+	}
+	const focused = document.activeElement;
+	const submenu = focused?.closest( '.main-menu .sub-menu' );
+	if ( ! submenu ) {
+		return;
+	}
+	const parentItem = submenu.closest( '.menu-item-has-children' );
+	const parentLink = parentItem?.querySelector( ':scope > a' );
+	if ( parentLink ) {
+		parentLink.focus();
+	}
 } );
 
 /**
@@ -467,9 +519,13 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		};
 
 		item.addEventListener( 'mouseenter', openHandler );
-		item.addEventListener( 'focusin', openHandler ); // Tastatur­navigation
+		item.addEventListener( 'focusin', openHandler );
 		item.addEventListener( 'mouseleave', closeHandler );
-		item.addEventListener( 'focusout', closeHandler );
+		item.addEventListener( 'focusout', ( e ) => {
+			if ( ! item.contains( e.relatedTarget ) ) {
+				closeHandler();
+			}
+		} );
 	} );
 
 	window.addEventListener( 'resize', () => {
@@ -692,6 +748,15 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			return 0;
 		}
 
+		function updateSlideVisibility() {
+			state.slides.forEach( ( slide, i ) => {
+				const isVisible =
+					i >= state.index &&
+					i < state.index + state.slidesPerView;
+				slide.inert = ! isVisible;
+			} );
+		}
+
 		function setByIndex( skipAnim = false ) {
 			const x = -( state.index * step() );
 			state.currentTranslate = x;
@@ -705,6 +770,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 					state.track.style.transition = 'transform .5s ease-in-out';
 				} );
 			}
+			updateSlideVisibility();
 		}
 
 		function recalc() {
@@ -901,12 +967,13 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 				window.removeEventListener( 'resize', recalc );
 
-				// Inline-Styles zurücksetzen
+				// Inline-Styles und inert zurücksetzen
 				state.slides.forEach( ( el ) => {
 					el.style.flex = '';
 					el.style.width = '';
 					el.style.minWidth = '';
 					el.style.maxWidth = '';
+					el.inert = false;
 				} );
 
 				track.style.transform = '';

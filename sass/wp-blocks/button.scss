@@ -66,11 +66,6 @@ body {
             background-color: $button-hover;
         }
 
-        &:focus {
-            outline: 2px solid map.get($custom-colors, "klee");
-            border: 2px solid map.get($custom-colors, "klee");
-        }
-
         &::before {
             font-family: ForkAwesome, sans-serif;
             font-weight: 400;

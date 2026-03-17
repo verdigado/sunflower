@@ -72,11 +72,6 @@
             margin: 0;
             text-transform: none;
 
-            &:focus {
-                outline: none;
-                box-shadow: none;
-            }
-
             &:hover,
             &:focus,
             &:active {
@@ -835,6 +830,46 @@ a.event-card {
         width: 100%;
     }
 
+}
+
+.wp-block-column .next-events {
+
+    .row {
+
+        > .col-12 {
+            grid-column: span 12 !important;
+        }
+
+        article {
+            grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+            gap: 0;
+
+            .p-4 {
+                grid-column: span 12 !important;
+                padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) var(--grid-margin) !important;
+            }
+        }
+
+        &:has(.event-card__media) article {
+
+            .event-card__media {
+                grid-column: span 5 !important;
+                border-radius: var(--border-radius-medium) 0 0 var(--border-radius-medium);
+            }
+
+            .p-4 {
+                grid-column: span 7 !important;
+                padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) var(--grid-margin) !important;
+            }
+
+            &:not(.has-post-thumbnail) {
+
+                .p-4 {
+                    grid-column: span 12 !important;
+                }
+            }
+        }
+    }
 }
 
 #leaflet {

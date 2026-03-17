@@ -57,11 +57,16 @@ header .social-media-profiles {
     z-index: 500;
     border-radius: 0 0 0 var(--border-radius-medium);
     cursor: pointer;
+    border: 0;
+    font: inherit;
 
     &:hover {
+        background-color: map.get($custom-colors, "white");
 
-        div {
-            background-color: map.get($custom-colors, "tanne");
+        .hamburger__top,
+        .hamburger__center,
+        .hamburger__bottom {
+            background-color: map.get($custom-colors, "klee");
         }
     }
 
@@ -152,11 +157,13 @@ header .social-media-profiles {
     .right-bar {
         right: -100%;
         opacity: 0;
+        visibility: hidden;
 
         &.unfold {
             right: 0 !important;
             transition: 0.3s ease !important;
             opacity: 1;
+            visibility: visible;
             max-width: calc(100% - var(--grid-margin)) !important;
         }
     }
@@ -811,7 +818,8 @@ html body.hamburger-menu header div .right-bar .main-menu ul li .sub-menu {
     }
 }
 
-.menu-item-has-children:hover > .sub-menu {
+.menu-item-has-children:hover > .sub-menu,
+.menu-item-has-children:focus-within > .sub-menu {
     display: block !important;
 }
 
@@ -1023,7 +1031,8 @@ html body.hamburger-menu .top-bar.stuck {
 
 .top-bar.stuck .menu-item-has-children {
 
-    &:hover {
+    &:hover,
+    &:focus-within {
         padding-bottom: 24px;
         margin-bottom: -24px;
     }

@@ -30,6 +30,11 @@
     }
 
 
+    &:has(figcaption) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
     figcaption {
         width: 100%;
         color: inherit;

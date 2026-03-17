@@ -33,13 +33,7 @@ ul.wp-block-categories-list {
             border-radius: 15px;
             transition: 300ms ease-out;
 
-            &:focus {
-                outline: none;
-                box-shadow: none;
-            }
-
             &:hover,
-            &:focus,
             &:active {
                 background: map.get($custom-colors, "schwarzwald");
                 color: map.get($custom-colors, "grashalm") !important;

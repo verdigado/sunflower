@@ -5,6 +5,8 @@
    y="0px"
    fill="currentColor"
    class="logo-img"
+   focusable="false"
+   aria-hidden="true"
    viewBox="0 0 512 512"
    id="svg10"
    xmlns:xlink="http://www.w3.org/1999/xlink"
