@@ -7,10 +7,6 @@
 .bg-darkgreen {
     background-color: $darkgreen;
     color: $white;
-
-    a:focus-visible {
-        outline: #fff solid 2px;
-    }
 }
 
 @each $name, $code in $custom-colors {

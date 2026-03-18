@@ -122,11 +122,7 @@ if ( 0 === $sunflower_posts->post_count ) {
 if ( $sunflower_is_slider ) {
 	$sunflower_list_items .= sprintf(
 		'<div class="%3$s">
-            <a class="text-white no-link d-block has-green-550-hover-background-color border-radius" href="%1$s" rel="">
-                <div>
-                    <button class="text-center pt-0">%2$s</button>
-                </div>
-            </a>
+            <a class="wp-block-button__link no-link" href="%1$s" rel="">%2$s</a>
         </div>',
 		esc_url( $sunflower_link ),
 		$sunflower_archive_label,
@@ -138,13 +134,7 @@ $sunflower_list_items .= '</div>';
 
 if ( ! $sunflower_is_slider ) {
 	$sunflower_list_items .= sprintf(
-		'
-    <a class="text-white no-link d-block has-green-550-hover-background-color border-radius" href="%1$s" rel="">
-        <div>
-            <button class="text-center pt-0">%2$s</button>
-        </div>
-    </a>
-',
+		'<a class="wp-block-button__link no-link" href="%1$s" rel="">%2$s</a>',
 		esc_url( $sunflower_link ),
 		$sunflower_archive_label
 	);

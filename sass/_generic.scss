@@ -19,13 +19,17 @@ html.preload * {
 .u-fade {
     opacity: 0;
     transition: opacity 320ms ease-out;
-    visibility: hidden;
     pointer-events: none;
 
     &.is-visible {
         opacity: 1;
         transform: none;
-        visibility: visible;
+        pointer-events: auto;
+    }
+
+    &:focus,
+    &:focus-within {
+        opacity: 1;
         pointer-events: auto;
     }
 }
@@ -35,7 +39,6 @@ html.preload * {
     .u-fade {
         opacity: 1;
         transition: none;
-        visibility: visible;
     }
 }
 

@@ -87,19 +87,19 @@
 
 		</div>
 
-		<nav class="hamburger">
-			<?php
-			sunflower_inline_svg( 'assets/img/concave.svg' );
-			?>
+	<button class="hamburger" type="button" aria-expanded="false" aria-label="<?php esc_attr_e( 'Menu', 'sunflower' ); ?>">
+		<?php
+		sunflower_inline_svg( 'assets/img/concave.svg' );
+		?>
 
-			<div class="hamburger__top"></div>
-			<div class="hamburger__center"></div>
-			<div class="hamburger__bottom"></div>
+		<div class="hamburger__top"></div>
+		<div class="hamburger__center"></div>
+		<div class="hamburger__bottom"></div>
 
-			<?php
-			sunflower_inline_svg( 'assets/img/concave.svg' );
-			?>
-		</nav>
+		<?php
+		sunflower_inline_svg( 'assets/img/concave.svg' );
+		?>
+	</button>
 	</div>
 
 	<?php
@@ -113,5 +113,3 @@
 	?>
 
 </header>
-
-<?php wp_body_open(); ?>

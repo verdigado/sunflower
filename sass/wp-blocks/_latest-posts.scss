@@ -15,6 +15,12 @@
     > .wp-block-group__inner-container {
         max-width: 1400px;
         width: calc(100% + var(--double-grid-margin));
+
+        > a.wp-block-button__link {
+            width: fit-content;
+            margin-top: var(--grid-margin);
+            float: right;
+        }
     }
 
     &--list {
@@ -100,6 +106,10 @@
                         padding: var(--grid-margin);
                     }
 
+                    &:not(:has(> div:not(.p-45))) {
+                        min-height: 0;
+                    }
+
                     p {
                         margin: 0 !important;
                     }
@@ -148,16 +158,6 @@
         .wp-block-group__inner-container {
 
             width: 100%;
-
-            > a {
-                width: fit-content;
-                margin-top: var(--grid-margin);
-                float: right;
-
-                .continue-reading {
-                    font-style: normal;
-                }
-            }
 
             p {
                 margin-bottom: var(--double-grid-margin) !important;
@@ -288,22 +288,15 @@
             min-width: 466px;
             min-height: 230px;
 
-            div {
-                min-width: 466px;
-                min-height: 230px;
-
-                > button {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 100%;
-                    height: 100%;
-                    min-height: inherit;
-                    border-radius: var(--border-radius-medium);
-
-                }
+            > a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                min-height: inherit;
+                border-radius: var(--border-radius-medium);
             }
-
         }
 
 
@@ -559,6 +552,12 @@
 
             &:not(:has(.wp-block-latest-posts__featured-image)) {
                 grid-template-columns: 1fr;
+                column-gap: 0;
+                min-height: 0;
+
+                > * {
+                    grid-column: 1;
+                }
 
                 .wp-block-latest-posts__post-title {
                     padding-left: var(--grid-margin);

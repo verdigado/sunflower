@@ -84,7 +84,7 @@ body.navbar-open {
             margin: 0;
             text-transform: none;
 
-            &:focus {
+            &:focus:not(:focus-visible) {
                 outline: none;
                 box-shadow: none;
             }
