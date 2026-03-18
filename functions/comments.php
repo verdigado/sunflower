@@ -11,7 +11,12 @@
  * @param array $fields The array of comments from fields.
  */
 function sunflower_rearrange_comment_fields( $fields ) {
-	$fields['closer'] = '</div>';
+
+	if ( is_user_logged_in() ) {
+		$fields['closer'] = '';
+	} else {
+		$fields['closer'] = '</div>';
+	}
 
 	return $fields;
 }
