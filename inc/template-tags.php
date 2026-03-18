@@ -203,7 +203,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 
 		if ( is_singular() && ! $is_block ) :
 			?>
-			<div class="post-thumbnail
+			<figure class="post-thumbnail
 			<?php
 			if ( $styled_layout ) {
 				echo ' mt-1';
@@ -240,7 +240,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 				}
 			}
 			?>
-			</div><!-- .post-thumbnail -->
+			</figure><!-- .post-thumbnail -->
 
 		<?php else : ?>
 			<?php
