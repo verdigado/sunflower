@@ -92,9 +92,9 @@
 		sunflower_inline_svg( 'assets/img/concave.svg' );
 		?>
 
-		<div class="hamburger__top"></div>
-		<div class="hamburger__center"></div>
-		<div class="hamburger__bottom"></div>
+		<span class="hamburger__top"></span>
+		<span class="hamburger__center"></span>
+		<span class="hamburger__bottom"></span>
 
 		<?php
 		sunflower_inline_svg( 'assets/img/concave.svg' );
