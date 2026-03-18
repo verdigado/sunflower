@@ -5,6 +5,11 @@
     margin-bottom: var(--half-block-spacing);
 }
 
+.wp-block-group.has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events),
+.wp-block-columns.has-background {
+    padding: var(--grid-margin) !important;
+}
+
 .entry-content > * .wp-block-group.is-layout-flex {
 
     &:first-child:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events),
@@ -267,11 +272,11 @@ body #content {
 }
 
 .entry-content > .wp-block-columns:has(+ .wp-block-columns) {
-    margin-bottom: 0;
+    margin-bottom: var(--grid-margin);
 }
 
 .entry-content > .wp-block-columns + .wp-block-columns {
-    margin-top: 0;
+    margin-top: var(--grid-margin);
 }
 
 .entry-content > .wp-block-group,

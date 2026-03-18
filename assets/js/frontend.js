@@ -555,6 +555,20 @@ document.addEventListener( 'DOMContentLoaded', () => {
  * Im Cover-Block: Hintergrund von inner-container oder wp-block-cover__background
  */
 
+function coverHasBackgroundImage( el ) {
+	const inner = el.closest( '.wp-block-cover__inner-container' );
+	if ( ! inner ) {
+		return false;
+	}
+	const cover = inner.closest( '.wp-block-cover' );
+	if ( ! cover ) {
+		return false;
+	}
+	return !! cover.querySelector(
+		'img.wp-block-cover__image-background, video.wp-block-cover__video-background'
+	);
+}
+
 /**
  * @param {HTMLElement} mark
  * @param {boolean}     useContainerColor – true nur bei Zeilenumbruch im Cover (::before soll mit Container verschmelzen)
@@ -564,6 +578,10 @@ function getContainerBackgroundForMark( mark, useContainerColor ) {
 	const innerContainer = heading
 		? heading.closest( '.wp-block-cover__inner-container' )
 		: null;
+
+	if ( useContainerColor && heading && coverHasBackgroundImage( heading ) ) {
+		return 'transparent';
+	}
 
 	// Nur bei Zeilenumbruch im Cover: Container-Farbe (::before verschmilzt mit Hintergrund)
 	if ( useContainerColor && innerContainer ) {
@@ -1085,6 +1103,10 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	}
 
 	function getHeadlineColor( heading ) {
+		if ( coverHasBackgroundImage( heading ) ) {
+			return '#ffffff';
+		}
+
 		const lightBgClasses = [
 			'has-weiss-background-color',
 			'has-sonne-background-color',
@@ -1302,12 +1324,70 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		} );
 	}
 
-	function debouncedProcess() {
-		clearTimeout( resizeTimeout );
-		resizeTimeout = setTimeout( processHeadings, 150 );
+	function processLabels() {
+		const labels = document.querySelectorAll(
+			'.brand-left .label-top, .brand-left .label-bottom'
+		);
+
+		labels.forEach( function ( label ) {
+			if (
+				! label.dataset.labelOriginalStyle &&
+				label.getAttribute( 'style' )
+			) {
+				label.dataset.labelOriginalStyle =
+					label.getAttribute( 'style' );
+			}
+
+			const originalStyle = label.dataset.labelOriginalStyle || '';
+			if ( originalStyle ) {
+				label.setAttribute( 'style', originalStyle );
+			} else {
+				label.removeAttribute( 'style' );
+			}
+
+			if ( ! isMultilineMark( label ) ) {
+				return;
+			}
+
+			label.style.setProperty( '--bg', 'transparent' );
+			label.style.setProperty(
+				'background-color',
+				'transparent',
+				'important'
+			);
+			label.style.setProperty( 'height', 'fit-content', 'important' );
+			label.style.setProperty( 'text-align', 'left', 'important' );
+			label.style.setProperty( 'left', '0', 'important' );
+
+			const firstContentChild = document.querySelector(
+				'.entry-content > :first-child'
+			);
+			const hasCoverFirst =
+				firstContentChild &&
+				firstContentChild.classList.contains( 'wp-block-cover' );
+
+			if ( hasCoverFirst ) {
+				label.style.setProperty( 'color', '#ffffff', 'important' );
+			} else {
+				const newColor = getHeadlineColor( label );
+				if ( newColor ) {
+					label.style.setProperty( 'color', newColor, 'important' );
+				}
+			}
+		} );
 	}
 
-	window.addEventListener( 'load', processHeadings );
+	function processAll() {
+		processHeadings();
+		processLabels();
+	}
+
+	function debouncedProcess() {
+		clearTimeout( resizeTimeout );
+		resizeTimeout = setTimeout( processAll, 150 );
+	}
+
+	window.addEventListener( 'load', processAll );
 	window.addEventListener( 'resize', debouncedProcess );
 } )();
 

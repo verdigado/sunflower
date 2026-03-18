@@ -272,6 +272,10 @@ header .social-media-profiles {
         }
 
     }
+
+    .brand-left {
+        margin: var(--double-grid-margin) 120px 0 calc(var(--double-grid-margin) + 7px);
+    }
 }
 
 body.admin-bar {
@@ -682,19 +686,11 @@ $text-dark: #222;
         &:hover {
 
             .label-top {
-                background-color: map.get($custom-colors, "klee");
-
-                &::before {
-                    background-color: map.get($custom-colors, "klee");
-                }
+                --bg: #{map.get($custom-colors, "klee")};
             }
 
             .label-bottom {
-                background-color: map.get($custom-colors, "tanne");
-
-                &::before {
-                    background-color: map.get($custom-colors, "tanne");
-                }
+                --bg: #{map.get($custom-colors, "tanne")};
             }
         }
     }
@@ -948,7 +944,8 @@ $text-dark: #222;
 }
 
 .label-top {
-    background-color: map.get($custom-colors, "tanne");
+    --bg: #{map.get($custom-colors, "tanne")};
+    background-color: var(--bg);
     position: relative;
     right: calc(-1 * var(--gap-large));
     z-index: 1;
@@ -963,7 +960,7 @@ $text-dark: #222;
         content: '';
         z-index: -1;
         transform: skewX(-12deg);
-        background-color: #005538;
+        background-color: var(--bg);
         transition: background-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
@@ -974,7 +971,8 @@ $text-dark: #222;
 }
 
 .label-bottom {
-    background-color: map.get($custom-colors, "klee");
+    --bg: #{map.get($custom-colors, "klee")};
+    background-color: var(--bg);
     position: relative;
     transition: background-color 0.3s ease;
 
@@ -991,7 +989,7 @@ $text-dark: #222;
         content: '';
         z-index: -1;
         transform: skewX(-12deg);
-        background-color: map.get($custom-colors, "klee");
+        background-color: var(--bg);
         transition: background-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
@@ -1018,8 +1016,6 @@ $text-dark: #222;
         padding: 4px 0 0 0;
     }
 }
-
-
 
 .top-bar.stuck .menu-item-has-children {
 

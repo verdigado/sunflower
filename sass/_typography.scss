@@ -456,8 +456,8 @@ body #content {
 .wp-block-group.has-background:is(
 .has-klee-background-color,
 .has-klee-700-background-color,
-.has-grashalm-background-color
-) {
+.has-grashalm-background-color,
+.has-gray-background-color) {
 
     h2 {
         color: map.get($custom-colors, "white") !important;
@@ -466,7 +466,6 @@ body #content {
 
 .has-sonne-background-color,
 .has-sand-background-color,
-.has-gray-background-color,
 .has-kalk-background-color,
 .has-white-background-color,
 .has-weiss-background-color,

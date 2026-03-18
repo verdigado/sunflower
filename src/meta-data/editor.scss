@@ -7,7 +7,7 @@
 @use "../../sass/variables";
 
 .wp-block-sunflower-meta-data {
-
+    width: fit-content;
     margin: var(--half-grid-margin);
 
     &:first-child {
