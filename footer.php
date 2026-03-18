@@ -27,7 +27,15 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 					</p>
 				</div>
 
-				<nav class="navbar navbar-top navbar-expand-md footermenu-1">
+			<div class="footermenu-1">
+
+				<?php if ( is_active_sidebar( 'footer-center' ) ) : ?>
+					<div class="footer-widget-area footer-widget-area--center">
+						<?php dynamic_sidebar( 'footer-center' ); ?>
+					</div>
+				<?php endif; ?>
+
+				<nav class="navbar navbar-top navbar-expand-md">
 					<div class="text-center ">
 						<?php
 						wp_nav_menu(
@@ -45,8 +53,16 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 						?>
 					</div>
 				</nav>
+			</div>
 
-				<nav class="navbar navbar-top navbar-expand-md footermenu-2">
+			<div class="footermenu-2">
+
+				<?php if ( is_active_sidebar( 'footer-right' ) ) : ?>
+				<div class="footer-widget-area footer-widget-area--right">
+					<?php dynamic_sidebar( 'footer-right' ); ?>
+				</div>
+				<?php endif; ?>
+				<nav class="navbar navbar-top navbar-expand-md">
 					<div class="text-center ">
 						<?php
 						wp_nav_menu(
@@ -64,6 +80,7 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 						?>
 					</div>
 				</nav>
+			</div>
 
 			</div>
 

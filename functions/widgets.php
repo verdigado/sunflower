@@ -1,6 +1,6 @@
 <?php
 /**
- * Widget areas for Sunflower 26.
+ * Widget areas and custom widgets for Sunflower 26.
  *
  * @package Sunflower 26
  */
@@ -8,8 +8,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-require_once get_template_directory() . '/functions/class-sunflower-contact-widget.php';
 
 /**
  * Register widget areas and custom widgets.
@@ -20,7 +18,7 @@ function sunflower_widgets_init() {
 		array(
 			'name'          => __( 'Footer Mitte', 'sunflower' ),
 			'id'            => 'footer-center',
-			'description'   => __( 'Widget-Bereich in der Footer-Mitte (z.B. Kontaktdaten).', 'sunflower' ),
+			'description'   => __( 'Bereich in der Footer-Mitte für Kontakt-Widget', 'sunflower' ),
 			'before_widget' => '<div id="%1$s" class="widget footer-widget footer-widget--center %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widget-title">',
@@ -32,7 +30,7 @@ function sunflower_widgets_init() {
 		array(
 			'name'          => __( 'Footer Rechts', 'sunflower' ),
 			'id'            => 'footer-right',
-			'description'   => __( 'Widget-Bereich rechts im Footer (z.B. Suche).', 'sunflower' ),
+			'description'   => __( 'Bereich rechts im Footer für die Suche', 'sunflower' ),
 			'before_widget' => '<div id="%1$s" class="widget footer-widget footer-widget--right %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widget-title">',
@@ -44,7 +42,7 @@ function sunflower_widgets_init() {
 		array(
 			'name'          => __( 'Header (nach Logo)', 'sunflower' ),
 			'id'            => 'header-after-brand',
-			'description'   => __( 'Widget-Bereich im Header nach dem Brand-Link (z.B. Suche).', 'sunflower' ),
+			'description'   => __( 'Bereich im Header für die Suche', 'sunflower' ),
 			'before_widget' => '<div id="%1$s" class="widget header-widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '',
@@ -82,3 +80,23 @@ function sunflower_widgets_init() {
 add_action( 'widgets_init', 'sunflower_widgets_init' );
 
 add_filter( 'use_widgets_block_editor', '__return_false' );
+
+/**
+ * Use the search widget title as the search field placeholder instead of
+ * displaying it as a heading. The title is stored in a global that
+ * searchform.php picks up.
+ *
+ * @param string $title    The widget title.
+ * @param array  $instance The widget instance settings.
+ * @param string $id_base  The widget ID base.
+ * @return string Empty string to suppress the heading output.
+ */
+function sunflower_search_title_to_placeholder( $title, $instance = array(), $id_base = '' ) {
+	if ( 'search' === $id_base && ! empty( $title ) ) {
+		global $sunflower_search_placeholder;
+		$sunflower_search_placeholder = $title;
+		return '';
+	}
+	return $title;
+}
+add_filter( 'widget_title', 'sunflower_search_title_to_placeholder', 10, 3 );

@@ -491,3 +491,25 @@ body #content .wp-block-cover {
     }
 
 }
+
+.search-no-results .page-content p {
+    text-align: center;
+}
+
+form[role="search"] {
+
+    input[type="search"] {
+        outline: none !important;
+        padding-left: 20px;
+        border-radius: 23px;
+    }
+
+    button[type="submit"] {
+        padding: 0;
+        width: 46px;
+
+        &:hover {
+            border: 2px solid map.get($custom-colors, "schwarzwald");
+        }
+    }
+}
