@@ -432,9 +432,14 @@
 .wp-block-latest-posts {
     list-style: none;
 
+    &:last-child {
+        margin-bottom: 0;
+    }
+
     &:not(.is-grid) {
 
         max-width: 1100px !important;
+
 
         li {
             display: grid;
@@ -450,6 +455,10 @@
             position: relative;
             cursor: pointer;
             padding: var(--grid-margin) 0;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
 
             > *:not(.wp-block-latest-posts__featured-image) {
                 grid-column: 2;
