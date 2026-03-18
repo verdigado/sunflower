@@ -59,6 +59,10 @@ body {
         align-items: center;
         justify-content: center;
 
+        i {
+            margin-right: var(--gap-small);
+        }
+
 
         &:hover {
             color: map.get($custom-colors, "tanne");
