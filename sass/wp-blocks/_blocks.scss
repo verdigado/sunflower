@@ -54,17 +54,6 @@ body #content {
 
         &__inside-wrapper {
             position: relative;
-
-            &::before {
-                content: url("#{$sunflower-img-path}/search.svg");
-                position: absolute;
-                left: 18px;
-                top: 8px;
-                width: 23px;
-                height: 20px;
-                pointer-events: none;
-                z-index: 10;
-            }
         }
 
         &__button {
@@ -92,21 +81,6 @@ body #content {
             position: relative;
             margin: 0;
             padding: 0;
-
-            &::before {
-                content: url("#{$sunflower-img-path}/search.svg");
-                position: absolute;
-                left: 18px;
-                top: 8px;
-                width: 23px;
-                height: 20px;
-                pointer-events: none;
-                z-index: 10;
-            }
-        }
-
-        .search-field {
-            padding-left: 50px;
         }
 
         .search-submit {
@@ -114,6 +88,10 @@ body #content {
             right: 0;
             top: 0;
             height: 100%;
+
+            i {
+                margin: 0 0 1px 0;
+            }
         }
     }
 }

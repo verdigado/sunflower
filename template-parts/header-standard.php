@@ -40,6 +40,11 @@
 			<div class="label-bottom skew-box"><?php esc_attr( bloginfo( 'description' ) ); ?></div>
 		</a>
 
+		<?php if ( is_active_sidebar( 'header-after-brand' ) ) : ?>
+		<div class="header-widget-area">
+			<?php dynamic_sidebar( 'header-after-brand' ); ?>
+		</div>
+		<?php endif; ?>
 
 		<div class="right-bar menubar nav-center d-flex align-items-center flex-wrap justify-content-center">
 

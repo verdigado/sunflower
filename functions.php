@@ -32,6 +32,8 @@ require_once __DIR__ . '/functions/security.php';
 require_once __DIR__ . '/functions/theme.php';
 require_once __DIR__ . '/functions/latest-posts.php';
 require_once __DIR__ . '/functions/media.php';
+require_once __DIR__ . '/functions/class-sunflower-contact-widget.php';
+require_once __DIR__ . '/functions/widgets.php';
 
 
 /**

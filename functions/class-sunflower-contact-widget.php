@@ -45,33 +45,36 @@ class Sunflower_Contact_Widget extends WP_Widget {
 			)
 		);
 
+		// Widget wrapper HTML comes from register_sidebar() – safe to output with kses.
 		echo wp_kses_post( $args['before_widget'] );
 
+		$fields = array();
+
 		if ( ! empty( $instance['title'] ) ) {
-			echo wp_kses_post( $args['before_title'] ) . esc_html( $instance['title'] ) . wp_kses_post( $args['after_title'] );
+			$fields['title'] = array(
+				'class' => 'contact-title',
+			);
 		}
 
-		$fields = array(
-			'address'       => array(
-				'icon'      => 'fa-solid fa-location-dot',
-				'class'     => 'contact-address',
-				'multiline' => true,
-			),
-			'phone'         => array(
-				'icon'  => 'fa-solid fa-phone',
-				'class' => 'contact-phone',
-				'link'  => 'tel',
-			),
-			'email'         => array(
-				'icon'  => 'fa-solid fa-envelope',
-				'class' => 'contact-email',
-				'link'  => 'mailto',
-			),
-			'opening_hours' => array(
-				'icon'      => 'fa-solid fa-clock',
-				'class'     => 'contact-hours',
-				'multiline' => true,
-			),
+		$fields['address']       = array(
+			'icon'      => 'fa-solid fa-location-dot',
+			'class'     => 'contact-address',
+			'multiline' => true,
+		);
+		$fields['phone']         = array(
+			'icon'  => 'fa-solid fa-phone',
+			'class' => 'contact-phone',
+			'link'  => 'tel',
+		);
+		$fields['email']         = array(
+			'icon'  => 'fa-solid fa-envelope',
+			'class' => 'contact-email',
+			'link'  => 'mailto',
+		);
+		$fields['opening_hours'] = array(
+			'icon'      => 'fa-solid fa-clock',
+			'class'     => 'contact-hours',
+			'multiline' => true,
 		);
 
 		echo '<ul class="sunflower-contact-list">';
@@ -83,7 +86,11 @@ class Sunflower_Contact_Widget extends WP_Widget {
 			}
 
 			echo '<li class="' . esc_attr( $field['class'] ) . '">';
-			echo '<i class="' . esc_attr( $field['icon'] ) . '"></i>';
+
+			if ( ! empty( $field['icon'] ) ) {
+				echo '<i class="' . esc_attr( $field['icon'] ) . '"></i>';
+			}
+
 			echo '<span>';
 
 			if ( ! empty( $field['link'] ) && 'tel' === $field['link'] ) {

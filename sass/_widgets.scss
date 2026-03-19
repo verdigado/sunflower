@@ -1,161 +1,228 @@
-.widget {
-    margin-bottom: 5rem;
+@use "sass:map";
 
-    ul {
-        list-style-type: none;
-        padding-left: 0;
-        position: relative;
 
-        li {
-            border-bottom: 1px solid $gray-500;
-            padding: 0.75rem 0;
-            position: relative;
-        }
+.stuck {
 
+    .header-widget-area {
+        display: none;
+    }
+}
+
+.header-widget-area {
+    left: var(--double-grid-margin);
+    position: absolute;
+    top: 140px;
+    display: flex;
+    gap: var(--gap-large);
+
+    @include media-breakpoint-down(xl) {
+        top: 125px;
     }
 
-    a {
-        color: $white;
+    @include media-breakpoint-down(md) {
+        top: 110px;
+    }
+}
 
-        &:hover {
-            color: $white;
+.footer-widget-area {
+    gap: var(--gap-large);
+
+    &--right {
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        flex-direction: column;
+
+        @include media-breakpoint-down(xl) {
+            align-items: flex-start;
+            width: 100%;
         }
     }
 
-    &-title {
+    &--center {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
 
-        font-weight: 700;
-        font-size: 1.3rem;
-        color: $white;
-        letter-spacing: 0.3px;
+        @include media-breakpoint-down(xl) {
+            align-items: flex-start;
+        }
     }
+}
 
-    &_search {
+.hamburger-menu {
 
-        input,
-        input:focus {
-            border: 1px solid $gray-500;
-            padding: 4px;
-            border-radius: 2px;
-            background: none;
-            color: $white;
-            font-style: italic;
-        }
+    .header-widget-area {
+        top: calc(100vh - 53px);
+        left: var(--half-grid-margin);
 
-        label {
-            position: relative;
-
-            &::after {
-                content: "\f002";
-                font-family: "Font Awesome 6 Free";
-                font-weight: 900;
-                position: absolute;
-                top: 5px;
-                right: 10px;
-            }
-        }
-
-        input[type="submit"] {
+        .widget_sunflower_contact {
             display: none;
         }
+    }
+}
 
-        .wp-block-search__button-outside {
+.footer-widget-area {
 
-            label {
+    .widget_search {
+        width: 100%;
+        position: relative;
+        transition: 300ms ease-out;
 
-                &.wp-block-search__label {
+        input[type="search"],
+        label {
+            width: 100%;
+        }
 
-                    font-weight: 700;
-                    font-size: 1.3rem;
-                    color: $white;
-                    letter-spacing: 0.3px;
+        &:hover,
+        &:active,
+        &:focus-within {
+            width: 100% !important;
 
-                }
+            input[type="search"] {
+                width: 100% !important;
+            }
+        }
 
-                &::after {
-                    content: "";
-                }
+        @include media-breakpoint-down(md) {
+            width: 100%;
+
+            input[type="search"] {
+                width: 100%;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+
+            input[type="search"] {
+                width: 100%;
             }
         }
 
     }
+}
 
-    &_categories {
 
-        li {
+.widget_search {
+    width: 46px;
+    position: relative;
+    transition: 300ms ease-out;
 
-            a {
-                display: block;
-            }
+    &:hover,
+    &:active,
+    &:focus-within {
+        width: 400px;
 
-            &::after {
-                content: "\f054";
-                font-family: "Font Awesome 6 Free";
-                font-weight: 900;
-                position: absolute;
-                right: 1rem;
-                top: 0.8rem;
+        input[type="search"] {
+            width: 400px;
+        }
+
+        @include media-breakpoint-down(md) {
+            width: 300px;
+
+            input[type="search"] {
+                width: 300px;
             }
         }
 
-    }
+        @include media-breakpoint-down(sm) {
+            width: 280px;
 
-    &_recent_entries {
-
-        .post-date {
-            display: block;
-            font-style: italic;
-            font-size: 90%;
-            margin-top: 0.2rem;
+            input[type="search"] {
+                width: 280px;
+            }
         }
-
     }
 
-    .tagcloud {
+    input[type="search"] {
+        padding-left: 20px;
+        transition: 300ms ease-out;
+        outline: none !important;
+        border-radius: 23px;
+    }
 
+    .search-submit {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 0;
+        height: 46px;
+        width: 46px;
+        border: none;
+        cursor: pointer;
+        background: transparent;
         display: flex;
-        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            font-size: 18px;
+            color: map.get($custom-colors, "tanne");
+            margin: 0 0 1px 0;
+        }
+    }
+}
+
+.widget_sunflower_contact {
+    font-size: 16px !important;
+    line-height: 150%;
+    letter-spacing: 0.9px;
+    margin: 0;
+    width: fit-content;
+    min-width: calc(200px - var(--grid-margin));
+
+    @include media-breakpoint-down(xl) {
+        font-size: 14px !important;
+    }
+
+    .contact-title {
+        font-weight: 700;
+        font-size: 1.1em;
+    }
+}
+
+.sunflower-contact-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    width: fit-content;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--gap-small);
+        padding: 0;
+        border-bottom: none;
+        margin-bottom: var(--gap-small) !important;
+        font-family: "PT Sans", sans-serif !important;
+        font-weight: 400;
+        color: map.get($custom-colors, "tanne");
 
         a {
-            font-size: 80% !important;
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid $sidebar-color;
-            border-radius: var(--border-radius-tiny);
-            padding: 0.3rem 0.5rem;
-            margin: 0 0.3rem 0.5rem 0;
+            font-family: "PT Sans", sans-serif !important;
+            font-weight: 400;
+            color: map.get($custom-colors, "tanne") !important;
 
             &:hover {
-                background-color: $white;
-                color: $secondary;
+                color: map.get($custom-colors, "klee") !important;
             }
         }
-    }
 
-    &_archive {
-
-        select {
-            border: 1px solid $sidebar-color;
-            padding: 0.2rem;
-        }
-    }
-
-    &_sunflower_follow_us {
-
-        .widget-container {
-            display: flex;
-            flex-wrap: wrap;
+        i {
+            flex-shrink: 0;
+            width: 1.2em;
+            text-align: center;
+            top: 3.5px;
+            position: relative;
+            color: map.get($custom-colors, "tanne");
         }
 
-        .social-media-profile {
-            background-color: $sidebar-color;
-            width: 30px;
-            height: 30px;
-        }
-
-        svg {
-            fill: $white;
-            width: 20px;
+        span {
+            flex: 1;
         }
     }
 }

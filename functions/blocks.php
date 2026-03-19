@@ -104,7 +104,7 @@ function sunflower_enqueue_block_icon_picker() {
 		array(
 			'wp-blocks',
 			'wp-element',
-			'wp-editor',
+			'wp-block-editor',
 			'wp-components',
 			'wp-i18n',
 			'wp-compose',

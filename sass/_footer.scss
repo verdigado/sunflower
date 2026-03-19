@@ -27,7 +27,7 @@
         color: map.get($custom-colors, "tanne");
 
         > div {
-            gap: var(--grid-margin);
+            gap: var(--double-grid-margin);
 
             @include media-breakpoint-down(md) {
                 gap: var(--double-grid-margin);
@@ -151,20 +151,26 @@
     .footermenu-1 {
         width: 33.3%;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--grid-margin);
 
         @include media-breakpoint-down(md) {
-            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
         }
     }
 
     .footermenu-2 {
         width: 33.3%;
         display: flex;
-        justify-content: flex-end;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: var(--grid-margin);
 
         @include media-breakpoint-down(md) {
-            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
         }
     }
 
@@ -215,5 +221,71 @@
 
     hr {
         opacity: 0.6;
+    }
+
+    .footer-widget {
+        margin-bottom: 0;
+
+        .widget-title {
+            color: map.get($custom-colors, "tanne");
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: map.get($custom-colors, "klee");
+
+            &:hover {
+                color: map.get($custom-colors, "tanne");
+            }
+        }
+
+        .sunflower-contact-list li {
+            border-bottom: none;
+            color: map.get($custom-colors, "tanne");
+
+            i {
+                color: map.get($custom-colors, "klee");
+            }
+        }
+
+        &--right {
+
+            .widget_search {
+
+                .search-form {
+                    position: relative;
+                }
+
+                input[type="search"],
+                input[type="search"]:focus {
+                    border: 1px solid map.get($custom-colors, "klee");
+                    padding: 4px 30px 4px 8px;
+                    border-radius: var(--border-radius-tiny);
+                    background: none;
+                    color: map.get($custom-colors, "tanne");
+                    font-style: italic;
+                    width: 100%;
+                }
+
+                .search-submit {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 30px;
+                    border: none;
+                    background: transparent;
+                    cursor: pointer;
+                    padding: 0;
+
+                    i {
+                        color: map.get($custom-colors, "klee");
+                    }
+                }
+            }
+        }
     }
 }
