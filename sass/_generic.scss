@@ -42,7 +42,6 @@ html.preload * {
     }
 }
 
-
 .full-width {
     width: 100vw;
     position: relative;
@@ -124,6 +123,9 @@ html.preload * {
     }
 }
 
+.nobr {
+    white-space: nowrap;
+}
 
 body .container .entry-content {
 
