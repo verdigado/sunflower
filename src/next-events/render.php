@@ -52,7 +52,7 @@ $sunflower_return .= ob_get_clean();
 
 $sunflower_return .= sprintf(
 	'</div>
-			<div class="wp-block-button text-center mb-5">
+			<div class="wp-block-button text-center">
 				<a class="wp-block-button__link" href="%s" rel="">%s</a>
 			</div>
 		</div>
