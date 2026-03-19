@@ -14,28 +14,27 @@
         &::before {
             display: none;
         }
+
+        figcaption {
+            color: inherit !important;
+            background: none !important;
+            padding: calc(var(--gap-small) / 2) var(--gap-small) !important;
+            text-shadow: none !important;
+            font-weight: 500 !important;
+
+            backdrop-filter: blur(25px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
+            background-color: rgba(255, 255, 255, 0.7) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+        }
+
     }
 
     figcaption {
-        width: 100% !important;
-        color: inherit !important;
-        text-align: center !important;
-        line-height: 125% !important;
-        background: none !important;
-        padding: calc(var(--gap-small) / 2) var(--gap-small) !important;
-        position: absolute !important;
-        bottom: 0 !important;
-        text-shadow: none !important;
-        font-weight: 500 !important;
-
-        backdrop-filter: blur(25px) saturate(200%) !important;
-        -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
-        background-color: rgba(255, 255, 255, 0.7) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
 
         &.blocks-gallery-caption {
             position: relative !important;
-
         }
     }
 
