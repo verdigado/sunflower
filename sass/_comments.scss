@@ -190,11 +190,6 @@
     }
 }
 
-.comments-area {
-    min-height: 100px;
-}
-
-
 .entry-content > .wp-block-latest-comments {
     margin-top: var(--half-block-spacing);
     margin-bottom: var(--half-block-spacing);
@@ -202,10 +197,6 @@
 
 .wp-block-latest-comments {
     padding-left: 0;
-}
-
-time {
-    font-weight: 700;
 }
 
 .logged-in-as {
@@ -235,6 +226,8 @@ time {
 
 .comments-area {
 
+    min-height: 100px;
+
     .comments-title {
         margin-top: var(--double-grid-margin) !important;
         margin-bottom: 0 !important;
@@ -261,6 +254,10 @@ time {
 
         .comment-metadata {
             color: map.get($custom-colors, "tanne");
+
+            time {
+                font-weight: 700;
+            }
         }
 
         .edit-link {
@@ -335,6 +332,22 @@ time {
         background-color: map.get($custom-colors, "sand");
         margin: 0;
         padding: calc(var(--grid-margin) - 4px) var(--grid-margin) var(--grid-margin) var(--grid-margin) !important;
+
+        .comment-reply-title {
+            display: flex;
+            justify-content: space-between;
+
+            #cancel-comment-reply-link {
+                font-size: 20px;
+                font-family: var(--wp--preset--font-family--pt-sans);
+                border-radius: 23px;
+                border: 2px solid $button-border;
+                background-color: $button-background;
+                color: $primary;
+                padding: 5px 25px;
+                text-transform: uppercase;
+            }
+        }
     }
 
     .required-field-message,
