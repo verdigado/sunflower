@@ -23335,13 +23335,24 @@ html.preload * {
   }
 }
 
-.alignfull {
+.entry-content > .alignfull {
   width: calc(100% + var(--double-grid-margin)) !important;
   margin-left: calc(-1 * var(--grid-margin)) !important;
   margin-right: calc(-1 * var(--grid-margin)) !important;
   max-width: calc(100% + var(--double-grid-margin)) !important;
   padding-left: var(--grid-margin);
   padding-right: var(--grid-margin);
+}
+
+.wp-block-column, .wp-block-group {
+	.alignfull {
+		width: 100%;
+		max-width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 
 .text-left {

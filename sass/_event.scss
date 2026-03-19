@@ -475,6 +475,10 @@ a.event-card {
                 bottom: calc(var(--grid-margin) - 3px);
                 right: var(--grid-margin);
                 transition: 400ms ease-out;
+
+                @include media-breakpoint-down(md) {
+                    display: none !important;
+                }
             }
 
             .event-card__icon--green {
