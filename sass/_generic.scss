@@ -254,9 +254,6 @@ body.formstyle-sharp {
 
         > .wp-block-cover {
 
-            width: calc(100% + var(--double-grid-margin)) !important;
-
-
             &.alignfull {
                 left: 0;
                 right: 0;
@@ -273,10 +270,10 @@ body.formstyle-sharp {
 
         }
 
-        > :first-child.wp-block-cover {
+        > :first-child.wp-block-cover.is-style-sunflower-hero {
 
             height: calc(100vh - 85px) !important;
-            margin-top: 85px;
+            margin-top: 85px !important;
 
             @include media-breakpoint-down(xl) {
                 height: calc(100vh - 70px) !important;
@@ -474,6 +471,21 @@ body.formstyle-sharp {
             display: none;
         }
     }
+
+    .entry-content > .wp-block-cover:first-child {
+        margin: 80px 0 var(--half-block-spacing) 0 !important;
+    }
+
+
+    #page:has(.topmenu) #content {
+
+        .entry-content > .wp-block-cover.is-style-sunflower-hero:first-child {
+            margin: 100px 0 var(--half-block-spacing) 0 !important;
+            height: calc(100vh - 180px) !important;
+        }
+    }
+
+
 }
 
 #page > .container-fluid.bg-darkgreen {
