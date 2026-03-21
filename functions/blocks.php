@@ -68,6 +68,13 @@ function sunflower_blocks_init() {
 		'sunflower-contact-form',
 		get_template_directory() . '/languages'
 	);
+
+	register_block_type( get_template_directory() . '/build/calendar' );
+	wp_set_script_translations(
+		'sunflower-calendar-events-editor-script',
+		'sunflower-calendar-events',
+		get_template_directory() . '/languages'
+	);
 }
 
 add_action( 'init', 'sunflower_blocks_init' );
@@ -90,6 +97,9 @@ function sunflower_blocks_load_textdomain() {
 
 	load_textdomain( 'sunflower-meta-data', get_template_directory() . '/languages/sunflower-meta-data-de_DE.mo' );
 	load_theme_textdomain( 'sunflower-meta-data', get_template_directory() . '/languages' );
+
+	load_textdomain( 'sunflower-calendar-events', get_template_directory() . '/languages/sunflower-calendar-events-de_DE.mo' );
+	load_theme_textdomain( 'sunflower-calendar-events', get_template_directory() . '/languages' );
 }
 
 add_action( 'after_setup_theme', 'sunflower_blocks_load_textdomain' );

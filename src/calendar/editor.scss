@@ -1,0 +1,201 @@
+/**
+ * Calendar Block Editor Styles
+ *
+ * Static preview rendered inside the block editor.
+ * Mirrors the frontend design without requiring FullCalendar to run.
+ */
+
+@use "../../sass/variables" as *;
+@use "sass:map";
+
+.wp-block-sunflower-calendar-events {
+    list-style: none;
+    padding: 0;
+
+    // Section background — white, matching the frontend wrapper
+    .sunflower-calendar-container {
+        background-color: $white;
+        padding: 30px var(--grid-margin);
+        max-width: 100%;
+    }
+
+    // White card — mirrors .sunflower-calendar on the frontend
+    .sunflower-calendar-preview {
+        background-color: $white;
+        border: 1px solid $very-light-gray;
+        border-radius: var(--border-radius-medium);
+        padding: var(--grid-margin);
+        margin-bottom: 0;
+    }
+
+    // Toolbar
+    .calendar-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        margin-bottom: var(--grid-margin);
+        gap: var(--half-grid-margin);
+    }
+
+    .calendar-nav-left {
+        display: flex;
+        gap: 4px;
+        justify-self: start;
+    }
+
+    .calendar-title {
+        font-family: var(--wp--preset--font-family--gruenetypeneue, "PT Sans", sans-serif);
+        font-size: 25px;
+        line-height: 110%;
+        color: $primary;
+        letter-spacing: 0.5px;
+        margin: 0;
+        justify-self: center;
+    }
+
+    // Preview buttons — mirror the standard Sunflower button style
+    .calendar-btn {
+        background-color: $button-background;
+        color: $primary;
+        border: 2px solid $button-border;
+        border-radius: var(--border-radius-button);
+        padding: 6px 35px 10px;
+        font-family: "PT Sans", sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 130%;
+        min-height: 0;
+        letter-spacing: 0.6px;
+        cursor: not-allowed;
+        opacity: 1;
+    }
+
+    // Day grid
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1px;
+        background-color: $very-light-gray;
+        border: 1px solid $very-light-gray;
+        border-radius: var(--border-radius-tiny);
+        overflow: hidden;
+    }
+
+    .calendar-day-header {
+        background-color: map.get($custom-colors, "sand");
+        padding: 8px 4px;
+        text-align: center;
+        font-family: "PT Sans", sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+        color: $primary;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .calendar-day {
+        background-color: $white;
+        padding: 6px 8px;
+        min-height: 72px;
+        position: relative;
+    }
+
+    .calendar-day-number {
+        color: $darkgray;
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .calendar-day.is-today {
+
+        .calendar-day-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            margin: 4px 0;
+            background-color: map.get($custom-colors, "klee");
+            color: $white;
+            border-radius: 50%;
+            font-weight: 700;
+        }
+    }
+
+    // Mock event pill — uses klee, matching actual event colours
+    .calendar-event-mock {
+        background-color: map.get($custom-colors, "klee");
+        color: $white;
+        padding: 2px 6px;
+        border-radius: var(--border-radius-tiny);
+        font-family: "PT Sans", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    // Preview notice
+    .calendar-preview-notice {
+        margin-top: var(--grid-margin);
+        padding: 12px var(--grid-margin);
+        background-color: $white;
+        border-radius: var(--border-radius-tiny);
+        text-align: center;
+        border: 1px solid $very-light-gray;
+
+        p {
+            margin: 0;
+            color: $primary;
+            font-family: "PT Sans", sans-serif;
+            font-size: 13px;
+            font-style: italic;
+
+            &.notice-filter {
+                margin-top: 4px;
+                font-style: normal;
+            }
+        }
+    }
+
+    // Tag colour picker
+    .sunflower-tag-color-picker {
+
+        .tag-color-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .tag-color-item {
+            border: 1px solid $very-light-gray;
+            border-radius: var(--border-radius-tiny);
+            padding: 12px;
+            background-color: $white;
+        }
+
+        .tag-color-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+
+            strong {
+                font-weight: 700;
+                color: $primary;
+                font-family: "PT Sans", sans-serif;
+            }
+        }
+
+        .tag-color-indicator {
+            width: 18px;
+            height: 18px;
+            border-radius: var(--border-radius-tiny);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .components-color-palette {
+            margin-top: 8px;
+        }
+    }
+}
