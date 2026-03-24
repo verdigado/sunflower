@@ -77,22 +77,20 @@
 
     a:has(.wp-post-image) {
         transform-origin: bottom center;
-        position: absolute;
-        width: calc(100% + 4px);
-        max-width: calc(100% + 4px);
-        top: -2px;
-        left: 0;
-        margin-left: -2px;
-        margin-right: -2px;
-        height: 254px;
+        display: block;
+        width: calc(100% + 39px);
+        max-width: calc(100% + 39px);
+        margin-top: -15px;
+        margin-left: -20px;
+        margin-bottom: 13px;
         transition: 600ms ease-out;
         overflow: hidden;
         border-radius: calc(var(--border-radius-medium) - 2px) calc(var(--border-radius-medium) - 2px) 0 0;
 
         .wp-post-image {
             width: 100%;
-            position: relative;
-            height: 254px;
+            display: block;
+            height: auto;
             transition: 400ms ease-out;
         }
     }
@@ -105,9 +103,6 @@
         }
     }
 
-    &:has(.wp-post-image) {
-        overflow: visible;
-    }
 
     &::before {
         content: "";
@@ -178,7 +173,7 @@
     &:has(.wp-post-image) {
 
         .p-45 {
-            margin-top: 254px;
+            margin-top: 0;
         }
     }
 

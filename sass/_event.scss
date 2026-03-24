@@ -251,7 +251,6 @@
             figure.event-card__media {
                 position: relative;
                 width: 100%;
-                height: 254px;
                 overflow: hidden;
                 border-radius: calc(var(--border-radius-medium) - 2px) calc(var(--border-radius-medium) - 2px) 0 0;
                 margin: 0;
@@ -259,9 +258,9 @@
                 transition: none;
 
                 img {
+                    display: block;
                     width: 100%;
-                    height: 254px;
-                    object-fit: cover;
+                    height: auto;
                     transition: 400ms ease-out;
                 }
             }
