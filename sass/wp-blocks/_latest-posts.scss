@@ -316,39 +316,10 @@
             }
 
 
-            a:has(.wp-post-image) {
-                transform-origin: bottom center;
-                position: absolute;
-                width: calc(100% + 4px);
-                max-width: calc(100% + 4px);
-                top: -2px;
-                left: 0;
-                margin-left: -2px;
-                margin-right: -2px;
-                height: 254px;
-                transition: 600ms ease-out;
-                overflow: hidden;
-                border-radius: calc(var(--border-radius-medium) - 2px) calc(var(--border-radius-medium) - 2px) 0 0;
-
-                .wp-post-image {
-                    width: 100%;
-                    position: relative;
-                    height: 254px;
-                    transition: 400ms ease-out;
-                }
-            }
-
             .icon-arrow {
                 position: relative;
                 left: 0;
                 transition: 300ms ease-out;
-            }
-
-            &:has(.wp-post-image) {
-
-                .p-45 {
-                    margin-top: 254px;
-                }
             }
 
             .p-45 {
@@ -408,23 +379,6 @@
             }
         }
 
-        @include media-breakpoint-down(sm) {
-
-            article:has(.wp-post-image) {
-
-                a:has(.wp-post-image) {
-                    height: 210px;
-                }
-
-                .wp-post-image {
-                    max-height: 210px;
-                }
-
-                .p-45 {
-                    margin-top: 210px !important;
-                }
-            }
-        }
     }
 }
 
@@ -618,20 +572,17 @@
             .wp-block-latest-posts__featured-image {
                 width: calc(100% + 4px);
                 margin: -2px -2px var(--grid-margin);
-                height: 220px;
                 overflow: hidden;
                 border-radius: calc(var(--border-radius-medium) - 2px) calc(var(--border-radius-medium) - 2px) 0 0;
 
                 a {
                     display: block;
-                    height: 100%;
                 }
 
                 img {
                     display: block;
                     width: 100%;
-                    height: 100%;
-                    object-fit: cover;
+                    height: auto;
                 }
             }
 
@@ -695,20 +646,10 @@
                 }
             }
 
-            @include media-breakpoint-down(sm) {
-
-                .wp-block-latest-posts__featured-image {
-                    height: 180px;
-                }
-            }
         }
 
         &.columns-2 li .wp-block-latest-posts__featured-image {
-            height: 300px;
-
-            @include media-breakpoint-down(md) {
-                height: 220px;
-            }
+            // keine feste Höhe – Bild im Originalseitenverhältnis
         }
     }
 

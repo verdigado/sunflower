@@ -139,14 +139,13 @@
 
         position: relative;
         overflow: hidden;
-        max-height: 630px;
         object-fit: cover;
         margin-top: 0;
         margin-bottom: 0;
         height: fit-content;
 
         img {
-            border-radius: var(--border-radius-large);
+            border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
         }
 
         @include media-breakpoint-down(md) {
