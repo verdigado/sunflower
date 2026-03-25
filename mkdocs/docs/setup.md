@@ -7,7 +7,6 @@ Nach der Installation des Themes musst Du einige Einstellungen vornehmen. Dafür
   <figcaption>Das Sunflower-Menü im Dashboard</figcaption>
 </figure>
 
-
 ## Erste Schritte
 
 ###  Theme aktivieren
@@ -20,6 +19,18 @@ Um die Sonnenblume als Logo und Icon nutzen zu können, musst Du Dir die Nutzung
 </figure>
 
 ## Einstellungen
+
+### Grunddesign
+
+Das neue Design sunflower26 bietet insgesamt 4 verschiedene Möglichkeiten die Seite darzustellen. Aus der Kombination "hell" oder "dunkel" bzw. "abgerundet" oder "eckig" lässt sich das gewünschte Design der Seite variieren.
+
+Im Backend unter "Sunflower" und "Einstellungen" lässt sich die gewünschte Kombination einstellen. 
+Unabhängig vom Grunddesign kann noch die Farbgebung im Footer breich der Seite angepasst werden.
+
+<figure markdown="span">
+  ![Screenshot vom Einstellungs-Menü](images/sunflower26_designvarianten_umschalten.png){ width="" }
+  <figcaption>Sunflower-Einstellungen: Auswahl des Grundesignsn</figcaption>
+</figure>
 
 ### Menüs
 Lege zunächst das Hauptmenü und ggf. auch die weiteren Menüs an und lege deren Positionen fest. [mehr](menus.md)
