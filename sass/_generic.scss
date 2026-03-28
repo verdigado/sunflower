@@ -89,9 +89,17 @@ html.preload * {
     }
 }
 
-.alignfull {
+.entry-content > .alignfull {
 
     @include alignfull;
+}
+
+.alignfull {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .text-left {
@@ -474,6 +482,8 @@ body.formstyle-sharp {
 
     .entry-content > .wp-block-cover:first-child {
         margin: 80px 0 var(--half-block-spacing) 0 !important;
+        width: calc((100% + var(--double-grid-margin))) !important;
+        left: calc(-1 * var(--grid-margin)) !important;
     }
 
 
@@ -482,6 +492,10 @@ body.formstyle-sharp {
         .entry-content > .wp-block-cover.is-style-sunflower-hero:first-child {
             margin: 100px 0 var(--half-block-spacing) 0 !important;
             height: calc(100vh - 180px) !important;
+        }
+
+        .entry-content > .wp-block-cover:first-child {
+            margin: 100px 0 var(--half-block-spacing) 0 !important;
         }
     }
 

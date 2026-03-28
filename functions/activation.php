@@ -11,6 +11,9 @@
 function sunflower_activate_theme() {
 	// Flush rewrite rules to avoid 404 errors after theme activation.
 	flush_rewrite_rules();
+
+	// Import demo images into the media library (runs only once).
+	sunflower_import_demo_images();
 }
 
 add_action( 'after_switch_theme', 'sunflower_activate_theme', 10, 2 );
