@@ -130,10 +130,6 @@ header .social-media-profiles {
     .top-bar,
     .top-bar.stuck {
 
-        .menu-item-has-children a ~ ul:nth-of-type(1) li:nth-of-type(1) a {
-            padding-top: 0;
-        }
-
         .nav {
             margin-bottom: var(--grid-margin);
         }
@@ -884,10 +880,10 @@ $text-dark: #222;
             }
 
             > li > a {
-                padding: var(--gap-small);
+                padding: 10px 12px;
                 white-space: wrap;
                 max-width: 600px;
-                font-size: 14px;
+                font-size: 15px;
 
                 @include media-breakpoint-down(md) {
                     max-width: 280px;
@@ -1053,14 +1049,6 @@ $text-dark: #222;
         padding-right: 18px;
         position: relative;
         z-index: 140;
-
-        ~ ul:nth-of-type(1) li:nth-of-type(1) a {
-            padding-top: 0;
-        }
-
-        ~ ul:nth-of-type(1) li ul li a {
-            padding-top: calc(var(--gap-large) / 2);
-        }
     }
 
     &::after {
