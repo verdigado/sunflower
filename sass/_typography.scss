@@ -294,6 +294,15 @@ h1:has(+ h4) {
     }
 }
 
+.colorscheme-light .right-bar .sub-menu a {
+
+    &:hover {
+        color: map.get($custom-colors, "schwarzwald");
+        background-color: map.get($custom-colors, "sonne");
+    }
+
+}
+
 body {
     font-size: 20px;
     line-height: 175%;
