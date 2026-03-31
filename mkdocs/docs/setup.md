@@ -22,15 +22,17 @@ Um die Sonnenblume als Logo und Icon nutzen zu können, musst Du Dir die Nutzung
 
 ### Grunddesign
 
-Das neue Design sunflower26 bietet insgesamt 4 verschiedene Möglichkeiten die Seite darzustellen. Aus der Kombination "hell" oder "dunkel" bzw. "abgerundet" oder "eckig" lässt sich das gewünschte Design der Seite variieren.
+Das neue Design Sunflower26 bietet insgesamt 4 verschiedene Möglichkeiten die Seite darzustellen. Aus der Kombination "hell" oder "dunkel" bzw. "abgerundet" oder "eckig" lässt sich das gewünschte Design der Seite variieren.
 
 Im Backend unter "Sunflower" und "Einstellungen" lässt sich die gewünschte Kombination einstellen. 
-Unabhängig vom Grunddesign kann noch die Farbgebung im Footer breich der Seite angepasst werden.
+Unabhängig vom Grunddesign kann noch die Farbgebung im Footerbereich der Seite angepasst werden.
 
 <figure markdown="span">
   ![Screenshot vom Einstellungs-Menü](images/sunflower26_designvarianten_umschalten.png){ width="" }
-  <figcaption>Sunflower-Einstellungen: Auswahl des Grundesignsn</figcaption>
+  <figcaption>Sunflower-Einstellungen: Auswahl des Grundesign</figcaption>
 </figure>
+
+Bei der Wahl des Designs sind auch die Empfehlungen zum Managment der Bilder zu beachten [mehr](umstieg_sunflower26.md)
 
 ### Menüs
 Lege zunächst das Hauptmenü und ggf. auch die weiteren Menüs an und lege deren Positionen fest. [mehr](menus.md)
