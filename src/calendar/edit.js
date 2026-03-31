@@ -14,7 +14,7 @@ import useEventTags from './hooks/useEventTags';
  */
 export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps( {
-		className: 'row',
+		className: 'calendar-events',
 	} );
 
 	const selectedTags = attributes.tag;

@@ -1,18 +1,18 @@
 /**
  * CalendarPreview Component
  *
- * Displays a static calendar preview in the block editor.
- * Shows current month with mock events for visualization.
+ * Displays a static calendar preview in the block editor using the same
+ * wrapper structure and key FullCalendar classes as the frontend block.
  */
 
 import { __ } from '@wordpress/i18n';
 
-import { PREVIEW_CONFIG } from '../constants';
 import {
 	getLocalizedMonthName,
 	getLocalizedTodayLabel,
 	getLocalizedWeekdayLabels,
 } from '../utils/locale';
+import { buildPreviewMonthData } from '../utils/preview';
 
 /**
  * @param {Object} props
@@ -23,13 +23,19 @@ function CalendarPreview( { selectedTagNames } ) {
 	const now = new Date();
 	const currentMonth = getLocalizedMonthName( now );
 	const currentYear = now.getFullYear();
+	const previewWeeks = buildPreviewMonthData( now );
 
 	return (
-		<div className="sunflower-calendar-container">
-			<div className="sunflower-calendar-preview">
-				<CalendarHeader month={ currentMonth } year={ currentYear } />
-				<CalendarGrid />
-				<PreviewNotice selectedTagNames={ selectedTagNames } />
+		<div className="wp-block-group__inner-container">
+			<div className="sunflower-calendar-container">
+				<div className="sunflower-calendar">
+					<CalendarHeader
+						month={ currentMonth }
+						year={ currentYear }
+					/>
+					<CalendarGrid weeks={ previewWeeks } />
+					<PreviewNotice selectedTagNames={ selectedTagNames } />
+				</div>
 			</div>
 		</div>
 	);
@@ -43,74 +49,100 @@ function CalendarPreview( { selectedTagNames } ) {
  */
 function CalendarHeader( { month, year } ) {
 	return (
-		<div className="calendar-header">
-			<div className="calendar-nav-left">
-				<button className="calendar-btn" disabled>
-					{ '\u2039' }
-				</button>
-				<button className="calendar-btn" disabled>
-					{ '\u203A' }
-				</button>
-				<button className="calendar-btn" disabled>
+		<div className="fc-header-toolbar fc-toolbar">
+			<div className="fc-toolbar-chunk calendar-nav-left">
+				<div className="fc-button-group">
+					<button
+						type="button"
+						className="fc-prev-button fc-button fc-button-primary"
+						disabled
+					>
+						{ '\u2039' }
+					</button>
+					<button
+						type="button"
+						className="fc-next-button fc-button fc-button-primary"
+						disabled
+					>
+						{ '\u203A' }
+					</button>
+				</div>
+				<button
+					type="button"
+					className="fc-today-button fc-button fc-button-primary"
+					disabled
+				>
 					{ getLocalizedTodayLabel() }
 				</button>
 			</div>
 
-			<h2 className="calendar-title">
-				{ month } { year }
-			</h2>
+			<div className="fc-toolbar-chunk">
+				<h2 className="fc-toolbar-title">
+					{ month } { year }
+				</h2>
+			</div>
+
+			<div className="fc-toolbar-chunk" aria-hidden="true" />
 		</div>
 	);
 }
 
 /**
+ * @param {Object}               props
+ * @param {Array<Array<Object>>} props.weeks Preview weeks to render
  * @return {Element} CalendarGrid component
  */
-function CalendarGrid() {
+function CalendarGrid( { weeks } ) {
 	const weekdayLabels = getLocalizedWeekdayLabels();
 
 	return (
-		<div className="calendar-grid">
+		<div className="calendar-preview-grid" role="grid" aria-readonly="true">
 			{ weekdayLabels.map( ( day ) => (
-				<div key={ day } className="calendar-day-header">
-					{ day }
+				<div
+					key={ day }
+					className="fc-col-header-cell"
+					role="columnheader"
+				>
+					<span className="fc-col-header-cell-cushion">{ day }</span>
 				</div>
 			) ) }
 
-			{ Array.from( { length: PREVIEW_CONFIG.GRID_SIZE }, ( _, i ) => {
-				const isToday = i === PREVIEW_CONFIG.TODAY_INDEX;
-				const hasEvent = PREVIEW_CONFIG.MOCK_EVENT_DAYS.includes( i );
-				const dayNumber = ( i % PREVIEW_CONFIG.DAY_CYCLE ) + 1;
-
-				return (
-					<CalendarDay
-						key={ i }
-						dayNumber={ dayNumber }
-						isToday={ isToday }
-						hasEvent={ hasEvent }
-					/>
-				);
-			} ) }
+			{ weeks.map( ( week ) =>
+				week.map( ( day ) => (
+					<CalendarDay key={ day.key } { ...day } />
+				) )
+			) }
 		</div>
 	);
 }
 
 /**
  * @param {Object}  props
- * @param {number}  props.dayNumber Day number to display
- * @param {boolean} props.isToday   Whether this is today's date
- * @param {boolean} props.hasEvent  Whether this day has an event
+ * @param {number}  props.dayNumber      Day number to display
+ * @param {boolean} props.isCurrentMonth Whether the day belongs to the current month
+ * @param {boolean} props.isToday        Whether this is today's date
+ * @param {boolean} props.hasEvent       Whether this day has a mock event
  * @return {Element} CalendarDay component
  */
-function CalendarDay( { dayNumber, isToday, hasEvent } ) {
-	const className = `calendar-day${ isToday ? ' is-today' : '' }`;
+function CalendarDay( { dayNumber, isCurrentMonth, isToday, hasEvent } ) {
+	const className = [
+		'calendar-preview-day',
+		'fc-daygrid-day',
+		isToday ? 'fc-day-today' : '',
+		! isCurrentMonth ? 'is-outside-month' : '',
+	]
+		.filter( Boolean )
+		.join( ' ' );
 
 	return (
-		<div className={ className }>
-			<div className="calendar-day-number">{ dayNumber }</div>
+		<div className={ className } role="gridcell" aria-selected="false">
+			<span className="fc-daygrid-day-number">{ dayNumber }</span>
+
 			{ hasEvent && (
-				<div className="calendar-event-mock">
-					{ __( 'Termin', 'sunflower-calendar-events' ) }
+				<div className="calendar-preview-event fc-event fc-daygrid-event fc-daygrid-block-event">
+					<div className="fc-event-main">
+						{ __( 'Termin', 'sunflower-calendar-events' ) }
+					</div>
 				</div>
 			) }
 		</div>
@@ -127,7 +159,7 @@ function PreviewNotice( { selectedTagNames } ) {
 		<div className="calendar-preview-notice">
 			<p className="notice-main">
 				{ __(
-					'Editor-Vorschau. Tatsächliche Termine werden auf der Seite angezeigt.',
+					'Editor-Vorschau mit Beispielterminen. Die echten Termine werden auf der Seite geladen.',
 					'sunflower-calendar-events'
 				) }
 			</p>

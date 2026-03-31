@@ -85,10 +85,8 @@ export const CSS_CLASSES = {
  * @type {Object}
  */
 export const PREVIEW_CONFIG = {
-	GRID_SIZE: 35,
-	MOCK_EVENT_DAYS: [ 10, 15, 22 ],
-	TODAY_INDEX: 15,
-	DAY_CYCLE: 28,
+	TOTAL_CELLS: 42,
+	MOCK_EVENT_DAYS: [ 4, 12, 19 ],
 };
 
 /**
