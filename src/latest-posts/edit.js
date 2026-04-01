@@ -251,7 +251,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								'sunflower-latest-posts'
 							) }
 							placeholder={ __(
-								'to archive',
+								'Archive',
 								'sunflower-latest-posts'
 							) }
 							value={ archiveText }
