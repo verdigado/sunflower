@@ -12,8 +12,11 @@
 	 * @param {Object}  extraOpts Zusätzliche Masonry-Optionen.
 	 */
 	function initAndRelayout( el, extraOpts ) {
-		var opts = Object.assign( { percentPosition: true }, extraOpts || {} );
-		var msnry = Masonry.data( el ) || new Masonry( el, opts );
+		const opts = Object.assign(
+			{ percentPosition: true },
+			extraOpts || {}
+		);
+		const msnry = Masonry.data( el ) || new Masonry( el, opts );
 		if ( typeof imagesLoaded !== 'undefined' ) {
 			imagesLoaded( el ).on( 'progress', function () {
 				msnry.layout();
@@ -22,9 +25,8 @@
 	}
 
 	window.addEventListener( 'load', function () {
-
 		document.querySelectorAll( '[data-masonry]' ).forEach( function ( el ) {
-			var msnry = Masonry.data( el );
+			const msnry = Masonry.data( el );
 			if ( msnry ) {
 				msnry.layout();
 				if ( typeof imagesLoaded !== 'undefined' ) {
@@ -39,24 +41,30 @@
 			return;
 		}
 
-		document.querySelectorAll(
-			'.latest-posts--grid .row:not(.posts-slider)'
-		).forEach( function ( el ) {
-			initAndRelayout( el );
-		} );
+		document
+			.querySelectorAll( '.latest-posts--grid .row:not(.posts-slider)' )
+			.forEach( function ( el ) {
+				initAndRelayout( el );
+			} );
 
-		var wpCoreGutter = parseInt(
-			getComputedStyle( document.documentElement ).getPropertyValue( '--grid-margin' ),
-			10
-		) || 20;
-		document.querySelectorAll(
-			'.wp-block-latest-posts.is-grid'
-		).forEach( function ( el ) {
-			initAndRelayout( el, { itemSelector: 'li', columnWidth: 'li', gutter: wpCoreGutter } );
-		} );
-
+		const wpCoreGutter =
+			parseInt(
+				getComputedStyle( document.documentElement ).getPropertyValue(
+					'--grid-margin'
+				),
+				10
+			) || 20;
+		document
+			.querySelectorAll( '.wp-block-latest-posts.is-grid' )
+			.forEach( function ( el ) {
+				initAndRelayout( el, {
+					itemSelector: 'li',
+					columnWidth: 'li',
+					gutter: wpCoreGutter,
+				} );
+			} );
 	} );
-}() );
+} )();
 
 /**
  * Positive tabindex-Werte brechen die natürliche Tab-Reihenfolge.
