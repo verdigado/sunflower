@@ -350,6 +350,68 @@ iframe {
 }
 
 
+// Landscape mode: restore fixed image heights in archive article cards
+body.post-image-modern {
+
+    .latest-posts--grid .archive-article,
+    .archive .archive-article,
+    .posts-slider article {
+
+        a:has(.wp-post-image) {
+            position: absolute;
+            width: calc(100% + 4px);
+            max-width: calc(100% + 4px);
+            top: -2px;
+            left: 0;
+            margin-top: 0;
+            margin-left: -2px;
+            margin-right: -2px;
+            margin-bottom: 0;
+            height: 254px;
+
+            .wp-post-image {
+                height: 254px;
+                position: relative;
+            }
+        }
+
+        &:has(.wp-post-image) {
+            overflow: visible;
+
+            .p-45 {
+                margin-top: 254px;
+            }
+        }
+    }
+}
+
+body.post-image-flexible {
+
+    .latest-posts--grid .archive-article,
+    .archive .archive-article {
+        height: auto;
+    }
+
+    .latest-posts--grid .row:not(.posts-slider) {
+        display: block !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        > [class*="col-"] {
+            width: 50%;
+            float: left;
+            padding-left: calc(var(--grid-margin) / 2) !important;
+            padding-right: calc(var(--grid-margin) / 2) !important;
+            margin-bottom: var(--grid-margin);
+
+            @include media-breakpoint-down(md) {
+                width: 100%;
+                float: none;
+            }
+        }
+    }
+}
+
 .related-posts {
 
     padding: var(--half-block-spacing) 0 !important;
@@ -424,7 +486,7 @@ iframe {
 
 body #content .is-layout-flex:not(.is-vertical) {
 
-    column-gap: var(--gap-large);
+    column-gap: calc(2 * var(--gap-large));
     row-gap: calc(2 * var(--gap-large));
 
     >  * {

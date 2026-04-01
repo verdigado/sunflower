@@ -177,7 +177,7 @@
                 gap: var(--grid-margin);
                 display: grid;
                 grid-template-columns: repeat(10, 1fr);
-                height: fit-content !important;
+                height: fit-content;
 
                 > *:nth-child(4n + 1) {
                     grid-column: span 4;
@@ -237,9 +237,9 @@
                 .col-md-6,
                 .col-md-4 {
                     width: 100%;
-                    position: relative !important;
-                    left: 0 !important;
-                    top: 0 !important;
+                    position: relative;
+                    left: 0;
+                    top: 0;
                     height: 100%;
                     display: grid !important;
                 }
@@ -284,19 +284,10 @@
         }
 
         > div:last-child:not(:has(article)) {
-            align-self: flex-start;
-            min-width: 466px;
-            min-height: 230px;
-
-            > a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                height: 100%;
-                min-height: inherit;
-                border-radius: var(--border-radius-medium);
-            }
+            align-self: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
 
@@ -563,6 +554,7 @@
 
             &:not(:has(.wp-block-latest-posts__featured-image)) {
                 align-content: center;
+                padding-top: var(--grid-margin);
             }
 
             @media (max-width: 600px) {
@@ -723,6 +715,103 @@
 
     .wp-block-latest-posts__post-excerpt {
         color: map.get($custom-colors, "schwarzwald");
+    }
+}
+
+body.post-image-modern {
+
+    .latest-posts--grid .wp-block-group__inner-container p {
+        margin-bottom: 0 !important;
+    }
+
+    .wp-block-latest-posts.is-grid {
+
+        li .wp-block-latest-posts__featured-image {
+            height: 220px;
+
+            a {
+                display: block;
+                height: 100%;
+            }
+
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+
+            li .wp-block-latest-posts__featured-image {
+                height: 180px;
+            }
+        }
+
+        &.columns-2 li .wp-block-latest-posts__featured-image {
+            height: 300px;
+
+            @include media-breakpoint-down(md) {
+                height: 220px;
+            }
+        }
+    }
+}
+
+body.post-image-flexible {
+
+    // Bleed-Breite des Inner-Containers zurücksetzen, damit Masonry die
+    // korrekte sichtbare Container-Breite liest (kein col2-Versatz /
+    // kein Clipping).
+    .latest-posts > .wp-block-group__inner-container {
+        width: 100%;
+    }
+
+    // Masonry benötigt variable Höhen – height: 100% würde alle Karten gleich
+    // hoch machen.
+    .latest-posts--grid .wp-block-group__inner-container > .row {
+
+        > .col-md-6,
+        > .col-md-4 {
+            height: auto;
+        }
+    }
+
+    .wp-block-latest-posts.is-grid {
+        display: block !important;
+
+        // CSS-columns-Eigenschaft aus der Base-Regel
+        // (media-breakpoint-down md) zurücksetzen
+        columns: unset !important;
+
+        li {
+            width: calc(50% - var(--half-grid-margin)) !important;
+            float: left !important;
+            clear: none !important;
+            margin: 0 0 var(--grid-margin) !important;
+
+            .wp-block-latest-posts__post-author,
+            time {
+                margin-bottom: var(--half-grid-margin);
+            }
+
+            .wp-block-latest-posts__post-title {
+                margin-bottom: var(--half-grid-margin);
+                padding-top: 0;
+            }
+
+            .wp-block-latest-posts__post-excerpt {
+                padding-top: var(--gap-small);
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+
+            li {
+                width: 100% !important;
+                float: none !important;
+                left: 0 !important;
+            }
+        }
     }
 }
 

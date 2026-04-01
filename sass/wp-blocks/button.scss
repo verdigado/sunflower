@@ -3,6 +3,8 @@
 .wp-block-buttons {
     gap: var(--grid-margin);
     row-gap: var(--grid-margin) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 
     @include padding-vert;
 }
@@ -64,9 +66,9 @@ body {
 
 
         &:hover {
-            color: map.get($custom-colors, "tanne");
+            color: map.get($custom-colors, "tanne") !important;
             text-decoration: none;
-            background-color: $button-hover;
+            background-color: $button-hover !important;
         }
 
         &::before {
