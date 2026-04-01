@@ -20,7 +20,6 @@ function sunflower_demo_images() {
 		'Duenen.jpg',
 		'Kuppel.jpg',
 		'TheSunflower.jpg',
-		'Beispielbild_Kandidatin.jpg',
 	);
 }
 

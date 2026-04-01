@@ -69,12 +69,14 @@ function sunflower_blocks_init() {
 		get_template_directory() . '/languages'
 	);
 
-	register_block_type( get_template_directory() . '/build/calendar' );
-	wp_set_script_translations(
-		'sunflower-calendar-events-editor-script',
-		'sunflower-calendar-events',
-		get_template_directory() . '/languages'
-	);
+	if ( file_exists( get_template_directory() . '/build/calendar' ) ) {
+		register_block_type( get_template_directory() . '/build/calendar' );
+		wp_set_script_translations(
+			'sunflower-calendar-events-editor-script',
+			'sunflower-calendar-events',
+			get_template_directory() . '/languages'
+		);
+	}
 }
 
 add_action( 'init', 'sunflower_blocks_init' );
