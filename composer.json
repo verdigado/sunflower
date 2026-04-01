@@ -31,7 +31,7 @@
 	"scripts": {
 		"lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
 		"lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
-		"make-pot": "wp i18n make-pot . languages/sunflower.pot"
+		"make-pot": "wp i18n make-pot . languages/sunflower.pot --domain=sunflower --exclude=node_modules,vendor && wp i18n make-pot . languages/sunflower-accordion.pot --slug=sunflower-accordion --domain=sunflower-accordion --exclude=node_modules,vendor && wp i18n make-pot . languages/sunflower-contact-form.pot --slug=sunflower-contact-form --domain=sunflower-contact-form --exclude=node_modules,vendor && wp i18n make-pot . languages/sunflower-latest-posts.pot --slug=sunflower-latest-posts --domain=sunflower-latest-posts --exclude=node_modules,vendor && wp i18n make-pot . languages/sunflower-meta-data.pot --slug=sunflower-meta-data --domain=sunflower-meta-data --exclude=node_modules,vendor && wp i18n make-pot . languages/sunflower-next-events.pot --slug=sunflower-next-events --domain=sunflower-next-events --exclude=node_modules,vendor && wp i18n make-json languages/ --no-purge"
 	},
 	"support": {
 		"issues": "https://github.com/Automattic/_s/issues",

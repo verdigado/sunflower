@@ -66,7 +66,7 @@ if ( ! $sunflower_link || '' === $sunflower_link ) {
 }
 
 
-$sunflower_archive_label = esc_html__( 'Archiv', 'sunflower-latest-posts' );
+$sunflower_archive_label = ( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'Archive', 'sunflower-latest-posts' );
 
 $sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories, $sunflower_excluded_categories );
 
