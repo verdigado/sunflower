@@ -108,6 +108,14 @@ class SunflowerSettingsPage {
 		);
 
 		add_settings_field(
+			'sunflower_post_image_format',
+			__( 'Post Image Format', 'sunflower' ),
+			array( $this, 'sunflower_post_image_format_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_theme_variant'
+		);
+
+		add_settings_field(
 			'sunflower_footer_layout',
 			__( 'Footer Color Variant', 'sunflower' ),
 			array( $this, 'sunflower_footer_layout_callback' ),
@@ -347,6 +355,29 @@ class SunflowerSettingsPage {
 		);
 		foreach ( $options as $option ) {
 			$selected = ( isset( $this->options['sunflower_color_scheme'] ) && $this->options['sunflower_color_scheme'] === $option[0] ) ? 'selected' : '';
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_attr( $option[1] )
+			);
+		}
+
+		echo '</select>';
+	}
+
+	/**
+	 * Post image format variant field
+	 */
+	public function sunflower_post_image_format_callback(): void {
+		echo '<select id="sunflower_post_image_format" name="sunflower_options[sunflower_post_image_format]">';
+
+		$options = array(
+			array( 'modern', __( 'Modern', 'sunflower' ) ),
+			array( 'flexible', __( 'Flexible', 'sunflower' ) ),
+		);
+		foreach ( $options as $option ) {
+			$selected = ( isset( $this->options['sunflower_post_image_format'] ) && $this->options['sunflower_post_image_format'] === $option[0] ) ? 'selected' : '';
 			printf(
 				'<option value="%1$s" %2$s>%3$s</option>',
 				esc_attr( $option[0] ),

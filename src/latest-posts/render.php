@@ -78,6 +78,9 @@ $sunflower_classes = get_block_wrapper_attributes(
 	)
 );
 
+$sunflower_options                  = get_option( 'sunflower_options' );
+$sunflower_option_post_image_format = $sunflower_options['sunflower_post_image_format'] ?? 'modern';
+
 $sunflower_list_items = sprintf(
 	'<div %1$s>
         <div class="wp-block-group__inner-container">
@@ -86,7 +89,7 @@ $sunflower_list_items = sprintf(
 	$sunflower_classes,
 	$sunflower_title,
 	$sunflower_is_slider ? 'posts-slider' : '',
-	''
+	'flexible' === $sunflower_option_post_image_format ? 'data-masonry=\'{"percentPosition": true }\'' : ''
 );
 
 switch ( $sunflower_columns ) {
