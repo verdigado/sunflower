@@ -7,30 +7,30 @@
  * immer 2 Spalten verwendet werden.
  */
 ( function () {
-	var addFilter          = wp.hooks.addFilter;
-	var createHOC          = wp.compose.createHigherOrderComponent;
-	var el                 = wp.element.createElement;
-	var Fragment           = wp.element.Fragment;
-	var useSelect          = wp.data.useSelect;
-	var useEffect          = wp.element.useEffect;
-	var InspectorControls  = wp.blockEditor.InspectorControls;
-	var PanelBody          = wp.components.PanelBody;
-	var Notice             = wp.components.Notice;
+	const addFilter = wp.hooks.addFilter;
+	const createHOC = wp.compose.createHigherOrderComponent;
+	const el = wp.element.createElement;
+	const Fragment = wp.element.Fragment;
+	const useSelect = wp.data.useSelect;
+	const useEffect = wp.element.useEffect;
+	const InspectorControls = wp.blockEditor.InspectorControls;
+	const PanelBody = wp.components.PanelBody;
+	const Notice = wp.components.Notice;
 
-	var withFlexibleModeColumns = createHOC( function ( BlockEdit ) {
+	const withFlexibleModeColumns = createHOC( function ( BlockEdit ) {
 		return function ( props ) {
 			if ( props.name !== 'core/latest-posts' ) {
 				return el( BlockEdit, props );
 			}
 
-			var isFlexible = useSelect( function ( select ) {
+			const isFlexible = useSelect( function ( select ) {
 				return (
 					select( 'core/editor' ).getEditorSettings()
 						.sunflowerPostImageMode === 'flexible'
 				);
 			}, [] );
 
-			var isGrid =
+			const isGrid =
 				props.attributes.displayLayout &&
 				props.attributes.displayLayout.type === 'grid';
 

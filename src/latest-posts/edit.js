@@ -31,6 +31,7 @@ import { grid, list, gallery } from '@wordpress/icons';
 import { useEntityRecords } from '@wordpress/core-data';
 import { useState, useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
+import { store as editorStore } from '@wordpress/editor';
 
 const EMPTY_ARRAY = [];
 
@@ -70,7 +71,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const postImageMode = useSelect(
 		( select ) =>
-			select( 'core/editor' ).getEditorSettings().sunflowerPostImageMode,
+			select( editorStore ).getEditorSettings().sunflowerPostImageMode,
 		[]
 	);
 	const isFlexibleMode = postImageMode === 'flexible';
@@ -266,28 +267,28 @@ export default function Edit( { attributes, setAttributes } ) {
 							value={ archiveText }
 							onChange={ onChangeArchiveText }
 						/>
-					{ blockLayout === 'grid' && ! isFlexibleMode && (
-						<RangeControl
-							__nextHasNoMarginBottom
-							__next40pxDefaultSize
-							label={ __( 'Columns' ) }
-							value={ columns }
-							onChange={ ( value ) =>
-								setAttributes( { columns: value } )
-							}
-							min={ 2 }
-							max={ 3 }
-							required
-						/>
-					) }
-					{ blockLayout === 'grid' && isFlexibleMode && (
-						<Notice status="warning" isDismissible={ false }>
-							{ __(
-								'Im Modus für flexible Beitragsbild-Proportionen wird das Raster immer zweispaltig. Die Spaltenanzahl kann nur im „Modern"-Modus (Sunflower-Einstellungen) geändert werden.',
-								'sunflower-latest-posts'
-							) }
-						</Notice>
-					) }
+						{ blockLayout === 'grid' && ! isFlexibleMode && (
+							<RangeControl
+								__nextHasNoMarginBottom
+								__next40pxDefaultSize
+								label={ __( 'Columns' ) }
+								value={ columns }
+								onChange={ ( value ) =>
+									setAttributes( { columns: value } )
+								}
+								min={ 2 }
+								max={ 3 }
+								required
+							/>
+						) }
+						{ blockLayout === 'grid' && isFlexibleMode && (
+							<Notice status="warning" isDismissible={ false }>
+								{ __(
+									'Im Modus für flexible Beitragsbild-Proportionen wird das Raster immer zweispaltig. Die Spaltenanzahl kann nur im „Modern"-Modus (Sunflower-Einstellungen) geändert werden.',
+									'sunflower-latest-posts'
+								) }
+							</Notice>
+						) }
 					</PanelBody>
 				</InspectorControls>
 			}

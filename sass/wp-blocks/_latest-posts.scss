@@ -760,12 +760,14 @@ body.post-image-modern {
 body.post-image-flexible {
 
     // Bleed-Breite des Inner-Containers zurücksetzen, damit Masonry die
-    // korrekte sichtbare Container-Breite liest (kein col2-Versatz / kein Clipping).
+    // korrekte sichtbare Container-Breite liest (kein col2-Versatz /
+    // kein Clipping).
     .latest-posts > .wp-block-group__inner-container {
         width: 100%;
     }
 
-    // Masonry benötigt variable Höhen – height: 100% würde alle Karten gleich hoch machen.
+    // Masonry benötigt variable Höhen – height: 100% würde alle Karten gleich
+    // hoch machen.
     .latest-posts--grid .wp-block-group__inner-container > .row {
 
         > .col-md-6,
@@ -776,7 +778,9 @@ body.post-image-flexible {
 
     .wp-block-latest-posts.is-grid {
         display: block !important;
-        // CSS-columns-Eigenschaft aus der Base-Regel (media-breakpoint-down md) zurücksetzen
+
+        // CSS-columns-Eigenschaft aus der Base-Regel
+        // (media-breakpoint-down md) zurücksetzen
         columns: unset !important;
 
         li {

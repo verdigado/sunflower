@@ -13,7 +13,7 @@
 function sunflower_is_placeholder_site_title( $title ) {
 	$normalized = strtolower( trim( (string) $title ) );
 
-	return '' === $normalized || 'wordpress' === $normalized;
+	return '' === $normalized || 'WordPress' === $normalized;
 }
 
 /**
