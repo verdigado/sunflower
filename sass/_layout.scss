@@ -387,52 +387,7 @@ body.post-image-modern {
             }
         }
     }
-
-    .blog .archive-article,
-    .archive .archive-article {
-
-        a:has(.wp-post-image) {
-            height: 330px;
-
-            @include media-breakpoint-down(xl) {
-                height: 280px;
-            }
-
-            @include media-breakpoint-down(md) {
-                height: 220px;
-            }
-
-            .wp-post-image {
-                height: 330px;
-
-                @include media-breakpoint-down(xl) {
-                    height: 280px;
-                }
-
-                @include media-breakpoint-down(md) {
-                    height: 220px;
-                }
-            }
-        }
-
-        &:has(.wp-post-image) {
-
-            .p-45 {
-                margin-top: 330px;
-
-                @include media-breakpoint-down(xl) {
-                    margin-top: 280px;
-                }
-
-                @include media-breakpoint-down(md) {
-                    margin-top: 220px;
-                }
-            }
-        }
-    }
-
 }
-
 
 body.post-image-flexible {
 

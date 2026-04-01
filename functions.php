@@ -21,8 +21,6 @@ require_once __DIR__ . '/functions/blocks.php';
 require_once __DIR__ . '/functions/update.php';
 require_once __DIR__ . '/functions/related-posts.php';
 require_once __DIR__ . '/functions/demo-content.php';
-require_once __DIR__ . '/functions/demo-setup.php';
-require_once __DIR__ . '/functions/welcome-page.php';
 require_once __DIR__ . '/functions/activation.php';
 require_once __DIR__ . '/functions/comments.php';
 require_once __DIR__ . '/functions/icalimport.php';

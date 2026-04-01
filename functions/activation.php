@@ -47,24 +47,11 @@ function sunflower_set_default_site_identity_if_placeholders() {
 }
 
 /**
- * Set German as default site language on first activation.
- * Do not override deliberate non-default language choices.
- */
-function sunflower_set_default_site_language_if_unset() {
-	$current_language = get_option( 'WPLANG', '' );
-	if ( '' === $current_language || 'en_US' === $current_language ) {
-		update_option( 'WPLANG', 'de_DE' );
-	}
-}
-
-/**
  * Jobs run after activation of sunflower theme.
  */
 function sunflower_activate_theme() {
 	flush_rewrite_rules();
-	sunflower_set_default_site_language_if_unset();
 	sunflower_set_default_site_identity_if_placeholders();
-	sunflower_schedule_welcome_or_skip();
 }
 
 add_action( 'after_switch_theme', 'sunflower_activate_theme', 10, 2 );

@@ -123,7 +123,7 @@ function sunflower_scripts() {
 	wp_enqueue_script(
 		'frontend',
 		get_template_directory_uri() . '/assets/js/frontend.js',
-		null,
+		array( 'jquery', 'masonry' ),
 		SUNFLOWER_VERSION,
 		true
 	);
@@ -195,7 +195,7 @@ function sunflower_scripts() {
 
 	wp_enqueue_style( 'lightbox', get_template_directory_uri() . '/assets/vndr/lightbox2/dist/css/lightbox.min.css', array(), '4.3.0' );
 	wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/assets/vndr/lightbox2/dist/js/lightbox.min.js', array( 'jquery' ), '3.3.0', true );
-	wp_enqueue_script( 'masonry', get_template_directory_uri() . '/assets/vndr/masonry-layout/dist/masonry.pkgd.min.js', array( 'masorny' ), '4.2.2', true );
+	wp_enqueue_script( 'masonry', get_template_directory_uri() . '/assets/vndr/masonry-layout/dist/masonry.pkgd.min.js', array(), '4.2.2', true );
 	if ( sunflower_get_setting( 'sunflower_sharer_mastodon' ) ) {
 		wp_enqueue_script(
 			'mastodon',

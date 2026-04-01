@@ -56,6 +56,12 @@
                 padding: 0 !important;
             }
         }
+
+        @include media-breakpoint-down(md) {
+            .wp-block-media-text__media {
+                order: -1;
+            }
+        }
     }
 }
 

@@ -382,6 +382,11 @@ a.event-card {
     }
 }
 
+.entry-content > .next-events {
+    margin-top: var(--half-block-spacing);
+    margin-bottom: var(--half-block-spacing);
+}
+
 .next-events {
     background-image: none;
     background-size: cover;
@@ -910,4 +915,16 @@ a.event-card {
 
 .post-type-archive-sunflower_event .no-results .page-content {
     text-align: center;
+}
+
+body.post-image-modern {
+
+    a.event-card article figure.event-card__media {
+        height: 254px;
+
+        img {
+            height: 254px;
+            object-fit: cover;
+        }
+    }
 }
