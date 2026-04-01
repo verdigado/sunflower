@@ -1,5 +1,64 @@
 /* eslint-disable no-undef */
 
+
+( function () {
+	if ( typeof Masonry === 'undefined' ) {
+		return;
+	}
+
+	/**
+	 * Masonry initialisieren und via imagesLoaded nach jedem lazy-Bild relayouten.
+	 *
+	 * @param {Element} el        Masonry-Container.
+	 * @param {Object}  extraOpts Zusätzliche Masonry-Optionen.
+	 */
+	function initAndRelayout( el, extraOpts ) {
+		var opts = Object.assign( { percentPosition: true }, extraOpts || {} );
+		var msnry = Masonry.data( el ) || new Masonry( el, opts );
+		if ( typeof imagesLoaded !== 'undefined' ) {
+			imagesLoaded( el ).on( 'progress', function () {
+				msnry.layout();
+			} );
+		}
+	}
+
+	window.addEventListener( 'load', function () {
+
+		document.querySelectorAll( '[data-masonry]' ).forEach( function ( el ) {
+			var msnry = Masonry.data( el );
+			if ( msnry ) {
+				msnry.layout();
+				if ( typeof imagesLoaded !== 'undefined' ) {
+					imagesLoaded( el ).on( 'progress', function () {
+						msnry.layout();
+					} );
+				}
+			}
+		} );
+
+		if ( ! document.body.classList.contains( 'post-image-flexible' ) ) {
+			return;
+		}
+
+		document.querySelectorAll(
+			'.latest-posts--grid .row:not(.posts-slider)'
+		).forEach( function ( el ) {
+			initAndRelayout( el );
+		} );
+
+		var wpCoreGutter = parseInt(
+			getComputedStyle( document.documentElement ).getPropertyValue( '--grid-margin' ),
+			10
+		) || 20;
+		document.querySelectorAll(
+			'.wp-block-latest-posts.is-grid'
+		).forEach( function ( el ) {
+			initAndRelayout( el, { itemSelector: 'li', columnWidth: 'li', gutter: wpCoreGutter } );
+		} );
+
+	} );
+}() );
+
 /**
  * Positive tabindex-Werte brechen die natürliche Tab-Reihenfolge.
  * WordPress-Core oder Plugins können diese auf Blöcke setzen.
@@ -300,6 +359,20 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	} );
 } );
 /* eslint-enable no-undef */
+
+document.querySelectorAll( '.wp-block-columns' ).forEach( ( columns ) => {
+	const allColumns = columns.querySelectorAll( ':scope > .wp-block-column' );
+
+	// Prüfen, ob jede Spalte mit einem Bild‑Block startet
+	const allStartWithImage = Array.from( allColumns ).every( ( col ) => {
+		const firstChild = col.firstElementChild;
+		return firstChild && firstChild.classList.contains( 'wp-block-image' );
+	} );
+
+	if ( allColumns.length > 1 && allStartWithImage ) {
+		columns.classList.add( 'all-columns-start-with-image' );
+	}
+} );
 
 document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
 	const cols = group.querySelectorAll(
@@ -643,6 +716,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 ( () => {
 	'use strict';
 
+	const breakpoint = 950; // px (z. B. .tarife)
 	const dragThreshold = 35; // px
 	const verticalScrollThreshold = 5; // px
 
@@ -663,15 +737,35 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	};
 
 	function bootstrap() {
+		const viewportWidth = window.innerWidth;
+
 		document
 			.querySelectorAll( '.latest-posts .row.posts-slider, .tarife' )
 			.forEach( ( trackEl ) => {
 				const isActive =
 					trackEl.classList.contains( 'js-column-slider' );
 
-				if ( ! isActive ) {
+				const isLatestPostsTrack =
+					trackEl.classList.contains( 'posts-slider' ) ||
+					( trackEl.classList.contains( 'row' ) &&
+						trackEl.closest( '.latest-posts' ) );
+
+				if ( isLatestPostsTrack ) {
+					if ( ! isActive ) {
+						initSlider( trackEl );
+					} else {
+						const inst = instances.find(
+							( ins ) => ins.track === trackEl
+						);
+						if ( inst ) {
+							inst.recalc();
+						}
+					}
+				} else if ( viewportWidth <= breakpoint && ! isActive ) {
 					initSlider( trackEl );
-				} else {
+				} else if ( viewportWidth > breakpoint && isActive ) {
+					destroySlider( trackEl );
+				} else if ( isActive ) {
 					const inst = instances.find(
 						( ins ) => ins.track === trackEl
 					);
@@ -1000,6 +1094,17 @@ document.addEventListener( 'DOMContentLoaded', () => {
 				nav.remove();
 			},
 		} );
+	}
+
+	function destroySlider( track ) {
+		const i = instances.findIndex( ( ins ) => ins.track === track );
+		if ( i === -1 ) {
+			return;
+		}
+
+		instances[ i ].remove();
+		track.classList.remove( 'column-slider', 'js-column-slider' );
+		instances.splice( i, 1 );
 	}
 
 	document.addEventListener( 'DOMContentLoaded', bootstrap );

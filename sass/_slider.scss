@@ -86,6 +86,12 @@
     }
 }
 
+.post-image-flexible .latest-posts .navbuttons {
+    @include media-breakpoint-down(md) {
+        width: calc(100vw - var(--grid-margin));
+    }
+}
+
 .latest-posts .slider__button {
     position: absolute;
     width: 46px;

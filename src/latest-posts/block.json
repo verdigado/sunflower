@@ -29,7 +29,7 @@
 		},
 		"blockLayout": {
 			"type": "string",
-			"default": "grid"
+			"default": "slider"
 		},
 		"columns": {
 			"type": "number",
