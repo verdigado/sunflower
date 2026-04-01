@@ -626,6 +626,234 @@ function sunflower_custom_event_column( $column, $post_id ) {
 
 add_action( 'manage_sunflower_event_posts_custom_column', 'sunflower_custom_event_column', 10, 2 );
 
+/**
+ * Normalize calendar datetimes to the local-naive format used in event meta.
+ *
+ * FullCalendar sends ISO strings with timezone offsets, while this theme stores
+ * event meta as plain local date strings. For the calendar query we intentionally
+ * strip timezone information and compare local calendar values consistently.
+ *
+ * @param string $datetime Raw calendar datetime string.
+ * @return string Normalized datetime in `Y-m-d H:i:s` format or an empty string.
+ */
+function sunflower_normalize_calendar_datetime( $datetime ) {
+	if ( ! is_string( $datetime ) || '' === trim( $datetime ) ) {
+		return '';
+	}
+
+	if (
+		! preg_match(
+			'/^(\d{4}-\d{2}-\d{2})(?:[T\s](\d{2}:\d{2})(?::(\d{2}))?)?/',
+			$datetime,
+			$matches
+		)
+	) {
+		return '';
+	}
+
+	$date    = $matches[1];
+	$time    = $matches[2] ?? '00:00';
+	$seconds = $matches[3] ?? '00';
+
+	return sprintf( '%s %s:%s', $date, $time, $seconds );
+}
+
+/**
+ * Normalize the incoming tag filter to sanitized term slugs.
+ *
+ * @param string $tags Comma-separated tag slugs from the request.
+ * @return array
+ */
+function sunflower_prepare_calendar_filter_tags( $tags ) {
+	if ( ! is_string( $tags ) || '' === trim( $tags ) ) {
+		return array();
+	}
+
+	return array_filter(
+		array_map( 'sanitize_title', array_map( 'trim', explode( ',', $tags ) ) )
+	);
+}
+
+/**
+ * Build the WP_Query arguments for the calendar event endpoint.
+ *
+ * The range comparison intentionally follows FullCalendar's exclusive end date:
+ * events must start before the requested end, and must either end after the
+ * requested start or, when they do not have an end date, start on/after it.
+ *
+ * @param string $range_start Normalized range start.
+ * @param string $range_end   Normalized range end.
+ * @param array  $tags        Optional tag slugs to filter by.
+ * @return array
+ */
+function sunflower_build_calendar_event_query_args( $range_start, $range_end, $tags = array() ) {
+	$query_args = array(
+		'post_type'      => 'sunflower_event',
+		'posts_per_page' => -1,
+		'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+			'relation' => 'AND',
+			array(
+				'key'     => '_sunflower_event_from',
+				'value'   => $range_end,
+				'compare' => '<',
+				'type'    => 'DATETIME',
+			),
+			array(
+				'relation' => 'OR',
+				array(
+					'key'     => '_sunflower_event_until',
+					'value'   => $range_start,
+					'compare' => '>',
+					'type'    => 'DATETIME',
+				),
+				array(
+					'relation' => 'AND',
+					array(
+						'relation' => 'OR',
+						array(
+							'key'     => '_sunflower_event_until',
+							'compare' => 'NOT EXISTS',
+						),
+						array(
+							'key'     => '_sunflower_event_until',
+							'value'   => '',
+							'compare' => '=',
+						),
+					),
+					array(
+						'key'     => '_sunflower_event_from',
+						'value'   => $range_start,
+						'compare' => '>=',
+						'type'    => 'DATETIME',
+					),
+				),
+			),
+		),
+		'orderby'        => 'meta_value',
+		'meta_key'       => '_sunflower_event_from', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+		'order'          => 'ASC',
+	);
+
+	if ( ! empty( $tags ) ) {
+		$query_args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+			array(
+				'taxonomy' => 'sunflower_event_tag',
+				'field'    => 'slug',
+				'terms'    => $tags,
+			),
+		);
+	}
+
+	return $query_args;
+}
+
+/**
+ * Format event meta values for FullCalendar.
+ *
+ * @param string $datetime Event meta datetime.
+ * @param bool   $is_all_day Whether the event is all day.
+ * @return string|null
+ */
+function sunflower_format_calendar_event_datetime( $datetime, $is_all_day ) {
+	$normalized_datetime = sunflower_normalize_calendar_datetime( $datetime );
+
+	if ( ! $normalized_datetime ) {
+		return null;
+	}
+
+	if ( $is_all_day ) {
+		return substr( $normalized_datetime, 0, 10 );
+	}
+
+	return str_replace( ' ', 'T', $normalized_datetime );
+}
+
+/**
+ * AJAX handler – return calendar events as JSON for a given date range.
+ *
+ * Accepts GET parameters: start, end (ISO 8601), nonce, tags (comma-separated slugs).
+ * Responds with a FullCalendar-compatible event array.
+ *
+ * @return void Outputs JSON and exits.
+ */
+function sunflower_ajax_get_calendar_events() {
+	$nonce = isset( $_GET['nonce'] ) ? sanitize_text_field( wp_unslash( $_GET['nonce'] ) ) : '';
+	if ( ! wp_verify_nonce( $nonce, 'sunflower_calendar_events' ) ) {
+		wp_send_json_error(
+			array(
+				'message' => 'Security check failed',
+				'code'    => 'invalid_nonce',
+			),
+			403
+		);
+		return;
+	}
+
+	$start = sunflower_normalize_calendar_datetime(
+		isset( $_GET['start'] ) ? sanitize_text_field( wp_unslash( $_GET['start'] ) ) : ''
+	);
+	$end   = sunflower_normalize_calendar_datetime(
+		isset( $_GET['end'] ) ? sanitize_text_field( wp_unslash( $_GET['end'] ) ) : ''
+	);
+	$tags  = sunflower_prepare_calendar_filter_tags(
+		isset( $_GET['tags'] ) ? sanitize_text_field( wp_unslash( $_GET['tags'] ) ) : ''
+	);
+
+	if ( empty( $start ) || empty( $end ) ) {
+		wp_send_json_error(
+			array(
+				'message' => 'Invalid date range',
+				'code'    => 'invalid_params',
+			),
+			400
+		);
+		return;
+	}
+
+	$events_query = new WP_Query(
+		sunflower_build_calendar_event_query_args( $start, $end, $tags )
+	);
+
+	$calendar_events = array();
+
+	while ( $events_query->have_posts() ) {
+		$events_query->the_post();
+
+		$event_start_date = get_post_meta( get_the_ID(), '_sunflower_event_from', true );
+		$event_end_date   = get_post_meta( get_the_ID(), '_sunflower_event_until', true );
+		$event_whole_day  = get_post_meta( get_the_ID(), '_sunflower_event_whole_day', true );
+
+		$is_all_day = ( 'checked' === $event_whole_day );
+		$fc_start   = sunflower_format_calendar_event_datetime( $event_start_date, $is_all_day );
+		$fc_end     = sunflower_format_calendar_event_datetime( $event_end_date, $is_all_day );
+
+		$event_tag_slugs = wp_get_post_terms( get_the_ID(), 'sunflower_event_tag', array( 'fields' => 'slugs' ) );
+		$event_tag_slugs = is_array( $event_tag_slugs ) ? $event_tag_slugs : array();
+
+		$calendar_event = array(
+			'title'         => get_the_title(),
+			'start'         => $fc_start,
+			'url'           => get_permalink(),
+			'allDay'        => $is_all_day,
+			'extendedProps' => array(
+				'tags' => $event_tag_slugs,
+			),
+		);
+
+		if ( $fc_end && $fc_end !== $fc_start ) {
+			$calendar_event['end'] = $fc_end;
+		}
+
+		$calendar_events[] = $calendar_event;
+	}
+	wp_reset_postdata();
+
+	wp_send_json( $calendar_events );
+}
+
+add_action( 'wp_ajax_sunflower_get_calendar_events', 'sunflower_ajax_get_calendar_events' );
+add_action( 'wp_ajax_nopriv_sunflower_get_calendar_events', 'sunflower_ajax_get_calendar_events' );
+
 // Make sunflower_event_date column-header clickable in backend
 // to allow ordering by it.
 add_filter(
