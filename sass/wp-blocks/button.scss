@@ -62,11 +62,10 @@ body {
             margin-right: var(--gap-small);
         }
 
-
         &:hover {
             color: map.get($custom-colors, "tanne");
             text-decoration: none;
-            background-color: $button-hover;
+            background-color: $button-hover !important;
         }
 
         &::before {
