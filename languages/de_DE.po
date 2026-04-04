@@ -1044,6 +1044,50 @@ msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
 
+#: functions/welcome-page.php
+msgid "Welcome"
+msgstr "Herzlich willkommen"
+
+#: functions/welcome-page.php
+msgid "To get started quickly, we recommend setting up our example pages."
+msgstr "Um so schnell wie möglich in das Theme einzusteigen, empfehlen wir, unsere Beispiel-Seiten zu aktivieren."
+
+#: functions/welcome-page.php
+msgid "Set up example pages"
+msgstr "Beispiel-Seite einfügen"
+
+#: functions/welcome-page.php
+msgid "Skip"
+msgstr "Überspringen"
+
+#: functions/welcome-page.php
+msgid "Installing…"
+msgstr "Wird installiert…"
+
+#: functions/welcome-page.php
+msgid "Demo content was already set up."
+msgstr "Demo-Inhalte wurden bereits installiert."
+
+#: functions/welcome-page.php
+msgid "Go to settings"
+msgstr "Zu den Einstellungen"
+
+#: functions/welcome-page.php
+msgid "An error occurred. Please try again."
+msgstr "Fehler bei der Installation. Bitte erneut versuchen."
+
+#: functions/welcome-page.php
+msgid "Network error – please try again."
+msgstr "Netzwerkfehler – bitte erneut versuchen."
+
+#: functions/welcome-page.php
+msgid "Insufficient permissions."
+msgstr "Keine Berechtigung."
+
+#: functions/welcome-page.php
+msgid "Security check failed."
+msgstr "Sicherheitsprüfung fehlgeschlagen."
+
 #~ msgid "Comment article"
 #~ msgstr "Artikel kommentieren"
 

@@ -125,6 +125,24 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
         margin-left: 0 !important;
     }
 
+    .has-text-align-center:has(mark:nth-of-type(3)),
+    h1:has(mark:nth-of-type(3)),
+    h2:has(mark:nth-of-type(3)),
+    h3:has(mark:nth-of-type(3)),
+    .h1:has(mark:nth-of-type(3)),
+    .h2:has(mark:nth-of-type(3)),
+    .h3:has(mark:nth-of-type(3)),
+    .wp-block-heading:has(mark:nth-of-type(3)) {
+
+        mark,
+        mark:nth-of-type(2) {
+            display: inline !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            margin-top: 0 !important;
+        }
+    }
+
     h1 {
         text-align: left;
         position: relative;
@@ -378,6 +396,18 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
 
         &.has-text-align-center mark:nth-of-type(2) {
             margin-left: 0;
+        }
+
+        &:has(mark:nth-of-type(3)) {
+            line-height: 1.1 !important;
+
+            mark,
+            mark:nth-of-type(2) {
+                display: inline !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                margin-top: 0 !important;
+            }
         }
     }
 }

@@ -20,6 +20,9 @@ require_once __DIR__ . '/functions/metaboxes.php';
 require_once __DIR__ . '/functions/blocks.php';
 require_once __DIR__ . '/functions/update.php';
 require_once __DIR__ . '/functions/related-posts.php';
+require_once __DIR__ . '/functions/demo-content.php';
+require_once __DIR__ . '/functions/demo-setup.php';
+require_once __DIR__ . '/functions/welcome-page.php';
 require_once __DIR__ . '/functions/activation.php';
 require_once __DIR__ . '/functions/comments.php';
 require_once __DIR__ . '/functions/icalimport.php';
@@ -122,12 +125,26 @@ function sunflower_set_default_options() {
 		'sunflower_color_scheme'       => 'light',
 		'sunflower_form_style'         => 'rounded',
 		'sunflower_footer_layout'      => 'sand',
+		'sunflower_post_image_format'  => 'modern',
 	);
 
 	// Existierende Werte haben Vorrang, Defaults füllen nur Lücken.
 	$options = wp_parse_args( $options, $defaults );
 
 	update_option( 'sunflower_options', $options );
+
+	// Ensure event options are persisted so the post type is registered
+	// without requiring the user to save the settings form first.
+	$events_options = get_option( 'sunflower_events_options' );
+	if ( ! is_array( $events_options ) ) {
+		$events_options = array();
+	}
+	$events_defaults = array(
+		'sunflower_events_enabled'     => 1,
+		'sunflower_show_event_archive' => 1,
+	);
+	$events_options  = wp_parse_args( $events_options, $events_defaults );
+	update_option( 'sunflower_events_options', $events_options );
 }
 add_action( 'after_switch_theme', 'sunflower_set_default_options' );
 
@@ -224,7 +241,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function sunflower_get_default_options(): array {
 	return array(
-		'excerpt_length' => 15,
+		'excerpt_length'              => 15,
+		'sunflower_post_image_format' => 'modern',
 	);
 }
 

@@ -32,10 +32,7 @@
                     &:focus,
                     &:hover {
                         border: none;
-
-                        @include themed-colorscheme-nested() {
-                            background-color: t(btn-pr-text);
-                        }
+                        background-color: inherit !important;
                     }
                 }
             }

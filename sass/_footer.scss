@@ -55,11 +55,18 @@
                 border-radius: var(--border-radius-large) 0 0 0;
                 right: 0;
                 bottom: 0;
+                z-index: 100;
+
+                opacity: 1 !important;
+                pointer-events: all !important;
 
                 img {
                     height: 120px;
                     width: auto;
                     object-fit: contain;
+
+                    opacity: 1 !important;
+                    pointer-events: all !important;
 
                     &.custom-logo {
                         padding: var(--grid-margin) 0 0 var(--grid-margin);

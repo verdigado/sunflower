@@ -88,6 +88,10 @@ add_action( 'init', 'sunflower_maybe_run_theme_update' );
  */
 function sunflower_run_update_tasks( $from_version ) {
 
+	if ( empty( $from_version ) ) {
+		return;
+	}
+
 	if ( version_compare( $from_version, '2.2.15', '<' ) ) {
 
 		$is_sunflower_events_enabled = sunflower_get_setting( 'sunflower_events_enabled' );
@@ -102,5 +106,15 @@ function sunflower_run_update_tasks( $from_version ) {
 
 		// Flush rewrite rules later on custom post registration.
 		update_option( 'sunflower_flush_rewrite_rules', 1 );
+	}
+
+	if ( version_compare( $from_version, '3.0.0', '<' ) ) {
+
+		$sunflower_options = get_option( 'sunflower_options' );
+		if ( ! is_array( $sunflower_options ) ) {
+			$sunflower_options = array();
+		}
+		$sunflower_options['sunflower_post_image_format'] = 'flexible';
+		update_option( 'sunflower_options', $sunflower_options );
 	}
 }
