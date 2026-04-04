@@ -31,7 +31,7 @@ if ( ! in_array( '_sunflower_event_show_map', get_post_custom_keys( $post->ID ),
 } else {
 	$sunflower_event_show_map = get_post_meta( $post->ID, '_sunflower_event_show_map', true ) ?? false;
 }
-$sunflower_zoom = sunflower_get_setting( 'sunflower_zoom' ) ? sunflower_get_setting( 'sunflower_zoom' ) : 11;
+$sunflower_zoom = sunflower_get_setting( 'sunflower_zoom' ) ? sunflower_get_setting( 'sunflower_zoom' ) : 6;
 if ( ! $sunflower_event_zoom ) {
 	$sunflower_event_zoom = $sunflower_zoom;
 }

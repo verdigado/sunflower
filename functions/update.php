@@ -89,6 +89,10 @@ add_action( 'init', 'sunflower_maybe_run_theme_update' );
 function sunflower_run_update_tasks( $from_version ) {
 
 	// Option sunflower_events_enabled was added in 2.2.15, so we need to enable it for users updating from a version older than that.
+	if ( empty( $from_version ) ) {
+		return;
+	}
+
 	if ( version_compare( $from_version, '2.2.15', '<' ) ) {
 
 		$is_sunflower_events_enabled = sunflower_get_setting( 'sunflower_events_enabled' );
@@ -107,8 +111,10 @@ function sunflower_run_update_tasks( $from_version ) {
 
 	if ( version_compare( $from_version, '3.0.0', '<' ) ) {
 		// If updating from a version older than 3.0.0, set the default post image format to 'flexible'.
-
-		$sunflower_options                                = get_option( 'sunflower_options' );
+		$sunflower_options = get_option( 'sunflower_options' );
+		if ( ! is_array( $sunflower_options ) ) {
+			$sunflower_options = array();
+		}
 		$sunflower_options['sunflower_post_image_format'] = 'flexible';
 		update_option( 'sunflower_options', $sunflower_options );
 	}

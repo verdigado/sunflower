@@ -564,6 +564,11 @@ function coverHasBackgroundImage( el ) {
 	if ( ! cover ) {
 		return false;
 	}
+	// HeroCover: Der inner-container hat immer einen eigenen farbigen Hintergrund
+	// (weiß / Farbschema). Das Foto dahinter ist aus Sicht des Textes kein Hintergrundbild.
+	if ( cover.classList.contains( 'is-style-sunflower-hero' ) ) {
+		return false;
+	}
 	return !! cover.querySelector(
 		'img.wp-block-cover__image-background, video.wp-block-cover__video-background'
 	);
@@ -1305,6 +1310,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			// Marks behalten, nur Farbe anpassen – angeschrägter Effekt bleibt
 			// background-color, padding und margin am mark entfernen (nur ::before bleibt)
 			const newColor = getHeadlineColor( heading );
+			// Foto-Hintergrund (normaler Cover-Block mit Bild, kein HeroCover)?
+			// → Text bleibt weiß, bekommt aber einen Schatten für Lesbarkeit.
+			const needsShadow = coverHasBackgroundImage( heading );
 			heading.querySelectorAll( 'mark' ).forEach( function ( m ) {
 				m.style.setProperty(
 					'background-color',
@@ -1317,18 +1325,42 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				if ( newColor ) {
 					m.style.setProperty( 'color', newColor, 'important' );
 				}
+				if ( needsShadow ) {
+					m.style.setProperty(
+						'text-shadow',
+						'rgba(0, 0, 0, 1) 1px 2px 10px',
+						'important'
+					);
+				}
 			} );
 			if ( newColor ) {
 				heading.style.setProperty( 'color', newColor, 'important' );
+			}
+			if ( needsShadow ) {
+				heading.style.setProperty(
+					'text-shadow',
+					'rgba(0, 0, 0, 1) 1px 2px 10px',
+					'important'
+				);
 			}
 		} );
 	}
 
 	function processLabels() {
-		const labels = document.querySelectorAll(
-			'.brand-left .label-top, .brand-left .label-bottom'
-		);
+		const brandLeft = document.querySelector( '.brand-left' );
+		if ( ! brandLeft ) {
+			return;
+		}
 
+		const labelTop = brandLeft.querySelector( '.label-top' );
+		const labelBottom = brandLeft.querySelector( '.label-bottom' );
+		const labels = [ labelTop, labelBottom ].filter( Boolean );
+
+		if ( labels.length === 0 ) {
+			return;
+		}
+
+		// Original-Styles sichern und wiederherstellen
 		labels.forEach( function ( label ) {
 			if (
 				! label.dataset.labelOriginalStyle &&
@@ -1337,18 +1369,38 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				label.dataset.labelOriginalStyle =
 					label.getAttribute( 'style' );
 			}
-
 			const originalStyle = label.dataset.labelOriginalStyle || '';
 			if ( originalStyle ) {
 				label.setAttribute( 'style', originalStyle );
 			} else {
 				label.removeAttribute( 'style' );
 			}
+		} );
 
-			if ( ! isMultilineMark( label ) ) {
-				return;
-			}
+		// Wenn EINES der beiden Labels umbricht, verlieren BEIDE die Hinterlegung
+		const anyMultiline = labels.some( function ( label ) {
+			return isMultilineMark( label );
+		} );
 
+		if ( ! anyMultiline ) {
+			return;
+		}
+
+		const firstContentChild = document.querySelector(
+			'.entry-content > :first-child'
+		);
+		const hasCoverFirst =
+			firstContentChild &&
+			firstContentChild.classList.contains( 'wp-block-cover' );
+
+		// Foto-Hintergrund: erstes Cover-Element hat ein Hintergrundbild?
+		const coverHasPhoto =
+			hasCoverFirst &&
+			!! firstContentChild.querySelector(
+				'img.wp-block-cover__image-background, video.wp-block-cover__video-background'
+			);
+
+		labels.forEach( function ( label ) {
 			label.style.setProperty( '--bg', 'transparent' );
 			label.style.setProperty(
 				'background-color',
@@ -1359,15 +1411,15 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			label.style.setProperty( 'text-align', 'left', 'important' );
 			label.style.setProperty( 'left', '0', 'important' );
 
-			const firstContentChild = document.querySelector(
-				'.entry-content > :first-child'
-			);
-			const hasCoverFirst =
-				firstContentChild &&
-				firstContentChild.classList.contains( 'wp-block-cover' );
-
 			if ( hasCoverFirst ) {
 				label.style.setProperty( 'color', '#ffffff', 'important' );
+				if ( coverHasPhoto ) {
+					label.style.setProperty(
+						'text-shadow',
+						'rgba(0, 0, 0, 1) 1px 2px 10px',
+						'important'
+					);
+				}
 			} else {
 				const newColor = getHeadlineColor( label );
 				if ( newColor ) {

@@ -163,7 +163,8 @@ body #content {
     margin-bottom: var(--half-block-spacing);
 
     &:only-child {
-        margin: 0;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     &:last-child {
@@ -227,6 +228,7 @@ body #content {
 
 .wp-block-social-links {
     width: fit-content;
+    gap: var(--half-grid-margin) !important;
 }
 
 

@@ -169,6 +169,18 @@ h3:has(mark) {
             }
         }
     }
+
+    &:has(mark:nth-of-type(3)) {
+        line-height: $heading-line-heights !important;
+
+        mark,
+        mark:nth-of-type(2) {
+            display: inline !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            margin-top: 0 !important;
+        }
+    }
 }
 
 .has-large-font-size {
@@ -235,5 +247,13 @@ h6,
 
     em {
         font-style: normal;
+    }
+}
+
+.wp-block-heading.has-text-align-center:has(mark) {
+
+    mark {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
