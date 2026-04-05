@@ -26,9 +26,12 @@ export default function InspectorPanel( {
 } ) {
 	return (
 		<InspectorControls>
-			<PanelBody title={ __( 'Filter' ) } initialOpen>
+			<PanelBody
+				title={ __( 'Filter', 'sunflower-calendar-events' ) }
+				initialOpen
+			>
 				<FormTokenField
-					label={ __( 'Tags' ) }
+					label={ __( 'Tags', 'sunflower-calendar-events' ) }
 					value={ selectedTagNames }
 					onChange={ onTagChange }
 					suggestions={ tagSuggestions }
@@ -37,7 +40,7 @@ export default function InspectorPanel( {
 			</PanelBody>
 
 			<PanelBody
-				title={ __( 'Farben', 'sunflower-calendar-events' ) }
+				title={ __( 'Colors', 'sunflower-calendar-events' ) }
 				initialOpen={ false }
 			>
 				<TagColorPicker

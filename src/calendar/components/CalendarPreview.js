@@ -141,7 +141,7 @@ function CalendarDay( { dayNumber, isCurrentMonth, isToday, hasEvent } ) {
 			{ hasEvent && (
 				<div className="calendar-preview-event fc-event fc-daygrid-event fc-daygrid-block-event">
 					<div className="fc-event-main">
-						{ __( 'Termin', 'sunflower-calendar-events' ) }
+						{ __( 'Event', 'sunflower-calendar-events' ) }
 					</div>
 				</div>
 			) }
@@ -159,17 +159,14 @@ function PreviewNotice( { selectedTagNames } ) {
 		<div className="calendar-preview-notice">
 			<p className="notice-main">
 				{ __(
-					'Editor-Vorschau mit Beispielterminen. Die echten Termine werden auf der Seite geladen.',
+					'Editor preview with sample events. Real events will be loaded on the page.',
 					'sunflower-calendar-events'
 				) }
 			</p>
 
 			{ selectedTagNames && selectedTagNames.length > 0 && (
 				<p className="notice-filter">
-					{ __(
-						'Gefiltert nach Tags:',
-						'sunflower-calendar-events'
-					) }{ ' ' }
+					{ __( 'Filtered by tags:', 'sunflower-calendar-events' ) }{ ' ' }
 					<strong>{ selectedTagNames.join( ', ' ) }</strong>
 				</p>
 			) }
