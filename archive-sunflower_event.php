@@ -161,7 +161,7 @@ endif;
 
 						$sunflower_center_lat = ( $sunflower_lower_lat + $sunflower_upper_lat ) / 2;
 						$sunflower_center_lon = ( $sunflower_lower_lon + $sunflower_upper_lon ) / 2;
-						$sunflower_zoom       = sunflower_get_setting( 'sunflower_zoom' ) ? sunflower_get_setting( 'sunflower_zoom' ) : 6;
+						$sunflower_zoom       = sunflower_get_setting( 'sunflower_zoom' ) ? sunflower_get_setting( 'sunflower_zoom' ) : 11;
 						printf(
 							"map.center = { 'lat': %s, 'lon': %s, 'zoom': %s };",
 							esc_attr( $sunflower_center_lat ),
