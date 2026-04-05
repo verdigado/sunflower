@@ -20,7 +20,6 @@ import {
 import {
 	Disabled,
 	FormTokenField,
-	Notice,
 	RangeControl,
 	PanelBody,
 	TextControl,
@@ -30,8 +29,6 @@ import ServerSideRender from '@wordpress/server-side-render';
 import { grid, list, gallery } from '@wordpress/icons';
 import { useEntityRecords } from '@wordpress/core-data';
 import { useState, useEffect } from '@wordpress/element';
-import { useSelect } from '@wordpress/data';
-import { store as editorStore } from '@wordpress/editor';
 
 const EMPTY_ARRAY = [];
 
@@ -68,13 +65,6 @@ export default function Edit( { attributes, setAttributes } ) {
 		blockLayout,
 		columns,
 	} = attributes;
-
-	const postImageMode = useSelect(
-		( select ) =>
-			select( editorStore ).getEditorSettings().sunflowerPostImageMode,
-		[]
-	);
-	const isFlexibleMode = postImageMode === 'flexible';
 
 	const [ categoriesFormSuggestions, setCategoriesFormSuggestions ] =
 		useState( EMPTY_ARRAY );
@@ -267,7 +257,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							value={ archiveText }
 							onChange={ onChangeArchiveText }
 						/>
-						{ blockLayout === 'grid' && ! isFlexibleMode && (
+						{ blockLayout === 'grid' && (
 							<RangeControl
 								__nextHasNoMarginBottom
 								__next40pxDefaultSize
@@ -280,14 +270,6 @@ export default function Edit( { attributes, setAttributes } ) {
 								max={ 3 }
 								required
 							/>
-						) }
-						{ blockLayout === 'grid' && isFlexibleMode && (
-							<Notice status="warning" isDismissible={ false }>
-								{ __(
-									'Im Modus für flexible Beitragsbild-Proportionen wird das Raster immer zweispaltig. Die Spaltenanzahl kann nur im „Modern"-Modus (Sunflower-Einstellungen) geändert werden.',
-									'sunflower-latest-posts'
-								) }
-							</Notice>
 						) }
 					</PanelBody>
 				</InspectorControls>

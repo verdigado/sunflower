@@ -256,11 +256,6 @@ body #content {
     margin-top: var(--half-block-spacing);
     margin-bottom: var(--half-block-spacing);
 
-    &.has-background {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
     &:first-child {
         margin-top: var(--grid-margin);
     }

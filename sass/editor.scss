@@ -670,7 +670,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
     }
 
     &:last-child {
-        padding-bottom: var(--grid-margin);
+        padding-bottom: 0;
     }
 
     &:only-child {
@@ -711,6 +711,8 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
 
     > .wp-block-image,
     > div > .wp-block-image,
+    > .wp-block-buttons,
+    > div > .wp-block-buttons,
     > .wp-block-latest-comments,
     > div > .wp-block-latest-comments,
     > .wp-block-latest-posts,
