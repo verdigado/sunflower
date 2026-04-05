@@ -26,9 +26,6 @@ add_filter( 'render_block_data', 'sunflower_latest_posts_image_size' );
  * Inject data-masonry attribute into the core/latest-posts block (grid view)
  * when flexible image format is active.
  *
- * Uses preg_replace to match only the outer <ul> element (not nested elements
- * whose class names also start with "wp-block-latest-posts__").
- *
  * @param string $block_content The rendered block HTML.
  * @param array  $block         The block attributes.
  * @return string

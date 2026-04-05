@@ -203,8 +203,7 @@ function sunflower_enqueue_block_core_assets() {
 add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_core_assets' );
 
 /**
- * Aktuelle "Beitragsbilder"-Einstellung an den Block-Editor durchreichen,
- * damit Editor-Scripts den Modus auslesen können.
+ * Aktuelle "Beitragsbilder"-Einstellung an den Block-Editor durchreichen.
  *
  * @param array $settings Editor-Einstellungen.
  * @return array

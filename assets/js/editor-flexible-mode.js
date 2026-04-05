@@ -1,10 +1,6 @@
 /* globals wp */
 /**
- * Flexible-Mode: Spalten-Control im WP Core "Neueste Beiträge"-Block deaktivieren.
- *
- * Wenn die Theme-Einstellung "Beitragsbilder" auf "Flexibel" gesetzt ist, zeigt
- * der Core-Block eine Info-Notice statt des Spalten-Sliders – da im Masonry-Modus
- * immer 2 Spalten verwendet werden.
+ * Flexible-Mode: Spalten-Control deaktivieren
  */
 ( function () {
 	const addFilter = wp.hooks.addFilter;
