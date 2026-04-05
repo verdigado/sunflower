@@ -213,7 +213,7 @@
 .sunflower-post-navigation {
 
     @include alignwide;
-    margin-top: var(--grid-margin);
+    margin-top: var(--half-block-spacing);
     display: flex;
     justify-content: space-between;
 

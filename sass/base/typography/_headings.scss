@@ -128,6 +128,16 @@ h3:has(mark) {
             z-index: -1;
             transform: skewX(-12deg);
             background-color: var(--bg);
+
+            @include media-breakpoint-down(xl) {
+                left: -7px;
+                width: calc(100% + 14px);
+            }
+
+            @include media-breakpoint-down(md) {
+                left: -4px;
+                width: calc(100% + 8px);
+            }
         }
 
     }

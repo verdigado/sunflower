@@ -23,40 +23,6 @@ function sunflower_latest_posts_image_size( $parsed_block ) {
 add_filter( 'render_block_data', 'sunflower_latest_posts_image_size' );
 
 /**
- * Inject data-masonry attribute into the core/latest-posts block (grid view)
- * when flexible image format is active.
- *
- * Uses preg_replace to match only the outer <ul> element (not nested elements
- * whose class names also start with "wp-block-latest-posts__").
- *
- * @param string $block_content The rendered block HTML.
- * @param array  $block         The block attributes.
- * @return string
- */
-function sunflower_latest_posts_masonry( $block_content, $block ) {
-	if ( 'core/latest-posts' !== ( $block['blockName'] ?? '' ) ) {
-		return $block_content;
-	}
-
-	if ( 'flexible' !== sunflower_get_setting( 'sunflower_post_image_format' ) ) {
-		return $block_content;
-	}
-
-	if ( ! isset( $block['attrs']['postLayout'] ) || 'grid' !== $block['attrs']['postLayout'] ) {
-		return $block_content;
-	}
-
-	// Trifft nur den <ul>-Container, der gleichzeitig "wp-block-latest-posts" UND "is-grid" hat.
-	return preg_replace(
-		'/<ul([^>]*class="[^"]*\bwp-block-latest-posts\b[^"]*\bis-grid\b[^"]*")/',
-		'<ul data-masonry=\'{"percentPosition": true}\'$1',
-		$block_content,
-		1
-	);
-}
-add_filter( 'render_block', 'sunflower_latest_posts_masonry', 10, 2 );
-
-/**
  * Get the latest posts for given category ids.
  *
  * @param int                 $number The amount of posts to fetch. -1 for all.

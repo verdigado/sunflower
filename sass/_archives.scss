@@ -88,6 +88,7 @@ ul.wp-block-categories-list {
         margin-left: auto !important;
         margin-right: auto !important;
         gap: var(--grid-margin);
+        height: auto !important;
         display: grid;
         grid-template-columns: repeat(10, minmax(0, 1fr));
         margin-bottom: var(--half-block-spacing);
@@ -98,9 +99,9 @@ ul.wp-block-categories-list {
 
         .col-md-6 {
 
-            position: static;
-            top: auto;
-            left: auto;
+            position: static !important; /* überschreibt inline position:absolute */
+            top: auto !important;
+            left: auto !important;
             display: flex;
 
             grid-column: span 10;
@@ -146,50 +147,6 @@ ul.wp-block-categories-list {
 
     .sunflower-categories {
         margin-top: 0;
-    }
-}
-
-// Flexible image mode: masonry-friendly 2-column layout
-body.post-image-flexible {
-
-    .archive-loop {
-        display: block !important;
-        gap: 0;
-
-        .col-md-6 {
-            width: 50%;
-            float: left;
-            display: block !important;
-            padding-left: calc(var(--grid-margin) / 2);
-            padding-right: calc(var(--grid-margin) / 2);
-            margin-bottom: var(--grid-margin);
-        }
-
-        @media (max-width: 700px) {
-
-            .col-md-6 {
-                width: 100%;
-                float: none;
-            }
-        }
-    }
-
-    .event-list {
-        display: block !important;
-
-        > [class*="col-"] {
-            width: 50%;
-            float: left;
-            margin-bottom: var(--grid-margin);
-        }
-
-        @media (max-width: 700px) {
-
-            > [class*="col-"] {
-                width: 100%;
-                float: none;
-            }
-        }
     }
 }
 

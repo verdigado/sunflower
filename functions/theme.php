@@ -229,22 +229,7 @@ function sunflower_get_body_classes() {
 		$classes[] = 'footer-' . sanitize_html_class( $options['sunflower_footer_layout'] );
 	}
 
-	$post_image_format = ! empty( $options['sunflower_post_image_format'] ) ? $options['sunflower_post_image_format'] : 'modern';
-	$classes[]         = 'post-image-' . sanitize_html_class( $post_image_format );
-
 	return $classes;
-}
-
-/**
- * Returns the data-masonry attribute string when flexible image format is active.
- *
- * @return string
- */
-function sunflower_get_masonry_attr(): string {
-	if ( 'flexible' === sunflower_get_setting( 'sunflower_post_image_format' ) ) {
-		return 'data-masonry=\'{"percentPosition": true}\'';
-	}
-	return '';
 }
 
 /**
