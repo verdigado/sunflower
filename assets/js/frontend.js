@@ -1477,7 +1477,8 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				! label.dataset.labelOriginalStyle &&
 				label.getAttribute( 'style' )
 			) {
-				label.dataset.labelOriginalStyle = label.getAttribute( 'style' );
+				label.dataset.labelOriginalStyle =
+					label.getAttribute( 'style' );
 			}
 			const originalStyle = label.dataset.labelOriginalStyle || '';
 			if ( originalStyle ) {
