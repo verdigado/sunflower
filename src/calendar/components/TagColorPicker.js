@@ -35,11 +35,14 @@ function TagColorPicker( { allTags, tagColors, onChange, hasResolved } ) {
 		return (
 			<BaseControl
 				id={ `${ TAG_COLOR_PICKER_ID }-loading` }
-				label={ __( 'Tag-Farben', 'sunflower-calendar-events' ) }
-				help={ __( 'Lade Event-Tags…', 'sunflower-calendar-events' ) }
+				label={ __( 'Tag Colors', 'sunflower-calendar-events' ) }
+				help={ __(
+					'Loading event tags…',
+					'sunflower-calendar-events'
+				) }
 			>
 				<p style={ { fontStyle: 'italic', color: '#666' } }>
-					{ __( 'Laden…', 'sunflower-calendar-events' ) }
+					{ __( 'Loading…', 'sunflower-calendar-events' ) }
 				</p>
 			</BaseControl>
 		);
@@ -49,9 +52,9 @@ function TagColorPicker( { allTags, tagColors, onChange, hasResolved } ) {
 		return (
 			<BaseControl
 				id={ `${ TAG_COLOR_PICKER_ID }-empty` }
-				label={ __( 'Tag-Farben', 'sunflower-calendar-events' ) }
+				label={ __( 'Tag Colors', 'sunflower-calendar-events' ) }
 				help={ __(
-					'Lege zuerst Event-Tags an, um eigene Farben zuzuweisen.',
+					'Create event tags first to assign custom colors.',
 					'sunflower-calendar-events'
 				) }
 			/>
@@ -62,9 +65,9 @@ function TagColorPicker( { allTags, tagColors, onChange, hasResolved } ) {
 		<div className="sunflower-tag-color-picker">
 			<BaseControl
 				id={ TAG_COLOR_PICKER_ID }
-				label={ __( 'Tag-Farben', 'sunflower-calendar-events' ) }
+				label={ __( 'Tag Colors', 'sunflower-calendar-events' ) }
 				help={ __(
-					'Weise jedem Tag eine Farbe zu. Events mit diesem Tag werden in der gewählten Farbe angezeigt.',
+					'Assign a color to each tag. Events with this tag will be displayed in the chosen color.',
 					'sunflower-calendar-events'
 				) }
 			>
