@@ -1,5 +1,71 @@
 /* eslint-disable no-undef */
 
+( function () {
+	if ( typeof Masonry === 'undefined' ) {
+		return;
+	}
+
+	/**
+	 * Masonry initialisieren und via imagesLoaded nach jedem lazy-Bild relayouten.
+	 *
+	 * @param {Element} el        Masonry-Container.
+	 * @param {Object}  extraOpts Zusätzliche Masonry-Optionen.
+	 */
+	function initAndRelayout( el, extraOpts ) {
+		const opts = Object.assign(
+			{ percentPosition: true },
+			extraOpts || {}
+		);
+		const msnry = Masonry.data( el ) || new Masonry( el, opts );
+		if ( typeof imagesLoaded !== 'undefined' ) {
+			imagesLoaded( el ).on( 'progress', function () {
+				msnry.layout();
+			} );
+		}
+	}
+
+	window.addEventListener( 'load', function () {
+		document.querySelectorAll( '[data-masonry]' ).forEach( function ( el ) {
+			const msnry = Masonry.data( el );
+			if ( msnry ) {
+				msnry.layout();
+				if ( typeof imagesLoaded !== 'undefined' ) {
+					imagesLoaded( el ).on( 'progress', function () {
+						msnry.layout();
+					} );
+				}
+			}
+		} );
+
+		if ( ! document.body.classList.contains( 'post-image-flexible' ) ) {
+			return;
+		}
+
+		document
+			.querySelectorAll( '.latest-posts--grid .row:not(.posts-slider)' )
+			.forEach( function ( el ) {
+				initAndRelayout( el );
+			} );
+
+		const wpCoreGutter =
+			parseInt(
+				getComputedStyle( document.documentElement ).getPropertyValue(
+					'--grid-margin'
+				),
+				10
+			) || 20;
+		document
+			.querySelectorAll( '.wp-block-latest-posts.is-grid' )
+			.forEach( function ( el ) {
+				initAndRelayout( el, {
+					itemSelector: 'li',
+					columnWidth: 'li',
+					gutter: wpCoreGutter,
+				} );
+			} );
+	} );
+} )();
+
 /**
  * Positive tabindex-Werte brechen die natürliche Tab-Reihenfolge.
  * WordPress-Core oder Plugins können diese auf Blöcke setzen.
@@ -301,6 +367,20 @@ document.addEventListener( 'DOMContentLoaded', function () {
 } );
 /* eslint-enable no-undef */
 
+document.querySelectorAll( '.wp-block-columns' ).forEach( ( columns ) => {
+	const allColumns = columns.querySelectorAll( ':scope > .wp-block-column' );
+
+	// Prüfen, ob jede Spalte mit einem Bild‑Block startet
+	const allStartWithImage = Array.from( allColumns ).every( ( col ) => {
+		const firstChild = col.firstElementChild;
+		return firstChild && firstChild.classList.contains( 'wp-block-image' );
+	} );
+
+	if ( allColumns.length > 1 && allStartWithImage ) {
+		columns.classList.add( 'all-columns-start-with-image' );
+	}
+} );
+
 document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
 	const cols = group.querySelectorAll(
 		':scope > .wp-block-columns > .wp-block-column'
@@ -564,6 +644,10 @@ function coverHasBackgroundImage( el ) {
 	if ( ! cover ) {
 		return false;
 	}
+
+	if ( cover.classList.contains( 'is-style-sunflower-hero' ) ) {
+		return false;
+	}
 	return !! cover.querySelector(
 		'img.wp-block-cover__image-background, video.wp-block-cover__video-background'
 	);
@@ -643,6 +727,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 ( () => {
 	'use strict';
 
+	const breakpoint = 950; // px (z. B. .tarife)
 	const dragThreshold = 35; // px
 	const verticalScrollThreshold = 5; // px
 
@@ -663,15 +748,35 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	};
 
 	function bootstrap() {
+		const viewportWidth = window.innerWidth;
+
 		document
 			.querySelectorAll( '.latest-posts .row.posts-slider, .tarife' )
 			.forEach( ( trackEl ) => {
 				const isActive =
 					trackEl.classList.contains( 'js-column-slider' );
 
-				if ( ! isActive ) {
+				const isLatestPostsTrack =
+					trackEl.classList.contains( 'posts-slider' ) ||
+					( trackEl.classList.contains( 'row' ) &&
+						trackEl.closest( '.latest-posts' ) );
+
+				if ( isLatestPostsTrack ) {
+					if ( ! isActive ) {
+						initSlider( trackEl );
+					} else {
+						const inst = instances.find(
+							( ins ) => ins.track === trackEl
+						);
+						if ( inst ) {
+							inst.recalc();
+						}
+					}
+				} else if ( viewportWidth <= breakpoint && ! isActive ) {
 					initSlider( trackEl );
-				} else {
+				} else if ( viewportWidth > breakpoint && isActive ) {
+					destroySlider( trackEl );
+				} else if ( isActive ) {
 					const inst = instances.find(
 						( ins ) => ins.track === trackEl
 					);
@@ -1002,6 +1107,17 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		} );
 	}
 
+	function destroySlider( track ) {
+		const i = instances.findIndex( ( ins ) => ins.track === track );
+		if ( i === -1 ) {
+			return;
+		}
+
+		instances[ i ].remove();
+		track.classList.remove( 'column-slider', 'js-column-slider' );
+		instances.splice( i, 1 );
+	}
+
 	document.addEventListener( 'DOMContentLoaded', bootstrap );
 	window.addEventListener( 'resize', bootstrap );
 } )();
@@ -1305,6 +1421,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			// Marks behalten, nur Farbe anpassen – angeschrägter Effekt bleibt
 			// background-color, padding und margin am mark entfernen (nur ::before bleibt)
 			const newColor = getHeadlineColor( heading );
+			// Foto-Hintergrund (normaler Cover-Block mit Bild, kein HeroCover)?
+			// → Text bleibt weiß, bekommt aber einen Schatten für Lesbarkeit.
+			const needsShadow = coverHasBackgroundImage( heading );
 			heading.querySelectorAll( 'mark' ).forEach( function ( m ) {
 				m.style.setProperty(
 					'background-color',
@@ -1317,18 +1436,42 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				if ( newColor ) {
 					m.style.setProperty( 'color', newColor, 'important' );
 				}
+				if ( needsShadow ) {
+					m.style.setProperty(
+						'text-shadow',
+						'rgba(0, 0, 0, 1) 1px 2px 10px',
+						'important'
+					);
+				}
 			} );
 			if ( newColor ) {
 				heading.style.setProperty( 'color', newColor, 'important' );
+			}
+			if ( needsShadow ) {
+				heading.style.setProperty(
+					'text-shadow',
+					'rgba(0, 0, 0, 1) 1px 2px 10px',
+					'important'
+				);
 			}
 		} );
 	}
 
 	function processLabels() {
-		const labels = document.querySelectorAll(
-			'.brand-left .label-top, .brand-left .label-bottom'
-		);
+		const brandLeft = document.querySelector( '.brand-left' );
+		if ( ! brandLeft ) {
+			return;
+		}
 
+		const labelTop = brandLeft.querySelector( '.label-top' );
+		const labelBottom = brandLeft.querySelector( '.label-bottom' );
+		const labels = [ labelTop, labelBottom ].filter( Boolean );
+
+		if ( labels.length === 0 ) {
+			return;
+		}
+
+		// Original-Styles sichern und wiederherstellen
 		labels.forEach( function ( label ) {
 			if (
 				! label.dataset.labelOriginalStyle &&
@@ -1337,18 +1480,38 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				label.dataset.labelOriginalStyle =
 					label.getAttribute( 'style' );
 			}
-
 			const originalStyle = label.dataset.labelOriginalStyle || '';
 			if ( originalStyle ) {
 				label.setAttribute( 'style', originalStyle );
 			} else {
 				label.removeAttribute( 'style' );
 			}
+		} );
 
-			if ( ! isMultilineMark( label ) ) {
-				return;
-			}
+		// Wenn EINES der beiden Labels umbricht, verlieren BEIDE die Hinterlegung
+		const anyMultiline = labels.some( function ( label ) {
+			return isMultilineMark( label );
+		} );
 
+		if ( ! anyMultiline ) {
+			return;
+		}
+
+		const firstContentChild = document.querySelector(
+			'.entry-content > :first-child'
+		);
+		const hasCoverFirst =
+			firstContentChild &&
+			firstContentChild.classList.contains( 'wp-block-cover' );
+
+		// Foto-Hintergrund: erstes Cover-Element hat ein Hintergrundbild?
+		const coverHasPhoto =
+			hasCoverFirst &&
+			!! firstContentChild.querySelector(
+				'img.wp-block-cover__image-background, video.wp-block-cover__video-background'
+			);
+
+		labels.forEach( function ( label ) {
 			label.style.setProperty( '--bg', 'transparent' );
 			label.style.setProperty(
 				'background-color',
@@ -1359,15 +1522,15 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			label.style.setProperty( 'text-align', 'left', 'important' );
 			label.style.setProperty( 'left', '0', 'important' );
 
-			const firstContentChild = document.querySelector(
-				'.entry-content > :first-child'
-			);
-			const hasCoverFirst =
-				firstContentChild &&
-				firstContentChild.classList.contains( 'wp-block-cover' );
-
 			if ( hasCoverFirst ) {
 				label.style.setProperty( 'color', '#ffffff', 'important' );
+				if ( coverHasPhoto ) {
+					label.style.setProperty(
+						'text-shadow',
+						'rgba(0, 0, 0, 1) 1px 2px 10px',
+						'important'
+					);
+				}
 			} else {
 				const newColor = getHeadlineColor( label );
 				if ( newColor ) {

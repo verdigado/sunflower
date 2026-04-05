@@ -1,5 +1,36 @@
+
+.wp-block-group {
+
+    &:has(.wp-block-column:nth-child(3)) {
+
+        @include media-breakpoint-down(xl) {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+
+    &:has(.wp-block-column:nth-child(5)) {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
 .wp-block-columns {
     margin-bottom: 0;
+
+
+    &:has(.wp-block-column:nth-child(3)) {
+
+        @include media-breakpoint-down(xl) {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+
+    &:has(.wp-block-column:nth-child(5)) {
+        max-width: 100%;
+        width: 100%;
+    }
 
     .wp-block-column {
 

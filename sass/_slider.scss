@@ -2,10 +2,50 @@
 
 .latest-posts:has(.column-slider) {
     position: relative;
+
+    &:has(h2.text-center) {
+
+        .navbuttons {
+            top: 115px;
+
+            @include media-breakpoint-down(xl) {
+                top: 100px;
+            }
+
+            @media (max-width: 1200px) {
+                top: 65px;
+            }
+
+            @include media-breakpoint-down(md) {
+                top: 50px;
+            }
+        }
+    }
 }
 
-.latest-posts:has(.column-slider):not(:has(h2.text-center)) .column-slider {
-    margin-top: 86px;
+.latest-posts:has(.column-slider):not(:has(h2.text-center)) {
+    padding: calc(var(--half-block-spacing) - 46px) var(--grid-margin)  var(--half-block-spacing) var(--grid-margin) !important;
+
+    @include media-breakpoint-down(md) {
+        padding: var(--half-block-spacing) var(--grid-margin) !important;
+    }
+
+    .column-slider {
+        margin-top: 86px;
+
+        @include media-breakpoint-down(md) {
+            margin-top: 0;
+        }
+
+    }
+
+    .navbuttons {
+        top: calc(var(--half-block-spacing) - 46px);
+
+        @include media-breakpoint-down(md) {
+            top: 50px;
+        }
+    }
 }
 
 /* Latest-Posts Slider – immer aktiv, mehrere Karten pro Ansicht */

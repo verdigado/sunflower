@@ -100,6 +100,8 @@
     margin: 3px;
     transition: 400ms ease-out;
     opacity: 1;
+    cursor: pointer;
+    pointer-events: all;
 
     @include themed-colorscheme-nested() {
         background-color: t(input-background);
