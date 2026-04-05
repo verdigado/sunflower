@@ -370,23 +370,29 @@ class SunflowerSettingsPage {
 	 * Post image format variant field
 	 */
 	public function sunflower_post_image_format_callback(): void {
+		$current = $this->options['sunflower_post_image_format'] ?? 'modern';
+
 		echo '<select id="sunflower_post_image_format" name="sunflower_options[sunflower_post_image_format]">';
 
 		$options = array(
-			array( 'modern', __( 'Modern', 'sunflower' ) ),
-			array( 'flexible', __( 'Flexible', 'sunflower' ) ),
+			array( 'modern', __( 'Querformatig', 'sunflower' ) ),
+			array( 'flexible', __( 'Flexibel', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
-			$selected = ( isset( $this->options['sunflower_post_image_format'] ) && $this->options['sunflower_post_image_format'] === $option[0] ) ? 'selected' : '';
+			$selected = ( $current === $option[0] ) ? 'selected' : '';
 			printf(
 				'<option value="%1$s" %2$s>%3$s</option>',
 				esc_attr( $option[0] ),
 				esc_attr( $selected ),
-				esc_attr( $option[1] )
+				esc_html( $option[1] )
 			);
 		}
 
 		echo '</select>';
+		printf(
+			'<p class="description">%s</p>',
+			esc_html__( 'Nutze Querformate (z.B. 2/1 oder 16/9) als Beitrags- oder Terminbeitrags-Bilder, um einen bestmöglichen Look in den Vorschau-Cards und auf Beitragsseiten zu erzeugen. Wenn du jegliche Proportionen ohne Zuschnitt nutzen möchtest, wähle die Option "Flexibel".', 'sunflower' )
+		);
 	}
 
 	/**

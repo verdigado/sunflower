@@ -181,6 +181,11 @@ body.colorscheme-green .container  .entry-content {
 
 body.colorscheme-green {
 
+    .wp-block-group .all-columns-start-with-image h4 {
+        color: map.get($custom-colors, "grashalm");
+    }
+
+
     .wp-block-image figcaption,
     .concave-30px {
         color: map.get($custom-colors, "schwarzwald");
