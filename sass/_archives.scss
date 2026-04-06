@@ -177,10 +177,21 @@ body.post-image-flexible {
     .event-list {
         display: block !important;
 
+        &:has(#leaflet) {
+
+            > [class*="col-"] {
+                width: 100%;
+            }
+        }
+
         > [class*="col-"] {
             width: 50%;
             float: left;
-            margin-bottom: var(--grid-margin);
+            padding-left: calc(var(--grid-margin) / 2) !important;
+            padding-right: calc(var(--grid-margin) / 2) !important;
+            padding-bottom: var(--grid-margin) !important;
+            margin: 0 !important;
+
         }
 
         @media (max-width: 700px) {
@@ -188,6 +199,7 @@ body.post-image-flexible {
             > [class*="col-"] {
                 width: 100%;
                 float: none;
+                left: 0 !important;
             }
         }
     }

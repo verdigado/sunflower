@@ -160,14 +160,35 @@ blockquote.wp-block-quote p {
     }
 }
 
+.sunflower-candidate .wp-block-cover__inner-container {
+
+    .has-background.textbalken {
+        margin-left: 12px !important;
+        margin-right: 0 !important;
+
+        &.links-eins {
+            margin-left: 52px !important;
+
+            @include media-breakpoint-down(md) {
+                margin-left: 32px !important;
+            }
+        }
+
+        &.links-zwei {
+            margin-left: 92px !important;
+
+            @include media-breakpoint-down(md) {
+                margin-left: 52px !important;
+            }
+        }
+    }
+}
 
 .has-background.textbalken {
     z-index: 0;
     width: fit-content;
     line-height: 150%;
     position: relative;
-    margin-left: 12px !important;
-    margin-right: 0 !important;
     margin-bottom: 0 !important;
     background-color: transparent !important;
     border-radius: 0 !important;

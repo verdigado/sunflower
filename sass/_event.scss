@@ -101,7 +101,6 @@
         margin-left: auto !important;
         margin-right: auto !important;
         gap: var(--grid-margin);
-        height: auto !important;
         display: grid;
         grid-template-columns: repeat(10, minmax(0, 1fr));
         margin-bottom: var(--half-block-spacing);
@@ -144,9 +143,9 @@
         }
 
         > .col-12 {
-            position: static !important;
-            top: auto !important;
-            left: auto !important;
+            position: static;
+            top: auto;
+            left: auto;
             display: flex;
             grid-column: span 10;
             width: 100%;

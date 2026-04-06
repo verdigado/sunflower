@@ -78,7 +78,7 @@ function sunflower_create_demo_content( array $image_ids, bool $force = false ) 
  * Deletes default WordPress sample content (pages and posts) if they exist.
  */
 function sunflower_delete_wp_sample_content_if_exists() {
-	$page_slugs = array( 'sample-page', 'beispielseite' );
+	$page_slugs = array( 'sample-page', 'beispielseite', 'beispiel-seite' );
 	$post_slugs = array( 'hello-world', 'hallo-welt' );
 
 	foreach ( $page_slugs as $slug ) {
@@ -103,6 +103,10 @@ function sunflower_delete_wp_sample_content_if_exists() {
 		array(
 			'type'  => 'page',
 			'title' => 'Beispielseite',
+		),
+		array(
+			'type'  => 'page',
+			'title' => 'Beispiel-Seite',
 		),
 		array(
 			'type'  => 'post',

@@ -142,6 +142,7 @@ function sunflower_set_default_options() {
 	$events_defaults = array(
 		'sunflower_events_enabled'     => 1,
 		'sunflower_show_event_archive' => 1,
+		'sunflower_show_overall_map'   => 1,
 	);
 	$events_options  = wp_parse_args( $events_options, $events_defaults );
 	update_option( 'sunflower_events_options', $events_options );

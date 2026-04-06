@@ -56,7 +56,15 @@ body #content .entry-content .wp-block-media-text.person {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             width: 100%;
+            max-height: 410px;
         }
 
+    }
+
+    .person-mail {
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
