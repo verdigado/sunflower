@@ -247,12 +247,14 @@ function sunflower_create_demo_posts( array $image_ids, array $image_urls ) {
 		$content = sunflower_replace_image_tokens( $post_def['content'], $image_ids, $image_urls );
 		$post_id = (int) wp_insert_post(
 			array(
-				'post_title'   => $post_def['title'],
-				'post_name'    => $post_def['slug'],
-				'post_content' => $content,
-				'post_status'  => 'publish',
-				'post_type'    => 'post',
-				'post_date'    => gmdate( 'Y-m-d H:i:s', strtotime( $post_def['date_offset'] ) ),
+				'post_title'      => $post_def['title'],
+				'post_name'       => $post_def['slug'],
+				'post_content'    => $content,
+				'post_status'     => 'publish',
+				'post_type'       => 'post',
+				'post_date'       => gmdate( 'Y-m-d H:i:s', strtotime( $post_def['date_offset'] ) ),
+				'comment_status'  => 'closed',
+				'ping_status'     => 'closed',
 			)
 		);
 
@@ -490,11 +492,13 @@ function sunflower_create_demo_events( array $image_ids ) {
 
 		$event_id = (int) wp_insert_post(
 			array(
-				'post_title'   => $ev['title'],
-				'post_name'    => $ev['slug'],
-				'post_content' => $content,
-				'post_status'  => 'publish',
-				'post_type'    => 'sunflower_event',
+				'post_title'     => $ev['title'],
+				'post_name'      => $ev['slug'],
+				'post_content'   => $content,
+				'post_status'    => 'publish',
+				'post_type'      => 'sunflower_event',
+				'comment_status' => 'closed',
+				'ping_status'    => 'closed',
 			)
 		);
 
