@@ -222,8 +222,24 @@ body.formstyle-sharp {
             right: 0;
             margin: 17px 33px !important;
 
+            @include media-breakpoint-down(xl) {
+                margin: 14px 33px !important;
+            }
+
             @media (max-width: 1200px) {
-                margin: 7px 20px;
+                margin: 7px 33px !important;
+            }
+        }
+    }
+
+    &.hamburger-menu {
+
+        #page header {
+
+            .brand-left {
+                right: initial;
+                left: 0;
+                margin: 5px 110px 7px 40px !important;
             }
         }
     }
