@@ -107,6 +107,13 @@
 }
 
 /* Nav & Buttons – Latest-Posts */
+.post-image-flexible .latest-posts .navbuttons {
+
+    @include media-breakpoint-down(md) {
+        width: calc(100vw - var(--grid-margin));
+    }
+}
+
 .latest-posts .navbuttons {
 
     position: absolute;

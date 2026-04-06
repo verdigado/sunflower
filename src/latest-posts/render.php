@@ -78,8 +78,7 @@ $sunflower_classes = get_block_wrapper_attributes(
 	)
 );
 
-$sunflower_options                  = get_option( 'sunflower_options' );
-$sunflower_option_post_image_format = $sunflower_options['sunflower_post_image_format'] ?? 'modern';
+$sunflower_is_grid = ( 'grid' === $sunflower_layout );
 
 $sunflower_list_items = sprintf(
 	'<div %1$s>
@@ -89,7 +88,7 @@ $sunflower_list_items = sprintf(
 	$sunflower_classes,
 	$sunflower_title,
 	$sunflower_is_slider ? 'posts-slider' : '',
-	'flexible' === $sunflower_option_post_image_format ? 'data-masonry=\'{"percentPosition": true }\'' : ''
+	$sunflower_is_grid ? sunflower_get_masonry_attr() : ''
 );
 
 switch ( $sunflower_columns ) {

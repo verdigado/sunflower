@@ -69,12 +69,14 @@ function sunflower_blocks_init() {
 		get_template_directory() . '/languages'
 	);
 
-	register_block_type( get_template_directory() . '/build/calendar' );
-	wp_set_script_translations(
-		'sunflower-calendar-events-editor-script',
-		'sunflower-calendar-events',
-		get_template_directory() . '/languages'
-	);
+	if ( file_exists( get_template_directory() . '/build/calendar' ) ) {
+		register_block_type( get_template_directory() . '/build/calendar' );
+		wp_set_script_translations(
+			'sunflower-calendar-events-editor-script',
+			'sunflower-calendar-events',
+			get_template_directory() . '/languages'
+		);
+	}
 }
 
 add_action( 'init', 'sunflower_blocks_init' );
@@ -189,5 +191,28 @@ function sunflower_enqueue_block_core_assets() {
 		array(),
 		SUNFLOWER_VERSION
 	);
+
+	wp_enqueue_script(
+		'sunflower-editor-flexible-mode',
+		get_template_directory_uri() . '/assets/js/editor-flexible-mode.js',
+		array( 'wp-hooks', 'wp-compose', 'wp-element', 'wp-data', 'wp-block-editor', 'wp-components' ),
+		SUNFLOWER_VERSION,
+		true
+	);
 }
 add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_core_assets' );
+
+/**
+ * Aktuelle "Beitragsbilder"-Einstellung an den Block-Editor durchreichen.
+ *
+ * @param array $settings Editor-Einstellungen.
+ * @return array
+ */
+function sunflower_pass_post_image_mode_to_editor( $settings ) {
+	$options                            = get_option( 'sunflower_options' );
+	$settings['sunflowerPostImageMode'] = ! empty( $options['sunflower_post_image_format'] )
+		? $options['sunflower_post_image_format']
+		: 'modern';
+	return $settings;
+}
+add_filter( 'block_editor_settings_all', 'sunflower_pass_post_image_mode_to_editor' );

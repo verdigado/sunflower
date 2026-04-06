@@ -48,7 +48,7 @@ get_header();
 						}
 						?>
 
-						<div class="archive-loop alignwide row">
+						<div class="archive-loop alignwide row" <?php echo sunflower_get_masonry_attr(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 								<?php
 
 								echo wp_kses(

@@ -80,7 +80,7 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 						?>
 					</div>
 
-						<div class="row event-list alignwide">
+						<div class="row event-list alignwide" <?php echo sunflower_get_masonry_attr(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 						<?php
 
 						/* Start the Loop */

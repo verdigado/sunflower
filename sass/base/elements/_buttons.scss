@@ -10,6 +10,10 @@
 }
 
 .wp-block-buttons {
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
     gap: var(--grid-margin) !important;
     column-gap: var(--grid-margin) !important;
 }
