@@ -124,6 +124,9 @@ body .hamburger {
     }
 }
 
+body.colorscheme-green .hamburger:hover {
+    background-color: map.get($custom-colors, "schwarzwald") !important;
+}
 
 .hamburger-menu {
 
@@ -235,16 +238,7 @@ body .hamburger {
         }
 
         .concave-30px {
-            transition: 0.3s ease;
-            z-index: 1;
-
-            &:nth-of-type(1) {
-                top: -50px;
-            }
-
-            &:nth-of-type(1) {
-                right: -50px;
-            }
+            display: none;
         }
     }
 
@@ -274,6 +268,18 @@ body .hamburger {
 
     .brand-left {
         margin: var(--grid-margin) 120px 0 calc(var(--grid-margin) + 7px) !important;
+    }
+}
+
+body.colorscheme-green .top-bar:has(.unfold) {
+    .right-bar a {
+        color: map.get($custom-colors, "schwarzwald");
+    }
+}
+
+body .top-bar:has(.unfold) {
+    .right-bar__content {
+        width: 100% !important;
     }
 }
 

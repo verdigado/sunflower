@@ -188,7 +188,7 @@ body.colorscheme-green {
 
     .wp-block-image figcaption,
     .concave-30px {
-        color: map.get($custom-colors, "schwarzwald");
+        color: map.get($custom-colors, "schwarzwald") !important;
     }
 
     .hamburger,

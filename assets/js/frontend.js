@@ -679,6 +679,10 @@ function getContainerBackgroundForMark( mark, useContainerColor ) {
 		}
 		const cover = innerContainer.closest( '.wp-block-cover' );
 		if ( cover ) {
+			// Hero-Cover hat ein ::before mit linear-gradient – das darf nicht als bg-Farbe gelten
+			if ( cover.classList.contains( 'is-style-sunflower-hero' ) ) {
+				return 'transparent';
+			}
 			const overlayEl = cover.querySelector(
 				'.wp-block-cover__background'
 			);
@@ -1495,6 +1499,14 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 		if ( ! anyMultiline ) {
 			return;
+		}
+
+		if ( document.body.classList.contains( 'formstyle-sharp' ) ) {
+			brandLeft.style.setProperty(
+				'margin',
+				'75px 12px 7px 12px',
+				'important'
+			);
 		}
 
 		const firstContentChild = document.querySelector(
