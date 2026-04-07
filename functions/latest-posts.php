@@ -54,6 +54,71 @@ function sunflower_latest_posts_masonry( $block_content, $block ) {
 add_filter( 'render_block', 'sunflower_latest_posts_masonry', 10, 2 );
 
 /**
+ * Recursively set blockLayout to "grid" on sunflower/latest-posts blocks missing the attribute.
+ *
+ * @param array<int, array<string, mixed>> $blocks Parsed block array (passed by reference).
+ * @return bool Whether any block was modified.
+ */
+function sunflower_migrate_block_layout_recursive( array &$blocks ): bool {
+	$updated = false;
+	foreach ( $blocks as &$block ) {
+		if ( 'sunflower/latest-posts' === ( $block['blockName'] ?? '' )
+			&& ! isset( $block['attrs']['blockLayout'] ) ) {
+			$block['attrs']['blockLayout'] = 'grid';
+			$updated                       = true;
+		}
+		if ( ! empty( $block['innerBlocks'] ) ) {
+			if ( sunflower_migrate_block_layout_recursive( $block['innerBlocks'] ) ) {
+				$updated = true;
+			}
+		}
+	}
+	unset( $block );
+	return $updated;
+}
+
+/**
+ * One-time migration: add blockLayout="grid" to all sunflower/latest-posts blocks
+ * that were saved without a blockLayout attribute (i.e. relied on the old "grid" default).
+ * Runs once on admin_init, guarded by an option flag.
+ */
+function sunflower_migrate_latest_posts_block_layout(): void {
+	if ( get_option( 'sunflower_latest_posts_block_layout_migrated' ) ) {
+		return;
+	}
+
+	$posts = get_posts(
+		array(
+			'post_type'        => 'any',
+			'posts_per_page'   => -1,
+			'post_status'      => array( 'publish', 'draft', 'private', 'pending', 'future' ),
+			'suppress_filters' => true,
+		)
+	);
+
+	foreach ( $posts as $post ) {
+		if ( ! has_block( 'sunflower/latest-posts', $post ) ) {
+			continue;
+		}
+
+		$blocks  = parse_blocks( $post->post_content );
+		$updated = sunflower_migrate_block_layout_recursive( $blocks );
+
+		if ( $updated ) {
+			wp_update_post(
+				array(
+					'ID'           => $post->ID,
+					'post_content' => serialize_blocks( $blocks ),
+				)
+			);
+		}
+	}
+
+	update_option( 'sunflower_latest_posts_block_layout_migrated', true );
+}
+add_action( 'admin_init', 'sunflower_migrate_latest_posts_block_layout' );
+
+/**
  * Get the latest posts for given category ids.
  *
  * @param int                 $number The amount of posts to fetch. -1 for all.

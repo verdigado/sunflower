@@ -342,3 +342,15 @@ body main #content .wp-block-cover:not(.is-style-sunflower-hero):has(.wp-block-c
         color: #fff;
     }
 }
+
+.wp-block-cover__inner-container {
+
+    .wp-block-group {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .wp-block-image {
+        margin-bottom: 0 !important;
+    }
+}

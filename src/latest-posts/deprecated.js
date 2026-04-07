@@ -42,6 +42,24 @@ const v2 = {
 	save: () => null,
 };
 
+// blocks without blockLayout were created when default was "grid"; keep them on grid
+const v3 = {
+	attributes: {
+		...attributes,
+		blockLayout: {
+			type: 'string',
+		},
+	},
+	isEligible: ( { blockLayout } ) => blockLayout === undefined,
+	migrate: ( oldAttributes ) => {
+		return {
+			...oldAttributes,
+			blockLayout: 'grid',
+		};
+	},
+	save: () => null,
+};
+
 /**
  * New deprecations need to be placed first
  * for them to have higher priority.
@@ -50,4 +68,4 @@ const v2 = {
  *
  * See block-deprecation.md
  */
-export default [ v2, v1 ];
+export default [ v3, v2, v1 ];

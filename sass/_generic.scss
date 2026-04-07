@@ -150,7 +150,7 @@ body .container .entry-content {
     }
 }
 
-body.colorscheme-green .container  .entry-content {
+body.colorscheme-green .container .entry-content {
 
     .has-shadow {
         -webkit-box-shadow: 0 0 23px 0 rgba(243, 250, 246, 0.12);
@@ -215,15 +215,35 @@ body.colorscheme-green {
 
 body.formstyle-sharp {
 
-    .brand-left {
-        left: initial;
-        right: 0;
-        margin: 14px 25px;
+    #page header {
 
-        @media (max-width: 1200px) {
-            margin: 7px 20px;
+        .brand-left {
+            left: initial;
+            right: 0;
+            margin: 17px 33px !important;
+
+            @include media-breakpoint-down(xl) {
+                margin: 14px 33px !important;
+            }
+
+            @media (max-width: 1200px) {
+                margin: 7px 33px !important;
+            }
         }
     }
+
+    &.hamburger-menu {
+
+        #page header {
+
+            .brand-left {
+                right: initial;
+                left: 0;
+                margin: 5px 110px 7px 40px !important;
+            }
+        }
+    }
+
 
     .top-bar.stuck {
 
@@ -304,7 +324,7 @@ body.formstyle-sharp {
             justify-content: flex-start !important;
             flex-direction: column;
             overflow: visible;
-            left: 0;
+            left: 0 !important;
             right: 0;
             bottom: 0 !important;
             z-index: 1;
@@ -346,7 +366,7 @@ body.formstyle-sharp {
 
                 .wp-block-buttons {
                     align-items: flex-start;
-                    justify-content: flex-start;
+                    justify-content: center;
                     gap: var(--half-grid-margin);
 
                     .wp-block-button {

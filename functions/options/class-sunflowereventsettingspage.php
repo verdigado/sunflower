@@ -205,6 +205,7 @@ class SunflowerEventSettingsPage {
 				'default'           => array(
 					'sunflower_events_enabled'     => 1,
 					'sunflower_show_event_archive' => 1,
+					'sunflower_show_overall_map'   => 1,
 				),
 			)
 		);

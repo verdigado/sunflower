@@ -246,6 +246,7 @@ body #content {
 .wp-block-columns {
     padding-top: var(--grid-margin);
     padding-bottom: var(--grid-margin);
+    align-items: flex-start !important;
 
     .wp-block-columns {
         padding: 0;
@@ -282,6 +283,10 @@ body #content {
 
 .entry-content > .wp-block-columns + .wp-block-columns {
     margin-top: var(--grid-margin);
+}
+
+.wp-block-columns:has(+ .wp-block-columns) {
+    margin-bottom: var(--grid-margin) !important;
 }
 
 .entry-content > .wp-block-group,
