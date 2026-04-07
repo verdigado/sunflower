@@ -1,17 +1,21 @@
 # Umstieg auf Sunflower26
 
-
 ## Hinweise zu der Nutzung von Bildern: 
 * das neue Theme ist darauf ausgerichtet, querformatige Bilder zu nutzen.
 * hierbei ist wichtig, dass beim Seitenverhältnis nach Möglichkeit **ein** einheitliches Format genutzt wird.
-* also alle 16:9 oder 2:1 oder quadratisch, nichts durchmischt. 
+* also alle 16:9 oder 2:1 oder quadratisch, nicht durchmischt. 
 
-* wir empfehlen eine strukturierte Durchsicht aller bestehenden Bilder.
+* verdigado empfiehlt eine strukturierte Durchsicht aller bestehenden Bilder.
 
-* da viele bestehende Instanzen noch mit einer Vielfalt von Bildformaten das Theme nutzen gibt es die Möglichkeit umzuschalten: 
-**Legacy mode** und **Theme mode** 
+* da viele bestehende Instanzen noch mit einer Vielfalt von Bildformaten das Theme nutzen, gibt es die Möglichkeit umzuschalten: 
+**querformatig** um querformatige Bilder bestmöglich zur Geldtung zu bringen oder **Flexibel**, um die Formatv-Vielfalt einer bestehenden Instanz zu berücksichtigen.
 
-- [Hier fehlt noch ein Screenshot]
+* Wenn man eine Instanz neu aufsetzt ist querformatig als Standard eingestellt. Wenn man eine bestehdne Instnaz zu Sunflower 26 umzieht ist "flexibel" als standard voreingestellt. 
+
+<figure markdown="span">
+  ![Screenshot vom Sunflower-Menü zum Thema Bildformate](images/sunflower26_Bildformat_umschalten.png){ width="" }
+  <figcaption>Die Nutzenden können können zwischen "Querformatig" und "flexibel" wählen</figcaption>
+</figure>
 
 * Bilder mit Text / Sharepics werden sehr gerne genutzt, sind aber aus Barrierefreiheitsgründen nicht zu empfehlen. Sehbehinderte Menschen können den Inhalt der Bilder nicht erfassen.  
 
