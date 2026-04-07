@@ -436,6 +436,13 @@ body.post-image-modern {
 
 body.post-image-flexible {
 
+    .wp-block-group__inner-container {
+
+        > h2 {
+            margin-left: var(--grid-margin);
+        }
+    }
+
     .latest-posts--grid .archive-article,
     .archive .archive-article {
         height: auto;
