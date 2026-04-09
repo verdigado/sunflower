@@ -42,9 +42,45 @@ msgstr ""
 #: build/next-events/render.php:10
 #: src/next-events/render.php:10
 #: build/next-events/index.js:205
-#: src/next-events/edit.js:126
+#: src/next-events/edit.js
 #: build/next-events/index.js:175
 msgid "Next events"
+msgstr ""
+
+#: src/next-events/edit.js
+msgid "Settings"
+msgstr ""
+
+#: src/next-events/edit.js
+msgid "Block title"
+msgstr ""
+
+#: src/next-events/edit.js
+msgid "Heading displayed above the events list"
+msgstr ""
+
+#: src/next-events/edit.js
+msgid "Number of items"
+msgstr ""
+
+#: src/next-events/edit.js
+msgid "Number of events to show"
+msgstr ""
+
+#: src/next-events/edit.js
+msgid "Filter"
+msgstr ""
+
+#: src/next-events/edit.js
+msgid "Filter by title"
+msgstr ""
+
+#: src/next-events/edit.js
+msgid "Only show events whose title contains this text (case-insensitive)"
+msgstr ""
+
+#: src/next-events/edit.js
+msgid "Tags"
 msgstr ""
 
 #: build/core/cover/block.json

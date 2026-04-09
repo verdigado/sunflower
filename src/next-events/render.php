@@ -5,13 +5,14 @@
  * @package Sunflower 26
  */
 
-$sunflower_tag         = $attributes['tag'] ?? '';
-$sunflower_count       = isset( $attributes['count'] ) ? (int) $attributes['count'] : 3;
-$sunflower_title       = ( $attributes['title'] ?? '' ) ? ( $attributes['title'] ?? '' ) : __( 'Next events', 'sunflower-next-events' );
-$sunflower_classes     = $attributes['className'] ?? '';
-$sunflower_archive_url = get_post_type_archive_link( 'sunflower_event' );
+$sunflower_tag                = $attributes['tag'] ?? '';
+$sunflower_count              = isset( $attributes['count'] ) ? (int) $attributes['count'] : 3;
+$sunflower_title              = ( $attributes['title'] ?? '' ) ?: __( 'Next events', 'sunflower-next-events' );
+$sunflower_classes            = $attributes['className'] ?? '';
+$sunflower_event_title_filter = $attributes['eventTitleFilter'] ?? '';
+$sunflower_archive_url        = get_post_type_archive_link( 'sunflower_event' );
 
-$sunflower_next_events = sunflower_get_next_events( $sunflower_count, $sunflower_tag );
+$sunflower_next_events = sunflower_get_next_events( $sunflower_count, $sunflower_tag, $sunflower_event_title_filter );
 
 
 $sunflower_return = sprintf(

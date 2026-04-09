@@ -429,12 +429,13 @@ function sunflower_is_numeric_array( array $value ) {
 /**
  * Get the next events.
  *
- * @param int                 $number The amount of events to fetch.
- * @param null|int[]|string[] $tag_ids Array of sunflower_event_tag IDs.
+ * @param int                 $number             The amount of events to fetch.
+ * @param null|int[]|string[] $tag_ids            Array of sunflower_event_tag IDs.
+ * @param string              $event_title_filter Optional string to filter events by title (case-insensitive substring match).
  *
  * @return WP_Query
  */
-function sunflower_get_next_events( $number = -1, $tag_ids = null ) {
+function sunflower_get_next_events( $number = -1, $tag_ids = null, $event_title_filter = '' ) {
 	$sunflower_tax_query = null;
 
 	if ( $tag_ids ) {
@@ -457,29 +458,35 @@ function sunflower_get_next_events( $number = -1, $tag_ids = null ) {
 		}
 	}
 
-	return new WP_Query(
-		array(
-			'post_type'      => 'sunflower_event',
-			'posts_per_page' => $number,
-			'tax_query'      => $sunflower_tax_query,
-			'meta_key'       => '_sunflower_event_from',
-			'orderby'        => 'meta_value',
-			'meta_query'     => array(
-				'relation' => 'OR',
-				array(
-					'key'     => '_sunflower_event_until',
-					'value'   => gmdate( 'Y-m-d H:i', strToTime( 'now + 1 hours' ) ),
-					'compare' => '>',
-				),
-				array(
-					'key'     => '_sunflower_event_from',
-					'value'   => gmdate( 'Y-m-d H:i', strToTime( 'now - 6 hours' ) ),
-					'compare' => '>',
-				),
+	$query_args = array(
+		'post_type'      => 'sunflower_event',
+		'posts_per_page' => $number,
+		'tax_query'      => $sunflower_tax_query,
+		'meta_key'       => '_sunflower_event_from',
+		'orderby'        => 'meta_value',
+		'order'          => 'ASC',
+		'meta_query'     => array(
+			'relation' => 'OR',
+			array(
+				'key'     => '_sunflower_event_until',
+				'value'   => gmdate( 'Y-m-d H:i', strToTime( 'now + 1 hours' ) ),
+				'compare' => '>',
 			),
-			'order'          => 'ASC',
-		)
+			array(
+				'key'     => '_sunflower_event_from',
+				'value'   => gmdate( 'Y-m-d H:i', strToTime( 'now - 6 hours' ) ),
+				'compare' => '>',
+			),
+		),
 	);
+
+	// 's' triggers WP_Query's built-in SQL LIKE search; search_columns restricts it to post_title only.
+	if ( ! empty( $event_title_filter ) ) {
+		$query_args['s']              = $event_title_filter;
+		$query_args['search_columns'] = array( 'post_title' );
+	}
+
+	return new WP_Query( $query_args );
 }
 
 /**

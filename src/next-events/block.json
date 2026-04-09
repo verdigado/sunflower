@@ -23,6 +23,10 @@
 		"excerptLength": {
 			"type": "number",
 			"default": 55
+		},
+		"eventTitleFilter": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {
