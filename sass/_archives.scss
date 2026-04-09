@@ -179,10 +179,11 @@ body.post-image-flexible {
 
         &:has(#leaflet) {
 
-            > [class*="col-"] {
+            > div:has(#leaflet) {
                 width: 100%;
             }
         }
+
 
         > [class*="col-"] {
             width: 50%;
