@@ -7,7 +7,7 @@
 
 $sunflower_tag                = $attributes['tag'] ?? '';
 $sunflower_count              = isset( $attributes['count'] ) ? (int) $attributes['count'] : 3;
-$sunflower_title              = ( $attributes['title'] ?? '' ) ?: __( 'Next events', 'sunflower-next-events' );
+$sunflower_title              = ( isset( $attributes['title'] ) && '' !== $attributes['title'] ) ? $attributes['title'] : __( 'Next events', 'sunflower-next-events' );
 $sunflower_classes            = $attributes['className'] ?? '';
 $sunflower_event_title_filter = $attributes['eventTitleFilter'] ?? '';
 $sunflower_archive_url        = get_post_type_archive_link( 'sunflower_event' );
