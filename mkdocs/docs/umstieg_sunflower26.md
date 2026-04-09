@@ -7,15 +7,14 @@
 
 * verdigado empfiehlt eine strukturierte Durchsicht aller bestehenden Bilder.
 
-* da viele bestehende Instanzen noch mit einer Vielfalt von Bildformaten das Theme nutzen, gibt es die Möglichkeit umzuschalten: 
-**querformatig** um querformatige Bilder bestmöglich zur Geldtung zu bringen oder **Flexibel**, um die Formatv-Vielfalt einer bestehenden Instanz zu berücksichtigen.
+* Da viele bestehende Instanzen noch mit einer Vielfalt von Bildformaten das Theme nutzen, gibt es die Möglichkeit die Darstellung umzuschalten: 
+**querformat** um querformatige Bilder bestmöglich zur Geltung zu bringen oder **Flexibel**, um die Format-Vielfalt einer bestehenden Instanz zu berücksichtigen.
 
-* Wenn man eine Instanz neu aufsetzt ist querformatig als Standard eingestellt. Wenn man eine bestehdne Instnaz zu Sunflower 26 umzieht ist "flexibel" als standard voreingestellt. 
+* Wenn man eine Instanz neu aufsetzt, ist querformatig als Standard eingestellt. Wenn man eine bestehende Instanz zu Sunflower 26 umzieht ist "flexibel" als Standard voreingestellt. 
 
 <figure markdown="span">
   ![Screenshot vom Sunflower-Menü zum Thema Bildformate](images/sunflower26_Bildformat_umschalten.png){ width="" }
   <figcaption>Die Nutzenden können können zwischen "Querformatig" und "flexibel" wählen</figcaption>
 </figure>
 
-* Bilder mit Text / Sharepics werden sehr gerne genutzt, sind aber aus Barrierefreiheitsgründen nicht zu empfehlen. Sehbehinderte Menschen können den Inhalt der Bilder nicht erfassen.  
-
+* Bilder mit Text / Sharepics werden sehr gerne genutzt, sind aber aus Barrierefreiheitsgründen nicht zu empfehlen. Sehbehinderte Menschen können den Inhalt der Bilder nicht erfassen.
