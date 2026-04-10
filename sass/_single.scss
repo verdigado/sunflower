@@ -1,39 +1,207 @@
-.display-single {
+@use "sass:map";
 
-    >.entry {
+.single .display-single {
 
-        &-header {
-            text-align: left;
-            background: $white;
-            color: $secondary;
-            padding: 15px 0;
+    > .row:has(.entry-content) {
+        margin-top: var(--grid-margin);
+    }
 
-            @include media-breakpoint-up(md) {
-                padding: 80px 0;
+    .entry-content {
+
+        @include alignwide;
+
+        .wp-block-gallery {
+            padding-top: var(--grid-margin);
+            padding-bottom: var(--grid-margin);
+        }
+    }
+}
+
+.display-single:has(.metabox) {
+
+    .entry-content {
+        width: calc(100% - 280px - var(--gap-large));
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    >.row:has(.metabox) {
+        display: flex;
+        justify-content: space-between;
+
+        @include alignwide;
+
+        @media (max-width: 1200px) {
+            width: 100%;
+            max-width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: var(--gap-large);
+            margin-bottom: var(--gap-large);
+        }
+    }
+
+    // Wenn der entry-content leer ist, Metabox und Footer zentrieren
+    &.content-empty {
+
+        > .row:has(.metabox) {
+            justify-content: center;
+
+            .entry-content {
+                display: none;
+            }
+
+            .metabox {
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
-        &-title {
-            margin-bottom: 50px;
-        }
+        > .row:has(.entry-footer) {
+            justify-content: center;
 
-        &-content {}
+            .entry-footer {
+                width: auto;
+                max-width: none;
+                margin-left: 0;
+                margin-right: 0;
+                text-align: center;
+
+                > div {
+                    justify-content: center;
+                }
+
+                .social-media-sharers {
+                    justify-content: center;
+
+                    > a:first-child {
+                        margin-left: var(--grid-margin);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.display-single {
+
+    min-height: 100vh;
+
+    .entry-header {
+
+        div:has(>.entry-title) {
+            padding: 0;
+
+            @include alignwide;
+        }
     }
 
-    >.post-thumbnail {
+    .entry-title {
+        margin-bottom: var(--grid-margin) !important;
+        text-align: center;
+
+    }
+
+    // Standard: Single-Ansicht
+    .entry-meta {
+        width: calc((100% - 11 * var(--grid-margin)) / 12 * 10 + 9 * var(--grid-margin));
+        max-width: 1400px;
+        margin: var(--half-grid-margin) auto;
+    }
+
+    // Ausnahme: innerhalb eines Posts-Sliders → zurück auf „normal“
+    .posts-slider .entry-meta,
+    .archive-article .entry-meta {
+        width: unset;
+        max-width: unset;
+        margin: unset;
+    }
+
+    .sunflower_post_meta {
+        display: inline;
+    }
+
+    .wp-block-image {
+        border-radius: var(--border-radius-medium);
+        overflow: hidden;
+
+        img {
+            margin: 0 auto;
+            width: 100%;
+        }
+    }
+
+    > .post-thumbnail {
+
+        @include alignwide;
+
         position: relative;
-        margin-bottom: 50px;
+        overflow: hidden;
+        object-fit: cover;
+        margin-top: 0;
+        margin-bottom: 0;
+        height: fit-content;
+
+        img {
+            border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+        }
+
+        @include media-breakpoint-down(md) {
+
+            @include alignfull;
+
+        }
 
         figcaption {
-            position: relative;
-            width: unset;
+            width: 100%;
             color: inherit;
-            text-align: right;
-            font-size: $small-font-size;
+            text-align: center;
+            font-size: 12px;
+            line-height: 125%;
             background: none;
-            margin-right: 0.3em;
-            margin-top: 0.5em;
+            padding: calc(var(--gap-small) / 2) var(--gap-small);
+            position: absolute;
+            bottom: 0;
+
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
+    }
+
+    .entry-footer {
+
+        @include alignwide;
+
+        @include media-breakpoint-down(md) {
+            margin-top: 0 !important;
+        }
+
+        > div {
+
+            @include media-breakpoint-down(md) {
+                flex-direction: column;
+
+                .social-media-sharers {
+                    order: 2;
+                    margin-top: var(--grid-margin);
+                }
+
+                > div:has(.cat-links, .tag-links) {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    .posts-slider .entry-footer {
+        width: unset;
+        max-width: unset;
+        margin-left: unset;
+        margin-right: unset;
     }
 }
 
@@ -42,6 +210,58 @@
     margin: 0;
 }
 
-body.page .entry-header {
-    padding-bottom: 35px;
+.sunflower-post-navigation {
+
+    @include alignwide;
+    margin-top: var(--half-block-spacing);
+    display: flex;
+    justify-content: space-between;
+
+    &__prev,
+    &__next {
+        width: fit-content;
+    }
+}
+
+.single .commentbox,
+.single .comments-area {
+
+    @include alignwide;
+}
+
+
+.styled-layout {
+
+    .post-thumbnail {
+        padding-top: 130px;
+    }
+
+    .archive-article .post-thumbnail {
+        padding-top: 0;
+    }
+}
+
+
+.styled-layout:not(:has(.display-single > .post-thumbnail)) {
+
+    .display-single > .entry-meta {
+        display: none;
+    }
+
+
+    .archive-article {
+
+        .entry-content {
+
+            > *:first-child {
+                padding-top: 0;
+            }
+        }
+    }
+}
+
+.wp-singular .display-single:has(.entry-content > .wp-block-cover:first-child) {
+
+    padding: 0;
+
 }

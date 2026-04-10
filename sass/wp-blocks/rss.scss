@@ -1,11 +1,53 @@
-.wp-block-rss {
-    padding: unset;
+@use "sass:map";
+
+ul.wp-block-rss {
+    padding: var(--grid-margin);
+    max-width: 600px;
+    gap: var(--grid-margin);
+
+    li {
+        margin: 0;
+    }
+
+    &.is-grid {
+        max-width: initial;
+        gap: 1em;
+        justify-content: center;
+        padding: 1em 0.5em;
+
+        li {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
 
     .wp-block-rss__item {
-        border-radius: $border-radius;
+        border-radius: var(--border-radius-medium);
         margin-bottom: 10px;
-        box-shadow: 0 1px 20px rgba(0, 84, 55, 0.09);
-        padding: 2.25rem !important;
+        box-shadow: none;
+        padding: calc(var(--grid-margin) - 5px) var(--grid-margin) var(--grid-margin) var(--grid-margin) !important;
+
+        .rss-item-footer {
+            margin-top: var(--half-grid-margin);
+
+            .rss-icon {
+                color: map.get($custom-colors, "klee");
+                font-size: 1.2em;
+                font-family: ForkAwesome;
+                bottom: -5px;
+                position: relative;
+            }
+        }
+
+        &:nth-of-type(odd) {
+            background-color: map.get($custom-colors, "sand") !important;
+        }
+
+        &:nth-of-type(even) {
+            background-color: map.get($custom-colors, "gruener-sand") !important;
+        }
 
         a {
             text-decoration: none;
@@ -13,13 +55,9 @@
 
         &-title {
 
-            @include themed() {
-                font-family: t(standardFont);
-            }
-
             font-weight: 700;
             font-size: 25px;
-            margin-bottom: 1rem;
+            margin-bottom: 0 !important;
 
             @include media-breakpoint-up(md) {
                 font-size: 27px;
@@ -27,13 +65,13 @@
 
 
             a {
-                color: $body-color;
+                color: map.get($custom-colors, "tanne") !important;
             }
         }
 
         time {
-            margin-bottom: 1rem !important;
-            font-size: unset;
+            margin-bottom: var(--half-grid-margin) !important;
+            color: map.get($custom-colors, "tanne") !important;
         }
     }
 
@@ -47,6 +85,8 @@
 
             a {
                 color: $body-color;
+                font-weight: 500;
+                padding: 0 !important;
             }
         }
     }

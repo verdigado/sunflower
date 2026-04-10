@@ -2,7 +2,7 @@
 /**
  * Helper to generate a changelog.html
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_output = '<!DOCTYPE html>

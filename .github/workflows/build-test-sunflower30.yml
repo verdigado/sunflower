@@ -1,48 +1,67 @@
 # .github/workflows/release.yml
 
-name: Build Test
+name: Build Test for Sunflower 3.0 (on PR)
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - dev*
       - main
 
 env:
-  NODE_VERSION: 22
+  NODE_VERSION: 24
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PROJECT_ROOT: ${{ github.workspace }}/sunflower26
+
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_ROOT }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+        with:
+            path: sunflower26
 
       - name: check theme version against tag
         run: |
-          THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
-          V="v"
-          echo Version in style.scss: $THEME_VERSION
+            THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
+            V="v"
+            echo Version in style.scss: $THEME_VERSION
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: ${{ env.NODE_VERSION }}
+            node-version: ${{ env.NODE_VERSION }}
+
+      - name: Verify lockfile version
+        run: |
+          echo "Lockfile version:"
+          jq '.lockfileVersion' package-lock.json
 
       - name: Cache node_modules directory
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: npm-cache-dir
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+                ${{ runner.os }}-node-
 
       - name: Install npm packages
         if: steps.npm-cache-dir.outputs.cache-hit != 'true'
-        run: npm ci
+        run: |
+          pwd
+          ls -l package-lock.json
+          ls -l package.json
+          npm -v
+          node --version
+          npm install
+
+      - name: Copy node modules
+        run: npm run copy-node-modules
 
       - name: Lint SCSS
         run: npm run lint:scss
@@ -62,8 +81,8 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
-          tools: cs2pr
+            php-version: 8.4
+            tools: cs2pr
 
       - name: run install composer
         run: |

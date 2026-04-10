@@ -1,22 +1,22 @@
-# Copyright (C) 2024 verdigado eG
+# Copyright (C) 2026 verdigado eG
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.0.9\n"
+"Project-Id-Version: Sunflower 26 3.0.0-beta-7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-latest-posts\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-06T11:53:09+00:00\n"
+"POT-Creation-Date: 2026-04-10T10:57:14+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower-latest-posts\n"
 
 #. Theme Name of the theme
 #: style.css
-msgid "sunflower"
+msgid "Sunflower 26"
 msgstr ""
 
 #. Theme URI of the theme
@@ -39,54 +39,83 @@ msgstr ""
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/latest-posts/render.php:92
-#: build/latest-posts/index.js:322
-#: build/latest-posts/index.js:309
-msgid "to archive"
+#: build/latest-posts/render.php:69
+#: src/latest-posts/render.php:69
+#: build/latest-posts/index.js:304
+#: src/latest-posts/edit.js:263
+#: build/latest-posts/index.js:335
+msgid "Archive"
 msgstr ""
 
-#: build/latest-posts/index.js:297
-#: build/next-events/index.js:260
-#: build/latest-posts/index.js:264
-#: build/next-events/index.js:208
+#: build/latest-posts/index.js:246
+#: src/latest-posts/edit.js:180
+#: build/latest-posts/index.js:252
+msgid "Slider view"
+msgstr ""
+
+#: build/latest-posts/index.js:279
+#: src/latest-posts/edit.js:215
+#: build/latest-posts/index.js:287
 msgid "Title of the block section"
 msgstr ""
 
-#: build/latest-posts/index.js:308
-#: build/latest-posts/index.js:282
+#: build/latest-posts/index.js:290
+#: src/latest-posts/edit.js:233
+#: build/latest-posts/index.js:305
 msgid "Excluded Categories"
 msgstr ""
 
-#: build/latest-posts/index.js:314
-#: build/next-events/index.js:272
-#: build/latest-posts/index.js:290
-#: build/next-events/index.js:230
+#: build/latest-posts/index.js:296
+#: src/latest-posts/edit.js:244
+#: build/latest-posts/index.js:316
 msgid "Number of posts to be shown"
 msgstr ""
 
-#: build/latest-posts/index.js:320
-#: build/latest-posts/index.js:301
+#: build/latest-posts/index.js:302
+#: src/latest-posts/edit.js:255
+#: build/latest-posts/index.js:327
 msgid "Archive Text"
 msgstr ""
 
-#: build/latest-posts/index.js:321
-#: build/latest-posts/index.js:305
+#: build/latest-posts/index.js:303
+#: src/latest-posts/edit.js:259
+#: build/latest-posts/index.js:331
 msgid "Link label of the archive link"
 msgstr ""
 
+#: build/latest-posts/index.js:321
+#: src/latest-posts/edit.js:286
+#: build/latest-posts/index.js:358
+msgid "Im Modus für flexible Beitragsbild-Proportionen wird das Raster immer zweispaltig. Die Spaltenanzahl kann nur im „Modern\"-Modus (Sunflower-Einstellungen) geändert werden."
+msgstr ""
+
+#: build/core/cover/block.json
+#: src/core/cover/block.json
+msgctxt "block title"
+msgid "Modified Cover Block Styles for Sunflower Theme"
+msgstr ""
+
+#: build/core/list/block.json
+#: src/core/list/block.json
+msgctxt "block title"
+msgid "Modified List Block Styles for Sunflower Theme"
+msgstr ""
+
 #: build/latest-posts/block.json
+#: src/latest-posts/block.json
 msgctxt "block title"
 msgid "Latest Posts (Sunflower)"
 msgstr ""
 
 #: build/latest-posts/block.json
+#: src/latest-posts/block.json
 msgctxt "block description"
 msgid "Show Latest Posts in Sunflower Design"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Himmel"
+msgid "Schwarzwald"
 msgstr ""
 
 #: theme.json
@@ -101,17 +130,7 @@ msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Klee-700"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
 msgid "Grashalm"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "White"
 msgstr ""
 
 #: theme.json
@@ -126,12 +145,47 @@ msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Gray"
+msgid "Grüner Sand"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Black"
+msgid "Maus"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Kalk"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Himmel"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge"
 msgstr ""
 
 #: theme.json
@@ -141,5 +195,5 @@ msgstr ""
 
 #: theme.json
 msgctxt "Font family name"
-msgid "GrueneType"
+msgid "GrueneType Neue"
 msgstr ""

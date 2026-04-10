@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: sunflower 2.0.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-latest-"
 "posts\n"
-"POT-Creation-Date: 2024-05-06T11:53:09+00:00\n"
-"PO-Revision-Date: 2025-01-22 14:45+0100\n"
+"POT-Creation-Date: 2026-04-01T16:09:09+02:00\n"
+"PO-Revision-Date: 2026-04-01 16:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #. Theme Name of the theme
 #: style.css
-msgid "sunflower"
+msgid "Sunflower 26"
 msgstr ""
 
 #. Theme URI of the theme
@@ -42,46 +42,67 @@ msgstr ""
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/latest-posts/render.php:92 build/latest-posts/index.js:322
-#: build/latest-posts/index.js:309
-msgid "to archive"
-msgstr "zum Blog-Archiv"
+#: build/latest-posts/render.php:69 src/latest-posts/render.php:69
+#: build/latest-posts/index.js:276 src/latest-posts/edit.js:253
+#: build/latest-posts/index.js:307
+msgid "Archive"
+msgstr "Archiv"
 
-#: build/latest-posts/index.js:297 build/next-events/index.js:260
-#: build/latest-posts/index.js:264 build/next-events/index.js:208
+#: build/latest-posts/index.js:218 src/latest-posts/edit.js:170
+#: build/latest-posts/index.js:224
+msgid "Slider view"
+msgstr ""
+
+#: build/latest-posts/index.js:251 build/next-events/index.js:203
+#: src/latest-posts/edit.js:205 src/next-events/edit.js:121
+#: build/latest-posts/index.js:259 build/next-events/index.js:170
 msgid "Title of the block section"
 msgstr "Titel des Beitrags-Blocks"
 
-#: build/latest-posts/index.js:308 build/latest-posts/index.js:282
+#: build/latest-posts/index.js:262 src/latest-posts/edit.js:223
+#: build/latest-posts/index.js:277
 msgid "Excluded Categories"
 msgstr "Ausgeschlossene Kategorien"
 
-#: build/latest-posts/index.js:314 build/next-events/index.js:272
-#: build/latest-posts/index.js:290 build/next-events/index.js:230
+#: build/latest-posts/index.js:268 build/next-events/index.js:215
+#: src/latest-posts/edit.js:234 src/next-events/edit.js:143
+#: build/latest-posts/index.js:288 build/next-events/index.js:192
 msgid "Number of posts to be shown"
 msgstr "Anzahl der Beiträge, die angezeigt werden sollen"
 
-#: build/latest-posts/index.js:320 build/latest-posts/index.js:301
+#: build/latest-posts/index.js:274 src/latest-posts/edit.js:245
+#: build/latest-posts/index.js:299
 msgid "Archive Text"
 msgstr "Blog-Archiv-Link"
 
-#: build/latest-posts/index.js:321 build/latest-posts/index.js:305
+#: build/latest-posts/index.js:275 src/latest-posts/edit.js:249
+#: build/latest-posts/index.js:303
 msgid "Link label of the archive link"
 msgstr "Linktext für den Archiv-Link"
 
-#: build/latest-posts/block.json
+#: build/core/cover/block.json src/core/cover/block.json
+msgctxt "block title"
+msgid "Modified Cover Block Styles for Sunflower Theme"
+msgstr ""
+
+#: build/core/list/block.json src/core/list/block.json
+msgctxt "block title"
+msgid "Modified List Block Styles for Sunflower Theme"
+msgstr ""
+
+#: build/latest-posts/block.json src/latest-posts/block.json
 msgctxt "block title"
 msgid "Latest Posts (Sunflower)"
 msgstr "Neueste Beiträge (Sunflower)"
 
-#: build/latest-posts/block.json
+#: build/latest-posts/block.json src/latest-posts/block.json
 msgctxt "block description"
 msgid "Show Latest Posts in Sunflower Design"
 msgstr "Zeige die letzten Beiträge im Sunflower-Design"
 
 #: theme.json
 msgctxt "Color name"
-msgid "Himmel"
+msgid "Schwarzwald"
 msgstr ""
 
 #: theme.json
@@ -96,17 +117,7 @@ msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Klee-700"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
 msgid "Grashalm"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "White"
 msgstr ""
 
 #: theme.json
@@ -121,12 +132,47 @@ msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Gray"
+msgid "Grüner Sand"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Black"
+msgid "Maus"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Kalk"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Himmel"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge"
 msgstr ""
 
 #: theme.json
@@ -136,5 +182,8 @@ msgstr ""
 
 #: theme.json
 msgctxt "Font family name"
-msgid "GrueneType"
+msgid "GrueneType Neue"
 msgstr ""
+
+#~ msgid "to archive"
+#~ msgstr "zum Blog-Archiv"

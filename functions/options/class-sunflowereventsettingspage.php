@@ -2,7 +2,7 @@
 /**
  * Class for the Sunflower events settings page.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**
@@ -205,6 +205,7 @@ class SunflowerEventSettingsPage {
 				'default'           => array(
 					'sunflower_events_enabled'     => 1,
 					'sunflower_show_event_archive' => 1,
+					'sunflower_show_overall_map'   => 1,
 				),
 			)
 		);
@@ -463,7 +464,7 @@ class SunflowerEventSettingsPage {
 	public function sunflower_zoom_callback(): void {
 		printf(
 			'<input type="number" min="1" max="19" id="sunflower_zoom" name="sunflower_events_options[sunflower_zoom]" value="%s">',
-			esc_attr( $this->options['sunflower_zoom'] ?? '11' )
+			esc_attr( $this->options['sunflower_zoom'] ?? '6' )
 		);
 		echo '<div>1 (ganze Welt) bis 19 (einzelne Straße), Zoomlevel für die Übersichtskarte für Termine</div>';
 	}

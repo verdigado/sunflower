@@ -4,6 +4,7 @@
  * Try to style the editor accordion like in the frontend without bootstrap
  */
 
+@use "sass:map";
 @use "../../sass/variables";
 
 *,
@@ -18,9 +19,9 @@
 
         &-respond {
 
-            background-color: variables.$white;
-            padding: 30px;
-            border-radius: variables.$border-radius;
+            background-color: map.get(variables.$custom-colors, "sand");
+            overflow: hidden;
+            padding: calc(var(--grid-margin) - 4px) var(--grid-margin) var(--grid-margin) var(--grid-margin);
 
             label {
                 display: block;
@@ -36,11 +37,31 @@
         background-color: variables.$secondary;
         text-transform: uppercase;
         font-size: 1rem;
-        border-radius: 4px;
+        border-radius: var(--border-radius-medium);
         color: #fff;
         padding: 10px 30px;
         border: 0;
         font-style: normal;
+    }
+
+    .input-with-icon {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+
+        i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 23px;
+            pointer-events: none;
+            color: map.get(variables.$custom-colors, "klee");
+        }
+
+        input {
+            padding-left: 50px !important;
+        }
     }
 
     .mb-5 {

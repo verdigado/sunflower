@@ -1,39 +1,46 @@
-.wp-block-media-text.person {
+@use "sass:map";
+
+
+body.colorscheme-green .container .entry-content .wp-block-media-text.person {
+    background-color: #000;
+    border-radius: var(--border-radius-large);
+    color: map.get($custom-colors, "white");
+
+    .person-name,
+    .h4 {
+        color: map.get($custom-colors, "white");
+    }
+}
+
+body.colorscheme-light .container .entry-content .wp-block-media-text.person {
+    background-color: #fff;
+    border-radius: var(--border-radius-large);
+}
+
+body #content .mb-md-4:has(.person) {
+    margin-bottom: 0 !important;
+}
+
+
+body #content .entry-content .wp-block-media-text.person {
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 0 !important;
 
-    .person {
-
-        &-name {
-            font-size: 30px;
-            font-weight: 700;
-
-            @include themed() {
-                font-family: t(headingFontBold);
-            }
-        }
-    }
-
-    // `h4` is for compatibility - same as class `person-name`
+    .person-name,
     .h4 {
-        font-size: 30px;
         font-weight: 700;
-
-        @include themed() {
-            font-family: t(headingFontBold);
-        }
-
-        margin-bottom: 1rem;
-
+        line-height: 110%;
+        text-transform: uppercase;
+        color: map.get($custom-colors, "tanne");
+        margin-top: 0;
     }
 
     .wp-block-media-text__content {
-        padding: 20px;
+        padding: calc(var(--grid-margin) / 4) var(--grid-margin) var(--grid-margin);
         align-self: start;
         width: 100%;
-        height: 100%;
-        background: $white;
         border-bottom-left-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
     }
@@ -46,24 +53,18 @@
     .wp-block-image {
 
         img {
-            border-top-left-radius: $border-radius;
-            border-top-right-radius: $border-radius;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             width: 100%;
-
+            max-height: 410px;
         }
 
     }
-}
 
-.wp-block-columns {
+    .person-mail {
 
-    .person {
-
-        img {
-            height: 300px;
-            max-height: 300px;
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 }

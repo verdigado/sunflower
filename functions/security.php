@@ -2,7 +2,7 @@
 /**
  * Security related methods.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 // Remove generator meta-tag.

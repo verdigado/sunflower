@@ -1,28 +1,217 @@
+@use "sass:map";
+@use "sass:string";
+
 $themes: (
-    default: ("headingFont": "GrueneType Neue", "headingFontBold": "GrueneType Neue", "standardFont": "\"PT Sans\", sans-serif"),
-    contrast: ("headingFont": "GrueneType Neue", "headingFontBold": "GrueneType Neue", "standardFont": "\"PT Sans\", sans-serif")
+    /* Color scheme*/
+    colorscheme-light: (
+        background: map.get($custom-colors, "white"),
+        text: map.get($custom-colors, "schwarzwald"),
+        headings: (
+            h1: map.get($custom-colors, "tanne"),
+            h2: map.get($custom-colors, "grashalm"),
+            h3: map.get($custom-colors, "tanne"),
+            h4: map.get($custom-colors, "grashalm"),
+            h5: map.get($custom-colors, "tanne"),
+            h6: map.get($custom-colors, "grashalm")
+        ),
+        btn-pr-background: map.get($custom-colors, "tanne"),
+        btn-pr-text: map.get($custom-colors, "sand"),
+        btn-sk-background: map.get($custom-colors, "white"),
+        btn-sk-text: map.get($custom-colors, "tanne"),
+        btn-sk-border: map.get($custom-colors, "tanne"),
+        btn-sk-icon: map.get($custom-colors, "klee"),
+        btn-hover-background: map.get($custom-colors, "grashalm"),
+        btn-hover-text: map.get($custom-colors, "schwarzwald"),
+        btn-hl-background: map.get($custom-colors, "himmel"),
+        btn-hl-text: map.get($custom-colors, "white"),
+        btn-hl-hover-background: map.get($custom-colors, "klee"),
+        btn-hl-hover-text: map.get($custom-colors, "white"),
+        input-text: map.get($custom-colors, "maus"),
+        input-border: map.get($custom-colors, "tanne"),
+        input-background: map.get($custom-colors, "white"),
+        input-icon: map.get($custom-colors, "klee"),
+        input-fokus-text: map.get($custom-colors, "klee"),
+        input-fokus-border: map.get($custom-colors, "grashalm"),
+        pagination-background: map.get($custom-colors, "white"),
+        pagination-text: map.get($custom-colors, "tanne"),
+        pagination-border: map.get($custom-colors, "tanne"),
+        pagination-hover-background: map.get($custom-colors, "grashalm"),
+        pagination-hover-text: map.get($custom-colors, "white"),
+        pagination-current-text: map.get($custom-colors, "grashalm"),
+        pagination-current-border: map.get($custom-colors, "grashalm"),
+        pagination-current-background: map.get($custom-colors, "schwarzwald"),
+        form-section-border: map.get($custom-colors, "klee"),
+        form-section-title-color: map.get($custom-colors, "white"),
+        form-section-title-background: map.get($custom-colors, "klee"),
+        cover-concave-img: "#{$sunflower-img-path}/concave-30px.svg"
+    ),
+    colorscheme-green: (
+        background: map.get($custom-colors, "schwarzwald"),
+        text: map.get($custom-colors, "white"),
+        headings: (
+            h1: map.get($custom-colors, "white"),
+            h2: map.get($custom-colors, "grashalm"),
+            h3: map.get($custom-colors, "white"),
+            h4: map.get($custom-colors, "grashalm"),
+            h5: map.get($custom-colors, "white"),
+            h6: map.get($custom-colors, "grashalm")
+        ),
+        btn-pr-background: map.get($custom-colors, "tanne"),
+        btn-pr-text: map.get($custom-colors, "sand"),
+        btn-sk-background: map.get($custom-colors, "white"),
+        btn-sk-text: map.get($custom-colors, "tanne"),
+        btn-sk-border: map.get($custom-colors, "grashalm"),
+        btn-sk-icon: map.get($custom-colors, "klee"),
+        btn-hover-background: map.get($custom-colors, "grashalm"),
+        btn-hover-text: map.get($custom-colors, "sand"),
+        btn-hl-background: map.get($custom-colors, "klee"),
+        btn-hl-text: map.get($custom-colors, "white"),
+        btn-hl-hover-background: map.get($custom-colors, "himmel"),
+        btn-hl-hover-text: map.get($custom-colors, "white"),
+        input-text: map.get($custom-colors, "maus"),
+        input-border: map.get($custom-colors, "tanne"),
+        input-background: map.get($custom-colors, "white"),
+        input-icon: map.get($custom-colors, "klee"),
+        input-fokus-text: map.get($custom-colors, "klee"),
+        input-fokus-border: map.get($custom-colors, "grashalm"),
+        pagination-background: map.get($custom-colors, "white"),
+        pagination-text: map.get($custom-colors, "himmel"),
+        pagination-border: map.get($custom-colors, "himmel"),
+        pagination-hover-background: map.get($custom-colors, "grashalm"),
+        pagination-hover-text: map.get($custom-colors, "white"),
+        pagination-current-text: map.get($custom-colors, "grashalm"),
+        pagination-current-border: map.get($custom-colors, "grashalm"),
+        pagination-current-background: map.get($custom-colors, "schwarzwald"),
+        form-section-border: map.get($custom-colors, "white"),
+        form-section-title-color: map.get($custom-colors, "white"),
+        form-section-title-background: map.get($custom-colors, "himmel"),
+        cover-concave-img: "#{$sunflower-img-path}/concave-30px_darkmode.svg"
+    ),
+    /* Form Style*/
+    formstyle-sharp: (border-radius: 0),
+    formstyle-rounded: (border-radius: 16px),
+    /* Footer-Layout*/
+    footer-sand: (
+        footer-bg: map.get($custom-colors, "sand"),
+        footer-text: map.get($custom-colors, "schwarzwald")
+    ),
+    footer-green: (
+        footer-bg: map.get($custom-colors, "schwarzwald"),
+        footer-text: map.get($custom-colors, "white")
+    )
 );
 
-@mixin themed() {
+// Top-level
+@mixin themed-colorscheme() {
 
     @each $theme, $map in $themes {
-        .theme--#{$theme} & {
-            $theme-map: () !global;
 
-            @each $key, $submap in $map {
-                $value: map-get(map-get($themes, $theme), "#{$key}");
-                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        @if string.index($theme, "colorscheme-") {
+
+            @at-root #{&}.#{$theme} {
+                $theme-map: () !global;
+
+                @each $key, $value in $map {
+                    $theme-map: map.merge($theme-map, ($key: $value)) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
             }
-
-            @content;
-            $theme-map: null !global;
         }
     }
 }
 
-@function t($key) {
+// Nested
+@mixin themed-colorscheme-nested() {
 
-    @return unquote(map-get($theme-map, $key));
+    @each $theme, $map in $themes {
+
+        @if string.index($theme, "colorscheme-") {
+
+            @at-root .#{$theme} & {
+                $theme-map: () !global;
+
+                @each $key, $value in $map {
+                    $theme-map: map.merge($theme-map, ($key: $value)) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
+            }
+        }
+    }
+}
+
+// Top-level
+@mixin themed-formstyle() {
+
+    @each $theme, $map in $themes {
+
+        @if string.index($theme, "formstyle-") {
+
+            @at-root #{&}.#{$theme} {
+                $theme-map: () !global;
+
+                @each $key, $value in $map {
+                    $theme-map: map.merge($theme-map, ($key: $value)) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
+            }
+        }
+    }
+}
+
+// Nested
+@mixin themed-formstyle-nested() {
+
+    @each $theme, $map in $themes {
+
+        @if string.index($theme, "formstyle-") {
+
+            @at-root .#{$theme} & {
+                $theme-map: () !global;
+
+                @each $key, $value in $map {
+                    $theme-map: map.merge($theme-map, ($key: $value)) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
+            }
+        }
+    }
+}
+
+@function t($key, $subkey: null) {
+
+    @if global-variable-exists(theme-map) == false or not $theme-map {
+
+        @error "t(): $theme-map ist null oder nicht initialisiert.";
+    }
+
+    $value: map.get($theme-map, $key);
+
+    @if not $subkey {
+
+        @return $value;
+    }
+
+    @if type-of($value) != "map" {
+
+        @error 't(): Der Wert zu "#{$key}" ist keine Map. Aktueller Wert: #{$value}';
+    }
+
+    $subvalue: map.get($value, $subkey);
+
+    @if not $subvalue {
+
+        @error 't(): Kein Wert gefunden für subkey "#{$subkey}" in "#{$key}".';
+    }
+
+    @return $subvalue;
 }
 
 .theme--contrast {
@@ -56,5 +245,165 @@ $themes: (
 
     .bloginfo {
         background: #00354e !important;
+    }
+}
+
+
+.colorscheme-green {
+
+    .next-events:has(.event-card__media) .row > .col-12:nth-of-type(6) article,
+    .next-events:has(.event-card__media) .row > .col-12:nth-of-type(12) article,
+    .next-events:has(.event-card__media) .row > .col-12:nth-of-type(18) article {
+        background-color: map.get($custom-colors, "gruener-sand") !important;
+    }
+
+    .archive article p {
+        color: map.get($custom-colors, "schwarzwald") !important;
+    }
+}
+
+
+body.formstyle-rounded {
+
+    footer.site-footer {
+        margin: var(--grid-margin);
+        border-radius: var(--border-radius-large);
+
+        .footerlogo {
+
+            @include media-breakpoint-down(xl) {
+                border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
+                border-width: 2px;
+                border-top-width: 0;
+                border-style: solid;
+            }
+        }
+    }
+}
+
+body.formstyle-sharp {
+
+    .brand-left {
+
+        .label-top {
+            left: calc(-1 * var(--gap-large));
+            right: 0;
+        }
+    }
+
+    footer.site-footer {
+
+        .footerlogo {
+            border-radius: 15px 0 0 0;
+
+            @include media-breakpoint-down(xl) {
+                border-radius: 0;
+            }
+        }
+    }
+}
+
+
+body.colorscheme-green {
+
+    footer.site-footer {
+
+        .footerlogo {
+            background-color: map.get($custom-colors, "schwarzwald");
+
+            .concave-30px {
+                color: map.get($custom-colors, "schwarzwald");
+            }
+
+            @include media-breakpoint-down(xl) {
+                background-color: map.get($custom-colors, "schwarzwald");
+            }
+        }
+    }
+
+    .wp-block-separator {
+        color: map.get($custom-colors, "grashalm");
+    }
+
+    .wp-block-sunflower-accordion {
+
+        p {
+            color: map.get($custom-colors, "schwarzwald");
+        }
+    }
+
+    .comment-respond p,
+    .wp-block-details,
+    .wp-block-comment-reply-link a {
+        color: map.get($custom-colors, "tanne");
+    }
+
+    .entry-content p a {
+        color: map.get($custom-colors, "grashalm");
+    }
+
+    .wp-block-post-excerpt__more-link,
+    .wp-block-read-more {
+        color: map.get($custom-colors, "grashalm") !important;
+    }
+
+    .wp-block-read-more,
+    .continue-reading {
+        color: map.get($custom-colors, "klee");
+    }
+
+    .comment-body footer .comment-metadata time,
+    .wp-block-comments .wp-block-comment-template .wp-block-comment-date time a {
+        color: map.get($custom-colors, "white");
+    }
+
+    .archive-article {
+        color: map.get($custom-colors, "schwarzwald");
+    }
+
+    .wp-block-code {
+        background-color: map.get($custom-colors, "tanne");
+    }
+
+    tbody,
+    .wp-block-button__link,
+    .comment-reply-title,
+    .figcaption {
+        color: map.get($custom-colors, "tanne");
+    }
+
+    .wp-block-post-author__name,
+    .comment-body footer .comment-metadata .edit-link {
+        color: map.get($custom-colors, "grashalm");
+    }
+}
+
+
+body.colorscheme-light {
+
+    footer.site-footer {
+
+        .footerlogo {
+            background-color: map.get($custom-colors, "white");
+            border-color: map.get($custom-colors, "grashalm");
+
+            .concave-30px {
+                color: map.get($custom-colors, "white");
+            }
+        }
+    }
+}
+
+body.footer-sand {
+
+    footer.site-footer {
+        background-color: map.get($custom-colors, "sand");
+    }
+}
+
+body.footer-green {
+
+    footer.site-footer {
+        background-color: map.get($custom-colors, "gruener-sand");
     }
 }

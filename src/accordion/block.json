@@ -22,6 +22,14 @@
 		},
 		"blockId": {
 			"type": "string"
+		},
+		"themeColor": {
+			"type": "string",
+			"default": ""
+		},
+		"themeForm": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "sunflower-accordion",

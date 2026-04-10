@@ -38,7 +38,7 @@ msgid "https://verdigado.com"
 msgstr ""
 
 #: build/next-events/render.php:21 build/next-events/index.js:262
-#: build/next-events/index.js:213
+#: build/next-events/index.js:213 src/next-events/edit.js
 msgid "Next events"
 msgstr "Nächste Termine"
 
@@ -51,3 +51,39 @@ msgstr "Nächste Termine (Sunflower)"
 msgctxt "block description"
 msgid "Show Next Events in Sunflower Design"
 msgstr "Zeige die nächsten Termine im Sunflower-Design"
+
+#: src/next-events/edit.js
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/next-events/edit.js
+msgid "Block title"
+msgstr "Blocktitel"
+
+#: src/next-events/edit.js
+msgid "Heading displayed above the events list"
+msgstr "Überschrift, die über der Terminliste angezeigt wird"
+
+#: src/next-events/edit.js
+msgid "Number of items"
+msgstr "Anzahl der Einträge"
+
+#: src/next-events/edit.js
+msgid "Number of events to show"
+msgstr "Anzahl der angezeigten Termine"
+
+#: src/next-events/edit.js
+msgid "Filter"
+msgstr "Filter"
+
+#: src/next-events/edit.js
+msgid "Filter by title"
+msgstr "Nach Titel filtern"
+
+#: src/next-events/edit.js
+msgid "Only show events whose title contains this text (case-insensitive)"
+msgstr "Nur Termine anzeigen, deren Titel diesen Text enthält (Groß-/Kleinschreibung wird ignoriert)"
+
+#: src/next-events/edit.js
+msgid "Tags"
+msgstr "Schlagwörter"

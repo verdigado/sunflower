@@ -54,6 +54,16 @@ publish:
 #	git tag "v$$newversion"
 #	git push && git push --tags
 
+publishbeta:
+	@echo "Publish BETA Release: "
+	@echo "Latest tag was: "
+	@git describe --tags --abbrev=0
+	@read -p "which version do you want to publish now (start with number, NO v) and append -beta-X: " newversion; \
+	sed -i  "s/Version.*/Version:\ $$newversion/" "sass/style.scss" && \
+	php create-changelog.php $$newversion && \
+	git checkout -B deploy-beta && \
+	git add sass/style.scss changelog.html && git commit -m "publishing version $$newversion" && \
+	git push --set-upstream origin deploy-beta
 
 mkdocs-serve:
 	cd mkdocs && mkdocs serve

@@ -2,7 +2,7 @@
 /**
  * Comment related functions.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

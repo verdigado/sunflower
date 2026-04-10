@@ -1,0 +1,146 @@
+# .github/workflows/release.yml
+
+name: Build Sunflower 3.0 and Deploy Beta release
+
+on:
+  release:
+    types: [published]
+
+
+env:
+  NODE_VERSION: 24
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_ROOT: ${{ github.workspace }}/sunflower26
+
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_ROOT }}
+
+    if: |
+      ${{
+        startsWith(github.event.release.tag_name, 'v') &&
+        ( contains(github.event.release.tag_name, '-alpha') ||
+        contains(github.event.release.tag_name, '-beta') ||
+        contains(github.event.release.tag_name, '-rc') )
+      }}
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+            path: sunflower26
+
+      - name: check theme version against tag
+        run: |
+            THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
+            V="v"
+            echo Version in style.scss: $THEME_VERSION
+            echo Tag name: ${{ github.event.release.tag_name }}
+            if [ "$V$THEME_VERSION" != "${{ github.event.release.tag_name }}" ]; then exit 1; fi
+
+      - uses: actions/setup-node@v6
+        with:
+            node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache node_modules directory
+        uses: actions/cache@v5
+        id: npm-cache-dir
+        with:
+            path: node_modules
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+                ${{ runner.os }}-node-
+
+      - name: Install npm packages
+        if: steps.npm-cache-dir.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Lint SCSS
+        run: npm run lint:scss
+
+      - name: Build CSS
+        run: npm run compile:css
+
+      - name: Build CSS-RTL
+        run: npm run compile:rtl
+
+      - name: Lint JS
+        run: npm run lint:js
+
+      - name: Build JS
+        run: npm run build
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+            php-version: 8.4
+            tools: cs2pr
+
+      - name: run install composer
+        run: |
+            composer install
+            cd lib && composer install
+
+      - name: Run PHPCS checks
+        id: phpcs
+        continue-on-error: true
+        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml .
+
+      - name: Show PHPCS results in PR
+        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
+        run: cs2pr ./phpcs-report.xml
+
+      - name: Make bundle
+        run: npm run bundle
+
+      - name: fail on fork
+        if: github.repository_owner != 'verdigado'
+        run: exit 1
+
+      - name: Rename ZIP file
+        run: |
+            mv ../sunflower26.zip sunflower-${{ github.event.release.tag_name }}.zip
+
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+            artifacts: '${{ env.PROJECT_ROOT }}/sunflower-${{ github.event.release.tag_name }}.zip'
+            makeLatest: false
+            prerelease: true
+            allowUpdates: true
+            token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Provide deploy_key
+        env:
+            DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            SSH_USER: 'github-ci'
+            SSH_HOST: 'wordpress05.gcms.verdigado.net'
+        run: |
+            mkdir "$HOME/.ssh"
+            echo "$DEPLOY_KEY" > "$HOME/.ssh/production.key"
+            chmod 600 "$HOME/.ssh/production.key"
+            cat >> ~/.ssh/config <<END
+            Host production
+              HostName $SSH_HOST
+              User $SSH_USER
+              IdentityFile ~/.ssh/production.key
+              StrictHostKeyChecking no
+            END
+
+      - name: save version
+        run: echo ${{ github.event.release.tag_name }} > version_beta.txt
+
+      - name: rsync zipfile, version and changelog
+        env:
+            PAGEID: 5
+        run: |
+            rsync -a sunflower-${{ github.event.release.tag_name }}.zip version_beta.txt changelog.html production:/var/www/updateserver/sunflower26/
+            THEME_VERSION=$(cat version_beta.txt | sed -e 's/^v//')
+            sudo locale-gen de_DE.UTF-8
+            THEME_UPDATE=$(LANG=de_DE.UTF-8 && date +'%B %Y')
+            ssh production "cd /var/www && wp post get $PAGEID --field=content --url=sunflower-theme.de/sunflower26 | sed -e 's/<version>[^<]*/<version>$THEME_VERSION/g' | sed -e 's/<versionupdate>[^<]*/<versionupdate>$THEME_UPDATE/g' | sed -E 's/\/updateserver\/sunflower26\/sunflower-v(.*)\.zip/\/updateserver\/sunflower26\/sunflower-v$THEME_VERSION.zip/g' > /tmp/content-$PAGEID.txt"
+            ssh production "cd /var/www && wp post update $PAGEID - --url=sunflower-theme.de/sunflower26 < /tmp/content-$PAGEID.txt && wp option update blogdescription 'Demoseite für das WordPress-Theme Sunflower $THEME_VERSION' --url=sunflower-theme.de/sunflower26 && wp menu item update 26 --url=https://sunflower-theme.de/sunflower26 --link=https://sunflower-theme.de/updateserver/sunflower26/sunflower-v$THEME_VERSION.zip"
+            ssh production "cd /var/www && rm -fr wp-content/themes/sunflower26/ && wp theme install updateserver/sunflower26/sunflower-v$THEME_VERSION.zip >> /tmp/sunflower-install.log"

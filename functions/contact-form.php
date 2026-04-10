@@ -2,7 +2,7 @@
 /**
  * Methods for the Sunflower contact form.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

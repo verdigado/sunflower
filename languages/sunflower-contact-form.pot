@@ -1,22 +1,22 @@
-# Copyright (C) 2025 verdigado eG
+# Copyright (C) 2026 verdigado eG
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.2.10\n"
+"Project-Id-Version: Sunflower 26 3.0.0-beta-7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-21T08:35:19+00:00\n"
+"POT-Creation-Date: 2026-04-10T10:57:00+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower-contact-form\n"
 
 #. Theme Name of the theme
 #: style.css
-msgid "sunflower"
+msgid "Sunflower 26"
 msgstr ""
 
 #. Theme URI of the theme
@@ -39,49 +39,70 @@ msgstr ""
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/contact-form/render.php:11
+#: build/contact-form/render.php:8
 #: functions/contact-form.php:63
 #: functions/contact-form.php:79
-#: build/contact-form/index.js:130
+#: src/contact-form/render.php:8
+#: build/contact-form/index.js:120
+#: src/contact-form/edit.js:101
 #: build/contact-form/index.js:101
 msgid "Contact Form"
 msgstr ""
 
-#: build/contact-form/render.php:29
-#: functions/contact-form.php:48
-msgid "Message"
+#: build/contact-form/render.php:16
+#: src/contact-form/render.php:16
+msgid "Your Message"
 msgstr ""
 
-#: build/contact-form/render.php:32
-msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
-msgstr ""
-
-#: build/contact-form/render.php:36
-msgid ""
-"By using this form, you consent to the storage and processing of your data through our website.\n"
-"            Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>"
-msgstr ""
-
-#: build/contact-form/render.php:47
+#: build/contact-form/render.php:17
+#: build/contact-form/render.php:52
 #: functions/contact-form.php:35
+#: src/contact-form/render.php:17
+#: src/contact-form/render.php:52
 msgid "Name"
 msgstr ""
 
-#: build/contact-form/render.php:54
+#: build/contact-form/render.php:18
+#: build/contact-form/render.php:70
 #: functions/contact-form.php:40
+#: src/contact-form/render.php:18
+#: src/contact-form/render.php:70
 msgid "E-Mail"
 msgstr ""
 
-#: build/contact-form/render.php:66
+#: build/contact-form/render.php:19
+#: build/contact-form/render.php:89
 #: functions/contact-form.php:45
+#: src/contact-form/render.php:19
+#: src/contact-form/render.php:89
 msgid "Phone"
 msgstr ""
 
-#: build/contact-form/render.php:76
+#: build/contact-form/render.php:20
+#: build/contact-form/render.php:108
+#: src/contact-form/render.php:20
+#: src/contact-form/render.php:108
 msgid "How much is 1 + 1?"
 msgstr ""
 
-#: build/contact-form/render.php:92
+#: build/contact-form/render.php:36
+#: functions/contact-form.php:48
+#: src/contact-form/render.php:36
+msgid "Message"
+msgstr ""
+
+#: build/contact-form/render.php:127
+#: src/contact-form/render.php:127
+msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
+msgstr ""
+
+#: build/contact-form/render.php:132
+#: src/contact-form/render.php:132
+msgid "By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
+msgstr ""
+
+#: build/contact-form/render.php:155
+#: src/contact-form/render.php:155
 msgid "submit"
 msgstr ""
 
@@ -97,64 +118,87 @@ msgstr ""
 msgid "Your Message on"
 msgstr ""
 
-#: build/contact-form/index.js:125
+#: build/contact-form/index.js:115
+#: src/contact-form/edit.js:88
 #: build/contact-form/index.js:88
 msgid "The receiver address may be altered within the Sunflower theme settings. By default, emails are sent to the site administrator."
 msgstr ""
 
-#: build/contact-form/index.js:128
+#: build/contact-form/index.js:118
+#: src/contact-form/edit.js:96
 #: build/contact-form/index.js:96
 msgid "Title of the form"
 msgstr ""
 
-#: build/contact-form/index.js:133
+#: build/contact-form/index.js:123
+#: src/contact-form/edit.js:108
 #: build/contact-form/index.js:108
 msgid "Mail To"
 msgstr ""
 
-#: build/contact-form/index.js:134
+#: build/contact-form/index.js:124
+#: src/contact-form/edit.js:109
 #: build/contact-form/index.js:109
 msgid "Mail form to this address instead of default receiver."
 msgstr ""
 
-#: build/contact-form/index.js:136
+#: build/contact-form/index.js:126
+#: src/contact-form/edit.js:114
 #: build/contact-form/index.js:114
 msgid "default receiver"
 msgstr ""
 
-#: build/contact-form/index.js:140
+#: build/contact-form/index.js:130
+#: src/contact-form/edit.js:122
 #: build/contact-form/index.js:122
 msgid "Require E-Mail"
 msgstr ""
 
-#: build/contact-form/index.js:144
+#: build/contact-form/index.js:134
+#: src/contact-form/edit.js:131
 #: build/contact-form/index.js:131
 msgid "Send copy to sender"
 msgstr ""
 
-#: build/contact-form/index.js:148
+#: build/contact-form/index.js:138
+#: src/contact-form/edit.js:140
 #: build/contact-form/index.js:140
 msgid "Display Phone Field"
 msgstr ""
 
-#: build/contact-form/index.js:152
+#: build/contact-form/index.js:142
+#: src/contact-form/edit.js:149
 #: build/contact-form/index.js:149
 msgid "Require Phone"
 msgstr ""
 
 #: build/contact-form/block.json
+#: src/contact-form/block.json
 msgctxt "block title"
 msgid "Contact Form (Sunflower)"
 msgstr ""
 
 #: build/contact-form/block.json
+#: src/contact-form/block.json
 msgctxt "block description"
 msgid "Simple Contact Form"
 msgstr ""
 
+#: build/core/cover/block.json
+#: src/core/cover/block.json
+msgctxt "block title"
+msgid "Modified Cover Block Styles for Sunflower Theme"
+msgstr ""
+
+#: build/core/list/block.json
+#: src/core/list/block.json
+msgctxt "block title"
+msgid "Modified List Block Styles for Sunflower Theme"
+msgstr ""
+
 #: theme.json
 msgctxt "Color name"
-msgid "Himmel"
+msgid "Schwarzwald"
 msgstr ""
 
 #: theme.json
@@ -169,17 +213,7 @@ msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Klee-700"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
 msgid "Grashalm"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "White"
 msgstr ""
 
 #: theme.json
@@ -194,12 +228,47 @@ msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Gray"
+msgid "Grüner Sand"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Black"
+msgid "Maus"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Kalk"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Himmel"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge"
 msgstr ""
 
 #: theme.json

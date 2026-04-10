@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 if ( isset( $_GET['format'] ) && 'ics' === $_GET['format'] ) { // phpcs:ignore
@@ -39,15 +39,9 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 								( $sunflower_is_event_archive ) ? esc_html_e( 'Events archive', 'sunflower' ) : esc_html_e( 'Events', 'sunflower' );
 								?>
 							</h1>
-								<?php
-								$sunflower_events_description = sunflower_get_setting( 'sunflower_events_description' ) ?? '';
-								if ( $sunflower_events_description ) {
-									printf( '<p>%s</p>', wp_kses_post( $sunflower_events_description ) );
-								}
-								?>
 						</header><!-- .page-header -->
 
-						<div class="filter-button-group mb-5 text-center">
+						<div class="filter-button-group text-center">
 						<?php
 						if ( $sunflower_is_event_archive ) {
 							printf( '<a href="?archive=false" class="eventlist" >%s</a>', esc_html__( 'to upcoming events', 'sunflower' ) );
@@ -77,7 +71,16 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 						?>
 						</div>
 
-						<div class="row event-list">
+					<div class="archive-description alignwide">
+						<?php
+						$sunflower_events_description = sunflower_get_setting( 'sunflower_events_description' ) ?? '';
+						if ( $sunflower_events_description ) {
+							printf( '<p>%s</p>', wp_kses_post( $sunflower_events_description ) );
+						}
+						?>
+					</div>
+
+						<div class="row event-list alignwide" <?php echo sunflower_get_masonry_attr(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 						<?php
 
 						/* Start the Loop */
@@ -213,5 +216,4 @@ endif;
 	?>
 
 <?php
-get_sidebar();
 get_footer();

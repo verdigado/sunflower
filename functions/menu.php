@@ -2,7 +2,7 @@
 /**
  * Methods for Sunflower placeholder menu
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

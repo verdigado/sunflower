@@ -7,7 +7,6 @@ Nach der Installation des Themes musst Du einige Einstellungen vornehmen. Dafür
   <figcaption>Das Sunflower-Menü im Dashboard</figcaption>
 </figure>
 
-
 ## Erste Schritte
 
 ###  Theme aktivieren
@@ -19,14 +18,39 @@ Um die Sonnenblume als Logo und Icon nutzen zu können, musst Du Dir die Nutzung
   <figcaption>Das Sunflower-Menü im Dashboard</figcaption>
 </figure>
 
-### Umzug von Urwahl 3000
-
-Hier gibt es ausführlichere Hinweise zum [Umzug von Urwahl3000](urwahl3000.md).
-
 ## Einstellungen
 
+### Grunddesign
+
+Das neue Design Sunflower26 bietet insgesamt 4 verschiedene Möglichkeiten die Seite darzustellen. Aus der Kombination "hell" oder "dunkel" bzw. "abgerundet" oder "eckig" lässt sich das gewünschte Design der Seite variieren.
+
+Im Backend unter "Sunflower" und "Einstellungen" lässt sich die gewünschte Kombination einstellen. 
+
+Unabhängig vom Grunddesign kann noch die Farbgebung im Footerbereich der Seite angepasst werden. 
+Ebenso kann eine Entscheidung zur Darstellung der von Bildern getroffen werden. Hierbei sind die Anmerkungen zum Theme zu berücksichtigen [mehr](umstieg_sunflower26.md)  
+
+<figure markdown="span">
+  ![Screenshot vom Einstellungs-Menü](images/sunflower26_designvarianten_umschalten.png){ width="" }
+  <figcaption>Sunflower-Einstellungen: Auswahl des Grunddesign</figcaption>
+</figure>
+
 ### Menüs
+
 Lege zunächst das Hauptmenü und ggf. auch die weiteren Menüs an und lege deren Positionen fest. [mehr](menus.md)
+
+### Anzeige von Bildern - Medien Urheber:in
+
+Um Lizenzschwierigkeiten zu vermeiden bietet Sunflower ein Feature an, bei dem Bilder nur dann angezeigt werden, wenn auch klar ist woher sie kommen. Unter "Sunflower" und "Einstellungen" ist ganz unten der Eintrag "Medien-Urheber*in". Hier kann eingestellt werden, wie man mit der Situation umgeht.
+
+* optional: beim Speichern kann man einE Urheber*in angeben
+* verpflichtend: Es muss einE Urheber*in angegeben werden, ein Warnhinweis wird ausgegeben
+* streng: wenn keinE Urheber*in angegeben ist, wird das Bild nur verpixelt ausgegeben
+* deaktiviert: alles Bilder werden angezeigt.
+
+ <figure markdown="span">
+  ![Screenshot vom Einstellungs-Menü](images/sunflower26_medien_urheberin_02.png){ width="" }
+  <figcaption>Sunflower-Einstellungen: Medien Urheber*in</figcaption>
+</figure> 
 
 ## Startseite
 Für die Startseite kannst Du die Musterinhalte der Demoseite verwenden. [mehr](homepage.md)

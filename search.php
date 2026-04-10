@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 get_header();
@@ -50,7 +50,7 @@ get_header();
 						}
 						?>
 
-						<div class="archive-loop row" data-masonry='{"percentPosition": true }'>
+						<div class="archive-loop row alignwide" data-masonry='{"percentPosition": true }'>
 								<?php
 								echo wp_kses(
 									$sunflower_list_items,
@@ -92,5 +92,4 @@ get_header();
 		</div>
 </div>
 <?php
-get_sidebar();
 get_footer();

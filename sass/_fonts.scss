@@ -1,26 +1,62 @@
+    /* stylelint-disable */
 @font-face {
     font-family: "GrueneType Neue";
     src:
-        url("assets/fonts/GrueneTypeNeue-Regular.woff2") format("woff2"),
-        url("assets/fonts/GrueneTypeNeue-Regular.woff") format("woff");
+        url("#{$sunflower-fonts-path}/GrueneTypeNeue-Regular.woff2") format("woff2"),
+        url("#{$sunflower-fonts-path}/GrueneTypeNeue-Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizelegibility;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {
     font-family: ForkAwesome;
     font-style: normal;
     font-weight: 400;
-    src: url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.eot");
+    src: url("#{$sunflower-vndr-path}/fork-awesome/fonts/forkawesome-webfont.eot");
     src:
-        url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.eot?#iefix") format("embedded-opentype"),
-        url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.woff2") format("woff2"),
-        url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.woff") format("woff"),
-        url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.ttf") format("truetype"),
-        url("assets/vndr/fork-awesome/fonts/forkawesome-webfont.svg#forkawesomeregular") format("svg");
+        url("#{$sunflower-vndr-path}/fork-awesome/fonts/forkawesome-webfont.eot?#iefix") format("embedded-opentype"),
+        url("#{$sunflower-vndr-path}/fork-awesome/fonts/forkawesome-webfont.woff2") format("woff2"),
+        url("#{$sunflower-vndr-path}/fork-awesome/fonts/forkawesome-webfont.woff") format("woff"),
+        url("#{$sunflower-vndr-path}/fork-awesome/fonts/forkawesome-webfont.ttf") format("truetype"),
+        url("#{$sunflower-vndr-path}/fork-awesome/fonts/forkawesome-webfont.svg#forkawesomeregular") format("svg");
     font-display: block;
 }
+
+@font-face {
+    font-family: "Font Awesome 6 Brands";
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url("#{$sunflower-fonts-path}/fa-brands-400.ttf") format("truetype"),
+        url("#{$sunflower-fonts-path}/fa-brands-400.ttf") format("woff2");
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Font Awesome 6 Free";
+    font-style: normal;
+    font-weight: 900;
+    src:
+        url("#{$sunflower-fonts-path}/fa-v4compatibility.ttf") format("truetype"),
+        url("#{$sunflower-fonts-path}/fa-v4compatibility.woff2") format("woff2");
+    font-display: block;
+}
+
+@font-face {
+    font-family: "ForkAwesome";
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url("#{$sunflower-fonts-path}/forkawesome-webfont.ttf") format("truetype"),
+        url("#{$sunflower-fonts-path}/forkawesome-webfont.woff") format("woff2"),
+        url("#{$sunflower-fonts-path}/forkawesome-webfont.woff2") format("woff2");
+    font-display: block;
+}
+
 
 .forkawesome {
     font-family: ForkAwesome !important;
@@ -34,8 +70,14 @@
 .gruenetype {
     font-family: "GrueneType Neue" !important;
     font-weight: 400;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizelegibility;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .ptsans {
     font-family: "PT Sans" !important;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizelegibility;
+    -moz-osx-font-smoothing: grayscale;
 }

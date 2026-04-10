@@ -15,6 +15,15 @@ img {
     }
 }
 
-figure {
-    margin: 1em 0; // Extra wide images within figure tags don't overflow the content area.
+.is-vertical {
+
+    figure {
+
+        @include margin-vert;
+    }
+}
+
+
+.wp-block-gallery {
+    padding: var(--half-block-spacing) 0;
 }

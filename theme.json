@@ -4,15 +4,24 @@
 	"settings": {
 		"appearanceTools": false,
 		"useRootPaddingAwareAlignments": false,
+
 		"color": {
+
+			"defaultPalette": false,
+			"custom": false,
+			"defaultGradients": false,
+			"customGradient": false,
+			"defaultDuotone": false,
+			"customDuotone": false,
+
 			"palette": [
 				{
-					"color": "#0BA1DD",
-					"name": "Himmel",
-					"slug": "himmel"
+					"color": "#002216",
+					"name": "Schwarzwald",
+					"slug": "black"
 				},
 				{
-					"color": "#005437",
+					"color": "#005538",
 					"name": "Tanne",
 					"slug": "tanne"
 				},
@@ -22,19 +31,9 @@
 					"slug": "klee"
 				},
 				{
-					"color": "#006E2E",
-					"name": "Klee-700",
-					"slug": "klee-700"
-				},
-				{
 					"color": "#8ABD24",
 					"name": "Grashalm",
 					"slug": "grashalm"
-				},
-				{
-					"color": "#ffffff",
-					"name": "White",
-					"slug": "white"
 				},
 				{
 					"color": "#FFF17A",
@@ -47,30 +46,52 @@
 					"slug": "sand"
 				},
 				{
-					"color": "#EFF2ED",
-					"name": "Gray",
+					"color": "#F3FAF6",
+					"name": "Grüner Sand",
+					"slug": "gruener-sand"
+				},
+				{
+					"color": "#374951",
+					"name": "Maus",
 					"slug": "gray"
 				},
 				{
-					"color": "#201D1B",
-					"name": "Black",
-					"slug": "black"
+					"color": "#e8eae9",
+					"name": "Kalk",
+					"slug": "kalk"
+				},
+				{
+					"color": "#ffffff",
+					"name": "White",
+					"slug": "white"
+				},
+				{
+					"color": "#0BA1DD",
+					"name": "Himmel",
+					"slug": "himmel"
 				}
 			]
 		},
 		"layout": {
-			"contentSize": "900px",
-			"wideSize": "1200px",
+			"contentSize": "1400px",
+			"wideSize": "1400px",
 			"allowCustomContentAndWideSize": true
 		},
 		"typography": {
 			"dropCap": false,
 			"fluid": true,
+			"defaultFontSizes": false,
+			"fontSizes": [
+				{ "slug": "small", "size": "18px", "name": "Small" },
+				{ "slug": "medium", "size": "20px", "name": "Medium" },
+				{ "slug": "large", "size": "40px", "name": "Large" },
+				{ "slug": "huge", "size": "60px", "name": "Huge" }
+			],
 			"fontFamilies": [
 				{
 					"fontFace": [
 						{
-							"fontFamily": "PTSans",
+							"fontFamily": "PT Sans",
 							"fontStretch": "normal",
 							"fontStyle": "normal",
 							"fontWeight": "400",
@@ -80,7 +101,7 @@
 							]
 						},
 						{
-							"fontFamily": "PTSans",
+							"fontFamily": "PT Sans",
 							"fontStretch": "normal",
 							"fontStyle": "italic",
 							"fontWeight": "400",
@@ -90,7 +111,7 @@
 							]
 						},
 						{
-							"fontFamily": "PTSans",
+							"fontFamily": "PT Sans",
 							"fontStretch": "normal",
 							"fontStyle": "normal",
 							"fontWeight": "700",
@@ -100,7 +121,7 @@
 							]
 						},
 						{
-							"fontFamily": "PTSans",
+							"fontFamily": "PT Sans",
 							"fontStretch": "normal",
 							"fontStyle": "italic",
 							"fontWeight": "700",
@@ -140,12 +161,42 @@
 			"core/button": {
 				"color": {
 					"background": "var:preset|color|klee",
-					"text": "var:preset|color|white"
+					"text": "var:preset|color|tanne"
 				}
 			},
 			"core/heading": {
 				"typography": {
 					"fontWeight": "400"
+				}
+			},
+			"core/accordion": {
+				"typography": {
+					"fontWeight": "400",
+					"fontFamily": "var(--wp--preset--font-family--pt-sans)"
+				}
+			},
+			"core/accordion-heading": {
+				"spacing": {
+					"padding": {
+						"top": "10px",
+						"bottom": "10px"
+					}
+				},
+				"typography": {
+					"fontWeight": "400",
+					"fontFamily": "var(--wp--preset--font-family--gruenetypeneue)"
+				}
+			},
+			"core/accordion-item": {
+				"spacing": {
+					"padding": {
+						"right": "20px",
+						"left": "20px"
+					}
+				},
+				"typography": {
+					"fontWeight": "400",
+					"fontFamily": "var(--wp--preset--font-family--pt-sans)"
 				}
 			}
 		},

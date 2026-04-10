@@ -2,8 +2,121 @@
 /**
  * Get latest posts for sunflower.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
+
+/**
+ * Force the core/latest-posts block to use "medium" images instead of "thumbnail".
+ *
+ * @param array<string, mixed> $parsed_block The parsed block data.
+ * @return array<string, mixed>
+ */
+function sunflower_latest_posts_image_size( $parsed_block ) {
+	if ( 'core/latest-posts' === ( $parsed_block['blockName'] ?? '' ) ) {
+		if ( empty( $parsed_block['attrs']['featuredImageSizeSlug'] )
+			|| 'thumbnail' === $parsed_block['attrs']['featuredImageSizeSlug'] ) {
+			$parsed_block['attrs']['featuredImageSizeSlug'] = 'medium';
+		}
+	}
+	return $parsed_block;
+}
+add_filter( 'render_block_data', 'sunflower_latest_posts_image_size' );
+
+/**
+ * Inject data-masonry attribute into the core/latest-posts block (grid view)
+ * when flexible image format is active.
+ *
+ * @param string $block_content The rendered block HTML.
+ * @param array  $block         The block attributes.
+ * @return string
+ */
+function sunflower_latest_posts_masonry( $block_content, $block ) {
+	if ( 'core/latest-posts' !== ( $block['blockName'] ?? '' ) ) {
+		return $block_content;
+	}
+
+	if ( 'flexible' !== sunflower_get_setting( 'sunflower_post_image_format' ) ) {
+		return $block_content;
+	}
+
+	if ( ! isset( $block['attrs']['postLayout'] ) || 'grid' !== $block['attrs']['postLayout'] ) {
+		return $block_content;
+	}
+
+	// Trifft nur den <ul>-Container, der gleichzeitig "wp-block-latest-posts" UND "is-grid" hat.
+	return preg_replace(
+		'/<ul([^>]*class="[^"]*\bwp-block-latest-posts\b[^"]*\bis-grid\b[^"]*")/',
+		'<ul data-masonry=\'{"percentPosition": true}\'$1',
+		$block_content,
+		1
+	);
+}
+add_filter( 'render_block', 'sunflower_latest_posts_masonry', 10, 2 );
+
+/**
+ * Recursively set blockLayout to "grid" on sunflower/latest-posts blocks missing the attribute.
+ *
+ * @param array<int, array<string, mixed>> $blocks Parsed block array (passed by reference).
+ * @return bool Whether any block was modified.
+ */
+function sunflower_migrate_block_layout_recursive( array &$blocks ): bool {
+	$updated = false;
+	foreach ( $blocks as &$block ) {
+		if ( 'sunflower/latest-posts' === ( $block['blockName'] ?? '' )
+			&& ! isset( $block['attrs']['blockLayout'] ) ) {
+			$block['attrs']['blockLayout'] = 'grid';
+			$updated                       = true;
+		}
+		if ( ! empty( $block['innerBlocks'] ) ) {
+			if ( sunflower_migrate_block_layout_recursive( $block['innerBlocks'] ) ) {
+				$updated = true;
+			}
+		}
+	}
+	unset( $block );
+	return $updated;
+}
+
+/**
+ * One-time migration: add blockLayout="grid" to all sunflower/latest-posts blocks
+ * that were saved without a blockLayout attribute (i.e. relied on the old "grid" default).
+ * Runs once on admin_init, guarded by an option flag.
+ */
+function sunflower_migrate_latest_posts_block_layout(): void {
+	if ( get_option( 'sunflower_latest_posts_block_layout_migrated' ) ) {
+		return;
+	}
+
+	$posts = get_posts(
+		array(
+			'post_type'        => 'any',
+			'posts_per_page'   => -1,
+			'post_status'      => array( 'publish', 'draft', 'private', 'pending', 'future' ),
+			'suppress_filters' => true,
+		)
+	);
+
+	foreach ( $posts as $post ) {
+		if ( ! has_block( 'sunflower/latest-posts', $post ) ) {
+			continue;
+		}
+
+		$blocks  = parse_blocks( $post->post_content );
+		$updated = sunflower_migrate_block_layout_recursive( $blocks );
+
+		if ( $updated ) {
+			wp_update_post(
+				array(
+					'ID'           => $post->ID,
+					'post_content' => serialize_blocks( $blocks ),
+				)
+			);
+		}
+	}
+
+	update_option( 'sunflower_latest_posts_block_layout_migrated', true );
+}
+add_action( 'admin_init', 'sunflower_migrate_latest_posts_block_layout' );
 
 /**
  * Get the latest posts for given category ids.

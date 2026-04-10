@@ -1,3 +1,5 @@
+@use "sass:map";
+
 h1,
 h2,
 h3,
@@ -11,7 +13,9 @@ h6,
 .h5,
 .h6 {
 
-    word-break: break-word;
+    hyphens: none;
+    overflow-wrap: normal;
+    word-break: normal;
 
     &.textbalken {
         margin-bottom: 0;
@@ -21,44 +25,26 @@ h6,
 
 .roofline {
 
-    @include themed() {
-        font-family: t(headingFont);
-    }
-
-    &-single {
-
-        @include themed() {
-            font-family: t(headingFontBold);
-        }
-    }
-
     font-weight: 500;
+    font-style: italic;
     color: $primary;
-    text-transform: uppercase;
     font-size: 17px;
-    letter-spacing: 0.05em;
     margin-bottom: 30px;
+    letter-spacing: 0.8px;
 }
 
 h1,
 .h1,
 .has-huge-font-size {
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
-
     font-size: 36px;
     line-height: 1.2em;
+    margin: var(--grid-margin) 0 var(--double-grid-margin) 0;
 }
 
 h2,
 .h2,
 .has-large-font-size {
-
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
 
     font-size: 27px;
     line-height: 1.2em;
@@ -66,13 +52,17 @@ h2,
 
 h3,
 .h3,
-.has-medium-font-size {
+.has-medium-font-size,
+.wp-block-query .wp-block-post-title,
+.wp-block-rss__item-title {
+    line-height: 130%;
+    font-size: 24px;
+}
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
-
-    font-size: 25px;
+body .wp-block-post-title.has-background,
+body .wp-block-post-title.has-shadow {
+    border-radius: var(--border-radius-small);
+    padding: calc(var(--grid-margin) - 5px) var(--grid-margin) var(--grid-margin) var(--grid-margin);
 }
 
 .has-white-background-color {
@@ -85,11 +75,16 @@ h3,
 }
 
 h4,
-.h4 {
-
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
+.h4,
+.accordion-button,
+.all-columns-start-with-image h1,
+.all-columns-start-with-image h2,
+.all-columns-start-with-image h3,
+.all-columns-start-with-image h4,
+.all-columns-start-with-image .h1,
+.all-columns-start-with-image .h2,
+.all-columns-start-with-image h3,
+.all-columns-start-with-image .h4 {
 
     font-size: 23px;
 }
@@ -97,21 +92,20 @@ h4,
 h5,
 .h5 {
 
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
-
     font-size: 21px;
 }
 
 h6,
-.h6 {
-
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
+.h6,
+blockquote.wp-block-quote p,
+.person-name {
 
     font-size: 18px;
+    letter-spacing: 1px;
+}
+
+blockquote.wp-block-quote p {
+    line-height: 150%;
 }
 
 
@@ -133,12 +127,23 @@ h6,
 
     h3,
     .h3,
-    .has-medium-font-size {
-        font-size: 27px;
+    .has-medium-font-size,
+    .wp-block-query .wp-block-post-title,
+    .wp-block-rss__item-title {
+        font-size: 40px;
     }
 
     h4,
-    .h4 {
+    .h4,
+    .accordion-button,
+    .all-columns-start-with-image h1,
+    .all-columns-start-with-image h2,
+    .all-columns-start-with-image h3,
+    .all-columns-start-with-image h4,
+    .all-columns-start-with-image .h1,
+    .all-columns-start-with-image .h2,
+    .all-columns-start-with-image h3,
+    .all-columns-start-with-image .h4 {
         font-size: 27px;
     }
 
@@ -148,17 +153,35 @@ h6,
     }
 
     h6,
-    .h6 {
+    .h6,
+    blockquote.wp-block-quote p,
+    .person-name {
         font-size: 22px;
     }
 }
 
-@include media-breakpoint-down(md) {
+.sunflower-candidate .wp-block-cover__inner-container {
 
-    body {
-        font-size: 1.125rem;
+    .has-background.textbalken {
+        margin-left: 12px !important;
+        margin-right: 0 !important;
+
+        &.links-eins {
+            margin-left: 52px !important;
+
+            @include media-breakpoint-down(md) {
+                margin-left: 32px !important;
+            }
+        }
+
+        &.links-zwei {
+            margin-left: 92px !important;
+
+            @include media-breakpoint-down(md) {
+                margin-left: 52px !important;
+            }
+        }
     }
-
 }
 
 .has-background.textbalken {
@@ -166,14 +189,12 @@ h6,
     width: fit-content;
     line-height: 150%;
     position: relative;
-    text-transform: uppercase;
-
-    @include themed() {
-        font-family: t(headingFont);
-    }
+    margin-bottom: 0 !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    padding: 6px 10px 9px 18px !important;
 
     &::before {
-        background: inherit;
         content: "";
         position: absolute;
         top: 0;
@@ -185,52 +206,372 @@ h6,
         transform-origin: bottom;
     }
 
+    @each $name, $code in $custom-colors {
+        &.has-#{$name}-background-color::before {
+            background-color: $code;
+        }
+    }
+
     &.links-eins {
-        left: 1em;
+        margin-left: 52px !important;
 
         @include media-breakpoint-down(md) {
-            left: 0.5em;
+            margin-left: 32px !important;
         }
     }
 
     &.links-zwei {
-        left: 3em;
+        margin-left: 92px !important;
 
         @include media-breakpoint-down(md) {
-            left: 2.5em;
+            margin-left: 52px !important;
         }
     }
+}
 
+h1:has(+ h4) {
+    margin-bottom: 12px;
+}
+
+
+.has-background.textbalken.links-drei {
+    margin-left: 132px !important;
+
+    @include media-breakpoint-down(md) {
+        margin-left: 92px !important;
+    }
 }
 
 .stoerer {
-    width: 200px;
-    height: 200px;
-    font-size: 30pt;
-
-    @include themed() {
-        font-family: t(headingFontBold);
-    }
-
-    padding: 8pt;
-    border-radius: 50%;
+    width: fit-content;
+    aspect-ratio: 1 / 1;
+    font-size: 30px !important;
+    font-family: "GrueneType Neue", sans-serif;
+    max-width: 220px !important;
+    max-height: 220px !important;
+    padding: 10px 25px 17px 25px !important;
+    border-radius: 50% !important;
     line-height: 100%;
     color: $white;
     text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-    background: map-get($custom-colors, "himmel");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: map.get($custom-colors, "himmel");
     -moz-transform: rotate(-7deg); /* Firefox 3.6 Firefox 4 */
     -webkit-transform: rotate(-7deg); /* Safari */
     -o-transform: rotate(-7deg); /* Opera */
     -ms-transform: rotate(-7deg); /* IE9 */
     transform: rotate(-7deg); /* W3C */
     position: relative;
-    left: 20rem;
-    top: 5rem;
+    margin: var(--double-grid-margin);
+
+    @include media-breakpoint-down(xl) {
+        max-width: 180px !important;
+        max-height: 180px !important;
+        font-size: 24px;
+        padding: 10px 25px 17px 25px !important;
+    }
+}
+
+.brand-left {
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 150%;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 16px;
+        letter-spacing: 1px;
+        line-height: 130%;
+    }
 
     @include media-breakpoint-down(md) {
-        left: 8rem;
-        top: 2rem;
+        font-size: 14px;
+        letter-spacing: 1px;
+        line-height: 140%;
     }
+}
+
+.right-bar a {
+    font-family: "PT Sans", sans-serif;
+    font-size: 17px;
+    line-height: 100%;
+    letter-spacing: 0.4px;
+    font-weight: 700;
+    transition: 0.3s ease;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 16px;
+        letter-spacing: 0.6px;
+    }
+}
+
+.right-bar nav > ul:not(:has(:scope > li:nth-child(n+7))) {
+    font-size: 18px;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 16px;
+    }
+}
+
+.right-bar .sub-menu a {
+    font-weight: 500;
+}
+
+.colorscheme-light .right-bar .current_page_item {
+
+    a {
+        color: map.get($custom-colors, "klee") !important;
+    }
+
+    .sub-menu a {
+        color: map.get($custom-colors, "schwarzwald") !important;
+    }
+}
+
+
+.colorscheme-light .right-bar a {
+
+    &:hover {
+        color: map.get($custom-colors, "klee");
+    }
+}
+
+.colorscheme-light .right-bar .sub-menu a {
+
+    &:hover {
+        color: map.get($custom-colors, "schwarzwald");
+        background-color: map.get($custom-colors, "sonne");
+    }
+
+}
+
+body {
+    font-size: 20px;
+    line-height: 175%;
+    letter-spacing: 0.6px;
+    font-family: "PT Sans", sans-serif;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 18px;
+        line-height: 155%;
+    }
+}
+
+body #content {
+
+    .has-small-font-size,
+    .article .has-small-font-size p,
+    :where(.is-layout-flex) p.has-small-font-size,
+    .small,
+    label,
+    table,
+    .wp-block-query .wp-block-post-excerpt {
+        font-size: 16px !important;
+        line-height: 150%;
+        letter-spacing: 0.9px;
+        margin: calc(var(--gap-large) - 16px) 0 var(--gap-large) 0;
+
+
+        @include media-breakpoint-down(xl) {
+            font-size: 14px !important;
+        }
+    }
+
+    .wp-block-latest-posts__post-author {
+        font-size: 16px;
+        line-height: 175%;
+        letter-spacing: 0.9px;
+
+        @include media-breakpoint-down(xl) {
+            font-size: 14px;
+        }
+    }
+
+    .wp-block-latest-posts__post-author {
+        font-style: italic;
+    }
+
+
+    label {
+        margin: 0;
+        padding: 0 20px;
+    }
+}
+
+.metainfo,
+.archive-article .time {
+    font-size: 14px;
+    line-height: 150%;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+
+
+    @include media-breakpoint-down(xl) {
+        font-size: 12px !important;
+        line-height: 150%;
+    }
+}
+
+body #content {
+
+
+    h1 {
+        margin-bottom: var(--gap-large);
+    }
+
+    h3,
+    h2,
+    p,
+    .wp-block-query .wp-block-post-title,
+    .wp-block-rss__item-title {
+        margin-bottom: var(--grid-margin);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:only-child {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+
+    h4,
+    h5,
+    h6 {
+        margin-bottom: var(--half-grid-margin);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:only-child {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+
+    .wp-block-group.is-layout-flex:not(.is-vertical)
+    :not(.is-vertical, .is-layout-constrained, .wp-block-post-excerpt) > h1,
+    .wp-block-group.is-layout-flex:not(.is-vertical)
+    :not(.is-vertical, .is-layout-constrained, .wp-block-post-excerpt) > h2,
+    .wp-block-group.is-layout-flex:not(.is-vertical)
+    :not(.is-vertical, .is-layout-constrained, .wp-block-post-excerpt) > p {
+        margin-bottom: 0;
+    }
+
+    .wp-block-group.is-layout-flex.is-vertical {
+
+        > h1,
+        > h2,
+        > h3,
+        > h4 {
+            margin-bottom: 0;
+        }
+    }
+
+    h5:has(+ h1),
+    h5:has(+ h2),
+    h5:has(+ h3),
+    h5:has(+ h4),
+    .overline {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .wp-block-cover {
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+.wp-block-group.has-background:is(
+.has-black-background-color,
+.has-tanne-background-color
+) {
+
+    h2 {
+        color: map.get($custom-colors, "white");
+    }
+}
+
+.wp-block-group.has-background:is(
+.has-klee-background-color,
+.has-klee-700-background-color,
+.has-grashalm-background-color,
+.has-gray-background-color) {
+
+    h2 {
+        color: map.get($custom-colors, "white") !important;
+    }
+}
+
+.has-sonne-background-color,
+.has-sand-background-color,
+.has-kalk-background-color,
+.has-white-background-color,
+.has-weiss-background-color,
+.has-gruener-sand-background-color,
+.has-himmel-background-color {
+
+    h2 {
+        color: map.get($custom-colors, "tanne") !important;
+    }
+}
+
+
+.colorscheme-green {
+
+    .latest-posts,
+    .has-weiss-background-color,
+    .has-sonne-background-color,
+    .has-sand-background-color,
+    .has-gray-background-color,
+    .has-kalk-background-color,
+    .has-white-background-color,
+    .has-gruener-sand-background-color,
+    .wp-block-cover:has(span.has-weiss-background-color),
+    .wp-block-cover:has(span.has-sonne-background-color),
+    .wp-block-cover:has(span.has-sand-background-color),
+    .wp-block-cover:has(span.has-gray-background-color),
+    .wp-block-cover:has(span.has-kalk-background-color),
+    .wp-block-cover:has(span.has-white-background-color),
+    .wp-block-cover:has(span.has-gruener-sand-background-color) {
+
+        p,
+        body {
+            color: map.get($custom-colors, "schwarzwald") !important;
+        }
+
+        h2 {
+            color: map.get($custom-colors, "tanne") !important;
+        }
+    }
+
+    .posts-slider {
+
+        .p-45 p {
+            color: map.get($custom-colors, "schwarzwald") !important;
+        }
+    }
+}
+
+
+.has-medium-font-size {
+    line-height: 33px;
+}
+
+pre {
+    background: transparent;
+    padding: calc(var(--grid-margin) - 10px) var(--grid-margin) calc(var(--grid-margin) - 6px) var(--grid-margin);
 }

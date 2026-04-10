@@ -1,8 +1,253 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    clear: both;
+@use "sass:map";
+
+
+$heading-sizes: (
+    h1: 80px,
+    h2: 60px,
+    h3: 40px,
+    h4: 25px,
+    h5: 18px,
+    h6: 16px
+);
+
+$heading-sizes-tablet: (
+    h1: 60px,
+    h2: 40px,
+    h3: 24px,
+    h4: 18px,
+    h5: 18px,
+    h6: 16px
+);
+
+$heading-sizes-mobile: (
+    h1: 35px,
+    h2: 30px,
+    h3: 24px,
+    h4: 18px,
+    h5: 16px,
+    h6: 14px
+);
+
+
+$heading-letter-spacings: (
+    h1: -0.3px,
+    h2: 0,
+    h3: 0.7px,
+    h4: 0.5px,
+    h5: 0.8px,
+    h6: 1px
+);
+
+$heading-letter-spacings-tablet: (
+    h1: 0.7px,
+    h2: 0.6px,
+    h3: 0.6px,
+    h4: 0.8px,
+    h5: 0.8px,
+    h6: 1px
+);
+
+$heading-letter-spacings-mobile: (
+    h1: 0.7px,
+    h2: 0.6px,
+    h3: 0.6px,
+    h4: 0.8px,
+    h5: 0.8px,
+    h6: 1px
+);
+
+$heading-font: var(--wp--preset--font-family--gruenetypeneue);
+$heading-line-heights: 110.00000000000001%;
+$heading-weights: 400;
+
+@include themed-colorscheme() {
+
+    @if map.has-key($theme-map, "headings") {
+
+        @each $tag, $size in $heading-sizes {
+            $heading-color: t(headings, $tag);
+
+            #{$tag} {
+                color: $primary;
+                font-family: $heading-font;
+                line-height: $heading-line-heights;
+                font-weight: $heading-weights;
+                font-size: $size;
+                font-style: normal;
+                letter-spacing: map.get($heading-letter-spacings, $tag);
+
+                @include media-breakpoint-down(xl) {
+                    font-size: map.get($heading-sizes-tablet, $tag);
+                    letter-spacing: map.get($heading-letter-spacings-tablet, $tag);
+                }
+
+                @include media-breakpoint-down(md) {
+                    font-size: map.get($heading-sizes-mobile, $tag);
+                    letter-spacing: map.get($heading-letter-spacings-mobile, $tag);
+                }
+            }
+        }
+    }
+}
+
+
+h1:has(mark),
+h2:has(mark),
+h3:has(mark) {
+
+    line-height: 0 !important;
+
+    mark {
+        display: inline-block !important;
+        padding: 6px 10px 9px 7px;
+        font-size: 60px;
+        line-height: 100%;
+        position: relative;
+        --bg: transparent;
+        margin-left: 20px;
+        margin-right: 20px;
+        z-index: 1;
+
+        @include media-breakpoint-down(xl) {
+            font-size: 40px;
+            padding: 4px 10px 6px 7px;
+        }
+
+        @include media-breakpoint-down(md) {
+            font-size: 30px;
+        }
+
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: 100%;
+            content: "";
+            z-index: -1;
+            transform: skewX(-12deg);
+            background-color: var(--bg);
+        }
+
+    }
+
+
+    mark:nth-of-type(2) {
+        margin-left: 100px;
+
+        @include media-breakpoint-down(xl) {
+            margin-left: 85px;
+        }
+
+        @include media-breakpoint-down(md) {
+            margin-left: 75px;
+        }
+    }
+
+    &.has-text-align-center {
+
+        mark:nth-of-type(2) {
+            margin-left: 0;
+
+            @include media-breakpoint-down(xl) {
+                margin-left: 0;
+            }
+
+            @include media-breakpoint-down(md) {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &:has(mark:nth-of-type(3)) {
+        line-height: $heading-line-heights !important;
+
+        mark,
+        mark:nth-of-type(2) {
+            display: inline !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            margin-top: 0 !important;
+        }
+    }
+}
+
+.has-large-font-size {
+    font-size: 60px !important;
+    letter-spacing: 0 !important;
+
+    @include media-breakpoint-down(md) {
+        font-size: 31px !important;
+        line-height: 1.3em !important;
+    }
+}
+
+
+.colorscheme-light h2 {
+    color: $primary;
+}
+
+.colorscheme-green {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .tags-links a,
+    .cat-links a {
+        color: $secondary;
+    }
+}
+
+.wp-block-group.has-background:not(.next-events),
+.wp-block-cover.has-background,
+.wp-block-cover:has(.wp-block-cover__background) {
+
+    h1,
+    h2,
+    .h1,
+    .h2 {
+        color: inherit;
+    }
+}
+
+.wp-block-cover.is-style-sunflower-hero {
+    color: $primary;
+}
+
+
+body {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+
+        a:not(.wp-block-button__link):hover {
+            color: inherit !important;
+        }
+
+        em {
+            font-style: normal;
+        }
+    }
+}
+
+.wp-block-heading.has-text-align-center:has(mark) {
+
+    mark {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }

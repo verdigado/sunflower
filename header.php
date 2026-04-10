@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 ?>
@@ -17,10 +17,14 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<script>document.documentElement.classList.add('preload');</script>
+
 	<?php
 	get_template_part( 'template-parts/open-graph' );
 	?>
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -29,7 +33,5 @@
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sunflower' ); ?></a>
 
 		<?php
-		$sunflower_header_layout = sunflower_get_setting( 'sunflower_header_layout' ) ? sunflower_get_setting( 'sunflower_header_layout' ) : 'standard';
-
-		get_template_part( 'template-parts/header', $sunflower_header_layout );
+		get_template_part( 'template-parts/header', 'standard' );
 		?>

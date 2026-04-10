@@ -2,7 +2,7 @@
 /**
  * ESC configuration file
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 declare(strict_types=1);

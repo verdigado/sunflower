@@ -1,0 +1,366 @@
+/**
+ * Calendar Block Frontend Styles
+ *
+ * FullCalendar lives inside theme content that also applies strong sitewide
+ * table and typography rules. We keep the calendar's theme and its defensive
+ * reset here so the styles are loaded only when this block is present.
+ */
+
+@use "../../sass/variables" as *;
+@use "sass:map";
+
+// ---------------------------------------------------------------------------
+// Block wrapper
+// ---------------------------------------------------------------------------
+.wp-block-sunflower-calendar-events.calendar-events {
+    list-style: none;
+    padding: var(--half-block-spacing) 0;
+    background-color: $white !important;
+
+    > .wp-block-group__inner-container {
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 var(--grid-margin);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Calendar container
+// ---------------------------------------------------------------------------
+.sunflower-calendar-container {
+    width: 100%;
+    background-color: $white !important;
+}
+
+// ---------------------------------------------------------------------------
+// Calendar card + FullCalendar tokens
+// ---------------------------------------------------------------------------
+.sunflower-calendar {
+    // Scope FullCalendar variables to the block instead of :root.
+    --calendar-control-radius: var(--border-radius-button);
+    --fc-border-color: #{$very-light-gray};
+    --fc-today-bg-color: #{map.get($custom-colors, "sand")};
+    --fc-neutral-bg-color: #{$white};
+    --fc-button-text-color: #{$primary};
+    --fc-button-bg-color: #{$button-background};
+    --fc-button-border-color: #{$button-border};
+    --fc-button-hover-text-color: #{$primary};
+    --fc-button-hover-bg-color: #{$button-hover};
+    --fc-button-hover-border-color: #{$button-border};
+    --fc-button-active-text-color: #{$primary};
+    --fc-button-active-bg-color: #{$button-background};
+    --fc-button-active-border-color: #{$button-border};
+    --fc-button-focus-shadow: none;
+    --calendar-color-primary: #{map.get($custom-colors, "klee")};
+    --calendar-color-text: #{$white};
+
+    background-color: $white;
+    border: 1px solid $very-light-gray;
+    border-radius: var(--border-radius-medium);
+    padding: var(--grid-margin);
+
+    // -------------------------------------------------------------------------
+    // FullCalendar recovery from theme-global table styles.
+    // `body #content table` in _typography.scss uses !important, so the table
+    // reset needs the same ID in its selector to win without touching the
+    // global files the user asked us to leave alone.
+    // -------------------------------------------------------------------------
+    body #content .wp-block-sunflower-calendar-events.calendar-events & {
+
+        table {
+            margin: 0 !important;
+            overflow: visible !important;
+            font-size: inherit !important;
+            background-color: transparent;
+            line-height: inherit;
+        }
+    }
+
+    // table.scss sets borders and padding with !important on all cells.
+    td,
+    th {
+        padding: 0 !important;
+        border: 1px solid $very-light-gray !important;
+    }
+
+    thead th {
+        background-color: transparent;
+        color: inherit;
+        font-weight: inherit;
+    }
+
+    tbody tr {
+        background-color: transparent;
+
+        &:nth-child(odd),
+        &:nth-child(even),
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
+
+    // FullCalendar relies on separate borders for its scrollgrid rendering.
+    .fc-scrollgrid {
+        border-collapse: separate !important;
+        margin: 0 !important;
+    }
+
+    .fc-scrollgrid-section > td {
+        border-left-style: hidden !important;
+        border-top-style: hidden !important;
+    }
+
+    .fc-scrollgrid-section-header > td,
+    .fc-scrollgrid-section-footer > td {
+        border-bottom-style: hidden !important;
+    }
+
+    .fc-scrollgrid table {
+        border-left-style: hidden !important;
+        border-right-style: hidden !important;
+        border-top-style: hidden !important;
+    }
+
+    .fc-scrollgrid-section-body table,
+    .fc-scrollgrid-section-footer table {
+        border-bottom-style: hidden !important;
+    }
+
+    // -------------------------------------------------------------------------
+    // Sunflower design
+    // -------------------------------------------------------------------------
+    .fc-header-toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        gap: var(--half-grid-margin) var(--grid-margin);
+        margin-bottom: var(--grid-margin);
+
+        .fc-toolbar-chunk:first-child {
+            justify-self: start;
+        }
+
+        .fc-toolbar-chunk:nth-child(2) {
+            justify-self: center;
+            text-align: center;
+        }
+
+        .fc-toolbar-chunk:last-child {
+            justify-self: end;
+            min-height: 1px;
+        }
+    }
+
+    .fc-toolbar-title {
+        font-family: var(--wp--preset--font-family--gruenetypeneue, "PT Sans", sans-serif);
+        font-size: 25px;
+        line-height: 110%;
+        color: $primary;
+        letter-spacing: 0.5px;
+        margin: 0;
+    }
+
+    .fc-button {
+        font-family: "PT Sans", sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: 0.6px;
+        border-width: 2px;
+        border-radius: var(--calendar-control-radius) !important;
+        padding: 6px 35px 10px;
+        transition: 0.3s ease;
+        line-height: 130%;
+        min-height: 0;
+        text-transform: none;
+        box-shadow: none;
+
+        &:focus,
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px $secondary;
+        }
+    }
+
+    .fc-button-group {
+
+        .fc-button {
+            border-radius: 0 !important;
+
+            &:first-child {
+                border-radius: var(--calendar-control-radius) 0 0 var(--calendar-control-radius) !important;
+            }
+
+            &:last-child {
+                border-radius: 0 var(--calendar-control-radius) var(--calendar-control-radius) 0 !important;
+            }
+        }
+    }
+
+    .fc-col-header-cell {
+        background-color: $white !important;
+
+        .fc-col-header-cell-cushion {
+            display: inline-block;
+            padding: 8px 4px;
+            font-family: "PT Sans", sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            color: $primary;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+
+    .fc-scrollgrid-section-sticky > * {
+        background-color: $white !important;
+    }
+
+    .fc-daygrid-day-number {
+        padding: 6px 8px;
+        color: $darkgray;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    .fc-day-today .fc-daygrid-day-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        margin: 4px;
+        padding: 0;
+        background-color: map.get($custom-colors, "klee");
+        color: $white;
+        border-radius: 50%;
+        font-weight: 700;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    .fc-event {
+        border: none;
+        border-radius: var(--border-radius-tiny);
+        font-family: "PT Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        cursor: pointer;
+        transition: filter 0.3s ease;
+
+        &:hover {
+            filter: brightness(1.12);
+        }
+    }
+
+    &.calendar-loading {
+        min-height: 18rem;
+    }
+}
+
+.sunflower-calendar .calendar-error-message {
+    padding: var(--grid-margin);
+    border: 1px solid $very-light-gray;
+    border-radius: var(--border-radius-small);
+    background-color: $white;
+    color: $primary;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+// ---------------------------------------------------------------------------
+// Tooltip
+// ---------------------------------------------------------------------------
+.sunflower-calendar-tooltip {
+    position: fixed;
+    transform: translate(-50%, -100%);
+    background-color: $primary;
+    color: $white;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius-tiny);
+    font-family: "PT Sans", sans-serif;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 34, 22, 0.15);
+    pointer-events: none;
+    z-index: 9999;
+
+    .tooltip-title {
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        margin-bottom: 0.25rem;
+    }
+
+    .tooltip-time {
+        font-size: 0.75rem;
+        font-weight: 400;
+        opacity: 0.85;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 6px solid transparent;
+        border-top-color: var(--tooltip-arrow-color, #{$primary});
+    }
+
+    &.is-below {
+        transform: translate(-50%, 0);
+    }
+
+    &.is-below::after {
+        top: auto;
+        bottom: 100%;
+        border-top-color: transparent;
+        border-bottom-color: var(--tooltip-arrow-color, #{$primary});
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Responsive
+// ---------------------------------------------------------------------------
+@media (max-width: 768px) {
+
+    .sunflower-calendar {
+
+        .fc-header-toolbar {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 8px;
+
+            .fc-toolbar-chunk {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        .fc-button {
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            padding: 0 25px 4px;
+        }
+
+        .fc-scrollgrid-liquid {
+            overflow-x: auto;
+        }
+    }
+
+    .sunflower-calendar-tooltip {
+        max-width: 90vw;
+        white-space: normal;
+    }
+}

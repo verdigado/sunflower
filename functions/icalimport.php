@@ -2,7 +2,7 @@
 /**
  * Methods for importing ics calendar files.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

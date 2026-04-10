@@ -1,3 +1,5 @@
+@use "sass:map";
+
 html,
 body {
     width: 100%;
@@ -14,18 +16,6 @@ html {
     }
 }
 
-// personal header
-html:has(.header-personal) {
-    scroll-padding-top: 90px;
-}
-
-body {
-
-    @include themed() {
-        font-family: t(standardFont);
-    }
-}
-
 @include media-breakpoint-up(lg) {
 
     .container-narrow {
@@ -35,11 +25,34 @@ body {
 }
 
 .site-main {
-    margin-bottom: 50px;
 
     .page-header h1 {
-        color: $secondary;
+        color: map.get($custom-colors, "tanne");
     }
+}
+
+.colorscheme-green .site-main {
+
+    .page-header h1 {
+        color: map.get($custom-colors, "grashalm");
+    }
+
+    #leaflet {
+        background: map.get($custom-colors, "schwarzwald");
+    }
+}
+
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm,
+.container {
+    max-width: 100%;
+}
+
+.col-12 {
+    padding: 0 var(--grid-margin);
 }
 
 .post-edit-link {
@@ -91,15 +104,14 @@ img.post-thumbnail {
     &-content {
         margin: 0;
         word-wrap: break-word;
-        hyphens: auto;
-        hyphenate-limit-chars: auto 3 4;
+        text-wrap: pretty;
     }
 }
 
 .page {
 
     &-title {
-        margin-top: $grid-gutter-width;
+        text-align: center;
     }
 }
 
@@ -126,9 +138,29 @@ img.post-thumbnail {
         }
 
         &:last-child {
-            margin-right: 3rem;
+            margin-right: var(--grid-margin);
         }
     }
+}
+
+.page .entry-content > :first-child {
+    margin-top: 0;
+
+    &.wp-block-group {
+        padding-top: 0;
+
+        &.has-background {
+            padding-top: var(--half-block-spacing);
+        }
+    }
+}
+
+body.page #content .entry-content > :last-child {
+    margin-bottom: var(--half-block-spacing);
+}
+
+body #content .archive-article .entry-content > :last-child {
+    margin-bottom: 0;
 }
 
 article.post {
@@ -154,17 +186,56 @@ article.post {
 a.continue-reading,
 .continue-reading {
     padding-top: 10px;
+    margin-bottom: -2px;
+    gap: 10px;
+    align-items: center;
+}
+
+.wp-block-post-excerpt__more-link,
+.wp-block-read-more {
+    line-height: 100%;
+    align-items: center;
+    gap: 10px;
     display: block;
-    font-weight: 700;
     font-style: italic;
-    color: $body-color;
+    color: map.get($custom-colors, "tanne") !important;
     text-decoration: none;
-    text-transform: uppercase;
+    transition: 300ms ease-out;
+
+    &::after {
+        position: relative;
+        content: "";
+        display: inline-block;
+        width: 23px;
+        height: 20px;
+        left: 5px;
+        top: 2px;
+        mask-image: url("#{$sunflower-img-path}/arrow-right.svg");
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        -webkit-mask-image: url("#{$sunflower-img-path}/arrow-right.svg");
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        background-color: map.get($custom-colors, "klee");
+        transition: background-color 0.3s ease, transform 0.3s ease;
+
+        @include media-breakpoint-down(xl) {
+            top: 3px;
+        }
+    }
 
     &:hover {
-        color: $primary;
+
+        color: map.get($custom-colors, "grashalm") !important;
+
+        &::after {
+            transform: translateX(3px);
+        }
     }
 }
+
 
 .filter-button-group {
 
@@ -176,10 +247,6 @@ a.continue-reading,
 
 button.filter,
 a.eventlist {
-
-    @include themed() {
-        font-family: t(standardFont);
-    }
 
     font-weight: 700;
     font-size: 16px;
@@ -212,27 +279,10 @@ a.eventlist {
 }
 
 .sunflower-pagination {
-    background: $white;
-    border-radius: $border-radius;
+    border-radius: 50%;
     display: flex;
-    align-items: baseline;
-    font-size: 80%;
-
-    >* {
-        padding: 20px 30px;
-        display: block;
-    }
-
-    .current {
-        font-size: 150%;
-    }
-
-    .prev,
-    .next {
-        text-transform: uppercase;
-        color: $black;
-        font-style: italic;
-    }
+    align-items: center;
+    justify-content: center;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
@@ -242,14 +292,14 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 iframe {
-    border-radius: $border-radius;
+    border-radius: var(--border-radius-large);
 }
 
 .sunflower {
 
     &-has-background-dim {
 
-        >* {
+        > * {
             z-index: 30;
         }
 
@@ -262,17 +312,202 @@ iframe {
             right: 0;
             z-index: 20;
             opacity: 0.3;
-            background-color: $black;
-        }
-
-        .wp-block-group__inner-container {
-            position: relative;
+            background-color: map.get($custom-colors, "white") !important;
         }
 
     }
 }
 
+.latest-posts--grid .archive-article,
+.archive .archive-article {
+
+    @include card;
+
+    margin: 0 !important;
+    height: 100%;
+    display: flex;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+    }
+
+    .p-45 {
+        display: flex !important;
+        flex-direction: column;
+        flex: 1;
+
+        .entry-content p {
+            padding: 0;
+        }
+    }
+
+    .entry-footer {
+        margin-top: auto;
+    }
+
+    @include media-breakpoint-down(md) {
+        width: 100% !important;
+    }
+}
+
+
+// Landscape mode: restore fixed image heights in archive article cards
+body.post-image-modern {
+
+    .latest-posts--grid .archive-article,
+    .archive .archive-article,
+    .posts-slider article {
+
+        a:has(.wp-post-image) {
+            position: absolute;
+            width: 100%;
+            max-width: 100%;
+            top: 0;
+            left: 2px;
+            margin-top: 0;
+            margin-left: -2px;
+            margin-right: -2px;
+            margin-bottom: 0;
+            height: 254px;
+
+            .wp-post-image {
+                height: 254px;
+                position: relative;
+            }
+        }
+
+        &:has(.wp-post-image) {
+            overflow: visible;
+
+            .p-45 {
+                margin-top: 254px;
+            }
+        }
+    }
+
+    .blog .archive-article,
+    .archive .archive-article {
+
+        a:has(.wp-post-image) {
+            height: 330px;
+
+            @include media-breakpoint-down(xl) {
+                height: 280px;
+            }
+
+            @include media-breakpoint-down(md) {
+                height: 220px;
+            }
+
+            .wp-post-image {
+                height: 330px;
+
+                @include media-breakpoint-down(xl) {
+                    height: 280px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    height: 220px;
+                }
+            }
+        }
+
+        &:has(.wp-post-image) {
+
+            .p-45 {
+                margin-top: 330px;
+
+                @include media-breakpoint-down(xl) {
+                    margin-top: 280px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    margin-top: 220px;
+                }
+            }
+        }
+    }
+
+}
+
+
+body.post-image-flexible {
+
+    .wp-block-group__inner-container {
+
+        > h2 {
+            margin-left: var(--grid-margin);
+        }
+    }
+
+    .latest-posts--grid .archive-article,
+    .archive .archive-article {
+        height: auto;
+    }
+
+    .latest-posts--grid .row:not(.posts-slider) {
+        display: block !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        > [class*="col-"] {
+            width: 50%;
+            float: left;
+            padding-left: calc(var(--grid-margin) / 2) !important;
+            padding-right: calc(var(--grid-margin) / 2) !important;
+            margin-bottom: var(--grid-margin);
+
+            @include media-breakpoint-down(md) {
+                width: 100%;
+                float: none;
+            }
+        }
+    }
+}
+
 .related-posts {
+
+    padding: var(--half-block-spacing) 0 !important;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+
+    @include alignwide;
+
+    .row {
+        justify-content: space-between;
+        column-gap: var(--grid-margin);
+
+        .col-12.col-md-6 {
+            padding: 0;
+            width: calc(50% - var(--half-grid-margin));
+
+            @include media-breakpoint-down(md) {
+                width: 100%;
+                padding: 0 var(--grid-margin);
+            }
+        }
+    }
+
+    > div {
+
+        width: 100%;
+    }
+
+    article {
+
+        @include card;
+
+        margin: var(--grid-margin) 0 !important;
+
+        @include media-breakpoint-down(md) {
+            width: 100% !important;
+        }
+    }
 
     a {
         text-decoration: none;
@@ -285,4 +520,114 @@ iframe {
         }
     }
 
+}
+
+
+:where(.is-layout-flex) {
+
+    h2 {
+
+        &:first-child {
+            margin-top: calc(-1 * var(---half-grid-margin));
+        }
+    }
+}
+
+
+.has-background:not(.alignfull, .wp-block-button__link, .latest-posts, .next-events, .textbalken, .wp-block-separator) {
+    padding: var(--grid-margin);
+    border-radius: var(--border-radius-large);
+}
+
+
+body #content .is-layout-flex:not(.is-vertical) {
+
+    column-gap: calc(2 * var(--gap-large));
+    row-gap: calc(2 * var(--gap-large));
+
+    >  * {
+        margin: 0;
+    }
+}
+
+.entry-content > .candidate {
+
+    &:first-child {
+        padding-top: 200px !important;
+    }
+}
+
+
+body #content .wp-block-cover {
+
+
+    row-gap: 0;
+
+    p,
+    ul,
+    ol {
+        margin: calc(var(--gap-large) - 5px) 0 var(--gap-large) 0;
+    }
+
+    p + p,
+    p + ul,
+    p + ol,
+    ul + p,
+    ul + ul,
+    ul + ol,
+    ol + p,
+    ol + ul,
+    ol + ol {
+        margin-top: 0 !important;
+    }
+
+}
+
+
+.sunflower-pagination {
+
+    gap: var(--half-grid-margin);
+
+    .page-numbers:not(.next, .prev) {
+        padding: 0 0 4px 0 !important;
+        width: 46px !important;
+
+        &.current {
+            background-color: map.get($custom-colors, "schwarzwald");
+            color: map.get($custom-colors, "grashalm");
+            border-color: map.get($custom-colors, "grashalm");
+            pointer-events: none;
+        }
+    }
+
+    .prev {
+        margin-right: var(--half-grid-margin);
+    }
+
+    .next {
+        margin-left: var(--half-grid-margin);
+    }
+
+}
+
+.search-no-results .page-content p {
+    text-align: center;
+}
+
+form[role="search"] {
+
+    input[type="search"] {
+        outline: none !important;
+        padding-left: 20px;
+        border-radius: 23px;
+    }
+
+    button[type="submit"] {
+        padding: 0;
+        width: 46px;
+
+        &:hover {
+            border: 2px solid map.get($custom-colors, "schwarzwald");
+        }
+    }
 }

@@ -1,3 +1,5 @@
+@use "sass:map";
+
 a {
     color: $color__link;
 
@@ -34,7 +36,28 @@ a {
 
 }
 
+.entry-content p a:not(.wp-block-button__link) {
+    color: map.get($custom-colors, "klee");
+    transition: 300ms ease-out;
+    font-weight: 700;
+
+    &:hover {
+        color: map.get($custom-colors, "tanne") !important;
+    }
+}
+
 // avoid link underline as of WordPress 6.6
 :root :where(a:where(:not(.wp-element-button))) {
     text-decoration-line: none;
+}
+
+.wp-block-rss__item a,
+a.wp-block-read-more,
+.wp-block-comment-author-name a,
+.wp-block-comment-edit-link a,
+.wp-block-loginout a,
+.comment-respond a,
+.comment-edit-link a,
+.wp-block-latest-comments a {
+    font-weight: 700;
 }

@@ -1,0 +1,70 @@
+# Copyright (C) 2026 verdigado eG
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sunflower 26 3.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower\n"
+"POT-Creation-Date: 2026-04-03T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-04-03 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: sunflower-calendar-events\n"
+
+#: src/calendar/block.json
+msgctxt "block title"
+msgid "Calendar Events (Sunflower)"
+msgstr "Kalender-Termine (Sunflower)"
+
+#: src/calendar/block.json
+msgctxt "block description"
+msgid "Show Calendar of Events in Sunflower Design"
+msgstr "Zeige den Kalender mit Terminen im Sunflower-Design"
+
+#: src/calendar/components/InspectorPanel.js
+msgid "Filter"
+msgstr "Filter"
+
+#: src/calendar/components/InspectorPanel.js
+msgid "Tags"
+msgstr "Tags"
+
+#: src/calendar/components/InspectorPanel.js
+msgid "Colors"
+msgstr "Farben"
+
+#: src/calendar/components/TagColorPicker.js
+msgid "Tag Colors"
+msgstr "Tag-Farben"
+
+#: src/calendar/components/TagColorPicker.js
+msgid "Loading event tags…"
+msgstr "Lade Event-Tags…"
+
+#: src/calendar/components/TagColorPicker.js
+msgid "Loading…"
+msgstr "Laden…"
+
+#: src/calendar/components/TagColorPicker.js
+msgid "Create event tags first to assign custom colors."
+msgstr "Lege zuerst Event-Tags an, um eigene Farben zuzuweisen."
+
+#: src/calendar/components/TagColorPicker.js
+msgid "Assign a color to each tag. Events with this tag will be displayed in the chosen color."
+msgstr "Weise jedem Tag eine Farbe zu. Events mit diesem Tag werden in der gewählten Farbe angezeigt."
+
+#: src/calendar/components/CalendarPreview.js
+msgid "Event"
+msgstr "Termin"
+
+#: src/calendar/components/CalendarPreview.js
+msgid "Editor preview with sample events. Real events will be loaded on the page."
+msgstr "Editor-Vorschau mit Beispielterminen. Die echten Termine werden auf der Seite geladen."
+
+#: src/calendar/components/CalendarPreview.js
+msgid "Filtered by tags:"
+msgstr "Gefiltert nach Tags:"

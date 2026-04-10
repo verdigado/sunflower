@@ -1,31 +1,36 @@
 @use "sass:map";
+
+$sunflower-assets-path: "assets" !default;
+$sunflower-vndr-path: "#{$sunflower-assets-path}/vndr" !default;
+$sunflower-fonts-path: "#{$sunflower-assets-path}/fonts" !default;
+$sunflower-img-path: "#{$sunflower-assets-path}/img" !default;
 $custom-colors: (
-    klee: #008939,
-    klee-700: #006e2e,
-    tanne: #005437,
-    sonne: #fff17a,
-    sand: #f5f1e9,
-    grashalm: #8abd24,
-    himmel: #0ba1dd,
-    black: #000,
-    black-500: #201d1b,
-    gray: #eff2ed,
-    gray-500: #6b7a80,
-    white: #fff
+    "schwarzwald": #002216,
+    "tanne": #005538,
+    "klee": #008939,
+    "grashalm": #8abd24,
+    "sonne": #fff17a,
+    "sand": #f5f1e9,
+    "maus": #374951,
+    "kalk": #e8eae9,
+    "gruener-sand": #f3faf6,
+    "white": #fff,
+    "himmel": #0ba1dd,
 );
 
 
-$primary: map.get($custom-colors, "klee");
-$secondary: map.get($custom-colors, "tanne");
+$primary: map.get($custom-colors, "tanne");
+$secondary: map.get($custom-colors, "grashalm");
 $white: map.get($custom-colors, "white");
 
-$black: map.get($custom-colors, "black");
-$black-500: map.get($custom-colors, "black-500");
+$button-border: $primary;
+$button-background: $white;
+$button-hover: map.get($custom-colors, "sonne");
+
+$black: map.get($custom-colors, "schwarzwald");
 
 $white-90: rgba(255, 255, 255, 0.9);
 
-$dark: #ddd;
-$gray-500: map.get($custom-colors, "gray-500");
 $darkgray: #333;
 $lightgray: #aeb2ad;
 $very-light-gray: #d6d9d6;
@@ -35,32 +40,105 @@ $body-color: #212529;
 
 $sidebar-color: #afafaf;
 
-$lightgreen: #e5f3eb;
+$lightgreen: #f3faf6;
 $darkgreen: #002216;
 
-$border-radius: 3px;
-$border-radius-small: 1px;
+$transition-duration: 0.3s !default;
+$transition-easing:   ease !default;
+$transition-delay:    0.3s !default;
 
-$container-max-widths: (
-    sm: 540px,
-    md: 720px,
-    lg: 960px,
-    xl: 1170px) !default;
+// overwrite bootstrap breakpoints
+$grid-breakpoints: (
+    xs: 0,
+    sm: 470px,
+    md: 950px,
+    lg: 1200px,
+    xl: 1500px,
+    xxl: 2100px
+);
+
+:root {
+    --border-radius-large: 30px;
+    --border-radius-button: 23px;
+    --border-radius-medium: 15px;
+    --border-radius-small: 10px;
+    --border-radius-tiny: 3px;
+
+    --half-block-spacing: 105px;
+    --block-spacing: calc(var(--half-block-spacing) * 2);
+
+    --grid-margin: 20px;
+    --half-grid-margin: calc(var(--grid-margin) / 2);
+    --double-grid-margin: calc(var(--grid-margin) * 2);
+    --negative-grid-margin: calc(-1 * var(--grid-margin));
+
+    --gap-huge: 300px;
+    --gap-large: 23px;
+    --gap-small: 7px;
+
+    --width-brand-left: 350px;
+
+    .formstyle-sharp {
+        --border-radius-large: 0;
+        --border-radius-button: 0;
+        --border-radius-medium: 0;
+        --border-radius-small: 0;
+        --border-radius-tiny: 0;
+
+        .concave-30px {
+            display: none !important;
+        }
+
+        .wp-block-cover__inner-container {
+
+            &::after,
+            &::before {
+                display: none !important;
+            }
+        }
+    }
+
+    --bs-accordion-inner-border-radius: var(--border-radius-large);
+
+    @media (max-width: 1500px) {
+
+        --gap-huge: 200px;
+    }
+
+    @media (max-width: 1200px) {
+
+        --border-radius-large: 20px;
+        --border-radius-medium: 10px;
+        --border-radius-small: 5px;
+
+        --half-block-spacing: 75px;
+        --block-spacing: calc(var(--half-block-spacing) * 2);
+
+        --grid-margin: 12px;
+        --gap-large: 20px;
+
+        .formstyle-sharp {
+            --border-radius-large: 0;
+            --border-radius-button: 0;
+            --border-radius-medium: 0;
+            --border-radius-small: 0;
+            --border-radius-tiny: 0;
+        }
+    }
+
+    @media (max-width: 950px) {
+
+        --half-block-spacing: 50px;
+        --block-spacing: calc(var(--half-block-spacing) * 2);
+
+        --gap-huge: 75px;
+    }
+}
 
 $font-size-base: 1.1875rem;
-$small-font-size: 15px;
+$small-font-size: 14px;
 
 $primary-text-emphasis: $white;
-
-$accordion-button-color: #fff;
-$accordion-button-active-color: #fff;
-
-$accordion-icon-active-color: #fff;
-$accordion-icon-color: #fff;
-$accordion-button-active-bg: $secondary;
-$accordion-button-bg: #008939;
-
-$accordion-border-radius: 6px;
 
 // underline links only on hover
 $link-decoration: none;

@@ -11,11 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	useBlockProps,
-	BlockControls,
-	InspectorControls,
-} from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 
 import {
 	Disabled,
@@ -23,10 +19,8 @@ import {
 	PanelBody,
 	RangeControl,
 	TextControl,
-	ToolbarGroup,
 } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
-import { grid, list } from '@wordpress/icons';
 import { useState, useEffect } from '@wordpress/element';
 import { useEntityRecords } from '@wordpress/core-data';
 
@@ -56,22 +50,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		className: 'row',
 	} );
 
-	const { title, tag, count, blockLayout } = attributes;
-
-	const toolbarControls = [
-		{
-			icon: list,
-			title: __( 'List view' ),
-			onClick: () => setAttributes( { blockLayout: 'list' } ),
-			isActive: blockLayout === 'list',
-		},
-		{
-			icon: grid,
-			title: __( 'Grid view' ),
-			onClick: () => setAttributes( { blockLayout: 'grid' } ),
-			isActive: blockLayout === 'grid',
-		},
-	];
+	const { title, tag, count, eventTitleFilter } = attributes;
 
 	const [ tagFormSuggestions, setTagFormSuggestions ] =
 		useState( EMPTY_ARRAY );
@@ -110,77 +89,82 @@ export default function Edit( { attributes, setAttributes } ) {
 		setAttributes( {
 			tag: formTags.map(
 				( tagName ) =>
-					allTags
-						.filter( ( atag ) => atag.name === tagName )
-						.map( ( atag ) => atag.slug )[ 0 ]
+					allTags.find( ( atag ) => atag.name === tagName )?.slug
 			),
 		} );
 	};
 
-	const onChangeCount = ( value ) => {
-		setAttributes( { count: value } );
-	};
-
 	return (
 		<div { ...blockProps }>
-			{
-				<>
-					<BlockControls>
-						<ToolbarGroup controls={ toolbarControls } />
-					</BlockControls>
-					<Disabled>
-						<ServerSideRender
-							block={ 'sunflower/next-events' }
-							attributes={ {
-								title,
-								blockLayout,
-								tag,
-								count,
-								tagFormValue,
-							} }
-						/>
-					</Disabled>
-				</>
-			}
-			{
-				<InspectorControls>
-					<PanelBody title={ __( 'Filter' ) } initialOpen>
-						<TextControl
-							label={ __( 'Title' ) }
-							help={ __(
-								'Title of the block section',
-								'sunflower-latest-posts'
-							) }
-							value={ title }
-							placeholder={ __(
-								'Next events',
-								'sunflower-next-events'
-							) }
-							onChange={ onChangeTitle }
-						/>
-
-						<FormTokenField
-							hasResolved={ hasResolved }
-							label={ __( 'Tags' ) }
-							value={ tagFormValue }
-							onChange={ onChangeTag }
-							suggestions={ tagFormSuggestions }
-						/>
-
-						<RangeControl
-							label={ __( 'Number of items' ) }
-							help={ __(
-								'Number of posts to be shown',
-								'sunflower-latest-posts'
-							) }
-							value={ count }
-							onChange={ onChangeCount }
-							min={ 1 }
-							max={ 20 }
-						/>
-					</PanelBody>
-				</InspectorControls>
-			}
+			<Disabled>
+				<ServerSideRender
+					block={ 'sunflower/next-events' }
+					attributes={ { title, tag, count, eventTitleFilter } }
+				/>
+			</Disabled>
+			<InspectorControls>
+				<PanelBody
+					title={ __( 'Settings', 'sunflower-next-events' ) }
+					initialOpen
+				>
+					<TextControl
+						label={ __( 'Block title', 'sunflower-next-events' ) }
+						help={ __(
+							'Heading displayed above the events list',
+							'sunflower-next-events'
+						) }
+						value={ title }
+						placeholder={ __(
+							'Next events',
+							'sunflower-next-events'
+						) }
+						onChange={ onChangeTitle }
+					/>
+					<RangeControl
+						label={ __(
+							'Number of items',
+							'sunflower-next-events'
+						) }
+						help={ __(
+							'Number of events to show',
+							'sunflower-next-events'
+						) }
+						value={ count }
+						onChange={ ( value ) =>
+							setAttributes( { count: value } )
+						}
+						min={ 6 }
+						max={ 18 }
+						step={ 6 }
+					/>
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Filter', 'sunflower-next-events' ) }
+					initialOpen={ false }
+				>
+					<TextControl
+						label={ __(
+							'Filter by title',
+							'sunflower-next-events'
+						) }
+						help={ __(
+							'Only show events whose title contains this text (case-insensitive)',
+							'sunflower-next-events'
+						) }
+						value={ eventTitleFilter }
+						onChange={ ( value ) =>
+							setAttributes( { eventTitleFilter: value } )
+						}
+					/>
+					<FormTokenField
+						hasResolved={ hasResolved }
+						label={ __( 'Tags', 'sunflower-next-events' ) }
+						value={ tagFormValue }
+						onChange={ onChangeTag }
+						suggestions={ tagFormSuggestions }
+					/>
+				</PanelBody>
+			</InspectorControls>
 		</div>
 	);
 }

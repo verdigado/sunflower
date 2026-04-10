@@ -1,10 +1,45 @@
 ul,
 ol {
-    margin: 0;
+    margin: var(--grid-margin) 0;
 }
 
 ul {
-    list-style: disc;
+    list-style: none;
+    padding: 0;
+
+    li {
+        position: relative;
+        padding-left: 30px;
+
+        margin-bottom: var(--half-grid-margin);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+    }
+}
+
+ul.wp-block-list {
+
+    li {
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 21px;
+            height: 21px;
+            mask: url("../sunflower26/assets/img/bullet.svg") no-repeat center;
+            mask-size: contain;
+            background-color: currentcolor;
+
+            svg {
+                color: #0dcaf0 !important;
+            }
+        }
+    }
 }
 
 ol {
@@ -23,4 +58,31 @@ dt {
 
 dd {
     margin: 0 1.5em 1.5em;
+}
+
+
+nav,
+header,
+footer {
+
+    ul li {
+
+        &::before {
+            display: none;
+        }
+    }
+}
+
+
+.wp-block-categories-list,
+.wp-block-query {
+    list-style: none;
+
+    li {
+        padding-left: 0;
+
+        &::before {
+            display: none;
+        }
+    }
 }

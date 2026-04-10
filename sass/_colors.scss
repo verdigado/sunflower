@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .bg-lightgreen {
     background-color: $lightgreen;
 }
@@ -5,10 +7,6 @@
 .bg-darkgreen {
     background-color: $darkgreen;
     color: $white;
-
-    a:focus-visible {
-        outline: #fff solid 2px;
-    }
 }
 
 @each $name, $code in $custom-colors {
@@ -25,10 +23,48 @@
     }
 }
 
+/* Legacy */
+.has-klee-700-color {
+    color: map.get($custom-colors, "klee");
+}
+
+.has-klee-700-background-color {
+    background-color: map.get($custom-colors, "klee");
+}
+
+.has-klee-700-border-color {
+    border-color: map.get($custom-colors, "klee");
+}
+
+.has-klee-700-hover-background-color:hover {
+    background-color: map.get($custom-colors, "klee");
+}
+
+.has-lightgray-color {
+    color: map.get($custom-colors, "kalk");
+}
+
+.has-lightgray-background-color {
+    background-color: map.get($custom-colors, "kalk");
+}
+
+.has-lightgray-border-color {
+    border-color: map.get($custom-colors, "kalk");
+}
+
+.has-lightgray-hover-background-color:hover {
+    background-color: map.get($custom-colors, "kalk");
+}
+
+
 .has-white-color.has-tanne-background-color {
 
     a:focus-visible {
         outline: #fff solid 2px;
     }
 
+}
+
+.has-link-color {
+    color: inherit;
 }

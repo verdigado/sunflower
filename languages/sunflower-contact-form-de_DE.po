@@ -3,10 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.0.9\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-"
-"form\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-form\n"
 "POT-Creation-Date: 2025-07-21T08:35:19+00:00\n"
-"PO-Revision-Date: 2025-07-21 10:35+0200\n"
+"PO-Revision-Date: 2025-10-15 22:16+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.7\n"
 "X-Domain: sunflower-contact-form\n"
 
 #. Theme Name of the theme
@@ -48,26 +47,21 @@ msgstr ""
 msgid "Contact Form"
 msgstr "Kontaktformular"
 
+#: build/contact-form/render.php:15
+msgid "Your Message"
+msgstr "Deine Nachricht"
+
 #: build/contact-form/render.php:29 functions/contact-form.php:48
 msgid "Message"
 msgstr "Nachricht"
 
 #: build/contact-form/render.php:32
 msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
-msgstr ""
-"Bitte fülle alle Pflichtfelder (<span class=\"required\">*</span>) aus."
+msgstr "Bitte fülle alle Pflichtfelder* aus."
 
-#: build/contact-form/render.php:36
-msgid ""
-"By using this form, you consent to the storage and processing of your data "
-"through our website.\n"
-"            Additional information can be found in our privacy policy on <a "
-"href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>"
-msgstr ""
-"Mit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und "
-"Verarbeitung deiner Daten durch diese Website einverstanden. \n"
-"\t\tWeiteres entnimm bitte unserer  <a href=\"#\" "
-"id=\"privacy_policy_url\">Datenschutzerklärung</a>"
+#: build/contact-form/render.php:54
+msgid "By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
+msgstr "Mit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch diese Website einverstanden. Weitere Informationen findest du in unserer <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
 
 #: build/contact-form/render.php:47 functions/contact-form.php:35
 msgid "Name"
@@ -102,13 +96,8 @@ msgid "Your Message on"
 msgstr "Deine Nachricht über"
 
 #: build/contact-form/index.js:125 build/contact-form/index.js:88
-msgid ""
-"The receiver address may be altered within the Sunflower theme settings. By "
-"default, emails are sent to the site administrator."
-msgstr ""
-"Die Empfänger*innen-Adresse kann in den Sunflower-Einstellungen geändert "
-"werden. Standardmäßig wird das Formular an den*die Webseiten-"
-"Administrator*in gesendet."
+msgid "The receiver address may be altered within the Sunflower theme settings. By default, emails are sent to the site administrator."
+msgstr "Die Empfänger*innen-Adresse kann in den Sunflower-Einstellungen geändert werden. Standardmäßig wird das Formular an den*die Webseiten-Administrator*in gesendet."
 
 #: build/contact-form/index.js:128 build/contact-form/index.js:96
 msgid "Title of the form"

@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 get_header();
@@ -52,5 +52,4 @@ $sunflower_metadata      = get_post_meta( $post->ID, '_sunflower_metadata', true
 	</div>
 </div>
 <?php
-get_sidebar();
 get_footer();

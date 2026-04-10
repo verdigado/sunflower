@@ -2,7 +2,7 @@
 /**
  * Functions for backend admins.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**
@@ -203,9 +203,16 @@ add_action( 'admin_init', 'sunflower_admin' );
  */
 function sunflower_admin_style() {
 	wp_enqueue_style(
+		'sunflower-admin-fontawesome',
+		get_template_directory_uri() . '/assets/css/admin-fontawesome.css',
+		null,
+		SUNFLOWER_VERSION
+	);
+
+	wp_enqueue_style(
 		'sunflower-admin-styles',
 		get_template_directory_uri() . '/assets/css/admin.css',
-		null,
+		array( 'sunflower-admin-fontawesome' ),
 		SUNFLOWER_VERSION
 	);
 }
@@ -281,6 +288,18 @@ function sunflower_login_logo() {
 		#login h1 a, .login h1 a {
 			background-image: url(<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/logo-theme.svg);
 			padding-bottom: 30px;
+		}
+
+		.login {
+			background-color: #002216;
+		}
+
+		#login > p a, .privacy-policy-link {
+			color: #8abd24 !important;
+		}
+
+		.language-switcher label span {
+			color: #fff !important;
 		}
 	</style>
 	<?php

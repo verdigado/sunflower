@@ -1,20 +1,117 @@
 /* eslint-disable no-undef */
-// get the sticky element
-const stickyDetector = document.querySelector( '#navbar-sticky-detector' );
-const stickyElement = document.querySelector( '.navbar-main' );
 
-const observer = new IntersectionObserver(
-	( [ e ] ) => {
-		stickyElement.classList.toggle( 'stuck', ! e.isIntersecting );
-	},
-	{
-		rootMargin: '0px',
-		threshold: [ 0.1 ],
+( function () {
+	if ( typeof Masonry === 'undefined' ) {
+		return;
 	}
-);
 
-if ( stickyDetector ) {
-	observer.observe( stickyDetector );
+	/**
+	 * Masonry initialisieren und via imagesLoaded nach jedem lazy-Bild relayouten.
+	 *
+	 * @param {Element} el        Masonry-Container.
+	 * @param {Object}  extraOpts Zusätzliche Masonry-Optionen.
+	 */
+	function initAndRelayout( el, extraOpts ) {
+		const opts = Object.assign(
+			{ percentPosition: true },
+			extraOpts || {}
+		);
+		const msnry = Masonry.data( el ) || new Masonry( el, opts );
+		if ( typeof imagesLoaded !== 'undefined' ) {
+			imagesLoaded( el ).on( 'progress', function () {
+				msnry.layout();
+			} );
+		}
+	}
+
+	window.addEventListener( 'load', function () {
+		document.querySelectorAll( '[data-masonry]' ).forEach( function ( el ) {
+			const msnry = Masonry.data( el );
+			if ( msnry ) {
+				msnry.layout();
+				if ( typeof imagesLoaded !== 'undefined' ) {
+					imagesLoaded( el ).on( 'progress', function () {
+						msnry.layout();
+					} );
+				}
+			}
+		} );
+
+		if ( ! document.body.classList.contains( 'post-image-flexible' ) ) {
+			return;
+		}
+
+		document
+			.querySelectorAll( '.latest-posts--grid .row:not(.posts-slider)' )
+			.forEach( function ( el ) {
+				initAndRelayout( el );
+			} );
+
+		const wpCoreGutter =
+			parseInt(
+				getComputedStyle( document.documentElement ).getPropertyValue(
+					'--grid-margin'
+				),
+				10
+			) || 20;
+		document
+			.querySelectorAll( '.wp-block-latest-posts.is-grid' )
+			.forEach( function ( el ) {
+				initAndRelayout( el, {
+					itemSelector: 'li',
+					columnWidth: 'li',
+					gutter: wpCoreGutter,
+				} );
+			} );
+	} );
+} )();
+
+/**
+ * Positive tabindex-Werte brechen die natürliche Tab-Reihenfolge.
+ * WordPress-Core oder Plugins können diese auf Blöcke setzen.
+ */
+function removePositiveTabindex() {
+	document.querySelectorAll( '[tabindex]' ).forEach( ( el ) => {
+		const val = parseInt( el.getAttribute( 'tabindex' ), 10 );
+		if ( val > 0 ) {
+			el.removeAttribute( 'tabindex' );
+		}
+	} );
+}
+removePositiveTabindex();
+document.addEventListener( 'DOMContentLoaded', removePositiveTabindex );
+
+// get the sticky element
+const stickyElement = document.querySelector( '.top-bar' );
+
+let ticking = false;
+const scrollThreshold = 40;
+
+function updateStuckState() {
+	if ( stickyElement ) {
+		const shouldBeStuck = window.scrollY > scrollThreshold;
+		const isCurrentlyStuck = stickyElement.classList.contains( 'stuck' );
+
+		if ( shouldBeStuck && ! isCurrentlyStuck ) {
+			stickyElement.classList.add( 'stuck' );
+		} else if ( ! shouldBeStuck && isCurrentlyStuck ) {
+			stickyElement.classList.remove( 'stuck' );
+		}
+	}
+	ticking = false;
+}
+
+function onScroll() {
+	if ( ! ticking ) {
+		requestAnimationFrame( updateStuckState );
+		ticking = true;
+	}
+}
+
+if ( stickyElement ) {
+	window.addEventListener( 'scroll', onScroll, { passive: true } );
+	// Initialer Check
+	updateStuckState();
 }
 
 jQuery( function () {
@@ -166,7 +263,9 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function ( e ) {
 				return;
 			}
 
-			jQuery( '#sunflower-contact-form' ).html( response.text );
+			jQuery( '#sunflower-contact-form' )
+				.addClass( 'is-feedback' )
+				.html( response.text );
 		} );
 
 	return false;
@@ -177,14 +276,20 @@ function addRssReadMore() {
 	// loop over every title with link and add it as "read more" link
 	jQuery( '.wp-block-rss .wp-block-rss__item' ).each( function () {
 		const titlelink = jQuery( '.wp-block-rss__item-title a', this );
-		const mydiv = jQuery( '<div class="d-flex flex-row-reverse">' );
+		const mydiv = jQuery(
+			'<div class="d-flex justify-content-between align-items-center rss-item-footer">'
+		);
+		const rssIcon = jQuery( '<i />', {
+			class: 'fa-solid fa-rss rss-icon',
+			'aria-hidden': 'true',
+		} );
 		const moreLink = jQuery( '<a />', {
 			href: titlelink.attr( 'href' ),
 			class: 'continue-reading',
 			rel: 'bookmark',
 			text: sunflower.texts.readmore,
 		} );
-		jQuery( this ).append( mydiv.append( moreLink ) );
+		jQuery( this ).append( mydiv.append( rssIcon ).append( moreLink ) );
 
 		// convert excerpt into link to have same behaviour as latest-posts
 		const excerpt = jQuery( '.wp-block-rss__item-excerpt', this ).text();
@@ -261,3 +366,1238 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	} );
 } );
 /* eslint-enable no-undef */
+
+document.querySelectorAll( '.wp-block-columns' ).forEach( ( columns ) => {
+	const allColumns = columns.querySelectorAll( ':scope > .wp-block-column' );
+
+	// Prüfen, ob jede Spalte mit einem Bild‑Block startet
+	const allStartWithImage = Array.from( allColumns ).every( ( col ) => {
+		const firstChild = col.firstElementChild;
+		return firstChild && firstChild.classList.contains( 'wp-block-image' );
+	} );
+
+	if ( allColumns.length > 1 && allStartWithImage ) {
+		columns.classList.add( 'all-columns-start-with-image' );
+	}
+} );
+
+document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
+	const cols = group.querySelectorAll(
+		':scope > .wp-block-columns > .wp-block-column'
+	);
+	const numCols = cols.length;
+
+	if ( numCols === 2 ) {
+		const headlineOnly = ( col ) =>
+			Array.from( col.children ).every( ( el ) =>
+				/^H[1-6]$/.test( el.tagName )
+			);
+
+		if ( headlineOnly( cols[ 0 ] ) || headlineOnly( cols[ 1 ] ) ) {
+			group.classList.add( 'two-cols-headline-only' );
+		}
+	}
+} );
+
+/**
+ * Menu-Collapse
+ */
+
+( () => {
+	const BODY_CLASS = 'hamburger-menu';
+	const MEASURE_CLASS = 'js-measuring';
+	const RIGHT_BAR_SELECTOR = '.right-bar';
+	const CONTENT_SELECTOR = '.right-bar__content';
+
+	const qs = ( sel ) => document.querySelector( sel );
+
+	const hasOverflow = ( el ) =>
+		el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight;
+
+	function computeOverflow() {
+		const rightBar = qs( RIGHT_BAR_SELECTOR );
+		const content = rightBar?.querySelector( CONTENT_SELECTOR );
+		if ( ! rightBar || ! content ) {
+			return false;
+		}
+
+		rightBar.classList.add( MEASURE_CLASS );
+
+		const body = document.body;
+		const hadClass = body.classList.contains( BODY_CLASS );
+		if ( hadClass ) {
+			body.classList.remove( BODY_CLASS );
+		}
+
+		const overflow = hasOverflow( content );
+
+		if ( hadClass ) {
+			body.classList.add( BODY_CLASS );
+		}
+		rightBar.classList.remove( MEASURE_CLASS );
+
+		return overflow;
+	}
+
+	let lastState = null;
+	let pending = false;
+
+	function scheduleUpdate() {
+		if ( pending ) {
+			return;
+		}
+		pending = true;
+		requestAnimationFrame( () => {
+			pending = false;
+			const overflow = computeOverflow();
+			if ( overflow !== lastState ) {
+				lastState = overflow;
+				document.body.classList.toggle( BODY_CLASS, overflow );
+			}
+		} );
+	}
+
+	scheduleUpdate();
+
+	document.addEventListener( 'DOMContentLoaded', scheduleUpdate );
+	window.addEventListener( 'load', scheduleUpdate, { passive: true } );
+	window.addEventListener( 'resize', scheduleUpdate, { passive: true } );
+
+	const rightBar = qs( RIGHT_BAR_SELECTOR );
+	if ( rightBar ) {
+		new MutationObserver( scheduleUpdate ).observe( rightBar, {
+			childList: true,
+			subtree: true,
+		} );
+	}
+} )();
+
+document.addEventListener( 'DOMContentLoaded', () => {
+	const brandLeft = document.querySelector( '.brand-left' );
+	if ( ! brandLeft ) {
+		return;
+	}
+
+	const setWidthVar = () => {
+		const rect = brandLeft.getBoundingClientRect();
+		const style = window.getComputedStyle( brandLeft );
+		const total =
+			rect.width +
+			parseFloat( style.marginLeft || 0 ) +
+			parseFloat( style.marginRight || 0 );
+
+		document.documentElement.style.setProperty(
+			'--width-brand-left',
+			total + 'px'
+		);
+	};
+
+	setWidthVar();
+
+	window.addEventListener( 'resize', setWidthVar, { passive: true } );
+
+	new ResizeObserver( setWidthVar ).observe( brandLeft );
+} );
+
+/**
+ * Hamburger ausklappen
+ */
+
+document.addEventListener( 'DOMContentLoaded', () => {
+	const burger = document.querySelector( '.hamburger' );
+	const rightBar = document.querySelector( '.right-bar' );
+
+	if ( ! burger || ! rightBar ) {
+		return;
+	}
+
+	function toggleMenu() {
+		rightBar.classList.toggle( 'unfold' );
+		const expanded = rightBar.classList.contains( 'unfold' );
+		burger.setAttribute( 'aria-expanded', String( expanded ) );
+	}
+
+	function closeMenu() {
+		if ( ! rightBar.classList.contains( 'unfold' ) ) {
+			return;
+		}
+		rightBar.classList.remove( 'unfold' );
+		burger.setAttribute( 'aria-expanded', 'false' );
+		burger.focus();
+	}
+
+	burger.addEventListener( 'click', toggleMenu );
+
+	document.addEventListener( 'keydown', ( e ) => {
+		if ( e.key === 'Escape' ) {
+			closeMenu();
+		}
+	} );
+} );
+
+/**
+ * Escape schließt offene Untermenüs und gibt Fokus an Elternelement zurück
+ */
+
+document.addEventListener( 'keydown', ( e ) => {
+	if ( e.key !== 'Escape' ) {
+		return;
+	}
+	const focused = e.target;
+	const submenu = focused?.closest( '.main-menu .sub-menu' );
+	if ( ! submenu ) {
+		return;
+	}
+	const parentItem = submenu.closest( '.menu-item-has-children' );
+	const parentLink = parentItem?.querySelector( ':scope > a' );
+	if ( parentLink ) {
+		parentLink.focus();
+	}
+} );
+
+/**
+ * Untermenü nach innen rücken, falls es aus Viewport herausragt
+ */
+
+document.addEventListener( 'DOMContentLoaded', () => {
+	const ITEM_SELECTOR = '.main-menu .nav > li.menu-item-has-children';
+	const items = document.querySelectorAll( ITEM_SELECTOR );
+
+	items.forEach( ( item ) => {
+		const submenu = item.querySelector( ':scope > ul.sub-menu' );
+		if ( ! submenu ) {
+			return;
+		}
+
+		const reposition = () => {
+			submenu.style.left = '';
+			submenu.style.right = '';
+			submenu.style.transform = '';
+
+			if ( getComputedStyle( submenu ).display === 'none' ) {
+				return;
+			}
+
+			const rect = submenu.getBoundingClientRect();
+			const overflowRight = rect.right - window.innerWidth;
+			const overflowLeft = rect.left;
+
+			if ( overflowRight > 0 ) {
+				submenu.style.left = 'auto';
+				submenu.style.right = '0';
+			} else if ( overflowLeft < 0 ) {
+				submenu.style.left = '0';
+				submenu.style.right = 'auto';
+			}
+		};
+
+		const openHandler = () => requestAnimationFrame( reposition );
+		const closeHandler = () => {
+			submenu.style.left = '';
+			submenu.style.right = '';
+			submenu.style.transform = '';
+		};
+
+		item.addEventListener( 'mouseenter', openHandler );
+		item.addEventListener( 'focusin', openHandler );
+		item.addEventListener( 'mouseleave', closeHandler );
+		item.addEventListener( 'focusout', ( e ) => {
+			if ( ! item.contains( e.relatedTarget ) ) {
+				closeHandler();
+			}
+		} );
+	} );
+
+	window.addEventListener( 'resize', () => {
+		document
+			.querySelectorAll( `${ ITEM_SELECTOR }:hover > ul.sub-menu` )
+			.forEach( ( submenu ) =>
+				requestAnimationFrame( () => {
+					submenu.style.left = '';
+					submenu.style.right = '';
+					const rect = submenu.getBoundingClientRect();
+					const overflowRight = rect.right - window.innerWidth;
+					const overflowLeft = rect.left;
+					if ( overflowRight > 0 ) {
+						submenu.style.left = 'auto';
+						submenu.style.right = '0';
+					} else if ( overflowLeft < 0 ) {
+						submenu.style.left = '0';
+						submenu.style.right = 'auto';
+					}
+				} )
+			);
+	} );
+} );
+
+/**
+ * mark before & after bekommen die selbe linienfarbe wie mark background / border
+ * Im Cover-Block: Hintergrund von inner-container oder wp-block-cover__background
+ */
+
+function coverHasBackgroundImage( el ) {
+	const inner = el.closest( '.wp-block-cover__inner-container' );
+	if ( ! inner ) {
+		return false;
+	}
+	const cover = inner.closest( '.wp-block-cover' );
+	if ( ! cover ) {
+		return false;
+	}
+
+	if ( cover.classList.contains( 'is-style-sunflower-hero' ) ) {
+		return false;
+	}
+	return !! cover.querySelector(
+		'img.wp-block-cover__image-background, video.wp-block-cover__video-background'
+	);
+}
+
+/**
+ * @param {HTMLElement} mark
+ * @param {boolean}     useContainerColor – true nur bei Zeilenumbruch im Cover (::before soll mit Container verschmelzen)
+ */
+function getContainerBackgroundForMark( mark, useContainerColor ) {
+	const heading = mark.closest( 'h1, h2, h3, h4, h5, h6' );
+	const innerContainer = heading
+		? heading.closest( '.wp-block-cover__inner-container' )
+		: null;
+
+	if ( useContainerColor && heading && coverHasBackgroundImage( heading ) ) {
+		return 'transparent';
+	}
+
+	// Nur bei Zeilenumbruch im Cover: Container-Farbe (::before verschmilzt mit Hintergrund)
+	if ( useContainerColor && innerContainer ) {
+		const innerBg = getComputedStyle( innerContainer ).backgroundColor;
+		if (
+			innerBg &&
+			innerBg !== 'transparent' &&
+			innerBg !== 'rgba(0, 0, 0, 0)'
+		) {
+			return innerBg;
+		}
+		const cover = innerContainer.closest( '.wp-block-cover' );
+		if ( cover ) {
+			// Hero-Cover hat ein ::before mit linear-gradient – das darf nicht als bg-Farbe gelten
+			if ( cover.classList.contains( 'is-style-sunflower-hero' ) ) {
+				return 'transparent';
+			}
+			const overlayEl = cover.querySelector(
+				'.wp-block-cover__background'
+			);
+			if ( overlayEl ) {
+				const overlayBg = getComputedStyle( overlayEl ).backgroundColor;
+				if (
+					overlayBg &&
+					overlayBg !== 'transparent' &&
+					overlayBg !== 'rgba(0, 0, 0, 0)'
+				) {
+					return overlayBg;
+				}
+			}
+			const coverComputedBg = getComputedStyle( cover ).backgroundColor;
+			if (
+				coverComputedBg &&
+				coverComputedBg !== 'transparent' &&
+				coverComputedBg !== 'rgba(0, 0, 0, 0)'
+			) {
+				return coverComputedBg;
+			}
+		}
+	}
+
+	// Standard: Mark-Hintergrund (::before sichtbar in Mark-Farbe)
+	const bg = getComputedStyle( mark ).backgroundColor;
+	if ( bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)' ) {
+		return bg;
+	}
+	return bg;
+}
+
+document.addEventListener( 'DOMContentLoaded', () => {
+	document
+		.querySelectorAll( 'h1 mark, h2 mark, h3 mark' )
+		.forEach( ( mark ) => {
+			const bg = getContainerBackgroundForMark( mark, false );
+			mark.style.setProperty( '--bg', bg );
+		} );
+} );
+
+/*
+ * Slider
+ */
+
+( () => {
+	'use strict';
+
+	const breakpoint = 950; // px (z. B. .tarife)
+	const dragThreshold = 35; // px
+	const verticalScrollThreshold = 5; // px
+
+	const instances = [];
+
+	const prevent = ( e ) => e.preventDefault();
+
+	const disableScroll = () => {
+		document.addEventListener( 'wheel', prevent, { passive: false } );
+		document.addEventListener( 'touchmove', prevent, { passive: false } );
+	};
+
+	const enableScroll = () => {
+		document.removeEventListener( 'wheel', prevent, { passive: false } );
+		document.removeEventListener( 'touchmove', prevent, {
+			passive: false,
+		} );
+	};
+
+	function bootstrap() {
+		const viewportWidth = window.innerWidth;
+
+		document
+			.querySelectorAll( '.latest-posts .row.posts-slider, .tarife' )
+			.forEach( ( trackEl ) => {
+				const isActive =
+					trackEl.classList.contains( 'js-column-slider' );
+
+				const isLatestPostsTrack =
+					trackEl.classList.contains( 'posts-slider' ) ||
+					( trackEl.classList.contains( 'row' ) &&
+						trackEl.closest( '.latest-posts' ) );
+
+				if ( isLatestPostsTrack ) {
+					if ( ! isActive ) {
+						initSlider( trackEl );
+					} else {
+						const inst = instances.find(
+							( ins ) => ins.track === trackEl
+						);
+						if ( inst ) {
+							inst.recalc();
+						}
+					}
+				} else if ( viewportWidth <= breakpoint && ! isActive ) {
+					initSlider( trackEl );
+				} else if ( viewportWidth > breakpoint && isActive ) {
+					destroySlider( trackEl );
+				} else if ( isActive ) {
+					const inst = instances.find(
+						( ins ) => ins.track === trackEl
+					);
+					if ( inst ) {
+						inst.recalc();
+					}
+				}
+			} );
+	}
+
+	function initSlider( track ) {
+		track.classList.add( 'column-slider', 'js-column-slider' );
+		track.style.flexWrap = 'nowrap';
+		track.style.transition = 'transform .5s ease-in-out';
+
+		const nav = document.createElement( 'div' );
+		nav.className = 'navbuttons';
+		nav.innerHTML = `
+			<button class="slider__button slider__button--prev" aria-label="Vorherige Folie">
+				<div class="button__direction">
+					<svg class="button--direction" width="22" height="20" viewBox="0 0 22 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9.66585 19.7617L11.0408 18.4284L3.87418 11.2617L21.9575 11.2617L21.9575 9.38672L3.87419 9.38671L11.0825 2.17838L9.70752 0.886716L0.249183 10.3034L9.66585 19.7617Z"/>
+					</svg>
+				</div>
+			</button>
+			<button class="slider__button slider__button--next" aria-label="Nächste Folie">
+				<div class="button__direction">
+					<svg width="22" height="20" viewBox="0 0 22 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9.66585 19.7617L11.0408 18.4284L3.87418 11.2617L21.9575 11.2617L21.9575 9.38672L3.87419 9.38671L11.0825 2.17838L9.70752 0.886716L0.249183 10.3034L9.66585 19.7617Z"/>
+					</svg>
+				</div>
+			</button>
+		`;
+		track.parentNode.insertBefore( nav, track.nextSibling );
+
+		const isLatestPosts =
+			track.classList.contains( 'posts-slider' ) ||
+			( track.classList.contains( 'row' ) &&
+				track.closest( '.latest-posts' ) );
+
+		const slides = Array.from( track.children ).filter( ( el ) => {
+			if ( isLatestPosts ) {
+				return el.matches( '.col-12, .col-md-6, .col-md-4' );
+			}
+			return el.classList.contains( 'wp-block-column' );
+		} );
+
+		const state = {
+			track,
+			slides,
+			nav,
+			prevBtn: nav.querySelector( '.slider__button--prev' ),
+			nextBtn: nav.querySelector( '.slider__button--next' ),
+			index: 0,
+			total: slides.length,
+			slideWidth: 0,
+			gap: 0,
+			isDragging: false,
+			startX: 0,
+			startY: 0,
+			currentTranslate: 0,
+			previousTranslate: 0,
+			rafId: 0,
+			slidesPerView: 1,
+			isLatestPosts,
+		};
+
+		function step() {
+			return state.slideWidth + state.gap;
+		}
+
+		function computeGap() {
+			const trackStyle = getComputedStyle( state.track );
+			let g = parseFloat( trackStyle.columnGap );
+			if ( Number.isNaN( g ) ) {
+				const gapStr = trackStyle.gap || '';
+				const parts = gapStr.trim().split( /\s+/ );
+				const last = parts[ parts.length - 1 ];
+				const val = parseFloat( last );
+				g = Number.isNaN( val ) ? 0 : val;
+			}
+			if ( g > 0 ) {
+				return g;
+			}
+
+			// Fallback: Abstand messen (funktioniert auch mit margin-/padding-basiertem „Gap“)
+			if ( state.slides.length > 1 ) {
+				const a = state.slides[ 0 ].getBoundingClientRect();
+				const b = state.slides[ 1 ].getBoundingClientRect();
+				return Math.max( 0, Math.round( b.left - a.right ) );
+			}
+			return 0;
+		}
+
+		function updateSlideVisibility() {
+			state.slides.forEach( ( slide, i ) => {
+				const isVisible =
+					i >= state.index && i < state.index + state.slidesPerView;
+				slide.inert = ! isVisible;
+			} );
+		}
+
+		function setByIndex( skipAnim = false ) {
+			const x = -( state.index * step() );
+			state.currentTranslate = x;
+			state.previousTranslate = x;
+			if ( skipAnim ) {
+				state.track.style.transition = 'none';
+			}
+			state.track.style.transform = `translateX(${ x }px)`;
+			if ( skipAnim ) {
+				requestAnimationFrame( () => {
+					state.track.style.transition = 'transform .5s ease-in-out';
+				} );
+			}
+			updateSlideVisibility();
+		}
+
+		function recalc() {
+			// Inhaltsbreite des Containers (clientWidth inkl. Padding -> Padding abziehen)
+			const style = getComputedStyle( state.track );
+			const padLeft = parseFloat( style.paddingLeft ) || 0;
+			const padRight = parseFloat( style.paddingRight ) || 0;
+			const contentWidth = Math.max(
+				0,
+				Math.round( state.track.clientWidth - padLeft - padRight )
+			);
+
+			// Gap zuerst ermitteln
+			state.gap = computeGap();
+
+			if ( state.isLatestPosts ) {
+				/* <<< NEU: 3/2/1 Karten je nach Breite >>> */
+				const vw = window.innerWidth;
+				let spv = 3;
+				if ( vw < 800 ) {
+					spv = 1;
+				} else if ( vw < 1200 ) {
+					spv = 2;
+				}
+				state.slidesPerView = spv;
+
+				const totalGap = state.gap * ( spv - 1 );
+				state.slideWidth = Math.max(
+					0,
+					Math.floor( ( contentWidth - totalGap ) / spv )
+				);
+
+				state.slides.forEach( ( el ) => {
+					el.style.flex = `0 0 ${ state.slideWidth }px`;
+					el.style.width = `${ state.slideWidth }px`;
+					el.style.minWidth = `${ state.slideWidth }px`;
+					el.style.maxWidth = `${ state.slideWidth }px`;
+				} );
+			} else {
+				state.slidesPerView = 1;
+				state.slideWidth = contentWidth;
+				state.slides.forEach( ( el ) => {
+					el.style.flex = `0 0 ${ state.slideWidth }px`;
+					el.style.width = `${ state.slideWidth }px`;
+					el.style.minWidth = `${ state.slideWidth }px`;
+					el.style.maxWidth = `${ state.slideWidth }px`;
+				} );
+			}
+
+			// Index einklammern
+			const maxIndex = Math.max( 0, state.total - state.slidesPerView );
+			if ( state.index > maxIndex ) {
+				state.index = maxIndex;
+			}
+
+			setByIndex( true );
+		}
+
+		function onStart( x, y ) {
+			state.isDragging = true;
+			state.startX = x;
+			state.startY = y;
+			state.track.style.transition = 'none';
+			state.rafId = requestAnimationFrame( onAnim );
+			disableScroll();
+		}
+
+		function onMove( x, y ) {
+			if ( ! state.isDragging ) {
+				return;
+			}
+			const dx = x - state.startX;
+			const dy = y - state.startY;
+
+			// Vertikales Scrollen zulassen, wenn Absicht klar ist
+			if (
+				Math.abs( dy ) > verticalScrollThreshold &&
+				Math.abs( dx ) < dragThreshold * 10
+			) {
+				enableScroll();
+			} else {
+				disableScroll();
+			}
+
+			const maxTranslate = -(
+				step() * Math.max( 0, state.total - state.slidesPerView )
+			);
+			state.currentTranslate = state.previousTranslate + dx;
+
+			// Sanftes Einklammern
+			const overshoot = 60;
+			if ( state.currentTranslate > overshoot ) {
+				state.currentTranslate = overshoot;
+			}
+			if ( state.currentTranslate < maxTranslate - overshoot ) {
+				state.currentTranslate = maxTranslate - overshoot;
+			}
+		}
+
+		function onEnd() {
+			cancelAnimationFrame( state.rafId );
+			if ( ! state.isDragging ) {
+				return;
+			}
+			state.isDragging = false;
+
+			const moved = state.currentTranslate - state.previousTranslate;
+			const inc = state.isLatestPosts ? state.slidesPerView : 1;
+
+			const maxIndex = Math.max( 0, state.total - state.slidesPerView );
+
+			if ( moved < -dragThreshold ) {
+				state.index = Math.min( maxIndex, state.index + inc );
+			} else if ( moved > dragThreshold ) {
+				state.index = Math.max( 0, state.index - inc );
+			}
+
+			setByIndex();
+			state.track.style.transition = 'transform .5s ease-in-out';
+			enableScroll();
+		}
+
+		function onAnim() {
+			state.track.style.transform = `translateX(${ state.currentTranslate }px)`;
+			if ( state.isDragging ) {
+				state.rafId = requestAnimationFrame( onAnim );
+			}
+		}
+
+		// Buttons
+		const onNext = () => {
+			const inc = state.isLatestPosts ? state.slidesPerView : 1;
+			const maxIndex = Math.max( 0, state.total - state.slidesPerView );
+			if ( state.index < maxIndex ) {
+				state.index = Math.min( maxIndex, state.index + inc );
+				setByIndex();
+			}
+		};
+		const onPrev = () => {
+			const inc = state.isLatestPosts ? state.slidesPerView : 1;
+			if ( state.index > 0 ) {
+				state.index = Math.max( 0, state.index - inc );
+				setByIndex();
+			}
+		};
+
+		// Touch-Events
+		const onTouchStart = ( e ) =>
+			onStart( e.touches[ 0 ].clientX, e.touches[ 0 ].clientY );
+		const onTouchMove = ( e ) =>
+			onMove( e.touches[ 0 ].clientX, e.touches[ 0 ].clientY );
+		const onTouchEnd = () => onEnd();
+
+		// Mouse-Events
+		const onMouseDown = ( e ) => onStart( e.clientX, e.clientY );
+		const onMouseMove = ( e ) => onMove( e.clientX, e.clientY );
+		const onMouseUp = () => onEnd();
+		const onMouseLeave = () => onEnd();
+
+		track.addEventListener( 'touchstart', onTouchStart, { passive: true } );
+		track.addEventListener( 'touchmove', onTouchMove, { passive: false } );
+		track.addEventListener( 'touchend', onTouchEnd );
+		track.addEventListener( 'touchcancel', onTouchEnd );
+
+		track.addEventListener( 'mousedown', onMouseDown );
+		track.addEventListener( 'mousemove', onMouseMove );
+		track.addEventListener( 'mouseup', onMouseUp );
+		track.addEventListener( 'mouseleave', onMouseLeave );
+
+		state.prevBtn.addEventListener( 'click', onPrev );
+		state.nextBtn.addEventListener( 'click', onNext );
+
+		window.addEventListener( 'resize', recalc );
+
+		recalc();
+
+		instances.push( {
+			track,
+			nav,
+			recalc,
+			remove: () => {
+				track.removeEventListener( 'touchstart', onTouchStart );
+				track.removeEventListener( 'touchmove', onTouchMove );
+				track.removeEventListener( 'touchend', onTouchEnd );
+				track.removeEventListener( 'touchcancel', onTouchEnd );
+
+				track.removeEventListener( 'mousedown', onMouseDown );
+				track.removeEventListener( 'mousemove', onMouseMove );
+				track.removeEventListener( 'mouseup', onMouseUp );
+				track.removeEventListener( 'mouseleave', onMouseLeave );
+
+				state.prevBtn.removeEventListener( 'click', onPrev );
+				state.nextBtn.removeEventListener( 'click', onNext );
+
+				window.removeEventListener( 'resize', recalc );
+
+				// Inline-Styles und inert zurücksetzen
+				state.slides.forEach( ( el ) => {
+					el.style.flex = '';
+					el.style.width = '';
+					el.style.minWidth = '';
+					el.style.maxWidth = '';
+					el.inert = false;
+				} );
+
+				track.style.transform = '';
+				track.style.flexWrap = '';
+				track.style.transition = '';
+
+				nav.remove();
+			},
+		} );
+	}
+
+	function destroySlider( track ) {
+		const i = instances.findIndex( ( ins ) => ins.track === track );
+		if ( i === -1 ) {
+			return;
+		}
+
+		instances[ i ].remove();
+		track.classList.remove( 'column-slider', 'js-column-slider' );
+		instances.splice( i, 1 );
+	}
+
+	document.addEventListener( 'DOMContentLoaded', bootstrap );
+	window.addEventListener( 'resize', bootstrap );
+} )();
+
+// Accordion: immer nur EIN Panel geöffnet
+document.addEventListener( 'click', function ( e ) {
+	const btn = e.target.closest( '.accordion-button' );
+	if ( ! btn ) {
+		return;
+	}
+
+	const targetSel =
+		btn.getAttribute( 'data-bs-target' ) ||
+		btn.getAttribute( 'data-target' );
+
+	if ( ! targetSel ) {
+		return;
+	}
+
+	const panel = document.querySelector( targetSel );
+	if ( ! panel ) {
+		return;
+	}
+
+	// Bootstrap-Collapse ausbremsen
+	e.preventDefault();
+	e.stopPropagation();
+
+	const isOpen = panel.classList.contains( 'show' );
+
+	// 1. Scope bestimmen: wenn es einen .accordion-Wrapper gibt → innerhalb,
+	//    sonst global über die ganze Seite
+	const accordion = btn.closest( '.accordion' );
+	const allPanels = accordion
+		? accordion.querySelectorAll( '.accordion-collapse' )
+		: document.querySelectorAll( '.accordion-collapse' );
+
+	// 2. Alle anderen Panels schließen
+	allPanels.forEach( ( el ) => {
+		if ( el === panel ) {
+			return;
+		}
+
+		el.classList.remove( 'show' );
+
+		const otherBtn = el
+			.closest( '.accordion-item' )
+			?.querySelector( '.accordion-button' );
+
+		if ( otherBtn ) {
+			otherBtn.classList.add( 'collapsed' );
+			otherBtn.setAttribute( 'aria-expanded', 'false' );
+		}
+	} );
+
+	// 3. Geklicktes Panel toggeln
+	if ( isOpen ) {
+		// war offen → schließen, dann ist ggf. gar kein Panel offen
+		panel.classList.remove( 'show' );
+		btn.classList.add( 'collapsed' );
+		btn.setAttribute( 'aria-expanded', 'false' );
+	} else {
+		// war zu → öffnen
+		panel.classList.add( 'show' );
+		btn.classList.remove( 'collapsed' );
+		btn.setAttribute( 'aria-expanded', 'true' );
+	}
+} );
+
+// Bootstrap-Collapse an den Buttons deaktivieren, damit nichts doppelt toggelt
+document.addEventListener( 'DOMContentLoaded', function () {
+	document
+		.querySelectorAll( '.accordion-button[data-bs-toggle="collapse"]' )
+		.forEach( function ( btn ) {
+			btn.removeAttribute( 'data-bs-toggle' );
+		} );
+} );
+
+// Headline mit Hinterlegung bei Umbruch: Hinterlegung raus
+
+( function () {
+	let resizeTimeout;
+
+	function isMultilineMark( mark ) {
+		if ( ! mark || ! mark.firstChild ) {
+			return false;
+		}
+
+		const range = document.createRange();
+		range.selectNodeContents( mark );
+
+		const rects = range.getClientRects();
+
+		if ( typeof range.detach === 'function' ) {
+			range.detach();
+		}
+
+		return rects.length > 1;
+	}
+
+	function getHeadlineColor( heading ) {
+		if ( coverHasBackgroundImage( heading ) ) {
+			return '#ffffff';
+		}
+
+		const lightBgClasses = [
+			'has-weiss-background-color',
+			'has-sonne-background-color',
+			'has-sand-background-color',
+			'has-kalk-background-color',
+			'has-white-background-color',
+			'has-gruener-sand-background-color',
+		];
+
+		const darkBgClasses = [
+			'has-gray-background-color',
+			'has-tanne-background-color',
+			'has-klee-background-color',
+			'has-klee-700-background-color',
+			'has-himmel-background-color',
+		];
+
+		const schwarzwaldClasses = [ 'has-schwarzwald-background-color' ];
+
+		const grashalmClasses = [ 'has-grashalm-background-color' ];
+
+		function findContextWithClasses( classNames ) {
+			let el = heading;
+
+			while ( el && el !== document.body ) {
+				if (
+					classNames.some( ( cls ) => el.classList.contains( cls ) )
+				) {
+					return el;
+				}
+
+				const bg = el.querySelector( '.wp-block-cover__background' );
+				if (
+					bg &&
+					classNames.some( ( cls ) => bg.classList.contains( cls ) )
+				) {
+					return bg;
+				}
+
+				el = el.parentElement;
+			}
+
+			return null;
+		}
+
+		if ( findContextWithClasses( lightBgClasses ) ) {
+			return '#005538';
+		}
+		if ( findContextWithClasses( darkBgClasses ) ) {
+			return '#ffffff';
+		}
+		if ( findContextWithClasses( schwarzwaldClasses ) ) {
+			return '#8abd24';
+		}
+		if ( findContextWithClasses( grashalmClasses ) ) {
+			return '#002216';
+		}
+
+		// Cover-Block: Hintergrund von inner-container oder wp-block-cover__background
+		const innerContainer = heading.closest(
+			'.wp-block-cover__inner-container'
+		);
+		if ( innerContainer ) {
+			let bgColor = getComputedStyle( innerContainer ).backgroundColor;
+			if (
+				! bgColor ||
+				bgColor === 'transparent' ||
+				bgColor === 'rgba(0, 0, 0, 0)'
+			) {
+				const cover = innerContainer.closest( '.wp-block-cover' );
+				if ( cover ) {
+					const coverBg = cover.querySelector(
+						'.wp-block-cover__background'
+					);
+					if ( coverBg ) {
+						bgColor = getComputedStyle( coverBg ).backgroundColor;
+					}
+					if (
+						! bgColor ||
+						bgColor === 'transparent' ||
+						bgColor === 'rgba(0, 0, 0, 0)'
+					) {
+						bgColor = getComputedStyle( cover ).backgroundColor;
+					}
+				}
+			}
+			if (
+				bgColor &&
+				bgColor !== 'transparent' &&
+				bgColor !== 'rgba(0, 0, 0, 0)'
+			) {
+				const isLight = isColorLight( bgColor );
+				return isLight ? '#005538' : '#ffffff';
+			}
+		}
+
+		const body = document.body;
+
+		if ( body.classList.contains( 'colorscheme-light' ) ) {
+			return '#005538';
+		}
+		if ( body.classList.contains( 'colorscheme-green' ) ) {
+			return '#8abd24';
+		}
+
+		return null;
+	}
+
+	function isColorLight( color ) {
+		const m = color.match(
+			/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)$/
+		);
+		if ( m ) {
+			const r = parseInt( m[ 1 ], 10 ) / 255;
+			const g = parseInt( m[ 2 ], 10 ) / 255;
+			const b = parseInt( m[ 3 ], 10 ) / 255;
+			const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+			return luminance > 0.5;
+		}
+		if ( color.startsWith( '#' ) ) {
+			const hex = color
+				.slice( 1 )
+				.replace( /^(.)(.)(.)$/, '$1$1$2$2$3$3' );
+			const r = parseInt( hex.slice( 0, 2 ), 16 ) / 255;
+			const g = parseInt( hex.slice( 2, 4 ), 16 ) / 255;
+			const b = parseInt( hex.slice( 4, 6 ), 16 ) / 255;
+			const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+			return luminance > 0.5;
+		}
+		return true;
+	}
+
+	function processHeadings() {
+		const headings = document.querySelectorAll( 'h1, h2, h3, h4, h5, h6' );
+
+		headings.forEach( function ( heading ) {
+			const hasMarkNow = !! heading.querySelector( 'mark' );
+
+			if ( ! heading.dataset.markOriginalHtml && ! hasMarkNow ) {
+				return;
+			}
+
+			if ( ! heading.dataset.markOriginalHtml && hasMarkNow ) {
+				heading.dataset.markOriginalHtml = heading.innerHTML;
+				heading.dataset.markOriginalStyle =
+					heading.getAttribute( 'style' ) || '';
+			}
+
+			if ( ! heading.dataset.markOriginalHtml ) {
+				return;
+			}
+
+			if ( heading.innerHTML !== heading.dataset.markOriginalHtml ) {
+				heading.innerHTML = heading.dataset.markOriginalHtml;
+			}
+
+			const originalStyle = heading.dataset.markOriginalStyle || '';
+			if ( originalStyle ) {
+				heading.setAttribute( 'style', originalStyle );
+			} else {
+				heading.removeAttribute( 'style' );
+			}
+
+			// 2b. Sonderregel für erstes Cover → left:0 + margin-top:0
+			const firstCoverInner = document.querySelector(
+				'body .entry-content > .wp-block-cover:first-child .wp-block-cover__inner-container'
+			);
+			if ( firstCoverInner && firstCoverInner.contains( heading ) ) {
+				heading.style.left = '0';
+				heading.style.marginTop = '0';
+			}
+
+			const marks = heading.querySelectorAll( 'mark' );
+			if ( ! marks.length ) {
+				return;
+			}
+
+			let hasMultiline = false;
+
+			marks.forEach( function ( mark ) {
+				if ( ! hasMultiline && isMultilineMark( mark ) ) {
+					hasMultiline = true;
+				}
+			} );
+
+			// --bg: bei Zeilenumbruch im Cover = Container-Farbe, sonst = Mark-Farbe
+			marks.forEach( function ( mark ) {
+				const bg = getContainerBackgroundForMark( mark, hasMultiline );
+				mark.style.setProperty( '--bg', bg );
+			} );
+
+			if ( ! hasMultiline ) {
+				return;
+			}
+
+			// Marks behalten, nur Farbe anpassen – angeschrägter Effekt bleibt
+			// background-color, padding und margin am mark entfernen (nur ::before bleibt)
+			const newColor = getHeadlineColor( heading );
+			// Foto-Hintergrund (normaler Cover-Block mit Bild, kein HeroCover)?
+			// → Text bleibt weiß, bekommt aber einen Schatten für Lesbarkeit.
+			const needsShadow = coverHasBackgroundImage( heading );
+			heading.querySelectorAll( 'mark' ).forEach( function ( m ) {
+				m.style.setProperty(
+					'background-color',
+					'transparent',
+					'important'
+				);
+				m.style.setProperty( 'padding', '0', 'important' );
+				m.style.setProperty( 'margin-left', '0', 'important' );
+				m.style.setProperty( 'margin-right', '0', 'important' );
+				if ( newColor ) {
+					m.style.setProperty( 'color', newColor, 'important' );
+				}
+				if ( needsShadow ) {
+					m.style.setProperty(
+						'text-shadow',
+						'rgba(0, 0, 0, 1) 1px 2px 10px',
+						'important'
+					);
+				}
+			} );
+			if ( newColor ) {
+				heading.style.setProperty( 'color', newColor, 'important' );
+			}
+			if ( needsShadow ) {
+				heading.style.setProperty(
+					'text-shadow',
+					'rgba(0, 0, 0, 1) 1px 2px 10px',
+					'important'
+				);
+			}
+		} );
+	}
+
+	function processLabels() {
+		const brandLeft = document.querySelector( '.brand-left' );
+		if ( ! brandLeft ) {
+			return;
+		}
+
+		const labelTop = brandLeft.querySelector( '.label-top' );
+		const labelBottom = brandLeft.querySelector( '.label-bottom' );
+		const labels = [ labelTop, labelBottom ].filter( Boolean );
+
+		if ( labels.length === 0 ) {
+			return;
+		}
+
+		// Original-Styles sichern und wiederherstellen
+		labels.forEach( function ( label ) {
+			if (
+				! label.dataset.labelOriginalStyle &&
+				label.getAttribute( 'style' )
+			) {
+				label.dataset.labelOriginalStyle =
+					label.getAttribute( 'style' );
+			}
+			const originalStyle = label.dataset.labelOriginalStyle || '';
+			if ( originalStyle ) {
+				label.setAttribute( 'style', originalStyle );
+			} else {
+				label.removeAttribute( 'style' );
+			}
+		} );
+
+		// Wenn EINES der beiden Labels umbricht, verlieren BEIDE die Hinterlegung
+		const anyMultiline = labels.some( function ( label ) {
+			return isMultilineMark( label );
+		} );
+
+		if ( ! anyMultiline ) {
+			return;
+		}
+
+		if ( document.body.classList.contains( 'formstyle-sharp' ) ) {
+			brandLeft.style.setProperty(
+				'margin',
+				'75px 12px 7px 12px',
+				'important'
+			);
+		}
+
+		const firstContentChild = document.querySelector(
+			'.entry-content > :first-child'
+		);
+		const hasCoverFirst =
+			firstContentChild &&
+			firstContentChild.classList.contains( 'wp-block-cover' );
+
+		// Foto-Hintergrund: erstes Cover-Element hat ein Hintergrundbild?
+		const coverHasPhoto =
+			hasCoverFirst &&
+			!! firstContentChild.querySelector(
+				'img.wp-block-cover__image-background, video.wp-block-cover__video-background'
+			);
+
+		labels.forEach( function ( label ) {
+			label.style.setProperty( '--bg', 'transparent' );
+			label.style.setProperty(
+				'background-color',
+				'transparent',
+				'important'
+			);
+			label.style.setProperty( 'height', 'fit-content', 'important' );
+			label.style.setProperty( 'text-align', 'left', 'important' );
+			label.style.setProperty( 'left', '0', 'important' );
+
+			if ( hasCoverFirst ) {
+				label.style.setProperty( 'color', '#ffffff', 'important' );
+				if ( coverHasPhoto ) {
+					label.style.setProperty(
+						'text-shadow',
+						'rgba(0, 0, 0, 1) 1px 2px 10px',
+						'important'
+					);
+				}
+			} else {
+				const newColor = getHeadlineColor( label );
+				if ( newColor ) {
+					label.style.setProperty( 'color', newColor, 'important' );
+				}
+			}
+		} );
+	}
+
+	function processAll() {
+		processHeadings();
+		processLabels();
+	}
+
+	function debouncedProcess() {
+		clearTimeout( resizeTimeout );
+		resizeTimeout = setTimeout( processAll, 150 );
+	}
+
+	window.addEventListener( 'load', processAll );
+	window.addEventListener( 'resize', debouncedProcess );
+} )();
+
+( function () {
+	const menu = document.querySelector( '.topmenu .navbar-nav' );
+	if ( ! menu ) {
+		return;
+	}
+
+	let resizeTimeout;
+
+	function checkMenuWrap() {
+		const items = menu.children;
+		if ( items.length === 0 ) {
+			return;
+		}
+
+		const firstTop = items[ 0 ].offsetTop;
+		let isWrapped = false;
+
+		for ( let i = 1; i < items.length; i++ ) {
+			if ( items[ i ].offsetTop > firstTop ) {
+				isWrapped = true;
+				break;
+			}
+		}
+
+		document.body.classList.toggle( 'topmenu-large', isWrapped );
+	}
+
+	function debouncedCheck() {
+		clearTimeout( resizeTimeout );
+		resizeTimeout = setTimeout( checkMenuWrap, 150 );
+	}
+
+	window.addEventListener( 'load', checkMenuWrap );
+	window.addEventListener( 'resize', debouncedCheck );
+} )();

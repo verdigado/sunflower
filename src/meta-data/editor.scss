@@ -7,17 +7,26 @@
 @use "../../sass/variables";
 
 .wp-block-sunflower-meta-data {
+    width: fit-content;
+    margin: var(--half-grid-margin);
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
 
     a {
         text-decoration: none;
         color: variables.$body-color;
-
-        &.text-danger {
-            color: #f00;
-        }
-
     }
 
+    .is-empty {
+        opacity: 0.6;
+        color: inherit !important;
+    }
 
 }
 

@@ -2,7 +2,7 @@
 /**
  * Class for the "First Steps" settings page.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**
@@ -62,23 +62,17 @@ class SunflowerFirstStepsPage {
 			<h2>Erste Schritte</h2>
 			<div class="notice-info sunflower-settings">
 				Eine ausführliche Dokumentation gibt es unter
-				<a href="https://sunflower-theme.de/documentation/" target="_blank">https://sunflower-theme.de/documentation/</a>.
+				<a href="https://sunflower-theme.de/documentation26/" target="_blank">https://sunflower-theme.de/documentation26/</a>.
 			</div>
 
 			<form method="post" action="options.php">
 			<?php
 				// This prints out all hidden setting fields.
 				settings_fields( 'sunflower_first_steps_option_group' );
-			do_settings_sections( 'sunflower_admin' );
-			submit_button();
+				do_settings_sections( 'sunflower_admin' );
+				submit_button();
 			?>
 			</form>
-
-			<h2>Umzug von Urwahl3000</h2>
-
-			Widgets, Menüs und Termine werden automatisch importiert.<br>
-			<a href="https://sunflower-theme.de/documentation/urwahl3000" target="_blank">
-			Hier gibt es mehr Info über den Umzug von Urwahl3000</a>.
 
 			<h2><?php esc_attr_e( 'Settings', 'sunflower' ); ?></h2>
 			Bitte siehe links im Menü, welche Unterpunkte es gibt.

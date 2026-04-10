@@ -10,4 +10,36 @@
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
     display: inline-block;
+    transition: 400ms ease-out;
+
+}
+
+.wp-block-image {
+    position: relative !important;
+}
+
+figure {
+    position: relative;
+
+    figcaption {
+        width: 100%;
+        color: inherit;
+        text-align: center;
+        font-size: 12px;
+        line-height: 125%;
+        background: none;
+        padding: calc(var(--gap-small) / 2) var(--gap-small);
+        position: absolute;
+        bottom: 0;
+
+        backdrop-filter: blur(25px) saturate(200%);
+        -webkit-backdrop-filter: blur(25px) saturate(200%);
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+}
+
+.wp-block-video {
+    border-radius: var(--border-radius-small);
+    overflow: hidden;
 }

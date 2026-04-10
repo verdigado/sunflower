@@ -2,12 +2,22 @@
 /**
  * Render the Sunflower latest posts block.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_classnames   = array();
 $sunflower_classnames[] = 'has-background';
 $sunflower_classnames[] = 'latest-posts';
+
+$sunflower_is_slider = isset( $attributes['blockLayout'] ) && 'slider' === $attributes['blockLayout'];
+
+// Layout-Variante bestimmen und als Modifier-Klasse anhängen.
+$sunflower_layout       = isset( $attributes['blockLayout'] ) ? $attributes['blockLayout'] : 'list';
+$sunflower_classnames[] = 'latest-posts--' . sanitize_html_class( $sunflower_layout );
+
+// Slider-Flag aus Layout ableiten (ersetzt die alte $sunflower_is_slider-Zeile).
+$sunflower_is_slider = ( 'slider' === $sunflower_layout );
+
 
 $sunflower_columns = 1;
 if ( isset( $attributes['blockLayout'] ) && 'grid' === $attributes['blockLayout'] ) {
@@ -23,12 +33,25 @@ $sunflower_link = false;
 $sunflower_categories = array();
 if ( isset( $attributes['categories'] ) && ! empty( $attributes['categories'] ) ) {
 	$sunflower_categories = $attributes['categories'];
-	$sunflower_link       = get_category_link( get_category_by_slug( trim( (string) $sunflower_categories[0] ) ) );
 }
 
 $sunflower_excluded_categories = array();
 if ( isset( $attributes['excludedCategories'] ) && ! empty( $attributes['excludedCategories'] ) ) {
 	$sunflower_excluded_categories = $attributes['excludedCategories'];
+}
+
+$sunflower_cat_tax              = get_taxonomy( 'category' );
+$sunflower_cat_archives_enabled = $sunflower_cat_tax && $sunflower_cat_tax->publicly_queryable;
+
+if ( $sunflower_cat_archives_enabled && ! empty( $sunflower_categories ) ) {
+	$sunflower_first_cat = trim( (string) $sunflower_categories[0] );
+	$sunflower_cat       = is_numeric( $sunflower_first_cat )
+		? get_category( (int) $sunflower_first_cat )
+		: get_category_by_slug( $sunflower_first_cat );
+
+	if ( $sunflower_cat && ! is_wp_error( $sunflower_cat ) ) {
+		$sunflower_link = get_category_link( $sunflower_cat );
+	}
 }
 
 if ( ! $sunflower_link || '' === $sunflower_link ) {
@@ -42,10 +65,12 @@ if ( ! $sunflower_link || '' === $sunflower_link ) {
 	}
 }
 
-// Fetch posts for given parameters.
+
+$sunflower_archive_label = ( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'Archive', 'sunflower-latest-posts' );
+
 $sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories, $sunflower_excluded_categories );
 
-$sunflower_title = ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) ? sprintf( '<h2 class="text-center h1">%s</h2>', $attributes['title'] ) : '';
+$sunflower_title = ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) ? sprintf( '<h2 class="text-center">%s</h2>', $attributes['title'] ) : '';
 
 $sunflower_classes = get_block_wrapper_attributes(
 	array(
@@ -53,13 +78,17 @@ $sunflower_classes = get_block_wrapper_attributes(
 	)
 );
 
+$sunflower_is_grid = ( 'grid' === $sunflower_layout );
+
 $sunflower_list_items = sprintf(
-	'<div %s>
+	'<div %1$s>
         <div class="wp-block-group__inner-container">
-            %s
-                <div class="row" data-masonry=\'{"percentPosition": true }\' >',
+            %2$s
+                <div class="row %3$s" %4$s>',
 	$sunflower_classes,
-	$sunflower_title
+	$sunflower_title,
+	$sunflower_is_slider ? 'posts-slider' : '',
+	$sunflower_is_grid ? sunflower_get_masonry_attr() : ''
 );
 
 switch ( $sunflower_columns ) {
@@ -92,19 +121,28 @@ if ( 0 === $sunflower_posts->post_count ) {
 	$sunflower_list_items = sprintf( '<div class="col-12 text-center pb-4">%s</div>', __( 'No posts found', 'sunflower' ) );
 }
 
-$sunflower_list_items .= sprintf(
-	'
-    <a class="text-white no-link d-block bg-primary has-green-550-hover-background-color border-radius" href="%1$s" rel="">
-        <div class="p-45 row">
-        <span class="continue-reading text-white text-center pt-0">%2$s</span>
-        </div>
-    </a>
-',
-	$sunflower_link,
-	( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'to archive', 'sunflower-latest-posts' )
-);
+if ( $sunflower_is_slider ) {
+	$sunflower_list_items .= sprintf(
+		'<div class="%3$s">
+            <a class="wp-block-button__link no-link" href="%1$s" rel="">%2$s</a>
+        </div>',
+		esc_url( $sunflower_link ),
+		$sunflower_archive_label,
+		$sunflower_css_col
+	);
+}
 
-$sunflower_list_items .= '</div></div></div>';
+$sunflower_list_items .= '</div>';
+
+if ( ! $sunflower_is_slider ) {
+	$sunflower_list_items .= sprintf(
+		'<a class="wp-block-button__link no-link" href="%1$s" rel="">%2$s</a>',
+		esc_url( $sunflower_link ),
+		$sunflower_archive_label
+	);
+}
+
+$sunflower_list_items .= '</div></div>';
 
 echo wp_kses(
 	$sunflower_list_items,

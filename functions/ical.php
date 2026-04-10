@@ -2,7 +2,7 @@
 /**
  * Methods for the ical export.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_prodid   = wp_parse_url( (string) get_bloginfo( 'url' ), PHP_URL_HOST );

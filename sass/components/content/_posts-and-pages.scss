@@ -1,10 +1,7 @@
+@use "sass:map";
+
 .sticky {
     display: block;
-}
-
-.post,
-.page {
-    margin: 0 0 1.5em;
 }
 
 .updated:not(.published) {
@@ -19,5 +16,97 @@
 
 .page-links {
     clear: both;
-    margin: 0 0 1.5em;
+    margin: 0 0 var(--half-block-spacing) 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--half-grid-margin);
+    flex-wrap: wrap;
+
+    font-size: 16px;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 14px;
+    }
+
+    .post-page-numbers {
+        width: 46px !important;
+        padding: 0 0 3px 1px;
+
+        &.current {
+            background-color: map.get($custom-colors, "schwarzwald") !important;
+            border: 2px solid map.get($custom-colors, "grashalm") !important;
+            color: map.get($custom-colors, "grashalm") !important;
+        }
+    }
+}
+
+.display-single,
+.type-page {
+
+    padding: 180px 0 0 0;
+
+    @include media-breakpoint-down(md) {
+        padding: 125px 0 0 0;
+    }
+}
+
+.styled-layout {
+
+    .display-single,
+    .type-page {
+
+        &:has(.entry-content>.wp-block-cover:first-child) {
+            padding: 0;
+        }
+    }
+}
+
+.display-single {
+
+    .entry-header {
+
+        @include themed-colorscheme() {
+            background-color: t(background);
+            color: t(text);
+            border-radius: t(border-radius);
+        }
+
+    }
+
+}
+
+.wp-singular:not(:has(.styled-layout)) {
+
+    .entry-content {
+
+        > .wp-block-group,
+        .wp-block-media-text, {
+
+            &:first-child {
+                padding-top: var(--grid-margin) !important;
+            }
+        }
+
+        > figure,
+        table {
+
+            &:first-child {
+                margin-top: var(--grid-margin) !important;
+            }
+        }
+    }
+}
+
+.site {
+
+    .page-header {
+        padding: 180px 0 0 0;
+
+        @include themed-colorscheme() {
+            background-color: t(background);
+            color: t(text);
+            border-radius: t(border-radius);
+        }
+    }
 }

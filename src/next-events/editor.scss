@@ -11,6 +11,18 @@
     list-style: none;
     padding: 0;
 
+    .next-events {
+        background-color: variables.$primary;
+        padding: 2rem;
+
+        .h2 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 36px;
+            line-height: 1.2;
+        }
+    }
+
     a.event-card {
         text-decoration: none;
         color: variables.$body-color;
@@ -76,6 +88,13 @@
     }
 
     @media (min-width: 768px) {
+
+        .next-events {
+
+            .h2 {
+                font-size: 45px;
+            }
+        }
 
         .col-md-6 {
             flex: 0 0 auto;

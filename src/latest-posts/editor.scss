@@ -11,6 +11,18 @@
     list-style: none;
     padding: 0;
 
+    &.latest-posts {
+        background-color: variables.$lightgreen !important;
+        margin: 0 calc(-1 * var(--grid-margin)) !important;
+        padding: var(--half-block-spacing) var(--grid-margin) !important;
+        overflow: hidden;
+
+        > .wp-block-group__inner-container {
+            max-width: none;
+            width: 100%;
+        }
+    }
+
     a {
         text-decoration: none;
         color: variables.$primary;
@@ -109,6 +121,19 @@
 
     .p-45 {
         padding: 2.25rem !important;
+    }
+
+    &.latest-posts--slider {
+
+        .posts-slider {
+
+            article {
+
+                .p-45 {
+                    padding: 0 !important;
+                }
+            }
+        }
     }
 
     .border-radius {

@@ -1,17 +1,17 @@
 /*!
-Theme Name: sunflower
+Theme Name: Sunflower 26
 Theme URI: https://sunflower-theme.de
 Author: verdigado eG
 Author URI: https://verdigado.com
 Description: Theme for the German Green Party
-Version: 2.2.18
+Version: 3.0.0-beta-9
 Tested up to: 6.9
 Requires PHP: 8.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: sunflower
 Tags: BÜNDNIS 90/DIE GRÜNEN
-Update URI: https://sunflower-theme.de/updateserver/
+Update URI: https://sunflower-theme.de/updateserver/sunflower26/
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
@@ -51,8 +51,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 --------------------------------------------------------------*/
 
-// Import variables and mixins.
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "variables";
 @import "abstracts/abstracts";
+@import "themes";
+
 
 /*--------------------------------------------------------------
 # Generic
@@ -74,8 +78,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-// @import "layouts/content-sidebar"; // Uncomment this line for a sidebar on right side of your content.
-// @import "layouts/sidebar-content"; // Uncomment this line for a sidebar on left side of your content.
+// Uncomment this line for a sidebar on right side of your content.
+// @import "layouts/content-sidebar";
+// Uncomment this line for a sidebar on left side of your content.
+// @import "layouts/sidebar-content";
 
 /*--------------------------------------------------------------
 # Components
@@ -104,7 +110,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 /* Fontawesome
 --------------------------------------------- */
-$fa-font-path : "assets/vndr/@fortawesome/fontawesome-free/webfonts";
+$fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
 
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/regular";
@@ -115,14 +121,9 @@ $fa-font-path : "assets/vndr/@fortawesome/fontawesome-free/webfonts";
 --------------------------------------------- */
 @import "forkawesome";
 
-/* Bootstrap
---------------------------------------------- */
-@import "variables";
-@import "../node_modules/bootstrap/scss/bootstrap";
 
 /* Custom
 --------------------------------------------- */
-@import "themes";
 @import "typography";
 @import "generic";
 @import "header";
@@ -138,8 +139,11 @@ $fa-font-path : "assets/vndr/@fortawesome/fontawesome-free/webfonts";
 @import "single";
 @import "sidebar";
 @import "comments";
+@import "slider";
+@import "wp-blocks/accordion";
 @import "wp-blocks/blocks";
 @import "wp-blocks/cover";
+@import "wp-blocks/details";
 @import "wp-blocks/group";
 @import "wp-blocks/file";
 @import "wp-blocks/person";
@@ -153,5 +157,9 @@ $fa-font-path : "assets/vndr/@fortawesome/fontawesome-free/webfonts";
 @import "wp-blocks/pullquote";
 @import "wp-blocks/styled-layout";
 @import "wp-blocks/table";
+@import "wp-blocks/social";
+@import "wp-blocks/latest-posts";
 @import "wp-blocks/media-text";
+@import "wp-blocks/navigation";
 @import "accordion";
+@import "calendar";

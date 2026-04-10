@@ -2,6 +2,23 @@ import metadata from './block.json';
 
 const { attributes } = metadata;
 
+// remove blockLayout attribute (always use grid view now)
+const v2 = {
+	attributes: {
+		...attributes,
+		blockLayout: {
+			type: 'string',
+			default: 'grid',
+		},
+	},
+	migrate: ( oldAttributes ) => {
+		const { blockLayout, ...newAttributes } = oldAttributes;
+		return newAttributes;
+	},
+	isEligible: ( { blockLayout } ) => blockLayout !== undefined,
+	save: () => null,
+};
+
 // change type of count attribute from string -> number
 const v1 = {
 	attributes: {
@@ -28,4 +45,4 @@ const v1 = {
  *
  * See block-deprecation.md
  */
-export default [ v1 ];
+export default [ v2, v1 ];

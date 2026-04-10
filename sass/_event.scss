@@ -1,69 +1,891 @@
-a.event-card {
-    color: $body-color !important;
-    text-decoration: none;
+@use "sass:map";
 
-    article {
-        background-color: $white;
-        border-radius: $border-radius;
-        height: 100%;
+.single-sunflower_event {
 
-        h2 {
-            color: $secondary;
+    .display-single {
+        min-height: calc(100vh - 180px);
+
+        @include media-breakpoint-down(md) {
+
+            &:has(.metabox) {
+
+                > .row:has(.metabox) {
+                    flex-direction: column;
+                    width: 100%;
+                    max-width: 100%;
+                    padding-left: 0;
+                    padding-right: 0;
+                    margin-left: 0;
+                    margin-right: 0;
+
+                    .metabox {
+                        order: -1;
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
+                }
+
+                .entry-content {
+                    width: 100%;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+}
+
+.post-type-archive-sunflower_event {
+
+
+    .filter-button-group {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: var(--half-grid-margin);
+        row-gap: var(--half-grid-margin);
+        margin-top: var(--half-grid-margin);
+        margin-bottom: var(--grid-margin);
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+            margin-top: 0;
         }
 
-        .event-archive-meta {
-            color: $darkgray;
+        button.filter,
+        .eventlist {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 13px;
+            color: $black;
+            letter-spacing: 0.5px;
+            line-height: 100%;
+            background: map.get($custom-colors, "sand");
+            border: 2px solid map.get($custom-colors, "schwarzwald");
+            padding: 0 15px 2px 15px;
+            height: 30px !important;
+            border-radius: 15px;
+            transition: 300ms ease-out;
+            margin: 0;
+            text-transform: none;
 
-            @include themed() {
-                font-family: t(standardFont);
+            &:hover,
+            &:focus,
+            &:active {
+                background: map.get($custom-colors, "schwarzwald");
+                color: map.get($custom-colors, "grashalm") !important;
+                border: 2px solid map.get($custom-colors, "grashalm") !important;
             }
 
-            border-bottom: 1px solid $lightgray;
-        }
+            &.filter-active {
+                background-color: map.get($custom-colors, "klee");
+                color: map.get($custom-colors, "white");
+                border: 2px solid map.get($custom-colors, "klee");
 
-        &:hover {
-            box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
-            margin-top: -0.2rem;
-            margin-bottom: 0.2rem;
-            transition: all 0.2s ease-out;
+                &:hover,
+                &:focus,
+                &:active {
+                    background: map.get($custom-colors, "schwarzwald");
+                    color: map.get($custom-colors, "grashalm") !important;
+                    border: 2px solid map.get($custom-colors, "grashalm") !important;
+                }
+            }
+        }
+    }
+
+    // Event-Liste wie archive-loop stylen
+    .event-list {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        gap: var(--grid-margin);
+        display: grid;
+        grid-template-columns: repeat(10, minmax(0, 1fr));
+        margin-bottom: var(--half-block-spacing);
+
+        @include media-breakpoint-down(xl) {
+            width: 100%;
         }
 
         .date {
+            font-family: "PT Sans", sans-serif !important;
+        }
 
-            @include themed() {
-                font-family: t(standardFont);
+        .event-archive-meta {
+
+            display: flex;
+            flex-direction: column;
+
+            .weekday,
+            .date {
+                width: fit-content;
+                margin: 0 !important;
+                line-height: 150% !important;
             }
 
-            font-weight: 700;
-            font-size: 25px;
+            .weekday {
+                margin-right: var(--half-grid-margin) !important;
+            }
+
+            .date {
+                font-size: 16px !important;
+
+                time {
+                    line-height: 150% !important;
+                }
+
+                @include media-breakpoint-down(xl) {
+                    font-size: 14px !important;
+                }
+            }
+        }
+
+        > .col-12 {
+            position: static;
+            top: auto;
+            left: auto;
+            display: flex;
+            grid-column: span 10;
+            width: 100%;
+            padding: 0 !important;
+            margin: 0 !important;
+
+            // Alternierendes Grid-Layout – zählt nur sichtbare Elemente,
+            // damit der Rhythmus nach Filterung per .d-none erhalten bleibt
+            &:nth-child(4n+1 of .col-12:not(.d-none)),
+            &:nth-child(4n+4 of .col-12:not(.d-none)) {
+                grid-column: span 4;
+
+                @include media-breakpoint-down(md) {
+                    grid-column: span 5;
+                }
+
+                @media (max-width: 700px) {
+                    grid-column: span 10;
+                }
+            }
+
+            &:nth-child(4n+2 of .col-12:not(.d-none)),
+            &:nth-child(4n+3 of .col-12:not(.d-none)) {
+                grid-column: span 6;
+
+                @include media-breakpoint-down(md) {
+                    grid-column: span 5;
+                }
+
+                @media (max-width: 700px) {
+                    grid-column: span 10;
+                }
+            }
+
+            &:has(#leaflet) {
+                grid-column: span 12;
+                display: block;
+            }
+        }
+    }
+
+    // Event-Cards wie normale Archive-Cards stylen
+    a.event-card {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        cursor: pointer;
+
+        article {
+
+            @include card;
+
+            display: flex;
+            flex-direction: column;
+            background-color: map.get($custom-colors, "white") !important;
+            border: 2px solid map.get($custom-colors, "klee");
+            border-radius: var(--border-radius-medium);
+            box-shadow: none !important;
+            min-height: auto;
+            height: 100%;
+            padding: 0;
+            margin: 0 !important;
+            width: 100% !important;
+            overflow: hidden;
+
+            &:hover {
+                border-color: map.get($custom-colors, "grashalm");
+
+                .event-card__icon--green img {
+                    transform: translateX(5px);
+                }
+
+                figure.event-card__media img {
+                    transform: scale(1.04);
+                }
+            }
+
+            // ::before Effekt nur bei Cards OHNE Bild
+            &:not(:has(.event-card__media)) {
+
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 0;
+                    top: 0;
+                    left: 0;
+                    background-color: map.get($custom-colors, "tanne");
+                    transition: 300ms ease-out;
+                    border-radius: 0;
+                    z-index: 1;
+                }
+
+                &:hover::before {
+                    height: 6px;
+                    background-color: map.get($custom-colors, "grashalm");
+                }
+
+            }
+
+            figure.event-card__media {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                border-radius: calc(var(--border-radius-medium) - 2px) calc(var(--border-radius-medium) - 2px) 0 0;
+                margin: 0;
+                grid-column: unset;
+                transition: none;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    transition: 400ms ease-out;
+                }
+            }
+
+            .p-4 {
+                padding: 13px 17px 16px 18px !important;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                grid-column: unset;
+
+                .event-archive-meta {
+                    margin-bottom: var(--half-grid-margin);
+
+                    .text-uppercase {
+                        color: map.get($custom-colors, "klee");
+                        font-size: 14px;
+                        font-weight: 700;
+                        letter-spacing: 0.5px;
+                        margin-bottom: 0;
+                    }
+
+                    .date {
+                        font-family: var(--wp--preset--font-family--gruenetypeneue);
+                        font-size: 25px;
+                        color: map.get($custom-colors, "klee");
+                        margin-bottom: 0;
+
+                        time {
+                            color: inherit;
+                        }
+                    }
+                }
+
+                .mt-2 {
+                    margin-top: 0 !important;
+
+                    .entry-header {
+                        padding: 0 !important;
+
+                        .h2 {
+                            font-size: 21px;
+                            color: map.get($custom-colors, "schwarzwald");
+                            letter-spacing: 0.6px;
+                            margin-bottom: 0;
+                            transition: 300ms ease-out;
+                        }
+                    }
+                }
+
+                .fst-italic {
+                    margin-top: auto;
+                    padding-top: 0;
+                    color: map.get($custom-colors, "schwarzwald");
+                    font-style: italic;
+                    font-weight: 450;
+                    margin-bottom: 35px;
+                }
+            }
+
+            .event-card__icon--green {
+                position: absolute;
+                bottom: 16px;
+                right: 17px;
+                display: block;
+
+                img {
+                    transition: 300ms ease-out;
+                }
+            }
+
+            .event-card__icon--white {
+                display: none;
+            }
         }
     }
 }
 
+a.event-card {
+    text-decoration: none;
+
+    article {
+        background-color: $white;
+        height: 100%;
+        min-height: 220px;
+
+        @include media-breakpoint-down(xl) {
+            min-height: 180px;
+        }
+
+        .mt-2 {
+            margin-top: 0 !important;
+        }
+
+        .pt-2 {
+            padding-top: 0 !important;
+            padding-bottom: var(--grid-margin);
+        }
+
+        .text-uppercase {
+            letter-spacing: 1.5px;
+            margin-bottom: 2px;
+        }
+
+        .entry-header {
+            line-height: 125%;
+        }
+
+        .event-archive-meta {
+
+
+            .date {
+                font-size: 25px;
+                line-height: 125%;
+                font-family: var(--wp--preset--font-family--gruenetypeneue);
+                margin-bottom: var(--half-grid-margin);
+            }
+        }
+    }
+}
+
+
 .next-events {
-    background-image: url("assets/img/jeb-buchman-NjrjrdJE8As-unsplash-1.jpg");
+    background-image: none;
     background-size: cover;
     background-position: top;
 
     flex-direction: column;
-
     padding-top: 100px;
     padding-bottom: 100px;
+
+    .small {
+        margin: 0 !important;
+    }
+
+    .row {
+        display: grid;
+        grid-auto-flow: dense;
+        grid-template-columns: repeat(10, minmax(0, 1fr));
+        gap: var(--grid-margin);
+        width: 100% !important;
+        margin-bottom: var(--grid-margin) !important;
+
+        article {
+            box-shadow: 0 0 0 0 map.get($custom-colors, "grashalm") !important;
+            height: 100%;
+            border: none;
+            border-radius: var(--border-radius-medium);
+            display: grid;
+            grid-auto-flow: dense;
+            gap: var(--grid-margin);
+            position: relative;
+            transition: 290ms ease-out;
+            outline: 0 solid map.get($custom-colors, "white");
+
+            &:hover {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+                transition: 510ms ease-out;
+
+                .event-card__icon--white,
+                .event-card__icon--green {
+                    transform: translateX(5px);
+                }
+
+                .event-card__media {
+                    position: relative; // sicherstellen, dass margin wirkt
+                    margin-top: -3px;
+                    margin-bottom: -3px;
+                    margin-left: -3px;
+
+                    img {
+                        scale: 1.05;
+                    }
+                }
+            }
+
+            .event-card__media {
+                transition: 400ms ease-out;
+                display: block;
+                overflow: hidden;
+                border-radius: var(--border-radius-medium) 0 0 var(--border-radius-medium);
+
+                img {
+                    transition: 300ms ease-out;
+                }
+            }
+
+            .wp-post-image {
+                min-height: 100%;
+                height: 180px;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            h2 {
+                font-size: 21px;
+                color: map.get($custom-colors, "white");
+                letter-spacing: 0.7px;
+            }
+
+            .p-4 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) var(--grid-margin) !important;
+            }
+
+            .event-card__icon--green,
+            .event-card__icon--white {
+                position: absolute;
+                bottom: calc(var(--grid-margin) - 3px);
+                right: var(--grid-margin);
+                transition: 400ms ease-out;
+
+                @include media-breakpoint-down(md) {
+                    display: none !important;
+                }
+            }
+
+            .event-card__icon--green {
+                display: none;
+            }
+
+            &:has(.wp-post-image) {
+
+                .p-4 {
+                    padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) 0 !important;
+                }
+
+                .date {
+
+                    &::first-line {
+                        color: map.get($custom-colors, "tanne"); // obere Zeile
+                    }
+
+                    color: map.get($custom-colors, "klee"); // untere Zeile
+                }
+
+                h2 {
+                    font-size: 21px;
+                    color: map.get($custom-colors, "klee");
+                    letter-spacing: 0.6px;
+                }
+
+                &:has(.date br) {
+
+                    .mt-2 h2 {
+                        color: map.get($custom-colors, "klee");
+                    }
+                }
+            }
+
+
+            .fst-italic {
+                position: relative;
+                bottom: 0;
+                letter-spacing: 0.6px;
+            }
+        }
+
+        > .col-12 {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            display: flex;
+            flex-direction: column;
+
+            > a.event-card {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                min-height: 0;
+
+                > article {
+                    flex: 1;
+                }
+            }
+
+            .small {
+                color: map.get($custom-colors, "white");
+                font-weight: 450;
+            }
+
+            .event-card__media {
+                margin: 0;
+                width: 100%;
+            }
+
+            &:nth-of-type(1),
+            &:nth-of-type(6),
+            &:nth-of-type(7),
+            &:nth-of-type(12),
+            &:nth-of-type(3),
+            &:nth-of-type(18) {
+                grid-column: span 4;
+            }
+
+            &:nth-of-type(2),
+            &:nth-of-type(3),
+            &:nth-of-type(4),
+            &:nth-of-type(5),
+            &:nth-of-type(8),
+            &:nth-of-type(9),
+            &:nth-of-type(10),
+            &:nth-of-type(11),
+            &:nth-of-type(14),
+            &:nth-of-type(15),
+            &:nth-of-type(16),
+            &:nth-of-type(17) {
+                grid-column: span 3;
+            }
+
+
+            &:nth-of-type(odd) {
+
+                article {
+                    background-color: map.get($custom-colors, "tanne");
+                    color: map.get($custom-colors, "white");
+
+                    &:hover {
+                        box-shadow: 0 0 0 3px map.get($custom-colors, "tanne") !important;
+                    }
+                }
+
+            }
+
+            &:nth-of-type(even) {
+
+                article {
+                    background-color: map.get($custom-colors, "klee");
+                    color: map.get($custom-colors, "white");
+
+                    &:hover {
+                        box-shadow: 0 0 0 3px map.get($custom-colors, "klee") !important;
+                    }
+                }
+
+            }
+
+
+        }
+
+
+        &:has(.event-card__media) {
+
+            h2,
+            .small {
+                color: map.get($custom-colors, "klee");
+            }
+
+            .event-card__icon--green {
+                display: block;
+            }
+
+            .event-card__icon--white {
+                display: none;
+            }
+
+            .small {
+                color: map.get($custom-colors, "schwarzwald");
+            }
+
+            .date {
+
+                &::first-line {
+                    color: map.get($custom-colors, "klee") !important; // obere Zeile
+                }
+
+                color: map.get($custom-colors, "tanne") !important; // untere Zeile
+            }
+
+            > .col-12 {
+
+                &:nth-of-type(1),
+                &:nth-of-type(4),
+                &:nth-of-type(5),
+                &:nth-of-type(8),
+                &:nth-of-type(9),
+                &:nth-of-type(12),
+                &:nth-of-type(13),
+                &:nth-of-type(16),
+                &:nth-of-type(17),
+                &:nth-of-type(20) {
+                    grid-column: span 4;
+
+                    @include media-breakpoint-down(xl) {
+                        grid-column: span 5;
+                    }
+
+                    @include media-breakpoint-down(md) {
+                        grid-column: span 10;
+                    }
+
+                    article {
+                        grid-template-columns: repeat(4, minmax(0, 1fr));
+                        background-color: map.get($custom-colors, "sand");
+                        box-shadow: 0 0 0 0 map.get($custom-colors, "sand") !important;
+
+                        &:hover {
+                            box-shadow: 0 0 0 3px map.get($custom-colors, "sand") !important;
+                        }
+
+                        figure {
+                            grid-column: span 2;
+
+                            @include media-breakpoint-down(md) {
+                                grid-column: span 1;
+                            }
+                        }
+
+                        &:has(.event-card__media) {
+
+                            .p-4 {
+                                grid-column: span 2;
+                            }
+                        }
+
+                        .p-4 {
+                            grid-column: span 4;
+
+                            @include media-breakpoint-down(md) {
+                                grid-column: span 3;
+                            }
+                        }
+                    }
+                }
+
+                &:nth-of-type(2),
+                &:nth-of-type(3),
+                &:nth-of-type(6),
+                &:nth-of-type(7),
+                &:nth-of-type(10),
+                &:nth-of-type(11),
+                &:nth-of-type(14),
+                &:nth-of-type(15),
+                &:nth-of-type(18),
+                &:nth-of-type(19) {
+                    grid-column: span 6;
+
+                    @include media-breakpoint-down(xl) {
+                        grid-column: span 5;
+                    }
+
+                    @include media-breakpoint-down(md) {
+                        grid-column: span 10;
+                    }
+
+                    article {
+                        grid-template-columns: repeat(6, minmax(0, 1fr));
+                        background-color: map.get($custom-colors, "gruener-sand");
+                        box-shadow: 0 0 0 0 map.get($custom-colors, "gruener-sand") !important;
+
+                        &:hover {
+                            box-shadow: 0 0 0 3px map.get($custom-colors, "gruener-sand") !important;
+                        }
+
+                        &:has(.event-card__media) {
+
+                            .p-4 {
+                                grid-column: span 3;
+                            }
+                        }
+
+
+                        figure {
+                            grid-column: span 3;
+
+                            @include media-breakpoint-down(md) {
+                                grid-column: span 1;
+                            }
+                        }
+
+                        .p-4 {
+                            grid-column: span 6;
+
+                            @include media-breakpoint-down(md) {
+                                grid-column: span 3;
+                            }
+                        }
+                    }
+                }
+
+
+                @include media-breakpoint-down(sm) {
+                    grid-column: span 12;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+
+            div {
+                grid-column: span 12 !important;
+            }
+
+            div:nth-of-type(n+4) {
+                display: none;
+            }
+
+            article {
+                grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+                gap: 0;
+
+                .p-4 {
+                    grid-column: span 12 !important;
+                    padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) var(--grid-margin) !important;
+                }
+            }
+
+            &:has(.event-card__media) article {
+
+                .event-card__media {
+                    grid-column: span 5 !important;
+                }
+
+                .p-4 {
+                    grid-column: span 7 !important;
+                    padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) var(--grid-margin) !important;
+                }
+
+                &:not(.has-post-thumbnail) {
+
+                    @include media-breakpoint-down(md) {
+
+                        .p-4 {
+                            grid-column: span 12 !important;
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
+    @media (min-width: 1024px) {
+
+        /* Karten MIT Bild bleiben 4/12 breit */
+        @supports (selector(:has(*))) {
+
+            .next-events .row > [class*="col-"]:has(article.has-post-thumbnail) {
+                grid-column: span 4;
+            }
+
+            /* Karten OHNE Bild werden schmaler (3/12) -> mehr Rhythmus */
+            .next-events .row > [class*="col-"]:not(:has(article.has-post-thumbnail)) {
+                grid-column: span 3;
+            }
+        }
+    }
+
+
+    .wp-block-button.text-center {
+        text-align: right !important;
+    }
+
 
     @include media-breakpoint-down(md) {
         padding-top: 50px;
         padding-bottom: 50px;
     }
 
+    h2 {
+        text-align: left;
+    }
+
+    .wp-block-group__inner-container {
+        max-width: 1400px;
+        width: 100%;
+    }
+
+}
+
+.wp-block-column .next-events {
+
+    .row {
+
+        > .col-12 {
+            grid-column: span 12 !important;
+        }
+
+        article {
+            grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+            gap: 0;
+
+            .p-4 {
+                grid-column: span 12 !important;
+                padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) var(--grid-margin) !important;
+            }
+        }
+
+        &:has(.event-card__media) article {
+
+            .event-card__media {
+                grid-column: span 5 !important;
+                border-radius: var(--border-radius-medium) 0 0 var(--border-radius-medium);
+            }
+
+            .p-4 {
+                grid-column: span 7 !important;
+                padding: calc(var(--grid-margin) - 3px) var(--grid-margin) calc(var(--grid-margin) - 4px) var(--grid-margin) !important;
+            }
+
+            &:not(.has-post-thumbnail) {
+
+                .p-4 {
+                    grid-column: span 12 !important;
+                }
+            }
+        }
+    }
 }
 
 #leaflet {
-    height: 350px;
+    height: 500px;
     margin-bottom: 100px;
+
+    @include alignfull;
 
     i {
         font-size: 60px;
     }
+
+    z-index: 1;
 }
 
 .leaflet {
@@ -73,6 +895,31 @@ a.event-card {
         strong {
             display: block;
             margin-bottom: 0.5em;
+        }
+    }
+}
+
+
+.calendar-download {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: var(--double-grid-margin) !important;
+}
+
+.post-type-archive-sunflower_event .no-results .page-content {
+    text-align: center;
+}
+
+body.post-image-modern {
+
+    a.event-card article figure.event-card__media {
+        height: 254px;
+
+        img {
+            height: 254px;
+            object-fit: cover;
         }
     }
 }

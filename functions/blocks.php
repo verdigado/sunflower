@@ -2,7 +2,7 @@
 /**
  * Method for registring Sunflower blocks.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**
@@ -68,6 +68,15 @@ function sunflower_blocks_init() {
 		'sunflower-contact-form',
 		get_template_directory() . '/languages'
 	);
+
+	if ( file_exists( get_template_directory() . '/build/calendar' ) ) {
+		register_block_type( get_template_directory() . '/build/calendar' );
+		wp_set_script_translations(
+			'sunflower-calendar-events-editor-script',
+			'sunflower-calendar-events',
+			get_template_directory() . '/languages'
+		);
+	}
 }
 
 add_action( 'init', 'sunflower_blocks_init' );
@@ -90,6 +99,120 @@ function sunflower_blocks_load_textdomain() {
 
 	load_textdomain( 'sunflower-meta-data', get_template_directory() . '/languages/sunflower-meta-data-de_DE.mo' );
 	load_theme_textdomain( 'sunflower-meta-data', get_template_directory() . '/languages' );
+
+	load_textdomain( 'sunflower-calendar-events', get_template_directory() . '/languages/sunflower-calendar-events-de_DE.mo' );
+	load_theme_textdomain( 'sunflower-calendar-events', get_template_directory() . '/languages' );
 }
 
 add_action( 'after_setup_theme', 'sunflower_blocks_load_textdomain' );
+
+/**
+ * Add icon picker for WP blocks.
+ */
+function sunflower_enqueue_block_icon_picker() {
+	wp_enqueue_script(
+		'sunflower-button-icon-picker',
+		get_template_directory_uri() . '/assets/js/block-icon-picker.js',
+		array(
+			'wp-blocks',
+			'wp-element',
+			'wp-block-editor',
+			'wp-components',
+			'wp-i18n',
+			'wp-compose',
+			'wp-data',
+		),
+		filemtime( get_template_directory() . '/assets/js/block-icon-picker.js' ),
+		true
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_icon_picker' );
+
+/**
+ * Enqueue script for setting --bg CSS variable on mark elements in editor.
+ * This replicates the frontend.js behavior for skewed headlines in the block editor.
+ * Uses enqueue_block_assets to ensure it runs inside the editor iframe (WP 5.9+).
+ */
+function sunflower_enqueue_editor_mark_bg() {
+	// Nur im Admin/Editor laden, nicht im Frontend.
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	wp_enqueue_script(
+		'sunflower-editor-mark-bg',
+		get_template_directory_uri() . '/assets/js/editor-mark-bg.js',
+		array(),
+		filemtime( get_template_directory() . '/assets/js/editor-mark-bg.js' ),
+		true
+	);
+}
+add_action( 'enqueue_block_assets', 'sunflower_enqueue_editor_mark_bg' );
+
+/**
+ * Block styles for Gutenberg.
+ */
+function sunflower_enqueue_block_core_assets() {
+
+	wp_enqueue_script(
+		'sunflower-core-cover-variations',
+		get_template_directory_uri() . '/build/core/cover/index.js',
+		array(
+			'wp-blocks',
+			'wp-i18n',
+			'wp-element',
+		),
+		SUNFLOWER_VERSION,
+		true
+	);
+
+	wp_enqueue_script(
+		'sunflower-core-list-variations',
+		get_template_directory_uri() . '/build/core/list/index.js',
+		array(
+			'wp-blocks',
+			'wp-i18n',
+			'wp-element',
+		),
+		SUNFLOWER_VERSION,
+		true
+	);
+
+	// Styles for the editor.
+	wp_enqueue_style(
+		'sunflower-core-cover-variations',
+		get_template_directory_uri() . '/build/core/cover/index.css',
+		array(),
+		SUNFLOWER_VERSION
+	);
+	wp_enqueue_style(
+		'sunflower-core-list-variations',
+		get_template_directory_uri() . '/build/core/list/index.css',
+		array(),
+		SUNFLOWER_VERSION
+	);
+
+	wp_enqueue_script(
+		'sunflower-editor-flexible-mode',
+		get_template_directory_uri() . '/assets/js/editor-flexible-mode.js',
+		array( 'wp-hooks', 'wp-compose', 'wp-element', 'wp-data', 'wp-block-editor', 'wp-components' ),
+		SUNFLOWER_VERSION,
+		true
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_core_assets' );
+
+/**
+ * Aktuelle "Beitragsbilder"-Einstellung an den Block-Editor durchreichen.
+ *
+ * @param array $settings Editor-Einstellungen.
+ * @return array
+ */
+function sunflower_pass_post_image_mode_to_editor( $settings ) {
+	$options                            = get_option( 'sunflower_options' );
+	$settings['sunflowerPostImageMode'] = ! empty( $options['sunflower_post_image_format'] )
+		? $options['sunflower_post_image_format']
+		: 'modern';
+	return $settings;
+}
+add_filter( 'block_editor_settings_all', 'sunflower_pass_post_image_mode_to_editor' );

@@ -2,7 +2,7 @@
 /**
  * Check for updates from Sunflower update server.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**
@@ -10,11 +10,11 @@
  *
  * @param Array  $transient The theme update data with the latest details. Default false.
  * @param Array  $theme_data Theme data array.
- * @param string $theme_slug  The theme slug - 'sunflower' our case.
+ * @param string $theme_slug  The theme slug - 'sunflower26' our case.
  */
 function sunflower_update_theme( $transient, $theme_data, $theme_slug ) {
 
-	if ( 'sunflower' !== $theme_slug ) {
+	if ( 'sunflower26' !== $theme_slug ) {
 		return $transient;
 	}
 
@@ -66,16 +66,17 @@ add_filter( 'update_themes_sunflower-theme.de', 'sunflower_update_theme', 10, 3 
  */
 function sunflower_maybe_run_theme_update() {
 
-	$theme  = wp_get_theme();
-	$stored = get_option( 'sunflower_theme_version' );
+	$theme   = wp_get_theme();
+	$version = $theme->get( 'Version' );
+	$stored  = get_option( 'sunflower_theme_version' );
 
-	if ( SUNFLOWER_VERSION === $stored ) {
+	if ( $stored === $version ) {
 		return;
 	}
 
-	sunflower_run_update_tasks( $stored );
+	sunflower_run_update_tasks( $stored, $version );
 
-	update_option( 'sunflower_theme_version', SUNFLOWER_VERSION );
+	update_option( 'sunflower_theme_version', $version );
 }
 add_action( 'init', 'sunflower_maybe_run_theme_update' );
 
@@ -86,6 +87,11 @@ add_action( 'init', 'sunflower_maybe_run_theme_update' );
  * @param string $from_version The previous version.
  */
 function sunflower_run_update_tasks( $from_version ) {
+
+	// Option sunflower_events_enabled was added in 2.2.15, so we need to enable it for users updating from a version older than that.
+	if ( empty( $from_version ) ) {
+		return;
+	}
 
 	if ( version_compare( $from_version, '2.2.15', '<' ) ) {
 
@@ -105,5 +111,15 @@ function sunflower_run_update_tasks( $from_version ) {
 
 		// Flush rewrite rules later on custom post registration.
 		update_option( 'sunflower_flush_rewrite_rules', 1 );
+	}
+
+	if ( version_compare( $from_version, '3.0.0', '<' ) ) {
+		// If updating from a version older than 3.0.0, set the default post image format to 'flexible'.
+		$sunflower_options = get_option( 'sunflower_options' );
+		if ( ! is_array( $sunflower_options ) ) {
+			$sunflower_options = array();
+		}
+		$sunflower_options['sunflower_post_image_format'] = 'flexible';
+		update_option( 'sunflower_options', $sunflower_options );
 	}
 }

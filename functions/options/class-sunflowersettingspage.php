@@ -2,7 +2,7 @@
 /**
  * Class for the Sunflower settings page.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**
@@ -52,10 +52,14 @@ class SunflowerSettingsPage {
 		}
 
 		// Set default values.
+		$this->options['excerpt_length'] = isset( $this->options['excerpt_length'] ) && '' !== $this->options['excerpt_length']
+			? absint( $this->options['excerpt_length'] )
+			: 15;
+
 		$this->options['sunflower_categories_archive'] = $this->options['sunflower_categories_archive'] ?? 'main-categories';
 
 		?>
-		<div class="wrap">
+		<div class="wrap sunflower-setting-admin">
 			<h1><?php esc_html_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
 			<form method="post" action="options.php">
 			<?php
@@ -81,14 +85,53 @@ class SunflowerSettingsPage {
 		);
 
 		add_settings_section(
-			'sunflower_layout',
-			__( 'Layout', 'sunflower' ),
-			$this->print_section_info( ... ),
+			'sunflower_theme_variant',
+			__( 'Theme variant', 'sunflower' ),
+			$this->print_section_info_theme_variant( ... ),
 			'sunflower-setting-admin'
 		);
 
 		add_settings_field(
-			'excerps_length',
+			'sunflower_form_style',
+			__( 'Shape Style', 'sunflower' ),
+			array( $this, 'sunflower_form_style_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_theme_variant'
+		);
+
+		add_settings_field(
+			'sunflower_color_scheme',
+			__( 'Color Mood', 'sunflower' ),
+			array( $this, 'sunflower_color_scheme_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_theme_variant'
+		);
+
+		add_settings_field(
+			'sunflower_post_image_format',
+			__( 'Post Image Format', 'sunflower' ),
+			array( $this, 'sunflower_post_image_format_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_theme_variant'
+		);
+
+		add_settings_field(
+			'sunflower_footer_layout',
+			__( 'Footer Color Variant', 'sunflower' ),
+			array( $this, 'sunflower_footer_layout_callback' ),
+			'sunflower-setting-admin',
+			'sunflower_theme_variant'
+		);
+
+		add_settings_section(
+			'sunflower_layout',
+			__( 'Layout', 'sunflower' ),
+			$this->print_section_info_layout( ... ),
+			'sunflower-setting-admin'
+		);
+
+		add_settings_field(
+			'excerpt_length',
 			__( 'Excerpt length (words)', 'sunflower' ),
 			$this->excerpt_length_callback( ... ),
 			'sunflower-setting-admin',
@@ -150,15 +193,6 @@ class SunflowerSettingsPage {
 				'field' => 'sunflower_main_menu_item_is_placeholder',
 				'label' => __( 'items with href=# in the main menu are placeholders for submenu', 'sunflower' ),
 			)
-		);
-
-		add_settings_field(
-			'sunflower_header_layout',
-			__( 'Use this header layout', 'sunflower' ),
-			$this->sunflower_header_layout( ... ),
-			'sunflower-setting-admin',
-			'sunflower_layout',
-			array( 'sunflower_header_layout', __( 'Use this header layout', 'sunflower' ) )
 		);
 
 		add_settings_field(
@@ -225,7 +259,25 @@ class SunflowerSettingsPage {
 	/**
 	 * Print the Section text
 	 */
-	public function print_section_info() {
+	public function print_section_info_theme_variant() {
+		printf(
+			'<div class="sunflower-section">
+				<p class="description">%s</p>
+			</div>',
+			esc_attr__( 'Select the visual appearance of your theme.', 'sunflower' )
+		);
+	}
+
+	/**
+	 * Print the Section text
+	 */
+	public function print_section_info_layout() {
+		printf(
+			'<div class="sunflower-section">
+				<p class="description">%s</p>
+			</div>',
+			esc_attr__( 'Various theme settings', 'sunflower' )
+		);
 	}
 
 	/**
@@ -269,17 +321,17 @@ class SunflowerSettingsPage {
 	}
 
 	/**
-	 * Header layout variant field
+	 * Form style layout variant field
 	 */
-	public function sunflower_header_layout(): void {
-		echo '<select id="sunflower_header_layout" name="sunflower_options[sunflower_header_layout]">';
+	public function sunflower_form_style_callback(): void {
+		echo '<select id="sunflower_form_style" name="sunflower_options[sunflower_form_style]">';
 
 		$options = array(
-			array( 'standard', __( 'Standard', 'sunflower' ) ),
-			array( 'personal', __( 'Personal', 'sunflower' ) ),
+			array( 'rounded', __( 'Rounded', 'sunflower' ) ),
+			array( 'sharp', __( 'Sharp', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
-			$selected = ( isset( $this->options['sunflower_header_layout'] ) && $this->options['sunflower_header_layout'] === $option[0] ) ? 'selected' : '';
+			$selected = ( isset( $this->options['sunflower_form_style'] ) && $this->options['sunflower_form_style'] === $option[0] ) ? 'selected' : '';
 			printf(
 				'<option value="%1$s" %2$s>%3$s</option>',
 				esc_attr( $option[0] ),
@@ -290,6 +342,82 @@ class SunflowerSettingsPage {
 
 		echo '</select>';
 	}
+
+	/**
+	 * Color theme layout variant field
+	 */
+	public function sunflower_color_scheme_callback(): void {
+		echo '<select id="sunflower_color_scheme" name="sunflower_options[sunflower_color_scheme]">';
+
+		$options = array(
+			array( 'light', __( 'Light', 'sunflower' ) ),
+			array( 'green', __( 'Dark', 'sunflower' ) ),
+		);
+		foreach ( $options as $option ) {
+			$selected = ( isset( $this->options['sunflower_color_scheme'] ) && $this->options['sunflower_color_scheme'] === $option[0] ) ? 'selected' : '';
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_attr( $option[1] )
+			);
+		}
+
+		echo '</select>';
+	}
+
+	/**
+	 * Post image format variant field
+	 */
+	public function sunflower_post_image_format_callback(): void {
+		$current = $this->options['sunflower_post_image_format'] ?? 'modern';
+
+		echo '<select id="sunflower_post_image_format" name="sunflower_options[sunflower_post_image_format]">';
+
+		$options = array(
+			array( 'modern', __( 'Querformat', 'sunflower' ) ),
+			array( 'flexible', __( 'Flexibel', 'sunflower' ) ),
+		);
+		foreach ( $options as $option ) {
+			$selected = ( $current === $option[0] ) ? 'selected' : '';
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_html( $option[1] )
+			);
+		}
+
+		echo '</select>';
+		printf(
+			'<p class="description">%s</p>',
+			esc_html__( 'Nutze Querformate (z.B. 2/1 oder 16/9) als Beitrags- oder Terminbeitrags-Bilder, um einen bestmöglichen Look in den Vorschau-Cards und auf Beitragsseiten zu erzeugen. Wenn du jegliche Proportionen ohne Zuschnitt nutzen möchtest, wähle die Option "Flexibel".', 'sunflower' )
+		);
+	}
+
+	/**
+	 * Footer layout variant field
+	 */
+	public function sunflower_footer_layout_callback(): void {
+		echo '<select id="sunflower_footer_layout" name="sunflower_options[sunflower_footer_layout]">';
+
+		$options = array(
+			array( 'sand', __( 'Sand', 'sunflower' ) ),
+			array( 'green', __( 'Light Green', 'sunflower' ) ),
+		);
+		foreach ( $options as $option ) {
+			$selected = ( isset( $this->options['sunflower_footer_layout'] ) && $this->options['sunflower_footer_layout'] === $option[0] ) ? 'selected' : '';
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $option[0] ),
+				esc_attr( $selected ),
+				esc_attr( $option[1] )
+			);
+		}
+
+		echo '</select>';
+	}
+
 
 	/**
 	 * Header layout variant field

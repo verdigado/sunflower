@@ -1,3 +1,5 @@
+@use "sass:map";
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -14,20 +16,341 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-    color: $color__text-input;
-    border: 1px solid $color__border-input;
-    border-radius: 3px;
-    padding: 3px;
+    border-radius: var(--border-radius-large);
+    padding: 2px 20px 5px 20px;
+    min-height: 46px;
+    font-size: 20px;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 600;
+    line-height: 35px;
+    letter-spacing: 0.6px;
+    max-width: 100%;
+    width: 100%;
+
+    @include themed-colorscheme-nested() {
+        background-color: t(input-background);
+        color: t(input-text);
+        border: 2px solid t(input-border);
+    }
+
+    label {
+        font-size: 12px;
+        line-height: 130%;
+
+        @include themed-colorscheme-nested() {
+            color: t(input-text);
+        }
+    }
+
+    &::placeholder {
+
+        @include themed-colorscheme-nested() {
+            color: t(input-text);
+        }
+    }
 
     &:focus {
-        color: $color__text-input-focus;
+
+        @include themed-colorscheme-nested() {
+            color: t(input-fokus-text);
+            border: 2px solid t(input-fokus-border) !important;
+        }
+
+        &::placeholder {
+            opacity: 0;
+        }
     }
 }
 
 select {
-    border: 1px solid $color__border-input;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: var(--border-radius-large);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0.6px;
+    height: 46px;
+    width: 100%;
+    font-family: "PT Sans", sans-serif;
+    padding: 0 50px 4px 20px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: 2px solid $button-border;
+    background-color: $button-background;
+    color: $primary;
+    background-image: url("/wp-content/themes/sunflower26/assets/img/dropdown.svg");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 18px auto;
+
+    &:hover {
+        color: map.get($custom-colors, "schwarzwald");
+        text-decoration: none;
+        background-color: $button-hover;
+    }
+
+    &:focus {
+        color: $white;
+        outline: 2px solid map.get($custom-colors, "klee");
+        border: 2px solid map.get($custom-colors, "klee");
+        background-color: map.get($custom-colors, "tanne");
+    }
+
+    @include media-breakpoint-down(md) {
+        padding: 0 50px 2px 20px;
+    }
+}
+
+@include media-breakpoint-down(md) {
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="password"],
+    input[type="search"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="range"],
+    input[type="date"],
+    input[type="month"],
+    input[type="week"],
+    input[type="time"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="color"],
+    textarea,
+    select {
+        font-size: 16px;
+    }
+}
+
+
+.input-with-icon {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 23px;
+    pointer-events: none;
+
+    @include themed-colorscheme-nested() {
+        color: t(input-fokus-text);
+    }
+}
+
+.input-with-icon input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 50px;
+    height: 46px;
+    font-size: 20px;
+    font-family: "PT Sans";
+    line-height: 35px;
+    letter-spacing: 0.6px;
+
+    @include themed-colorscheme-nested() {
+        background-color: t(input-background);
+        color: t(input-text);
+        border: 2px solid t(input-border);
+    }
+
+    &::placeholder {
+
+        @include themed-colorscheme-nested() {
+            color: t(input-text);
+        }
+    }
+
+    &:focus,
+    &:active {
+
+        @include themed-colorscheme-nested() {
+            color: t(input-fokus-text);
+            border: 2px solid t(input-fokus-border) !important;
+        }
+
+        &::placeholder {
+            opacity: 0;
+        }
+    }
+
+    &:valid {
+
+        @include themed-colorscheme-nested() {
+            color: t(input-fokus-text);
+            border: 2px solid t(input-fokus-border) !important;
+        }
+    }
+}
+
+
+form label[for^="mail"],
+form label[for^="name"],
+form label[for^="tel"],
+form label[for^="phone"],
+form label[for^="captcha"],
+form label[for^="message"] {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 46px;
+    height: 46px;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+
+    @include themed-colorscheme-nested() {
+        background-color: t(input-background);
+        border: 2px solid t(input-border);
+    }
+
+    .input-with-icon {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .input-with-icon i {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 23px;
+        pointer-events: none;
+
+        @include themed-colorscheme-nested() {
+            color: t(input-fokus-text);
+        }
+    }
+}
+
+input[type="radio"] {
+    border-radius: 50%;
+}
+
+input[type="checkbox"]::after,
+input[type="radio"]::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+
+input[type="checkbox"]:checked::after {
+
+    @include themed-colorscheme-nested() {
+        background-color: t(input-fokus-border);
+    }
+}
+
+input[type="radio"]:checked::after {
+
+    @include themed-colorscheme-nested() {
+        background-color: t(input-fokus-border);
+    }
+
+    border-radius: 50%;
+}
+
+label {
+    vertical-align: middle;
+}
+
+.comment-respond:has(#sunflower-contact-form) {
+    border: none;
+    background-color: map.get($custom-colors, "sand");
+
+    .input-with-icon i {
+        color: map.get($custom-colors, "tanne");
+    }
+
+    *:focus-visible {
+        box-shadow: none;
+    }
+}
+
+#sunflower-contact-form {
+
+    justify-content: flex-end;
+
+    .col-12 {
+
+        padding: 0 var(--half-grid-margin);
+        margin-bottom: var(--double-grid-margin);
+
+        &:nth-of-type(1) {
+
+            p {
+                height: 100%;
+            }
+
+            textarea {
+                min-height: 100%;
+            }
+        }
+
+        > :first-child {
+            margin-top: 0 !important;
+        }
+
+        .comment-form-author,
+        .comment-form-email {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .small:nth-of-type(2) {
+        margin: 0 !important;
+    }
+
+    .form-submit {
+        position: relative;
+        width: fit-content;
+        right: var(--half-grid-margin);
+        margin-bottom: 0;
+
+        input {
+            letter-spacing: 2px;
+        }
+    }
+
+    &.is-feedback {
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 textarea {
-    width: 100%;
+    border-radius: var(--border-radius-medium);
+    padding: 2px 20px 5px 20px;
 }

@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 if ( ! function_exists( 'sunflower_posted_on' ) ) :
@@ -26,7 +26,7 @@ if ( ! function_exists( 'sunflower_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		echo '<span class="posted-on">' . wp_kses(
+		echo '<span class="posted-on metainfo">' . wp_kses(
 			$time_string,
 			array(
 				'post',
@@ -44,7 +44,7 @@ if ( ! function_exists( 'sunflower_posted_by' ) ) :
 	 * Prints HTML with meta information for the current author.
 	 */
 	function sunflower_posted_by() {
-		$byline = '| <span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author() . '</a></span>';
+		$byline = '| <span class="author vcard metainfo"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author() . '</a></span>';
 
 		echo '<span class="byline"> ' . wp_kses_post( $byline ) . '</span>';
 	}
@@ -58,41 +58,41 @@ if ( ! function_exists( 'sunflower_entry_footer' ) ) :
 	 */
 	function sunflower_entry_footer( $show_sharers = false ) {
 		?>
-			<div class="d-flex mt-2 mb-2">
+		<div class="d-flex mt-2 mb-2">
+			<?php
+			if ( $show_sharers ) {
+				sunflower_the_social_media_sharers();
+			}
+			?>
+			<div>
 				<?php
-				if ( $show_sharers ) {
-					sunflower_the_social_media_sharers();
+
+				// Hide category and tag text for pages.
+				if ( 'post' === get_post_type() ) {
+					/* translators: used between list items, there is a space after the comma */
+					$categories_list = get_the_category_list( esc_html__( ', ', 'sunflower' ) );
+					if ( $categories_list ) {
+						/* translators: 1: list of categories. */
+						printf( '<span class="cat-links small">%s</span>', wp_kses_post( $categories_list ) );
+					}
+
+					/* translators: used between list items, there is a space after the comma */
+					$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'sunflower' ) );
+
+					if ( $categories_list && $tags_list ) {
+						echo '<br>';
+					}
+
+					if ( $tags_list ) {
+						/* translators: 1: list of tags. */
+						printf( '<span class="tags-links small">%s</span>', wp_kses_post( $tags_list ) );
+					}
 				}
+
 				?>
-				<div>
-		<?php
 
-		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'sunflower' ) );
-			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links small">%s</span>', wp_kses_post( $categories_list ) );
-			}
-
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'sunflower' ) );
-
-			if ( $categories_list && $tags_list ) {
-				echo '<br>';
-			}
-
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links small">%s</span>', wp_kses_post( $tags_list ) );
-			}
-		}
-
-		?>
-
-				</div>
 			</div>
+		</div>
 		<?php
 	}
 endif;
@@ -235,7 +235,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 				$caption_string = implode( ' | ', $caption );
 				if ( ! empty( $caption_string ) ) {
 					?>
-				<figcaption><?php echo wp_kses_post( $caption_string ); ?></figcaption>
+						<figcaption><?php echo wp_kses_post( $caption_string ); ?></figcaption>
 					<?php
 				}
 			}
@@ -244,7 +244,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 
 		<?php else : ?>
 			<?php
-				$classes = array( 'post-thumbnail' );
+			$classes = array( 'post-thumbnail' );
 			if ( 'strict' === $sunflower_media_creator_settings && empty( $creator ) ) {
 				$classes[] = ' no-creator';
 			}

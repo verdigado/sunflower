@@ -1,60 +1,167 @@
-# Copyright (C) 2024 verdigado eG
+# Copyright (C) 2026 verdigado eG
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.0.9\n"
+"Project-Id-Version: Sunflower 26 3.0.0-beta-7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-accordion\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-04T20:41:37+00:00\n"
+"POT-Creation-Date: 2026-04-10T10:56:47+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower-accordion\n"
 
 #. Theme Name of the theme
-msgid "sunflower"
+#: style.css
+msgid "Sunflower 26"
 msgstr ""
 
 #. Theme URI of the theme
+#: style.css
 msgid "https://sunflower-theme.de"
 msgstr ""
 
 #. Description of the theme
+#: style.css
 msgid "Theme for the German Green Party"
 msgstr ""
 
 #. Author of the theme
+#: style.css
 msgid "verdigado eG"
 msgstr ""
 
 #. Author URI of the theme
+#: style.css
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/accordion/index.js:91
-#: build/accordion/index.js:66
+#: build/accordion/index.js:96
+#: src/accordion/edit.js:63
+#: build/accordion/index.js:63
 msgid "Clickable text opening the selection"
 msgstr ""
 
-#: build/accordion/index.js:94
+#: build/accordion/index.js:99
+#: src/accordion/edit.js:69
 #: build/accordion/index.js:69
 msgid "Titel of the accordion item"
 msgstr ""
 
-#: build/accordion/index.js:101
-#: build/accordion/index.js:77
+#: build/accordion/index.js:106
+#: src/accordion/edit.js:79
+#: build/accordion/index.js:79
 msgid "Text content of the openend accordion item."
 msgstr ""
 
 #: build/accordion/block.json
+#: src/accordion/block.json
 msgctxt "block title"
 msgid "Accordion Item (Sunflower)"
 msgstr ""
 
 #: build/accordion/block.json
+#: src/accordion/block.json
 msgctxt "block description"
 msgid "Sunflower: Simple Accordion Item Block Element"
+msgstr ""
+
+#: build/core/cover/block.json
+#: src/core/cover/block.json
+msgctxt "block title"
+msgid "Modified Cover Block Styles for Sunflower Theme"
+msgstr ""
+
+#: build/core/list/block.json
+#: src/core/list/block.json
+msgctxt "block title"
+msgid "Modified List Block Styles for Sunflower Theme"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Schwarzwald"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Tanne"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Klee"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Grashalm"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sonne"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sand"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Grüner Sand"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Maus"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Kalk"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Himmel"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "PT Sans"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "GrueneType Neue"
 msgstr ""

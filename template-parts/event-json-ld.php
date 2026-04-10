@@ -2,7 +2,7 @@
 /**
  * Template part for providing events in json-ld format
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_event_location_name   = get_post_meta( $post->ID, '_sunflower_event_location_name', true ) ?? false;

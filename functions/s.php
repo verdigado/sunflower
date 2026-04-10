@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 if ( ! defined( 'SUNFLOWER_VERSION' ) ) {
@@ -79,8 +79,8 @@ if ( ! function_exists( 'sunflower_setup' ) ) :
 		add_theme_support( 'responsive-embeds' );
 
 		add_theme_support( 'editor-styles' );
-		add_editor_style( '/assets/css/editor-style.css' );
-		add_editor_style( '/assets/css/admin-fontawesome.css' );
+		// Kompiliertes Editor-Stylesheet mit allen relevanten Frontend-Styles.
+		add_editor_style( '/assets/css/editor-style-compiled.css' );
 	}
 endif;
 
@@ -99,26 +99,7 @@ function sunflower_content_width() {
 
 add_action( 'after_setup_theme', 'sunflower_content_width', 0 );
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function sunflower_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'sunflower' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'sunflower' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
 
-add_action( 'widgets_init', 'sunflower_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
@@ -142,7 +123,7 @@ function sunflower_scripts() {
 	wp_enqueue_script(
 		'frontend',
 		get_template_directory_uri() . '/assets/js/frontend.js',
-		null,
+		array( 'jquery', 'masonry' ),
 		SUNFLOWER_VERSION,
 		true
 	);
@@ -176,6 +157,25 @@ function sunflower_scripts() {
 		)
 	);
 
+	/* Inline‑Script ganz an den Anfang des Heads */
+	add_action(
+		'wp_head',
+		fn() => print(
+		"<script>document.documentElement.classList.add('preload');</script>"
+		),
+		0
+	);
+
+	/* JS – im Head mit defer */
+	wp_enqueue_script(
+		'fade',
+		get_stylesheet_directory_uri() . '/assets/js/fade.js',
+		array(),
+		SUNFLOWER_VERSION,
+		false
+	);
+	wp_script_add_data( 'fade', 'strategy', 'defer' );
+
 	if ( 'sunflower_event' === get_post_type() ) {
 		wp_enqueue_script(
 			'sunflower-leaflet',
@@ -195,7 +195,7 @@ function sunflower_scripts() {
 
 	wp_enqueue_style( 'lightbox', get_template_directory_uri() . '/assets/vndr/lightbox2/dist/css/lightbox.min.css', array(), '4.3.0' );
 	wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/assets/vndr/lightbox2/dist/js/lightbox.min.js', array( 'jquery' ), '3.3.0', true );
-	wp_enqueue_script( 'masonry', get_template_directory_uri() . '/assets/vndr/masonry-layout/dist/masonry.pkgd.min.js', array( 'masorny' ), '4.2.2', true );
+	wp_enqueue_script( 'masonry', get_template_directory_uri() . '/assets/vndr/masonry-layout/dist/masonry.pkgd.min.js', array(), '4.2.2', true );
 	if ( sunflower_get_setting( 'sunflower_sharer_mastodon' ) ) {
 		wp_enqueue_script(
 			'mastodon',
@@ -208,6 +208,12 @@ function sunflower_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'sunflower_scripts' );
+
+/**
+ * Editor-Styles werden über add_editor_style() in sunflower_setup() geladen.
+ * Dies stellt sicher, dass sie NUR im Editor-Canvas (iframe) wirken,
+ * nicht in der Admin-UI (Sidebar, List-View, etc.).
+ */
 
 /**
  * Custom template tags for this theme.

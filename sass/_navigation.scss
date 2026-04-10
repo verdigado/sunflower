@@ -1,3 +1,5 @@
+@use "sass:map";
+
 body.navbar-open {
     overflow: hidden;
 }
@@ -23,17 +25,87 @@ body.navbar-open {
                             border-radius: 0;
                         }
                     }
-
                 }
             }
         }
     }
 }
 
+.hamburger-menu .topmenu {
+    display: none;
+}
+
 .topmenu {
 
-    background: $secondary;
-    color: $white;
+    background-color: map.get($custom-colors, "weiss");
+    position: relative;
+    top: 0;
+
+    ul {
+        font-size: 0;
+        line-height: 0;
+        padding-top: var(--grid-margin);
+        column-gap: calc(var(--gap-large));
+        row-gap: var(--gap-small);
+        justify-content: flex-end;
+        margin-right: var(--grid-margin);
+    }
+
+    .navbar-collapse {
+        margin: 0;
+        justify-content: flex-end;
+    }
+
+    .container-fluid {
+        padding: 0 var(--grid-margin);
+    }
+
+    .menu-item {
+
+        padding: 0;
+        margin: 0;
+
+        &.current_page_item a {
+            color: map.get($custom-colors, "klee") !important;
+        }
+
+        a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            line-height: 100%;
+            color: map.get($custom-colors, "tanne") !important;
+            padding: 0 0 2px 0;
+            border-radius: 15px;
+            transition: 300ms ease-out;
+            margin: 0;
+            text-transform: none;
+
+            &:focus:not(:focus-visible) {
+                outline: none;
+                box-shadow: none;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: map.get($custom-colors, "klee") !important;
+            }
+
+            &.filter-active {
+                color: map.get($custom-colors, "klee");
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: map.get($custom-colors, "tanne") !important;
+                }
+            }
+        }
+    }
 
     .search {
 
@@ -89,36 +161,67 @@ body.navbar-open {
         color: $very-light-gray;
     }
 
+    .fas {
+        font-family: "PT Sans", sans-serif;
+    }
+
+}
+
+.formstyle-sharp .topmenu {
+
+    ul,
+    .navbar-collapse {
+        justify-content: flex-start;
+    }
 }
 
 .sunflower-post-navigation {
 
+    padding-bottom: var(--half-block-spacing);
+
+    @media (max-width: 1000px) {
+        display: none !important;
+    }
+
     div {
 
         a {
-            background: none;
-            display: block;
-            padding: 30px;
-            text-decoration: none;
-            color: $secondary;
-            border: 1px solid $secondary;
-            border-radius: $border-radius;
 
-            &:hover {
-                background: $secondary;
-                color: $white;
-            }
+            font-size: 18px !important;
+            padding: 5px 15px 8px 15px !important;
 
-            .announce {
-                text-align: right;
-                text-transform: uppercase;
-                font-weight: 700;
-                font-style: italic;
+            .icon-arrow {
+                position: relative;
+                top: 1px;
+                width: 23px;
+
+                &--right {
+                    margin-left: 7px;
+                }
+
+                &--left {
+                    margin-right: 7px;
+                }
 
             }
         }
     }
 }
+
+body.colorscheme-green .topmenu .menu-item a {
+    color: map.get($custom-colors, "grashalm") !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: map.get($custom-colors, "white") !important;
+    }
+}
+
+body.colorscheme-green .topmenu .current-menu-item a {
+    color: map.get($custom-colors, "white") !important;
+}
+
 
 .navbar {
 
@@ -241,8 +344,6 @@ body.navbar-open {
                 color: $body-color;
                 font-size: 18px;
                 padding: 11px 0 7px 0;
-                margin-right: 0.5rem;
-                margin-left: 0.5rem;
                 text-align: left;
                 white-space: nowrap;
 
@@ -256,10 +357,6 @@ body.navbar-open {
                 }
             }
         }
-    }
-
-    li {
-        margin-right: 10px;
     }
 }
 

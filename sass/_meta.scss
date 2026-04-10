@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .tags-links {
 
     a {
@@ -6,7 +8,7 @@
         &::before {
 
             content: "#";
-            color: map-get($custom-colors, "black");
+            color: map.get($custom-colors, "black");
         }
     }
 }
@@ -16,8 +18,10 @@
 
     a {
         text-decoration: none;
+        font-weight: 700;
     }
 }
+
 
 .byline {
 
@@ -32,17 +36,19 @@
         position: relative;
     }
 
-    background: $primary;
-    border-radius: $border-radius;
-    color: $white;
-    padding: $grid-gutter-width;
+    background: map.get($custom-colors, "gruener-sand");
+    color: map.get($custom-colors, "tanne");
+    padding: calc(var(--gap-large) - 3px) var(--gap-large) var(--gap-large) var(--gap-large);
     z-index: 20;
+    width: 280px;
     text-align: left;
     height: fit-content;
     margin-bottom: 20px;
+    border-radius: var(--border-radius-medium);
 
     .date {
-        font-size: 150%;
+        font-size: 200%;
+        line-height: 110%;
         font-weight: 700;
 
         @include media-breakpoint-up(lg) {
@@ -55,11 +61,99 @@
     }
 
     a {
-        color: $white;
+        color: map.get($custom-colors, "tanne") !important;
+        font-weight: 700;
+
+        transition: 300ms ease-in-out;
 
         &.location {
             margin-left: 5px;
         }
+
+        &:hover {
+            color: map.get($custom-colors, "grashalm") !important;
+        }
     }
 
+}
+
+.wp-block-site-title a,
+.wp-block-site-tagline {
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 150%;
+    position: relative;
+    height: 32px;
+    color: #fff;
+    font-family: "GrueneType Neue", sans-serif;
+    width: fit-content;
+    display: inline-block;
+    padding: 3px 0;
+    transition: background-color 0.3s ease;
+}
+
+
+body .wp-block-site-title {
+    line-height: 0;
+    font-size: 0;
+    margin-bottom: 0 !important;
+}
+
+.wp-block-site-title a {
+    background-color: map.get($custom-colors, "tanne");
+    right: calc(-1 * var(--gap-large));
+    z-index: 1;
+
+    &:hover {
+
+        &::before {
+            background-color: map.get($custom-colors, "klee");
+        }
+    }
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: 100%;
+        content: "";
+        z-index: -1;
+        transform: skewX(-12deg);
+        background-color: #005538;
+        transition: background-color 0.3s ease;
+
+        @include media-breakpoint-down(xl) {
+            left: -7px;
+            width: calc(100% + 14px);
+        }
+    }
+}
+
+.wp-block-site-tagline {
+    background-color: map.get($custom-colors, "klee");
+    position: relative;
+    margin: 0;
+
+    &:empty {
+        display: none;
+    }
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: 100%;
+        content: "";
+        z-index: -1;
+        transform: skewX(-12deg);
+        background-color: map.get($custom-colors, "klee");
+        transition: background-color 0.3s ease;
+
+        @include media-breakpoint-down(xl) {
+            left: -7px;
+            width: calc(100% + 14px);
+        }
+    }
 }

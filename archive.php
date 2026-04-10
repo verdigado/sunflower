@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 get_header();
@@ -18,7 +18,8 @@ get_header();
 						<header class="page-header">
 						<?php
 						the_archive_title( '<h1 class="page-title">', '</h1>' );
-						the_archive_description( '<div class="archive-description">', '</div>' );
+
+						the_archive_description( '<h3 class="archive-description">', '</h3>' );
 						?>
 						</header><!-- .page-header -->
 
@@ -47,8 +48,9 @@ get_header();
 						}
 						?>
 
-						<div class="archive-loop row" data-masonry='{"percentPosition": true }'>
+						<div class="archive-loop alignwide row" <?php echo sunflower_get_masonry_attr(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 								<?php
+
 								echo wp_kses(
 									$sunflower_list_items,
 									array_merge(
@@ -88,5 +90,4 @@ get_header();
 		</div>
 </div>
 <?php
-get_sidebar();
 get_footer();

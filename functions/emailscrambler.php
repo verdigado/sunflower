@@ -2,7 +2,7 @@
 /**
  * Scramble emails in content.
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 /**

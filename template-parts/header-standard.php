@@ -1,170 +1,120 @@
 <?php
 /**
- * Standard Header
+ * Custom Header Template
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 ?>
-<header id="masthead" class="site-header">
 
-		<nav class="navbar navbar-top d-none d-lg-block navbar-expand-lg navbar-dark p-0 topmenu">
-			<div class="container">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topmenu-container" aria-controls="topmenu-container" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse justify-content-between" id="topmenu-container">
+<?php if ( has_nav_menu( 'topmenu' ) ) : ?>
+	<div class="topmenu">
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-lg py-0" aria-label="<?php esc_attr_e( 'Top menu', 'sunflower' ); ?>">
+				<div class="navbar-collapse">
 					<?php
-					$sunflower_social_media_icons = '';
-					if ( sunflower_get_setting( 'sunflower_header_social_media' ) ) {
-						$sunflower_social_media_icons = sunflower_get_social_media_profiles();
-					}
-					printf( '<div class="social-media-profiles d-none d-md-flex">%s</div>', wp_kses_post( $sunflower_social_media_icons ) );
+					wp_nav_menu(
+						array(
+							'theme_location' => 'topmenu',
+							'menu_class'     => 'navbar-nav nav flex-row',
+							'container'      => false,
+							'fallback_cb'    => false,
+							'item_class'     => 'nav-item',
+							'link_class'     => 'nav-link',
+						)
+					);
 					?>
-						<div class="d-flex">
-							<?php
-								wp_nav_menu(
-									array(
-										'theme_location' => 'topmenu',
-										'menu_id'        => 'topmenu',
-										// 1 = no dropdowns, 2 = with dropdowns.
-										'depth'          => 1,
-										'container'      => false,
-										'menu_class'     => 'navbar-nav small',
-										'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
-										'walker'         => new WP_Bootstrap_Navwalker(),
-									)
-								);
-								?>
-							<form class="form-inline my-2 my-md-0 search d-flex" action="<?php bloginfo( 'url' ); ?>">
-								<label for="topbar-search" class="visually-hidden"><?php esc_html_e( 'Search', 'sunflower' ); ?></label>
-								<input id="topbar-search" class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php esc_html_e( 'Search', 'sunflower' ); ?>" aria-label="<?php esc_html_e( 'Search', 'sunflower' ); ?>"
-									value="<?php echo get_search_query(); ?>"
-								>
-								<input type="submit" class="d-none" value="<?php esc_html_e( 'Search', 'sunflower' ); ?>" aria-label="<?php esc_html_e( 'Search', 'sunflower' ); ?>">
-							</form>
-							<button class="show-search me-3" title="<?php esc_html_e( 'show search', 'sunflower' ); ?>" aria-label="<?php esc_html_e( 'show search', 'sunflower' ); ?>">
-								<i class="fas fa-search"></i>
-							</button>
-						</div>
 				</div>
-			</div>
-		</nav>
+			</nav>
+		</div>
+	</div>
+<?php endif; ?>
 
-		<div class="container-fluid bloginfo bg-primary">
-			<div class="container d-flex align-items-center">
-				<div class="img-container
+<header class="top-bar">
+	<div class="container-fluid d-flex align-items-center justify-content-between flex-wrap">
+
+		<!-- Left: Label Block -->
+
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand-left branding d-flex flex-column text-center">
+			<div class="label-top skew-box"><?php esc_attr( bloginfo( 'name' ) ); ?></div>
+			<div class="label-bottom skew-box"><?php esc_attr( bloginfo( 'description' ) ); ?></div>
+		</a>
+
+		<?php if ( is_active_sidebar( 'header-after-brand' ) ) : ?>
+		<div class="header-widget-area">
+			<?php dynamic_sidebar( 'header-after-brand' ); ?>
+		</div>
+		<?php endif; ?>
+
+		<div class="right-bar menubar nav-center d-flex align-items-center flex-wrap justify-content-center">
+
+			<?php
+			sunflower_inline_svg( 'assets/img/concave.svg' );
+			?>
+
+			<div class="right-bar__content">
+
 				<?php
 				$sunflower_options = get_option( 'sunflower_first_steps_options' );
-				if ( has_custom_logo() ) {
-					echo 'custom-logo';
+				if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
+					// Custom Logo wird direkt angezeigt (erzeugt eigenen Link).
+					the_custom_logo();
 				} elseif ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
-						echo 'sunflower-logo';
-				}
-				?>
-				">
-					<?php
-					if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
-						the_custom_logo();
-					} else {
-						echo '<a href="' . esc_url( get_home_url() ) . '" rel="home" aria-current="page" title="', esc_attr( get_bloginfo( 'name' ) ) . '">';
-						if ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
-							printf( '<img src="%s" class="" alt="Logo">', esc_attr( sunflower_parent_or_child( 'assets/img/sunflower.svg' ) ) );
-						}
-
-						echo '</a>';
-					}
+					// Standard Sunflower Logo mit Hintergrund.
 					?>
-				</div>
-				<div>
-					<a href="<?php echo esc_url( get_home_url() ); ?>" class="d-block h5 text-white bloginfo-name no-link">
-						<?php esc_attr( bloginfo( 'name' ) ); ?>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+						rel="home"
+						class="logo-background">
+						<?php sunflower_inline_svg( 'assets/img/sunflower-3.0.svg' ); ?>
 					</a>
 					<?php
-					if ( ! empty( get_bloginfo( 'description' ) ) ) {
-						printf(
-							'<a href="%s" class="d-block text-white mb-0 bloginfo-description no-link">%s</a>',
-							esc_url( get_home_url() ),
-							esc_attr( get_bloginfo( 'description' ) )
-						);
-					}
-					?>
-				</div>
-			</div>
-		</div>
-
-</header><!-- #masthead -->
-
-	<?php /* must be outside of masthead for stickness */ ?>
-	<div id="navbar-sticky-detector"></div>
-	<nav class="navbar navbar-main navbar-expand-lg navbar-light bg-white">
-		<div class="container">
-			<?php
-				$sunflower_options = get_option( 'sunflower_first_steps_options' );
-			if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
-				$sunflower_custom_logo_id = get_theme_mod( 'custom_logo' );
-				$sunflower_custom_logo    = wp_get_attachment_image_src( $sunflower_custom_logo_id, 'thumbnail' );
-				printf( '<a class="navbar-brand" href="%s">', esc_url( get_home_url() ) );
-				printf( '<img src="%s" class="custom-logo" alt="Logo" title="%s"></a>', esc_url( $sunflower_custom_logo[0] ), esc_attr( get_bloginfo( 'name' ) ) );
-			} elseif ( ( $sunflower_options['sunflower_terms_of_use'] ?? false ) === 'checked' ) {
-				printf( '<a class="navbar-brand" href="%s">', esc_url( get_home_url() ) );
-				printf( '<img src="%s" class="sunflower-logo" alt="Sonnenblume - Logo" title="%s"></a>', esc_attr( sunflower_parent_or_child( 'assets/img/sunflower.svg' ) ), esc_attr( get_bloginfo( 'name' ) ) );
-			}
-			?>
-			<?php
-			/**
-			 * Check if a navigation highlight button exists.
-			 */
-			function sunflower_output_highlight_button_if_exists() {
-				if ( has_nav_menu( 'mainmenu' ) ) {
-					$menu_locations = get_nav_menu_locations();
-					$menu_id        = $menu_locations['mainmenu'];
-					$menu_items     = wp_get_nav_menu_items( $menu_id );
-
-					foreach ( $menu_items as $menu_item ) {
-						if ( in_array( 'button-highlight', $menu_item->classes, true ) ) {
-							$classes_string = implode( ' ', $menu_item->classes );
-							echo '
-							<div class="button-highlight-stuck"><a  href="' . esc_url( $menu_item->url ) . '"><i class="' . esc_attr( $classes_string ) . '"></i> ' . esc_html( $menu_item->title ) . '</a></div>';
-							return;
-						}
-					}
 				}
-			}
-			?>
+				?>
 
-			<?php sunflower_output_highlight_button_if_exists(); ?>
-
-
-			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu-container" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
-				<i class="fas fa-times close"></i>
-				<i class="fas fa-bars open"></i>
-			</button>
-
-			<div class="collapse navbar-collapse" id="mainmenu-container">
-				<?php
+				<nav class="main-menu">
+					<?php
 					wp_nav_menu(
 						array(
 							'theme_location' => 'mainmenu',
-							'menu_id'        => 'mainmenu',
-							// 1 = no dropdowns, 2 = with dropdowns.
-							'depth'          => 4,
-							// We opened the <div> container already.
+							'menu_class'     => 'nav',
 							'container'      => false,
-							'menu_class'     => 'navbar-nav mr-auto',
-							'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
-							'walker'         => new WP_Bootstrap_Navwalker(),
+							'fallback_cb'    => false,
 						)
 					);
 					?>
 
-				<form class="form-inline my-2 mb-2 search d-block d-lg-none" action="<?php bloginfo( 'url' ); ?>">
-					<input class="form-control form-control-sm topbar-search-q" name="s" type="text" placeholder="<?php esc_html_e( 'Search', 'sunflower' ); ?>" aria-label="<?php esc_html_e( 'Search', 'sunflower' ); ?>"
-						value="<?php echo get_search_query(); ?>"
-					>
-					<input type="submit" class="d-none" value="<?php esc_html_e( 'Search', 'sunflower' ); ?>" aria-label="<?php esc_html_e( 'Search', 'sunflower' ); ?>">
-
-				</form>
+				</nav>
 			</div>
+
+			<?php
+			sunflower_inline_svg( 'assets/img/concave.svg' );
+			?>
+
 		</div>
-	</nav>
+
+	<button class="hamburger" type="button" aria-expanded="false" aria-label="<?php esc_attr_e( 'Menu', 'sunflower' ); ?>">
+		<?php
+		sunflower_inline_svg( 'assets/img/concave.svg' );
+		?>
+
+		<span class="hamburger__top"></span>
+		<span class="hamburger__center"></span>
+		<span class="hamburger__bottom"></span>
+
+		<?php
+		sunflower_inline_svg( 'assets/img/concave.svg' );
+		?>
+	</button>
+	</div>
+
+	<?php
+	if ( is_front_page() ) {
+		$sunflower_social_media_icons = '';
+		if ( sunflower_get_setting( 'sunflower_header_social_media' ) ) {
+			$sunflower_social_media_icons = sunflower_get_social_media_profiles();
+		}
+		printf( '<div class="social-media-profiles d-none d-md-flex">%s</div>', wp_kses_post( $sunflower_social_media_icons ) );
+	}
+	?>
+
+</header>

@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package sunflower
+ * @package Sunflower 26
  */
 
 $sunflower_ics_link = wp_nonce_url( home_url() . '/?sunflower_event=' . $post->post_name . '&format=ics', 'event_ics_' . $post->ID, 'sunflower_nonce' );
@@ -182,6 +182,36 @@ $sunflower_metadata .= sprintf(
 			</div>
 	</div>
 </div>
+
 <?php
-get_sidebar();
+if ( sunflower_get_setting( 'sunflower_show_related_posts' ) ) {
+	?>
+	<div class="container related-posts">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2>
+					<?php
+						echo esc_attr__( 'Aktuelles', 'sunflower' );
+					?>
+				</h2>
+			</div>
+
+			<?php
+				$sunflower_latest_posts = sunflower_latest_posts( 2 );
+			while ( $sunflower_latest_posts->have_posts() ) {
+				$sunflower_latest_posts->the_post();
+
+				echo '<div class="col-12 col-md-6">';
+				get_template_part( 'template-parts/content', 'archive' );
+				echo '</div>';
+			}
+			wp_reset_postdata();
+			?>
+		</div>
+	</div>
+	<?php
+}
+?>
+
+<?php
 get_footer();

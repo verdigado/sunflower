@@ -8,13 +8,13 @@
 	"icon": "feedback",
 	"description": "Simple Contact Form",
 	"example": {},
-    "attributes": {
-        "title": {
-            "type": "string",
+	"attributes": {
+		"title": {
+			"type": "string",
 			"default": ""
 		},
-        "mailTo": {
-            "type": "string",
+		"mailTo": {
+			"type": "string",
 			"default": ""
 		},
 		"requireMail": {
@@ -33,13 +33,13 @@
 			"type": "boolean",
 			"default": false
 		}
-    },
+	},
 	"supports": {
 		"html": false
 	},
 	"textdomain": "sunflower-contact-form",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-    "render": "file:./render.php",
+	"render": "file:./render.php",
 	"viewScript": [ "file:./view.js" ]
 }

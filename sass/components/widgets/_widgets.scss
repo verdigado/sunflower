@@ -6,3 +6,20 @@
         max-width: 100%;
     }
 }
+
+#leaflet {
+
+    > div {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.wp-block-group:has(.osm) {
+    padding-top: var(--grid-margin) !important;
+    padding-bottom: var(--grid-margin) !important;
+
+    .osm-map {
+        border-radius: var(--border-radius-small);
+    }
+}

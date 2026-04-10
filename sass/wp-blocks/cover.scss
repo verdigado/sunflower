@@ -1,27 +1,356 @@
-.entry-content > .wp-block-cover {
+@use "sass:map";
 
-    @include themed() {
-        font-family: t(headingFontBold);
+// ----------------------------------------------------------------
+// 0.1  Breakpoint helper (Bootstrap‑style)
+// ----------------------------------------------------------------
+@mixin breakpoint-down($breakpoint) {
+
+    @if $breakpoint == xl {
+
+        @media (max-width: 1200px) {
+            @content;
+        }
+    } @else if $breakpoint == lg {
+
+        @media (max-width: 992px) {
+            @content;
+        }
+    } @else if $breakpoint == md {
+
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $breakpoint == sm {
+
+        @media (max-width: 576px) {
+            @content;
+        }
+    }
+}
+
+@mixin absolute-fill {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin concave-pseudo(
+    $primary-pos,
+    $secondary-pos,
+    $rotate,
+    $size: 30px,
+    $offset-x: -1px,
+    $offset-y: -17px
+) {
+
+    @include themed-colorscheme-nested() {
+        content: url(#{t(cover-concave-img)});
     }
 
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    width: 100vw;
-    // padding: 25px;
-    padding-left: 20vw;
-    padding-right: 20vw;
-    background-color: $black;
+    height: $size;
+    width: $size * 1.272;               // 38.16 px / 30 px → original aspect ratio
+    position: absolute;
+    transform: rotate($rotate);         // korrekte Rotation
 
-    &.wp-block-group-is-layout-flow,
+    /* -------- Primary (top / bottom) -------- */
+    #{$primary-pos}: $offset-y;
+
+    /* -------- Secondary (left / right) -------- */
+    #{$secondary-pos}: $offset-x;
+
+    /* ---- XL‑Breakpoint‑Anpassungen ---- */
+    @include breakpoint-down(md) {
+        height: 20px;
+        width: 20px * 1.272;               // 25.44 px → gleiche Proportion
+        #{$primary-pos}: -11px;          // nur den primary‑Wert ändern
+        #{$secondary-pos}: -1px;              // secondary wird zu 0
+    }
+}
+
+%hero-inner-base {
+    padding: var(--grid-margin);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @include themed-colorscheme-nested() {
+        background-color: t(background);
+    }
+
+    @include breakpoint-down(md) {
+        padding: var(--gap-huge) var(--gap-large);
+    }
+}
+
+/* ----------------------------------------------------------------
+ * 1️⃣  Base hero block – applies to every .is-style-sunflower-hero
+ * ---------------------------------------------------------------- */
+
+.entry-content > .wp-block-cover.is-style-sunflower-hero {
+    overflow: hidden;
+    border-radius: var(--border-radius-large);
+    position: relative;
+    transition: 0.3s ease;
+    min-height: 60vh;
+    margin: var(--half-block-spacing) 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    @include breakpoint-down(xl) {
+        min-height: 300px;
+    }
+
+    @include breakpoint-down(md) {
+        height: fit-content !important;
+        flex-direction: column;
+        min-height: 250px;
+        padding: 0 !important;
+    }
+
+    .wp-block-cover__image-background {
+
+        @include absolute-fill;
+
+        object-fit: cover;
+        z-index: 0;
+
+        @include breakpoint-down(md) {
+            height: auto;
+            position: relative !important;
+            border-radius: var(--border-radius-large) 0;
+            min-height: 350px;
+        }
+    }
+
     .wp-block-cover__inner-container {
-        max-width: map-get($container-max-widths, "xl");
+
+        @extend %hero-inner-base;
+
+        border-radius: 0 var(--border-radius-large) 0 0;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: fit-content;
+        max-width: 70%;
+        padding: 25px 50px 0 25px !important;
+
+        @include breakpoint-down(xl) {
+            max-width: 75%;
+        }
+
+        @include breakpoint-down(lg) {
+            padding: 24px 24px 0 12px;
+        }
+
+        @include breakpoint-down(md) {
+            max-width: 100%;
+            width: 100%;
+            border-radius: 0;
+            padding: 12px 0 0 0 !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative !important;
+
+            h1 {
+                margin-top: -32px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            h1 {
+                margin-top: 0;
+            }
+        }
+
+        &:has(> :is(h1, h2, h3, h4)):not(
+        :has(> :not(:is(h1, h2, h3, h4, .wp-block-buttons)))) {
+            padding-top: var(--gap-huge);
+            padding-bottom: var(--gap-huge);
+
+            h1:has(mark),
+            h2:has(mark),
+            h3:has(mark) {
+                text-align: left !important;
+            }
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-align: left;
+            position: relative;
+            left: -8px;
+
+            @include breakpoint-down(lg) {
+                margin-top: 0;
+            }
+        }
+
+        .has-text-align-center,
+        h1,
+        h2 {
+
+            mark:nth-of-type(2) {
+                margin-left: 100px;
+
+                @include media-breakpoint-down(xl) {
+                    margin-left: 85px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    margin-left: 75px;
+                }
+            }
+
+        }
+
+        .wp-block-buttons {
+            margin-bottom: var(--grid-margin);
+            flex-wrap: wrap;
+
+            @include breakpoint-down(lg) {
+                justify-content: center;
+                width: 100%;
+
+                .wp-block-button {
+                    flex: 1 1 auto;
+                    max-width: 100%;
+                }
+            }
+        }
+
+        // pseudo‑elements (concave SVG)
+        &::before {
+
+            @include concave-pseudo(top, left, -180deg);
+        }
+
+        &::after {
+
+            @include concave-pseudo(bottom, right, 180deg, 30px, -37px, -13px);
+
+            @include breakpoint-down(md) {
+                top: -22px;
+                right: -11px;
+                transform: rotate(90deg);
+            }
+        }
     }
+}
+
+/* ----------------------------------------------------------------
+ * 2️⃣  First-child overrides – viewport height + top-of-page positioning
+ * ---------------------------------------------------------------- */
+
+.entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    max-width: 100vw;
+    width: calc(100% + var(--double-grid-margin)) !important;
+    margin-left: calc(-1 * var(--grid-margin)) !important;
+    margin-right: calc(-1 * var(--grid-margin)) !important;
+    padding: 0 !important;
+    height: calc(100vh - (2 * var(--grid-margin)));
+
+    @include breakpoint-down(md) {
+        min-height: initial !important;
+        height: fit-content;
+        margin-bottom: 0 !important;
+    }
+}
+
+body:has(.topmenu) .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - ((2 * var(--grid-margin)) + 35px));
+}
+
+body:has(.topmenu).topmenu-large .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - ((2 * var(--grid-margin)) + 49px));
+}
+
+.wp-block-cover__inner-container:has(.textbalken) {
+    padding: var(--grid-margin);
+}
+
+body:has(.topmenu).hamburger-menu .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - (2 * var(--grid-margin)));
+}
+
+.entry-content > .wp-block-cover.is-style-sunflower-hero:first-child {
+    padding: var(--grid-margin);
+    width: 100% !important;
+    margin: var(--grid-margin) 0 var(--half-block-spacing) 0 !important;
+    border-radius: var(--border-radius-large);
+
+    &.alignfull {
+        width: 100%;
+    }
+}
+
+body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
+    height: calc(100vh - (var(--double-grid-margin) + 32px ));
+
+    @include breakpoint-down(md) {
+        height: calc(100vh - (var(--double-grid-margin) + 48px ));
+    }
+}
+
+.entry-content > .wp-block-cover:not(.is-style-sunflower-hero):first-child {
+    margin-top: 130px;
+    margin-bottom: var(--grid-margin);
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+    padding: 0;
 }
 
 .wp-block-column {
 
     .wp-block-cover {
         overflow: hidden;
-        border-radius: $border-radius;
+        border-radius: var(--border-radius-medium);
+    }
+}
+
+.wp-block-cover,
+.entry-content > .wp-block-cover.alignfull {
+    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wp-block-cover:not(.is-style-sunflower-hero) {
+
+    .wp-block-cover__inner-container {
+
+        > * {
+            padding-left: var(--double-grid-margin);
+            padding-right: var(--double-grid-margin);
+        }
+    }
+}
+
+body main #content .wp-block-cover:not(.is-style-sunflower-hero):has(.wp-block-cover__background) .wp-block-cover__inner-container {
+
+    h1,
+    h2 {
+        color: #fff;
+    }
+}
+
+.wp-block-cover__inner-container {
+
+    .wp-block-group {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .wp-block-image {
+        margin-bottom: 0 !important;
     }
 }

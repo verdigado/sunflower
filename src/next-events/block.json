@@ -18,15 +18,15 @@
 		},
 		"count": {
 			"type": "number",
-			"default": 3
-		},
-		"blockLayout": {
-			"type": "string",
-			"default": "grid"
+			"default": 6
 		},
 		"excerptLength": {
 			"type": "number",
 			"default": 55
+		},
+		"eventTitleFilter": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {
@@ -36,6 +36,7 @@
 	},
 	"textdomain": "sunflower-next-events",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
+	"style": "file:./style.css",
+	"editorStyle": "file:./editor.css",
 	"render": "file:./render.php"
 }
