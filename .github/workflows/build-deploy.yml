@@ -54,7 +54,7 @@ jobs:
 
       - name: Install npm packages
         if: steps.npm-cache-dir.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm install
 
       - name: Build CSS
         run: npm run compile:build
