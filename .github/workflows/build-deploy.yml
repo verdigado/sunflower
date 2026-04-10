@@ -12,6 +12,12 @@ env:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    env:
+      PROJECT_ROOT: ${{ github.workspace }}/sunflower26
+
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_ROOT }}
 
     if: |
       ${{
@@ -23,6 +29,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+        with:
+            path: sunflower26
 
       - name: check theme version against tag
         run: |
@@ -67,6 +75,15 @@ jobs:
             composer install
             cd lib && composer install
 
+      - name: Run PHPCS checks
+        id: phpcs
+        continue-on-error: true
+        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml .
+
+      - name: Show PHPCS results in PR
+        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
+        run: cs2pr ./phpcs-report.xml
+
       - name: Make bundle
         run: npm run bundle
 
@@ -76,12 +93,14 @@ jobs:
 
       - name: Rename ZIP file
         run: |
-            mv ../sunflower.zip sunflower-${{ github.event.release.tag_name }}.zip
+            mv ../sunflower26.zip sunflower-${{ github.event.release.tag_name }}.zip
 
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-            artifacts: 'sunflower-${{ github.event.release.tag_name }}.zip'
+            artifacts: '${{ env.PROJECT_ROOT }}/sunflower-${{ github.event.release.tag_name }}.zip'
+            makeLatest: true
+            prerelease: false
             allowUpdates: true
             token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -109,12 +128,13 @@ jobs:
         env:
             PAGEID: 1952
         run: |
-            rsync -a sunflower-${{ github.event.release.tag_name }}.zip version.txt changelog.html production:/var/www/updateserver/
+            rsync -a sunflower-${{ github.event.release.tag_name }}.zip version.txt changelog.html production:/var/www/updateserver/sunflower26/
             THEME_VERSION=$(cat version.txt | sed -e 's/^v//')
             sudo locale-gen de_DE.UTF-8
             THEME_UPDATE=$(LANG=de_DE.UTF-8 && date +'%B %Y')
-            ssh production "cd /var/www && wp post get $PAGEID --field=content | sed -e 's/<version>[^<]*/<version>$THEME_VERSION/g' | sed -e 's/<versionupdate>[^<]*/<versionupdate>$THEME_UPDATE/g' | sed -E 's/\/updateserver\/sunflower-v(.*)\.zip/\/updateserver\/sunflower-v$THEME_VERSION.zip/g' > /tmp/content-$PAGEID.txt"
-            ssh production "cd /var/www && wp post update $PAGEID - < /tmp/content-$PAGEID.txt && wp option update blogdescription 'Demoseite für das WordPress-Theme Sunflower $THEME_VERSION' --url=sunflower-theme.de/demo && wp option update blogname 'Sunflower $THEME_VERSION' && wp menu item update 147 --url=https://sunflower-theme.de/demo --link=https://sunflower-theme.de/updateserver/sunflower-v$THEME_VERSION.zip"
+            ssh production "cd /var/www && wp post get $PAGEID --field=content --url=sunflower-theme.de/ | sed -e 's/<version>[^<]*/<version>$THEME_VERSION/g' | sed -e 's/<versionupdate>[^<]*/<versionupdate>$THEME_UPDATE/g' | sed -E 's/\/updateserver\/sunflower26\/sunflower-v(.*)\.zip/\/updateserver\/sunflower26\/sunflower-v$THEME_VERSION.zip/g' > /tmp/content-$PAGEID.txt"
+            ssh production "cd /var/www && wp post update $PAGEID - < /tmp/content-$PAGEID.txt && wp option update blogdescription 'Demoseite für das WordPress-Theme Sunflower $THEME_VERSION' --url=sunflower-theme.de/demo && wp option update blogname 'Sunflower $THEME_VERSION' && wp menu item update 147 --url=https://sunflower-theme.de/demo --link=https://sunflower-theme.de/updateserver/sunflower26/sunflower-v$THEME_VERSION.zip"
+            ssh production "cd /var/www && rm -fr wp-content/themes/sunflower26/ && wp theme install updateserver/sunflower26/sunflower-v$THEME_VERSION.zip >> /tmp/sunflower-install.log"
 
   mkdocs:
     runs-on: ubuntu-latest
@@ -148,4 +168,4 @@ jobs:
             END
 
       - name: rsync documentation
-        run: rsync -a --delete documentation/* production:/var/www/documentation/
+        run: rsync -a --delete documentation/* production:/var/www/documentation26/
