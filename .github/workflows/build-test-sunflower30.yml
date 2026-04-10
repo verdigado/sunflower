@@ -52,7 +52,11 @@ jobs:
 
       - name: Install npm packages
         if: steps.npm-cache-dir.outputs.cache-hit != 'true'
-        run: npm ci
+        run: |
+          pwd
+          ls -l package-lock.json
+          ls -l package.json
+          npm ci
 
       - name: Copy node modules
         run: npm run copy-node-modules
