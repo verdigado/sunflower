@@ -58,7 +58,7 @@ jobs:
           ls -l package.json
           npm -v
           node --version
-          npm ci
+          npm install
 
       - name: Copy node modules
         run: npm run copy-node-modules
