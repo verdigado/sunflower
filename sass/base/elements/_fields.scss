@@ -287,7 +287,16 @@ label {
 }
 
 .comment-respond:has(#sunflower-contact-form) {
+    border: none;
+    background-color: map.get($custom-colors, "sand");
 
+    .input-with-icon i {
+        color: map.get($custom-colors, "tanne");
+    }
+
+    *:focus-visible {
+        box-shadow: none;
+    }
 }
 
 #sunflower-contact-form {
