@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
-"POT-Creation-Date: 2026-04-01T10:54:28+02:00\n"
+"POT-Creation-Date: 2026-04-10T10:56:33+02:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -57,7 +57,7 @@ msgstr "Vergangene Veranstaltungen"
 #: archive-sunflower_event.php:39 functions/events.php:46
 #: functions/options/class-sunflowereventsettingspage.php:34
 #: functions/options/class-sunflowereventsettingspage.php:35
-#: functions/options/class-sunflowereventsettingspage.php:226
+#: functions/options/class-sunflowereventsettingspage.php:227
 msgid "Events"
 msgstr "Termine"
 
@@ -65,8 +65,8 @@ msgstr "Termine"
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:49 build/next-events/render.php:61
-#: src/next-events/render.php:61
+#: archive-sunflower_event.php:49 build/next-events/render.php:62
+#: src/next-events/render.php:62
 msgid "all events"
 msgstr "Alle Termine"
 
@@ -111,11 +111,11 @@ msgstr "zurück"
 msgid "next"
 msgstr "vor"
 
-#: build/latest-posts/render.php:119 src/latest-posts/render.php:119
+#: build/latest-posts/render.php:121 src/latest-posts/render.php:121
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: build/next-events/render.php:46 src/next-events/render.php:46
+#: build/next-events/render.php:47 src/next-events/render.php:47
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
@@ -155,6 +155,14 @@ msgstr[1] "%s Kommentare"
 #: comments.php:86
 msgid "Comments are closed."
 msgstr "Keine Kommentare möglich."
+
+#: functions/activation.php:42
+msgid "BÜNDNIS 90/DIE GRÜNEN"
+msgstr ""
+
+#: functions/activation.php:45
+msgid "Stadt, Kreis oder Bundesland"
+msgstr ""
 
 #: functions/admin.php:24
 msgid "Sunflower Settings Page"
@@ -328,11 +336,11 @@ msgstr ""
 msgid "Load map and fix location marker"
 msgstr "Karte laden und Postion korrigieren"
 
-#: functions/events.php:595
+#: functions/events.php:602
 msgid "Event date"
 msgstr "Datum der Veranstaltung"
 
-#: functions/events.php:596
+#: functions/events.php:603
 msgid "Event location"
 msgstr "Ort"
 
@@ -464,61 +472,61 @@ msgstr "Geo-Daten für diesen Ort löschen"
 msgid "load map"
 msgstr "Kartendaten laden"
 
-#: functions/options/class-sunflowereventsettingspage.php:214
+#: functions/options/class-sunflowereventsettingspage.php:215
 msgid "Events Feature"
 msgstr "Termin Unterstützung"
 
-#: functions/options/class-sunflowereventsettingspage.php:238
-#: functions/options/class-sunflowereventsettingspage.php:242
+#: functions/options/class-sunflowereventsettingspage.php:239
+#: functions/options/class-sunflowereventsettingspage.php:243
 msgid "Enable events feature"
 msgstr "Termin Unterstützung aktivieren"
 
-#: functions/options/class-sunflowereventsettingspage.php:247
+#: functions/options/class-sunflowereventsettingspage.php:248
 msgid "Events page slug"
 msgstr "Pfad (\"Slug\") der Termin-Seite"
 
-#: functions/options/class-sunflowereventsettingspage.php:255
+#: functions/options/class-sunflowereventsettingspage.php:256
 msgid "Description shown on the events page"
 msgstr "Beschreibung für die Termineseite"
 
-#: functions/options/class-sunflowereventsettingspage.php:263
+#: functions/options/class-sunflowereventsettingspage.php:264
 msgid "URLs of iCal calendars, one per row"
 msgstr "URLs der iCal-Kalender, pro Zeile eine URL"
 
-#: functions/options/class-sunflowereventsettingspage.php:271
-#: functions/options/class-sunflowereventsettingspage.php:275
+#: functions/options/class-sunflowereventsettingspage.php:272
+#: functions/options/class-sunflowereventsettingspage.php:276
 msgid "Rectify time zone"
 msgstr "Zeitzone korrigieren"
 
-#: functions/options/class-sunflowereventsettingspage.php:280
-#: functions/options/class-sunflowereventsettingspage.php:284
+#: functions/options/class-sunflowereventsettingspage.php:281
+#: functions/options/class-sunflowereventsettingspage.php:285
 msgid "Show overall map"
 msgstr "Übersichtskarte zeigen"
 
-#: functions/options/class-sunflowereventsettingspage.php:289
-#: functions/options/class-sunflowereventsettingspage.php:293
-#: functions/options/class-sunflowereventsettingspage.php:305
-#: functions/options/class-sunflowereventsettingspage.php:309
+#: functions/options/class-sunflowereventsettingspage.php:290
+#: functions/options/class-sunflowereventsettingspage.php:294
+#: functions/options/class-sunflowereventsettingspage.php:306
+#: functions/options/class-sunflowereventsettingspage.php:310
 msgid "Show events archive"
 msgstr "Vergangene Veranstaltungen anzeigen"
 
-#: functions/options/class-sunflowereventsettingspage.php:298
+#: functions/options/class-sunflowereventsettingspage.php:299
 msgid "Zoom-level of overall map"
 msgstr "Zoomlevel für Übersichtskarte"
 
-#: functions/options/class-sunflowereventsettingspage.php:355
+#: functions/options/class-sunflowereventsettingspage.php:356
 msgid "Enable or disable the events feature of the Sunflower theme."
 msgstr "Termine Unterstützung des Sunflower Themes aktivieren / deaktivieren."
 
-#: functions/options/class-sunflowereventsettingspage.php:365
+#: functions/options/class-sunflowereventsettingspage.php:366
 msgid "Configure how events behave on your website."
 msgstr "Konfigure wie Termine auf der Webseite dargestellt werden."
 
-#: functions/options/class-sunflowereventsettingspage.php:378
+#: functions/options/class-sunflowereventsettingspage.php:379
 msgid "The permalink structure has been reimported."
 msgstr "Die Permalinkstruktur wurde neu eingelesen."
 
-#: functions/options/class-sunflowereventsettingspage.php:380
+#: functions/options/class-sunflowereventsettingspage.php:381
 msgid ""
 "After changing the event page slug, you need to reimport the permalink "
 "structure."
@@ -526,7 +534,7 @@ msgstr ""
 "Nach dem Ändern des Termine Seiten Pfads, muss die Permalinkstruktur neu "
 "eingelesen werden."
 
-#: functions/options/class-sunflowereventsettingspage.php:381
+#: functions/options/class-sunflowereventsettingspage.php:382
 msgid ""
 "This can be safely done any time. E.g. if the event page does not show up "
 "correctly."
@@ -534,7 +542,7 @@ msgstr ""
 "Das kann jederzeit gefahrlos durchgeführt werden. Z.B. wenn die Termine-"
 "Seite nicht gefunden wird."
 
-#: functions/options/class-sunflowereventsettingspage.php:383
+#: functions/options/class-sunflowereventsettingspage.php:384
 msgid "Reimport permalink structure"
 msgstr "Permalinkstruktur neu einlesen"
 
@@ -681,47 +689,57 @@ msgstr "Hell"
 msgid "Dark"
 msgstr "Dunkel"
 
-#: functions/options/class-sunflowersettingspage.php:376
-msgid "Modern"
-msgstr "Modern"
+#: functions/options/class-sunflowersettingspage.php:378
+msgid "Querformat"
+msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:377
-msgid "Flexible"
+#: functions/options/class-sunflowersettingspage.php:379
+#, fuzzy
+#| msgid "Flexible"
+msgid "Flexibel"
 msgstr "Flexibel"
 
-#: functions/options/class-sunflowersettingspage.php:399
+#: functions/options/class-sunflowersettingspage.php:394
+msgid ""
+"Nutze Querformate (z.B. 2/1 oder 16/9) als Beitrags- oder Terminbeitrags-"
+"Bilder, um einen bestmöglichen Look in den Vorschau-Cards und auf "
+"Beitragsseiten zu erzeugen. Wenn du jegliche Proportionen ohne Zuschnitt "
+"nutzen möchtest, wähle die Option \"Flexibel\"."
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:405
 msgid "Sand"
 msgstr "Sandfarben"
 
-#: functions/options/class-sunflowersettingspage.php:400
+#: functions/options/class-sunflowersettingspage.php:406
 msgid "Light Green"
 msgstr "Hellgrün"
 
-#: functions/options/class-sunflowersettingspage.php:423
+#: functions/options/class-sunflowersettingspage.php:429
 msgid "do not show"
 msgstr "keine Anzeige"
 
-#: functions/options/class-sunflowersettingspage.php:424
+#: functions/options/class-sunflowersettingspage.php:430
 msgid "main categories"
 msgstr "Hauptkategorien"
 
-#: functions/options/class-sunflowersettingspage.php:425
+#: functions/options/class-sunflowersettingspage.php:431
 msgid "only sub-categories"
 msgstr "nur Unter-Kategorien"
 
-#: functions/options/class-sunflowersettingspage.php:447
+#: functions/options/class-sunflowersettingspage.php:453
 msgid "optional"
 msgstr "optional"
 
-#: functions/options/class-sunflowersettingspage.php:448
+#: functions/options/class-sunflowersettingspage.php:454
 msgid "required"
 msgstr "verpflichtend"
 
-#: functions/options/class-sunflowersettingspage.php:449
+#: functions/options/class-sunflowersettingspage.php:455
 msgid "strict (The image is blurred if no creator field is filled out.)"
 msgstr "streng (Bild wird verpixelt, wenn Urheber*in leer ist.)"
 
-#: functions/options/class-sunflowersettingspage.php:450
+#: functions/options/class-sunflowersettingspage.php:456
 msgid "disabled"
 msgstr "deaktiviert"
 
@@ -840,6 +858,45 @@ msgstr "Lightbox schließen"
 #: functions/security.php:13
 msgid "Login error. Did you mistype s.th.?"
 msgstr "Loginfehler. Hast du dich vertippt?"
+
+#: functions/welcome-page.php:89 functions/welcome-page.php:90
+#: functions/welcome-page.php:109
+msgid "Willkommen"
+msgstr ""
+
+#: functions/welcome-page.php:114
+msgid ""
+"Damit du schnell starten kannst, empfehlen wir, die Beispielseiten "
+"einzurichten."
+msgstr ""
+
+#: functions/welcome-page.php:125 functions/welcome-page.php:151
+msgid "Beispielseiten einrichten"
+msgstr ""
+
+#: functions/welcome-page.php:131
+msgid "Überspringen"
+msgstr ""
+
+#: functions/welcome-page.php:152
+msgid "Wird eingerichtet ..."
+msgstr ""
+
+#: functions/welcome-page.php:153
+msgid "Netzwerkfehler - bitte erneut versuchen."
+msgstr ""
+
+#: functions/welcome-page.php:154
+msgid "Es ist ein Fehler aufgetreten. Bitte erneut versuchen."
+msgstr ""
+
+#: functions/welcome-page.php:208
+msgid "Unzureichende Berechtigungen."
+msgstr ""
+
+#: functions/welcome-page.php:211
+msgid "Sicherheitspruefung fehlgeschlagen."
+msgstr ""
 
 #: functions/widgets.php:19
 #, fuzzy
@@ -1132,49 +1189,46 @@ msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
 
-#: functions/welcome-page.php
-msgid "Welcome"
-msgstr "Herzlich willkommen"
+#~ msgid "Modern"
+#~ msgstr "Modern"
 
-#: functions/welcome-page.php
-msgid "To get started quickly, we recommend setting up our example pages."
-msgstr "Um so schnell wie möglich in das Theme einzusteigen, empfehlen wir, unsere Beispiel-Seiten zu aktivieren."
+#~ msgid "Search"
+#~ msgstr "Suche"
 
-#: functions/welcome-page.php
-msgid "Set up example pages"
-msgstr "Beispiel-Seite einfügen"
+#~ msgid "Welcome"
+#~ msgstr "Herzlich willkommen"
 
-#: functions/welcome-page.php
-msgid "Skip"
-msgstr "Überspringen"
+#~ msgid "To get started quickly, we recommend setting up our example pages."
+#~ msgstr ""
+#~ "Um so schnell wie möglich in das Theme einzusteigen, empfehlen wir, "
+#~ "unsere Beispiel-Seiten zu aktivieren."
 
-#: functions/welcome-page.php
-msgid "Installing…"
-msgstr "Wird installiert…"
+#~ msgid "Set up example pages"
+#~ msgstr "Beispiel-Seite einfügen"
 
-#: functions/welcome-page.php
-msgid "Demo content was already set up."
-msgstr "Demo-Inhalte wurden bereits installiert."
+#~ msgid "Skip"
+#~ msgstr "Überspringen"
 
-#: functions/welcome-page.php
-msgid "Go to settings"
-msgstr "Zu den Einstellungen"
+#~ msgid "Installing…"
+#~ msgstr "Wird installiert…"
 
-#: functions/welcome-page.php
-msgid "An error occurred. Please try again."
-msgstr "Fehler bei der Installation. Bitte erneut versuchen."
+#~ msgid "Demo content was already set up."
+#~ msgstr "Demo-Inhalte wurden bereits installiert."
 
-#: functions/welcome-page.php
-msgid "Network error – please try again."
-msgstr "Netzwerkfehler – bitte erneut versuchen."
+#~ msgid "Go to settings"
+#~ msgstr "Zu den Einstellungen"
 
-#: functions/welcome-page.php
-msgid "Insufficient permissions."
-msgstr "Keine Berechtigung."
+#~ msgid "An error occurred. Please try again."
+#~ msgstr "Fehler bei der Installation. Bitte erneut versuchen."
 
-#: functions/welcome-page.php
-msgid "Security check failed."
-msgstr "Sicherheitsprüfung fehlgeschlagen."
+#~ msgid "Network error – please try again."
+#~ msgstr "Netzwerkfehler – bitte erneut versuchen."
+
+#~ msgid "Insufficient permissions."
+#~ msgstr "Keine Berechtigung."
+
+#~ msgid "Security check failed."
+#~ msgstr "Sicherheitsprüfung fehlgeschlagen."
 
 #~ msgid "Comment article"
 #~ msgstr "Artikel kommentieren"
@@ -1196,9 +1250,6 @@ msgstr "Sicherheitsprüfung fehlgeschlagen."
 
 #~ msgid "sand"
 #~ msgstr "sandfarben"
-
-#~ msgid "Search"
-#~ msgstr "Suche"
 
 #~ msgid "show search"
 #~ msgstr "zeige Suche"

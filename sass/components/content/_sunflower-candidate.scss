@@ -1,0 +1,49 @@
+.sunflower-candidate {
+
+    gap: 1rem;
+
+    h1 {
+        padding: 0;
+        margin: 0;
+    }
+
+    h2 {
+        padding: 0;
+        margin: 0;
+    }
+
+    &.wp-block-columns {
+
+        .wp-block-column {
+
+            .wp-block-group {
+                padding: 1.5rem;
+            }
+        }
+    }
+
+    p {
+        padding: 0;
+
+        &.has-background.textbalken {
+            left: -2em;
+
+            &.links-eins {
+                left: -1em;
+            }
+
+            &.links-zwei {
+                left: 1em;
+            }
+        }
+    }
+
+    .wp-block-cover {
+
+        p {
+            margin: 0;
+            line-height: normal;
+        }
+
+    }
+}

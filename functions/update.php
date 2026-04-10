@@ -102,6 +102,10 @@ function sunflower_run_update_tasks( $from_version ) {
 
 		$options = get_option( 'sunflower_events_options', array() );
 
+		if ( ! is_array( $options ) ) {
+			$options = array();
+		}
+
 		$options['sunflower_events_enabled'] = 1;
 		update_option( 'sunflower_events_options', $options );
 
