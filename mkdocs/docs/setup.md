@@ -22,7 +22,7 @@ Um die Sonnenblume als Logo und Icon nutzen zu können, musst Du Dir die Nutzung
 
 ### Grunddesign
 
-Das neue Design Sunflower26 bietet insgesamt 4 verschiedene Möglichkeiten die Seite darzustellen. Aus der Kombination "hell" oder "dunkel" bzw. "abgerundet" oder "eckig" lässt sich das gewünschte Design der Seite variieren.
+Das neue Design Sunflower 26 bietet insgesamt 4 verschiedene Möglichkeiten die Seite darzustellen. Aus der Kombination "hell" oder "dunkel" bzw. "abgerundet" oder "eckig" lässt sich das gewünschte Design der Seite variieren.
 
 Im Backend unter "Sunflower" und "Einstellungen" lässt sich die gewünschte Kombination einstellen. 
 
@@ -45,14 +45,15 @@ Um Lizenzschwierigkeiten zu vermeiden bietet Sunflower ein Feature an, bei dem B
 * optional: beim Speichern kann man einE Urheber*in angeben
 * verpflichtend: Es muss einE Urheber*in angegeben werden, ein Warnhinweis wird ausgegeben
 * streng: wenn keinE Urheber*in angegeben ist, wird das Bild nur verpixelt ausgegeben
-* deaktiviert: alles Bilder werden angezeigt.
+* deaktiviert: alle Bilder werden angezeigt.
 
  <figure markdown="span">
-  ![Screenshot vom Einstellungs-Menü](images/sunflower26_medien_urheberin_02.png){ width="" }
+  ![Screenshot vom Einstellungs-Menü](images/sunflower_medien_urheberin_02.png){ width="" }
   <figcaption>Sunflower-Einstellungen: Medien Urheber*in</figcaption>
 </figure> 
 
 ## Startseite
+
 Für die Startseite kannst Du die Musterinhalte der Demoseite verwenden. [mehr](homepage.md)
 
 ## Social-Media-Profile
