@@ -375,8 +375,8 @@ class SunflowerSettingsPage {
 		echo '<select id="sunflower_post_image_format" name="sunflower_options[sunflower_post_image_format]">';
 
 		$options = array(
-			array( 'modern', __( 'Querformat', 'sunflower' ) ),
-			array( 'flexible', __( 'Flexibel', 'sunflower' ) ),
+			array( 'modern', __( 'Landscape', 'sunflower' ) ),
+			array( 'flexible', __( 'Flexible', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
 			$selected = ( $current === $option[0] ) ? 'selected' : '';

@@ -20,9 +20,9 @@ class Sunflower_Contact_Widget extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'sunflower_contact',
-			__( 'Kontaktdaten', 'sunflower' ),
+			__( 'Contact information', 'sunflower' ),
 			array(
-				'description'           => __( 'Zeigt Kontaktdaten mit Icons an (Adresse, Telefon, E-Mail, Öffnungszeiten).', 'sunflower' ),
+				'description'           => __( 'Displays contact information with icons (address, phone, email, opening hours).', 'sunflower' ),
 				'show_instance_in_rest' => true,
 			)
 		);
