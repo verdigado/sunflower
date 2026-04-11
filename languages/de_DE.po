@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
-"POT-Creation-Date: 2026-04-10T10:56:33+02:00\n"
+"POT-Creation-Date: 2026-04-11T21:49:00+02:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,27 +16,27 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. Theme Name of the theme
-#: style.css
+#: style.css:3
 msgid "Sunflower 26"
 msgstr "Sunflower 26"
 
 #. Theme URI of the theme
-#: style.css
+#: style.css:4
 msgid "https://sunflower-theme.de"
 msgstr "https://sunflower-theme.de"
 
 #. Description of the theme
-#: style.css
+#: style.css:7
 msgid "Theme for the German Green Party"
 msgstr "WordPress-Theme für BÜNDNIS 90/DIE GRÜNEN"
 
 #. Author of the theme
-#: style.css
+#: style.css:5
 msgid "verdigado eG"
 msgstr "verdigado eG"
 
 #. Author URI of the theme
-#: style.css
+#: style.css:6
 msgid "https://verdigado.com"
 msgstr ""
 
@@ -242,15 +242,15 @@ msgid "Help for sunflowers events"
 msgstr "Hilfe für Sunflower-Termine"
 
 #: functions/class-sunflower-contact-widget.php:23
-#, fuzzy
-#| msgid "Startdate"
-msgid "Kontaktdaten"
-msgstr "Startdatum"
+msgid "Contact information"
+msgstr "Kontaktdaten"
 
 #: functions/class-sunflower-contact-widget.php:25
 msgid ""
-"Zeigt Kontaktdaten mit Icons an (Adresse, Telefon, E-Mail, Öffnungszeiten)."
+"Displays contact information with icons (address, phone, email, opening "
+"hours)."
 msgstr ""
+"Zeigt Kontaktdaten mit Icons an (Adresse, Telefon, E-Mail, Öffnungszeiten)."
 
 #: functions/class-sunflower-contact-widget.php:124
 msgid "Titel"
@@ -265,8 +265,6 @@ msgid "Telefon"
 msgstr ""
 
 #: functions/class-sunflower-contact-widget.php:136
-#, fuzzy
-#| msgid "Mail"
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -690,13 +688,11 @@ msgid "Dark"
 msgstr "Dunkel"
 
 #: functions/options/class-sunflowersettingspage.php:378
-msgid "Querformat"
-msgstr ""
+msgid "Landscape"
+msgstr "Querformat"
 
 #: functions/options/class-sunflowersettingspage.php:379
-#, fuzzy
-#| msgid "Flexible"
-msgid "Flexibel"
+msgid "Flexible"
 msgstr "Flexibel"
 
 #: functions/options/class-sunflowersettingspage.php:394
@@ -1003,10 +999,6 @@ msgstr "organisiert von"
 msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
-#: single-sunflower_event.php:194 template-parts/related-posts.php:15
-msgid "Aktuelles"
-msgstr ""
-
 #: template-parts/content-no-events.php:14 template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr "Nichts gefunden"
@@ -1075,14 +1067,16 @@ msgid "none"
 msgstr "keine"
 
 #: template-parts/header-standard.php:13
-#, fuzzy
-#| msgid "Topmenu"
 msgid "Top menu"
 msgstr "Menü am oberen Rand"
 
 #: template-parts/header-standard.php:95
 msgid "Menu"
 msgstr ""
+
+#: template-parts/related-posts.php:15
+msgid "Related Posts"
+msgstr "Ähnliche Artikel"
 
 #: build/core/cover/index.js:139 src/core/cover/index.js:18
 #: build/core/cover/index.js:77
@@ -1188,6 +1182,11 @@ msgstr ""
 msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Startdate"
+#~ msgid "Kontaktdaten"
+#~ msgstr "Startdatum"
 
 #~ msgid "Modern"
 #~ msgstr "Modern"
