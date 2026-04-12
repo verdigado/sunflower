@@ -147,7 +147,7 @@
             max-width: 100%;
             width: 100%;
             border-radius: 0;
-            padding: 12px 0 0 0 !important;
+            padding: var(--double-grid-margin) 0 0 0 !important;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -288,6 +288,10 @@ body:has(.topmenu).hamburger-menu .entry-content > :first-child.wp-block-cover.i
     &.alignfull {
         width: 100%;
     }
+
+    @include media-breakpoint-down(md) {
+        margin: var(--grid-margin) 0 calc(var(--gap-large) * 2) 0 !important;
+    }
 }
 
 body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
@@ -325,6 +329,12 @@ body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-h
 }
 
 .wp-block-cover:not(.is-style-sunflower-hero) {
+
+    border-radius: var(--border-radius-large);
+
+    &.alignfull {
+        border-radius: 0;
+    }
 
     .wp-block-cover__inner-container {
 
