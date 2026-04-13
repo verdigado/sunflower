@@ -5,8 +5,10 @@ name: Build Test for Sunflower 3.0 (on PR)
 on:
   pull_request:
     branches:
-      - dev*
       - main
+    types:
+      - opened
+      - reopened
 
 env:
   NODE_VERSION: 24
@@ -45,7 +47,7 @@ jobs:
         uses: actions/cache@v5
         id: npm-cache-dir
         with:
-            path: ~/.npm
+            path: node_modules
             key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             restore-keys: |
                 ${{ runner.os }}-node-
@@ -59,9 +61,6 @@ jobs:
           npm -v
           node --version
           npm install
-
-      - name: Copy node modules
-        run: npm run copy-node-modules
 
       - name: Lint SCSS
         run: npm run lint:scss

@@ -39,17 +39,28 @@ jobs:
         uses: actions/cache@v5
         id: npm-cache-dir
         with:
-            path: sunflower26/node_modules
+            path: node_modules
             key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             restore-keys: |
                 ${{ runner.os }}-node-
 
       - name: Install npm packages
         if: steps.npm-cache-dir.outputs.cache-hit != 'true'
-        run: npm ci
+        run: |
+          pwd
+          ls -l package-lock.json
+          ls -l package.json
+          npm -v
+          node --version
+          npm install
 
       - name: Lint SCSS
-        run: npm run lint:scss
+        run: |
+          pwd
+          ls -l node_modules
+          npm -v
+          node --version
+          npm run lint:scss
 
       - name: Build CSS
         run: npm run compile:css
