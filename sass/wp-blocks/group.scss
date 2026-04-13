@@ -168,6 +168,9 @@ body #content .is-vertical {
 .wp-block-group.is-vertical,
 .wp-block-column {
 
+    figure {
+        width: 100%;
+    }
 
     figure,
     .wp-block-group {
