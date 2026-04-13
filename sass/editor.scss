@@ -329,11 +329,11 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
     .h3 {
 
         &:has(mark) {
-            line-height: 1.1 !important;
+            line-height: 1.2 !important;
         }
 
         mark {
-            display: inline !important;
+            display: inline-block !important;
             padding: 6px 10px 9px 7px;
             font-size: 60px;
             line-height: 100%;

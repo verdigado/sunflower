@@ -26964,6 +26964,12 @@ body #content .is-vertical > * {
   margin-bottom: 0;
 }
 
+@media (max-width: 949.98px) {
+  .wp-block-group.is-vertical figure,
+  .wp-block-column figure {
+    width: 100%;
+  }
+}
 .wp-block-group.is-vertical figure,
 .wp-block-group.is-vertical .wp-block-group,
 .wp-block-column figure,
@@ -28022,6 +28028,13 @@ ul.wp-block-rss .entry-content a {
 .wp-block-latest-posts__featured-image img:not([style*=width]),
 .wp-block-post-featured-image img:not([style*=width]) {
   width: 100%;
+}
+@media (max-width: 949.98px) {
+  .wp-block-image img:not([style*=width]),
+  .wp-block-latest-posts__featured-image img:not([style*=width]),
+  .wp-block-post-featured-image img:not([style*=width]) {
+    width: 100%;
+  }
 }
 .wp-block-image :where(figcaption),
 .wp-block-latest-posts__featured-image :where(figcaption),
@@ -30151,7 +30164,7 @@ figure figcaption {
 .editor-styles-wrapper .h1:has(mark, .mark),
 .editor-styles-wrapper .h2:has(mark, .mark),
 .editor-styles-wrapper .h3:has(mark, .mark) {
-  line-height: 1.1 !important;
+  line-height: 1.4 !important;
 }
 .editor-styles-wrapper h1 mark, .editor-styles-wrapper h1 .mark, .editor-styles-wrapper .h1 .mark,
 .editor-styles-wrapper h2 mark,
@@ -30163,7 +30176,7 @@ figure figcaption {
 .editor-styles-wrapper .h1 mark,
 .editor-styles-wrapper .h2 mark,
 .editor-styles-wrapper .h3 mark {
-  display: inline !important;
+  display: inline-block !important;
   padding: 6px 10px 9px 7px;
   font-size: 60px;
   line-height: 100%;
