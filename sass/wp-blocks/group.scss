@@ -169,7 +169,9 @@ body #content .is-vertical {
 .wp-block-column {
 
     figure {
-        width: 100%;
+       @include media-breakpoint-down(md) {
+           width: 100%;
+       }
     }
 
     figure,
