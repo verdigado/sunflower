@@ -30,6 +30,10 @@
 
     img:not([style*="width"]) {
         width: 100%;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
     }
 
     :where(figcaption) {

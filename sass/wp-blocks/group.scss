@@ -25,7 +25,6 @@
 }
 
 .is-layout-grid {
-
     gap: calc(2 * var(--gap-large));
 
     @include media-breakpoint-down(sm) {
@@ -103,6 +102,10 @@
             display: flex;
             flex-direction: column !important;
             row-gap: var(--double-grid-margin);
+
+            .wp-block-column {
+                width: 100%;
+            }
         }
     }
 
