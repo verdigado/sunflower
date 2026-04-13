@@ -12,30 +12,8 @@
         margin: 0;
     }
 
-    &.wp-block-columns {
-
-        .wp-block-column {
-
-            .wp-block-group {
-                padding: 1.5rem;
-            }
-        }
-    }
-
     p {
         padding: 0;
-
-        &.has-background.textbalken {
-            left: -2em;
-
-            &.links-eins {
-                left: -1em;
-            }
-
-            &.links-zwei {
-                left: 1em;
-            }
-        }
     }
 
     .wp-block-cover {

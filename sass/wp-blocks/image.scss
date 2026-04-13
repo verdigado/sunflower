@@ -13,14 +13,26 @@
     border-radius: var(--border-radius-medium);
     overflow: hidden;
     position: relative;
-
+    width: fit-content;
     padding-left: 0 !important;
     padding-right: 0 !important;
+
+    &.alignfull {
+        border-radius: 0;
+    }
 
     &:not(.is-style-rounded) {
 
         img {
             border-radius: 0;
+        }
+    }
+
+    img:not([style*="width"]) {
+        width: 100%;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
         }
     }
 

@@ -3,6 +3,7 @@
     padding-top: var(--half-block-spacing);
     padding-bottom: var(--half-block-spacing);
     margin: 0 auto;
+    column-gap: var(--grid-margin);
 
     .wp-block-group {
         padding-top: 0;
@@ -20,8 +21,11 @@
 
     @include media-breakpoint-down(md) {
         display: flex;
-        flex-direction: column !important;
         row-gap: var(--double-grid-margin);
+
+        &.is-stacked-on-mobile {
+            flex-direction: column !important;
+        }
     }
 
     &__media {
@@ -66,6 +70,20 @@
     }
 }
 
+.entry-content > .wp-block-media-text {
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &.has-background,
+    &.has-shadow {
+
+        &:first-child {
+            padding-top: var(--grid-margin);
+        }
+    }
+}
 
 .wp-block-column .wp-block-media-text {
     margin: 0;

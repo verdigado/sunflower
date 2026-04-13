@@ -912,14 +912,3 @@ a.event-card {
     text-align: center;
 }
 
-body.post-image-modern {
-
-    a.event-card article figure.event-card__media {
-        height: 254px;
-
-        img {
-            height: 254px;
-            object-fit: cover;
-        }
-    }
-}
