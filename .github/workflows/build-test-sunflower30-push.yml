@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - dev*
+      - fixes/*
 
 env:
   NODE_VERSION: 24
