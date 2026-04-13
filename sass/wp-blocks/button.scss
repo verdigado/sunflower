@@ -3,8 +3,6 @@
 .wp-block-buttons {
     gap: var(--grid-margin);
     row-gap: var(--grid-margin) !important;
-
-    @include padding-vert;
 }
 
 p,

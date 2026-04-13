@@ -113,7 +113,7 @@ body #content {
 }
 
 .wp-block-file {
-    margin: var(--grid-margin);
+    margin: var(--grid-margin) 0;
     width: fit-content !important;
     display: flex;
     flex-direction: column;

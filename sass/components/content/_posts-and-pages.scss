@@ -44,7 +44,7 @@
 .display-single,
 .type-page {
 
-    padding: 180px 0 0 0;
+    padding: 140px 0 0 0;
 
     @include media-breakpoint-down(md) {
         padding: 125px 0 0 0;
@@ -101,7 +101,7 @@
 .site {
 
     .page-header {
-        padding: 180px 0 0 0;
+        padding: 140px 0 0 0;
 
         @include themed-colorscheme() {
             background-color: t(background);
