@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sunflower 26 3.0.0-beta-9\n"
+"Project-Id-Version: Sunflower 26 3.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-11T21:49:00+02:00\n"
+"POT-Creation-Date: 2026-04-14T12:58:21+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower\n"
@@ -99,7 +99,7 @@ msgid "Show map"
 msgstr ""
 
 #: archive-sunflower_event.php:198
-#: functions/s.php:148
+#: functions/s.php:160
 msgid "calendar in ics-format"
 msgstr ""
 
@@ -341,7 +341,7 @@ msgid "No alternative text provided. Please consider adding a description for be
 msgstr ""
 
 #: functions/metaboxes.php:15
-#: functions/options/class-sunflowersettingspage.php:128
+#: functions/options/class-sunflowersettingspage.php:140
 msgid "Layout"
 msgstr ""
 
@@ -551,146 +551,166 @@ msgid "Theme variant"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:96
+#: template-parts/header-standard.php:62
 msgid "Shape Style"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:104
+#: template-parts/header-standard.php:69
 msgid "Color Mood"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:112
+#: template-parts/header-standard.php:76
 msgid "Post Image Format"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:120
+#: template-parts/header-standard.php:83
 msgid "Footer Color Variant"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:135
+#: functions/options/class-sunflowersettingspage.php:128
+msgid "Frontend Design Switcher"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:134
+msgid "show frontend design switcher"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:147
 msgid "Excerpt length (words)"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:143
-#: functions/options/class-sunflowersettingspage.php:149
+#: functions/options/class-sunflowersettingspage.php:155
+#: functions/options/class-sunflowersettingspage.php:161
 msgid "show related posts"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:155
+#: functions/options/class-sunflowersettingspage.php:167
 msgid "show author of posts"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:161
+#: functions/options/class-sunflowersettingspage.php:173
 msgid "Show post author on post details and via REST api."
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:167
-#: functions/options/class-sunflowersettingspage.php:173
+#: functions/options/class-sunflowersettingspage.php:179
+#: functions/options/class-sunflowersettingspage.php:185
 msgid "hide previous and next links"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:179
-#: functions/options/class-sunflowersettingspage.php:183
+#: functions/options/class-sunflowersettingspage.php:191
+#: functions/options/class-sunflowersettingspage.php:195
 msgid "to-field for contact-forms"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:188
+#: functions/options/class-sunflowersettingspage.php:200
 msgid "items in menu"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:194
+#: functions/options/class-sunflowersettingspage.php:206
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:200
-#: functions/options/class-sunflowersettingspage.php:204
+#: functions/options/class-sunflowersettingspage.php:212
+#: functions/options/class-sunflowersettingspage.php:216
 msgid "Show social media icons in header"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:209
+#: functions/options/class-sunflowersettingspage.php:221
 msgid "Show list of categories on category archive"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:217
+#: functions/options/class-sunflowersettingspage.php:229
 msgid "Enhance SEO"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:223
+#: functions/options/class-sunflowersettingspage.php:235
 msgid "Set website name in page metadata"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:229
+#: functions/options/class-sunflowersettingspage.php:241
 msgid "Media creator field"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:267
+#: functions/options/class-sunflowersettingspage.php:279
 msgid "Select the visual appearance of your theme."
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:279
+#: functions/options/class-sunflowersettingspage.php:291
 msgid "Various theme settings"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:330
+#: functions/options/class-sunflowersettingspage.php:342
+#: template-parts/header-standard.php:64
 msgid "Rounded"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:331
+#: functions/options/class-sunflowersettingspage.php:343
+#: template-parts/header-standard.php:65
 msgid "Sharp"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:353
+#: functions/options/class-sunflowersettingspage.php:365
+#: template-parts/header-standard.php:71
 msgid "Light"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:354
+#: functions/options/class-sunflowersettingspage.php:366
+#: template-parts/header-standard.php:72
 msgid "Dark"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:378
+#: functions/options/class-sunflowersettingspage.php:390
+#: template-parts/header-standard.php:78
 msgid "Landscape"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:379
+#: functions/options/class-sunflowersettingspage.php:391
+#: template-parts/header-standard.php:79
 msgid "Flexible"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:394
+#: functions/options/class-sunflowersettingspage.php:406
 msgid "Nutze Querformate (z.B. 2/1 oder 16/9) als Beitrags- oder Terminbeitrags-Bilder, um einen bestmöglichen Look in den Vorschau-Cards und auf Beitragsseiten zu erzeugen. Wenn du jegliche Proportionen ohne Zuschnitt nutzen möchtest, wähle die Option \"Flexibel\"."
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:405
+#: functions/options/class-sunflowersettingspage.php:417
+#: template-parts/header-standard.php:85
 msgid "Sand"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:406
+#: functions/options/class-sunflowersettingspage.php:418
+#: template-parts/header-standard.php:86
 msgid "Light Green"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:429
+#: functions/options/class-sunflowersettingspage.php:440
 msgid "do not show"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:430
+#: functions/options/class-sunflowersettingspage.php:441
 msgid "main categories"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:431
+#: functions/options/class-sunflowersettingspage.php:442
 msgid "only sub-categories"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:453
+#: functions/options/class-sunflowersettingspage.php:464
 msgid "optional"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:454
+#: functions/options/class-sunflowersettingspage.php:465
 msgid "required"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:455
+#: functions/options/class-sunflowersettingspage.php:466
 msgid "strict (The image is blurred if no creator field is filled out.)"
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:456
+#: functions/options/class-sunflowersettingspage.php:467
 msgid "disabled"
 msgstr ""
 
@@ -750,7 +770,7 @@ msgid "Show share buttons on single post page"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:264
-#: functions/s.php:134
+#: functions/s.php:146
 msgid "Select Open Graph Fallback Image"
 msgstr ""
 
@@ -778,28 +798,28 @@ msgstr ""
 msgid "Footer Menu 2"
 msgstr ""
 
-#: functions/s.php:147
+#: functions/s.php:159
 #: template-parts/content-archive.php:57
 msgid "Continue reading"
 msgstr ""
 
-#: functions/s.php:150
+#: functions/s.php:162
 msgid "Image %1 of %2"
 msgstr ""
 
-#: functions/s.php:151
+#: functions/s.php:163
 msgid "Next Image"
 msgstr ""
 
-#: functions/s.php:152
+#: functions/s.php:164
 msgid "Previous Image"
 msgstr ""
 
-#: functions/s.php:153
+#: functions/s.php:165
 msgid "Cancel Loading Image"
 msgstr ""
 
-#: functions/s.php:154
+#: functions/s.php:166
 msgid "Close Lightbox"
 msgstr ""
 
@@ -1012,7 +1032,11 @@ msgstr ""
 msgid "Top menu"
 msgstr ""
 
-#: template-parts/header-standard.php:95
+#: template-parts/header-standard.php:53
+msgid "Design Switch"
+msgstr ""
+
+#: template-parts/header-standard.php:155
 msgid "Menu"
 msgstr ""
 

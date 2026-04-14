@@ -73,13 +73,6 @@ if ( ( $sunflower_options['sunflower_design_switcher'] ?? false ) === 'checked' 
 			</select>
 		</label>
 
-		<label><?php esc_html_e( 'Post Image Format', 'sunflower' ); ?>
-			<select id="postimage-select">
-				<option value="modern"><?php esc_html_e( 'Landscape', 'sunflower' ); ?></option>
-				<option value="flexible"><?php esc_html_e( 'Flexible', 'sunflower' ); ?></option>
-			</select>
-		</label>
-
 		<label><?php esc_html_e( 'Footer Color Variant', 'sunflower' ); ?>
 			<select id="footer-select">
 				<option value="sand"><?php esc_html_e( 'Sand', 'sunflower' ); ?></option>
