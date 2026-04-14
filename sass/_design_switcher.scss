@@ -4,7 +4,7 @@ $ds-toggle-size:      48px;
 $ds-toggle-bg:      #fff;
 $ds-toggle-bg-hover:  #f0f0f0;
 $ds-toggle-shadow:   0 2px 6px rgba(0, 0, 0, 0.15);
-$ds-panel-width:     280px;            // Breite des Slide‑In‑Panels
+$ds-panel-width:     280px;
 $ds-panel-bg:        #fff;
 $ds-panel-shadow:    -2px 0 8px rgba(0, 0, 0, 0.2);
 $ds-overlay-bg:      rgba(0, 0, 0, 0.4);
@@ -47,6 +47,10 @@ $ds-panel-color: #000;
         color: t(text);
     }
 
+    .design-switcher {
+        padding: 1rem;
+    }
+
     box-shadow: $ds-panel-shadow;
     transform: translateX(100%);               // start: außerhalb des Viewports
     transition: transform 0.35s ease-out;
@@ -85,7 +89,6 @@ $ds-panel-color: #000;
     .admin-bar & {
         top: 32px;
     }
-
 
     /* -------- Body (Select‑Boxen) -------- */
     .design-switcher-body {

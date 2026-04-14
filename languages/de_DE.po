@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
-"POT-Creation-Date: 2026-04-11T21:49:00+02:00\n"
+"POT-Creation-Date: 2026-04-14T12:58:21+02:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: archive-sunflower_event.php:198 functions/s.php:148
+#: archive-sunflower_event.php:198 functions/s.php:160
 msgid "calendar in ics-format"
 msgstr "Kalender im ics-Format"
 
@@ -371,7 +371,7 @@ msgstr ""
 "Barrierefreiheit zu verbessern."
 
 #: functions/metaboxes.php:15
-#: functions/options/class-sunflowersettingspage.php:128
+#: functions/options/class-sunflowersettingspage.php:140
 msgid "Layout"
 msgstr "Layout"
 
@@ -592,110 +592,128 @@ msgid "Theme variant"
 msgstr "Designvariante"
 
 #: functions/options/class-sunflowersettingspage.php:96
+#: template-parts/header-standard.php:62
 msgid "Shape Style"
 msgstr "Formensprache"
 
 #: functions/options/class-sunflowersettingspage.php:104
+#: template-parts/header-standard.php:69
 msgid "Color Mood"
 msgstr "Farbstimmung"
 
 #: functions/options/class-sunflowersettingspage.php:112
+#: template-parts/header-standard.php:76
 msgid "Post Image Format"
 msgstr "Beitragsbild Format"
 
 #: functions/options/class-sunflowersettingspage.php:120
+#: template-parts/header-standard.php:83
 msgid "Footer Color Variant"
 msgstr "Fußzeilen-Farbvariante"
 
-#: functions/options/class-sunflowersettingspage.php:135
+#: functions/options/class-sunflowersettingspage.php:128
+msgid "Frontend Design Switcher"
+msgstr "Frontend Design Umschalter"
+
+#: functions/options/class-sunflowersettingspage.php:134
+msgid "show frontend design switcher"
+msgstr "Zeige Design Umschalter im Frontend"
+
+#: functions/options/class-sunflowersettingspage.php:147
 msgid "Excerpt length (words)"
 msgstr "Anzahl der Wörter im Vorschautext"
 
-#: functions/options/class-sunflowersettingspage.php:143
-#: functions/options/class-sunflowersettingspage.php:149
+#: functions/options/class-sunflowersettingspage.php:155
+#: functions/options/class-sunflowersettingspage.php:161
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options/class-sunflowersettingspage.php:155
+#: functions/options/class-sunflowersettingspage.php:167
 msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
-#: functions/options/class-sunflowersettingspage.php:161
+#: functions/options/class-sunflowersettingspage.php:173
 msgid "Show post author on post details and via REST api."
 msgstr "Zeige den/die Autor*in im Beitrag und über die REST-API."
 
-#: functions/options/class-sunflowersettingspage.php:167
-#: functions/options/class-sunflowersettingspage.php:173
+#: functions/options/class-sunflowersettingspage.php:179
+#: functions/options/class-sunflowersettingspage.php:185
 msgid "hide previous and next links"
 msgstr "Verstecke Vor- und Zurück-Links"
 
-#: functions/options/class-sunflowersettingspage.php:179
-#: functions/options/class-sunflowersettingspage.php:183
+#: functions/options/class-sunflowersettingspage.php:191
+#: functions/options/class-sunflowersettingspage.php:195
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/class-sunflowersettingspage.php:188
+#: functions/options/class-sunflowersettingspage.php:200
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/class-sunflowersettingspage.php:194
+#: functions/options/class-sunflowersettingspage.php:206
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/class-sunflowersettingspage.php:200
-#: functions/options/class-sunflowersettingspage.php:204
+#: functions/options/class-sunflowersettingspage.php:212
+#: functions/options/class-sunflowersettingspage.php:216
 msgid "Show social media icons in header"
 msgstr "Social-Media-Icons im Header anzeigen"
 
-#: functions/options/class-sunflowersettingspage.php:209
+#: functions/options/class-sunflowersettingspage.php:221
 msgid "Show list of categories on category archive"
 msgstr "Zeige Liste von Kategorien auf Kategorie-Seite"
 
-#: functions/options/class-sunflowersettingspage.php:217
+#: functions/options/class-sunflowersettingspage.php:229
 msgid "Enhance SEO"
 msgstr "SEO verbessern"
 
-#: functions/options/class-sunflowersettingspage.php:223
+#: functions/options/class-sunflowersettingspage.php:235
 msgid "Set website name in page metadata"
 msgstr "Webseitenname in den Seiten-Metadaten"
 
-#: functions/options/class-sunflowersettingspage.php:229
+#: functions/options/class-sunflowersettingspage.php:241
 msgid "Media creator field"
 msgstr "Medien Urheber*in"
 
-#: functions/options/class-sunflowersettingspage.php:267
+#: functions/options/class-sunflowersettingspage.php:279
 msgid "Select the visual appearance of your theme."
 msgstr "Wählen Sie das visuelle Erscheinungsbild Ihres Themes aus."
 
-#: functions/options/class-sunflowersettingspage.php:279
+#: functions/options/class-sunflowersettingspage.php:291
 msgid "Various theme settings"
 msgstr "Verschiedene Theme Einstellungen"
 
-#: functions/options/class-sunflowersettingspage.php:330
+#: functions/options/class-sunflowersettingspage.php:342
+#: template-parts/header-standard.php:64
 msgid "Rounded"
 msgstr "Abgerundet"
 
-#: functions/options/class-sunflowersettingspage.php:331
+#: functions/options/class-sunflowersettingspage.php:343
+#: template-parts/header-standard.php:65
 msgid "Sharp"
 msgstr "Eckig"
 
-#: functions/options/class-sunflowersettingspage.php:353
+#: functions/options/class-sunflowersettingspage.php:365
+#: template-parts/header-standard.php:71
 msgid "Light"
 msgstr "Hell"
 
-#: functions/options/class-sunflowersettingspage.php:354
+#: functions/options/class-sunflowersettingspage.php:366
+#: template-parts/header-standard.php:72
 msgid "Dark"
 msgstr "Dunkel"
 
-#: functions/options/class-sunflowersettingspage.php:378
+#: functions/options/class-sunflowersettingspage.php:390
+#: template-parts/header-standard.php:78
 msgid "Landscape"
 msgstr "Querformat"
 
-#: functions/options/class-sunflowersettingspage.php:379
+#: functions/options/class-sunflowersettingspage.php:391
+#: template-parts/header-standard.php:79
 msgid "Flexible"
 msgstr "Flexibel"
 
-#: functions/options/class-sunflowersettingspage.php:394
+#: functions/options/class-sunflowersettingspage.php:406
 msgid ""
 "Nutze Querformate (z.B. 2/1 oder 16/9) als Beitrags- oder Terminbeitrags-"
 "Bilder, um einen bestmöglichen Look in den Vorschau-Cards und auf "
@@ -703,39 +721,41 @@ msgid ""
 "nutzen möchtest, wähle die Option \"Flexibel\"."
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:405
+#: functions/options/class-sunflowersettingspage.php:417
+#: template-parts/header-standard.php:85
 msgid "Sand"
 msgstr "Sandfarben"
 
-#: functions/options/class-sunflowersettingspage.php:406
+#: functions/options/class-sunflowersettingspage.php:418
+#: template-parts/header-standard.php:86
 msgid "Light Green"
 msgstr "Hellgrün"
 
-#: functions/options/class-sunflowersettingspage.php:429
+#: functions/options/class-sunflowersettingspage.php:440
 msgid "do not show"
 msgstr "keine Anzeige"
 
-#: functions/options/class-sunflowersettingspage.php:430
+#: functions/options/class-sunflowersettingspage.php:441
 msgid "main categories"
 msgstr "Hauptkategorien"
 
-#: functions/options/class-sunflowersettingspage.php:431
+#: functions/options/class-sunflowersettingspage.php:442
 msgid "only sub-categories"
 msgstr "nur Unter-Kategorien"
 
-#: functions/options/class-sunflowersettingspage.php:453
+#: functions/options/class-sunflowersettingspage.php:464
 msgid "optional"
 msgstr "optional"
 
-#: functions/options/class-sunflowersettingspage.php:454
+#: functions/options/class-sunflowersettingspage.php:465
 msgid "required"
 msgstr "verpflichtend"
 
-#: functions/options/class-sunflowersettingspage.php:455
+#: functions/options/class-sunflowersettingspage.php:466
 msgid "strict (The image is blurred if no creator field is filled out.)"
 msgstr "streng (Bild wird verpixelt, wenn Urheber*in leer ist.)"
 
-#: functions/options/class-sunflowersettingspage.php:456
+#: functions/options/class-sunflowersettingspage.php:467
 msgid "disabled"
 msgstr "deaktiviert"
 
@@ -795,7 +815,7 @@ msgid "Show share buttons on single post page"
 msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:264
-#: functions/s.php:134
+#: functions/s.php:146
 msgid "Select Open Graph Fallback Image"
 msgstr "Ersatzbild für Open-Graph-Tag wählen"
 
@@ -827,27 +847,27 @@ msgstr "Fußzeilenmenü 1"
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/s.php:147 template-parts/content-archive.php:57
+#: functions/s.php:159 template-parts/content-archive.php:57
 msgid "Continue reading"
 msgstr "weiterlesen"
 
-#: functions/s.php:150
+#: functions/s.php:162
 msgid "Image %1 of %2"
 msgstr "Bild %1 von %2"
 
-#: functions/s.php:151
+#: functions/s.php:163
 msgid "Next Image"
 msgstr "Nächstes Bild"
 
-#: functions/s.php:152
+#: functions/s.php:164
 msgid "Previous Image"
 msgstr "Bild zurück"
 
-#: functions/s.php:153
+#: functions/s.php:165
 msgid "Cancel Loading Image"
 msgstr "Bild laden abbrechen"
 
-#: functions/s.php:154
+#: functions/s.php:166
 msgid "Close Lightbox"
 msgstr "Lightbox schließen"
 
@@ -1070,7 +1090,11 @@ msgstr "keine"
 msgid "Top menu"
 msgstr "Menü am oberen Rand"
 
-#: template-parts/header-standard.php:95
+#: template-parts/header-standard.php:53
+msgid "Design Switch"
+msgstr "Design Umschalter"
+
+#: template-parts/header-standard.php:155
 msgid "Menu"
 msgstr ""
 

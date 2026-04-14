@@ -32,23 +32,19 @@
 			'colorscheme-light',
 			'colorscheme-green',
 			'footer-sand',
-			'footer-green',
-			'post-image-flexible',
-			'post-image-modern'
+			'footer-green'
 		);
 
 		// 2️⃣ Neue Klassen hinzufügen
 		body.classList.add( `formstyle-${ values.formstyle }` );
 		body.classList.add( `colorscheme-${ values.colorscheme }` );
 		body.classList.add( `footer-${ values.footer }` );
-		body.classList.add( `post-image-${ values.postimage }` );
 	};
 
 	const readFromUI = () => ( {
 		formstyle: document.getElementById( 'formstyle-select' ).value,
 		colorscheme: document.getElementById( 'colorscheme-select' ).value,
 		footer: document.getElementById( 'footer-select' ).value,
-		postimage: document.getElementById( 'postimage-select' ).value,
 	} );
 
 	// ------------------------------------------------------------------
@@ -70,8 +66,6 @@
 			document.getElementById( 'colorscheme-select' ).value =
 				stored.colorscheme;
 			document.getElementById( 'footer-select' ).value = stored.footer;
-			document.getElementById( 'postimage-select' ).value =
-				stored.postimage;
 		} else {
 			// no change needed, but setStored with default values for future reference
 		}
