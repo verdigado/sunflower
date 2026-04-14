@@ -161,12 +161,41 @@ jQuery( function () {
 		return false;
 	} );
 
+	const IMG_EXT = /\.(jpe?g|png|gif|webp|svg)$/i;
+
+	// add lightbox2 attributes to gallery blocks and remove them from linked images
 	jQuery( '.wp-block-gallery figure' ).each( function () {
-		const caption = jQuery( 'figcaption', this ).text();
-		jQuery( 'a', this )
-			.first()
-			.attr( 'data-lightbox', 'sunflower-gallery' );
-		jQuery( 'a', this ).first().attr( 'data-title', caption );
+		// Fetch caption text, if available
+		const $caption = jQuery( 'figcaption', this );
+		const caption = $caption.length ? $caption.text().trim() : '';
+
+		// Find first <a> in the figure, if it exists
+		const $link = jQuery( 'a', this ).first();
+
+		// If there's no link, this is a plain image without a lightbox, so we can skip it
+		if ( ! $link.length ) {
+			return;
+		}
+
+		// Fetch href attribute of the link to check if it points to an image file
+		const href = $link.attr( 'href' );
+		const isImage = href && IMG_EXT.test( href );
+
+		// Skip lightbox setup if the link doesn't point to an image
+		const hasExternalTarget =
+			$link.attr( 'target' ) === '_blank' ||
+			$link.attr( 'rel' )?.includes( 'external' );
+
+		if ( isImage && ! hasExternalTarget ) {
+			$link.attr( 'data-lightbox', 'sunflower-gallery' );
+
+			if ( caption ) {
+				$link.attr( 'data-title', caption );
+			}
+		} else {
+			// Do not apply lightbox attributes to non-image links, but also remove them if they were added by mistake
+			$link.removeAttr( 'data-lightbox' ).removeAttr( 'data-title' );
+		}
 	} );
 
 	lightbox.option( {
