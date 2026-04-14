@@ -168,13 +168,6 @@ body #content .is-vertical {
 .wp-block-group.is-vertical,
 .wp-block-column {
 
-    figure {
-
-        @include media-breakpoint-down(md) {
-            width: 100%;
-        }
-    }
-
     figure,
     .wp-block-group {
         margin-top: var(--grid-margin);
@@ -302,5 +295,12 @@ body #content {
     &:only-child {
         padding-top: var(--grid-margin);
         padding-bottom: var(--grid-margin);
+    }
+}
+
+.all-columns-start-with-image {
+
+    figure {
+        width: 100%;
     }
 }
