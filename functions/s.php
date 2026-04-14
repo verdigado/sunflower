@@ -127,6 +127,18 @@ function sunflower_scripts() {
 		SUNFLOWER_VERSION,
 		true
 	);
+
+	$sunflower_options = get_option( 'sunflower_options' );
+	if ( ! empty( $sunflower_options['sunflower_design_switcher'] ) ) {
+		wp_enqueue_script(
+			'design-switcher',
+			get_template_directory_uri() . '/assets/js/design-switcher.js',
+			null,
+			SUNFLOWER_VERSION,
+			true
+		);
+	}
+
 	wp_localize_script(
 		'sunflower-admin-media',
 		'texts',

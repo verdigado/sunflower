@@ -1,0 +1,155 @@
+@use "sass:map";
+
+$ds-toggle-size:      48px;
+$ds-toggle-bg:      #fff;
+$ds-toggle-bg-hover:  #f0f0f0;
+$ds-toggle-shadow:   0 2px 6px rgba(0, 0, 0, 0.15);
+$ds-panel-width:     280px;            // Breite des Slide‑In‑Panels
+$ds-panel-bg:        #fff;
+$ds-panel-shadow:    -2px 0 8px rgba(0, 0, 0, 0.2);
+$ds-overlay-bg:      rgba(0, 0, 0, 0.4);
+$ds-border-color:    #e0e0e0;
+$ds-font-size:       0.95rem;
+$ds-header-font:     1.2rem;
+$ds-panel-color: #000;
+
+.design-switcher-toggle {
+    position: fixed;
+    top: 9rem;
+    right: 1rem;
+    width: $ds-toggle-size;
+    padding: 0;
+    height: $ds-toggle-size;
+    background: $ds-toggle-bg;
+    z-index: 1000;
+    transition: background 0.2s;
+
+    &:hover {
+        background: $ds-toggle-bg-hover;
+    }
+
+    .fa-brush {
+        transform: translateX(-0.02em);
+        width: 7px;
+    }
+}
+
+.design-switcher-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: $ds-panel-width;
+    max-width: 90%;
+    height: 100vh;
+
+    @include themed-colorscheme-nested() {
+        background: t(background);
+        color: t(text);
+    }
+
+    box-shadow: $ds-panel-shadow;
+    transform: translateX(100%);               // start: außerhalb des Viewports
+    transition: transform 0.35s ease-out;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+
+    /* Sichtbar → nach links schieben */
+    &[aria-hidden="false"],
+    &:not([hidden]) {
+        transform: translateX(0);
+    }
+
+    /* -------- Header + Close‑Button -------- */
+    .design-switcher-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 1px solid $ds-border-color;
+
+        h2 {
+            margin: 0;
+            font-size: $ds-header-font;
+        }
+
+        .design-switcher-close {
+            background: transparent;
+            border: none;
+            font-size: 1.6rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+    }
+
+    .admin-bar & {
+        top: 32px;
+    }
+
+
+    /* -------- Body (Select‑Boxen) -------- */
+    .design-switcher-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem;
+
+        label {
+            display: block;
+            margin-bottom: 1rem;
+            font-size: $ds-font-size;
+            color: $ds-panel-color;
+
+            select {
+                width: 100%;
+                padding: 0.4rem 0.6rem;
+                margin-top: 0.3rem;
+                font-size: $ds-font-size;
+            }
+        }
+    }
+}
+
+@mixin fade-toggle($duration, $easing) {
+    // Das Element ist zu Beginn *unsichtbar* (opacity 0) und wird
+    // per Klassenwechsel (`.visible`) sichtbar.
+    opacity: 0;
+    transition: opacity $duration $easing;
+
+    // Wenn die Klasse `.visible` gesetzt wird, wird die Opazität
+    // auf 1 animiert.
+    &.visible {
+        opacity: 1;
+    }
+}
+
+
+/* -----------------------------------------------------------------
+   3️⃣ Backdrop‑Grundstil
+   ----------------------------------------------------------------- */
+.design-switcher-backdrop {
+    // Positioniert das Overlay über dem kompletten Viewport
+    position: fixed;
+    inset: 0;                     // shorthand für top/right/bottom/left = 0
+    z-index: 999;
+
+    // Damit das Element nicht im Tab‑Order erscheint, wenn es versteckt ist
+    // (wird über das `hidden`‑Attribut im HTML gesteuert)
+    &[hidden] {
+        display: none;              // komplett aus dem Render‑Flow entfernen
+    }
+
+    // Cursor‑Feedback – zeigt dem Nutzer, dass er hier klicken kann
+    cursor: pointer;
+
+    // Fade‑In‑/Out‑Animation
+    @include fade-toggle(0.3s, ease-out);
+}
+
+
+/* ------------------- 5️⃣ Responsives Verhalten ------------------- */
+@media (max-width: 480px) {
+
+    .design-switcher-panel {
+        width: 80%;
+    }
+}

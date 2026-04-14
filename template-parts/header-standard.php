@@ -29,7 +29,67 @@
 		</div>
 	</div>
 <?php endif; ?>
+<?php
+	$sunflower_options = get_option( 'sunflower_options' );
 
+if ( ( $sunflower_options['sunflower_design_switcher'] ?? false ) === 'checked' ) :
+	?>
+
+<button id="design-switcher-toggle"
+		class="design-switcher-toggle"
+		aria-label="Design‑Umschalter öffnen"
+		aria-haspopup="dialog"
+		aria-controls="design-switcher-panel">
+		<i class="fas fa-brush"></i>
+</button>
+
+<div id="design-switcher-panel"
+	class="design-switcher-panel"
+	role="dialog"
+	aria-modal="true"
+	aria-labelledby="design-switcher-title"
+	hidden>
+	<header class="design-switcher-header">
+		<h2 id="design-switcher-title"><?php esc_html_e( 'Design Switch', 'sunflower' ); ?></h2>
+		<button id="design-switcher-close"
+				class="design-switcher-close"
+				aria-label="Schließen">
+				<i class="fas fa-xmark"></i>
+		</button>
+	</header>
+
+	<div id="design-switcher" class="design-switcher">
+		<label><?php esc_html_e( 'Shape Style', 'sunflower' ); ?>
+			<select id="formstyle-select">
+				<option value="rounded"><?php esc_html_e( 'Rounded', 'sunflower' ); ?></option>
+				<option value="sharp"><?php esc_html_e( 'Sharp', 'sunflower' ); ?></option>
+			</select>
+		</label>
+
+		<label><?php esc_html_e( 'Color Mood', 'sunflower' ); ?>
+			<select id="colorscheme-select">
+				<option value="light"><?php esc_html_e( 'Light', 'sunflower' ); ?></option>
+				<option value="green"><?php esc_html_e( 'Dark', 'sunflower' ); ?></option>
+			</select>
+		</label>
+
+		<label><?php esc_html_e( 'Post Image Format', 'sunflower' ); ?>
+			<select id="postimage-select">
+				<option value="modern"><?php esc_html_e( 'Landscape', 'sunflower' ); ?></option>
+				<option value="flexible"><?php esc_html_e( 'Flexible', 'sunflower' ); ?></option>
+			</select>
+		</label>
+
+		<label><?php esc_html_e( 'Footer Color Variant', 'sunflower' ); ?>
+			<select id="footer-select">
+				<option value="sand"><?php esc_html_e( 'Sand', 'sunflower' ); ?></option>
+				<option value="green"><?php esc_html_e( 'Light Green', 'sunflower' ); ?></option>
+			</select>
+		</label>
+	</div>
+</div>
+<div id="design-switcher-backdrop" class="design-switcher-backdrop" hidden></div>
+<?php endif; ?>
 <header class="top-bar">
 	<div class="container-fluid d-flex align-items-center justify-content-between flex-wrap">
 
