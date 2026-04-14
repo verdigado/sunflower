@@ -68,7 +68,34 @@
 		{ rootMargin: '0px 0px -10% 0px' }
 	);
 
+	// Some elements like lightboxes must be excluded from the fade‑in effect,
+	// otherwise they would be invisible until hovered or focused.
+	const EXCLUDE = [
+		'.jetpack-lightbox',
+		'.fancybox-container',
+		'[data-fancybox]',
+		'[data-lightbox]',
+		'.wp-block-gallery',
+		'.lightbox-image-container',
+	];
+
+	/**
+	 * Checks if the element itself or any of its ancestors match the EXCLUDE selectors.
+	 * If so, the element should be immediately visible and not faded in.
+	 *
+	 * @param {Element} el
+	 * @return {boolean} True if the element should be excluded from fading, false otherwise.
+	 */
+	const isExcluded = ( el ) => {
+		return EXCLUDE.some( ( selector ) => el.closest( selector ) !== null );
+	};
+
 	const prepareIfBelowFold = ( el ) => {
+		if ( isExcluded( el ) ) {
+			el.classList.remove( 'u-fade' );
+			el.classList.add( 'is-visible' );
+			return;
+		}
 		const rect = el.getBoundingClientRect();
 		// Nur "unter der Falz" vorbereiten, Above-the-fold bleibt sofort sichtbar
 		if ( rect.top > window.innerHeight ) {
