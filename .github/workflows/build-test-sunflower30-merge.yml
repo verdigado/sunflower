@@ -1,104 +1,16 @@
 # .github/workflows/release.yml
 
-name: Build Test for Sunflower 3.0 (on PR)
+name: Build Test for Sunflower 3.0 (on merge)
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-    types:
-      - opened
-      - reopened
 
 env:
   NODE_VERSION: 24
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    env:
-      PROJECT_ROOT: ${{ github.workspace }}/sunflower26
-
-    defaults:
-      run:
-        working-directory: ${{ env.PROJECT_ROOT }}
-
-    steps:
-      - uses: actions/checkout@v6
-        with:
-            path: sunflower26
-
-      - name: check theme version against tag
-        run: |
-            THEME_VERSION=$(cat sass/style.scss | grep Version | sed -r 's/version: +//I')
-            V="v"
-            echo Version in style.scss: $THEME_VERSION
-
-      - uses: actions/setup-node@v6
-        with:
-            node-version: ${{ env.NODE_VERSION }}
-
-      - name: Verify lockfile version
-        run: |
-          echo "Lockfile version:"
-          jq '.lockfileVersion' package-lock.json
-
-      - name: Cache node_modules directory
-        uses: actions/cache@v5
-        id: npm-cache-dir
-        with:
-            path: node_modules
-            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: |
-                ${{ runner.os }}-node-
-
-      - name: Install npm packages
-        if: steps.npm-cache-dir.outputs.cache-hit != 'true'
-        run: |
-          pwd
-          ls -l package-lock.json
-          ls -l package.json
-          npm -v
-          node --version
-          npm install
-
-      - name: Lint SCSS
-        run: npm run lint:scss
-
-      - name: Build CSS
-        run: npm run compile:css
-
-      - name: Build CSS-RTL
-        run: npm run compile:rtl
-
-      - name: Lint JS
-        run: npm run lint:js
-
-      - name: Build JS
-        run: npm run build
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-            php-version: 8.4
-            tools: cs2pr
-
-      - name: run install composer
-        run: |
-            composer install
-            cd lib && composer install
-
-      - name: Run PHPCS checks
-        id: phpcs
-        continue-on-error: true
-        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml .
-
-      - name: Show PHPCS results in PR
-        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
-        run: cs2pr ./phpcs-report.xml
-
-      - name: Make bundle
-        run: npm run bundle
 
   deploy-on-merge:
     runs-on: ubuntu-latest
@@ -124,17 +36,22 @@ jobs:
         with:
             node-version: ${{ env.NODE_VERSION }}
 
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
       - name: Cache node_modules directory
         uses: actions/cache@v5
-        id: npm-cache-dir
+        id: npm-cache
         with:
-            path: node_modules
+            path: ${{ steps.npm-cache-dir.outputs.dir }}
             key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             restore-keys: |
                 ${{ runner.os }}-node-
 
       - name: Install npm packages
-        if: steps.npm-cache-dir.outputs.cache-hit != 'true'
+        # if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Build CSS
