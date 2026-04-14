@@ -123,6 +123,18 @@ class SunflowerSettingsPage {
 			'sunflower_theme_variant'
 		);
 
+		add_settings_field(
+			'sunflower_design_switcher',
+			__( 'Frontend Design Switcher', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-admin',
+			'sunflower_theme_variant',
+			array(
+				'field' => 'sunflower_design_switcher',
+				'label' => __( 'show frontend design switcher', 'sunflower' ),
+			)
+		);
+
 		add_settings_section(
 			'sunflower_layout',
 			__( 'Layout', 'sunflower' ),
@@ -417,7 +429,6 @@ class SunflowerSettingsPage {
 
 		echo '</select>';
 	}
-
 
 	/**
 	 * Header layout variant field
