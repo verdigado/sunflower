@@ -1,12 +1,9 @@
-/* ----------------------------------------------------------------------
- * Sunflower – reiner Front‑End‑Design‑Umschalter
- * ---------------------------------------------------------------------- */
+/* --------------------------------------------------------------
+   Sunflower – Einheitlicher Front‑End‑Design‑Umschalter
+   -------------------------------------------------------------- */
 ( () => {
-	const STORAGE_KEY = 'sunflower_design'; // Schlüssel im localStorage
+	const STORAGE_KEY = 'sunflower_design';
 
-	// ------------------------------------------------------------------
-	// 1. Hilfsfunktionen
-	// ------------------------------------------------------------------
 	const getStored = () => {
 		const raw = localStorage.getItem( STORAGE_KEY );
 		if ( ! raw ) {
@@ -19,13 +16,11 @@
 		}
 	};
 
-	const setStored = ( obj ) => {
+	const setStored = ( obj ) =>
 		localStorage.setItem( STORAGE_KEY, JSON.stringify( obj ) );
-	};
 
-	const applyClasses = ( values ) => {
+	const applyClasses = ( { formstyle, colorscheme, footer } ) => {
 		const body = document.body;
-		// 1️⃣ Alle bisherigen Design‑Klassen entfernen
 		body.classList.remove(
 			'formstyle-rounded',
 			'formstyle-sharp',
@@ -34,50 +29,148 @@
 			'footer-sand',
 			'footer-green'
 		);
-
-		// 2️⃣ Neue Klassen hinzufügen
-		body.classList.add( `formstyle-${ values.formstyle }` );
-		body.classList.add( `colorscheme-${ values.colorscheme }` );
-		body.classList.add( `footer-${ values.footer }` );
+		body.classList.add( `formstyle-${ formstyle }` );
+		body.classList.add( `colorscheme-${ colorscheme }` );
+		body.classList.add( `footer-${ footer }` );
 	};
 
-	const readFromUI = () => ( {
-		formstyle: document.getElementById( 'formstyle-select' ).value,
-		colorscheme: document.getElementById( 'colorscheme-select' ).value,
-		footer: document.getElementById( 'footer-select' ).value,
-	} );
+	const syncUiFromValues = ( { formstyle, colorscheme, footer } ) => {
+		const setIfExists = ( id, value ) => {
+			const el = document.getElementById( id );
+			if ( el ) {
+				el.value = value;
+			}
+		};
+		setIfExists( 'formstyle-select', formstyle );
+		setIfExists( 'colorscheme-select', colorscheme );
+		setIfExists( 'footer-select', footer );
+	};
 
-	// ------------------------------------------------------------------
-	// 2. Beim Laden: gespeicherte Werte übernehmen (falls vorhanden)
-	// ------------------------------------------------------------------
-	const init = () => {
+	// Set active button in the panel based on current values.
+	const setActiveButton = ( { formstyle, colorscheme } ) => {
+		document
+			.querySelectorAll( '.design-switcher-trigger' )
+			.forEach( ( b ) => b.classList.remove( 'is-active' ) );
+
+		const selector = `.design-switcher-trigger[data-formstyle="${ formstyle }"][data-colorscheme="${ colorscheme }"]`;
+		const activeBtn = document.querySelector( selector );
+		if ( activeBtn ) {
+			activeBtn.classList.add( 'is-active' );
+		}
+	};
+
+	const toggleBtn = document.getElementById( 'design-switcher-toggle' );
+	const panel = document.getElementById( 'design-switcher-panel' );
+	const closeBtn = document.getElementById( 'design-switcher-close' );
+	const backdrop = document.getElementById( 'design-switcher-backdrop' );
+
+	if ( toggleBtn && panel ) {
+		const openPanel = () => {
+			panel.removeAttribute( 'hidden' );
+			panel.setAttribute( 'aria-hidden', 'false' );
+			backdrop.classList.add( 'visible' );
+			backdrop.removeAttribute( 'hidden' );
+
+			// Fokus‑Trap: erstes fokussierbares Element im Panel
+			const firstFocusable = panel.querySelector(
+				'select, button, [href], input, textarea, [tabindex]:not([tabindex="-1"])'
+			);
+			if ( firstFocusable ) {
+				firstFocusable.focus();
+			}
+		};
+
+		const closePanel = () => {
+			panel.setAttribute( 'hidden', '' );
+			panel.setAttribute( 'aria-hidden', 'true' );
+			backdrop.classList.remove( 'visible' );
+			backdrop.setAttribute( 'hidden', '' );
+			toggleBtn.focus(); // zurück zum Icon‑Button
+		};
+
+		toggleBtn.addEventListener( 'click', openPanel );
+		if ( closeBtn ) {
+			closeBtn.addEventListener( 'click', closePanel );
+		}
+		backdrop.addEventListener( 'click', ( e ) => {
+			if ( e.target === backdrop ) {
+				closePanel();
+			}
+		} );
+		document.addEventListener( 'keydown', ( e ) => {
+			if ( e.key === 'Escape' && ! panel.hasAttribute( 'hidden' ) ) {
+				closePanel();
+			}
+		} );
+	}
+
+	const handleGutenbergClick = ( e ) => {
+		const btn = e.target.closest( '.design-switcher-trigger' );
+		if ( ! btn ) {
+			return;
+		} // Klick nicht auf einem unserer Buttons
+
+		const formstyle = btn.dataset.formstyle || 'rounded';
+		const colorscheme = btn.dataset.colorscheme || 'light';
+		// Footer wird in den Buttons **nicht** gesteuert → übernehmen den gespeicherten oder den Default‑Wert
+		const stored = getStored() || {
+			footer: 'sand', // Default‑Footer, falls nichts gespeichert ist
+		};
+		const payload = {
+			formstyle,
+			colorscheme,
+			footer: stored.footer,
+		};
+
+		applyClasses( payload );
+		setStored( payload );
+		syncUiFromValues( payload );
+		setActiveButton( payload );
+	};
+
+	document.body.addEventListener( 'click', handleGutenbergClick );
+
+	const initPanelSelects = () => {
 		const wrapper = document.getElementById( 'design-switcher' );
 		if ( ! wrapper ) {
 			return;
-		} // Umschalter nicht aktiviert → nichts tun
+		}
 
-		// 2a) gespeicherte Variante holen und anwenden
+		const readFromUI = () => ( {
+			formstyle:
+				document.getElementById( 'formstyle-select' )?.value ||
+				'rounded',
+			colorscheme:
+				document.getElementById( 'colorscheme-select' )?.value ||
+				'light',
+			footer: document.getElementById( 'footer-select' )?.value || 'sand',
+		} );
+
+		// Beim Laden: ggf. gespeicherten Zustand übernehmen
 		const stored = getStored();
 		if ( stored ) {
 			applyClasses( stored );
-			// UI‑Felder auf gespeicherte Werte setzen
-			document.getElementById( 'formstyle-select' ).value =
-				stored.formstyle;
-			document.getElementById( 'colorscheme-select' ).value =
-				stored.colorscheme;
-			document.getElementById( 'footer-select' ).value = stored.footer;
+			syncUiFromValues( stored );
+			setActiveButton( stored );
 		} else {
-			// no change needed, but setStored with default values for future reference
+			// Noch kein Eintrag → Standard‑Werte im Storage sichern
+			const defaults = readFromUI();
+			setStored( defaults );
 		}
 
-		// 2b) Event‑Listener für jede Auswahl
+		// Auf jede Select‑Box hören
 		wrapper.querySelectorAll( 'select' ).forEach( ( sel ) => {
 			sel.addEventListener( 'change', () => {
-				const values = readFromUI(); // neue Werte aus UI
-				applyClasses( values ); // sofort im DOM anwenden
-				setStored( values ); // persistieren
+				const values = readFromUI();
+				applyClasses( values );
+				setStored( values );
+				setActiveButton( values ); // ggf. den zugehörigen Button markieren
 			} );
 		} );
+	};
+
+	const init = () => {
+		initPanelSelects();
 	};
 
 	if ( document.readyState === 'loading' ) {
@@ -85,74 +178,4 @@
 	} else {
 		init();
 	}
-} )();
-
-/* --------------------------------------------------------------
-   Design‑Switch‑Panel – UI‑Logik
-   -------------------------------------------------------------- */
-( () => {
-	const toggleBtn = document.getElementById( 'design-switcher-toggle' );
-	const panel = document.getElementById( 'design-switcher-panel' );
-
-	if ( ! toggleBtn || ! panel ) {
-		return;
-	}
-
-	// -----------------------------------------------------------------
-	// Hilfsfunktion: (de)aktiviert das Panel + Overlay
-	// -----------------------------------------------------------------
-	const backdrop = document.getElementById( 'design-switcher-backdrop' );
-	const openPanel = () => {
-		panel.removeAttribute( 'hidden' );
-		panel.setAttribute( 'aria-hidden', 'false' );
-		backdrop.classList.add( 'visible' );
-		backdrop.removeAttribute( 'hidden' );
-
-		// Fokus‑Trap: erster Fokus‑able Element im Panel
-		const firstFocusable = panel.querySelector(
-			'select, button, [href], input, textarea, [tabindex]:not([tabindex="-1"])'
-		);
-		if ( firstFocusable ) {
-			firstFocusable.focus();
-		}
-	};
-
-	const closePanel = () => {
-		panel.setAttribute( 'hidden', '' );
-		panel.setAttribute( 'aria-hidden', 'true' );
-		backdrop.classList.remove( 'visible' );
-		backdrop.setAttribute( 'hidden', '' );
-
-		// zurück zum Icon‑Button
-		toggleBtn.focus();
-	};
-
-	// -----------------------------------------------------------------
-	// Event‑Handler
-	// -----------------------------------------------------------------
-	const closeBtn = document.getElementById( 'design-switcher-close' );
-	toggleBtn.addEventListener( 'click', openPanel );
-	if ( closeBtn ) {
-		closeBtn.addEventListener( 'click', closePanel );
-	}
-	backdrop.addEventListener( 'click', ( e ) => {
-		if ( e.target === backdrop ) {
-			closePanel();
-		}
-	} );
-
-	// ESC‑Taste schließt das Panel
-	document.addEventListener( 'keydown', ( e ) => {
-		if ( e.key === 'Escape' && ! panel.hasAttribute( 'hidden' ) ) {
-			closePanel();
-		}
-	} );
-
-	// -----------------------------------------------------------------
-	// Optional: Beim Laden prüfen, ob bereits ein Design‑Wert im
-	//          localStorage ist – dann das Panel **nicht** öffnen,
-	//          aber die UI‑Selects werden bereits auf die gespeicherten
-	//          Werte gesetzt (das erledigt das alte Script bereits).
-	// -----------------------------------------------------------------
-	// (Kein zusätzlicher Code nötig – das alte Script läuft weiter.)
 } )();

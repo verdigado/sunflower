@@ -161,3 +161,12 @@ $ds-panel-color: #000;
         width: 80%;
     }
 }
+
+.design-switcher-trigger {
+    cursor: pointer;
+
+    &.is-active {
+        opacity: 0.5;
+        cursor: unset;
+    }
+}
