@@ -838,7 +838,7 @@ function sunflower_ajax_get_calendar_events() {
 		$event_tag_slugs = is_array( $event_tag_slugs ) ? $event_tag_slugs : array();
 
 		$calendar_event = array(
-			'title'         => get_the_title(),
+			'title'         => get_post()->post_title,
 			'start'         => $fc_start,
 			'url'           => get_permalink(),
 			'allDay'        => $is_all_day,
