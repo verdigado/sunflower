@@ -304,6 +304,17 @@ body.formstyle-sharp {
         }
 
         > :first-child.wp-block-cover.is-style-sunflower-hero {
+            h1, h2, h3, h4 {
+                text-align: center !important;
+
+                mark {
+                margin-left: 0;
+                margin-right: 0;
+                }
+            }
+        }
+
+        > :first-child.wp-block-cover.is-style-sunflower-hero {
 
             height: calc(100vh - 85px) !important;
             margin-top: 85px !important;
