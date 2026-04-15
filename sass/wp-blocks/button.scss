@@ -63,7 +63,7 @@ body {
         &:hover {
             color: map.get($custom-colors, "tanne");
             text-decoration: none;
-            background-color: $button-hover !important;
+            background-color: $button-hover;
         }
 
         &::before {
