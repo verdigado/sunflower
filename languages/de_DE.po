@@ -613,11 +613,15 @@ msgstr "Fußzeilen-Farbvariante"
 
 #: functions/options/class-sunflowersettingspage.php:128
 msgid "Frontend Design Switcher"
-msgstr "Frontend Design Umschalter"
+msgstr "Design-Umschalter im Frontend"
 
 #: functions/options/class-sunflowersettingspage.php:134
 msgid "show frontend design switcher"
-msgstr "Zeige Design Umschalter im Frontend"
+msgstr "Design-Umschalter im Frontend aktivieren"
+
+#: functions/options/class-sunflowersettingspage.php:135
+msgid "The design switcher in the frontend is intended for testing and selecting the desired design. It is not meant to remain permanently active in the frontend for site visitors."
+msgstr "Der Design-Umschalter im Frontend hilft beim Testen der Seite und dem Auswählen des gewünschten Designs. Er ist nicht dazu gedacht, dauerhaft im Frontend aktiv zu bleiben für Seitenbesuchende."
 
 #: functions/options/class-sunflowersettingspage.php:147
 msgid "Excerpt length (words)"
@@ -1092,7 +1096,7 @@ msgstr "Menü am oberen Rand"
 
 #: template-parts/header-standard.php:53
 msgid "Design Switch"
-msgstr "Design Umschalter"
+msgstr "Design-Umschalter im Frontend"
 
 #: template-parts/header-standard.php:155
 msgid "Menu"

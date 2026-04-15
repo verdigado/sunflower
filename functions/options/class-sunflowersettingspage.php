@@ -130,8 +130,9 @@ class SunflowerSettingsPage {
 			'sunflower-setting-admin',
 			'sunflower_theme_variant',
 			array(
-				'field' => 'sunflower_design_switcher',
-				'label' => __( 'show frontend design switcher', 'sunflower' ),
+				'field'       => 'sunflower_design_switcher',
+				'label'       => __( 'show frontend design switcher', 'sunflower' ),
+				'description' => __( 'The design switcher in the frontend is intended for testing and selecting the desired design. It is not meant to remain permanently active in the frontend for site visitors.', 'sunflower' ),
 			)
 		);
 
@@ -298,8 +299,9 @@ class SunflowerSettingsPage {
 	 * @param array $args The field arguments.
 	 */
 	public function sunflower_checkbox_callback( $args ): void {
-		$field = $args['field'];
-		$label = $args['label'];
+		$field       = $args['field'];
+		$label       = $args['label'];
+		$description = $args['description'] ?? '';
 
 		printf(
 			'<label>
@@ -310,6 +312,10 @@ class SunflowerSettingsPage {
 			isset( $this->options[ $field ] ) ? 'checked' : '',
 			esc_attr( $label )
 		);
+
+		if ( $description ) {
+			printf( '<p class="description">%s</p>', esc_html( $description ) );
+		}
 	}
 
 	/**
