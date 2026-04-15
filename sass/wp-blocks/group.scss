@@ -248,27 +248,8 @@ body #content {
 }
 
 .entry-content > .wp-block-columns {
-    margin-top: var(--half-block-spacing);
-    margin-bottom: var(--half-block-spacing);
-
-    &.has-background {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    &:first-child {
-        margin-top: var(--grid-margin);
-    }
-
-    &:last-child {
-        margin-bottom: var(--grid-margin);
-    }
-
-    &:only-child {
-        margin-top: var(--grid-margin);
-        margin-bottom: var(--grid-margin);
-    }
-
+    margin-top: var(--grid-margin);
+    margin-bottom: var(--grid-margin);
 }
 
 .entry-content > .wp-block-columns:has(+ .wp-block-columns) {
