@@ -578,6 +578,10 @@ msgstr ""
 msgid "show frontend design switcher"
 msgstr ""
 
+#: functions/options/class-sunflowersettingspage.php:135
+msgid "The design switcher in the frontend is intended for testing and selecting the desired design. It is not meant to remain permanently active in the frontend for site visitors."
+msgstr ""
+
 #: functions/options/class-sunflowersettingspage.php:147
 msgid "Excerpt length (words)"
 msgstr ""
