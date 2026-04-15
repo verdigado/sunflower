@@ -15,14 +15,15 @@ $ds-panel-color: #000;
 
 .design-switcher-toggle {
     position: fixed;
-    top: 9rem;
-    right: 1rem;
-    width: $ds-toggle-size;
+    bottom: var(--double-grid-margin);
+    right: var(--double-grid-margin);
+    width: 48px;
     padding: 0;
-    height: $ds-toggle-size;
-    background: $ds-toggle-bg;
+    height: 48px;
+    background: #fff;
     z-index: 1000;
     transition: background 0.2s;
+    border: 2px solid map.get($custom-colors, "tanne");
 
     &:hover {
         background: $ds-toggle-bg-hover;
@@ -49,6 +50,10 @@ $ds-panel-color: #000;
 
     .design-switcher {
         padding: 1rem;
+
+        label {
+            margin: var(--grid-margin) 0;
+        }
     }
 
     box-shadow: $ds-panel-shadow;
