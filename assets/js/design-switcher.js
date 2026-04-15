@@ -46,16 +46,16 @@
 		setIfExists( 'footer-select', footer );
 	};
 
-	// Set active button in the panel based on current values.
+	// Set active button based on current values.
 	const setActiveButton = ( { formstyle, colorscheme } ) => {
 		document
 			.querySelectorAll( '.design-switcher-trigger' )
-			.forEach( ( b ) => b.classList.remove( 'is-active' ) );
+			.forEach( ( el ) => el.classList.remove( 'is-active' ) );
 
-		const selector = `.design-switcher-trigger[data-formstyle="${ formstyle }"][data-colorscheme="${ colorscheme }"]`;
-		const activeBtn = document.querySelector( selector );
-		if ( activeBtn ) {
-			activeBtn.classList.add( 'is-active' );
+		const selector = `.design-switcher-trigger.ds-fs-${ formstyle }.ds-cs-${ colorscheme }`;
+		const activeWrapper = document.querySelector( selector );
+		if ( activeWrapper ) {
+			activeWrapper.classList.add( 'is-active' );
 		}
 	};
 
@@ -105,27 +105,34 @@
 	}
 
 	const handleGutenbergClick = ( e ) => {
-		const btn = e.target.closest( '.design-switcher-trigger' );
-		if ( ! btn ) {
+		const wrapper = e.target.closest( '.design-switcher-trigger' );
+		if ( ! wrapper ) {
 			return;
-		} // Klick nicht auf einem unserer Buttons
+		}
 
-		const formstyle = btn.dataset.formstyle || 'rounded';
-		const colorscheme = btn.dataset.colorscheme || 'light';
-		// Footer wird in den Buttons **nicht** gesteuert → übernehmen den gespeicherten oder den Default‑Wert
-		const stored = getStored() || {
-			footer: 'sand', // Default‑Footer, falls nichts gespeichert ist
-		};
+		// Read formstyle and colorscheme from the clicked button's classes
+		const fsClass = [ ...wrapper.classList ].find( ( c ) =>
+			c.startsWith( 'ds-fs-' )
+		);
+		const formstyle = fsClass ? fsClass.replace( 'ds-fs-', '' ) : 'rounded';
+
+		const csClass = [ ...wrapper.classList ].find( ( c ) =>
+			c.startsWith( 'ds-cs-' )
+		);
+		const colorscheme = csClass ? csClass.replace( 'ds-cs-', '' ) : 'light';
+
+		const stored = getStored() || { footer: 'sand' };
+
 		const payload = {
 			formstyle,
 			colorscheme,
 			footer: stored.footer,
 		};
 
-		applyClasses( payload );
-		setStored( payload );
-		syncUiFromValues( payload );
-		setActiveButton( payload );
+		applyClasses( payload ); // <body>‑Klassen setzen
+		setStored( payload ); // im localStorage sichern
+		syncUiFromValues( payload ); // Panel‑Selects aktualisieren
+		setActiveButton( payload ); // aktiven Button visuell markieren
 	};
 
 	document.body.addEventListener( 'click', handleGutenbergClick );
