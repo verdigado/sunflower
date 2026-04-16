@@ -181,7 +181,7 @@ function sunflower_scripts() {
 	/* JS – im Head mit defer */
 	wp_enqueue_script(
 		'fade',
-		get_stylesheet_directory_uri() . '/assets/js/fade.js',
+		get_template_directory_uri() . '/assets/js/fade.js',
 		array(),
 		SUNFLOWER_VERSION,
 		false
