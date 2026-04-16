@@ -10,13 +10,13 @@ Kostenlose schöne Bilder gibt es z.B. auf
 
 Siehe auch die Empfehlungen des Bundesverbands unter [design.gruene.de](https://design.gruene.de) -> 🌻 [Grundlagendesign](https://design.gruene.de/4ccd94a80/n/45d0a3).
 
-Für das Bildmanagement im neuen Theme Sunflower26 bitte auch diese Hinweise beachten [mehr](/mkdocs/umstieg_sunflower26.md)
+Für das Bildmanagement im neuen Theme Sunflower26 bitte auch [diese Hinweise beachten](umstieg_sunflower26.md).
 
 ### Lizenz- und Nutzungsbedingungen prüfen!
 
 Prüft unbedingt die Lizenz- und Nutzungsbedingungen der Bilder, die ihr verwenden möchtet. "Kostenlos" heißt nicht, dass man sie in jedem Fall verwenden darf. Manchmal ist es auch notwendig, die Quelle oder die Lizenz mit anzugeben wie z.B. bei [Creative Commons (CC)-Lizenzen](https://de.creativecommons.net/was-ist-cc/).
 
-Das Sunflower-Theme bietet die Möglichkeit in den Einstellungen sicherzustellen, dass es bei fehlenden Bildrechten keine Probleme gibt. [mehr](/mkdocs/setup.md)
+Das Sunflower-Theme bietet die Möglichkeit in den Einstellungen sicherzustellen, dass es bei fehlenden Bildrechten keine Probleme gibt. [mehr](setup.md#anzeige-von-bildern-medien-urheberin)
 
 ## Wie kann ich Soziale Plattformen wie Mastodon, Instagram und Facebook verlinken?
 Gehe dazu in die Sunflower-Einstellungen und trage die kompletten Webadressen Deiner Profile ein.
