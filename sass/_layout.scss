@@ -355,6 +355,25 @@ iframe {
 
 
 // Landscape mode: restore fixed image heights in archive article cards
+body.archive.post-image-modern {
+    .event-list {
+        .event-card__media {
+            img {
+                object-fit: cover;
+                height: 330px;
+
+                @include media-breakpoint-down(xl) {
+                    height: 280px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    height: 220px;
+                }
+            }
+        }
+    }
+}
+
 body.post-image-modern {
 
     .latest-posts--grid .archive-article,
@@ -545,7 +564,7 @@ body #content .is-layout-flex:not(.is-vertical) {
     column-gap: calc(2 * var(--gap-large));
     row-gap: calc(2 * var(--gap-large));
 
-    >  * {
+    > * {
         margin: 0;
     }
 }
