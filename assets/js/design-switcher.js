@@ -48,14 +48,23 @@
 
 	// Set active button based on current values.
 	const setActiveButton = ( { formstyle, colorscheme } ) => {
+		// Zuerst alle Wrapper zurücksetzen
 		document
 			.querySelectorAll( '.design-switcher-trigger' )
 			.forEach( ( el ) => el.classList.remove( 'is-active' ) );
 
-		const selector = `.design-switcher-trigger.ds-fs-${ formstyle }.ds-cs-${ colorscheme }`;
-		const activeWrapper = document.querySelector( selector );
-		if ( activeWrapper ) {
-			activeWrapper.classList.add( 'is-active' );
+		// Dann die beiden passenden Wrapper aktivieren:
+		const fsSelector = `.design-switcher-trigger.ds-fs-${ formstyle }`;
+		const csSelector = `.design-switcher-trigger.ds-cs-${ colorscheme }`;
+
+		const fsActive = document.querySelector( fsSelector );
+		const csActive = document.querySelector( csSelector );
+
+		if ( fsActive ) {
+			fsActive.classList.add( 'is-active' );
+		}
+		if ( csActive ) {
+			csActive.classList.add( 'is-active' );
 		}
 	};
 
@@ -110,24 +119,37 @@
 			return;
 		}
 
-		// Read formstyle and colorscheme from the clicked button's classes
-		const fsClass = [ ...wrapper.classList ].find( ( c ) =>
+		const isFormStyle = [ ...wrapper.classList ].some( ( c ) =>
 			c.startsWith( 'ds-fs-' )
 		);
-		const formstyle = fsClass ? fsClass.replace( 'ds-fs-', '' ) : 'rounded';
-
-		const csClass = [ ...wrapper.classList ].find( ( c ) =>
+		const isColorScheme = [ ...wrapper.classList ].some( ( c ) =>
 			c.startsWith( 'ds-cs-' )
 		);
-		const colorscheme = csClass ? csClass.replace( 'ds-cs-', '' ) : 'light';
 
-		const stored = getStored() || { footer: 'sand' };
+		if ( ! isFormStyle && ! isColorScheme ) {
+			return;
+		}
 
-		const payload = {
-			formstyle,
-			colorscheme,
-			footer: stored.footer,
+		const stored = getStored() || {
+			formstyle: 'rounded',
+			colorscheme: 'light',
+			footer: 'sand',
 		};
+
+		const payload = { ...stored };
+
+		if ( isFormStyle ) {
+			const fsClass = [ ...wrapper.classList ].find( ( c ) =>
+				c.startsWith( 'ds-fs-' )
+			);
+			payload.formstyle = fsClass.replace( 'ds-fs-', '' );
+		}
+		if ( isColorScheme ) {
+			const csClass = [ ...wrapper.classList ].find( ( c ) =>
+				c.startsWith( 'ds-cs-' )
+			);
+			payload.colorscheme = csClass.replace( 'ds-cs-', '' );
+		}
 
 		applyClasses( payload ); // <body>‑Klassen setzen
 		setStored( payload ); // im localStorage sichern
