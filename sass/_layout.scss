@@ -356,8 +356,11 @@ iframe {
 
 // Landscape mode: restore fixed image heights in archive article cards
 body.archive.post-image-modern {
+
     .event-list {
+
         .event-card__media {
+
             img {
                 object-fit: cover;
                 height: 330px;
