@@ -179,13 +179,40 @@ add_action( 'admin_enqueue_scripts', 'sunflower_enqueue_media_script' );
  */
 function sunflower_add_creator_to_image_block( $block_content, $block ) {
 
-	if ( isset( $block['blockName'] ) && ( 'core/image' === $block['blockName'] || 'core/media-text' === $block['blockName'] ) ) {
+	$block_name      = $block['blockName'] ?? '';
+	$creator_setting = sunflower_get_setting( 'sunflower_media_creator' );
+	$creator_setting = $creator_setting ? $creator_setting : 'optional';
 
-		$sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
+	if ( 'disabled' === $creator_setting ) {
+		return $block_content;
+	}
 
-		if ( 'disabled' === $sunflower_media_creator_settings ) {
-			return $block_content;
+	if ( 'core/cover' === $block_name && str_contains( $block['attrs']['className'] ?? '', 'is-style-sunflower-hero' ) ) {
+
+		$attachment_id = (int) ( $block['attrs']['id'] ?? 0 );
+
+		if ( $attachment_id ) {
+			$creator = get_post_meta( $attachment_id, '_media_creator', true );
+
+			if ( ! empty( $creator ) ) {
+				$block_content = preg_replace(
+					'/(<\/div>\s*)$/s',
+					'<p class="sunflower-photo-credit">' . wp_kses_post( $creator ) . '</p>$1',
+					$block_content
+				);
+			} elseif ( 'strict' === $creator_setting ) {
+				$block_content = preg_replace(
+					'/(<div[^>]*class=")([^"]*is-style-sunflower-hero[^"]*)"/',
+					'$1$2 no-creator"',
+					$block_content
+				);
+			}
 		}
+
+		return $block_content;
+	}
+
+	if ( 'core/image' === $block_name || 'core/media-text' === $block_name ) {
 
 		$attachment_id = 0;
 		if ( isset( $block['attrs']['id'] ) ) {
@@ -215,7 +242,7 @@ function sunflower_add_creator_to_image_block( $block_content, $block ) {
 						$block_content
 					);
 				}
-			} elseif ( 'strict' === $sunflower_media_creator_settings ) {
+			} elseif ( 'strict' === $creator_setting ) {
 				// Find img tag and extend it.
 				$block_content = preg_replace(
 					'/(<img[^>]*class=")([^"]*)"/',
