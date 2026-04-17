@@ -2,7 +2,7 @@
 
 ## Umschalten zwischen den verschiedenen Designs
 
-* Die Anleitungen zum Umschalten zwischen den verschiedenen Designs sind im Rahmen der [Ersten Schritte beim Setup](/mkdocs/docs/setup.md) beschrieben.  
+* Die Anleitungen zum Umschalten zwischen den verschiedenen Designs sind im Rahmen der [Ersten Schritte beim Setup](/main/mkdocs/docs/setup.md) beschrieben.  
 
 ## Hinweise zu der Nutzung von Bildern
 
