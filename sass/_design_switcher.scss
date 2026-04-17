@@ -166,7 +166,6 @@ $ds-panel-color: #000;
     cursor: pointer;
 
     &.is-active {
-        opacity: 0.5;
-        cursor: unset;
+        display: none;
     }
 }
