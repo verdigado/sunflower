@@ -2,21 +2,21 @@
 
 ## Umschalten zwischen den verschiedenen Designs
 
-* Die Anleitungen zum Umschalten zwischen den verschiedenen Designs sind im Rahmen der [Ersten Schritte beim Setup](/mkdocs/docs/setup.md) beschrieben.  
+* Die Anleitungen zum Umschalten zwischen den verschiedenen Designs sind im Rahmen der [Ersten Schritte beim Setup](setup.md) beschrieben.
 
 ## Hinweise zu der Nutzung von Bildern
 
 * das neue Theme ist vom Design her darauf ausgerichtet, querformatige Bilder zu nutzen.
 * hierbei ist wichtig, dass beim Seitenverhältnis nach Möglichkeit **ein** einheitliches Format genutzt wird.
-* also alle 16:9 oder 2:1 oder quadratisch, nicht durchmischt. 
+* also alle 16:9 oder 2:1 oder quadratisch, nicht durchmischt.
 
-## Darstellung von heterogenen Bildformaten 
+## Darstellung von heterogenen Bildformaten
 
 * Da viele bestehende Instanzen noch mit einer Vielfalt von Bildformaten das Theme nutzen, gibt es die Möglichkeit die Darstellung umzuschalten:
 
 * **querformat** um querformatige Bilder bestmöglich zur Geltung zu bringen oder **flexibel**, um die Format-Vielfalt einer bestehenden Instanz zu berücksichtigen.
 
-* verdigado empfiehlt eine strukturierte Durchsicht aller bestehenden Bilder. 
+* verdigado empfiehlt eine strukturierte Durchsicht aller bestehenden Bilder.
 
 <figure markdown="span">
   ![Screenshot vom Sunflower-Menü zum Thema Bildformate](images/sunflower26_Bildformat_umschalten.png){ width="" }
@@ -27,4 +27,4 @@
 
 ## Barrierefreiheit
 
-* Bilder mit Text / Sharepics werden sehr gerne genutzt, sind aber aus Barrierefreiheitsgründen nicht zu empfehlen. Sehbehinderte Menschen können den Inhalt der Bilder nicht erfassen. Die Nutzung z.B. von SharePics aus SocualMedia Beiträgen bietet sich an, ist aber aus der Perspektive der Barrierefreieheit nicht zu empfehlen. 
+* Bilder mit Text / Sharepics werden sehr gerne genutzt, sind aber aus Barrierefreiheitsgründen nicht zu empfehlen. Sehbehinderte Menschen können den Inhalt der Bilder nicht erfassen. Die Nutzung z.B. von SharePics aus SocualMedia Beiträgen bietet sich an, ist aber aus der Perspektive der Barrierefreieheit nicht zu empfehlen.
