@@ -11,20 +11,6 @@
  */
 
 // ---------------------------------------------------------------------------
-// Activation helper – called from activation.php
-// ---------------------------------------------------------------------------
-
-/**
- * Decide what to do with demo content directly after theme activation.
- *
- * Always show the welcome page after activation, where users can either
- * install demo content or skip directly to first steps.
- */
-function sunflower_schedule_welcome_or_skip(): void {
-	set_transient( 'sunflower_welcome_redirect', true, 5 * MINUTE_IN_SECONDS );
-}
-
-// ---------------------------------------------------------------------------
 // Redirect
 // ---------------------------------------------------------------------------
 
@@ -85,9 +71,9 @@ add_action( 'admin_init', 'sunflower_maybe_redirect_to_first_steps', 11 );
  */
 function sunflower_register_welcome_page(): void {
 	add_submenu_page(
-		'',
-		__( 'Willkommen', 'sunflower' ),
-		__( 'Willkommen', 'sunflower' ),
+		'sunflower_welcome',
+		__( 'Welcome to Sunflower 26', 'sunflower' ),
+		__( 'Welcome to Sunflower 26', 'sunflower' ),
 		'manage_options',
 		'sunflower_welcome',
 		'sunflower_render_welcome_page'
@@ -103,6 +89,7 @@ add_action( 'admin_menu', 'sunflower_register_welcome_page' );
  * Output the welcome page HTML.
  */
 function sunflower_render_welcome_page(): void {
+
 	$first_steps_url = admin_url( 'admin.php?page=sunflower_admin' );
 	?>
 	<div class="wrap">
@@ -110,9 +97,30 @@ function sunflower_render_welcome_page(): void {
 
 		<div class="card" style="max-width:680px;padding:28px 28px 24px;margin-top:24px;">
 
-			<p style="font-size:1.05em;margin-top:0">
+			<p style="font-size:1.1em;margin-top:0">
 				<?php esc_html_e( 'Damit du schnell starten kannst, empfehlen wir, die Beispielseiten einzurichten.', 'sunflower' ); ?>
 			</p>
+
+			<?php
+				printf(
+					wp_kses_post(
+					/* translators: %1$s is replace with current PHP version and %2$s is replaced with link */
+						__(
+							'<p>On installation of the example content, your existing content will remain unchanged.</p>
+							<p>This will be done:</p>
+							<ul style="list-style-type:disc;margin-left:20px;">
+							<li>Some new posts will be added.</li>
+							<li>Some new pages will be added.</li>
+							<li>The homepage will be set to a static page showing the new example content.</li>
+							<li>Some new media files will be added.</li>
+							</ul>
+							<p>You can always delete the demo pages later.</p>
+							',
+							'sunflower'
+						)
+					)
+				);
+			?>
 
 			<p style="margin-bottom:0">
 				<button id="sunflower-install-demo"

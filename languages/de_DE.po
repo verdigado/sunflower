@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
-"POT-Creation-Date: 2026-04-14T12:58:21+02:00\n"
+"POT-Creation-Date: 2026-04-24T00:08:01+02:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -371,7 +371,7 @@ msgstr ""
 "Barrierefreiheit zu verbessern."
 
 #: functions/metaboxes.php:15
-#: functions/options/class-sunflowersettingspage.php:140
+#: functions/options/class-sunflowersettingspage.php:141
 msgid "Layout"
 msgstr "Layout"
 
@@ -602,12 +602,11 @@ msgid "Color Mood"
 msgstr "Farbstimmung"
 
 #: functions/options/class-sunflowersettingspage.php:112
-#: template-parts/header-standard.php:76
 msgid "Post Image Format"
 msgstr "Beitragsbild Format"
 
 #: functions/options/class-sunflowersettingspage.php:120
-#: template-parts/header-standard.php:83
+#: template-parts/header-standard.php:76
 msgid "Footer Color Variant"
 msgstr "Fußzeilen-Farbvariante"
 
@@ -620,104 +619,108 @@ msgid "show frontend design switcher"
 msgstr "Design-Umschalter im Frontend aktivieren"
 
 #: functions/options/class-sunflowersettingspage.php:135
-msgid "The design switcher in the frontend is intended for testing and selecting the desired design. It is not meant to remain permanently active in the frontend for site visitors."
-msgstr "Der Design-Umschalter im Frontend hilft beim Testen der Seite und dem Auswählen des gewünschten Designs. Er ist nicht dazu gedacht, dauerhaft im Frontend aktiv zu bleiben für Seitenbesuchende."
+msgid ""
+"The design switcher in the frontend is intended for testing and selecting "
+"the desired design. It is not meant to remain permanently active in the "
+"frontend for site visitors."
+msgstr ""
+"Der Design-Umschalter im Frontend hilft beim Testen der Seite und dem "
+"Auswählen des gewünschten Designs. Er ist nicht dazu gedacht, dauerhaft im "
+"Frontend aktiv zu bleiben für Seitenbesuchende."
 
-#: functions/options/class-sunflowersettingspage.php:147
+#: functions/options/class-sunflowersettingspage.php:148
 msgid "Excerpt length (words)"
 msgstr "Anzahl der Wörter im Vorschautext"
 
-#: functions/options/class-sunflowersettingspage.php:155
-#: functions/options/class-sunflowersettingspage.php:161
+#: functions/options/class-sunflowersettingspage.php:156
+#: functions/options/class-sunflowersettingspage.php:162
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options/class-sunflowersettingspage.php:167
+#: functions/options/class-sunflowersettingspage.php:168
 msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
-#: functions/options/class-sunflowersettingspage.php:173
+#: functions/options/class-sunflowersettingspage.php:174
 msgid "Show post author on post details and via REST api."
 msgstr "Zeige den/die Autor*in im Beitrag und über die REST-API."
 
-#: functions/options/class-sunflowersettingspage.php:179
-#: functions/options/class-sunflowersettingspage.php:185
+#: functions/options/class-sunflowersettingspage.php:180
+#: functions/options/class-sunflowersettingspage.php:186
 msgid "hide previous and next links"
 msgstr "Verstecke Vor- und Zurück-Links"
 
-#: functions/options/class-sunflowersettingspage.php:191
-#: functions/options/class-sunflowersettingspage.php:195
+#: functions/options/class-sunflowersettingspage.php:192
+#: functions/options/class-sunflowersettingspage.php:196
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/class-sunflowersettingspage.php:200
+#: functions/options/class-sunflowersettingspage.php:201
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/class-sunflowersettingspage.php:206
+#: functions/options/class-sunflowersettingspage.php:207
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/class-sunflowersettingspage.php:212
-#: functions/options/class-sunflowersettingspage.php:216
+#: functions/options/class-sunflowersettingspage.php:213
+#: functions/options/class-sunflowersettingspage.php:217
 msgid "Show social media icons in header"
 msgstr "Social-Media-Icons im Header anzeigen"
 
-#: functions/options/class-sunflowersettingspage.php:221
+#: functions/options/class-sunflowersettingspage.php:222
 msgid "Show list of categories on category archive"
 msgstr "Zeige Liste von Kategorien auf Kategorie-Seite"
 
-#: functions/options/class-sunflowersettingspage.php:229
+#: functions/options/class-sunflowersettingspage.php:230
 msgid "Enhance SEO"
 msgstr "SEO verbessern"
 
-#: functions/options/class-sunflowersettingspage.php:235
+#: functions/options/class-sunflowersettingspage.php:236
 msgid "Set website name in page metadata"
 msgstr "Webseitenname in den Seiten-Metadaten"
 
-#: functions/options/class-sunflowersettingspage.php:241
+#: functions/options/class-sunflowersettingspage.php:242
 msgid "Media creator field"
 msgstr "Medien Urheber*in"
 
-#: functions/options/class-sunflowersettingspage.php:279
+#: functions/options/class-sunflowersettingspage.php:280
 msgid "Select the visual appearance of your theme."
 msgstr "Wählen Sie das visuelle Erscheinungsbild Ihres Themes aus."
 
-#: functions/options/class-sunflowersettingspage.php:291
+#: functions/options/class-sunflowersettingspage.php:292
 msgid "Various theme settings"
 msgstr "Verschiedene Theme Einstellungen"
 
-#: functions/options/class-sunflowersettingspage.php:342
+#: functions/options/class-sunflowersettingspage.php:348
 #: template-parts/header-standard.php:64
 msgid "Rounded"
 msgstr "Abgerundet"
 
-#: functions/options/class-sunflowersettingspage.php:343
+#: functions/options/class-sunflowersettingspage.php:349
 #: template-parts/header-standard.php:65
 msgid "Sharp"
 msgstr "Eckig"
 
-#: functions/options/class-sunflowersettingspage.php:365
+#: functions/options/class-sunflowersettingspage.php:371
 #: template-parts/header-standard.php:71
 msgid "Light"
 msgstr "Hell"
 
-#: functions/options/class-sunflowersettingspage.php:366
+#: functions/options/class-sunflowersettingspage.php:372
 #: template-parts/header-standard.php:72
 msgid "Dark"
 msgstr "Dunkel"
 
-#: functions/options/class-sunflowersettingspage.php:390
-#: template-parts/header-standard.php:78
+#: functions/options/class-sunflowersettingspage.php:396
 msgid "Landscape"
 msgstr "Querformat"
 
-#: functions/options/class-sunflowersettingspage.php:391
-#: template-parts/header-standard.php:79
+#: functions/options/class-sunflowersettingspage.php:397
 msgid "Flexible"
 msgstr "Flexibel"
 
-#: functions/options/class-sunflowersettingspage.php:406
+#: functions/options/class-sunflowersettingspage.php:412
 msgid ""
 "Nutze Querformate (z.B. 2/1 oder 16/9) als Beitrags- oder Terminbeitrags-"
 "Bilder, um einen bestmöglichen Look in den Vorschau-Cards und auf "
@@ -725,41 +728,41 @@ msgid ""
 "nutzen möchtest, wähle die Option \"Flexibel\"."
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:417
-#: template-parts/header-standard.php:85
+#: functions/options/class-sunflowersettingspage.php:423
+#: template-parts/header-standard.php:78
 msgid "Sand"
 msgstr "Sandfarben"
 
-#: functions/options/class-sunflowersettingspage.php:418
-#: template-parts/header-standard.php:86
+#: functions/options/class-sunflowersettingspage.php:424
+#: template-parts/header-standard.php:79
 msgid "Light Green"
 msgstr "Hellgrün"
 
-#: functions/options/class-sunflowersettingspage.php:440
+#: functions/options/class-sunflowersettingspage.php:446
 msgid "do not show"
 msgstr "keine Anzeige"
 
-#: functions/options/class-sunflowersettingspage.php:441
+#: functions/options/class-sunflowersettingspage.php:447
 msgid "main categories"
 msgstr "Hauptkategorien"
 
-#: functions/options/class-sunflowersettingspage.php:442
+#: functions/options/class-sunflowersettingspage.php:448
 msgid "only sub-categories"
 msgstr "nur Unter-Kategorien"
 
-#: functions/options/class-sunflowersettingspage.php:464
+#: functions/options/class-sunflowersettingspage.php:470
 msgid "optional"
 msgstr "optional"
 
-#: functions/options/class-sunflowersettingspage.php:465
+#: functions/options/class-sunflowersettingspage.php:471
 msgid "required"
 msgstr "verpflichtend"
 
-#: functions/options/class-sunflowersettingspage.php:466
+#: functions/options/class-sunflowersettingspage.php:472
 msgid "strict (The image is blurred if no creator field is filled out.)"
 msgstr "streng (Bild wird verpixelt, wenn Urheber*in leer ist.)"
 
-#: functions/options/class-sunflowersettingspage.php:467
+#: functions/options/class-sunflowersettingspage.php:473
 msgid "disabled"
 msgstr "deaktiviert"
 
@@ -879,42 +882,74 @@ msgstr "Lightbox schließen"
 msgid "Login error. Did you mistype s.th.?"
 msgstr "Loginfehler. Hast du dich vertippt?"
 
-#: functions/welcome-page.php:89 functions/welcome-page.php:90
-#: functions/welcome-page.php:109
+#: functions/welcome-page.php:75 functions/welcome-page.php:76
+msgid "Welcome to Sunflower26"
+msgstr "Willkommen bei Sunflower 26"
+
+#: functions/welcome-page.php:96
 msgid "Willkommen"
 msgstr ""
 
-#: functions/welcome-page.php:114
+#: functions/welcome-page.php:101
 msgid ""
 "Damit du schnell starten kannst, empfehlen wir, die Beispielseiten "
 "einzurichten."
 msgstr ""
 
-#: functions/welcome-page.php:125 functions/welcome-page.php:151
+#. translators: %1$s is replace with current PHP version and %2$s is replaced with link
+#: functions/welcome-page.php:108
+msgid ""
+"<p>On installation of the example content, your existing content will remain "
+"unchanged.</p>\n"
+"\t\t\t\t\t\t\t<p>This will be done:</p>\n"
+"\t\t\t\t\t\t\t<ul style=\"list-style-type:disc;margin-left:20px;\">\n"
+"\t\t\t\t\t\t\t<li>Some new posts will be added.</li>\n"
+"\t\t\t\t\t\t\t<li>Some new pages will be added.</li>\n"
+"\t\t\t\t\t\t\t<li>The homepage will be set to a static page showing the new "
+"example content.</li>\n"
+"\t\t\t\t\t\t\t<li>Some new media files will be added.</li>\n"
+"\t\t\t\t\t\t\t</ul>\n"
+"\t\t\t\t\t\t\t<p>You can always delete the demo pages later.</p>\n"
+"\t\t\t\t\t\t\t"
+msgstr ""
+"<p>Bei der Einrichtung der Beispielinhalte werden deine bestehenden Inhalte "
+"nicht verändert.</p>\n"
+"\t\t\t\t\t\t\t<p>Folgendes passiert:</p>\n"
+"\t\t\t\t\t\t\t<ul style=\"list-style-type:disc;margin-left:20px;\">\n"
+"\t\t\t\t\t\t\t<li>Neue Beiträge werden hinzugefügt.</li>\n"
+"\t\t\t\t\t\t\t<li>Neue Seiten werden hinzugefügt.</li>\n"
+"\t\t\t\t\t\t\t<li>Die neue Startseite mit den Beispiels-Inhalten wird als "
+"statische Seite konfiguriert.</li>\n"
+"\t\t\t\t\t\t\t<li>Neue Medien-Dateien werden hinzugefügt..</li>\n"
+"\t\t\t\t\t\t\t</ul>\n"
+"\t\t\t\t\t\t\t<p>Du kannst alle Beispielsinhalte später wieder löschen.</p>\n"
+"\t\t\t\t\t\t\t"
+
+#: functions/welcome-page.php:133 functions/welcome-page.php:159
 msgid "Beispielseiten einrichten"
 msgstr ""
 
-#: functions/welcome-page.php:131
+#: functions/welcome-page.php:139
 msgid "Überspringen"
 msgstr ""
 
-#: functions/welcome-page.php:152
+#: functions/welcome-page.php:160
 msgid "Wird eingerichtet ..."
 msgstr ""
 
-#: functions/welcome-page.php:153
+#: functions/welcome-page.php:161
 msgid "Netzwerkfehler - bitte erneut versuchen."
 msgstr ""
 
-#: functions/welcome-page.php:154
+#: functions/welcome-page.php:162
 msgid "Es ist ein Fehler aufgetreten. Bitte erneut versuchen."
 msgstr ""
 
-#: functions/welcome-page.php:208
+#: functions/welcome-page.php:216
 msgid "Unzureichende Berechtigungen."
 msgstr ""
 
-#: functions/welcome-page.php:211
+#: functions/welcome-page.php:219
 msgid "Sicherheitspruefung fehlgeschlagen."
 msgstr ""
 
@@ -1098,7 +1133,7 @@ msgstr "Menü am oberen Rand"
 msgid "Design Switch"
 msgstr "Design-Umschalter im Frontend"
 
-#: template-parts/header-standard.php:155
+#: template-parts/header-standard.php:148
 msgid "Menu"
 msgstr ""
 

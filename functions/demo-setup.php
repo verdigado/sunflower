@@ -51,8 +51,6 @@ function sunflower_create_demo_content( array $image_ids, bool $force = false ) 
 		return;
 	}
 
-	sunflower_delete_wp_sample_content_if_exists();
-
 	$image_urls = array();
 	foreach ( $image_ids as $name => $id ) {
 		$image_urls[ $name ] = wp_get_attachment_url( $id );
@@ -72,66 +70,6 @@ function sunflower_create_demo_content( array $image_ids, bool $force = false ) 
 	sunflower_create_demo_menus( $page_ids );
 
 	update_option( 'sunflower_demo_content_created', true );
-}
-
-/**
- * Deletes default WordPress sample content (pages and posts) if they exist.
- */
-function sunflower_delete_wp_sample_content_if_exists() {
-	$page_slugs = array( 'sample-page', 'beispielseite', 'beispiel-seite' );
-	$post_slugs = array( 'hello-world', 'hallo-welt' );
-
-	foreach ( $page_slugs as $slug ) {
-		$page = get_page_by_path( $slug, OBJECT, 'page' );
-		if ( $page instanceof WP_Post ) {
-			wp_delete_post( $page->ID, true );
-		}
-	}
-
-	foreach ( $post_slugs as $slug ) {
-		$post = get_page_by_path( $slug, OBJECT, 'post' );
-		if ( $post instanceof WP_Post ) {
-			wp_delete_post( $post->ID, true );
-		}
-	}
-
-	$title_checks = array(
-		array(
-			'type'  => 'page',
-			'title' => 'Sample Page',
-		),
-		array(
-			'type'  => 'page',
-			'title' => 'Beispielseite',
-		),
-		array(
-			'type'  => 'page',
-			'title' => 'Beispiel-Seite',
-		),
-		array(
-			'type'  => 'post',
-			'title' => 'Hello world!',
-		),
-		array(
-			'type'  => 'post',
-			'title' => 'Hallo Welt!',
-		),
-	);
-
-	foreach ( $title_checks as $check ) {
-		$ids = get_posts(
-			array(
-				'post_type'      => $check['type'],
-				'post_status'    => 'any',
-				'title'          => $check['title'],
-				'posts_per_page' => 1,
-				'fields'         => 'ids',
-			)
-		);
-		if ( ! empty( $ids[0] ) ) {
-			wp_delete_post( (int) $ids[0], true );
-		}
-	}
 }
 
 /**
