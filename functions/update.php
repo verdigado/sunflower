@@ -88,11 +88,11 @@ add_action( 'init', 'sunflower_maybe_run_theme_update' );
  */
 function sunflower_run_update_tasks( $from_version ) {
 
-	// Option sunflower_events_enabled was added in 2.2.15, so we need to enable it for users updating from a version older than that.
 	if ( empty( $from_version ) ) {
 		return;
 	}
 
+	// Option sunflower_events_enabled was added in 2.2.15, so we need to enable it for users updating from a version older than that.
 	if ( version_compare( $from_version, '2.2.15', '<' ) ) {
 
 		$is_sunflower_events_enabled = sunflower_get_setting( 'sunflower_events_enabled' );
