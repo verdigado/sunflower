@@ -63,22 +63,39 @@ add_filter( 'update_themes_sunflower-theme.de', 'sunflower_update_theme', 10, 3 
 
 /**
  * Run update tasks if the theme version has changed.
+ *
+ * @param WP_Upgrader $upgrader The upgrader instance.
+ * @param array       $hook_extra Extra data about the update process.
  */
-function sunflower_maybe_run_theme_update() {
+function sunflower_maybe_run_theme_update( $upgrader, $hook_extra ) {
 
-	$theme   = wp_get_theme();
-	$version = $theme->get( 'Version' );
-	$stored  = get_option( 'sunflower_theme_version' );
-
-	if ( $stored === $version ) {
+	// Only consider theme updates, not plugin updates or core updates.
+	if ( empty( $hook_extra['type'] ) || 'theme' !== $hook_extra['type'] ||
+		empty( $hook_extra['action'] ) || 'update' !== $hook_extra['action'] ||
+		empty( $hook_extra['themes'] ) ) {
 		return;
 	}
 
-	sunflower_run_update_tasks( $stored, $version );
+	$parent_theme_dir = get_template();
 
-	update_option( 'sunflower_theme_version', $version );
+	// Return early if the updated theme is not our parent theme.
+	if ( ! in_array( $parent_theme_dir, $hook_extra['themes'], true ) ) {
+		return;
+	}
+
+	$parent_theme   = wp_get_theme( $parent_theme_dir );
+	$parent_version = $parent_theme->get( 'Version' );
+	$stored_version = get_option( 'sunflower_theme_version' );
+
+	if ( $stored_version === $parent_version ) {
+		return;
+	}
+
+	sunflower_run_update_tasks( $stored_version, $parent_version );
+
+	update_option( 'sunflower_theme_version', $parent_version );
 }
-add_action( 'init', 'sunflower_maybe_run_theme_update' );
+add_action( 'upgrader_process_complete', 'sunflower_maybe_run_theme_update', 10, 2 );
 
 
 /**
@@ -86,7 +103,7 @@ add_action( 'init', 'sunflower_maybe_run_theme_update' );
  *
  * @param string $from_version The previous version.
  */
-function sunflower_run_update_tasks( $from_version ) {
+function sunflower_run_update_tasks( $from_version = '' ) {
 
 	if ( empty( $from_version ) ) {
 		return;
