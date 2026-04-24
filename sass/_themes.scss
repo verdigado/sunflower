@@ -338,10 +338,6 @@ body.colorscheme-green {
         color: map.get($custom-colors, "tanne");
     }
 
-    .entry-content p a {
-        color: map.get($custom-colors, "grashalm");
-    }
-
     .wp-block-post-excerpt__more-link,
     .wp-block-read-more {
         color: map.get($custom-colors, "grashalm") !important;
