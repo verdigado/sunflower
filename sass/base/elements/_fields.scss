@@ -174,7 +174,7 @@ select {
 
         @include themed-colorscheme-nested() {
             color: t(input-fokus-text);
-            border: 2px solid t(input-fokus-border) !important;
+            border: 2px solid t(input-fokus-border);
         }
 
         &::placeholder {
@@ -186,7 +186,7 @@ select {
 
         @include themed-colorscheme-nested() {
             color: t(input-fokus-text);
-            border: 2px solid t(input-fokus-border) !important;
+            border: 2px solid t(input-fokus-border);
         }
     }
 }
@@ -286,69 +286,6 @@ label {
     vertical-align: middle;
 }
 
-.comment-respond:has(#sunflower-contact-form) {
-    border: none;
-    background-color: map.get($custom-colors, "sand");
-
-    .input-with-icon i {
-        color: map.get($custom-colors, "tanne");
-    }
-
-    *:focus-visible {
-        box-shadow: none;
-    }
-}
-
-#sunflower-contact-form {
-
-    justify-content: flex-end;
-
-    .col-12 {
-
-        padding: 0 var(--half-grid-margin);
-        margin-bottom: var(--double-grid-margin);
-
-        &:nth-of-type(1) {
-
-            p {
-                height: 100%;
-            }
-
-            textarea {
-                min-height: 100%;
-            }
-        }
-
-        > :first-child {
-            margin-top: 0 !important;
-        }
-
-        .comment-form-author,
-        .comment-form-email {
-            margin-bottom: 1rem;
-        }
-    }
-
-    .small:nth-of-type(2) {
-        margin: 0 !important;
-    }
-
-    .form-submit {
-        position: relative;
-        width: fit-content;
-        right: var(--half-grid-margin);
-        margin-bottom: 0;
-
-        input {
-            letter-spacing: 2px;
-        }
-    }
-
-    &.is-feedback {
-        justify-content: center;
-        text-align: center;
-    }
-}
 
 textarea {
     border-radius: var(--border-radius-medium);
