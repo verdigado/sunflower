@@ -98,7 +98,7 @@ h3:has(mark) {
     line-height: 0 !important;
 
     mark {
-        display: inline-block !important;
+        display: inline-block;
         padding: 6px 10px 9px 7px;
         font-size: 60px;
         line-height: 100%;
