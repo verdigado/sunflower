@@ -175,25 +175,24 @@
 			footer: document.getElementById( 'footer-select' )?.value || 'sand',
 		} );
 
-		// Beim Laden: ggf. gespeicherten Zustand übernehmen
-		const stored = getStored();
-		if ( stored ) {
-			applyClasses( stored );
-			syncUiFromValues( stored );
-			setActiveButton( stored );
-		} else {
-			// Noch kein Eintrag → Standard‑Werte im Storage sichern
-			const defaults = readFromUI();
-			setStored( defaults );
+		let currentSettings = getStored();
+		if ( ! currentSettings ) {
+			// First time visitors: read defaults and save to local storage.
+			currentSettings = readFromUI();
+			setStored( currentSettings );
 		}
 
-		// Auf jede Select‑Box hören
+		applyClasses( currentSettings );
+		syncUiFromValues( currentSettings );
+		setActiveButton( currentSettings );
+
+		// Listen to all select changes in the panel:
 		wrapper.querySelectorAll( 'select' ).forEach( ( sel ) => {
 			sel.addEventListener( 'change', () => {
 				const values = readFromUI();
 				applyClasses( values );
 				setStored( values );
-				setActiveButton( values ); // ggf. den zugehörigen Button markieren
+				setActiveButton( values );
 			} );
 		} );
 	};
