@@ -103,9 +103,18 @@
 
     @include breakpoint-down(md) {
         height: fit-content !important;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
         min-height: 250px;
         padding: 0 !important;
+    }
+
+    .wp-block-cover__background {
+
+        @include breakpoint-down(md) {
+            grid-row: 1;
+            grid-column: 1;
+        }
     }
 
     .wp-block-cover__image-background {
@@ -120,6 +129,8 @@
             position: relative !important;
             border-radius: var(--border-radius-large) 0;
             min-height: 350px;
+            grid-row: 1;
+            grid-column: 1;
         }
     }
 
@@ -153,6 +164,8 @@
             justify-content: center;
             align-items: center;
             position: relative !important;
+            grid-row: 2;
+            grid-column: 1;
 
             h1 {
                 margin-top: -32px;
@@ -241,6 +254,94 @@
                 transform: rotate(90deg);
             }
         }
+    }
+
+    &.no-creator {
+
+        .wp-block-cover__image-background {
+            filter: blur(11px);
+            transition: filter 0.3s ease;
+        }
+    }
+
+    .sunflower-photo-credit {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        max-width: 35%; // wraps before reaching the inner-container (max-width: 70% from left)
+        margin: 0 !important;
+        color: inherit;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.2;
+        // Extra right padding clears the parent's border-radius corner arc.
+        padding: 4px calc(var(--gap-small) + var(--border-radius-small)) 4px var(--gap-small);
+        backdrop-filter: blur(25px) saturate(200%);
+        -webkit-backdrop-filter: blur(25px) saturate(200%);
+        background-color: rgba(255, 255, 255, 0.7);
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--border-radius-small) 0 0 0;
+        z-index: 1;
+
+        body.formstyle-sharp & {
+            bottom: 0;
+            right: 0;
+            max-width: min(24rem, calc(100% - var(--double-grid-margin)));
+            padding: 3px var(--gap-small);
+            padding-right: var(--gap-small);
+            background-color: rgba(255, 255, 255, 0.82);
+            border-right: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 0;
+            z-index: 21;
+        }
+
+        @include breakpoint-down(xl) {
+            max-width: 30%; // inner-container grows to 75% here
+        }
+
+        @include breakpoint-down(md) {
+            position: relative;
+            bottom: auto;
+            right: auto;
+            max-width: none;
+            // On mobile, keep the credit aligned to the image grid row instead
+            // of the taller cover block.
+            border-bottom-right-radius: var(--border-radius-large);
+            grid-row: 1;
+            grid-column: 1;
+            align-self: end;
+            justify-self: end;
+
+            body.formstyle-sharp & {
+                max-width: calc(100% - var(--double-grid-margin));
+                margin: 0 !important;
+                transform: translateY(100%);
+            }
+        }
+    }
+}
+
+@media (min-width: 769px) {
+
+    body.formstyle-sharp .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero .sunflower-photo-credit {
+        right: calc(-1 * var(--grid-margin));
+    }
+
+    body.formstyle-sharp .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero:has(.sunflower-photo-credit) .wp-block-cover__inner-container {
+        padding-bottom: calc(var(--grid-margin) + 28px) !important;
+    }
+}
+
+@include breakpoint-down(md) {
+
+    body.formstyle-sharp .entry-content > .wp-block-cover.is-style-sunflower-hero:has(.sunflower-photo-credit) .wp-block-cover__inner-container {
+        padding-top: calc(var(--double-grid-margin) + 28px) !important;
+    }
+
+    body.formstyle-sharp .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero .sunflower-photo-credit {
+        margin-right: calc(-1 * var(--grid-margin)) !important;
     }
 }
 
