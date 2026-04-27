@@ -1,5 +1,21 @@
 /* eslint-disable no-undef */
 
+function sunflowerRelayoutEventList() {
+	const eventList = document.querySelector( '.event-list' );
+
+	if ( ! eventList || typeof Masonry === 'undefined' ) {
+		return;
+	}
+
+	const masonry = Masonry.data( eventList );
+
+	if ( masonry ) {
+		masonry.options.itemSelector = '.event-list > .col-12:not(.d-none)';
+		masonry.reloadItems();
+		masonry.layout();
+	}
+}
+
 // Filter events by tags.
 jQuery( '.filter-button-group' ).on( 'click', 'button', function () {
 	const filterValue = jQuery( this ).attr( 'data-filter' );
@@ -40,6 +56,8 @@ jQuery( '.filter-button-group' ).on( 'click', 'button', function () {
 	if ( filterValue === '*' ) {
 		jQuery( '#leaflet' ).parent().addClass( 'd-none' );
 	}
+
+	window.requestAnimationFrame( sunflowerRelayoutEventList );
 } );
 
 // Open given filter on initial page load.
