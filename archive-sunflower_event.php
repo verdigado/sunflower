@@ -208,7 +208,7 @@ endif;
 	wp_enqueue_script(
 		'filter-custom',
 		get_template_directory_uri() . '/assets/js/event-filter.js',
-		null,
+		array( 'jquery', 'masonry' ),
 		SUNFLOWER_VERSION,
 		true
 	);
