@@ -22,7 +22,8 @@ if ( ! is_wp_error( $sunflower_tags ) && is_array( $sunflower_tags ) ) {
 	}
 }
 
-$sunflower_has_thumb = has_post_thumbnail();
+$sunflower_has_thumb              = has_post_thumbnail();
+$sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
 ?>
 
 <a href="<?php echo esc_url( get_permalink() ); ?>"
@@ -32,7 +33,20 @@ $sunflower_has_thumb = has_post_thumbnail();
 		<?php if ( $sunflower_has_thumb ) : ?>
 			<figure class="event-card__media">
 				<?php
-				echo get_the_post_thumbnail();
+				$sunflower_thumbnail_classes = array( 'attachment-post-thumbnail' );
+				$sunflower_thumbnail_creator = '';
+				if ( 'disabled' !== $sunflower_media_creator_settings ) {
+					$sunflower_thumbnail_creator = get_post_meta( get_post_thumbnail_id(), '_media_creator', true );
+				}
+				if ( 'strict' === $sunflower_media_creator_settings && empty( $sunflower_thumbnail_creator ) ) {
+					$sunflower_thumbnail_classes[] = ' no-creator';
+				}
+				the_post_thumbnail(
+					'medium_large',
+					array(
+						'class' => implode( ' ', $sunflower_thumbnail_classes ),
+					)
+				);
 				?>
 			</figure>
 		<?php endif; ?>
