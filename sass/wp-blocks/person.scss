@@ -30,8 +30,9 @@ body #content .entry-content .wp-block-media-text.person {
 
     .person-name,
     .h4 {
-        font-weight: 700;
         line-height: 110%;
+        font-family: var(--wp--preset--font-family--gruenetypeneue);
+        font-size: 25px;
         text-transform: uppercase;
         color: map.get($custom-colors, "tanne");
         margin-top: 0;
