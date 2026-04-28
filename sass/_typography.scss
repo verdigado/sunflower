@@ -97,8 +97,7 @@ h5,
 
 h6,
 .h6,
-blockquote.wp-block-quote p,
-.person-name {
+blockquote.wp-block-quote p {
 
     font-size: 18px;
     letter-spacing: 1px;
@@ -154,8 +153,7 @@ blockquote.wp-block-quote p {
 
     h6,
     .h6,
-    blockquote.wp-block-quote p,
-    .person-name {
+    blockquote.wp-block-quote p {
         font-size: 22px;
     }
 }
@@ -246,7 +244,7 @@ h1:has(+ h4) {
     width: fit-content;
     aspect-ratio: 1 / 1;
     font-size: 30px !important;
-    font-family: "GrueneType Neue", sans-serif;
+    font-family: var(--wp--preset--font-family--gruenetypeneue);
     max-width: 220px !important;
     max-height: 220px !important;
     padding: 10px 25px 17px 25px !important;
