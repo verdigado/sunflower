@@ -97,8 +97,10 @@ function sunflower_render_welcome_page(): void {
 
 		<div class="card" style="max-width:680px;padding:28px 28px 24px;margin-top:24px;">
 
+			<h2><?php esc_attr_e( 'Example Content', 'sunflower' ); ?></h2>
+
 			<p style="font-size:1.1em;margin-top:0">
-				<?php esc_html_e( 'Damit du schnell starten kannst, empfehlen wir, die Beispielseiten einzurichten.', 'sunflower' ); ?>
+				<?php esc_html_e( 'To help you get started quickly, we\'ve prepared some sample content for you to import.', 'sunflower' ); ?>
 			</p>
 
 			<?php
