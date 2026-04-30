@@ -59,7 +59,7 @@ class SunflowerFirstStepsPage {
 		<div class="wrap">
 			<h1><?php esc_html_e( 'About Sunflower', 'sunflower' ); ?></h1>
 
-			<h2>Erste Schritte</h2>
+			<h2><?php esc_html_e( 'First steps', 'sunflower' ); ?></h2>
 			<div class="notice-info sunflower-settings">
 				Eine ausführliche Dokumentation gibt es unter
 				<a href="https://sunflower-theme.de/documentation26/" target="_blank">https://sunflower-theme.de/documentation26/</a>.
@@ -77,6 +77,22 @@ class SunflowerFirstStepsPage {
 			<h2><?php esc_attr_e( 'Settings', 'sunflower' ); ?></h2>
 			Bitte siehe links im Menü, welche Unterpunkte es gibt.
 
+			<h2><?php esc_attr_e( 'Example Content', 'sunflower' ); ?></h2>
+
+			<div>
+			<?php
+
+			esc_attr_e( 'To help you get started quickly, we\'ve prepared some sample content for you to import.', 'sunflower' );
+
+			printf(
+				'<p>%s <a href="%s">%s</a> %s.</p>',
+				/* 2b) Übersetzte Texte – zurückgeben, nicht ausgeben */
+				esc_html__( 'Please visit the', 'sunflower' ),
+				esc_url( admin_url( 'admin.php?page=sunflower_welcome' ) ),
+				esc_html__( 'Welcome Page', 'sunflower' ),
+				esc_html__( 'for instructions', 'sunflower' )
+			);
+			?>
 		</div>
 		<?php
 	}

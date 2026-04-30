@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sunflower 26 3.0.1\n"
+"Project-Id-Version: Sunflower 26 3.0.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-24T00:10:29+02:00\n"
+"POT-Creation-Date: 2026-04-30T08:26:37+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower\n"
@@ -505,6 +505,7 @@ msgstr ""
 
 #: functions/options/class-sunflowerfirststepspage.php:44
 #: functions/options/class-sunflowerfirststepspage.php:45
+#: functions/options/class-sunflowerfirststepspage.php:62
 msgid "First steps"
 msgstr ""
 
@@ -518,31 +519,53 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: functions/options/class-sunflowerfirststepspage.php:96
-msgid "Activate Theme"
+#: functions/options/class-sunflowerfirststepspage.php:80
+#: functions/welcome-page.php:100
+msgid "Example Content"
 msgstr ""
 
-#: functions/options/class-sunflowerfirststepspage.php:103
-msgid "Sunflower Terms of Use"
+#: functions/options/class-sunflowerfirststepspage.php:85
+#: functions/welcome-page.php:103
+msgid "To help you get started quickly, we've prepared some sample content for you to import."
 msgstr ""
 
-#: functions/options/class-sunflowerfirststepspage.php:107
-msgid "Accept Terms of Use"
+#: functions/options/class-sunflowerfirststepspage.php:90
+msgid "Please visit the"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:92
+msgid "Welcome Page"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:93
+msgid "for instructions"
 msgstr ""
 
 #: functions/options/class-sunflowerfirststepspage.php:112
+msgid "Activate Theme"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:119
+msgid "Sunflower Terms of Use"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:123
+msgid "Accept Terms of Use"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php:128
 msgid "Sunflower Update Channel"
 msgstr ""
 
-#: functions/options/class-sunflowerfirststepspage.php:116
+#: functions/options/class-sunflowerfirststepspage.php:132
 msgid "Update Channel"
 msgstr ""
 
-#: functions/options/class-sunflowerfirststepspage.php:183
+#: functions/options/class-sunflowerfirststepspage.php:199
 msgid "stable"
 msgstr ""
 
-#: functions/options/class-sunflowerfirststepspage.php:184
+#: functions/options/class-sunflowerfirststepspage.php:200
 msgid "beta"
 msgstr ""
 
@@ -837,12 +860,8 @@ msgstr ""
 msgid "Willkommen"
 msgstr ""
 
-#: functions/welcome-page.php:101
-msgid "Damit du schnell starten kannst, empfehlen wir, die Beispielseiten einzurichten."
-msgstr ""
-
 #. translators: %1$s is replace with current PHP version and %2$s is replaced with link
-#: functions/welcome-page.php:108
+#: functions/welcome-page.php:110
 msgid ""
 "<p>On installation of the example content, your existing content will remain unchanged.</p>\n"
 "\t\t\t\t\t\t\t<p>This will be done:</p>\n"
@@ -856,32 +875,32 @@ msgid ""
 "\t\t\t\t\t\t\t"
 msgstr ""
 
-#: functions/welcome-page.php:133
-#: functions/welcome-page.php:159
+#: functions/welcome-page.php:135
+#: functions/welcome-page.php:161
 msgid "Beispielseiten einrichten"
 msgstr ""
 
-#: functions/welcome-page.php:139
+#: functions/welcome-page.php:141
 msgid "Überspringen"
 msgstr ""
 
-#: functions/welcome-page.php:160
+#: functions/welcome-page.php:162
 msgid "Wird eingerichtet ..."
 msgstr ""
 
-#: functions/welcome-page.php:161
+#: functions/welcome-page.php:163
 msgid "Netzwerkfehler - bitte erneut versuchen."
 msgstr ""
 
-#: functions/welcome-page.php:162
+#: functions/welcome-page.php:164
 msgid "Es ist ein Fehler aufgetreten. Bitte erneut versuchen."
 msgstr ""
 
-#: functions/welcome-page.php:216
+#: functions/welcome-page.php:218
 msgid "Unzureichende Berechtigungen."
 msgstr ""
 
-#: functions/welcome-page.php:219
+#: functions/welcome-page.php:221
 msgid "Sicherheitspruefung fehlgeschlagen."
 msgstr ""
 
@@ -968,7 +987,7 @@ msgid "Suche"
 msgstr ""
 
 #: single-sunflower_event.php:61
-#: template-parts/archive-event.php:60
+#: template-parts/archive-event.php:74
 msgid "o'clock"
 msgstr ""
 
