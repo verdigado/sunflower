@@ -92,7 +92,7 @@ msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
 "Wenn du auf den Button klickst, werden Daten von openstreetmap.org geladen."
-"<br>Dafür gelten deren <a href=\"https://www.openstreetmap.org/about\" "
+"<br>Dafür gelten deren <a href=\"https://osmfoundation.org/wiki/Privacy_Policy\" "
 "target=\"_blank\">Datenschutzrichtlinien</a>."
 
 #: archive-sunflower_event.php:188 single-sunflower_event.php:162
