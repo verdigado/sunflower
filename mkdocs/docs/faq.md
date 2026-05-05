@@ -8,7 +8,7 @@ Kostenlose schöne Bilder gibt es z.B. auf
 - [pixelio.de](https://www.pixelio.de/) (Registrierung notwendig)
 - [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?search=sonnenblumen&title=Special:MediaSearch&type=image&haslicense=unrestricted) (gute Suche, nur freie Lizenzen)
 
-Siehe auch die Empfehlungen des Bundesverbands unter [Das grüne Grundlagen-Design -> Hilfreiche Links](https://www.gruene.de/service/grundlagendesign-2023).
+Siehe auch die Empfehlungen des Bundesverbands unter [design.gruene.de](https://design.gruene.de) -> 🌻 [Grundlagendesign](https://design.gruene.de/4ccd94a80/n/45d0a3).
 
 ### Lizenz- und Nutzungsbedingungen prüfen!
 
