@@ -81,12 +81,35 @@ add_action( 'init', 'sunflower_maybe_run_theme_update' );
 
 
 /**
+ * Execute a callback for each site in a multisite, or just once for single site.
+ *
+ * @param callable $callback The function to execute per site.
+ */
+function sunflower_for_each_site( callable $callback ) {
+	if ( is_multisite() ) {
+		$sites = get_sites();
+		foreach ( $sites as $site ) {
+			switch_to_blog( $site->blog_id );
+			$callback();
+			restore_current_blog();
+		}
+	} else {
+		$callback();
+	}
+}
+
+/**
  * Run update tasks depending on the from and to version.
  *
  * @param string $from_version The previous version.
  */
 function sunflower_run_update_tasks( $from_version ) {
 
+	if ( empty( $from_version ) ) {
+		return;
+	}
+
+	// Option sunflower_events_enabled was added in 2.2.15.
 	if ( version_compare( $from_version, '2.2.15', '<' ) ) {
 
 		$is_sunflower_events_enabled = sunflower_get_setting( 'sunflower_events_enabled' );
@@ -95,61 +118,51 @@ function sunflower_run_update_tasks( $from_version ) {
 		}
 
 		$options = get_option( 'sunflower_events_options', array() );
-
 		if ( ! is_array( $options ) ) {
 			$options = array();
 		}
 
 		$options['sunflower_events_enabled'] = 1;
 		update_option( 'sunflower_events_options', $options );
-
-		// Flush rewrite rules later on custom post registration.
 		update_option( 'sunflower_flush_rewrite_rules', 1 );
 	}
 
-	if ( version_compare( $from_version, '3.0.0', '<' ) ) {
-		// If updating from a version older than 3.0.0, set the default post image format to 'flexible'.
-		$sunflower_options = get_option( 'sunflower_options' );
-		if ( ! is_array( $sunflower_options ) ) {
-			$sunflower_options = array();
-		}
-		$sunflower_options['sunflower_post_image_format'] = 'flexible';
-		update_option( 'sunflower_options', $sunflower_options );
+	// Comment out Twitter/X from social media profiles.
+	if ( version_compare( $from_version, '2.2.19', '<' ) ) {
+		sunflower_for_each_site( 'sunflower_comment_out_twitter_profiles' );
+	}
+}
+
+/**
+ * Comment out Twitter/X social media profiles for the current site.
+ */
+function sunflower_comment_out_twitter_profiles() {
+	$options = get_option( 'sunflower_social_media_options' );
+	if ( ! is_array( $options ) ) {
+		$options = array();
 	}
 
-	if ( version_compare( $from_version, '3.0.2', '<' ) ) {
-		// Comment twitter and x from social media profiles.
-		$sunflower_options = get_option( 'sunflower_social_media_options' );
+	$lines     = explode( "\n", (string) ( $options['sunflower_social_media_profiles'] ?? '' ) );
+	$new_lines = array();
 
-		if ( ! is_array( $sunflower_options ) ) {
-			$sunflower_options = array();
-		}
+	foreach ( $lines as $line ) {
+		$line         = trim( $line );
+		$some_profile = explode( ';', $line );
+		$class        = $some_profile[0] ?? '';
+		$url          = $some_profile[2] ?? '';
 
-		$lines     = explode( "\n", (string) $options['sunflower_social_media_profiles'] );
-		$new_lines = array();
-		foreach ( $lines as $line ) {
-			$line         = trim( $line );
-			$some_profile = explode( ';', $line );
-			$class        = $some_profile[0] ?? false;
-			$url          = $some_profile[2] ?? false;
-
-			if ( str_starts_with( $line, '#' ) ) {
-				// Skip commented lines.
-				$new_lines[] = $line;
-				continue;
-			}
-
-			if ( str_contains( $class, 'twitter' )
+		if ( ! str_starts_with( trim( $line ), '#' )
+			&& ( str_contains( $class, 'twitter' )
 				|| str_contains( $class, 'x-twitter' )
-				|| str_contains( $url, 'twitter.com' ) || str_contains( $url, 'x.com' )
-				) {
-				// Comment out the line by adding a # at the beginning.
-				$line = '# ' . $line;
-			}
-
-			$new_lines[] = $line;
+				|| str_contains( $url, 'twitter.com' )
+				|| str_contains( $url, 'x.com' ) )
+		) {
+			$line = '# ' . $line;
 		}
-		$sunflower_options['sunflower_social_media_profiles'] = implode( "\n", $new_lines );
-		update_option( 'sunflower_social_media_options', $sunflower_options );
+
+		$new_lines[] = $line;
 	}
+
+	$options['sunflower_social_media_profiles'] = implode( "\n", $new_lines );
+	update_option( 'sunflower_social_media_options', $options );
 }
