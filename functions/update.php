@@ -156,7 +156,7 @@ function sunflower_run_update_tasks( $from_version = '' ) {
 	}
 
 	// Comment out Twitter/X from social media profiles.
-	if ( version_compare( $from_version, '3.0.2', '<' ) ) {
+	if ( version_compare( $from_version, '3.0.4', '<' ) ) {
 		sunflower_for_each_site( 'sunflower_comment_out_twitter_profiles' );
 	}
 }
@@ -179,7 +179,7 @@ function sunflower_comment_out_twitter_profiles() {
 		$class        = $some_profile[0] ?? '';
 		$url          = $some_profile[2] ?? '';
 
-		if ( ! str_starts_with( $line, '#' )
+		if ( ! str_starts_with( trim( $line ), '#' )
 			&& ( str_contains( $class, 'twitter' )
 				|| str_contains( $class, 'x-twitter' )
 				|| str_contains( $url, 'twitter.com' )
