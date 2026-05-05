@@ -106,4 +106,50 @@ function sunflower_run_update_tasks( $from_version ) {
 		// Flush rewrite rules later on custom post registration.
 		update_option( 'sunflower_flush_rewrite_rules', 1 );
 	}
+
+	if ( version_compare( $from_version, '3.0.0', '<' ) ) {
+		// If updating from a version older than 3.0.0, set the default post image format to 'flexible'.
+		$sunflower_options = get_option( 'sunflower_options' );
+		if ( ! is_array( $sunflower_options ) ) {
+			$sunflower_options = array();
+		}
+		$sunflower_options['sunflower_post_image_format'] = 'flexible';
+		update_option( 'sunflower_options', $sunflower_options );
+	}
+
+	if ( version_compare( $from_version, '3.0.2', '<' ) ) {
+		// Comment twitter and x from social media profiles.
+		$sunflower_options = get_option( 'sunflower_social_media_options' );
+
+		if ( ! is_array( $sunflower_options ) ) {
+			$sunflower_options = array();
+		}
+
+		$lines     = explode( "\n", (string) $options['sunflower_social_media_profiles'] );
+		$new_lines = array();
+		foreach ( $lines as $line ) {
+			$line         = trim( $line );
+			$some_profile = explode( ';', $line );
+			$class        = $some_profile[0] ?? false;
+			$url          = $some_profile[2] ?? false;
+
+			if ( str_starts_with( $line, '#' ) ) {
+				// Skip commented lines.
+				$new_lines[] = $line;
+				continue;
+			}
+
+			if ( str_contains( $class, 'twitter' )
+				|| str_contains( $class, 'x-twitter' )
+				|| str_contains( $url, 'twitter.com' ) || str_contains( $url, 'x.com' )
+				) {
+				// Comment out the line by adding a # at the beginning.
+				$line = '# ' . $line;
+			}
+
+			$new_lines[] = $line;
+		}
+		$sunflower_options['sunflower_social_media_profiles'] = implode( "\n", $new_lines );
+		update_option( 'sunflower_social_media_options', $sunflower_options );
+	}
 }
