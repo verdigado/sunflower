@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sunflower 26 3.0.1\n"
+"Project-Id-Version: Sunflower 26 3.0.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-meta-data\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-23T23:52:22+02:00\n"
+"POT-Creation-Date: 2026-05-05T19:36:04+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower-meta-data\n"
@@ -45,21 +45,21 @@ msgstr ""
 msgid "Predefined Icons"
 msgstr ""
 
-#: build/meta-data/index.js:233
-#: src/meta-data/edit.js:153
-#: build/meta-data/index.js:199
+#: build/meta-data/index.js:230
+#: src/meta-data/edit.js:149
+#: build/meta-data/index.js:195
 msgid "Selected Icon"
 msgstr ""
 
-#: build/meta-data/index.js:234
-#: src/meta-data/edit.js:157
-#: build/meta-data/index.js:203
+#: build/meta-data/index.js:231
+#: src/meta-data/edit.js:153
+#: build/meta-data/index.js:199
 msgid "All icons can be found at https://fontawesome.com/icons?d=gallery&m=free"
 msgstr ""
 
-#: build/meta-data/index.js:239
-#: src/meta-data/edit.js:167
-#: build/meta-data/index.js:213
+#: build/meta-data/index.js:236
+#: src/meta-data/edit.js:163
+#: build/meta-data/index.js:209
 msgid "Target URL the Icon is linked to. For email addresses, use the format mailto:example@example.com."
 msgstr ""
 
