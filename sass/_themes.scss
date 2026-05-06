@@ -101,7 +101,9 @@ $themes: (
     )
 );
 
-// Top-level
+/* --------------------------------------------------------------
+   Suffix‑Mixin: .hamburger‑menu .right-bar.unfold.colorscheme-green
+   -------------------------------------------------------------- */
 @mixin themed-colorscheme() {
 
     @each $theme, $map in $themes {
@@ -122,7 +124,9 @@ $themes: (
     }
 }
 
-// Nested
+/* --------------------------------------------------------------
+   Prefix‑Mixin: .colorscheme-green .hamburger‑menu .right-bar.unfold
+   -------------------------------------------------------------- */
 @mixin themed-colorscheme-nested() {
 
     @each $theme, $map in $themes {
@@ -130,6 +134,29 @@ $themes: (
         @if string.index($theme, "colorscheme-") {
 
             @at-root .#{$theme} & {
+                $theme-map: () !global;
+
+                @each $key, $value in $map {
+                    $theme-map: map.merge($theme-map, ($key: $value)) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
+            }
+        }
+    }
+}
+
+/* --------------------------------------------------------------
+   Prefix‑Mixin (no gap): .colorscheme-green.hamburger‑menu .right-bar.unfold
+   -------------------------------------------------------------- */
+@mixin themed-colorscheme-prefix-nogap() {
+
+    @each $theme, $map in $themes {
+
+        @if string.index($theme, "colorscheme-") {
+
+            @at-root .#{$theme}#{&} {
                 $theme-map: () !global;
 
                 @each $key, $value in $map {

@@ -21,111 +21,35 @@ header .social-media-profiles {
     }
 }
 
-.stuck {
+.top-bar {
 
-    .social-media-profiles {
-        display: none !important;
+    &.stuck {
+
+        .social-media-profiles {
+            display: none !important;
+        }
+
+        .hamburger {
+
+            .concave-30px {
+                top: -100px !important;
+            }
+
+        }
+    }
+
+    .menubar {
+
+        li {
+            margin-bottom: 0;
+            padding-left: 0;
+        }
     }
 
     .hamburger {
-
-        .concave-30px {
-            top: -100px !important;
-        }
-
-    }
-}
-
-.hamburger,
-.menubar {
-
-    li {
-        margin-bottom: 0;
-        padding-left: 0;
-    }
-}
-
-body .hamburger {
-    display: none;
-    position: fixed;
-    box-sizing: border-box;
-    right: 0;
-    top: 0;
-    padding: var(--grid-margin);
-    background-color: map.get($custom-colors, "white");
-    width: 75px;
-    height: 64px;
-    z-index: 500;
-    border-radius: 0 0 0 var(--border-radius-medium);
-    cursor: pointer;
-    border: 0;
-    font: inherit;
-
-    &:hover {
-        background-color: map.get($custom-colors, "white") !important;
-
-        .hamburger__top,
-        .hamburger__center,
-        .hamburger__bottom {
-            background-color: map.get($custom-colors, "klee");
-        }
+        display: none;
     }
 
-    .concave-30px {
-        color: map.get($custom-colors, "white");
-    }
-
-    span {
-        height: 8px;
-        width: 50px;
-        border-radius: var(--border-radius-tiny);
-        background-color: map.get($custom-colors, "grashalm");
-        position: absolute;
-        rotate: 0deg;
-        transition: 0.3s ease !important;
-
-
-        &:nth-of-type(1) {
-            top: 12px;
-            left: 12px;
-        }
-
-        &:nth-of-type(2) {
-            top: 28px;
-            left: 12px;
-        }
-
-        &:nth-of-type(3) {
-            top: 44px;
-            left: 12px;
-        }
-    }
-
-    .concave-30px:nth-of-type(1) {
-        position: absolute;
-        left: -30px;
-        top: 10px;
-
-        @include media-breakpoint-down(xl) {
-            top: 5.5px;
-            left: -20px;
-        }
-    }
-
-    .concave-30px:nth-of-type(2) {
-        position: absolute;
-        top: 54.2px;
-        right: 20px;
-
-        @include media-breakpoint-down(xl) {
-            top: 57.2px;
-            right: 12px;
-        }
-    }
-}
-
-body.colorscheme-green .hamburger:hover {
-    background-color: map.get($custom-colors, "schwarzwald") !important;
 }
 
 .hamburger-menu {
@@ -161,7 +85,24 @@ body.colorscheme-green .hamburger:hover {
                 visibility: visible;
                 max-width: calc(100% - var(--grid-margin));
 
-                background-color: map.get($custom-colors, "white");
+                @include themed-colorscheme-prefix-nogap() {
+                    background-color: t(background);
+                }
+
+                .sub-menu {
+
+                    @include themed-colorscheme-prefix-nogap() {
+                        background-color: t(background);
+                    }
+                }
+
+                @include themed-colorscheme-prefix-nogap() {
+
+                    a {
+                        color: t(text);
+                    }
+                }
+
             }
 
             &::-webkit-scrollbar {
@@ -225,7 +166,8 @@ body.colorscheme-green .hamburger:hover {
     }
 
     .top-bar:has(.unfold) {
-        background-color: map.get($custom-colors, "schwarzwald");
+        backdrop-filter: blur(10px) brightness(0.7) saturate(50%);
+
         height: 100%;
         border-radius: 0;
         position: fixed;
@@ -243,10 +185,93 @@ body.colorscheme-green .hamburger:hover {
         .concave-30px {
             display: none;
         }
+
+        .social-media-profiles {
+            display: none !important;
+        }
+
     }
 
     .hamburger {
         display: block;
+        position: fixed;
+        box-sizing: border-box;
+        right: 0;
+        top: 0;
+        padding: var(--grid-margin);
+        background-color: map.get($custom-colors, "white");
+        width: 75px;
+        height: 64px;
+        z-index: 500;
+        border-radius: 0 0 0 var(--border-radius-medium);
+        cursor: pointer;
+        border: 0;
+        font: inherit;
+
+        &:hover {
+
+            @include themed-colorscheme-prefix-nogap() {
+                background-color: t(background);
+            }
+
+            .hamburger__top,
+            .hamburger__center,
+            .hamburger__bottom {
+                background-color: map.get($custom-colors, "klee");
+            }
+        }
+
+        .concave-30px {
+            color: map.get($custom-colors, "white");
+        }
+
+        span {
+            height: 8px;
+            width: 50px;
+            border-radius: var(--border-radius-tiny);
+            background-color: map.get($custom-colors, "grashalm");
+            position: absolute;
+            rotate: 0deg;
+            transition: 0.3s ease !important;
+
+
+            &:nth-of-type(1) {
+                top: 12px;
+                left: 12px;
+            }
+
+            &:nth-of-type(2) {
+                top: 28px;
+                left: 12px;
+            }
+
+            &:nth-of-type(3) {
+                top: 44px;
+                left: 12px;
+            }
+        }
+
+        .concave-30px:nth-of-type(1) {
+            position: absolute;
+            left: -30px;
+            top: 10px;
+
+            @include media-breakpoint-down(xl) {
+                top: 5.5px;
+                left: -20px;
+            }
+        }
+
+        .concave-30px:nth-of-type(2) {
+            position: absolute;
+            top: 54.2px;
+            right: 20px;
+
+            @include media-breakpoint-down(xl) {
+                top: 57.2px;
+                right: 12px;
+            }
+        }
     }
 
     .right-bar.unfold ~ .hamburger {
@@ -270,16 +295,10 @@ body.colorscheme-green .hamburger:hover {
     }
 
     .brand-left {
-        margin: var(--grid-margin) 120px 0 calc(var(--grid-margin) + 7px) !important;
+        margin: var(--grid-margin) 120px 0 calc(var(--grid-margin) + 7px);
     }
 }
 
-body.colorscheme-green .top-bar:has(.unfold) {
-
-    .right-bar a {
-        color: map.get($custom-colors, "schwarzwald");
-    }
-}
 
 body .top-bar:has(.unfold) {
 
@@ -350,116 +369,6 @@ body.admin-bar {
     gap: var(--gap-large);
     margin-right: var(--grid-margin);
 }
-
-.navbar {
-
-    > .container {
-        padding-left: 0;
-    }
-
-    &-main {
-        border-bottom: 1px solid $darkgray;
-        transition: 0.3s ease;
-        background-color: $black;
-        height: 60px;
-        position: fixed;
-
-        .nav {
-
-            &-item {
-
-                a {
-                    color: $black;
-                }
-            }
-        }
-
-    }
-
-    &-main.stuck {
-        width: 100%;
-        top: 0;
-        z-index: 50;
-
-        .navbar-brand {
-            opacity: 1;
-            margin-left: 0.5rem;
-            height: 46px;
-            width: 46px;
-            min-width: fit-content;
-            background-color: $secondary;
-            padding: 16px 8px 16px 8px;
-
-            @include media-breakpoint-up(md) {
-                margin-left: 0;
-            }
-
-            @include media-breakpoint-down(sm) {
-                height: 52px;
-                width: 52px;
-                padding: 10px;
-            }
-
-            img {
-                height: 46px;
-                display: block;
-
-                @include media-breakpoint-down(sm) {
-                    height: 32px;
-                }
-            }
-        }
-
-        .button-highlight-stuck {
-
-            @include media-breakpoint-down(md) {
-                display: block;
-                background-color: $secondary;
-                border-radius: 9999px;
-                padding: 0.2rem 0.5rem;
-
-                &:hover {
-                    background-color: map.get($custom-colors, "sonne");
-                    border-bottom: 4px solid $white;
-                }
-
-                a {
-                    color: $white;
-                    font-size: 14px;
-                    padding: 11px 0 7px 0;
-                    margin-right: 0.5rem;
-                    margin-left: 0.5rem;
-                    text-transform: uppercase;
-
-                    &:hover {
-                        color: $black;
-                    }
-                }
-            }
-        }
-
-    }
-
-    &-brand {
-        opacity: 0;
-        margin-left: 0.5rem;
-
-        padding: 2px;
-
-        @include media-breakpoint-up(md) {
-            margin-left: 0;
-        }
-
-        img {
-            height: 60px;
-        }
-    }
-
-    .button-highlight-stuck {
-        display: none;
-    }
-}
-
 
 .wp-custom-logo {
 
@@ -552,45 +461,9 @@ body.admin-bar {
     }
 }
 
-.header {
 
-    &-personal {
-
-        .bloginfo {
-            background: none;
-            padding: 0;
-            max-height: 100px;
-        }
-
-        .img-container {
-
-            &.sunflower-logo {
-                background-color: $secondary;
-                width: 95px;
-            }
-
-            height: 95px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            @include media-breakpoint-down(sm) {
-                padding: 8px;
-            }
-        }
-
-        img {
-            height: 100%;
-        }
-    }
-}
-
-$green-bg: #030;
-$light-bg: #fff;
 $bright-green: #0a0;
 $bright-blue: #0af;
-$text-light: #fff;
-$text-dark: #222;
 
 .top-bar {
     border-radius: 0 0 40px 40px;
@@ -636,10 +509,16 @@ $text-dark: #222;
 
             backdrop-filter: blur(25px) saturate(200%);
             -webkit-backdrop-filter: blur(25px) saturate(200%);
-            background-color: rgba(255, 255, 255, 0.7);
+
+            @include themed-colorscheme-nested() {
+                background-color: rgba(255, 255, 255, 0.7);
+
+                a {
+                    color: map.get($custom-colors, "schwarzwald");
+                }
+            }
             border: 1px solid rgba(255, 255, 255, 0.15);
 
-            color: map.get($custom-colors, "schwarzwald");
         }
 
 
@@ -654,9 +533,19 @@ $text-dark: #222;
     }
 
     .logo-background {
+        background-color: #005538;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 60px;
         height: 60px;
         transition: 0.3s background-color ease;
+
+        border-radius: 10px;
+
+        @include media-breakpoint-down(xl) {
+            border-radius: 6px;
+        }
 
         &:hover {
             background-color: map.get($custom-colors, "grashalm");
@@ -684,6 +573,7 @@ $text-dark: #222;
     }
 
     .brand-left {
+
         margin: calc(var(--grid-margin) - 2px) 80px 0 calc(var(--grid-margin) + 7px);
         top: 0;
         left: 0;
@@ -692,7 +582,65 @@ $text-dark: #222;
         z-index: 200;
 
         @include media-breakpoint-down(xl) {
-            margin: var(--grid-margin) 80px 0 calc(var(--grid-margin) + 7px);
+            margin: var(--double-grid-margin) 80px 0 calc(var(--double-grid-margin) + 7px);
+        }
+
+        .label-top {
+            --bg: #{map.get($custom-colors, "tanne")};
+            background-color: var(--bg);
+            position: relative;
+            right: calc(-1 * var(--gap-large));
+            z-index: 1;
+            transition: background-color 0.3s ease;
+
+            &::before {
+                position: absolute;
+                top: 0;
+                left: -10px;
+                width: calc(100% + 20px);
+                height: 100%;
+                content: "";
+                z-index: -1;
+                transform: skewX(-12deg);
+                background-color: var(--bg);
+                transition: background-color 0.3s ease;
+
+                @include media-breakpoint-down(xl) {
+                    left: -7px;
+                    width: calc(100% + 14px);
+                }
+            }
+        }
+
+        .label-bottom {
+            --bg: #{map.get($custom-colors, "klee")};
+            background-color: var(--bg);
+            position: relative;
+            transition: background-color 0.3s ease;
+
+            &:empty {
+                display: none;
+            }
+
+            &::before {
+                position: absolute;
+                top: 0;
+                left: -10px;
+                width: calc(100% + 20px);
+                height: 100%;
+                content: "";
+                z-index: -1;
+                transform: skewX(-12deg);
+                background-color: var(--bg);
+                transition: background-color 0.3s ease;
+
+                @include media-breakpoint-down(xl) {
+                    left: -7px;
+                    width: calc(100% + 14px);
+                }
+            }
+
+
         }
 
         &:hover {
@@ -705,105 +653,176 @@ $text-dark: #222;
                 --bg: #{map.get($custom-colors, "tanne")};
             }
         }
-    }
-}
 
-
-.right-bar {
-    border-radius: 0 0 0 20px;
-    height: 100px;
-    padding: var(--grid-margin);
-    right: 0;
-    top: 0;
-    position: absolute;
-    justify-content: center;
-    max-width: calc(100% - var(--width-brand-left));
-    gap: var(--grid-margin);
-
-    @include media-breakpoint-down(xl) {
-        height: 85px;
-        border-radius: 0 0 0 10px;
     }
 
-    @media (max-width: 1200px) {
-        height: 70px;
+    .main-menu {
+        margin-top: -4px;
+
+        ul {
+
+            > li {
+                position: relative;
+            }
+
+            a {
+                display: block;
+                text-decoration: none;
+            }
+
+            .sub-menu {
+                display: none;
+                list-style: none;
+                padding: 43px 0 calc(var(--grid-margin) / 2) 0;
+                position: absolute;
+                left: calc(-1 * calc(var(--gap-large) / 2));
+                right: auto;
+                background: map.get($custom-colors, "white");
+                z-index: 100;
+                min-width: 250px;
+                border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
+                width: fit-content;
+                margin: 0;
+                overflow-x: hidden;
+                overflow-y: auto;
+                max-height: calc(100vh - 80px);
+                scrollbar-width: thin;
+                scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+
+                &::-webkit-scrollbar {
+                    width: 4px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: rgba(0, 0, 0, 0.15);
+                    border-radius: 4px;
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.3);
+                    }
+                }
+
+                > li > a {
+                    padding: 10px 12px;
+                    white-space: wrap;
+                    max-width: 600px;
+                    font-size: 15px;
+
+                    @include media-breakpoint-down(md) {
+                        max-width: 280px;
+                    }
+                }
+
+                .sub-menu {
+                    left: 0;
+                    top: initial;
+                    transform: none;
+                    display: block;
+                    position: relative;
+                    padding: 0 0 0 var(--gap-large);
+                    border-radius: 0;
+                    min-width: 100%;
+                    outline: none;
+                }
+
+            }
+
+            .menu-item-has-children:hover,
+            .menu-item-has-children:focus-within {
+                > .sub-menu {
+                    display: block;
+                }
+            }
+
+        }
     }
 
-    &__content {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        height: 60px;
-        gap: var(--gap-large);
-        position: relative;
-        z-index: 101;
+    .right-bar {
+        border-radius: 0 0 0 20px;
+        height: 100px;
+        padding: var(--grid-margin);
+        right: 0;
+        top: 0;
+        position: absolute;
+        justify-content: center;
+        max-width: calc(100% - var(--width-brand-left));
+        gap: var(--grid-margin);
 
         @include media-breakpoint-down(xl) {
-            height: 46px;
+            height: 85px;
+            border-radius: 0 0 0 10px;
         }
 
-    }
-
-    .concave-30px {
-        color: $white;
-
-        &:nth-of-type(1) {
-            left: -30px;
-            top: 9.8px;
-
-            @include media-breakpoint-down(xl) {
-                top: 13.7px;
-                left: -20px;
-            }
-
-            @media (max-width: 1200px) {
-                top: 5.6px;
-            }
+        @media (max-width: 1200px) {
+            height: 70px;
         }
-
-
-        &:nth-of-type(2) {
-            right: 20px;
-            top: 90px;
-
-            @include media-breakpoint-down(xl) {
-                top: 78.5px;
-            }
-
-            @media (max-width: 1200px) {
-                top: 63.5px;
-                right: 12px;
-            }
-        }
-    }
-
-    @include themed-colorscheme-nested() {
-        background-color: t(background);
-        color: t(text);
-    }
-
-    a {
 
         @include themed-colorscheme-nested() {
-            color: t(text);
+            background-color: t(background);
+
+            a {
+                color: t(text);
+            }
         }
+
+
+        &__content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            gap: var(--gap-large);
+            position: relative;
+            z-index: 101;
+
+            @include media-breakpoint-down(xl) {
+                height: 46px;
+            }
+
+        }
+
+        .concave-30px {
+            color: $white;
+
+            &:nth-of-type(1) {
+                left: -30px;
+                top: 9.8px;
+
+                @include media-breakpoint-down(xl) {
+                    top: 13.7px;
+                    left: -20px;
+                }
+
+                @media (max-width: 1200px) {
+                    top: 5.6px;
+                }
+            }
+
+
+            &:nth-of-type(2) {
+                right: 20px;
+                top: 90px;
+
+                @include media-breakpoint-down(xl) {
+                    top: 78.5px;
+                }
+
+                @media (max-width: 1200px) {
+                    top: 63.5px;
+                    right: 12px;
+                }
+            }
+        }
+
     }
 
 }
 
-
-.logo-background {
-    background-color: #005538;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @include media-breakpoint-down(xl) {
-        border-radius: 6px;
-    }
-}
 
 // Custom Logo im Header - gleiche Größe wie .logo-background
 .right-bar__content > .custom-logo-link {
@@ -845,174 +864,6 @@ $text-dark: #222;
     width: 40px;
 }
 
-
-.main-menu {
-    margin-top: -4px;
-
-    ul {
-
-        > li {
-            position: relative;
-        }
-
-        a {
-            display: block;
-            text-decoration: none;
-        }
-
-        .sub-menu {
-            list-style: none;
-            padding: 43px 0 calc(var(--grid-margin) / 2) 0;
-            position: absolute;
-            left: calc(-1 * calc(var(--gap-large) / 2));
-            right: auto;
-            background: map.get($custom-colors, "white");
-            z-index: 100;
-            display: none;
-            min-width: 250px;
-            border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
-            width: fit-content;
-            margin: 0;
-            overflow-x: hidden;
-            overflow-y: auto;
-            max-height: calc(100vh - 80px);
-            scrollbar-width: thin;
-            scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
-
-            &::-webkit-scrollbar {
-                width: 4px;
-            }
-
-            &::-webkit-scrollbar-track {
-                background: transparent;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background-color: rgba(0, 0, 0, 0.15);
-                border-radius: 4px;
-
-                &:hover {
-                    background-color: rgba(0, 0, 0, 0.3);
-                }
-            }
-
-            > li > a {
-                padding: 10px 12px;
-                white-space: wrap;
-                max-width: 600px;
-                font-size: 15px;
-
-                @include media-breakpoint-down(md) {
-                    max-width: 280px;
-                }
-            }
-
-            .sub-menu {
-                left: 0;
-                top: initial;
-                transform: none;
-                display: block;
-                position: relative;
-                padding: 0 0 0 var(--gap-large);
-                border-radius: 0;
-                min-width: 100%;
-                outline: none;
-            }
-        }
-
-
-    }
-}
-
-.menu-item-has-children:hover > .sub-menu,
-.menu-item-has-children:focus-within > .sub-menu {
-    display: block;
-}
-
-/* ===  Styling tieferer Ebenen bleibt unverändert ======================== */
-.sub-menu .sub-menu {
-    position: static; // innerhalb des geöffneten Panels einfach untereinander
-    box-shadow: none;
-    padding-left: 1rem;
-}
-
-.main-menu .nav-link {
-    font-weight: 700;
-    padding: 0.5rem 0.75rem;
-    text-decoration: none;
-}
-
-.btn-green {
-    background-color: $bright-green;
-    border-radius: 20px;
-    color: $white;
-    padding: 0.5rem 1.2rem;
-}
-
-.btn-blue {
-    background-color: $bright-blue;
-    border-radius: 20px;
-    color: $white;
-    padding: 0.5rem 1.2rem;
-}
-
-.label-top {
-    --bg: #{map.get($custom-colors, "tanne")};
-    background-color: var(--bg);
-    position: relative;
-    right: calc(-1 * var(--gap-large));
-    z-index: 1;
-    transition: background-color 0.3s ease;
-
-    &::before {
-        position: absolute;
-        top: 0;
-        left: -10px;
-        width: calc(100% + 20px);
-        height: 100%;
-        content: "";
-        z-index: -1;
-        transform: skewX(-12deg);
-        background-color: var(--bg);
-        transition: background-color 0.3s ease;
-
-        @include media-breakpoint-down(xl) {
-            left: -7px;
-            width: calc(100% + 14px);
-        }
-    }
-}
-
-.label-bottom {
-    --bg: #{map.get($custom-colors, "klee")};
-    background-color: var(--bg);
-    position: relative;
-    transition: background-color 0.3s ease;
-
-    &:empty {
-        display: none;
-    }
-
-    &::before {
-        position: absolute;
-        top: 0;
-        left: -10px;
-        width: calc(100% + 20px);
-        height: 100%;
-        content: "";
-        z-index: -1;
-        transform: skewX(-12deg);
-        background-color: var(--bg);
-        transition: background-color 0.3s ease;
-
-        @include media-breakpoint-down(xl) {
-            left: -7px;
-            width: calc(100% + 14px);
-        }
-    }
-
-
-}
 
 .skew-box {
     height: 32px;
@@ -1090,24 +941,15 @@ $text-dark: #222;
 }
 
 
-.colorscheme-green .top-bar.stuck .right-bar {
-
-    a {
-        color: map.get($custom-colors, "schwarzwald");
-    }
-}
-
+/* Move brand inside hero cover block */
 body:has(.entry-content>.wp-block-cover.is-style-sunflower-hero:first-child) {
 
     .brand-left {
-        margin: calc(var(--double-grid-margin) - 4px) 80px 0 calc(var(--double-grid-margin) + 7px);
+        margin: var(--double-grid-margin) 120px 0 calc(var(--double-grid-margin) + 7px);
 
         @include media-breakpoint-down(xl) {
             margin: var(--double-grid-margin) 80px 0 calc(var(--double-grid-margin) + 7px);
         }
     }
 
-    .brand-left {
-        margin: var(--double-grid-margin) 120px 0 calc(var(--double-grid-margin) + 7px) !important;
-    }
 }
