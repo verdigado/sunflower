@@ -66,19 +66,19 @@ add_filter( 'update_themes_sunflower-theme.de', 'sunflower_update_theme', 10, 3 
  */
 function sunflower_maybe_run_theme_update() {
 
-	$theme  = wp_get_theme();
-	$stored = get_option( 'sunflower_theme_version' );
+	$stored_version = get_option( 'sunflower_theme_version' );
 
-	if ( SUNFLOWER_VERSION === $stored ) {
+	if ( SUNFLOWER_VERSION === $stored_version ) {
 		return;
 	}
 
-	sunflower_run_update_tasks( $stored );
+	sunflower_run_update_tasks( $stored_version );
 
 	update_option( 'sunflower_theme_version', SUNFLOWER_VERSION );
 }
+// We have to run this on 'init' because in multisite context the update
+// process won't always run if we hook into 'upgrader_process_complete' directly.
 add_action( 'init', 'sunflower_maybe_run_theme_update' );
-
 
 /**
  * Run update tasks depending on the from and to version.
@@ -87,23 +87,59 @@ add_action( 'init', 'sunflower_maybe_run_theme_update' );
  */
 function sunflower_run_update_tasks( $from_version ) {
 
+	// Option sunflower_events_enabled was added in 2.2.15.
 	if ( version_compare( $from_version, '2.2.15', '<' ) ) {
 
 		$is_sunflower_events_enabled = sunflower_get_setting( 'sunflower_events_enabled' );
-		if ( $is_sunflower_events_enabled ) {
-			return;
+		if ( ! $is_sunflower_events_enabled ) {
+
+			$options = get_option( 'sunflower_events_options', array() );
+			if ( ! is_array( $options ) ) {
+				$options = array();
+			}
+
+			$options['sunflower_events_enabled'] = 1;
+			update_option( 'sunflower_events_options', $options );
+			update_option( 'sunflower_flush_rewrite_rules', 1 );
 		}
-
-		$options = get_option( 'sunflower_events_options', array() );
-
-		if ( ! is_array( $options ) ) {
-			$options = array();
-		}
-
-		$options['sunflower_events_enabled'] = 1;
-		update_option( 'sunflower_events_options', $options );
-
-		// Flush rewrite rules later on custom post registration.
-		update_option( 'sunflower_flush_rewrite_rules', 1 );
 	}
+
+	// Comment out Twitter/X from social media profiles.
+	if ( version_compare( $from_version, '2.2.19', '<' ) ) {
+		sunflower_comment_out_twitter_profiles();
+	}
+}
+
+/**
+ * Comment out Twitter/X social media profiles for the current site.
+ */
+function sunflower_comment_out_twitter_profiles() {
+	$options = get_option( 'sunflower_social_media_options' );
+	if ( ! is_array( $options ) ) {
+		$options = array();
+	}
+
+	$lines     = explode( "\n", (string) ( $options['sunflower_social_media_profiles'] ?? '' ) );
+	$new_lines = array();
+
+	foreach ( $lines as $line ) {
+		$line         = trim( $line );
+		$some_profile = explode( ';', $line );
+		$class        = $some_profile[0] ?? '';
+		$url          = $some_profile[2] ?? '';
+
+		if ( ! str_starts_with( trim( $line ), '#' )
+			&& ( str_contains( $class, 'twitter' )
+				|| str_contains( $class, 'x-twitter' )
+				|| str_contains( $url, 'twitter.com' )
+				|| str_contains( $url, 'x.com' ) )
+		) {
+			$line = '# ' . $line;
+		}
+
+		$new_lines[] = $line;
+	}
+
+	$options['sunflower_social_media_profiles'] = implode( "\n", $new_lines );
+	update_option( 'sunflower_social_media_options', $options );
 }
