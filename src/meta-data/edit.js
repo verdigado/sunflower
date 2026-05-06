@@ -103,10 +103,6 @@ export default function Edit( { attributes, setAttributes } ) {
 							options={ [
 								{ value: 'none', label: 'Bitte wählen' },
 								{
-									value: 'fab fa-x-twitter',
-									label: 'X (Twitter)',
-								},
-								{
 									value: 'fab fa-bluesky',
 									label: 'Bluesky',
 								},

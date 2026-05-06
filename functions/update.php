@@ -63,58 +63,20 @@ add_filter( 'update_themes_sunflower-theme.de', 'sunflower_update_theme', 10, 3 
 
 /**
  * Run update tasks if the theme version has changed.
- *
- * @param WP_Upgrader $upgrader The upgrader instance.
- * @param array       $hook_extra Extra data about the update process.
  */
-function sunflower_maybe_run_theme_update( $upgrader, $hook_extra ) {
+function sunflower_maybe_run_theme_update() {
 
-	// Only consider theme updates, not plugin updates or core updates.
-	if ( empty( $hook_extra['type'] ) || 'theme' !== $hook_extra['type'] ||
-		empty( $hook_extra['action'] ) || 'update' !== $hook_extra['action'] ||
-		empty( $hook_extra['themes'] ) ) {
-		return;
-	}
-
-	$parent_theme_dir = get_template();
-
-	// Return early if the updated theme is not our parent theme.
-	if ( ! in_array( $parent_theme_dir, $hook_extra['themes'], true ) ) {
-		return;
-	}
-
-	$parent_theme   = wp_get_theme( $parent_theme_dir );
-	$parent_version = $parent_theme->get( 'Version' );
 	$stored_version = get_option( 'sunflower_theme_version' );
 
-	if ( $stored_version === $parent_version ) {
+	if ( SUNFLOWER_VERSION === $stored_version ) {
 		return;
 	}
 
-	sunflower_run_update_tasks( $stored_version, $parent_version );
+	sunflower_run_update_tasks( $stored_version );
 
-	update_option( 'sunflower_theme_version', $parent_version );
+	update_option( 'sunflower_theme_version', SUNFLOWER_VERSION );
 }
-add_action( 'upgrader_process_complete', 'sunflower_maybe_run_theme_update', 10, 2 );
-
-
-/**
- * Execute a callback for each site in a multisite, or just once for single site.
- *
- * @param callable $callback The function to execute per site.
- */
-function sunflower_for_each_site( callable $callback ) {
-	if ( is_multisite() ) {
-		$sites = get_sites();
-		foreach ( $sites as $site ) {
-			switch_to_blog( $site->blog_id );
-			$callback();
-			restore_current_blog();
-		}
-	} else {
-		$callback();
-	}
-}
+add_action( 'init', 'sunflower_maybe_run_theme_update' );
 
 /**
  * Run update tasks depending on the from and to version.
@@ -123,26 +85,9 @@ function sunflower_for_each_site( callable $callback ) {
  */
 function sunflower_run_update_tasks( $from_version = '' ) {
 
+	// $from_version is set on theme activation.
 	if ( empty( $from_version ) ) {
 		return;
-	}
-
-	// Option sunflower_events_enabled was added in 2.2.15.
-	if ( version_compare( $from_version, '2.2.15', '<' ) ) {
-
-		$is_sunflower_events_enabled = sunflower_get_setting( 'sunflower_events_enabled' );
-		if ( $is_sunflower_events_enabled ) {
-			return;
-		}
-
-		$options = get_option( 'sunflower_events_options', array() );
-		if ( ! is_array( $options ) ) {
-			$options = array();
-		}
-
-		$options['sunflower_events_enabled'] = 1;
-		update_option( 'sunflower_events_options', $options );
-		update_option( 'sunflower_flush_rewrite_rules', 1 );
 	}
 
 	// Set default post image format to 'flexible'.
@@ -157,7 +102,7 @@ function sunflower_run_update_tasks( $from_version = '' ) {
 
 	// Comment out Twitter/X from social media profiles.
 	if ( version_compare( $from_version, '3.0.4', '<' ) ) {
-		sunflower_for_each_site( 'sunflower_comment_out_twitter_profiles' );
+		sunflower_comment_out_twitter_profiles();
 	}
 }
 

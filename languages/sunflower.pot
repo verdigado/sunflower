@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sunflower 26 3.0.2\n"
+"Project-Id-Version: Sunflower 26 3.0.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-30T08:26:37+02:00\n"
+"POT-Creation-Date: 2026-05-05T19:34:08+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower\n"
@@ -758,51 +758,46 @@ msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:105
 #: functions/options/class-sunflowersocialmediasettingspage.php:109
-msgid "X (Twitter)"
+msgid "Facebook"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:114
 #: functions/options/class-sunflowersocialmediasettingspage.php:118
-msgid "Facebook"
+msgid "Mastodon"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:123
 #: functions/options/class-sunflowersocialmediasettingspage.php:127
-msgid "Mastodon"
+msgid "LinkedIn"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:132
 #: functions/options/class-sunflowersocialmediasettingspage.php:136
-msgid "LinkedIn"
-msgstr ""
-
-#: functions/options/class-sunflowersocialmediasettingspage.php:141
-#: functions/options/class-sunflowersocialmediasettingspage.php:145
 msgid "WhatsApp"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:150
+#: functions/options/class-sunflowersocialmediasettingspage.php:141
 msgid "mail"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:154
+#: functions/options/class-sunflowersocialmediasettingspage.php:145
 msgid "Mail"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:191
+#: functions/options/class-sunflowersocialmediasettingspage.php:182
 msgid "Show share buttons on single post page"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:264
+#: functions/options/class-sunflowersocialmediasettingspage.php:253
 #: functions/s.php:146
 msgid "Select Open Graph Fallback Image"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:276
+#: functions/options/class-sunflowersocialmediasettingspage.php:265
 msgid "Open Media Library"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:281
+#: functions/options/class-sunflowersocialmediasettingspage.php:270
 msgid "This fallback image will be used when sharing pages and posts and no featured image has been selected."
 msgstr ""
 
@@ -952,26 +947,22 @@ msgid ", "
 msgstr ""
 
 #: inc/template-tags.php:111
-msgid "Share on X (Twitter) "
-msgstr ""
-
-#: inc/template-tags.php:119
 msgid "Share on Facebook "
 msgstr ""
 
-#: inc/template-tags.php:128
+#: inc/template-tags.php:120
 msgid "Share on LinkedIn "
 msgstr ""
 
-#: inc/template-tags.php:144
+#: inc/template-tags.php:136
 msgid "Share on Mastodon "
 msgstr ""
 
-#: inc/template-tags.php:154
+#: inc/template-tags.php:146
 msgid "Share on WhatsApp "
 msgstr ""
 
-#: inc/template-tags.php:163
+#: inc/template-tags.php:155
 msgid "send mail "
 msgstr ""
 

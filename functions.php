@@ -83,7 +83,10 @@ function sunflower_get_social_media_profiles() {
 
 	$lines = explode( "\n", (string) sunflower_get_setting( 'sunflower_social_media_profiles' ) );
 	foreach ( $lines as $line ) {
-		$line         = trim( $line );
+		$line = trim( $line );
+		if ( str_starts_with( $line, '#' ) || empty( $line ) ) {
+			continue;
+		}
 		$some_profile = explode( ';', $line );
 		$class        = $some_profile[0] ?? false;
 		$title        = $some_profile[1] ?? false;
