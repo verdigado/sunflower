@@ -8,7 +8,6 @@ Release: [10. April 2026](https://github.com/verdigado/sunflower/releases/tag/v3
 
 * **neues Design** - modernisiertes Gesamtdesign. .....
 * **vier verschiedene Optionen möglich** - rund/eckig und hell/dunkel
-* Umstieg vom Theme Urwahl3000 ist nicht mehr (direkt) möglich.
 
 ###  Umstieg auf Sunflower 26
 

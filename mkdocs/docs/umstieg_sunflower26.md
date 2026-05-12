@@ -1,4 +1,4 @@
-# Umstieg auf Sunflower26
+# Umstieg auf Sunflower 26
 
 ## Umschalten zwischen den verschiedenen Designs
 
@@ -27,4 +27,4 @@
 
 ## Barrierefreiheit
 
-* Bilder mit Text / Sharepics werden sehr gerne genutzt, sind aber aus Barrierefreiheitsgründen nicht zu empfehlen. Sehbehinderte Menschen können den Inhalt der Bilder nicht erfassen. Die Nutzung z.B. von SharePics aus SocualMedia Beiträgen bietet sich an, ist aber aus der Perspektive der Barrierefreieheit nicht zu empfehlen.
+* Bilder mit Text wie aus SharePics aus SocialMedia Beiträgen werden sehr gerne genutzt, sind aber aus Barrierefreiheitsgründen nicht zu empfehlen. Sehbehinderte Menschen können den Inhalt der Bilder nicht erfassen. Sollten solche Bilder trotzdem verwendet werden muss hier unbedingt auf einen aussagekräftigen ALT-Text geachtet werden.
