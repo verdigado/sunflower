@@ -19,12 +19,10 @@
         width: 100% !important;
     }
 
-    @include media-breakpoint-down(md) {
-        display: flex;
-        row-gap: var(--double-grid-margin);
+    &.is-stacked-on-mobile {
 
-        &.is-stacked-on-mobile {
-            flex-direction: column !important;
+        @include media-breakpoint-down(md) {
+            row-gap: var(--double-grid-margin);
         }
     }
 
