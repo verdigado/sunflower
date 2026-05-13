@@ -943,7 +943,7 @@ $bright-blue: #0af;
 
 
 /* Move brand inside hero cover block */
-body:has(.entry-content>.wp-block-cover.is-style-sunflower-hero:first-child) {
+body:has(.entry-content>.wp-block-cover:first-child) {
 
     .brand-left {
         margin: var(--double-grid-margin) 120px 0 calc(var(--double-grid-margin) + 7px);

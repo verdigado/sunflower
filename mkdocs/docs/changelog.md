@@ -2,7 +2,7 @@
 
 Hier findest du eine Liste, über Änderungen, die mit den verschiedenen Versionen erschienen sind.
 
-## Version 3.0 Sunflower26
+## Version 3.0 Sunflower 26
 
 Release: [10. April 2026](https://github.com/verdigado/sunflower/releases/tag/v3.0.0)
 
