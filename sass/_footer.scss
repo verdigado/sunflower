@@ -61,7 +61,10 @@
                 pointer-events: all !important;
 
                 img {
-                    height: 120px;
+                    max-height: 120px;
+                    min-height: 100px;
+                    max-width: 260px;
+                    min-width: 120px;
                     width: auto;
                     object-fit: contain;
 
