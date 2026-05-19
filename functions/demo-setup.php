@@ -45,8 +45,8 @@ function sunflower_create_demo_content( array $image_ids, bool $force = false ) 
  * @return int|false   Post ID or false if not found.
  */
 function sunflower_get_demo_page_id_by_slug( string $slug ) {
-    $page = get_page_by_path( $slug, OBJECT, 'page' );
-    return $page ? (int) $page->ID : false;
+	$page = get_page_by_path( $slug, OBJECT, 'page' );
+	return $page ? (int) $page->ID : false;
 }
 
 /**
@@ -84,72 +84,63 @@ function sunflower_create_demo_pages( array $image_ids, array $image_urls ) {
 	};
 
 	$pages = array(
-        'startseite' => array(
-            'title'   => 'Startseite',
-            'slug'    => 'startseite',
-            'content' => $load_pattern( $dir . '/functions/block-patterns/seiten/startseite.html' ),
-            'meta'    => array( '_sunflower_styled_layout' => '1' ),
-        ),
-        'aktuelles' => array(
-            'title'   => 'Aktuelles',
-            'slug'    => 'aktuelles',
-            'content' => '',
-            'meta'    => array(),
-        ),
-        'kandidatin' => array(
-            'title'   => 'Kandidatin',
-            'slug'    => 'kandidatin',
-            'content' => $load_pattern( $dir . '/functions/block-patterns/seiten/kandidierende.html' ),
-            'meta'    => array(),
-        ),
-        'kontakt' => array(
-            'title'   => 'Kontakt',
-            'slug'    => 'kontakt',
-            'content' => '<!-- wp:sunflower/contact-form /-->',
-            'meta'    => array(),
-        ),
-    );
+		'startseite' => array(
+			'title'   => 'Startseite',
+			'slug'    => 'startseite',
+			'content' => $load_pattern( $dir . '/functions/block-patterns/seiten/startseite.html' ),
+			'meta'    => array( '_sunflower_styled_layout' => '1' ),
+		),
+		'aktuelles'  => array(
+			'title'   => 'Aktuelles',
+			'slug'    => 'aktuelles',
+			'content' => '',
+			'meta'    => array(),
+		),
+		'kandidatin' => array(
+			'title'   => 'Kandidatin',
+			'slug'    => 'kandidatin',
+			'content' => $load_pattern( $dir . '/functions/block-patterns/seiten/kandidierende.html' ),
+			'meta'    => array(),
+		),
+		'kontakt'    => array(
+			'title'   => 'Kontakt',
+			'slug'    => 'kontakt',
+			'content' => '<!-- wp:sunflower/contact-form /-->',
+			'meta'    => array(),
+		),
+	);
 
-	    foreach ( $pages as $key => $def ) {
+	foreach ( $pages as $key => $def ) {
 
-        $existing_id = sunflower_get_demo_page_id_by_slug( $def['slug'] );
+		$existing_id = sunflower_get_demo_page_id_by_slug( $def['slug'] );
 
-        $postarr = array(
-            'post_title'     => $def['title'],
-            'post_name'      => $def['slug'],
-            'post_content'   => $def['content'],
-            'post_status'    => 'publish',
-            'post_type'      => 'page',
-            'comment_status' => 'closed',
-            'ping_status'    => 'closed',
-        );
+		$postarr = array(
+			'post_title'     => $def['title'],
+			'post_name'      => $def['slug'],
+			'post_content'   => $def['content'],
+			'post_status'    => 'publish',
+			'post_type'      => 'page',
+			'comment_status' => 'closed',
+			'ping_status'    => 'closed',
+		);
 
-        if ( $existing_id ) {
-            $postarr['ID'] = $existing_id;
-            $page_id       = wp_update_post( $postarr, true );
-        } else {
-            $page_id = wp_insert_post( $postarr, true );
-        }
+		if ( $existing_id ) {
+			$postarr['ID'] = $existing_id;
+			$page_id       = wp_update_post( $postarr, true );
+		} else {
+			$page_id = wp_insert_post( $postarr, true );
+		}
 
-        if ( is_wp_error( $page_id ) ) {
-            error_log(
-                sprintf(
-                    '[Sunflower] Error on %s of page "%s" (slug: %s): %s',
-                    $existing_id ? 'updating' : 'inserting',
-                    $def['title'],
-                    $def['slug'],
-                    $page_id->get_error_message()
-                )
-            );
-            continue;
-        }
+		if ( is_wp_error( $page_id ) ) {
+			continue;
+		}
 
-        foreach ( $def['meta'] as $meta_key => $meta_value ) {
-            update_post_meta( $page_id, $meta_key, $meta_value );
-        }
+		foreach ( $def['meta'] as $meta_key => $meta_value ) {
+			update_post_meta( $page_id, $meta_key, $meta_value );
+		}
 
-        $ids[ $key ] = (int) $page_id;
-    }
+		$ids[ $key ] = (int) $page_id;
+	}
 
 	return array_filter( $ids );
 }
@@ -175,6 +166,17 @@ function sunflower_replace_image_tokens( $content, array $ids, array $urls ) {
 }
 
 /**
+ * Get ID of existing demo post by slug.
+ *
+ * @param string $slug The desired post_name (Slug).
+ * @return int|false   Post ID or false if not found.
+ */
+function sunflower_get_demo_post_id_by_slug( string $slug ) {
+	$post = get_page_by_path( $slug, OBJECT, 'post' );
+	return $post ? (int) $post->ID : false;
+}
+
+/**
  * Create demo blog posts.
  *
  * @param array $image_ids Attachment IDs keyed by name.
@@ -184,19 +186,31 @@ function sunflower_create_demo_posts( array $image_ids, array $image_urls ) {
 	$posts = sunflower_get_demo_post_definitions();
 
 	foreach ( $posts as $post_def ) {
-		$content = sunflower_replace_image_tokens( $post_def['content'], $image_ids, $image_urls );
-		$post_id = (int) wp_insert_post(
-			array(
-				'post_title'     => $post_def['title'],
-				'post_name'      => $post_def['slug'],
-				'post_content'   => $content,
-				'post_status'    => 'publish',
-				'post_type'      => 'post',
-				'post_date'      => gmdate( 'Y-m-d H:i:s', strtotime( $post_def['date_offset'] ) ),
-				'comment_status' => 'closed',
-				'ping_status'    => 'closed',
-			)
+
+		$existing_id = sunflower_get_demo_post_id_by_slug( $post_def['slug'] );
+
+		$postarr = array(
+			'ID'             => $existing_id,
+			'post_title'     => $post_def['title'],
+			'post_name'      => $post_def['slug'],
+			'post_content'   => sunflower_replace_image_tokens( $post_def['content'], $image_ids, $image_urls ),
+			'post_status'    => 'publish',
+			'post_type'      => 'post',
+			'post_date'      => gmdate( 'Y-m-d H:i:s', strtotime( $post_def['date_offset'] ) ),
+			'comment_status' => 'closed',
+			'ping_status'    => 'closed',
 		);
+
+		if ( $existing_id ) {
+			$postarr['ID'] = $existing_id;
+			$post_id       = wp_update_post( $postarr, true );
+		} else {
+			$post_id = wp_insert_post( $postarr, true );
+		}
+
+		if ( is_wp_error( $post_id ) ) {
+			continue;
+		}
 
 		if ( $post_id && ! empty( $image_ids[ $post_def['thumbnail'] ] ) ) {
 			set_post_thumbnail( $post_id, $image_ids[ $post_def['thumbnail'] ] );
@@ -372,8 +386,8 @@ BLOCK
  * @return int|false   Post ID or false.
  */
 function sunflower_get_demo_event_id_by_slug( string $slug ) {
-    $post = get_page_by_path( $slug, OBJECT, 'sunflower_event' );
-    return $post ? (int) $post->ID : false;
+	$post = get_page_by_path( $slug, OBJECT, 'sunflower_event' );
+	return $post ? (int) $post->ID : false;
 }
 
 /**
@@ -444,34 +458,25 @@ function sunflower_create_demo_events( array $image_ids ) {
 		$existing_id = sunflower_get_demo_event_id_by_slug( $ev['slug'] );
 
 		$postarr = array(
-            'post_title'     => $ev['title'],
-            'post_name'      => $ev['slug'],
-            'post_content'   => $content,
-            'post_status'    => 'publish',
-            'post_type'      => 'sunflower_event',
-            'comment_status' => 'closed',
-            'ping_status'    => 'closed',
-        );
+			'post_title'     => $ev['title'],
+			'post_name'      => $ev['slug'],
+			'post_content'   => $content,
+			'post_status'    => 'publish',
+			'post_type'      => 'sunflower_event',
+			'comment_status' => 'closed',
+			'ping_status'    => 'closed',
+		);
 
 		if ( $existing_id ) {
-            $postarr['ID'] = $existing_id;
-            $event_id      = wp_update_post( $postarr, true );
-        } else {
-            $event_id = wp_insert_post( $postarr, true );
-        }
+			$postarr['ID'] = $existing_id;
+			$event_id      = wp_update_post( $postarr, true );
+		} else {
+			$event_id = wp_insert_post( $postarr, true );
+		}
 
 		if ( is_wp_error( $event_id ) ) {
-            error_log(
-                sprintf(
-                    '[Sunflower] Error on %s of Event "%s" (Slug: %s): %s',
-                    $existing_id ? 'updating' : 'inserting',
-                    $ev['title'],
-                    $ev['slug'],
-                    $event_id->get_error_message()
-                )
-            );
-            continue;
-        }
+			continue;
+		}
 
 		update_post_meta( $event_id, '_sunflower_event_from', $from );
 		update_post_meta( $event_id, '_sunflower_event_until', $until );
