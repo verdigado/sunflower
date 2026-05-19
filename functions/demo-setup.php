@@ -39,6 +39,17 @@ function sunflower_create_demo_content( array $image_ids, bool $force = false ) 
 }
 
 /**
+ * Get ID of existing demo page by slug.
+ *
+ * @param string $slug The desired post_name (Slug).
+ * @return int|false   Post ID or false if not found.
+ */
+function sunflower_get_demo_page_id_by_slug( string $slug ) {
+    $page = get_page_by_path( $slug, OBJECT, 'page' );
+    return $page ? (int) $page->ID : false;
+}
+
+/**
  * Create the demo pages and return their IDs.
  *
  * @param array $image_ids Attachment IDs keyed by name.
@@ -72,48 +83,73 @@ function sunflower_create_demo_pages( array $image_ids, array $image_urls ) {
 		return $content;
 	};
 
-	$ids['startseite'] = (int) wp_insert_post(
-		array(
-			'post_title'   => 'Startseite',
-			'post_name'    => 'startseite',
-			'post_content' => $load_pattern( $dir . '/functions/block-patterns/seiten/startseite.html' ),
-			'post_status'  => 'publish',
-			'post_type'    => 'page',
-		)
-	);
-	if ( ! empty( $ids['startseite'] ) ) {
-		update_post_meta( $ids['startseite'], '_sunflower_styled_layout', '1' );
-	}
+	$pages = array(
+        'startseite' => array(
+            'title'   => 'Startseite',
+            'slug'    => 'startseite',
+            'content' => $load_pattern( $dir . '/functions/block-patterns/seiten/startseite.html' ),
+            'meta'    => array( '_sunflower_styled_layout' => '1' ),
+        ),
+        'aktuelles' => array(
+            'title'   => 'Aktuelles',
+            'slug'    => 'aktuelles',
+            'content' => '',
+            'meta'    => array(),
+        ),
+        'kandidatin' => array(
+            'title'   => 'Kandidatin',
+            'slug'    => 'kandidatin',
+            'content' => $load_pattern( $dir . '/functions/block-patterns/seiten/kandidierende.html' ),
+            'meta'    => array(),
+        ),
+        'kontakt' => array(
+            'title'   => 'Kontakt',
+            'slug'    => 'kontakt',
+            'content' => '<!-- wp:sunflower/contact-form /-->',
+            'meta'    => array(),
+        ),
+    );
 
-	$ids['aktuelles'] = (int) wp_insert_post(
-		array(
-			'post_title'   => 'Aktuelles',
-			'post_name'    => 'aktuelles',
-			'post_content' => '',
-			'post_status'  => 'publish',
-			'post_type'    => 'page',
-		)
-	);
+	    foreach ( $pages as $key => $def ) {
 
-	$ids['kandidatin'] = (int) wp_insert_post(
-		array(
-			'post_title'   => 'Kandidatin',
-			'post_name'    => 'kandidatin',
-			'post_content' => $load_pattern( $dir . '/functions/block-patterns/seiten/kandidierende.html' ),
-			'post_status'  => 'publish',
-			'post_type'    => 'page',
-		)
-	);
+        $existing_id = sunflower_get_demo_page_id_by_slug( $def['slug'] );
 
-	$ids['kontakt'] = (int) wp_insert_post(
-		array(
-			'post_title'   => 'Kontakt',
-			'post_name'    => 'kontakt',
-			'post_content' => '<!-- wp:sunflower/contact-form /-->',
-			'post_status'  => 'publish',
-			'post_type'    => 'page',
-		)
-	);
+        $postarr = array(
+            'post_title'     => $def['title'],
+            'post_name'      => $def['slug'],
+            'post_content'   => $def['content'],
+            'post_status'    => 'publish',
+            'post_type'      => 'page',
+            'comment_status' => 'closed',
+            'ping_status'    => 'closed',
+        );
+
+        if ( $existing_id ) {
+            $postarr['ID'] = $existing_id;
+            $page_id       = wp_update_post( $postarr, true );
+        } else {
+            $page_id = wp_insert_post( $postarr, true );
+        }
+
+        if ( is_wp_error( $page_id ) ) {
+            error_log(
+                sprintf(
+                    '[Sunflower] Error on %s of page "%s" (slug: %s): %s',
+                    $existing_id ? 'updating' : 'inserting',
+                    $def['title'],
+                    $def['slug'],
+                    $page_id->get_error_message()
+                )
+            );
+            continue;
+        }
+
+        foreach ( $def['meta'] as $meta_key => $meta_value ) {
+            update_post_meta( $page_id, $meta_key, $meta_value );
+        }
+
+        $ids[ $key ] = (int) $page_id;
+    }
 
 	return array_filter( $ids );
 }
