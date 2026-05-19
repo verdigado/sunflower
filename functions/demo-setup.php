@@ -6,35 +6,6 @@
  */
 
 /**
- * Detect whether this is a genuine first install with no prior Sunflower usage.
- *
- * @return bool
- */
-function sunflower_is_fresh_first_install() {
-
-	if ( get_option( 'sunflower_theme_version' ) ) {
-		return false;
-	}
-
-	$legacy_options = array(
-		'sunflower_first_steps_options',
-		'sunflower_events_options',
-	);
-	foreach ( $legacy_options as $opt ) {
-		if ( false !== get_option( $opt, false ) ) {
-			return false;
-		}
-	}
-
-	$page_counts = wp_count_posts( 'page' );
-	if ( isset( $page_counts->publish ) && (int) $page_counts->publish > 1 ) {
-		return false;
-	}
-
-	return true;
-}
-
-/**
  * Main entry point – called from activation.php after demo images are imported.
  *
  * @param array $image_ids Attachment IDs keyed by filename without extension
@@ -43,11 +14,6 @@ function sunflower_is_fresh_first_install() {
  */
 function sunflower_create_demo_content( array $image_ids, bool $force = false ) {
 	if ( ! $force && get_option( 'sunflower_demo_content_created' ) ) {
-		return;
-	}
-
-	if ( ! $force && ! sunflower_is_fresh_first_install() ) {
-		update_option( 'sunflower_demo_content_created', true );
 		return;
 	}
 
@@ -364,6 +330,17 @@ BLOCK
 }
 
 /**
+ * Get ID of existing demo event by slug.
+ *
+ * @param string $slug The slug of the event to find.
+ * @return int|false   Post ID or false.
+ */
+function sunflower_get_demo_event_id_by_slug( string $slug ) {
+    $post = get_page_by_path( $slug, OBJECT, 'sunflower_event' );
+    return $post ? (int) $post->ID : false;
+}
+
+/**
  * Create demo events.
  *
  * @param array $image_ids Attachment IDs keyed by name.
@@ -378,15 +355,15 @@ function sunflower_create_demo_events( array $image_ids ) {
 			'title'      => 'Beispieltermin 1',
 			'slug'       => 'beispieltermin-1',
 			'thumbnail'  => 'TheSunflower',
-			'from_days'  => 7,
-			'until_days' => 7,
+			'from_days'  => 365 + 7,
+			'until_days' => 365 + 7,
 			'location'   => 'Rathaus Musterstadt, Rathausplatz 1',
 		),
 		array(
 			'title'      => 'Beispieltermin 2',
 			'slug'       => 'beispieltermin-2',
 			'thumbnail'  => 'Fahrrad',
-			'from_days'  => 14,
+			'from_days'  => 365 + 14,
 			'until_days' => 14,
 			'location'   => 'Stadtbibliothek Musterstadt',
 		),
@@ -394,32 +371,32 @@ function sunflower_create_demo_events( array $image_ids ) {
 			'title'      => 'Beispieltermin 3',
 			'slug'       => 'beispieltermin-3',
 			'thumbnail'  => 'ICE',
-			'from_days'  => 21,
-			'until_days' => 21,
+			'from_days'  => 365 + 21,
+			'until_days' => 365 + 21,
 			'location'   => 'Bürgerhaus Musterstadt',
 		),
 		array(
 			'title'      => 'Beispieltermin 4',
 			'slug'       => 'beispieltermin-4',
 			'thumbnail'  => 'Duenen',
-			'from_days'  => 28,
-			'until_days' => 28,
+			'from_days'  => 365 + 28,
+			'until_days' => 365 + 28,
 			'location'   => 'Marktplatz Musterstadt',
 		),
 		array(
 			'title'      => 'Beispieltermin 5',
 			'slug'       => 'beispieltermin-5',
 			'thumbnail'  => 'Wald',
-			'from_days'  => 35,
-			'until_days' => 35,
+			'from_days'  => 365 + 35,
+			'until_days' => 365 + 35,
 			'location'   => 'Kulturzentrum Musterstadt',
 		),
 		array(
 			'title'      => 'Beispieltermin 6',
 			'slug'       => 'beispieltermin-6',
 			'thumbnail'  => 'Alpen',
-			'from_days'  => 42,
-			'until_days' => 42,
+			'from_days'  => 365 + 42,
+			'until_days' => 365 + 42,
 			'location'   => 'Online-Veranstaltung',
 		),
 	);
@@ -428,21 +405,37 @@ function sunflower_create_demo_events( array $image_ids ) {
 		$from  = gmdate( 'Y-m-d H:i:s', strtotime( '+' . $ev['from_days'] . ' days 18:00:00' ) );
 		$until = gmdate( 'Y-m-d H:i:s', strtotime( '+' . $ev['until_days'] . ' days 20:00:00' ) );
 
-		$event_id = (int) wp_insert_post(
-			array(
-				'post_title'     => $ev['title'],
-				'post_name'      => $ev['slug'],
-				'post_content'   => $content,
-				'post_status'    => 'publish',
-				'post_type'      => 'sunflower_event',
-				'comment_status' => 'closed',
-				'ping_status'    => 'closed',
-			)
-		);
+		$existing_id = sunflower_get_demo_event_id_by_slug( $ev['slug'] );
 
-		if ( ! $event_id ) {
-			continue;
-		}
+		$postarr = array(
+            'post_title'     => $ev['title'],
+            'post_name'      => $ev['slug'],
+            'post_content'   => $content,
+            'post_status'    => 'publish',
+            'post_type'      => 'sunflower_event',
+            'comment_status' => 'closed',
+            'ping_status'    => 'closed',
+        );
+
+		if ( $existing_id ) {
+            $postarr['ID'] = $existing_id;
+            $event_id      = wp_update_post( $postarr, true );
+        } else {
+            $event_id = wp_insert_post( $postarr, true );
+        }
+
+		if ( is_wp_error( $event_id ) ) {
+            error_log(
+                sprintf(
+                    '[Sunflower] Error on %s of Event "%s" (Slug: %s): %s',
+                    $existing_id ? 'updating' : 'inserting',
+                    $ev['title'],
+                    $ev['slug'],
+                    $event_id->get_error_message()
+                )
+            );
+            continue;
+        }
 
 		update_post_meta( $event_id, '_sunflower_event_from', $from );
 		update_post_meta( $event_id, '_sunflower_event_until', $until );
