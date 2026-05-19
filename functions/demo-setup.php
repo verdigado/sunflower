@@ -6,35 +6,6 @@
  */
 
 /**
- * Detect whether this is a genuine first install with no prior Sunflower usage.
- *
- * @return bool
- */
-function sunflower_is_fresh_first_install() {
-
-	if ( get_option( 'sunflower_theme_version' ) ) {
-		return false;
-	}
-
-	$legacy_options = array(
-		'sunflower_first_steps_options',
-		'sunflower_events_options',
-	);
-	foreach ( $legacy_options as $opt ) {
-		if ( false !== get_option( $opt, false ) ) {
-			return false;
-		}
-	}
-
-	$page_counts = wp_count_posts( 'page' );
-	if ( isset( $page_counts->publish ) && (int) $page_counts->publish > 1 ) {
-		return false;
-	}
-
-	return true;
-}
-
-/**
  * Main entry point – called from activation.php after demo images are imported.
  *
  * @param array $image_ids Attachment IDs keyed by filename without extension
@@ -43,11 +14,6 @@ function sunflower_is_fresh_first_install() {
  */
 function sunflower_create_demo_content( array $image_ids, bool $force = false ) {
 	if ( ! $force && get_option( 'sunflower_demo_content_created' ) ) {
-		return;
-	}
-
-	if ( ! $force && ! sunflower_is_fresh_first_install() ) {
-		update_option( 'sunflower_demo_content_created', true );
 		return;
 	}
 
@@ -70,6 +36,17 @@ function sunflower_create_demo_content( array $image_ids, bool $force = false ) 
 	sunflower_create_demo_menus( $page_ids );
 
 	update_option( 'sunflower_demo_content_created', true );
+}
+
+/**
+ * Get ID of existing demo page by slug.
+ *
+ * @param string $slug The desired post_name (Slug).
+ * @return int|false   Post ID or false if not found.
+ */
+function sunflower_get_demo_page_id_by_slug( string $slug ) {
+	$page = get_page_by_path( $slug, OBJECT, 'page' );
+	return $page ? (int) $page->ID : false;
 }
 
 /**
@@ -106,48 +83,64 @@ function sunflower_create_demo_pages( array $image_ids, array $image_urls ) {
 		return $content;
 	};
 
-	$ids['startseite'] = (int) wp_insert_post(
-		array(
-			'post_title'   => 'Startseite',
-			'post_name'    => 'startseite',
-			'post_content' => $load_pattern( $dir . '/functions/block-patterns/seiten/startseite.html' ),
-			'post_status'  => 'publish',
-			'post_type'    => 'page',
-		)
+	$pages = array(
+		'startseite' => array(
+			'title'   => 'Startseite',
+			'slug'    => 'startseite',
+			'content' => $load_pattern( $dir . '/functions/block-patterns/seiten/startseite.html' ),
+			'meta'    => array( '_sunflower_styled_layout' => '1' ),
+		),
+		'aktuelles'  => array(
+			'title'   => 'Aktuelles',
+			'slug'    => 'aktuelles',
+			'content' => '',
+			'meta'    => array(),
+		),
+		'kandidatin' => array(
+			'title'   => 'Kandidatin',
+			'slug'    => 'kandidatin',
+			'content' => $load_pattern( $dir . '/functions/block-patterns/seiten/kandidierende.html' ),
+			'meta'    => array(),
+		),
+		'kontakt'    => array(
+			'title'   => 'Kontakt',
+			'slug'    => 'kontakt',
+			'content' => '<!-- wp:sunflower/contact-form /-->',
+			'meta'    => array(),
+		),
 	);
-	if ( ! empty( $ids['startseite'] ) ) {
-		update_post_meta( $ids['startseite'], '_sunflower_styled_layout', '1' );
+
+	foreach ( $pages as $key => $def ) {
+
+		$existing_id = sunflower_get_demo_page_id_by_slug( $def['slug'] );
+
+		$postarr = array(
+			'post_title'     => $def['title'],
+			'post_name'      => $def['slug'],
+			'post_content'   => $def['content'],
+			'post_status'    => 'publish',
+			'post_type'      => 'page',
+			'comment_status' => 'closed',
+			'ping_status'    => 'closed',
+		);
+
+		if ( $existing_id ) {
+			$postarr['ID'] = $existing_id;
+			$page_id       = wp_update_post( $postarr, true );
+		} else {
+			$page_id = wp_insert_post( $postarr, true );
+		}
+
+		if ( is_wp_error( $page_id ) ) {
+			continue;
+		}
+
+		foreach ( $def['meta'] as $meta_key => $meta_value ) {
+			update_post_meta( $page_id, $meta_key, $meta_value );
+		}
+
+		$ids[ $key ] = (int) $page_id;
 	}
-
-	$ids['aktuelles'] = (int) wp_insert_post(
-		array(
-			'post_title'   => 'Aktuelles',
-			'post_name'    => 'aktuelles',
-			'post_content' => '',
-			'post_status'  => 'publish',
-			'post_type'    => 'page',
-		)
-	);
-
-	$ids['kandidatin'] = (int) wp_insert_post(
-		array(
-			'post_title'   => 'Kandidatin',
-			'post_name'    => 'kandidatin',
-			'post_content' => $load_pattern( $dir . '/functions/block-patterns/seiten/kandidierende.html' ),
-			'post_status'  => 'publish',
-			'post_type'    => 'page',
-		)
-	);
-
-	$ids['kontakt'] = (int) wp_insert_post(
-		array(
-			'post_title'   => 'Kontakt',
-			'post_name'    => 'kontakt',
-			'post_content' => '<!-- wp:sunflower/contact-form /-->',
-			'post_status'  => 'publish',
-			'post_type'    => 'page',
-		)
-	);
 
 	return array_filter( $ids );
 }
@@ -173,6 +166,17 @@ function sunflower_replace_image_tokens( $content, array $ids, array $urls ) {
 }
 
 /**
+ * Get ID of existing demo post by slug.
+ *
+ * @param string $slug The desired post_name (Slug).
+ * @return int|false   Post ID or false if not found.
+ */
+function sunflower_get_demo_post_id_by_slug( string $slug ) {
+	$post = get_page_by_path( $slug, OBJECT, 'post' );
+	return $post ? (int) $post->ID : false;
+}
+
+/**
  * Create demo blog posts.
  *
  * @param array $image_ids Attachment IDs keyed by name.
@@ -182,19 +186,31 @@ function sunflower_create_demo_posts( array $image_ids, array $image_urls ) {
 	$posts = sunflower_get_demo_post_definitions();
 
 	foreach ( $posts as $post_def ) {
-		$content = sunflower_replace_image_tokens( $post_def['content'], $image_ids, $image_urls );
-		$post_id = (int) wp_insert_post(
-			array(
-				'post_title'     => $post_def['title'],
-				'post_name'      => $post_def['slug'],
-				'post_content'   => $content,
-				'post_status'    => 'publish',
-				'post_type'      => 'post',
-				'post_date'      => gmdate( 'Y-m-d H:i:s', strtotime( $post_def['date_offset'] ) ),
-				'comment_status' => 'closed',
-				'ping_status'    => 'closed',
-			)
+
+		$existing_id = sunflower_get_demo_post_id_by_slug( $post_def['slug'] );
+
+		$postarr = array(
+			'ID'             => $existing_id,
+			'post_title'     => $post_def['title'],
+			'post_name'      => $post_def['slug'],
+			'post_content'   => sunflower_replace_image_tokens( $post_def['content'], $image_ids, $image_urls ),
+			'post_status'    => 'publish',
+			'post_type'      => 'post',
+			'post_date'      => gmdate( 'Y-m-d H:i:s', strtotime( $post_def['date_offset'] ) ),
+			'comment_status' => 'closed',
+			'ping_status'    => 'closed',
 		);
+
+		if ( $existing_id ) {
+			$postarr['ID'] = $existing_id;
+			$post_id       = wp_update_post( $postarr, true );
+		} else {
+			$post_id = wp_insert_post( $postarr, true );
+		}
+
+		if ( is_wp_error( $post_id ) ) {
+			continue;
+		}
 
 		if ( $post_id && ! empty( $image_ids[ $post_def['thumbnail'] ] ) ) {
 			set_post_thumbnail( $post_id, $image_ids[ $post_def['thumbnail'] ] );
@@ -364,6 +380,17 @@ BLOCK
 }
 
 /**
+ * Get ID of existing demo event by slug.
+ *
+ * @param string $slug The slug of the event to find.
+ * @return int|false   Post ID or false.
+ */
+function sunflower_get_demo_event_id_by_slug( string $slug ) {
+	$post = get_page_by_path( $slug, OBJECT, 'sunflower_event' );
+	return $post ? (int) $post->ID : false;
+}
+
+/**
  * Create demo events.
  *
  * @param array $image_ids Attachment IDs keyed by name.
@@ -378,15 +405,15 @@ function sunflower_create_demo_events( array $image_ids ) {
 			'title'      => 'Beispieltermin 1',
 			'slug'       => 'beispieltermin-1',
 			'thumbnail'  => 'TheSunflower',
-			'from_days'  => 7,
-			'until_days' => 7,
+			'from_days'  => 365 + 7,
+			'until_days' => 365 + 7,
 			'location'   => 'Rathaus Musterstadt, Rathausplatz 1',
 		),
 		array(
 			'title'      => 'Beispieltermin 2',
 			'slug'       => 'beispieltermin-2',
 			'thumbnail'  => 'Fahrrad',
-			'from_days'  => 14,
+			'from_days'  => 365 + 14,
 			'until_days' => 14,
 			'location'   => 'Stadtbibliothek Musterstadt',
 		),
@@ -394,32 +421,32 @@ function sunflower_create_demo_events( array $image_ids ) {
 			'title'      => 'Beispieltermin 3',
 			'slug'       => 'beispieltermin-3',
 			'thumbnail'  => 'ICE',
-			'from_days'  => 21,
-			'until_days' => 21,
+			'from_days'  => 365 + 21,
+			'until_days' => 365 + 21,
 			'location'   => 'Bürgerhaus Musterstadt',
 		),
 		array(
 			'title'      => 'Beispieltermin 4',
 			'slug'       => 'beispieltermin-4',
 			'thumbnail'  => 'Duenen',
-			'from_days'  => 28,
-			'until_days' => 28,
+			'from_days'  => 365 + 28,
+			'until_days' => 365 + 28,
 			'location'   => 'Marktplatz Musterstadt',
 		),
 		array(
 			'title'      => 'Beispieltermin 5',
 			'slug'       => 'beispieltermin-5',
 			'thumbnail'  => 'Wald',
-			'from_days'  => 35,
-			'until_days' => 35,
+			'from_days'  => 365 + 35,
+			'until_days' => 365 + 35,
 			'location'   => 'Kulturzentrum Musterstadt',
 		),
 		array(
 			'title'      => 'Beispieltermin 6',
 			'slug'       => 'beispieltermin-6',
 			'thumbnail'  => 'Alpen',
-			'from_days'  => 42,
-			'until_days' => 42,
+			'from_days'  => 365 + 42,
+			'until_days' => 365 + 42,
 			'location'   => 'Online-Veranstaltung',
 		),
 	);
@@ -428,19 +455,26 @@ function sunflower_create_demo_events( array $image_ids ) {
 		$from  = gmdate( 'Y-m-d H:i:s', strtotime( '+' . $ev['from_days'] . ' days 18:00:00' ) );
 		$until = gmdate( 'Y-m-d H:i:s', strtotime( '+' . $ev['until_days'] . ' days 20:00:00' ) );
 
-		$event_id = (int) wp_insert_post(
-			array(
-				'post_title'     => $ev['title'],
-				'post_name'      => $ev['slug'],
-				'post_content'   => $content,
-				'post_status'    => 'publish',
-				'post_type'      => 'sunflower_event',
-				'comment_status' => 'closed',
-				'ping_status'    => 'closed',
-			)
+		$existing_id = sunflower_get_demo_event_id_by_slug( $ev['slug'] );
+
+		$postarr = array(
+			'post_title'     => $ev['title'],
+			'post_name'      => $ev['slug'],
+			'post_content'   => $content,
+			'post_status'    => 'publish',
+			'post_type'      => 'sunflower_event',
+			'comment_status' => 'closed',
+			'ping_status'    => 'closed',
 		);
 
-		if ( ! $event_id ) {
+		if ( $existing_id ) {
+			$postarr['ID'] = $existing_id;
+			$event_id      = wp_update_post( $postarr, true );
+		} else {
+			$event_id = wp_insert_post( $postarr, true );
+		}
+
+		if ( is_wp_error( $event_id ) ) {
 			continue;
 		}
 
