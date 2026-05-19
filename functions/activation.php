@@ -109,7 +109,9 @@ function sunflower_get_fresh_install() {
 
 	$stored = get_option( 'sunflower_theme_version' );
 
-	if ( false === $stored ) {
+	$fresh = get_transient( 'sunflower_fresh_install', false );
+
+	if ( false === $stored || true === $fresh ) {
 		return true;
 	}
 	return false;
@@ -125,6 +127,7 @@ function sunflower_schedule_welcome_or_skip(): void {
 
 	if ( sunflower_get_fresh_install() ) {
 		set_transient( 'sunflower_welcome_redirect', true, 5 * MINUTE_IN_SECONDS );
+		delete_transient( 'sunflower_fresh_install' );
 	} else {
 		set_transient( 'sunflower_first_steps_redirect', true, 5 * MINUTE_IN_SECONDS );
 	}

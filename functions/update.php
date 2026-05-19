@@ -68,7 +68,10 @@ function sunflower_maybe_run_theme_update() {
 
 	$stored_version = get_option( 'sunflower_theme_version' );
 
-	if ( SUNFLOWER_VERSION === $stored_version ) {
+	if ( false === $stored_version ) {
+		set_transient( 'sunflower_fresh_install', true, MINUTE_IN_SECONDS );
+		return;
+	} elseif ( SUNFLOWER_VERSION === $stored_version ) {
 		return;
 	}
 
