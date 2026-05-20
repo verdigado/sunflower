@@ -77,6 +77,7 @@
 		'[data-lightbox]',
 		'.wp-block-gallery',
 		'.lightbox-image-container',
+		'.menu-item',
 	];
 
 	/**
