@@ -9,7 +9,6 @@ ul {
 
     li {
         position: relative;
-        padding-left: 30px;
 
         margin-bottom: var(--half-grid-margin);
 
@@ -18,25 +17,39 @@ ul {
         }
 
     }
-}
 
-ul.wp-block-list.is-style-sunflower-checkmark {
+    &.wp-block-list {
 
-    li {
+        list-style-type: disc;
 
-        &::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 6px;
-            width: 21px;
-            height: 21px;
-            mask: url("../sunflower26/assets/img/bullet.svg") no-repeat center;
-            mask-size: contain;
-            background-color: currentcolor;
+        li {
+            margin-left: 30px;
+        }
 
-            svg {
-                color: #0dcaf0 !important;
+        &.is-style-sunflower-checkmark {
+
+            list-style-type: none;
+
+            li {
+
+                padding-left: 30px;
+                margin-left: 0;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 6px;
+                    width: 21px;
+                    height: 21px;
+                    mask: url("../sunflower26/assets/img/bullet.svg") no-repeat center;
+                    mask-size: contain;
+                    background-color: currentcolor;
+
+                    svg {
+                        color: #0dcaf0 !important;
+                    }
+                }
             }
         }
     }
