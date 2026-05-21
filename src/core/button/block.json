@@ -1,0 +1,10 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sunflower/core-button",
+  "title": "Modified Button Block for Sunflower Theme",
+  "icon": "button",
+  "description": "Core button block with optional Font‑Awesome icon.",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css"
+}

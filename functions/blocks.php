@@ -107,28 +107,6 @@ function sunflower_blocks_load_textdomain() {
 add_action( 'after_setup_theme', 'sunflower_blocks_load_textdomain' );
 
 /**
- * Add icon picker for WP blocks.
- */
-function sunflower_enqueue_block_icon_picker() {
-	wp_enqueue_script(
-		'sunflower-button-icon-picker',
-		get_template_directory_uri() . '/assets/js/block-icon-picker.js',
-		array(
-			'wp-blocks',
-			'wp-element',
-			'wp-block-editor',
-			'wp-components',
-			'wp-i18n',
-			'wp-compose',
-			'wp-data',
-		),
-		filemtime( get_template_directory() . '/assets/js/block-icon-picker.js' ),
-		true
-	);
-}
-add_action( 'enqueue_block_editor_assets', 'sunflower_enqueue_block_icon_picker' );
-
-/**
  * Enqueue script for setting --bg CSS variable on mark elements in editor.
  * This replicates the frontend.js behavior for skewed headlines in the block editor.
  * Uses enqueue_block_assets to ensure it runs inside the editor iframe (WP 5.9+).
@@ -178,6 +156,18 @@ function sunflower_enqueue_block_core_assets() {
 		true
 	);
 
+	wp_enqueue_script(
+		'sunflower-core-button-variations',
+		get_template_directory_uri() . '/build/core/button/index.js',
+		array(
+			'wp-blocks',
+			'wp-i18n',
+			'wp-element',
+		),
+		SUNFLOWER_VERSION,
+		true
+	);
+
 	// Styles for the editor.
 	wp_enqueue_style(
 		'sunflower-core-cover-variations',
@@ -188,6 +178,12 @@ function sunflower_enqueue_block_core_assets() {
 	wp_enqueue_style(
 		'sunflower-core-list-variations',
 		get_template_directory_uri() . '/build/core/list/index.css',
+		array(),
+		SUNFLOWER_VERSION
+	);
+	wp_enqueue_style(
+		'sunflower-core-button-variations',
+		get_template_directory_uri() . '/build/core/button/index.css',
 		array(),
 		SUNFLOWER_VERSION
 	);

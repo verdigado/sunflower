@@ -1,0 +1,51 @@
+ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+        position: relative;
+
+        margin-bottom: var(--half-grid-margin);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+    }
+
+    &.wp-block-list {
+
+        list-style-type: disc;
+
+        li {
+            margin-left: 30px;
+        }
+
+        &.is-style-sunflower-checkmark {
+
+            list-style-type: none;
+
+            li {
+
+                padding-left: 30px;
+                margin-left: 0;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 6px;
+                    width: 21px;
+                    height: 21px;
+                    mask: url("assets/img/bullet.svg") no-repeat center;
+                    mask-size: contain;
+                    background-color: currentcolor;
+
+                    svg {
+                        color: #0dcaf0 !important;
+                    }
+                }
+            }
+        }
+    }
+}
