@@ -1,0 +1,72 @@
+// styles.scss
+
+// Editor-Preview: Icon per data-Attribut auf dem Link anzeigen
+.wp-block-button.has-fa-icon {
+
+    // FA soll auf dem Wrapper KEIN Icon rendern
+    &::before,
+    &::after {
+        display: none !important;
+    }
+
+    // Icon nur auf dem inneren Link/Textbox
+    > .wp-block-button__link::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-style: normal;
+        margin-right: 0.4em;
+    }
+}
+
+// Jedes Icon über data-icon des Eltern-Elements mappen
+.wp-block-button[data-icon="fa-solid fa-thumbs-up"] > .wp-block-button__link::before {
+    content: "\f164";
+}
+
+.wp-block-button[data-icon="fa-solid fa-heart"] > .wp-block-button__link::before {
+    content: "\f004";
+}
+
+.wp-block-button[data-icon="fa-solid fa-check"] > .wp-block-button__link::before {
+    content: "\f00c";
+}
+
+.wp-block-button[data-icon="fa-solid fa-comment"] > .wp-block-button__link::before {
+    content: "\f075";
+}
+
+.wp-block-button[data-icon="fa-solid fa-user"] > .wp-block-button__link::before {
+    content: "\f007";
+}
+
+.wp-block-button[data-icon="fa-solid fa-envelope"] > .wp-block-button__link::before {
+    content: "\f0e0";
+}
+
+.wp-block-button[data-icon="fa-solid fa-star"] > .wp-block-button__link::before {
+    content: "\f005";
+}
+
+.wp-block-button[data-icon="fa-solid fa-download"] > .wp-block-button__link::before {
+    content: "\f019";
+}
+
+.wp-block-button[data-icon="fa-solid fa-upload"] > .wp-block-button__link::before {
+    content: "\f093";
+}
+
+.wp-block-button[data-icon="fa-solid fa-arrow-right"] > .wp-block-button__link::before {
+    content: "\f061";
+}
+
+.wp-block-button[data-icon="fa-solid fa-arrow-left"] > .wp-block-button__link::before {
+    content: "\f060";
+}
+
+.wp-block-button[data-icon="fa-solid fa-arrow-down"] > .wp-block-button__link::before {
+    content: "\f063";
+}
+
+.wp-block-button[data-icon="fa-solid fa-arrow-up"] > .wp-block-button__link::before {
+    content: "\f062";
+}
