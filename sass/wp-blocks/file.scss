@@ -1,3 +1,29 @@
-a.wp-block-file__button {
-    background-color: $primary;
+.wp-block-file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > a:first-of-type {
+
+        font-weight: 700;
+
+        &::before {
+            font-family: ForkAwesome;
+            content: "\f019"; // fa-download
+            margin-right: 0.5em;
+            font-weight: 400;
+        }
+    }
+
+    &__button {
+        margin-left: 0 !important;
+
+        &::before {
+            font-family: ForkAwesome;
+            content: "\f019"; // fa-download
+            margin-right: 0.5em;
+            position: relative;
+            top: 1px;
+        }
+    }
 }
