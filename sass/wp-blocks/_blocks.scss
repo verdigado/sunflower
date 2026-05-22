@@ -112,40 +112,6 @@ body #content {
     margin-bottom: var(--grid-margin);
 }
 
-.wp-block-file {
-    margin: var(--grid-margin) 0;
-    width: fit-content !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    a {
-        font-weight: 700;
-    }
-
-
-    > a:first-of-type {
-
-        &::before {
-            font-family: ForkAwesome;
-            content: "\f019"; // fa-download
-            margin-right: 0.5em;
-        }
-    }
-
-    &__button {
-        margin-left: 0 !important;
-
-        &::before {
-            font-family: ForkAwesome;
-            content: "\f019"; // fa-download
-            margin-right: 0.5em;
-            position: relative;
-            top: 1px;
-        }
-    }
-}
-
 
 .entry-content > .wp-block-latest-comments,
 .entry-content > .wp-block-latest-posts,
