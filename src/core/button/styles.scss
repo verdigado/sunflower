@@ -20,53 +20,53 @@
 
 // Jedes Icon über data-icon des Eltern-Elements mappen
 .wp-block-button[data-icon="fa-solid fa-thumbs-up"] > .wp-block-button__link::before {
- content: "\f164";
- }
+    content: "\f164";
+}
 
 .wp-block-button[data-icon="fa-solid fa-heart"] > .wp-block-button__link::before {
- content: "\f004";
- }
+    content: "\f004";
+}
 
 .wp-block-button[data-icon="fa-solid fa-check"] > .wp-block-button__link::before {
- content: "\f00c";
- }
+    content: "\f00c";
+}
 
 .wp-block-button[data-icon="fa-solid fa-comment"] > .wp-block-button__link::before {
- content: "\f075";
- }
+    content: "\f075";
+}
 
 .wp-block-button[data-icon="fa-solid fa-user"] > .wp-block-button__link::before {
- content: "\f007";
- }
+    content: "\f007";
+}
 
 .wp-block-button[data-icon="fa-solid fa-envelope"] > .wp-block-button__link::before {
- content: "\f0e0";
- }
+    content: "\f0e0";
+}
 
 .wp-block-button[data-icon="fa-solid fa-star"] > .wp-block-button__link::before {
- content: "\f005";
- }
+    content: "\f005";
+}
 
 .wp-block-button[data-icon="fa-solid fa-download"] > .wp-block-button__link::before {
- content: "\f019";
- }
+    content: "\f019";
+}
 
 .wp-block-button[data-icon="fa-solid fa-upload"] > .wp-block-button__link::before {
- content: "\f093";
- }
+    content: "\f093";
+}
 
 .wp-block-button[data-icon="fa-solid fa-arrow-right"] > .wp-block-button__link::before {
- content: "\f061";
- }
+    content: "\f061";
+}
 
 .wp-block-button[data-icon="fa-solid fa-arrow-left"] > .wp-block-button__link::before {
- content: "\f060";
- }
+    content: "\f060";
+}
 
 .wp-block-button[data-icon="fa-solid fa-arrow-down"] > .wp-block-button__link::before {
- content: "\f063";
- }
+    content: "\f063";
+}
 
 .wp-block-button[data-icon="fa-solid fa-arrow-up"] > .wp-block-button__link::before {
- content: "\f062";
- }
+    content: "\f062";
+}
