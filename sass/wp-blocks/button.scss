@@ -2,7 +2,21 @@
 
 .wp-block-buttons {
     gap: var(--grid-margin);
-    row-gap: var(--grid-margin) !important;
+    row-gap: var(--grid-margin);
+    column-gap: var(--grid-margin);
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+
+        i.sunflower-icon {
+            // FA übernimmt die Darstellung automatisch
+            // via ::before auf dem <i>-Element
+            line-height: 1;
+            flex-shrink: 0;
+        }
+    }
 }
 
 p,
