@@ -311,12 +311,23 @@
                 }
 
                 .fst-italic {
-                    margin-top: auto;
                     padding-top: 0;
                     color: map.get($custom-colors, "schwarzwald");
                     font-style: italic;
                     font-weight: 450;
+                    margin-top: 0;
+                    margin-bottom: var(--half-grid-margin);
+                }
+
+                .event-card__excerpt {
+                    margin-top: 0;
                     margin-bottom: 35px;
+
+                    p {
+                        margin: 0;
+                        color: map.get($custom-colors, "schwarzwald");
+                        padding: 0 !important;
+                    }
                 }
             }
 
