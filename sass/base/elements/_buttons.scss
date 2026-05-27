@@ -8,26 +8,3 @@
         margin-bottom: var(--grid-margin);
     }
 }
-
-.wp-block-buttons {
-
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-
-    gap: var(--grid-margin) !important;
-    column-gap: var(--grid-margin) !important;
-}
-
-// styles.scss
-.wp-block-button__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4em;
-
-    i.sunflower-icon {
-        // FA übernimmt die Darstellung automatisch
-        // via ::before auf dem <i>-Element
-        line-height: 1;
-        flex-shrink: 0;
-    }
-}
