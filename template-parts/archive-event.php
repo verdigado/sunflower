@@ -24,6 +24,8 @@ if ( ! is_wp_error( $sunflower_tags ) && is_array( $sunflower_tags ) ) {
 
 $sunflower_has_thumb              = has_post_thumbnail();
 $sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_creator' ) ? sunflower_get_setting( 'sunflower_media_creator' ) : 'optional';
+
+$sunflower_show_excerpt = ! isset( $args['show_excerpt'] ) || (bool) $args['show_excerpt'];
 ?>
 
 <a href="<?php echo esc_url( get_permalink() ); ?>"
@@ -88,11 +90,26 @@ $sunflower_media_creator_settings = sunflower_get_setting( 'sunflower_media_crea
 				</div>
 			</div>
 
-			<div class="fst-italic small">
-				<?php
-				echo esc_html( implode( ' | ', $sunflower_tag_list ) );
-				?>
-			</div>
+			<?php if ( ! empty( $sunflower_tag_list ) ) : ?>
+				<div class="fst-italic small">
+					<?php
+					echo esc_html( implode( ' | ', $sunflower_tag_list ) );
+					?>
+				</div>
+			<?php endif; ?>
+
+			<?php
+			if ( $sunflower_show_excerpt ) :
+				$sunflower_event_excerpt = wp_strip_all_tags( get_the_excerpt() );
+				if ( '' !== trim( $sunflower_event_excerpt ) ) :
+					?>
+					<div class="entry-summary entry-content event-card__excerpt has-small-font-size">
+						<p><?php echo esc_html( $sunflower_event_excerpt ); ?></p>
+					</div><!-- .entry-summary -->
+					<?php
+				endif;
+			endif;
+			?>
 
 
 		</div>

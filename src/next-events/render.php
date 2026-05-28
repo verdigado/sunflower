@@ -36,7 +36,7 @@ while ( $sunflower_next_events->have_posts() ) {
 	$sunflower_next_events->the_post();
 
 	printf( '<div class="col-12 %s mb-4">', esc_attr( $sunflower_cols ) );
-	get_template_part( 'template-parts/archive', 'event' );
+	get_template_part( 'template-parts/archive', 'event', array( 'show_excerpt' => false ) );
 	echo '</div>';
 }
 wp_reset_postdata();
