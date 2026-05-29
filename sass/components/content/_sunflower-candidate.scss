@@ -23,5 +23,48 @@
             line-height: normal;
         }
 
+        &__inner-container {
+
+            .has-background.textbalken {
+                margin-left: 12px !important;
+                margin-right: 0 !important;
+
+                &.links-eins {
+                    margin-left: 52px !important;
+
+                    @include media-breakpoint-down(md) {
+                        margin-left: 32px !important;
+                    }
+                }
+
+                &.links-zwei {
+                    margin-left: 92px !important;
+
+                    @include media-breakpoint-down(md) {
+                        margin-left: 52px !important;
+                    }
+                }
+            }
+        }
     }
+
+    .kandidaten-vorlage {
+
+        .wp-block-social-links {
+            margin-left: 0 !important;
+        }
+
+        .textbalken:not(.links-eins) {
+            margin-left: var(--half-grid-margin) !important;
+        }
+
+        .wp-block-table.no-margin-top {
+            margin-top: 0;
+
+            table {
+                margin-top: 0 !important;
+            }
+        }
+    }
+
 }
