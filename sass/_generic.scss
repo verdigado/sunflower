@@ -191,8 +191,7 @@ body.colorscheme-green {
         color: map.get($custom-colors, "schwarzwald") !important;
     }
 
-    .hamburger,
-    .main-menu ul .sub-menu {
+    .hamburger {
         background-color: map.get($custom-colors, "schwarzwald");
     }
 
