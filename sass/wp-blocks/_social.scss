@@ -4,7 +4,7 @@
  * Styles for the WordPress Social Links Block
  */
 .wp-block-social-links {
-    border: none !important;
+    border: none;
 
     .wp-block-social-link.wp-social-link {
 
@@ -15,7 +15,6 @@
         @include themed-colorscheme-nested() {
             background-color: map.get($custom-colors, "klee");
             color: map.get($custom-colors, "white");
-            border: none !important;
         }
 
         &:hover {
@@ -23,7 +22,6 @@
             @include themed-colorscheme-nested() {
                 background-color: t(input-icon);
                 color: t(input-background);
-                border-color: t(input-icon);
             }
         }
 
@@ -47,15 +45,6 @@
             }
         }
 
-    }
-}
-
-.kandidaten-vorlage {
-    .wp-block-social-links  {
-        margin-left: 0 !important;
-    }
-    .textbalken:not(.links-eins) {
-        margin-left: var(--half-grid-margin) !important;
     }
 }
 
