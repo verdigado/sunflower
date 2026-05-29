@@ -5,6 +5,46 @@
 		return;
 	}
 
+	const pendingRelayout = new WeakSet();
+
+	/**
+	 * Layout eines Masonry-Containers gebündelt im nächsten Frame ausführen,
+	 * damit mehrere schnell hintereinander einlaufende Trigger (lazyloaded,
+	 * transitionend, load) nicht jedes Mal einen vollen Relayout erzwingen.
+	 *
+	 * @param {Element} el Masonry-Container.
+	 */
+	function scheduleLayout( el ) {
+		if ( ! el || pendingRelayout.has( el ) ) {
+			return;
+		}
+		const msnry = Masonry.data( el );
+		if ( ! msnry ) {
+			return;
+		}
+		pendingRelayout.add( el );
+		requestAnimationFrame( function () {
+			pendingRelayout.delete( el );
+			msnry.layout();
+		} );
+	}
+
+	/**
+	 * Relayout aller Masonry-Container, die das übergebene Element enthalten.
+	 *
+	 * @param {Element} target Auslösendes Element (z. B. ein <img>).
+	 */
+	function relayoutContainersOf( target ) {
+		if ( ! target || ! target.closest ) {
+			return;
+		}
+		document.querySelectorAll( '[data-masonry]' ).forEach( function ( el ) {
+			if ( el.contains( target ) ) {
+				scheduleLayout( el );
+			}
+		} );
+	}
+
 	/**
 	 * Masonry initialisieren und via imagesLoaded nach jedem lazy-Bild relayouten.
 	 *
@@ -23,6 +63,30 @@
 			} );
 		}
 	}
+
+	// lazysizes feuert `lazyloaded` auf jedem <img>, wenn der echte src
+	// reingeswappt wurde. imagesLoaded greift hier nicht, weil der
+	// data:image/svg+xml-Placeholder bereits als `complete` gilt.
+	document.addEventListener(
+		'lazyloaded',
+		function ( e ) {
+			relayoutContainersOf( e.target );
+		},
+		true
+	);
+
+	// Fallback für nativ lazy-geladene <img loading="lazy"> ohne lazysizes:
+	// das normale `load`-Event auf <img> wird hier per Capture abgefangen.
+	document.addEventListener(
+		'load',
+		function ( e ) {
+			const target = e.target;
+			if ( target && target.tagName === 'IMG' ) {
+				relayoutContainersOf( target );
+			}
+		},
+		true
+	);
 
 	window.addEventListener( 'load', function () {
 		document.querySelectorAll( '[data-masonry]' ).forEach( function ( el ) {
@@ -708,7 +772,6 @@ function getContainerBackgroundForMark( mark, useContainerColor ) {
 		}
 		const cover = innerContainer.closest( '.wp-block-cover' );
 		if ( cover ) {
-			// Hero-Cover hat ein ::before mit linear-gradient – das darf nicht als bg-Farbe gelten
 			if ( cover.classList.contains( 'is-style-sunflower-hero' ) ) {
 				return 'transparent';
 			}

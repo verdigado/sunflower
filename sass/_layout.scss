@@ -475,12 +475,17 @@ body.post-image-flexible {
         margin-left: 0 !important;
         margin-right: 0 !important;
 
+        // Abstand zwischen den Karten als padding-bottom, damit Masonry den
+        // Wert in offsetHeight liest. margin-bottom auf absolut positionierten
+        // Masonry-Items hat keine optische Wirkung und sorgte für irreguläre
+        // Lücken.
         > [class*="col-"] {
             width: 50%;
             float: left;
             padding-left: calc(var(--grid-margin) / 2) !important;
             padding-right: calc(var(--grid-margin) / 2) !important;
-            margin-bottom: var(--grid-margin);
+            padding-bottom: var(--grid-margin);
+            margin-bottom: 0;
 
             @include media-breakpoint-down(md) {
                 width: 100%;

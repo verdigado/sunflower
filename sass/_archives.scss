@@ -156,13 +156,18 @@ body.post-image-flexible {
         display: block !important;
         gap: 0;
 
+        // Vertikaler Abstand bewusst als padding-bottom, damit Masonry ihn
+        // in die offsetHeight des Items mit einrechnet (margin-bottom wird
+        // bei absolut positionierten Masonry-Items ignoriert und führt zu
+        // optisch zu großen / inkonsistenten Lücken).
         .col-md-6 {
             width: 50%;
             float: left;
             display: block !important;
             padding-left: calc(var(--grid-margin) / 2);
             padding-right: calc(var(--grid-margin) / 2);
-            margin-bottom: var(--grid-margin);
+            padding-bottom: var(--grid-margin);
+            margin-bottom: 0;
         }
 
         @media (max-width: 700px) {
