@@ -11,17 +11,9 @@
 .header-widget-area {
     left: var(--double-grid-margin);
     position: absolute;
-    top: 140px;
+    top: calc(90px + var(--grid-margin));
     display: flex;
     gap: var(--gap-large);
-
-    @include media-breakpoint-down(xl) {
-        top: 125px;
-    }
-
-    @include media-breakpoint-down(md) {
-        top: 110px;
-    }
 }
 
 .footer-widget-area {
@@ -56,8 +48,6 @@
 .hamburger-menu {
 
     .header-widget-area {
-        top: calc(100vh - 53px);
-        left: var(--half-grid-margin);
 
         .widget_sunflower_contact {
             display: none;
