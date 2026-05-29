@@ -20,6 +20,8 @@ h6,
     &.textbalken {
         margin-bottom: 0;
         padding: 0 1em;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }
 
@@ -168,6 +170,16 @@ blockquote.wp-block-quote p {
     border-radius: 0 !important;
     padding: 6px 10px 9px 18px !important;
 
+    &.has-text-align-center {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    &.has-text-align-right {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
     &::before {
         content: "";
         position: absolute;
@@ -192,6 +204,20 @@ blockquote.wp-block-quote p {
         @include media-breakpoint-down(md) {
             margin-left: 32px !important;
         }
+
+        &.has-text-align-center {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        &.has-text-align-right {
+            margin-left: auto !important;
+            margin-right: 52px !important;
+
+            @include media-breakpoint-down(md) {
+                margin-right: 32px !important;
+            }
+        }
     }
 
     &.links-zwei {
@@ -199,6 +225,20 @@ blockquote.wp-block-quote p {
 
         @include media-breakpoint-down(md) {
             margin-left: 52px !important;
+        }
+
+        &.has-text-align-center {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        &.has-text-align-right {
+            margin-left: auto !important;
+            margin-right: 52px !important;
+
+            @include media-breakpoint-down(md) {
+                margin-right: 32px !important;
+            }
         }
     }
 }
