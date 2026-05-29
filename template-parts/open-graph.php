@@ -11,7 +11,7 @@ $sunflower_open_graph_image = get_the_post_thumbnail_url( null, 'medium' ) ? get
 
 // If still empty, take the default image.
 if ( ! $sunflower_open_graph_image ) {
-	$sunflower_open_graph_image = sunflower_parent_or_child( 'assets/img/sunflower1.jpg' );
+	$sunflower_open_graph_image = sunflower_parent_or_child( 'assets/img/Duenen.jpg' );
 }
 ?>
 
