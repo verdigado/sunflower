@@ -503,6 +503,7 @@ header .social-media-profiles {
                         }
                     }
                 }
+
             }
 
             &.nav {
@@ -547,12 +548,14 @@ header .social-media-profiles {
                     @include themed-colorscheme-prefix-nogap() {
                         background-color: t(background);
                     }
+
                 }
 
                 @include themed-colorscheme-prefix-nogap() {
 
                     a {
                         color: t(text);
+                        background-color: t(background);
                     }
                 }
 
@@ -613,6 +616,14 @@ header .social-media-profiles {
                                 .dropdown-menu {
                                     padding-top: 0;
                                 }
+
+                                &-level {
+
+                                    &-0 {
+                                        box-shadow: none;
+                                    }
+                                }
+
                             }
 
                             .menu-item-has-children {

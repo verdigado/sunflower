@@ -125,7 +125,7 @@ if ( ( $sunflower_options['sunflower_design_switcher'] ?? false ) === 'checked' 
 				}
 				?>
 
-				<nav class="main-menu navbar-main navbar-expand-lg navbar-light ">
+				<nav class="main-menu navbar-main navbar-expand-lg">
 					<?php
 					wp_nav_menu(
 						array(

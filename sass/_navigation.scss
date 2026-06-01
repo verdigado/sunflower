@@ -77,7 +77,10 @@ body.navbar-open {
             font-size: 13px;
             letter-spacing: 0.5px;
             line-height: 100%;
-            color: map.get($custom-colors, "tanne") !important;
+
+            @include themed-colorscheme-nested() {
+                color: t(topmenu-color);
+            }
             padding: 0 0 2px 0;
             border-radius: 15px;
             transition: 300ms ease-out;
@@ -92,11 +95,17 @@ body.navbar-open {
             &:hover,
             &:focus,
             &:active {
-                color: map.get($custom-colors, "klee") !important;
+
+                @include themed-colorscheme-nested() {
+                    color: t(topmenu-color-hover);
+                }
             }
 
             &.filter-active {
-                color: map.get($custom-colors, "klee");
+
+                @include themed-colorscheme-nested() {
+                    color: t(topmenu-color-hover);
+                }
 
                 &:hover,
                 &:focus,
@@ -205,17 +214,17 @@ body.navbar-open {
 }
 
 body.colorscheme-green .topmenu .menu-item a {
-    color: map.get($custom-colors, "grashalm") !important;
+    color: map.get($custom-colors, "grashalm");
 
     &:hover,
     &:focus,
     &:active {
-        color: map.get($custom-colors, "white") !important;
+        color: map.get($custom-colors, "white");
     }
 }
 
 body.colorscheme-green .topmenu .current-menu-item a {
-    color: map.get($custom-colors, "white") !important;
+    color: map.get($custom-colors, "white");
 }
 
 
@@ -225,9 +234,6 @@ body.colorscheme-green .topmenu .current-menu-item a {
 
     &-main {
         letter-spacing: 0.3px;
-    }
-
-    &-light {
 
         .navbar-nav {
 
@@ -310,6 +316,7 @@ body.colorscheme-green .topmenu .current-menu-item a {
                                 &-0 {
 
                                     @include media-breakpoint-up(lg) {
+                                        overflow: visible;
                                         border: 0;
                                         border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
                                         box-shadow: 0 25px 20px rgba(0, 0, 0, 0.1);
@@ -384,9 +391,6 @@ body.colorscheme-green .topmenu .current-menu-item a {
                                 margin-right: 2em;
                             }
 
-                            &:hover {
-                                background-color: $white;
-                            }
                         }
 
                     }
