@@ -395,15 +395,6 @@ function addRssReadMore() {
 	} );
 }
 
-// make parent item of dropdowm menu clickable which is not intended by Bootstrap
-jQuery( '.dropdown .dropdown-toggle' ).on( 'click', function () {
-	if ( jQuery( '.dropdown:hover' ).length !== 0 ) {
-		window.location = jQuery( this ).attr( 'href' );
-	}
-
-	return false;
-} );
-
 jQuery( function () {
 	jQuery( '.navbar-toggler' ).click( function () {
 		if ( jQuery( '.navbar-toggler' ).hasClass( 'collapsed' ) ) {
@@ -637,7 +628,7 @@ document.addEventListener( 'keydown', ( e ) => {
 		return;
 	}
 	const focused = e.target;
-	const submenu = focused?.closest( '.main-menu .sub-menu' );
+	const submenu = focused?.closest( '.main-menu .dropdown-menu' );
 	if ( ! submenu ) {
 		return;
 	}
@@ -657,7 +648,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	const items = document.querySelectorAll( ITEM_SELECTOR );
 
 	items.forEach( ( item ) => {
-		const submenu = item.querySelector( ':scope > ul.sub-menu' );
+		const submenu = item.querySelector( ':scope > ul.dropdown-menu' );
 		if ( ! submenu ) {
 			return;
 		}
@@ -703,7 +694,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 	window.addEventListener( 'resize', () => {
 		document
-			.querySelectorAll( `${ ITEM_SELECTOR }:hover > ul.sub-menu` )
+			.querySelectorAll( `${ ITEM_SELECTOR }:hover > ul.dropdown-menu` )
 			.forEach( ( submenu ) =>
 				requestAnimationFrame( () => {
 					submenu.style.left = '';

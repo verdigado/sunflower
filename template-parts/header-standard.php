@@ -18,9 +18,10 @@
 							'theme_location' => 'topmenu',
 							'menu_class'     => 'navbar-nav nav flex-row',
 							'container'      => false,
-							'fallback_cb'    => false,
 							'item_class'     => 'nav-item',
 							'link_class'     => 'nav-link',
+							'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
+							'walker'         => new WP_Bootstrap_Navwalker(),
 						)
 					);
 					?>
@@ -124,14 +125,16 @@ if ( ( $sunflower_options['sunflower_design_switcher'] ?? false ) === 'checked' 
 				}
 				?>
 
-				<nav class="main-menu">
+				<nav class="main-menu navbar-main navbar-expand-lg">
 					<?php
 					wp_nav_menu(
 						array(
 							'theme_location' => 'mainmenu',
-							'menu_class'     => 'nav',
+							'menu_id'        => 'mainmenu',
 							'container'      => false,
-							'fallback_cb'    => false,
+							'menu_class'     => 'nav navbar-nav',
+							'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
+							'walker'         => new WP_Bootstrap_Navwalker(),
 						)
 					);
 					?>
