@@ -65,11 +65,8 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 			}
 			$indent = str_repeat( $t, $depth );
 			// Default class to add to the file.
-			if ( 0 === $depth ) {
-				$classes = array( 'dropdown-menu', 'dropdown-menu-level-' . $depth );
-			} else {
-				$classes = array( 'dropdown-submenu', 'dropdown-menu-level-' . $depth );
-			}
+			$classes = array( 'dropdown-menu', 'dropdown-menu-level-' . $depth );
+
 			/**
 			 * Filters the CSS class(es) applied to a menu list element.
 			 *

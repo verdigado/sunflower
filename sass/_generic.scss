@@ -195,17 +195,13 @@ body.colorscheme-green {
         background-color: map.get($custom-colors, "schwarzwald");
     }
 
-    .menu-item-has-children::after {
-        content: url("/wp-content/themes/sunflower26/assets/img/dropdown_darkmode.svg");
-    }
-
     .stuck {
 
         .menu-item-has-children::after {
             content: url("/wp-content/themes/sunflower26/assets/img/dropdown.svg");
         }
 
-        .main-menu ul .sub-menu {
+        .main-menu ul .dropdown-menu {
             background-color: map.get($custom-colors, "white");
         }
     }

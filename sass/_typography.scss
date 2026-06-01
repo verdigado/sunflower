@@ -328,17 +328,13 @@ h1:has(+ h4) {
     }
 }
 
-.right-bar .sub-menu a {
-    font-weight: 500;
-}
-
 .colorscheme-light .right-bar .current_page_item {
 
     a {
         color: map.get($custom-colors, "klee") !important;
     }
 
-    .sub-menu a {
+    .dropdown-menu a {
         color: map.get($custom-colors, "schwarzwald") !important;
     }
 }
@@ -351,7 +347,7 @@ h1:has(+ h4) {
     }
 }
 
-.colorscheme-light .right-bar .sub-menu a {
+.colorscheme-light .right-bar .dropdown-menu a {
 
     &:hover {
         color: map.get($custom-colors, "schwarzwald");
