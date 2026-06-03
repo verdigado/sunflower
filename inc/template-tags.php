@@ -209,7 +209,7 @@ if ( ! function_exists( 'sunflower_post_thumbnail' ) ) :
 					$classes[] = ' no-creator';
 				}
 				the_post_thumbnail(
-					'null',
+					'full',
 					array(
 						'class' => implode( ' ', $classes ),
 					)
