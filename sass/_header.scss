@@ -788,8 +788,8 @@ header .social-media-profiles {
 
 body.admin-bar {
 
-    .hamburger,
-    .right-bar {
+    .stuck .right-bar,
+    .hamburger {
 
         top: 46px;
 
@@ -797,6 +797,10 @@ body.admin-bar {
         @media (min-width: 783px) {
             top: 32px;
         }
+    }
+
+    .stuck .right-bar.unfold {
+        top: 0;
     }
 
     &.hamburger-menu {
