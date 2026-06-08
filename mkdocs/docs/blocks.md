@@ -1,16 +1,22 @@
 # Blöcke
 
-## Wie lege ich ein vollflächiges Bild an?
+## Allgemeine WordPress-Blöcke
+### Wie lege ich ein vollflächiges Bild an?
 - Wähle den Block "Medien > Cover"
 
-## Wie lege ich eine farbige Fläche unter einen Bereich?
+### Wie lege ich eine farbige Fläche unter einen Bereich?
 - Gruppiere die jeweiligen Elemente
 - Wählen in den Block-Einstellungen die Farbeinstellungen aus
 
-## Neueste Beiträge (Sunflower)
-Das Sunflower Theme liefert einige eigene Blöcke mit sich. Unter anderem den Neueste Beiträge (Sunflower) Block. Dort kannst du ein paar Einstellungen vornehmen.
+---
 
-### Raster- vs. Listenansicht
+## Sunflower Eigenentwicklungen
+Das Sunflower Theme liefert spezialisierte Blöcke mit, die im Editor unter der Kategorie **Sunflower** zu finden sind.
+
+### Neueste Beiträge (Sunflower)
+Dieser Block zeigt aktuelle Beiträge an. Du kannst steuern, welche Kategorien angezeigt oder ausgeschlossen werden und wie viele Beiträge erscheinen sollen.
+
+#### Raster- vs. Listenansicht
 Seit dem Release von 2.1 kannst du die Ansicht beim Sunflower Block umstellen. Dafür musst du nur im Block oben über den Button die Ansicht einstellen. Es ist eine reine gestalterische und geschmackliche Frage, wie du die neusten Beiträge angezeigt haben möchtest. Direkt durch das Umstellen der Einstellung siehst du im Backend, wie die Darstellung aussieht.
 
 <figure markdown="span">
@@ -20,18 +26,26 @@ Seit dem Release von 2.1 kannst du die Ansicht beim Sunflower Block umstellen. D
 
 Im Bild ist die Rasteransicht ausgewählt. Links daneben siehst du den Button für die Listenansicht.
 
-### Einstellungen
+#### Einstellungen
 <figure markdown="span">
   ![Screenshot von Einstellung des Neuste Beiträge (Sunflower) Blocks](images/neuste-beitraege-einstellungen.png){ width="" }
   <figcaption>Einstellmöglichkeiten für die Neusten Beiträge (Sunflower)</figcaption>
 </figure>
 
-Die Einstellungen für den Block siehst du bei der Auswahl des Blocks an der rechten Seite. Wenn du ihn nicht siehst, dann wähle den Block aus und stele sicher, dass im oberen Rechten Abschnitt auch Block (nicht Seite) ausgewählt ist. Dort befinden sich nun weitere Einstellmöglichkeiten für diesen Block.
+Die Einstellungen für den Block siehst du bei der Auswahl des Blocks an der rechten Seite. Wenn du ihn nicht siehst, dann wähle den Block aus und stele sicher, dass im oberen Rechten Abschnitt auch Block (nicht Seite) ausgewählt ist.
 
-## Nächste Termine (Sunflower)
-Der Block *Nächste Termine (Sunflower)* wurde übersetzt. innerhalb des Blocks gibt es nun ebenfalls eine Silbentrennung des Textes. Dies fördert die Benutzerfreundlichkeit.
+**Wichtige Optionen:**
 
-### Raster- vs. Listenansicht
+- **Titel**: Überschrift des Bereichs.
+- **Archiv-Text**: Text für den Link zur Gesamtübersicht.
+- **Kategorien**: Filterung auf bestimmte Kategorien.
+- **Anzahl**: Wie viele Beiträge angezeigt werden (Standard: 6).
+- **Spalten**: Anzahl der Spalten in der Rasteransicht.
+
+### Nächste Termine (Sunflower)
+Dieser Block zeigt anstehende Events aus dem Veranstaltungskalender (`sunflower_event`). Er unterstützt zudem eine automatische Silbentrennung für bessere Lesbarkeit.
+
+#### Raster- vs. Listenansicht
 Auch in diesem Block kannst du die Ansicht der nächsten Termine steuern.
 
 <figure markdown="span">
@@ -41,12 +55,49 @@ Auch in diesem Block kannst du die Ansicht der nächsten Termine steuern.
 
 Im Bild ist die Listenansicht ausgewählt. rechts daneben siehst du den Button für die Rasteransicht.
 
-### Einstellungen
+#### Einstellungen
 <figure markdown="span">
   ![Screenshot von Einstellung der nächsten Termine (Sunflower) Blocks](images/naechste-termine-einstellung.png){ width="" }
   <figcaption>Einstellmöglichkeiten für die nächste Termine (Sunflower)</figcaption>
 </figure>
 
-## RSS-Block
-Wir haben den RSS Block angepasst. Darüber könntest du Beiträge einer anderen Gliederung z.B. auf deiner Seite mit anzeigen lassen. Dafür nutze einfach den entsprechenden RSS-Link der Seite und füge ihn ein. So kannst du von unterschiedlichen Gliederungen die neuesten News anzeigen lassen und direkt auf deren Seite verlinken.
+**Wichtige Optionen:**
 
+- **Titel**: Überschrift des Bereichs.
+- **Tags**: Filterung der Termine nach Schlagworten.
+- **Anzahl**: Wie viele Termine maximal angezeigt werden.
+
+### Accordion / Aufklappelement (Sunflower)
+Das Accordion wird verwendet, um große Textmengen kompakt darzustellen. Nutzer können auf die Überschrift klicken, um den Inhalt auszuklappen.
+
+**Einstellungen:**
+
+- **Überschrift**: Der Text, der immer sichtbar ist.
+- **Inhalt**: Der Text/Content, der erst nach dem Klick erscheint.
+
+Tipp: WordPress hat mittlerweile einen eigenen Akkordeon-Block. Dieser erlaubt mehr als nur Text im Inhalts-Abschnitt.
+
+### Kontaktformular (Sunflower)
+Ein integriertes Formular, das ohne zusätzliche Plugins direkt im Theme funktioniert.
+
+**Konfigurationsmöglichkeiten:**
+
+- **Empfänger-E-Mail**: An welche Adresse die Nachrichten gesendet werden sollen.
+- **Pflichtfelder**: Du kannst festlegen, ob E-Mail und Telefonnummer zwingend erforderlich sind.
+- **Telefonanzeige**: Optionale Anzeige des Telefonfeldes im Formular.
+- **Kopie an Absender**: Sendet eine Bestätigung an die Person, die das Formular ausfüllt.
+
+### Metadaten-Zeile (Sunflower)
+Ein kleines Hilfselement, um Informationen mit einem Icon (z.B. Uhrzeit, Ort, Telefon) darzustellen.
+
+**Einstellungen:**
+
+- **Icon**: Auswahl des passenden Symbols (via FontAwesome).
+- **Link**: Optionaler Link, der hinter der Zeile liegt.
+
+---
+
+## Weitere Anpassungen
+
+### RSS-Block
+Wir haben den RSS Block angepasst. Darüber könntest du Beiträge einer anderen Gliederung z.B. auf deiner Seite mit anzeigen lassen. Dafür nutze einfach den entsprechenden RSS-Link der Seite und füge ihn ein. So kannst du von unterschiedlichen Gliederungen die neuesten News anzeigen lassen und direkt auf deren Seite verlinken.
