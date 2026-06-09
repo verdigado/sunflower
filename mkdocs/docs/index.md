@@ -4,7 +4,7 @@ Dies ist die Anleitung für das Sunflower-WordPress-Theme.
 
 ## Neuerungen
 
-Am 10. April 2026 Version 3.0 von Sunflower mit vielen Änderungen erschienen. [Hier findest du eine Liste mit den Neuerungen.](changelog.md#version-30-sunflower26)
+Am 10. April 2026 Version 3.0 von Sunflower mit vielen Änderungen erschienen. [Hier findest du eine Liste mit den Neuerungen.](changelog.md#version-30-sunflower-26)
 
 Die aktuellsten Neuerungen (Releases) der Version von Sunflower sind bei [github zu finden](https://github.com/verdigado/sunflower/releases).
 
