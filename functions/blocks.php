@@ -212,3 +212,17 @@ function sunflower_pass_post_image_mode_to_editor( $settings ) {
 	return $settings;
 }
 add_filter( 'block_editor_settings_all', 'sunflower_pass_post_image_mode_to_editor' );
+
+/**
+ * Expose the SUNFLOWER_ALLOW_CONTACT_FORM_SEND_COPY opt-in to the block editor
+ * so the contact form block can hide the "Send copy to sender" toggle when the
+ * site admin has not enabled the feature in wp-config.php.
+ *
+ * @param array $settings Editor settings.
+ * @return array
+ */
+function sunflower_pass_contact_form_settings_to_editor( $settings ) {
+	$settings['sunflowerAllowContactFormSendCopy'] = sunflower_contact_form_send_copy_enabled();
+	return $settings;
+}
+add_filter( 'block_editor_settings_all', 'sunflower_pass_contact_form_settings_to_editor' );

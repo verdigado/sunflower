@@ -123,6 +123,10 @@ msgstr "E-Mail ist Pflichtfeld"
 msgid "Send copy to sender"
 msgstr "Kopie an den Absender schicken"
 
+#: src/contact-form/edit.js:154
+msgid "Security warning: enabling \"Send copy to sender\" lets anyone use this form to email arbitrary content to any address they type in. Only enable it if you accept this abuse risk."
+msgstr "Sicherheitswarnung: Wenn „Kopie an den Absender schicken“ aktiviert ist, können beliebige Personen dieses Formular dazu verwenden, beliebige Inhalte an beliebige selbst angegebene E-Mail-Adressen zu schicken. Aktiviere diese Option nur, wenn du dieses Missbrauchsrisiko bewusst in Kauf nimmst."
+
 #: build/contact-form/index.js:148 build/contact-form/index.js:140
 msgid "Display Phone Field"
 msgstr "Telefon-Feld anzeigen"

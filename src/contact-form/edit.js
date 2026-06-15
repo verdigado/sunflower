@@ -11,14 +11,20 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InspectorControls,
+	store as blockEditorStore,
+} from '@wordpress/block-editor';
 
 import {
 	PanelBody,
 	Disabled,
+	Notice,
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
 import ServerSideRender from '@wordpress/server-side-render';
 
 /**
@@ -47,6 +53,13 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const { title, mailTo, requireMail, requirePhone, displayPhone, sendCopy } =
 		attributes;
+
+	const allowSendCopy = useSelect(
+		( select ) =>
+			!! select( blockEditorStore ).getSettings()
+				.sunflowerAllowContactFormSendCopy,
+		[]
+	);
 
 	const onChangeTitle = ( input ) => {
 		setAttributes( { title: input === undefined ? '' : input } );
@@ -126,15 +139,28 @@ export default function Edit( { attributes, setAttributes } ) {
 							checked={ requireMail }
 							onChange={ toggleAttribute( 'requireMail' ) }
 						/>
-						{ requireMail && (
-							<ToggleControl
-								label={ __(
-									'Send copy to sender',
-									'sunflower-contact-form'
+						{ requireMail && allowSendCopy && (
+							<>
+								<ToggleControl
+									label={ __(
+										'Send copy to sender',
+										'sunflower-contact-form'
+									) }
+									checked={ sendCopy }
+									onChange={ toggleAttribute( 'sendCopy' ) }
+								/>
+								{ sendCopy && (
+									<Notice
+										status="warning"
+										isDismissible={ false }
+									>
+										{ __(
+											'Security warning: enabling "Send copy to sender" lets anyone use this form to email arbitrary content to any address they type in. Only enable it if you accept this abuse risk.',
+											'sunflower-contact-form'
+										) }
+									</Notice>
 								) }
-								checked={ sendCopy }
-								onChange={ toggleAttribute( 'sendCopy' ) }
-							/>
+							</>
 						) }
 						<ToggleControl
 							label={ __(

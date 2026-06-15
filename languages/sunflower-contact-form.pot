@@ -160,6 +160,10 @@ msgstr ""
 msgid "Send copy to sender"
 msgstr ""
 
+#: src/contact-form/edit.js:154
+msgid "Security warning: enabling \"Send copy to sender\" lets anyone use this form to email arbitrary content to any address they type in. Only enable it if you accept this abuse risk."
+msgstr ""
+
 #: build/contact-form/index.js:138
 #: src/contact-form/edit.js:140
 #: build/contact-form/index.js:140

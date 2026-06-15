@@ -6,8 +6,7 @@
  */
 
 $sunflower_title         = $attributes['title'] ?? __( 'Contact Form', 'sunflower-contact-form' );
-$sunflower_mailto        = $attributes['mailTo'] ?? '';
-$sunflower_sendcopy      = $attributes['sendCopy'] ?? 0;
+$sunflower_sendcopy      = sunflower_contact_form_send_copy_enabled() && ! empty( $attributes['sendCopy'] );
 $sunflower_display_phone = $attributes['displayPhone'] ?? false;
 $sunflower_require_phone = $attributes['requirePhone'] ?? false;
 $sunflower_require_mail  = $attributes['requireMail'] ?? false;
@@ -134,17 +133,10 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 				</p>
 			</div>
 
-			<?php
-			if ( $sunflower_mailto ) {
-				printf(
-					'<input id="mail-to" name="mail-to" type="hidden" value="%s" />',
-					esc_attr( strrev( base64_encode( $sunflower_mailto ) ) ) // phpcs:ignore
-				);
-			}
-			if ( $sunflower_sendcopy ) {
-				echo '<input id="send-copy" name="send-copy" type="hidden" value="1" />';
-			}
-			?>
+			<input type="hidden" name="post_id" value="<?php echo esc_attr( (string) (int) get_the_ID() ); ?>" />
+			<?php if ( $sunflower_sendcopy ) : ?>
+				<input id="send-copy" name="send-copy" type="hidden" value="1" />
+			<?php endif; ?>
 		</div>
 		<p class="form-submit">
 			<input
