@@ -1,17 +1,15 @@
-# Copyright (C) 2024 verdigado eG
-# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.0.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-meta-data\n"
-"POT-Creation-Date: 2024-04-16T21:56:11+00:00\n"
-"PO-Revision-Date: 2025-05-10 13:45+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-04-16T21:56:11+00:00\n"
+"PO-Revision-Date: 2025-05-10 13:45+0200\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.6\n"
 "X-Domain: sunflower-meta-data\n"
@@ -36,29 +34,15 @@ msgstr ""
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/meta-data/index.js:150 build/meta-data/index.js:115
-msgid "Predefined Icons"
-msgstr "Vordefinierte Icons"
-
-#: build/meta-data/index.js:182 build/meta-data/index.js:141
-msgid "Selected Icon"
-msgstr "Ausgewähltes Icon"
-
-#: build/meta-data/index.js:183 build/meta-data/index.js:142
-msgid "All icons can be found at https://fontawesome.com/icons?d=gallery&m=free"
-msgstr "Alle Icons können auf folgender Seite gefunden werden: https://fontawesome.com/icons?d=gallery&m=free"
-
-#: build/meta-data/index.js:188 build/meta-data/index.js:149
-msgid "Target URL the Icon is linked to. For email addresses, use the format mailto:example@example.com."
-msgstr "Ziel-Adresse (URL), mit der das Icon verlinkt wird. Für E-Mail-Adressen ist das Format mailto:example@example.com zu verwenden."
-
-#: build/meta-data-bak/block.json build/meta-data-works/block.json
+#: build/meta-data-bak/block.json
+#: build/meta-data-works/block.json
 #: build/meta-data/block.json
 msgctxt "block title"
 msgid "Metadata Line (Sunflower)"
 msgstr "Metadaten / Social-Media-Profile (Sunflower)"
 
-#: build/meta-data-bak/block.json build/meta-data-works/block.json
+#: build/meta-data-bak/block.json
+#: build/meta-data-works/block.json
 #: build/meta-data/block.json
 msgctxt "block description"
 msgid "Metadata Line"

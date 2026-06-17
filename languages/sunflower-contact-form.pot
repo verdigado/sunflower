@@ -1,17 +1,17 @@
-# Copyright (C) 2025 verdigado eG
+# Copyright (C) 2026 verdigado eG
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: sunflower 2.2.10\n"
+"Project-Id-Version: sunflower 2.2.19\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-17T08:51:26+02:00\n"
+"POT-Creation-Date: 2026-06-17T12:02:32+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower-contact-form\n"
 
 #. Theme Name of the theme
@@ -39,10 +39,10 @@ msgstr ""
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/contact-form/render.php:8
-#: functions/contact-form.php:83
-#: functions/contact-form.php:99
-#: src/contact-form/render.php:8
+#: build/contact-form/render.php:11
+#: functions/contact-form.php:95
+#: functions/contact-form.php:111
+#: src/contact-form/render.php:11
 #: build/contact-form/index.js:120
 #: src/contact-form/edit.js:101
 #: build/contact-form/index.js:101
@@ -50,7 +50,7 @@ msgid "Contact Form"
 msgstr ""
 
 #: build/contact-form/render.php:29
-#: functions/contact-form.php:48
+#: functions/contact-form.php:60
 msgid "Message"
 msgstr ""
 
@@ -65,17 +65,17 @@ msgid ""
 msgstr ""
 
 #: build/contact-form/render.php:47
-#: functions/contact-form.php:35
+#: functions/contact-form.php:47
 msgid "Name"
 msgstr ""
 
 #: build/contact-form/render.php:54
-#: functions/contact-form.php:40
+#: functions/contact-form.php:52
 msgid "E-Mail"
 msgstr ""
 
 #: build/contact-form/render.php:66
-#: functions/contact-form.php:45
+#: functions/contact-form.php:57
 msgid "Phone"
 msgstr ""
 
@@ -83,60 +83,71 @@ msgstr ""
 msgid "How much is 1 + 1?"
 msgstr ""
 
-#: build/contact-form/render.php:92
+#: build/contact-form/render.php:101
 msgid "submit"
 msgstr ""
 
-#: functions/contact-form.php:52
+#: functions/contact-form.php:36
+msgid "Form not sent. Captcha wrong. Please try again."
+msgstr ""
+
+#: functions/contact-form.php:64
 msgid "Thank you. The form has been sent."
 msgstr ""
 
-#: functions/contact-form.php:83
+#: functions/contact-form.php:95
 msgid "New Message from"
 msgstr ""
 
-#: functions/contact-form.php:99
+#: functions/contact-form.php:111
 msgid "Your Message on"
 msgstr ""
 
-#: build/contact-form/index.js:125
+#: build/contact-form/index.js:115
+#: src/contact-form/edit.js:88
 #: build/contact-form/index.js:88
 msgid "The receiver address may be altered within the Sunflower theme settings. By default, emails are sent to the site administrator."
 msgstr ""
 
-#: build/contact-form/index.js:128
+#: build/contact-form/index.js:118
+#: src/contact-form/edit.js:96
 #: build/contact-form/index.js:96
 msgid "Title of the form"
 msgstr ""
 
-#: build/contact-form/index.js:133
+#: build/contact-form/index.js:123
+#: src/contact-form/edit.js:108
 #: build/contact-form/index.js:108
 msgid "Mail To"
 msgstr ""
 
-#: build/contact-form/index.js:134
+#: build/contact-form/index.js:124
+#: src/contact-form/edit.js:109
 #: build/contact-form/index.js:109
 msgid "Mail form to this address instead of default receiver."
 msgstr ""
 
-#: build/contact-form/index.js:136
+#: build/contact-form/index.js:126
+#: src/contact-form/edit.js:114
 #: build/contact-form/index.js:114
 msgid "default receiver"
 msgstr ""
 
-#: build/contact-form/index.js:140
+#: build/contact-form/index.js:130
+#: src/contact-form/edit.js:122
 #: build/contact-form/index.js:122
 msgid "Require E-Mail"
 msgstr ""
 
-#: build/contact-form/index.js:144
+#: build/contact-form/index.js:134
+#: src/contact-form/edit.js:131
 #: build/contact-form/index.js:131
 msgid "Send confirmation to sender"
 msgstr ""
 
 #: build/contact-form/index.js:135
 #: src/contact-form/edit.js:135
-msgid "This will only send a short confirmation about the successful sending the form. No user content will be sent. It's better use a ticket system for confirmation."
+msgid "This only sends a short confirmation that the form was submitted successfully. No user content will be included. It is recommended to use a ticket system for detailed confirmations."
 msgstr ""
 
 #: build/contact-form/index.js:139
@@ -152,11 +163,13 @@ msgid "Require Phone"
 msgstr ""
 
 #: build/contact-form/block.json
+#: src/contact-form/block.json
 msgctxt "block title"
 msgid "Contact Form (Sunflower)"
 msgstr ""
 
 #: build/contact-form/block.json
+#: src/contact-form/block.json
 msgctxt "block description"
 msgid "Simple Contact Form"
 msgstr ""

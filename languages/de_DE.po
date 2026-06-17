@@ -1,17 +1,15 @@
-# Copyright (C) 2021 Tom Rose
-# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-git\n"
-"POT-Creation-Date: 2026-05-05T19:19:51+02:00\n"
-"PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-05-05T19:19:51+02:00\n"
+"PO-Revision-Date: \n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.2\n"
 
@@ -45,16 +43,15 @@ msgid "Oops! That page can&rsquo;t be found."
 msgstr "Hoppla, Seite nicht gefunden."
 
 #: 404.php:25
-msgid ""
-"It looks like nothing was found at this location. Maybe try one of the links "
-"below or a search?"
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
 msgstr "Leider wurde die Seite nicht gefunden. Möchtest du suchen?"
 
 #: archive-sunflower_event.php:39
 msgid "Events archive"
 msgstr "Vergangene Veranstaltungen"
 
-#: archive-sunflower_event.php:39 functions/events.php:46
+#: archive-sunflower_event.php:39
+#: functions/events.php:46
 #: functions/options/class-sunflowereventsettingspage.php:34
 #: functions/options/class-sunflowereventsettingspage.php:35
 #: functions/options/class-sunflowereventsettingspage.php:226
@@ -65,7 +62,8 @@ msgstr "Termine"
 msgid "to upcoming events"
 msgstr "Zu den kommenden Veranstaltungen"
 
-#: archive-sunflower_event.php:55 build/next-events/render.php:28
+#: archive-sunflower_event.php:55
+#: build/next-events/render.php:28
 #: src/next-events/render.php:28
 msgid "all events"
 msgstr "Alle Termine"
@@ -74,7 +72,8 @@ msgstr "Alle Termine"
 msgid "Archive"
 msgstr "Archiv"
 
-#: archive-sunflower_event.php:63 functions/events.php:308
+#: archive-sunflower_event.php:63
+#: functions/events.php:308
 #: functions/options/class-sunflowereventsettingspage.php:184
 msgid "Map"
 msgstr "Landkarte"
@@ -83,39 +82,49 @@ msgstr "Landkarte"
 msgid "more info"
 msgstr "mehr Infos"
 
-#: archive-sunflower_event.php:178 single-sunflower_event.php:151
+#: archive-sunflower_event.php:178
+#: single-sunflower_event.php:151
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: archive-sunflower_event.php:181 single-sunflower_event.php:154
-msgid ""
-"If you click the button, the content will be downloaded from openstreetmap."
-msgstr ""
-"Wenn du auf den Button klickst, werden Daten von openstreetmap.org geladen."
-"<br>Dafür gelten deren <a href=\"https://osmfoundation.org/wiki/"
-"Privacy_Policy\" target=\"_blank\">Datenschutzrichtlinien</a>."
+#: archive-sunflower_event.php:181
+#: single-sunflower_event.php:154
+msgid "If you click the button, the content will be downloaded from openstreetmap."
+msgstr "Wenn du auf den Button klickst, werden Daten von openstreetmap.org geladen.<br>Dafür gelten deren <a href=\"https://osmfoundation.org/wiki/Privacy_Policy\" target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: archive-sunflower_event.php:185 single-sunflower_event.php:162
+#: archive-sunflower_event.php:185
+#: single-sunflower_event.php:162
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: archive-sunflower_event.php:195 functions/s.php:167
+#: archive-sunflower_event.php:195
+#: functions/s.php:167
 msgid "calendar in ics-format"
 msgstr "Kalender im ics-Format"
 
-#: archive.php:69 category.php:96 index.php:76 search.php:73 single.php:54
+#: archive.php:69
+#: category.php:96
+#: index.php:76
+#: search.php:73
+#: single.php:54
 msgid "previous"
 msgstr "zurück"
 
-#: archive.php:70 category.php:97 index.php:77 search.php:74 single.php:59
+#: archive.php:70
+#: category.php:97
+#: index.php:77
+#: search.php:74
+#: single.php:59
 msgid "next"
 msgstr "vor"
 
-#: build/latest-posts/render.php:92 src/latest-posts/render.php:92
+#: build/latest-posts/render.php:92
+#: src/latest-posts/render.php:92
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
-#: build/next-events/render.php:52 src/next-events/render.php:52
+#: build/next-events/render.php:52
+#: src/next-events/render.php:52
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
@@ -134,14 +143,8 @@ msgstr "abschicken"
 #. translators: %s is replaced with privacy link
 #: comments.php:35
 #, php-format
-msgid ""
-"Your mail will not be published. Required fields are marked with a *. For "
-"more info see <a href=\"%s\">privacy</a>."
-msgstr ""
-"Ihre E-Mail-Adresse wird nicht veröffentlicht. Erforderliche Felder sind mit "
-"* markiert. Mit der Nutzung dieses Formulars erklärst du dich mit der "
-"Speicherung und Verarbeitung deiner Daten durch diese Website einverstanden. "
-"Entnimm Weiteres bitte der <a href=\"%s\">Datenschutzerklärung</a>."
+msgid "Your mail will not be published. Required fields are marked with a *. For more info see <a href=\"%s\">privacy</a>."
+msgstr "Ihre E-Mail-Adresse wird nicht veröffentlicht. Erforderliche Felder sind mit * markiert. Mit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch diese Website einverstanden. Entnimm Weiteres bitte der <a href=\"%s\">Datenschutzerklärung</a>."
 
 #: comments.php:56
 msgid "One comment"
@@ -167,12 +170,8 @@ msgstr "Sunflower-Einstellungen"
 #. translators: %1$s and %2$s are replaced with links
 #: functions/admin.php:53
 #, php-format
-msgid ""
-"Thank you for using sunflower theme. Sunflower is %1$s and maintained by "
-"%2$s."
-msgstr ""
-"Danke, dass Du das Sunflower-Theme nutzt. Sunflower ist %1$s und wird von "
-"%2$s entwickelt."
+msgid "Thank you for using sunflower theme. Sunflower is %1$s and maintained by %2$s."
+msgstr "Danke, dass Du das Sunflower-Theme nutzt. Sunflower ist %1$s und wird von %2$s entwickelt."
 
 #: functions/admin.php:59
 msgid "More information can be found on the sunflower theme settings page"
@@ -186,25 +185,16 @@ msgstr "PHP-Version veraltet"
 #: functions/admin.php:93
 #, php-format
 msgid ""
-"<p>You are using PHP <strong>%1$s</strong> which <a href=\"https://www.php."
-"net/supported-versions.php\">is not supported</a> anymore!</p>\n"
-"                <p>Please note, that Sunflower theme <strong>will require at "
-"least PHP 8.2+</strong> as of release 2.1.0. <br />\n"
-"                If you want to continue receiving updates, you must update "
-"your server or contact your\n"
+"<p>You are using PHP <strong>%1$s</strong> which <a href=\"https://www.php.net/supported-versions.php\">is not supported</a> anymore!</p>\n"
+"                <p>Please note, that Sunflower theme <strong>will require at least PHP 8.2+</strong> as of release 2.1.0. <br />\n"
+"                If you want to continue receiving updates, you must update your server or contact your\n"
 "                web hosting service.</p>\n"
-"                <p>If you are looking for a web hosting service with "
-"attitute, have look at %2$s.</p>"
+"                <p>If you are looking for a web hosting service with attitute, have look at %2$s.</p>"
 msgstr ""
-"<p>Ihr nutzt PHP <strong>%1$s</strong>. Diese Version wird <a href=\"https://"
-"www.php.net/supported-versions.php\">nicht mehr unterstützt</a>!</p>\n"
-"                <p>Bitte beachtet, dass das Sunflower-Theme ab Version 2.1.0 "
-"<strong>mindestens PHP 8.2+ erfordert</strong>. <br />\n"
-"                Wenn ihr weiterhin Aktualisierungen erhalten wollt, dann "
-"müsst ihr euren Server aktualisieren bzw. euren Web-Hosting-Anbieter "
-"ansprechen.</p>\n"
-"                <p>Wenn ihr auf der Suche nach einem Web-Hosting-Anbieter "
-"mit Haltung seid, schaut doch mal bei  %2$s vorbei.</p>"
+"<p>Ihr nutzt PHP <strong>%1$s</strong>. Diese Version wird <a href=\"https://www.php.net/supported-versions.php\">nicht mehr unterstützt</a>!</p>\n"
+"                <p>Bitte beachtet, dass das Sunflower-Theme ab Version 2.1.0 <strong>mindestens PHP 8.2+ erfordert</strong>. <br />\n"
+"                Wenn ihr weiterhin Aktualisierungen erhalten wollt, dann müsst ihr euren Server aktualisieren bzw. euren Web-Hosting-Anbieter ansprechen.</p>\n"
+"                <p>Wenn ihr auf der Suche nach einem Web-Hosting-Anbieter mit Haltung seid, schaut doch mal bei  %2$s vorbei.</p>"
 
 #: functions/admin.php:127
 msgid "New Terms and Use Settings"
@@ -212,21 +202,18 @@ msgstr "Neue Einstellung Nutzungsbedingungen"
 
 #: functions/admin.php:131
 msgid ""
-"There is a new option on the <a href='admin.php?"
-"page=sunflower_admin'>Sunflower->First Steps</a> page.<br />\n"
-"            If you continue to use the sunflower icons in menue, footer and "
-"as favicon, please read and accept the terms of use."
+"There is a new option on the <a href='admin.php?page=sunflower_admin'>Sunflower->First Steps</a> page.<br />\n"
+"            If you continue to use the sunflower icons in menue, footer and as favicon, please read and accept the terms of use."
 msgstr ""
-"Es gibt eine neue Einstellung auf der Seite <a href='admin.php?"
-"page=sunflower_admin'>Sunflower → Erste Schritte</a>.<br />\n"
-"            Wenn Du weiterhin die Sonnenblume im Menü, im Footer und als "
-"Favicon nutzen möchtest, lies und akzeptiere die Nutzungsbedingungen."
+"Es gibt eine neue Einstellung auf der Seite <a href='admin.php?page=sunflower_admin'>Sunflower → Erste Schritte</a>.<br />\n"
+"            Wenn Du weiterhin die Sonnenblume im Menü, im Footer und als Favicon nutzen möchtest, lies und akzeptiere die Nutzungsbedingungen."
 
 #: functions/admin.php:223
 msgid "a free WordPress theme by"
 msgstr "ein kostenloses WordPress-Theme der"
 
-#: functions/admin.php:236 functions/block-patterns.php:24
+#: functions/admin.php:236
+#: functions/block-patterns.php:24
 #: functions/blocks.php:19
 #: functions/options/class-sunflowerfirststepspage.php:33
 #: functions/options/class-sunflowerfirststepspage.php:34
@@ -239,9 +226,7 @@ msgstr "Hilfe für Sunflower-Termine"
 
 #: functions/contact-form.php:24
 msgid "Form not sent. Captcha wrong. Please try again."
-msgstr ""
-"Das Formular konnte nicht gesendet werden, weil die Rechnung (Captcha) "
-"falsch ist. Bitte versuche es noch einmal."
+msgstr "Das Formular konnte nicht gesendet werden, weil die Rechnung (Captcha) falsch ist. Bitte versuche es noch einmal."
 
 #: functions/events.php:13
 msgid "Startdate"
@@ -283,17 +268,14 @@ msgstr "URL der Organisator*in"
 msgid "Show map on event"
 msgstr "Zeige Karte beim Termin"
 
-#: functions/events.php:47 functions/events.php:110
+#: functions/events.php:47
+#: functions/events.php:110
 msgid "Event"
 msgstr "Termin"
 
 #: functions/events.php:256
-msgid ""
-"This event will be imported by remote ical-calendar. All changes here will "
-"be overwritten."
-msgstr ""
-"Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle "
-"Änderungen hier werden regelmäßig überschrieben."
+msgid "This event will be imported by remote ical-calendar. All changes here will be overwritten."
+msgstr "Dieser Termin wird automatisch über einen externen Kalender gepflegt. Alle Änderungen hier werden regelmäßig überschrieben."
 
 #: functions/events.php:309
 msgid "Load map and fix location marker"
@@ -323,24 +305,23 @@ msgstr "Urheber*in"
 msgid "Creator / Source of this media (may contain links)"
 msgstr "Urheber*in / Quelle dieses Mediums (kann LInks enthalten)"
 
-#: functions/media.php:129 functions/media.php:164
+#: functions/media.php:129
+#: functions/media.php:164
 msgid "The creator field is mandatory and must not be left empty."
 msgstr "Das Feld „Urheber*in“ ist ein Pflichtfeld und darf nicht leer sein."
 
-#: functions/media.php:132 functions/media.php:165
-msgid ""
-"No alternative text provided. Please consider adding a description for "
-"better accessibility."
-msgstr ""
-"Kein Alternativtext angegeben. Bitte füge eine Beschreibung hinzu, um die "
-"Barrierefreiheit zu verbessern."
+#: functions/media.php:132
+#: functions/media.php:165
+msgid "No alternative text provided. Please consider adding a description for better accessibility."
+msgstr "Kein Alternativtext angegeben. Bitte füge eine Beschreibung hinzu, um die Barrierefreiheit zu verbessern."
 
 #: functions/metaboxes.php:15
 #: functions/options/class-sunflowersettingspage.php:85
 msgid "Layout"
 msgstr "Layout"
 
-#: functions/metaboxes.php:24 functions/metaboxes.php:150
+#: functions/metaboxes.php:24
+#: functions/metaboxes.php:150
 msgid "Metadata"
 msgstr "Metadaten"
 
@@ -350,9 +331,7 @@ msgstr "gestyltes Layout"
 
 #: functions/metaboxes.php:91
 msgid "do not show title, add and remove margins. e.g. for the homepage"
-msgstr ""
-"versteckt den Titel und fügt Abstände ein bzw. löscht sie an anderen "
-"Stellen. Setze diesen Haken z.B. für die Startseite."
+msgstr "versteckt den Titel und fügt Abstände ein bzw. löscht sie an anderen Stellen. Setze diesen Haken z.B. für die Startseite."
 
 #: functions/metaboxes.php:112
 msgid "Hide feature image on single"
@@ -360,9 +339,7 @@ msgstr "Beitragsbild verstecken"
 
 #: functions/metaboxes.php:113
 msgid "Hide feature image on single view, but show it on lists."
-msgstr ""
-"Verstecke das Beitragsbild in der Einzelansicht, aber zeige es in "
-"Listenansichten."
+msgstr "Verstecke das Beitragsbild in der Einzelansicht, aber zeige es in Listenansichten."
 
 #: functions/metaboxes.php:144
 msgid "Roofline"
@@ -490,20 +467,12 @@ msgid "The permalink structure has been reimported."
 msgstr "Die Permalinkstruktur wurde neu eingelesen."
 
 #: functions/options/class-sunflowereventsettingspage.php:380
-msgid ""
-"After changing the event page slug, you need to reimport the permalink "
-"structure."
-msgstr ""
-"Nach dem Ändern des Termine Seiten Pfads, muss die Permalinkstruktur neu "
-"eingelesen werden."
+msgid "After changing the event page slug, you need to reimport the permalink structure."
+msgstr "Nach dem Ändern des Termine Seiten Pfads, muss die Permalinkstruktur neu eingelesen werden."
 
 #: functions/options/class-sunflowereventsettingspage.php:381
-msgid ""
-"This can be safely done any time. E.g. if the event page does not show up "
-"correctly."
-msgstr ""
-"Das kann jederzeit gefahrlos durchgeführt werden. Z.B. wenn die Termine-"
-"Seite nicht gefunden wird."
+msgid "This can be safely done any time. E.g. if the event page does not show up correctly."
+msgstr "Das kann jederzeit gefahrlos durchgeführt werden. Z.B. wenn die Termine-Seite nicht gefunden wird."
 
 #: functions/options/class-sunflowereventsettingspage.php:383
 msgid "Reimport permalink structure"
@@ -709,12 +678,8 @@ msgid "Open Media Library"
 msgstr "Mediathek öffnen"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:270
-msgid ""
-"This fallback image will be used when sharing pages and posts and no "
-"featured image has been selected."
-msgstr ""
-"Dieses Ersatzbild wird beim Teilen von Seiten oder Beiträgen verwendet, wenn "
-"kein Beitragsbild ausgewählt wurde."
+msgid "This fallback image will be used when sharing pages and posts and no featured image has been selected."
+msgstr "Dieses Ersatzbild wird beim Teilen von Seiten oder Beiträgen verwendet, wenn kein Beitragsbild ausgewählt wurde."
 
 #: functions/s.php:54
 msgid "Mainmenu"
@@ -740,7 +705,8 @@ msgstr "Seitenleiste"
 msgid "Add widgets here."
 msgstr "Widgets hier hinzufügen."
 
-#: functions/s.php:166 template-parts/content-archive.php:67
+#: functions/s.php:166
+#: template-parts/content-archive.php:67
 msgid "Continue reading"
 msgstr "weiterlesen"
 
@@ -817,7 +783,8 @@ msgstr "Sende E-Mail"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für „%s“"
 
-#: single-sunflower_event.php:61 template-parts/archive-event.php:34
+#: single-sunflower_event.php:61
+#: template-parts/archive-event.php:34
 msgid "o'clock"
 msgstr "Uhr"
 
@@ -829,7 +796,8 @@ msgstr "Ort"
 msgid "Link to webinar"
 msgstr "Link zur Online-Teilnahme (Webinar)"
 
-#: single-sunflower_event.php:111 single-sunflower_event.php:113
+#: single-sunflower_event.php:111
+#: single-sunflower_event.php:113
 msgid "organized by"
 msgstr "organisiert von"
 
@@ -837,12 +805,14 @@ msgstr "organisiert von"
 msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
-#: template-parts/content-archive.php:53 template-parts/content-page.php:36
+#: template-parts/content-archive.php:53
+#: template-parts/content-page.php:36
 #: template-parts/content.php:116
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: template-parts/content-no-events.php:14 template-parts/content-none.php:14
+#: template-parts/content-no-events.php:14
+#: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr "Nichts gefunden"
 
@@ -853,27 +823,16 @@ msgstr "Derzeit sind keine Veranstaltungen geplant."
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content-none.php:24
 #, php-format
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-"Bereit, deinen ersten Beitrag zu veröffentlichen? <a href=\"%1$s\">Hier "
-"kannst du loslegen</a>!"
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Bereit, deinen ersten Beitrag zu veröffentlichen? <a href=\"%1$s\">Hier kannst du loslegen</a>!"
 
 #: template-parts/content-none.php:37
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
-msgstr ""
-"Schade, es gibt nichts zu diesem Suchwort. Bitte versuche ein anderes "
-"Suchwort."
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Schade, es gibt nichts zu diesem Suchwort. Bitte versuche ein anderes Suchwort."
 
 #: template-parts/content-none.php:44
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
-msgstr ""
-"Anscheinend können wir nicht finden, wonach du suchst. Vielleicht hilft eine "
-"Internetsuche."
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Anscheinend können wir nicht finden, wonach du suchst. Vielleicht hilft eine Internetsuche."
 
 #: template-parts/content.php:73
 msgid "Mastodon Instance address"
@@ -905,8 +864,10 @@ msgstr "Weiterlesen<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgid "none"
 msgstr "keine"
 
-#: template-parts/header-standard.php:40 template-parts/header-standard.php:41
-#: template-parts/header-standard.php:44 template-parts/header-standard.php:162
+#: template-parts/header-standard.php:40
+#: template-parts/header-standard.php:41
+#: template-parts/header-standard.php:44
+#: template-parts/header-standard.php:162
 #: template-parts/header-standard.php:165
 msgid "Search"
 msgstr "Suche"
@@ -1005,7 +966,6 @@ msgstr ""
 #~ msgstr "Holla die Waldfee"
 
 #, fuzzy
-#~| msgid "Footer Menu 1"
 #~ msgctxt "Template part name"
 #~ msgid "Footer"
 #~ msgstr "Fußzeilenmenü 1"
