@@ -129,7 +129,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						{ requireMail && (
 							<ToggleControl
 								label={ __(
-									'Send copy to sender',
+									'Send confirmation to sender',
+									'sunflower-contact-form'
+								) }
+								help={ __(
+									'This only sends a short confirmation that the form was submitted successfully. No user content will be included. It is recommended to use a ticket system for detailed confirmations.',
 									'sunflower-contact-form'
 								) }
 								checked={ sendCopy }

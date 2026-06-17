@@ -131,8 +131,12 @@ msgid "Require E-Mail"
 msgstr "E-Mail ist Pflichtfeld"
 
 #: build/contact-form/index.js:144 build/contact-form/index.js:131
-msgid "Send copy to sender"
-msgstr "Kopie an den Absender schicken"
+msgid "Send confirmation to sender"
+msgstr "Bestätigung an den Absender schicken"
+
+#: build/contact-form/index.js:144 build/contact-form/index.js:131
+msgid "This only sends a short confirmation that the form was submitted successfully. No user content will be included. It is recommended to use a ticket system for detailed confirmations."
+msgstr "Dies versendet nur eine kurze Bestätigung über den erfolgreichen Versand des Formulars. Es werden keine Benutzereingaben übertragen. Für detailliertere Bestätigungen wird die Nutzung eines Ticket-Systems empfohlen."
 
 #: build/contact-form/index.js:148 build/contact-form/index.js:140
 msgid "Display Phone Field"

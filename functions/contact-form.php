@@ -62,7 +62,7 @@ function sunflower_contact_form() {
 			// Look for the specific contact-form block instance by index.
 			foreach ( $blocks as $block ) {
 				if ( 'sunflower/contact-form' === $block['blockName'] ) {
-						$mail_to = $block['attrs']['mailTo'] ?? '';
+					$mail_to = $block['attrs']['mailTo'] ?? '';
 					if ( sanitize_email( $mail_to ) ) {
 						$found = true;
 						break;
@@ -97,7 +97,7 @@ function sunflower_contact_form() {
 	if ( ! empty( $mail ) && sanitize_text_field( $_POST['sendCopy'] ) ) {
 		$headers = 'Reply-To: ' . $to;
 		$subject = __( 'Your Message on', 'sunflower-contact-form' ) . ' ' . ( $title ? $title : __( 'Contact Form', 'sunflower-contact-form' ) );
-		wp_mail( $mail, $subject, $message_str, $headers );
+		wp_mail( $mail, $subject, $response, $headers );
 	}
 
 	echo wp_json_encode(

@@ -49,4 +49,3 @@ Im Bild ist die Listenansicht ausgewählt. rechts daneben siehst du den Button f
 
 ## RSS-Block
 Wir haben den RSS Block angepasst. Darüber könntest du Beiträge einer anderen Gliederung z.B. auf deiner Seite mit anzeigen lassen. Dafür nutze einfach den entsprechenden RSS-Link der Seite und füge ihn ein. So kannst du von unterschiedlichen Gliederungen die neuesten News anzeigen lassen und direkt auf deren Seite verlinken.
-
