@@ -85,7 +85,7 @@ Ein integriertes Formular, das ohne zusätzliche Plugins direkt im Theme funktio
 - **Empfänger-E-Mail**: An welche Adresse die Nachrichten gesendet werden sollen.
 - **Pflichtfelder**: Du kannst festlegen, ob E-Mail und Telefonnummer zwingend erforderlich sind.
 - **Telefonanzeige**: Optionale Anzeige des Telefonfeldes im Formular.
-- **Kopie an Absender**: Sendet eine Bestätigung an die Person, die das Formular ausfüllt.
+- **Bestätigung an Absender**: Sendet eine kurze Bestätigung über den erfolgreichen Versand an die Person, die das Formular ausfüllt. (Es werden keine Benutzereingaben in dieser Mail übertragen).
 
 ### Metadaten-Zeile (Sunflower)
 Ein kleines Hilfselement, um Informationen mit einem Icon (z.B. Uhrzeit, Ort, Telefon) darzustellen.
