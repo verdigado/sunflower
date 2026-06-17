@@ -134,17 +134,17 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 				</p>
 			</div>
 
-			<?php
-			if ( $sunflower_mailto ) {
-				printf(
-					'<input id="mail-to" name="mail-to" type="hidden" value="%s" />',
-					esc_attr( strrev( base64_encode( $sunflower_mailto ) ) ) // phpcs:ignore
-				);
-			}
-			if ( $sunflower_sendcopy ) {
-				echo '<input id="send-copy" name="send-copy" type="hidden" value="1" />';
-			}
-			?>
+	<?php
+	if ( $sunflower_mailto ) {
+		echo '<input id="post-id" name="post_id" type="hidden" value="' . esc_attr( get_the_ID() ) . '" />';
+	}
+
+	if ( $sunflower_sendcopy ) {
+		echo '<input id="send-copy" name="send-copy" type="hidden" value="1" />';
+	}
+
+	?>
+
 		</div>
 		<p class="form-submit">
 			<input
