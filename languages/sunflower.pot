@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sunflower 26 3.0.4\n"
+"Project-Id-Version: Sunflower 26 3.0.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-05T19:34:08+02:00\n"
+"POT-Creation-Date: 2026-06-17T09:41:30+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower\n"
@@ -247,10 +247,6 @@ msgstr ""
 
 #: functions/class-sunflower-contact-widget.php:140
 msgid "Öffnungszeiten"
-msgstr ""
-
-#: functions/contact-form.php:24
-msgid "Form not sent. Captcha wrong. Please try again."
 msgstr ""
 
 #: functions/events.php:13
@@ -574,12 +570,12 @@ msgid "Theme variant"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:96
-#: template-parts/header-standard.php:62
+#: template-parts/header-standard.php:63
 msgid "Shape Style"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:104
-#: template-parts/header-standard.php:69
+#: template-parts/header-standard.php:70
 msgid "Color Mood"
 msgstr ""
 
@@ -588,7 +584,7 @@ msgid "Post Image Format"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:120
-#: template-parts/header-standard.php:76
+#: template-parts/header-standard.php:77
 msgid "Footer Color Variant"
 msgstr ""
 
@@ -669,22 +665,22 @@ msgid "Various theme settings"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:348
-#: template-parts/header-standard.php:64
+#: template-parts/header-standard.php:65
 msgid "Rounded"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:349
-#: template-parts/header-standard.php:65
+#: template-parts/header-standard.php:66
 msgid "Sharp"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:371
-#: template-parts/header-standard.php:71
+#: template-parts/header-standard.php:72
 msgid "Light"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:372
-#: template-parts/header-standard.php:72
+#: template-parts/header-standard.php:73
 msgid "Dark"
 msgstr ""
 
@@ -701,12 +697,12 @@ msgid "Nutze Querformate (z.B. 2/1 oder 16/9) als Beitrags- oder Terminbeitrags-
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:423
-#: template-parts/header-standard.php:78
+#: template-parts/header-standard.php:79
 msgid "Sand"
 msgstr ""
 
 #: functions/options/class-sunflowersettingspage.php:424
-#: template-parts/header-standard.php:79
+#: template-parts/header-standard.php:80
 msgid "Light Green"
 msgstr ""
 
@@ -927,11 +923,11 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/class-wp-bootstrap-navwalker.php:360
+#: inc/class-wp-bootstrap-navwalker.php:357
 msgid "Show sub menu"
 msgstr ""
 
-#: inc/class-wp-bootstrap-navwalker.php:413
+#: inc/class-wp-bootstrap-navwalker.php:410
 msgid "Add a menu"
 msgstr ""
 
@@ -978,7 +974,7 @@ msgid "Suche"
 msgstr ""
 
 #: single-sunflower_event.php:61
-#: template-parts/archive-event.php:74
+#: template-parts/archive-event.php:76
 msgid "o'clock"
 msgstr ""
 
@@ -1061,16 +1057,28 @@ msgstr ""
 msgid "Top menu"
 msgstr ""
 
-#: template-parts/header-standard.php:53
+#: template-parts/header-standard.php:54
 msgid "Design Switch"
 msgstr ""
 
-#: template-parts/header-standard.php:148
+#: template-parts/header-standard.php:151
 msgid "Menu"
 msgstr ""
 
 #: template-parts/related-posts.php:15
 msgid "Related Posts"
+msgstr ""
+
+#: build/core/button/index.js:272
+#: src/core/button/index.js:63
+#: build/core/button/index.js:127
+msgid "Icon auswählen"
+msgstr ""
+
+#: build/core/button/index.js:275
+#: src/core/button/index.js:67
+#: build/core/button/index.js:131
+msgid "Font Awesome Icon"
 msgstr ""
 
 #: build/core/cover/index.js:139
@@ -1083,6 +1091,18 @@ msgstr ""
 #: src/core/list/index.js:18
 #: build/core/list/index.js:77
 msgid "Sunflower Checkmarks"
+msgstr ""
+
+#: build/core/button/block.json
+#: src/core/button/block.json
+msgctxt "block title"
+msgid "Modified Button Block for Sunflower Theme"
+msgstr ""
+
+#: build/core/button/block.json
+#: src/core/button/block.json
+msgctxt "block description"
+msgid "Core button block with optional Font‑Awesome icon."
 msgstr ""
 
 #: build/core/cover/block.json

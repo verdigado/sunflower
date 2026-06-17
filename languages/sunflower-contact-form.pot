@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sunflower 26 3.0.4\n"
+"Project-Id-Version: Sunflower 26 3.0.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-form\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-05T19:35:05+02:00\n"
+"POT-Creation-Date: 2026-06-17T09:41:59+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower-contact-form\n"
@@ -40,8 +40,8 @@ msgid "https://verdigado.com"
 msgstr ""
 
 #: build/contact-form/render.php:8
-#: functions/contact-form.php:63
-#: functions/contact-form.php:79
+#: functions/contact-form.php:95
+#: functions/contact-form.php:111
 #: src/contact-form/render.php:8
 #: build/contact-form/index.js:120
 #: src/contact-form/edit.js:101
@@ -55,66 +55,77 @@ msgid "Your Message"
 msgstr ""
 
 #: build/contact-form/render.php:17
-#: build/contact-form/render.php:52
-#: functions/contact-form.php:35
+#: build/contact-form/render.php:61
+#: functions/contact-form.php:47
 #: src/contact-form/render.php:17
-#: src/contact-form/render.php:52
+#: src/contact-form/render.php:61
 msgid "Name"
 msgstr ""
 
 #: build/contact-form/render.php:18
-#: build/contact-form/render.php:70
-#: functions/contact-form.php:40
+#: build/contact-form/render.php:79
+#: functions/contact-form.php:52
 #: src/contact-form/render.php:18
-#: src/contact-form/render.php:70
+#: src/contact-form/render.php:79
 msgid "E-Mail"
 msgstr ""
 
 #: build/contact-form/render.php:19
-#: build/contact-form/render.php:89
-#: functions/contact-form.php:45
+#: build/contact-form/render.php:98
+#: functions/contact-form.php:57
 #: src/contact-form/render.php:19
-#: src/contact-form/render.php:89
+#: src/contact-form/render.php:98
 msgid "Phone"
 msgstr ""
 
-#: build/contact-form/render.php:20
-#: build/contact-form/render.php:108
-#: src/contact-form/render.php:20
-#: src/contact-form/render.php:108
-msgid "How much is 1 + 1?"
+#: build/contact-form/render.php:27
+#: src/contact-form/render.php:27
+#, php-format
+msgid "%d + %d"
 msgstr ""
 
-#: build/contact-form/render.php:36
-#: functions/contact-form.php:48
-#: src/contact-form/render.php:36
+#: build/contact-form/render.php:28
+#: build/contact-form/render.php:117
+#: src/contact-form/render.php:28
+#: src/contact-form/render.php:117
+#, php-format
+msgid "How much is %s?"
+msgstr ""
+
+#: build/contact-form/render.php:45
+#: functions/contact-form.php:60
+#: src/contact-form/render.php:45
 msgid "Message"
 msgstr ""
 
-#: build/contact-form/render.php:127
-#: src/contact-form/render.php:127
+#: build/contact-form/render.php:138
+#: src/contact-form/render.php:138
 msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
 msgstr ""
 
-#: build/contact-form/render.php:132
-#: src/contact-form/render.php:132
+#: build/contact-form/render.php:143
+#: src/contact-form/render.php:143
 msgid "By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
 msgstr ""
 
-#: build/contact-form/render.php:155
-#: src/contact-form/render.php:155
+#: build/contact-form/render.php:166
+#: src/contact-form/render.php:166
 msgid "submit"
 msgstr ""
 
-#: functions/contact-form.php:52
+#: functions/contact-form.php:36
+msgid "Form not sent. Captcha wrong. Please try again."
+msgstr ""
+
+#: functions/contact-form.php:64
 msgid "Thank you. The form has been sent."
 msgstr ""
 
-#: functions/contact-form.php:63
+#: functions/contact-form.php:95
 msgid "New Message from"
 msgstr ""
 
-#: functions/contact-form.php:79
+#: functions/contact-form.php:111
 msgid "Your Message on"
 msgstr ""
 
@@ -157,18 +168,23 @@ msgstr ""
 #: build/contact-form/index.js:134
 #: src/contact-form/edit.js:131
 #: build/contact-form/index.js:131
-msgid "Send copy to sender"
+msgid "Send confirmation to sender"
 msgstr ""
 
-#: build/contact-form/index.js:138
-#: src/contact-form/edit.js:140
-#: build/contact-form/index.js:140
+#: build/contact-form/index.js:135
+#: src/contact-form/edit.js:135
+msgid "This only sends a short confirmation that the form was submitted successfully. No user content will be included. It is recommended to use a ticket system for detailed confirmations."
+msgstr ""
+
+#: build/contact-form/index.js:139
+#: src/contact-form/edit.js:144
+#: build/contact-form/index.js:144
 msgid "Display Phone Field"
 msgstr ""
 
-#: build/contact-form/index.js:142
-#: src/contact-form/edit.js:149
-#: build/contact-form/index.js:149
+#: build/contact-form/index.js:143
+#: src/contact-form/edit.js:153
+#: build/contact-form/index.js:153
 msgid "Require Phone"
 msgstr ""
 
@@ -182,6 +198,18 @@ msgstr ""
 #: src/contact-form/block.json
 msgctxt "block description"
 msgid "Simple Contact Form"
+msgstr ""
+
+#: build/core/button/block.json
+#: src/core/button/block.json
+msgctxt "block title"
+msgid "Modified Button Block for Sunflower Theme"
+msgstr ""
+
+#: build/core/button/block.json
+#: src/core/button/block.json
+msgctxt "block description"
+msgid "Core button block with optional Font‑Awesome icon."
 msgstr ""
 
 #: build/core/cover/block.json
