@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-17T08:51:26+02:00\n"
+"POT-Creation-Date: 2026-06-17T09:41:59+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower-contact-form\n"
@@ -40,8 +40,8 @@ msgid "https://verdigado.com"
 msgstr ""
 
 #: build/contact-form/render.php:8
-#: functions/contact-form.php:83
-#: functions/contact-form.php:99
+#: functions/contact-form.php:95
+#: functions/contact-form.php:111
 #: src/contact-form/render.php:8
 #: build/contact-form/index.js:120
 #: src/contact-form/edit.js:101
@@ -55,66 +55,77 @@ msgid "Your Message"
 msgstr ""
 
 #: build/contact-form/render.php:17
-#: build/contact-form/render.php:52
-#: functions/contact-form.php:35
+#: build/contact-form/render.php:61
+#: functions/contact-form.php:47
 #: src/contact-form/render.php:17
-#: src/contact-form/render.php:52
+#: src/contact-form/render.php:61
 msgid "Name"
 msgstr ""
 
 #: build/contact-form/render.php:18
-#: build/contact-form/render.php:70
-#: functions/contact-form.php:40
+#: build/contact-form/render.php:79
+#: functions/contact-form.php:52
 #: src/contact-form/render.php:18
-#: src/contact-form/render.php:70
+#: src/contact-form/render.php:79
 msgid "E-Mail"
 msgstr ""
 
 #: build/contact-form/render.php:19
-#: build/contact-form/render.php:89
-#: functions/contact-form.php:45
+#: build/contact-form/render.php:98
+#: functions/contact-form.php:57
 #: src/contact-form/render.php:19
-#: src/contact-form/render.php:89
+#: src/contact-form/render.php:98
 msgid "Phone"
 msgstr ""
 
-#: build/contact-form/render.php:20
-#: build/contact-form/render.php:108
-#: src/contact-form/render.php:20
-#: src/contact-form/render.php:108
-msgid "How much is 1 + 1?"
+#: build/contact-form/render.php:27
+#: src/contact-form/render.php:27
+#, php-format
+msgid "%d + %d"
 msgstr ""
 
-#: build/contact-form/render.php:36
-#: functions/contact-form.php:48
-#: src/contact-form/render.php:36
+#: build/contact-form/render.php:28
+#: build/contact-form/render.php:117
+#: src/contact-form/render.php:28
+#: src/contact-form/render.php:117
+#, php-format
+msgid "How much is %s?"
+msgstr ""
+
+#: build/contact-form/render.php:45
+#: functions/contact-form.php:60
+#: src/contact-form/render.php:45
 msgid "Message"
 msgstr ""
 
-#: build/contact-form/render.php:127
-#: src/contact-form/render.php:127
+#: build/contact-form/render.php:138
+#: src/contact-form/render.php:138
 msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
 msgstr ""
 
-#: build/contact-form/render.php:132
-#: src/contact-form/render.php:132
+#: build/contact-form/render.php:143
+#: src/contact-form/render.php:143
 msgid "By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
 msgstr ""
 
-#: build/contact-form/render.php:155
-#: src/contact-form/render.php:155
+#: build/contact-form/render.php:166
+#: src/contact-form/render.php:166
 msgid "submit"
 msgstr ""
 
-#: functions/contact-form.php:52
+#: functions/contact-form.php:36
+msgid "Form not sent. Captcha wrong. Please try again."
+msgstr ""
+
+#: functions/contact-form.php:64
 msgid "Thank you. The form has been sent."
 msgstr ""
 
-#: functions/contact-form.php:83
+#: functions/contact-form.php:95
 msgid "New Message from"
 msgstr ""
 
-#: functions/contact-form.php:99
+#: functions/contact-form.php:111
 msgid "Your Message on"
 msgstr ""
 
@@ -162,7 +173,7 @@ msgstr ""
 
 #: build/contact-form/index.js:135
 #: src/contact-form/edit.js:135
-msgid "This will only send a short confirmation about the successful sending the form. No user content will be sent. It's better use a ticket system for confirmation."
+msgid "This only sends a short confirmation that the form was submitted successfully. No user content will be included. It is recommended to use a ticket system for detailed confirmations."
 msgstr ""
 
 #: build/contact-form/index.js:139

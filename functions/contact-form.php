@@ -15,15 +15,27 @@ function sunflower_contact_form() {
 		return;
 	}
 
-	$captcha = (int) sanitize_text_field( $_POST['captcha'] );
+	$captcha_user_input = (int) sanitize_text_field( $_POST['captcha'] );
+	$captcha_token      = sanitize_text_field( $_POST['captcha_token'] );
+	$captcha_salt       = defined( 'NONCE_SALT' ) ? NONCE_SALT : 'sunflower_default_fallback_salt';
+	$expected_token     = '';
 
-	if ( 2 !== $captcha ) {
+	// We need to find the sum that produces this token.
+	// Since we only use numbers 1-9, there are very few possibilities (2 to 18).
+	for ( $i = 2; $i <= 18; $i++ ) {
+		if ( hash( 'sha256', $i . $captcha_salt ) === $captcha_token ) {
+			$expected_sum = $i;
+			break;
+		}
+	}
+
+	if ( ! isset( $expected_sum ) || $captcha_user_input !== $expected_sum ) {
 		echo wp_json_encode(
 			array(
 				'code' => 500,
 				'text' => __(
 					'Form not sent. Captcha wrong. Please try again.',
-					'sunflower'
+					'sunflower-contact-form'
 				),
 			)
 		);

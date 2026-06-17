@@ -17,7 +17,17 @@ $sunflower_placeholder_message = __( 'Your Message', 'sunflower-contact-form' ) 
 $sunflower_placeholder_name    = __( 'Name', 'sunflower-contact-form' ) . '*';
 $sunflower_placeholder_email   = __( 'E-Mail', 'sunflower-contact-form' ) . ( $sunflower_require_mail ? '*' : '' );
 $sunflower_placeholder_phone   = __( 'Phone', 'sunflower-contact-form' ) . ( $sunflower_require_phone ? '*' : '' );
-$sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-form' ) . '*';
+// Dynamic Captcha generation.
+$sunflower_captcha_num1  = wp_rand( 1, 9 );
+$sunflower_captcha_num2  = wp_rand( 1, 9 );
+$sunflower_captcha_sum   = $sunflower_captcha_num1 + $sunflower_captcha_num2;
+$sunflower_captcha_salt  = defined( 'NONCE_SALT' ) ? NONCE_SALT : 'sunflower_default_fallback_salt';
+$sunflower_captcha_token = hash( 'sha256', $sunflower_captcha_sum . $sunflower_captcha_salt );
+
+// translators: %1$d and %2$d are random numbers for a math captcha.
+$sunflower_captcha_expr = sprintf( __( '%1$d + %2$d', 'sunflower-contact-form' ), $sunflower_captcha_num1, $sunflower_captcha_num2 );
+// translators: %s is the arithmetic expression (e.g., "3 + 5").
+$sunflower_placeholder_captcha = sprintf( __( 'How much is %s?', 'sunflower-contact-form' ), $sunflower_captcha_expr ) . '*';
 ?>
 
 <div class="wp-block-sunflower-contact-form">
@@ -105,7 +115,12 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 			<?php endif; ?>
 
 			<div class="comment-form-email">
-				<label for="captcha"><?php esc_html_e( 'How much is 1 + 1?', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
+				<label for="captcha">
+				<?php
+					/* translators: %s is the arithmetic expression (e.g., "3 + 5") */
+					echo esc_html( sprintf( __( 'How much is %s?', 'sunflower-contact-form' ), $sunflower_captcha_expr ) );
+				?>
+				<span class="required">*</span></label>
 				<div class="input-with-icon">
 					<i class="fa-solid fa-calculator"></i>
 
@@ -119,7 +134,9 @@ $sunflower_placeholder_captcha = __( 'How much is 1 + 1?', 'sunflower-contact-fo
 						required
 						placeholder="<?php echo esc_attr( $sunflower_placeholder_captcha ); ?>"
 					/>
+					<input type="hidden" name="captcha_token" value="<?php echo esc_attr( $sunflower_captcha_token ); ?>" />
 				</div>
+
 			</div>
 
 			<div>
