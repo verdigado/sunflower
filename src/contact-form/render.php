@@ -73,18 +73,27 @@ $sunflower_require_mail  = $attributes['requireMail'] ?? false;
 		}
 		?>
 		<p class="comment-form-email">
-			<label for="captcha"><?php esc_attr_e( 'How much is 1 + 1?', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
-			<input id="captcha" name="captcha" type="text" value="" size="30" maxlength="100" required="required"/>
+			<label for="captcha"><?php esc_html_e( 'How much is 1 + 1?', 'sunflower-contact-form' ); ?> <span class="required">*</span></label>
+			<input
+				id="captcha"
+				name="captcha"
+				type="text"
+				value=""
+				size="30"
+				maxlength="100"
+				required
+			/>
 		</p>
 
 	</div>
 
 		<?php
 		if ( $sunflower_mailto ) {
-			printf( '<input id="mail-to" name="mail-to" type="hidden" value="%s" />', esc_attr( strrev( base64_encode( $sunflower_mailto ) ) ) ); // phpcs:ignore
+			echo '<input id="post-id" name="post_id" type="hidden" value="' . esc_attr( get_the_ID() ) . '" />';
 		}
+
 		if ( $sunflower_sendcopy ) {
-			printf( '<input id="send-copy" name="send-copy" type="hidden" value="1" />' );
+			echo '<input id="send-copy" name="send-copy" type="hidden" value="1" />';
 		}
 		?>
 

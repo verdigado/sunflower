@@ -51,9 +51,29 @@ function sunflower_contact_form() {
 
 	$response = __( 'Thank you. The form has been sent.', 'sunflower-contact-form' );
 
-	$mail_to = sanitize_text_field( $_POST['mailTo'] );
-	if ( $mail_to ) {
-		$to = sanitize_email( base64_decode( strrev( (string) $mail_to ) ) ); // phpcs:ignore
+	$mail_to = '';
+	if ( ! empty( $_POST['postId'] ) ) {
+		$post_id = (int) $_POST['postId'];
+		$post    = get_post( $post_id );
+
+		if ( $post ) {
+			$blocks = parse_blocks( $post->post_content );
+			$found  = false;
+			// Look for the specific contact-form block instance by index.
+			foreach ( $blocks as $block ) {
+				if ( 'sunflower/contact-form' === $block['blockName'] ) {
+						$mail_to = $block['attrs']['mailTo'] ?? '';
+					if ( sanitize_email( $mail_to ) ) {
+						$found = true;
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	if ( ! empty( $mail_to ) ) {
+		$to = sanitize_email( $mail_to );
 	}
 
 	if ( empty( $to ) ) {
