@@ -1,19 +1,18 @@
-# Copyright (C) 2024 verdigado eG
-# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.0.9\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-"
-"form\n"
-"POT-Creation-Date: 2025-07-21T08:35:19+00:00\n"
-"PO-Revision-Date: 2025-07-21 10:35+0200\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-form\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-06-17T12:42:07+02:00\n"
+"PO-Revision-Date: 2026-06-17 12:49+0200\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"2025-07-21T08: 35:19+00:00\n"
+"2026-06-17T09: 41:59+02:00\n"
 "X-Generator: Poedit 3.4.2\n"
 "X-Domain: sunflower-contact-form\n"
 
@@ -30,7 +29,7 @@ msgstr ""
 #. Description of the theme
 #: style.css
 msgid "Theme for the German Green Party"
-msgstr ""
+msgstr "WordPress Theme für BÜNDNIS 90/DIE GRÜNEN"
 
 #. Author of the theme
 #: style.css
@@ -42,112 +41,97 @@ msgstr ""
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/contact-form/render.php:11 functions/contact-form.php:63
-#: functions/contact-form.php:79 build/contact-form/index.js:130
+#: build/contact-form/render.php:11
+#: functions/contact-form.php:95
+#: functions/contact-form.php:111
+#: src/contact-form/render.php:11
+#: build/contact-form/index.js:120
+#: src/contact-form/edit.js:101
 #: build/contact-form/index.js:101
 msgid "Contact Form"
 msgstr "Kontaktformular"
 
-#: build/contact-form/render.php:29 functions/contact-form.php:48
+#. translators: %1$d and %2$d are random numbers for a math captcha.
+#: build/contact-form/render.php:28
+#: src/contact-form/render.php:28
+#, php-format
+msgid "%1$d + %2$d"
+msgstr "%1$d + %2$d"
+
+#: build/contact-form/render.php:38
+#: functions/contact-form.php:60
+#: src/contact-form/render.php:38
 msgid "Message"
 msgstr "Nachricht"
 
-#: build/contact-form/render.php:32
+#: build/contact-form/render.php:41
+#: src/contact-form/render.php:41
 msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
-msgstr ""
-"Bitte fülle alle Pflichtfelder (<span class=\"required\">*</span>) aus."
+msgstr "Bitte fülle alle Pflichtfelder (<span class=\"required\">*</span>) aus."
 
-#: build/contact-form/render.php:36
+#: build/contact-form/render.php:45
+#: src/contact-form/render.php:45
 msgid ""
-"By using this form, you consent to the storage and processing of your data "
-"through our website.\n"
-"            Additional information can be found in our privacy policy on <a "
-"href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>"
+"By using this form, you consent to the storage and processing of your data through our website.\n"
+"            Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>"
 msgstr ""
-"Mit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und "
-"Verarbeitung deiner Daten durch diese Website einverstanden. \n"
-"\t\tWeiteres entnimm bitte unserer  <a href=\"#\" "
-"id=\"privacy_policy_url\">Datenschutzerklärung</a>"
+"Mit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch diese Website einverstanden. \n"
+"\t\tWeiteres entnimm bitte unserer  <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>"
 
-#: build/contact-form/render.php:47 functions/contact-form.php:35
+#: build/contact-form/render.php:56
+#: functions/contact-form.php:47
+#: src/contact-form/render.php:56
 msgid "Name"
 msgstr "Name"
 
-#: build/contact-form/render.php:54 functions/contact-form.php:40
+#: build/contact-form/render.php:63
+#: functions/contact-form.php:52
+#: src/contact-form/render.php:63
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: build/contact-form/render.php:66 functions/contact-form.php:45
+#: build/contact-form/render.php:75
+#: functions/contact-form.php:57
+#: src/contact-form/render.php:75
 msgid "Phone"
 msgstr "Telefon"
 
-#: build/contact-form/render.php:76
-msgid "How much is 1 + 1?"
-msgstr "Was ist 1 + 1?"
+#. translators: %s is the arithmetic expression (e.g., "3 + 5")
+#: build/contact-form/render.php:88
+#: src/contact-form/render.php:88
+#, php-format
+msgid "How much is %s?"
+msgstr "Was ist %s?"
 
-#: build/contact-form/render.php:92
+#: build/contact-form/render.php:118
+#: src/contact-form/render.php:118
 msgid "submit"
 msgstr "absenden"
 
-#: functions/contact-form.php:52
+#: functions/contact-form.php:36
+msgid "Form not sent. Captcha wrong. Please try again."
+msgstr "Das Formular konnte nicht abgesendet werden. Das Captcha ist ungültig. Bitte probier es erneut."
+
+#: functions/contact-form.php:64
 msgid "Thank you. The form has been sent."
 msgstr "Vielen Dank. Deine Nachricht wurde verschickt."
 
-#: functions/contact-form.php:63
+#: functions/contact-form.php:95
 msgid "New Message from"
 msgstr "Neue Nachricht über"
 
-#: functions/contact-form.php:79
+#: functions/contact-form.php:111
 msgid "Your Message on"
 msgstr "Deine Nachricht über"
 
-#: build/contact-form/index.js:125 build/contact-form/index.js:88
-msgid ""
-"The receiver address may be altered within the Sunflower theme settings. By "
-"default, emails are sent to the site administrator."
-msgstr ""
-"Die Empfänger*innen-Adresse kann in den Sunflower-Einstellungen geändert "
-"werden. Standardmäßig wird das Formular an den*die Webseiten-"
-"Administrator*in gesendet."
-
-#: build/contact-form/index.js:128 build/contact-form/index.js:96
-msgid "Title of the form"
-msgstr "Titel des Formulars"
-
-#: build/contact-form/index.js:133 build/contact-form/index.js:108
-msgid "Mail To"
-msgstr "Empfänger-E-Mail"
-
-#: build/contact-form/index.js:134 build/contact-form/index.js:109
-msgid "Mail form to this address instead of default receiver."
-msgstr "Sende Formular an die angegebene Adresse statt dem Standard-Empfänger."
-
-#: build/contact-form/index.js:136 build/contact-form/index.js:114
-msgid "default receiver"
-msgstr "Standard-Empfänger"
-
-#: build/contact-form/index.js:140 build/contact-form/index.js:122
-msgid "Require E-Mail"
-msgstr "E-Mail ist Pflichtfeld"
-
-#: build/contact-form/index.js:144 build/contact-form/index.js:131
-msgid "Send copy to sender"
-msgstr "Kopie an den Absender schicken"
-
-#: build/contact-form/index.js:148 build/contact-form/index.js:140
-msgid "Display Phone Field"
-msgstr "Telefon-Feld anzeigen"
-
-#: build/contact-form/index.js:152 build/contact-form/index.js:149
-msgid "Require Phone"
-msgstr "Telefon ist Pflichtfeld"
-
 #: build/contact-form/block.json
+#: src/contact-form/block.json
 msgctxt "block title"
 msgid "Contact Form (Sunflower)"
 msgstr "Kontaktformular ( Sunflower)"
 
 #: build/contact-form/block.json
+#: src/contact-form/block.json
 msgctxt "block description"
 msgid "Simple Contact Form"
 msgstr "Einfaches Kontaktformular"
@@ -211,3 +195,9 @@ msgstr ""
 msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
+
+#~ msgid "Your Message"
+#~ msgstr "Deine Nachricht"
+
+#~ msgid "By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
+#~ msgstr "Mit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch diese Website einverstanden. Weitere Informationen findest du in unserer <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
