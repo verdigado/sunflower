@@ -1,9 +1,7 @@
 @use "sass:map";
 
 .wp-block-buttons {
-    gap: var(--grid-margin);
-    row-gap: var(--grid-margin);
-    column-gap: var(--grid-margin);
+    gap: var(--grid-margin) !important;
 
     &__link {
         display: inline-flex;
