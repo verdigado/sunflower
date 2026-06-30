@@ -370,6 +370,7 @@ class SunflowerSettingsPage {
 		$options = array(
 			array( 'light', __( 'Light', 'sunflower' ) ),
 			array( 'green', __( 'Dark', 'sunflower' ) ),
+			array( 'auto', __( 'Auto', 'sunflower' ) ),
 		);
 		foreach ( $options as $option ) {
 			$selected = ( isset( $this->options['sunflower_color_scheme'] ) && $this->options['sunflower_color_scheme'] === $option[0] ) ? 'selected' : '';

@@ -121,17 +121,26 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 						$sunflower_options      = get_option( 'sunflower_options' );
 						$sunflower_color_scheme = $sunflower_options['sunflower_color_scheme'] ?? 'green';
 
-						if ( 'light' === $sunflower_color_scheme ) {
-							$sunflower_logo_path = 'assets/img/logo-diegruenen.svg';
+						if ( 'auto' === $sunflower_color_scheme ) {
+							printf(
+								'<picture><source srcset="%s" media="(prefers-color-scheme: dark)"><img src="%s" class="img-fluid default-logo" alt="%s"></picture>',
+								esc_url( sunflower_parent_or_child( 'assets/img/logo-diegruenen-auf-tanne.svg' ) ),
+								esc_url( sunflower_parent_or_child( 'assets/img/logo-diegruenen.svg' ) ),
+								esc_attr( 'Logo BÜNDNIS 90/DIE GRÜNEN' )
+							);
 						} else {
-							$sunflower_logo_path = 'assets/img/logo-diegruenen-auf-tanne.svg';
-						}
+							if ( 'light' === $sunflower_color_scheme ) {
+								$sunflower_logo_path = 'assets/img/logo-diegruenen.svg';
+							} else {
+								$sunflower_logo_path = 'assets/img/logo-diegruenen-auf-tanne.svg';
+							}
 
-						printf(
-							'<img src="%s" class="img-fluid default-logo" alt="%s">',
-							esc_url( sunflower_parent_or_child( $sunflower_logo_path ) ),
-							esc_attr( 'Logo BÜNDNIS 90/DIE GRÜNEN' )
-						);
+							printf(
+								'<img src="%s" class="img-fluid default-logo" alt="%s">',
+								esc_url( sunflower_parent_or_child( $sunflower_logo_path ) ),
+								esc_attr( 'Logo BÜNDNIS 90/DIE GRÜNEN' )
+							);
+						}
 					}
 
 					sunflower_inline_svg( 'assets/img/concave.svg' );

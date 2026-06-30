@@ -139,6 +139,16 @@ function sunflower_scripts() {
 		);
 	}
 
+	if ( $sunflower_options['sunflower_color_scheme'] == 'auto' ) {
+		wp_enqueue_script(
+			'auto-dark-switcher',
+			get_template_directory_uri() . '/assets/js/auto-dark-switcher.js',
+			null,
+			SUNFLOWER_VERSION,
+			true
+		);
+	}
+
 	wp_localize_script(
 		'sunflower-admin-media',
 		'texts',
