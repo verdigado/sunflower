@@ -14,7 +14,7 @@ function sunflower_add_meta_boxes() {
 		'sunflower_meta_box_layout', // div id containing rendered fields.
 		__( 'Layout', 'sunflower' ), // section heading displayed as text.
 		'sunflower_meta_box_layout', // callback function to render fields.
-		array( 'post', 'page', 'event' ), // name of post type on which to render fields.
+		array( 'post', 'page', 'sunflower_event' ), // name of post type on which to render fields.
 		'side', // location on the screen.
 		'high' // placement priority.
 	);

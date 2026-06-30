@@ -38,6 +38,9 @@ if ( ! $sunflower_event_zoom ) {
 
 get_header();
 
+$sunflower_layout_width  = get_post_meta( $post->ID, '_sunflower_styled_layout', true ) ? '' : 'container-narrow';
+$sunflower_styled_layout = get_post_meta( $post->ID, '_sunflower_styled_layout', true ) ? 'styled-layout' : '';
+
 [$sunflower_weekday, $sunflower_days, $sunflower_time] = sunflower_prepare_event_time_data( $post );
 
 get_template_part( 'template-parts/event', 'json-ld' );
@@ -121,7 +124,7 @@ $sunflower_metadata .= sprintf(
 );
 
 ?>
-	<div id="content" class="container container-narrow">
+	<div id="content" class="container <?php printf( '%s %s', esc_attr( $sunflower_layout_width ), esc_attr( $sunflower_styled_layout ) ); ?>">
 		<div class="row">
 			<div class="col-12">
 				<main id="primary" class="site-main">
