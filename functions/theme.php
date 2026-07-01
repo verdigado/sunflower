@@ -222,7 +222,11 @@ function sunflower_get_body_classes() {
 	}
 
 	if ( ! empty( $options['sunflower_color_scheme'] ) ) {
-		$classes[] = 'colorscheme-' . sanitize_html_class( $options['sunflower_color_scheme'] );
+		if ( 'auto' === $options['sunflower_color_scheme'] ) {
+			$classes[] = 'colorscheme-light';
+		} else {
+			$classes[] = 'colorscheme-' . sanitize_html_class( $options['sunflower_color_scheme'] );
+		}
 	}
 
 	if ( ! empty( $options['sunflower_footer_layout'] ) ) {
