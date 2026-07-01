@@ -6,7 +6,7 @@ Hier findest du eine Liste, über Änderungen, die mit den verschiedenen Version
 
 Release: [10. April 2026](https://github.com/verdigado/sunflower/releases/tag/v3.0.0)
 
-* **neues Design** - modernisiertes Gesamtdesign. .....
+* **neues Design** - modernisiertes Gesamtdesign
 * **vier verschiedene Optionen möglich** - rund/eckig und hell/dunkel
 
 ###  Umstieg auf Sunflower 26

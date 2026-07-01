@@ -70,6 +70,16 @@ class SunflowerSettingsPage {
 			?>
 			</form>
 
+			<script>
+			( () => {
+				const switcher = document.getElementById( 'sunflower_design_switcher' );
+				const panelRow = document.getElementById( 'sunflower_design_switcher_panel' )?.closest( 'tr' );
+				if ( ! switcher || ! panelRow ) return;
+				const toggle = () => { panelRow.style.display = switcher.checked ? '' : 'none'; };
+				toggle();
+				switcher.addEventListener( 'change', toggle );
+			} )();
+			</script>
 		</div>
 		<?php
 	}
@@ -133,6 +143,19 @@ class SunflowerSettingsPage {
 				'field'       => 'sunflower_design_switcher',
 				'label'       => __( 'show frontend design switcher', 'sunflower' ),
 				'description' => __( 'The design switcher in the frontend is intended for testing and selecting the desired design. It is not meant to remain permanently active in the frontend for site visitors.', 'sunflower' ),
+			)
+		);
+
+		add_settings_field(
+			'sunflower_design_switcher_panel',
+			__( 'Design Switcher Menu', 'sunflower' ),
+			$this->sunflower_checkbox_callback( ... ),
+			'sunflower-setting-admin',
+			'sunflower_theme_variant',
+			array(
+				'field'       => 'sunflower_design_switcher_panel',
+				'label'       => __( 'show design switcher menu in the sidebar', 'sunflower' ),
+				'description' => __( 'When disabled, the design can still be changed via buttons with design-switcher CSS classes.', 'sunflower' ),
 			)
 		);
 

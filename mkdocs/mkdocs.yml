@@ -7,6 +7,7 @@ nav:
           - Einrichtung: setup.md
           - Startseite: homepage.md
           - Menüs: menus.md
+          - Design-Umschalter: design-switcher.md
           - Individuelles CSS: customcss.md
     - Nutzung:
           - Elemente (Blöcke): blocks.md

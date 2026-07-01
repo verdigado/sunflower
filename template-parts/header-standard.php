@@ -33,7 +33,7 @@
 <?php
 	$sunflower_options = get_option( 'sunflower_options' );
 
-if ( ( $sunflower_options['sunflower_design_switcher'] ?? false ) === 'checked' ) :
+if ( ( $sunflower_options['sunflower_design_switcher_panel'] ?? false ) === 'checked' ) :
 	?>
 
 <button id="design-switcher-toggle"
