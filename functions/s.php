@@ -137,6 +137,8 @@ function sunflower_scripts() {
 			SUNFLOWER_VERSION,
 			true
 		);
+	} else {
+		wp_add_inline_script( 'frontend', "localStorage.removeItem('sunflower_design');" );
 	}
 
 	if ( 'auto' === $sunflower_options['sunflower_color_scheme'] || ! empty( $sunflower_options['sunflower_design_switcher'] ) ) {
