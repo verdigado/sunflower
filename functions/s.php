@@ -128,8 +128,9 @@ function sunflower_scripts() {
 		true
 	);
 
-	$sunflower_options = get_option( 'sunflower_options' );
-	if ( ! empty( $sunflower_options['sunflower_design_switcher'] ) ) {
+	$sunflower_options          = get_option( 'sunflower_options' );
+	$sunflower_switcher_enabled = ! empty( $sunflower_options['sunflower_design_switcher'] ) || ! empty( $sunflower_options['sunflower_design_switcher_panel'] );
+	if ( $sunflower_switcher_enabled ) {
 		wp_enqueue_script(
 			'design-switcher',
 			get_template_directory_uri() . '/assets/js/design-switcher.js',
@@ -137,9 +138,11 @@ function sunflower_scripts() {
 			SUNFLOWER_VERSION,
 			true
 		);
+	} else {
+		wp_add_inline_script( 'frontend', "localStorage.removeItem('sunflower_design');" );
 	}
 
-	if ( 'auto' === $sunflower_options['sunflower_color_scheme'] || ! empty( $sunflower_options['sunflower_design_switcher'] ) ) {
+	if ( 'auto' === $sunflower_options['sunflower_color_scheme'] || $sunflower_switcher_enabled ) {
 		wp_enqueue_script(
 			'auto-dark-switcher',
 			get_template_directory_uri() . '/assets/js/auto-dark-switcher.js',

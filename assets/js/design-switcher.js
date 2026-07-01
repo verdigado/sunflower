@@ -207,6 +207,11 @@
 	};
 
 	const init = () => {
+		const stored = getStored();
+		if ( stored ) {
+			applyClasses( stored );
+			setActiveButton( stored );
+		}
 		initPanelSelects();
 	};
 

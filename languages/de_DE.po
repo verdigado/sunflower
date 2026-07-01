@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
-"POT-Creation-Date: 2026-04-30T08:26:37+02:00\n"
+"POT-Creation-Date: 2026-07-01T16:38:57+02:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -83,23 +83,23 @@ msgstr "Landkarte"
 msgid "more info"
 msgstr "mehr Infos"
 
-#: archive-sunflower_event.php:181 single-sunflower_event.php:151
+#: archive-sunflower_event.php:181 single-sunflower_event.php:154
 msgid "Show event location on map"
 msgstr "Veranstaltungsort auf der Karte anzeigen"
 
-#: archive-sunflower_event.php:184 single-sunflower_event.php:154
+#: archive-sunflower_event.php:184 single-sunflower_event.php:157
 msgid ""
 "If you click the button, the content will be downloaded from openstreetmap."
 msgstr ""
 "Wenn du auf den Button klickst, werden Daten von openstreetmap.org geladen."
-"<br>Dafür gelten deren <a href=\"https://osmfoundation.org/wiki/Privacy_Policy\" "
-"target=\"_blank\">Datenschutzrichtlinien</a>."
+"<br>Dafür gelten deren <a href=\"https://osmfoundation.org/wiki/"
+"Privacy_Policy\" target=\"_blank\">Datenschutzrichtlinien</a>."
 
-#: archive-sunflower_event.php:188 single-sunflower_event.php:162
+#: archive-sunflower_event.php:188 single-sunflower_event.php:165
 msgid "Show map"
 msgstr "Kartendaten laden"
 
-#: archive-sunflower_event.php:198 functions/s.php:160
+#: archive-sunflower_event.php:198 functions/s.php:173
 msgid "calendar in ics-format"
 msgstr "Kalender im ics-Format"
 
@@ -272,12 +272,6 @@ msgstr "E-Mail"
 msgid "Öffnungszeiten"
 msgstr ""
 
-#: functions/contact-form.php:24
-msgid "Form not sent. Captcha wrong. Please try again."
-msgstr ""
-"Das Formular konnte nicht gesendet werden, weil die Rechnung (Captcha) "
-"falsch ist. Bitte versuche es noch einmal."
-
 #: functions/events.php:13
 msgid "Startdate"
 msgstr "Startdatum"
@@ -371,7 +365,7 @@ msgstr ""
 "Barrierefreiheit zu verbessern."
 
 #: functions/metaboxes.php:15
-#: functions/options/class-sunflowersettingspage.php:141
+#: functions/options/class-sunflowersettingspage.php:164
 msgid "Layout"
 msgstr "Layout"
 
@@ -614,38 +608,38 @@ msgstr "stabile Version"
 msgid "beta"
 msgstr "beta (Testversionen)"
 
-#: functions/options/class-sunflowersettingspage.php:89
+#: functions/options/class-sunflowersettingspage.php:99
 msgid "Theme variant"
 msgstr "Designvariante"
 
-#: functions/options/class-sunflowersettingspage.php:96
-#: template-parts/header-standard.php:62
+#: functions/options/class-sunflowersettingspage.php:106
+#: template-parts/header-standard.php:63
 msgid "Shape Style"
 msgstr "Formensprache"
 
-#: functions/options/class-sunflowersettingspage.php:104
-#: template-parts/header-standard.php:69
+#: functions/options/class-sunflowersettingspage.php:114
+#: template-parts/header-standard.php:70
 msgid "Color Mood"
 msgstr "Farbstimmung"
 
-#: functions/options/class-sunflowersettingspage.php:112
+#: functions/options/class-sunflowersettingspage.php:122
 msgid "Post Image Format"
 msgstr "Beitragsbild Format"
 
-#: functions/options/class-sunflowersettingspage.php:120
-#: template-parts/header-standard.php:76
+#: functions/options/class-sunflowersettingspage.php:130
+#: template-parts/header-standard.php:78
 msgid "Footer Color Variant"
 msgstr "Fußzeilen-Farbvariante"
 
-#: functions/options/class-sunflowersettingspage.php:128
+#: functions/options/class-sunflowersettingspage.php:138
 msgid "Frontend Design Switcher"
 msgstr "Design-Umschalter im Frontend"
 
-#: functions/options/class-sunflowersettingspage.php:134
+#: functions/options/class-sunflowersettingspage.php:144
 msgid "show frontend design switcher"
 msgstr "Design-Umschalter im Frontend aktivieren"
 
-#: functions/options/class-sunflowersettingspage.php:135
+#: functions/options/class-sunflowersettingspage.php:145
 msgid ""
 "The design switcher in the frontend is intended for testing and selecting "
 "the desired design. It is not meant to remain permanently active in the "
@@ -655,99 +649,120 @@ msgstr ""
 "Auswählen des gewünschten Designs. Er ist nicht dazu gedacht, dauerhaft im "
 "Frontend aktiv zu bleiben für Seitenbesuchende."
 
-#: functions/options/class-sunflowersettingspage.php:148
+#: functions/options/class-sunflowersettingspage.php:151
+msgid "Design Switcher Menu"
+msgstr "Design-Umschalter-Menü"
+
+#: functions/options/class-sunflowersettingspage.php:157
+msgid "show design switcher menu in the sidebar"
+msgstr "Design-Umschalter-Menü in der Seitenbar anzeigen"
+
+#: functions/options/class-sunflowersettingspage.php:158
+msgid ""
+"When disabled, the design can still be changed via buttons with design-"
+"switcher CSS classes."
+msgstr ""
+"Wenn deaktiviert, kann das Design weiterhin über Buttons mit Design-Switcher "
+"CSS-Klassen geändert werden."
+
+#: functions/options/class-sunflowersettingspage.php:171
 msgid "Excerpt length (words)"
 msgstr "Anzahl der Wörter im Vorschautext"
 
-#: functions/options/class-sunflowersettingspage.php:156
-#: functions/options/class-sunflowersettingspage.php:162
+#: functions/options/class-sunflowersettingspage.php:179
+#: functions/options/class-sunflowersettingspage.php:185
 msgid "show related posts"
 msgstr "Ähnliche Artikel zeigen"
 
-#: functions/options/class-sunflowersettingspage.php:168
+#: functions/options/class-sunflowersettingspage.php:191
 msgid "show author of posts"
 msgstr "Zeige Autor*in"
 
-#: functions/options/class-sunflowersettingspage.php:174
+#: functions/options/class-sunflowersettingspage.php:197
 msgid "Show post author on post details and via REST api."
 msgstr "Zeige den/die Autor*in im Beitrag und über die REST-API."
 
-#: functions/options/class-sunflowersettingspage.php:180
-#: functions/options/class-sunflowersettingspage.php:186
+#: functions/options/class-sunflowersettingspage.php:203
+#: functions/options/class-sunflowersettingspage.php:209
 msgid "hide previous and next links"
 msgstr "Verstecke Vor- und Zurück-Links"
 
-#: functions/options/class-sunflowersettingspage.php:192
-#: functions/options/class-sunflowersettingspage.php:196
+#: functions/options/class-sunflowersettingspage.php:215
+#: functions/options/class-sunflowersettingspage.php:219
 msgid "to-field for contact-forms"
 msgstr "an diese Adresse werden Kontaktformulare geschickt"
 
-#: functions/options/class-sunflowersettingspage.php:201
+#: functions/options/class-sunflowersettingspage.php:224
 msgid "items in menu"
 msgstr "Einträge im Menü"
 
-#: functions/options/class-sunflowersettingspage.php:207
+#: functions/options/class-sunflowersettingspage.php:230
 msgid "items with href=# in the main menu are placeholders for submenu"
 msgstr "Einträge mit Linkziel=# sind Platzhalter für das Untermenü"
 
-#: functions/options/class-sunflowersettingspage.php:213
-#: functions/options/class-sunflowersettingspage.php:217
+#: functions/options/class-sunflowersettingspage.php:236
+#: functions/options/class-sunflowersettingspage.php:240
 msgid "Show social media icons in header"
 msgstr "Social-Media-Icons im Header anzeigen"
 
-#: functions/options/class-sunflowersettingspage.php:222
+#: functions/options/class-sunflowersettingspage.php:245
 msgid "Show list of categories on category archive"
 msgstr "Zeige Liste von Kategorien auf Kategorie-Seite"
 
-#: functions/options/class-sunflowersettingspage.php:230
+#: functions/options/class-sunflowersettingspage.php:253
 msgid "Enhance SEO"
 msgstr "SEO verbessern"
 
-#: functions/options/class-sunflowersettingspage.php:236
+#: functions/options/class-sunflowersettingspage.php:259
 msgid "Set website name in page metadata"
 msgstr "Webseitenname in den Seiten-Metadaten"
 
-#: functions/options/class-sunflowersettingspage.php:242
+#: functions/options/class-sunflowersettingspage.php:265
 msgid "Media creator field"
 msgstr "Medien Urheber*in"
 
-#: functions/options/class-sunflowersettingspage.php:280
+#: functions/options/class-sunflowersettingspage.php:303
 msgid "Select the visual appearance of your theme."
 msgstr "Wählen Sie das visuelle Erscheinungsbild Ihres Themes aus."
 
-#: functions/options/class-sunflowersettingspage.php:292
+#: functions/options/class-sunflowersettingspage.php:315
 msgid "Various theme settings"
 msgstr "Verschiedene Theme Einstellungen"
 
-#: functions/options/class-sunflowersettingspage.php:348
-#: template-parts/header-standard.php:64
+#: functions/options/class-sunflowersettingspage.php:371
+#: template-parts/header-standard.php:65
 msgid "Rounded"
 msgstr "Abgerundet"
 
-#: functions/options/class-sunflowersettingspage.php:349
-#: template-parts/header-standard.php:65
+#: functions/options/class-sunflowersettingspage.php:372
+#: template-parts/header-standard.php:66
 msgid "Sharp"
 msgstr "Eckig"
 
-#: functions/options/class-sunflowersettingspage.php:371
-#: template-parts/header-standard.php:71
+#: functions/options/class-sunflowersettingspage.php:394
+#: template-parts/header-standard.php:72
 msgid "Light"
 msgstr "Hell"
 
-#: functions/options/class-sunflowersettingspage.php:372
-#: template-parts/header-standard.php:72
+#: functions/options/class-sunflowersettingspage.php:395
+#: template-parts/header-standard.php:73
 msgid "Dark"
 msgstr "Dunkel"
 
 #: functions/options/class-sunflowersettingspage.php:396
+#: template-parts/header-standard.php:74
+msgid "Auto"
+msgstr ""
+
+#: functions/options/class-sunflowersettingspage.php:420
 msgid "Landscape"
 msgstr "Querformat"
 
-#: functions/options/class-sunflowersettingspage.php:397
+#: functions/options/class-sunflowersettingspage.php:421
 msgid "Flexible"
 msgstr "Flexibel"
 
-#: functions/options/class-sunflowersettingspage.php:412
+#: functions/options/class-sunflowersettingspage.php:436
 msgid ""
 "Nutze Querformate (z.B. 2/1 oder 16/9) als Beitrags- oder Terminbeitrags-"
 "Bilder, um einen bestmöglichen Look in den Vorschau-Cards und auf "
@@ -755,41 +770,41 @@ msgid ""
 "nutzen möchtest, wähle die Option \"Flexibel\"."
 msgstr ""
 
-#: functions/options/class-sunflowersettingspage.php:423
-#: template-parts/header-standard.php:78
+#: functions/options/class-sunflowersettingspage.php:447
+#: template-parts/header-standard.php:80
 msgid "Sand"
 msgstr "Sandfarben"
 
-#: functions/options/class-sunflowersettingspage.php:424
-#: template-parts/header-standard.php:79
+#: functions/options/class-sunflowersettingspage.php:448
+#: template-parts/header-standard.php:81
 msgid "Light Green"
 msgstr "Hellgrün"
 
-#: functions/options/class-sunflowersettingspage.php:446
+#: functions/options/class-sunflowersettingspage.php:470
 msgid "do not show"
 msgstr "keine Anzeige"
 
-#: functions/options/class-sunflowersettingspage.php:447
+#: functions/options/class-sunflowersettingspage.php:471
 msgid "main categories"
 msgstr "Hauptkategorien"
 
-#: functions/options/class-sunflowersettingspage.php:448
+#: functions/options/class-sunflowersettingspage.php:472
 msgid "only sub-categories"
 msgstr "nur Unter-Kategorien"
 
-#: functions/options/class-sunflowersettingspage.php:470
+#: functions/options/class-sunflowersettingspage.php:494
 msgid "optional"
 msgstr "optional"
 
-#: functions/options/class-sunflowersettingspage.php:471
+#: functions/options/class-sunflowersettingspage.php:495
 msgid "required"
 msgstr "verpflichtend"
 
-#: functions/options/class-sunflowersettingspage.php:472
+#: functions/options/class-sunflowersettingspage.php:496
 msgid "strict (The image is blurred if no creator field is filled out.)"
 msgstr "streng (Bild wird verpixelt, wenn Urheber*in leer ist.)"
 
-#: functions/options/class-sunflowersettingspage.php:473
+#: functions/options/class-sunflowersettingspage.php:497
 msgid "disabled"
 msgstr "deaktiviert"
 
@@ -813,51 +828,46 @@ msgstr "Fallback-Bild für Open-Graph-Tag"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:105
 #: functions/options/class-sunflowersocialmediasettingspage.php:109
-msgid "X (Twitter)"
-msgstr "X (Twitter)"
-
-#: functions/options/class-sunflowersocialmediasettingspage.php:114
-#: functions/options/class-sunflowersocialmediasettingspage.php:118
 msgid "Facebook"
 msgstr "Facebook"
 
+#: functions/options/class-sunflowersocialmediasettingspage.php:114
+#: functions/options/class-sunflowersocialmediasettingspage.php:118
+msgid "Mastodon"
+msgstr ""
+
 #: functions/options/class-sunflowersocialmediasettingspage.php:123
 #: functions/options/class-sunflowersocialmediasettingspage.php:127
-msgid "Mastodon"
+msgid "LinkedIn"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:132
 #: functions/options/class-sunflowersocialmediasettingspage.php:136
-msgid "LinkedIn"
-msgstr ""
-
-#: functions/options/class-sunflowersocialmediasettingspage.php:141
-#: functions/options/class-sunflowersocialmediasettingspage.php:145
 msgid "WhatsApp"
 msgstr ""
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:150
+#: functions/options/class-sunflowersocialmediasettingspage.php:141
 msgid "mail"
 msgstr "E-Mail"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:154
+#: functions/options/class-sunflowersocialmediasettingspage.php:145
 msgid "Mail"
 msgstr "E-Mail"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:191
+#: functions/options/class-sunflowersocialmediasettingspage.php:182
 msgid "Show share buttons on single post page"
 msgstr "Zeige folgende Teilen-Buttons unter einem Einzel-Beitrag"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:264
-#: functions/s.php:146
+#: functions/options/class-sunflowersocialmediasettingspage.php:253
+#: functions/s.php:159
 msgid "Select Open Graph Fallback Image"
 msgstr "Ersatzbild für Open-Graph-Tag wählen"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:276
+#: functions/options/class-sunflowersocialmediasettingspage.php:265
 msgid "Open Media Library"
 msgstr "Mediathek öffnen"
 
-#: functions/options/class-sunflowersocialmediasettingspage.php:281
+#: functions/options/class-sunflowersocialmediasettingspage.php:270
 msgid ""
 "This fallback image will be used when sharing pages and posts and no "
 "featured image has been selected."
@@ -881,27 +891,27 @@ msgstr "Fußzeilenmenü 1"
 msgid "Footer Menu 2"
 msgstr "Fußzeilenmenü 2"
 
-#: functions/s.php:159 template-parts/content-archive.php:57
+#: functions/s.php:172 template-parts/content-archive.php:57
 msgid "Continue reading"
 msgstr "weiterlesen"
 
-#: functions/s.php:162
+#: functions/s.php:175
 msgid "Image %1 of %2"
 msgstr "Bild %1 von %2"
 
-#: functions/s.php:163
+#: functions/s.php:176
 msgid "Next Image"
 msgstr "Nächstes Bild"
 
-#: functions/s.php:164
+#: functions/s.php:177
 msgid "Previous Image"
 msgstr "Bild zurück"
 
-#: functions/s.php:165
+#: functions/s.php:178
 msgid "Cancel Loading Image"
 msgstr "Bild laden abbrechen"
 
-#: functions/s.php:166
+#: functions/s.php:179
 msgid "Close Lightbox"
 msgstr "Lightbox schließen"
 
@@ -975,20 +985,16 @@ msgid "Sicherheitspruefung fehlgeschlagen."
 msgstr ""
 
 #: functions/widgets.php:19
-#, fuzzy
-#| msgid "Footer Style"
 msgid "Footer Mitte"
-msgstr "Fußzeilen-Stil"
+msgstr ""
 
 #: functions/widgets.php:21
 msgid "Bereich in der Footer-Mitte für Kontakt-Widget"
 msgstr ""
 
 #: functions/widgets.php:31
-#, fuzzy
-#| msgid "Footer Style"
 msgid "Footer Rechts"
-msgstr "Fußzeilen-Stil"
+msgstr ""
 
 #: functions/widgets.php:33
 msgid "Bereich rechts im Footer für die Suche"
@@ -1006,11 +1012,11 @@ msgstr ""
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
 
-#: inc/class-wp-bootstrap-navwalker.php:360
+#: inc/class-wp-bootstrap-navwalker.php:357
 msgid "Show sub menu"
 msgstr "Zeige Untermenü"
 
-#: inc/class-wp-bootstrap-navwalker.php:413
+#: inc/class-wp-bootstrap-navwalker.php:410
 msgid "Add a menu"
 msgstr "Menü erstellen"
 
@@ -1026,26 +1032,22 @@ msgid ", "
 msgstr ", "
 
 #: inc/template-tags.php:111
-msgid "Share on X (Twitter) "
-msgstr "Auf X (Twitter) teilen"
-
-#: inc/template-tags.php:119
 msgid "Share on Facebook "
 msgstr "Auf Facebook teilen "
 
-#: inc/template-tags.php:128
+#: inc/template-tags.php:120
 msgid "Share on LinkedIn "
 msgstr "Auf LinkedIn teilen "
 
-#: inc/template-tags.php:144
+#: inc/template-tags.php:136
 msgid "Share on Mastodon "
 msgstr "Auf Mastodon teilen "
 
-#: inc/template-tags.php:154
+#: inc/template-tags.php:146
 msgid "Share on WhatsApp "
 msgstr "Auf WhatsApp teilen "
 
-#: inc/template-tags.php:163
+#: inc/template-tags.php:155
 msgid "send mail "
 msgstr "Sende E-Mail"
 
@@ -1059,23 +1061,23 @@ msgstr "Suchergebnisse für „%s“"
 msgid "Suche"
 msgstr ""
 
-#: single-sunflower_event.php:61 template-parts/archive-event.php:74
+#: single-sunflower_event.php:64 template-parts/archive-event.php:76
 msgid "o'clock"
 msgstr "Uhr"
 
-#: single-sunflower_event.php:89
+#: single-sunflower_event.php:92
 msgid "Location Link"
 msgstr "Ort"
 
-#: single-sunflower_event.php:105
+#: single-sunflower_event.php:108
 msgid "Link to webinar"
 msgstr "Link zur Online-Teilnahme (Webinar)"
 
-#: single-sunflower_event.php:111 single-sunflower_event.php:113
+#: single-sunflower_event.php:114 single-sunflower_event.php:116
 msgid "organized by"
 msgstr "organisiert von"
 
-#: single-sunflower_event.php:120
+#: single-sunflower_event.php:123
 msgid "Download as ics"
 msgstr "Download als ics-Datei"
 
@@ -1150,17 +1152,27 @@ msgstr "keine"
 msgid "Top menu"
 msgstr "Menü am oberen Rand"
 
-#: template-parts/header-standard.php:53
+#: template-parts/header-standard.php:54
 msgid "Design Switch"
 msgstr "Design-Umschalter im Frontend"
 
-#: template-parts/header-standard.php:148
+#: template-parts/header-standard.php:152
 msgid "Menu"
 msgstr ""
 
 #: template-parts/related-posts.php:15
 msgid "Related Posts"
 msgstr "Ähnliche Artikel"
+
+#: build/core/button/index.js:272 src/core/button/index.js:63
+#: build/core/button/index.js:127
+msgid "Icon auswählen"
+msgstr ""
+
+#: build/core/button/index.js:275 src/core/button/index.js:67
+#: build/core/button/index.js:131
+msgid "Font Awesome Icon"
+msgstr ""
 
 #: build/core/cover/index.js:139 src/core/cover/index.js:18
 #: build/core/cover/index.js:77
@@ -1171,6 +1183,16 @@ msgstr "Sunflower Hero"
 #: build/core/list/index.js:77
 msgid "Sunflower Checkmarks"
 msgstr "Sunflower Häkchen"
+
+#: build/core/button/block.json src/core/button/block.json
+msgctxt "block title"
+msgid "Modified Button Block for Sunflower Theme"
+msgstr ""
+
+#: build/core/button/block.json src/core/button/block.json
+msgctxt "block description"
+msgid "Core button block with optional Font‑Awesome icon."
+msgstr ""
 
 #: build/core/cover/block.json src/core/cover/block.json
 msgctxt "block title"
@@ -1266,6 +1288,17 @@ msgstr ""
 msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
+
+#~ msgid "Form not sent. Captcha wrong. Please try again."
+#~ msgstr ""
+#~ "Das Formular konnte nicht gesendet werden, weil die Rechnung (Captcha) "
+#~ "falsch ist. Bitte versuche es noch einmal."
+
+#~ msgid "X (Twitter)"
+#~ msgstr "X (Twitter)"
+
+#~ msgid "Share on X (Twitter) "
+#~ msgstr "Auf X (Twitter) teilen"
 
 #, fuzzy
 #~| msgid "Startdate"
