@@ -247,8 +247,13 @@ body {
 .wp-block-heading.has-text-align-center:has(mark) {
 
     mark {
-        margin-left: 0;
+        margin-left: 3px;
         margin-right: 0;
+
+        @include media-breakpoint-down(md) {
+            margin-left: 22px;
+            margin-right: 22px;
+        }
     }
 }
 

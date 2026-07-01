@@ -406,7 +406,10 @@ body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-h
 .entry-content > .wp-block-cover:not(.is-style-sunflower-hero):first-child {
     margin-top: 130px;
     margin-bottom: var(--grid-margin);
-    width: 100% !important;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
     border-radius: var(--border-radius-large);
     overflow: hidden;
     padding: 0;
