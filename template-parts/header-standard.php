@@ -71,6 +71,7 @@ if ( ( $sunflower_options['sunflower_design_switcher'] ?? false ) === 'checked' 
 			<select id="colorscheme-select">
 				<option value="light"><?php esc_html_e( 'Light', 'sunflower' ); ?></option>
 				<option value="green"><?php esc_html_e( 'Dark', 'sunflower' ); ?></option>
+				<option value="auto"><?php esc_html_e( 'Auto', 'sunflower' ); ?></option>
 			</select>
 		</label>
 

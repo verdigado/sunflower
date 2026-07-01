@@ -21,6 +21,15 @@
 
 	const applyClasses = ( { formstyle, colorscheme, footer } ) => {
 		const body = document.body;
+		let trueColorscheme = colorscheme;
+		if ( colorscheme === 'auto' ) {
+			const darkModeMql =
+				window.matchMedia &&
+				window.matchMedia( '(prefers-color-scheme: dark)' );
+			trueColorscheme =
+				( darkModeMql && darkModeMql.matches && 'green' ) || 'light';
+		}
+
 		body.classList.remove(
 			'formstyle-rounded',
 			'formstyle-sharp',
@@ -30,7 +39,7 @@
 			'footer-green'
 		);
 		body.classList.add( `formstyle-${ formstyle }` );
-		body.classList.add( `colorscheme-${ colorscheme }` );
+		body.classList.add( `colorscheme-${ trueColorscheme }` );
 		body.classList.add( `footer-${ footer }` );
 	};
 

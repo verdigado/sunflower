@@ -139,7 +139,7 @@ function sunflower_scripts() {
 		);
 	}
 
-	if ( $sunflower_options['sunflower_color_scheme'] == 'auto' ) {
+	if ( 'auto' === $sunflower_options['sunflower_color_scheme'] || ! empty( $sunflower_options['sunflower_design_switcher'] ) ) {
 		wp_enqueue_script(
 			'auto-dark-switcher',
 			get_template_directory_uri() . '/assets/js/auto-dark-switcher.js',

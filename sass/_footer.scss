@@ -60,7 +60,10 @@
                 opacity: 1 !important;
                 pointer-events: all !important;
 
-                picture { display: block }
+                picture {
+                    display: block;
+                }
+
                 img {
                     max-height: 120px;
                     min-height: 100px;
