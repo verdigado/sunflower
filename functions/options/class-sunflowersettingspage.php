@@ -74,8 +74,15 @@ class SunflowerSettingsPage {
 			( () => {
 				const switcher = document.getElementById( 'sunflower_design_switcher' );
 				const panelRow = document.getElementById( 'sunflower_design_switcher_panel' )?.closest( 'tr' );
-				if ( ! switcher || ! panelRow ) return;
-				const toggle = () => { panelRow.style.display = switcher.checked ? '' : 'none'; };
+				const panelInput = document.getElementById( 'sunflower_design_switcher_panel' );
+				if ( ! switcher || ! panelRow || ! panelInput ) return;
+
+				const toggle = () => {
+					const isChecked = switcher.checked;
+					panelRow.style.display = isChecked ? '' : 'none';
+					panelInput.disabled = ! isChecked;
+				};
+
 				toggle();
 				switcher.addEventListener( 'change', toggle );
 			} )();
