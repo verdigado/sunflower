@@ -1585,14 +1585,6 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			return;
 		}
 
-		if ( document.body.classList.contains( 'formstyle-sharp' ) ) {
-			brandLeft.style.setProperty(
-				'margin',
-				'75px 12px 7px 12px',
-				'important'
-			);
-		}
-
 		const firstContentChild = document.querySelector(
 			'.entry-content > :first-child'
 		);
@@ -1607,6 +1599,15 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				'img.wp-block-cover__image-background, video.wp-block-cover__video-background'
 			);
 
+		const brandRect = brandLeft.getBoundingClientRect();
+		const coverRect = hasCoverFirst
+			? firstContentChild.getBoundingClientRect()
+			: null;
+		const overlapsWithCover =
+			coverRect &&
+			brandRect.bottom > coverRect.top &&
+			brandRect.top < coverRect.bottom;
+
 		labels.forEach( function ( label ) {
 			label.style.setProperty( '--bg', 'transparent' );
 			label.style.setProperty(
@@ -1618,7 +1619,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			label.style.setProperty( 'text-align', 'left', 'important' );
 			label.style.setProperty( 'left', '0', 'important' );
 
-			if ( hasCoverFirst ) {
+			if ( overlapsWithCover ) {
 				label.style.setProperty( 'color', '#ffffff', 'important' );
 				if ( coverHasPhoto ) {
 					label.style.setProperty(
