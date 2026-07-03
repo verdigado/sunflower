@@ -4,6 +4,28 @@
 ### Wie lege ich ein vollflächiges Bild an?
 - Wähle den Block "Medien > Cover"
 
+### Hero-Cover (vollflächiges Titelbild)
+
+Ein Hero-Cover ist ein großes Titelbild, das den gesamten oberen Bereich der Seite einnimmt. Dafür muss der Cover-Block der **erste Block** im Inhaltsbereich sein.
+
+Es gibt zwei Varianten:
+
+**Variante 1: Sunflower-Hero-Stil**
+
+1. Füge einen Cover-Block als ersten Block auf der Seite ein.
+2. Wähle in den Block-Einstellungen unter **Stile** den Stil **Sunflower Hero** aus.
+3. Der Seitentitel wird automatisch ausgeblendet, das Cover nimmt die volle Viewport-Höhe ein.
+4. Auf dem Desktop erscheint der Text unten links auf dem Bild mit farbigem Hintergrund. Auf Smartphones wird der Text unterhalb des Bildes angezeigt.
+
+**Variante 2: Gestyltes Layout**
+
+1. Füge einen Cover-Block als ersten Block auf der Seite ein (beliebiger Stil).
+2. Wähle in den Seiteneinstellungen unter **Layout** die Option **gestyltes Layout**.
+3. Das Cover rutscht nach oben, der Text bleibt dabei auf dem Bild.
+
+!!! tip "Tipp"
+    Variante 1 eignet sich besonders für Startseiten und Landingpages. Variante 2 ist flexibler, da sie mit jedem Cover-Stil funktioniert.
+
 ### Wie lege ich eine farbige Fläche unter einen Bereich?
 - Gruppiere die jeweiligen Elemente
 - Wählen in den Block-Einstellungen die Farbeinstellungen aus
