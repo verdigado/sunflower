@@ -57,12 +57,38 @@ Fertig.
 
 ## Publishing
 
-Das Deployment läuft über GitHub Actions. Beim Erstellen eines Releases wird das CSS und JavaScript gebaut und das ZIP-Archiv gepackt und auf dem Updateserver https://sunflower-theme.de kopiert.
+Das Deployment läuft über GitHub Actions (`.github/workflows/build-deploy.yml`).
+Ausgelöst wird es **ausschließlich durch das Veröffentlichen eines GitHub-Releases**
+mit einem Tag, der mit `v` beginnt (z. B. `v3.0.9`). Beim Veröffentlichen wird
+das CSS und JavaScript gebaut, das ZIP-Archiv gepackt und auf den Updateserver
+https://sunflower-theme.de kopiert.
 
-Wichtig: Vor dem Release die Versions-Nummer in `sass/style.scss` anpassen!
+### Ablauf
 
-Dazu kann man den Schritt `publish` des Makefiles nutzen:
+1. **Versions-Nummer setzen** in `sass/style.scss` – **ohne** führendes `v`,
+   also z. B. `Version: 3.0.9`.
 
-`make publish`
+    !!! warning "Kein `v` voranstellen!"
+        Die CI prüft, ob `v` + Versionsstring aus `style.scss` exakt dem Release-Tag
+        entspricht (`v3.0.9`). Steht in `style.scss` bereits `v3.0.9`, ergibt die
+        Prüfung `vv3.0.9` und der Build **schlägt fehl**.
 
-Dadurch wird ein neuer Branch `deploy` angelegt, die Versions-Nummer in `sass/style.scss` gesetzt, das Changelog aktualisiert und der Branch gepusht.
+2. **Changelog aktualisieren** mit `make changelog` (bzw. `php create-changelog.php`).
+
+3. **Release veröffentlichen** – das ist der eigentliche Auslöser des Deployments.
+   Der zugehörige Tag wird dabei angelegt und muss auf den aktuellen `main`-Stand zeigen:
+
+    ```
+    gh release create v3.0.9 --title v3.0.9 --generate-notes --latest
+    ```
+
+    Alternativ über die GitHub-Weboberfläche: *Releases → Draft a new release →*
+    neues Tag `v3.0.9` auf `main`, *Set as latest release → Publish release*.
+
+### Der Makefile-Schritt `make publish`
+
+`make publish` **allein veröffentlicht keinen Release** und löst somit **kein**
+Deployment aus. Der Schritt setzt lediglich die Versions-Nummer in
+`sass/style.scss`, aktualisiert das Changelog und legt einen Branch `deploy` an
+bzw. pusht ihn. Das Erstellen des Tags und des Releases (Schritt 3 oben) ist im
+Makefile auskommentiert und muss manuell erfolgen.
