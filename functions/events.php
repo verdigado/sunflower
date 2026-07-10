@@ -838,7 +838,10 @@ function sunflower_ajax_get_calendar_events() {
 		$event_tag_slugs = is_array( $event_tag_slugs ) ? $event_tag_slugs : array();
 
 		$calendar_event = array(
-			'title'         => get_post()->post_title,
+			// The calendar renders titles as plain text (textContent), so decode the
+			// HTML entities WordPress stores in post_title (e.g. block-editor "&amp;")
+			// back to plain characters. Inverse of WP's title encoding.
+			'title'         => wp_specialchars_decode( get_post()->post_title, ENT_QUOTES ),
 			'start'         => $fc_start,
 			'url'           => get_permalink(),
 			'allDay'        => $is_all_day,
