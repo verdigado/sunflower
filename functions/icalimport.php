@@ -98,10 +98,17 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			$wp_id = get_the_ID();
 		}
 
-		$post_content = sprintf( '<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->', nl2br( (string) $event->DESCRIPTION ) ); // phpcs:ignore
+		// Make plain URLs and e-mail addresses in the description clickable
+		// before newlines are converted, so links pasted into the iCal
+		// DESCRIPTION (e.g. from Nextcloud) become usable (#1155).
+		$post_content = sprintf( '<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->', nl2br( make_clickable( (string) $event->DESCRIPTION ) ) ); // phpcs:ignore
 
-		if ( isset( $event->URL ) && filter_var( (string) $event->URL, FILTER_VALIDATE_URL ) ) { // phpcs:ignore
-			$post_content .= sprintf( '<!-- wp:paragraph --><p><a href="%1$s" title="%2$s" target="_blank">%3$s&nbsp;<i class="fa-solid fa-up-right-from-square"></i></a></p><!-- /wp:paragraph -->', (string) $event->URL, __( 'Open link in a new tab', 'default' ), __( 'More Information', 'sunflower' ) );  // phpcs:ignore
+		// The iCal URL field may omit the scheme (e.g. "www.example.com");
+		// normalise it once for both the link below and the stored meta (#1154).
+		$event_url = isset( $event->URL ) ? sunflower_normalize_url( (string) $event->URL ) : ''; // phpcs:ignore
+
+		if ( $event_url ) {
+			$post_content .= sprintf( '<!-- wp:paragraph --><p><a href="%1$s" title="%2$s" target="_blank">%3$s&nbsp;<i class="fa-solid fa-up-right-from-square"></i></a></p><!-- /wp:paragraph -->', $event_url, __( 'Open link in a new tab', 'default' ), __( 'More Information', 'sunflower' ) );
 		}
 
 		$post = array(
@@ -166,8 +173,8 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			}
 		}
 
-		if ( isset( $event->URL ) ) { // phpcs:ignore
-			update_post_meta( $id, '_sunflower_event_url', (string) $event->URL ); // phpcs:ignore
+		if ( $event_url ) {
+			update_post_meta( $id, '_sunflower_event_url', $event_url );
 		}
 
 		$categories  = $event->CATEGORIES ?? ''; // phpcs:ignore
@@ -189,6 +196,30 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 		'updated_events' => $updated_events,
 		'new_events'     => $new_events,
 	);
+}
+
+/**
+ * Ensure an event URL has a scheme so it validates and links absolutely.
+ *
+ * The iCal URL field may hold a URL without a scheme (e.g. "www.example.com").
+ * Such values fail FILTER_VALIDATE_URL and would link relative to the current
+ * page, so a missing scheme is filled with "https://".
+ *
+ * @param string $url The raw URL from the iCal event.
+ * @return string The validated URL including a scheme, or '' if it is no URL.
+ */
+function sunflower_normalize_url( $url ) {
+	$url = trim( $url );
+
+	if ( '' === $url ) {
+		return '';
+	}
+
+	if ( ! wp_parse_url( $url, PHP_URL_SCHEME ) ) {
+		$url = 'https://' . $url;
+	}
+
+	return filter_var( $url, FILTER_VALIDATE_URL ) ? $url : '';
 }
 
 /**
