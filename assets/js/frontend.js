@@ -486,75 +486,61 @@ document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
 
 /**
  * Menu-Collapse
+ *
+ * Synchronous measurement: removing the body class and reading scrollWidth
+ * in the same JS task forces a reflow but never paints the intermediate
+ * state, so the menu cannot flicker.
  */
 
 ( () => {
 	const BODY_CLASS = 'hamburger-menu';
-	const MEASURE_CLASS = 'js-measuring';
-	const RIGHT_BAR_SELECTOR = '.right-bar';
-	const CONTENT_SELECTOR = '.right-bar__content';
-
-	const qs = ( sel ) => document.querySelector( sel );
-
-	const hasOverflow = ( el ) =>
-		el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight;
-
-	function computeOverflow() {
-		const rightBar = qs( RIGHT_BAR_SELECTOR );
-		const content = rightBar?.querySelector( CONTENT_SELECTOR );
-		if ( ! rightBar || ! content ) {
-			return false;
-		}
-
-		rightBar.classList.add( MEASURE_CLASS );
-
-		const body = document.body;
-		const hadClass = body.classList.contains( BODY_CLASS );
-		if ( hadClass ) {
-			body.classList.remove( BODY_CLASS );
-		}
-
-		const overflow = hasOverflow( content );
-
-		if ( hadClass ) {
-			body.classList.add( BODY_CLASS );
-		}
-		rightBar.classList.remove( MEASURE_CLASS );
-
-		return overflow;
+	const rightBar = document.querySelector( '.right-bar' );
+	const content = rightBar?.querySelector( '.right-bar__content' );
+	if ( ! rightBar || ! content ) {
+		return;
 	}
 
-	let lastState = null;
-	let pending = false;
+	let resizeTimer;
 
-	function scheduleUpdate() {
-		if ( pending ) {
-			return;
+	const stickyEl = document.querySelector( '.top-bar' );
+
+	function update() {
+		const wasHamburger = document.body.classList.contains( BODY_CLASS );
+		const wasStuck = stickyEl?.classList.contains( 'stuck' );
+
+		if ( wasHamburger ) {
+			document.body.classList.remove( BODY_CLASS );
 		}
-		pending = true;
-		requestAnimationFrame( () => {
-			pending = false;
-			const overflow = computeOverflow();
-			if ( overflow !== lastState ) {
-				lastState = overflow;
-				document.body.classList.toggle( BODY_CLASS, overflow );
-			}
-		} );
+		if ( wasStuck ) {
+			stickyEl.classList.remove( 'stuck' );
+		}
+
+		// scrollWidth read forces synchronous reflow — no paint until JS yields
+		const overflow =
+			content.scrollWidth > content.clientWidth + 1 ||
+			content.scrollHeight > content.clientHeight + 1;
+
+		if ( wasStuck ) {
+			stickyEl.classList.add( 'stuck' );
+		}
+		document.body.classList.toggle( BODY_CLASS, overflow );
 	}
 
-	scheduleUpdate();
-
-	document.addEventListener( 'DOMContentLoaded', scheduleUpdate );
-	window.addEventListener( 'load', scheduleUpdate, { passive: true } );
-	window.addEventListener( 'resize', scheduleUpdate, { passive: true } );
-
-	const rightBar = qs( RIGHT_BAR_SELECTOR );
-	if ( rightBar ) {
-		new MutationObserver( scheduleUpdate ).observe( rightBar, {
-			childList: true,
-			subtree: true,
-		} );
+	function debouncedUpdate() {
+		clearTimeout( resizeTimer );
+		resizeTimer = setTimeout( update, 100 );
 	}
+
+	update();
+	document.addEventListener( 'DOMContentLoaded', update );
+	window.addEventListener( 'load', update );
+	document.fonts.ready.then( update );
+	window.addEventListener( 'resize', debouncedUpdate, { passive: true } );
+
+	new MutationObserver( debouncedUpdate ).observe( rightBar, {
+		childList: true,
+		subtree: true,
+	} );
 } )();
 
 document.addEventListener( 'DOMContentLoaded', () => {
