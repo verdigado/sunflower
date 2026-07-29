@@ -186,36 +186,47 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
         }
     }
 
-    // Pseudo-elements (concave SVG) – light theme default
-    &::before {
-        content: url("#{$sunflower-img-path}/concave-30px.svg");
-        height: 30px;
-        width: 38.16px;
+    $concave-svg: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 38.156677'%3E%3Cpath d='M0,0v10c15.948975,0,28.985107,12.447388,29.938171,28.156677h.061829V0H0Z'/%3E%3C/svg%3E";
+
+    // Pseudo-elements (concave shape via mask)
+    &::before,
+    &::after {
+        content: "";
+        background-color: map.get($custom-colors, "weiss");
+        -webkit-mask-image: url($concave-svg);
+        -webkit-mask-size: 100% 100%;
+        -webkit-mask-repeat: no-repeat;
+        mask-image: url($concave-svg);
+        mask-size: 100% 100%;
+        mask-repeat: no-repeat;
         position: absolute;
+    }
+
+    &::before {
+        width: 30px;
+        height: 38.16px;
         transform: rotate(-180deg);
         top: -17px;
         left: -1px;
 
         @media (max-width: 768px) {
-            height: 20px;
-            width: 25.44px;
+            width: 20px;
+            height: 25.44px;
             top: -11px;
             left: -1px;
         }
     }
 
     &::after {
-        content: url("#{$sunflower-img-path}/concave-30px.svg");
-        height: 30px;
-        width: 38.16px;
-        position: absolute;
+        width: 30px;
+        height: 38.16px;
         transform: rotate(180deg);
         bottom: -13px;
         right: -38px;
 
         @media (max-width: 768px) {
-            height: 20px;
-            width: 25.44px;
+            width: 20px;
+            height: 25.44px;
             top: -22px;
             right: -11px;
             bottom: auto;
@@ -228,12 +239,9 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
 .editor-styles-wrapper .colorscheme-green .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
     background-color: map.get($custom-colors, "schwarzwald");
 
-    &::before {
-        content: url("#{$sunflower-img-path}/concave-30px_darkmode.svg");
-    }
-
+    &::before,
     &::after {
-        content: url("#{$sunflower-img-path}/concave-30px_darkmode.svg");
+        background-color: map.get($custom-colors, "schwarzwald");
     }
 }
 

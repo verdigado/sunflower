@@ -709,7 +709,7 @@ header .social-media-profiles {
         }
 
         .concave-30px {
-            color: map.get($custom-colors, "white");
+            display: none;
         }
 
         span {
@@ -735,28 +735,6 @@ header .social-media-profiles {
             &:nth-of-type(3) {
                 top: 44px;
                 left: 12px;
-            }
-        }
-
-        .concave-30px:nth-of-type(1) {
-            position: absolute;
-            left: -30px;
-            top: 10px;
-
-            @include media-breakpoint-down(xl) {
-                top: 5.5px;
-                left: -20px;
-            }
-        }
-
-        .concave-30px:nth-of-type(2) {
-            position: absolute;
-            top: 54.2px;
-            right: 20px;
-
-            @include media-breakpoint-down(xl) {
-                top: 57.2px;
-                right: 12px;
             }
         }
     }
@@ -788,19 +766,11 @@ header .social-media-profiles {
 
 body.admin-bar {
 
-    .stuck .right-bar,
-    .hamburger {
+    .top-bar.stuck {
 
-        top: 46px;
-
-        // WordPress Admin Bar has breakpoint at 783px.
-        @media (min-width: 783px) {
+        .right-bar {
             top: 32px;
         }
-    }
-
-    .stuck .right-bar.unfold {
-        top: 0;
     }
 
     &.hamburger-menu {
@@ -812,6 +782,29 @@ body.admin-bar {
                 .logo-background,
                 .custom-logo-link {
                     top: calc(46px - 115px);
+                }
+            }
+        }
+
+        .hamburger,
+        .right-bar.unfold {
+
+            top: 46px;
+
+            // WordPress Admin Bar has breakpoint at 783px.
+            @media (min-width: 783px) {
+                top: 32px;
+            }
+        }
+
+        .stuck {
+
+            .hamburger,
+            .right-bar.unfold {
+                // WordPress Admin Bar disappears when scrolling down up to
+                // 600px width, so we need to reset the top position to 0.
+                @media (max-width: 600px) {
+                    top: 0;
                 }
             }
         }

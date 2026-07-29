@@ -43,7 +43,6 @@ $themes: (
         form-section-border: map.get($custom-colors, "klee"),
         form-section-title-color: map.get($custom-colors, "white"),
         form-section-title-background: map.get($custom-colors, "klee"),
-        cover-concave-img: "#{$sunflower-img-path}/concave-30px.svg",
         topmenu-color: map.get($custom-colors, "tanne"),
         topmenu-color-hover: map.get($custom-colors, "klee"),
         menu-dropdown-icon: "#{$sunflower-img-path}/dropdown.svg"
@@ -88,7 +87,6 @@ $themes: (
         form-section-border: map.get($custom-colors, "white"),
         form-section-title-color: map.get($custom-colors, "white"),
         form-section-title-background: map.get($custom-colors, "himmel"),
-        cover-concave-img: "#{$sunflower-img-path}/concave-30px_darkmode.svg",
         topmenu-color: map.get($custom-colors, "klee"),
         topmenu-color-hover: map.get($custom-colors, "white"),
         menu-dropdown-icon: "#{$sunflower-img-path}/dropdown_darkmode.svg"
