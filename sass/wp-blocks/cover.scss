@@ -36,21 +36,31 @@
     height: 100%;
 }
 
+$concave-svg: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 38.156677'%3E%3Cpath d='M0,0v10c15.948975,0,28.985107,12.447388,29.938171,28.156677h.061829V0H0Z'/%3E%3C/svg%3E";
+
 @mixin concave-pseudo(
     $primary-pos,
     $secondary-pos,
     $rotate,
     $size: 30px,
-    $offset-x: -1px,
-    $offset-y: -17px
+    $offset-x:0,
+    $offset-y: -28px
 ) {
+    content: "";
 
     @include themed-colorscheme-nested() {
-        content: url(#{t(cover-concave-img)});
+        background-color: t(background);
     }
 
-    height: $size;
-    width: $size * 1.272;
+    -webkit-mask-image: url($concave-svg);
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url($concave-svg);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+
+    width: $size;
+    height: $size * 1.272;
     position: absolute;
     transform: rotate($rotate);
 
@@ -58,10 +68,10 @@
     #{$secondary-pos}: $offset-x;
 
     @include breakpoint-down(md) {
-        height: 20px;
-        width: 20px * 1.272;
-        #{$primary-pos}: -11px;
-        #{$secondary-pos}: -1px;
+        height: 40px;
+        width: 40px * 1.272;
+        #{$primary-pos}: -30px;
+        #{$secondary-pos}: -10px;
     }
 }
 
@@ -306,13 +316,8 @@ body main #content .wp-block-cover:not(.is-style-sunflower-hero):has(.wp-block-c
 
         &::after {
 
-            @include concave-pseudo(bottom, right, 180deg, 30px, -37px, -13px);
+            @include concave-pseudo(bottom, right, 180deg, 30px, -29px, -10px);
 
-            @include breakpoint-down(md) {
-                top: -22px;
-                right: -11px;
-                transform: rotate(90deg);
-            }
         }
     }
 
@@ -437,6 +442,48 @@ body main #content .wp-block-cover:not(.is-style-sunflower-hero):has(.wp-block-c
 
     @include media-breakpoint-down(md) {
         margin: var(--grid-margin) 0 calc(var(--gap-large) * 2) 0 !important;
+    }
+}
+
+// -- Hamburger concave corners on hero (scroll with content) --
+
+body.hamburger-menu .entry-content > .wp-block-cover.is-style-sunflower-hero:first-child {
+
+    &::before,
+    &::after {
+        content: "";
+        background-color: map.get($custom-colors, "white");
+        -webkit-mask-image: url($concave-svg);
+        -webkit-mask-size: 100% 100%;
+        -webkit-mask-repeat: no-repeat;
+        mask-image: url($concave-svg);
+        mask-size: 100% 100%;
+        mask-repeat: no-repeat;
+        position: absolute;
+        z-index: 10;
+        width: 22px;
+        height: calc(22px * 1.272);
+    }
+
+    // Left of hamburger
+    &::before {
+        right: 62px;
+        top: calc(4.5px - var(--grid-margin));
+    }
+
+    // Below hamburger
+    &::after {
+        right: -1px;
+        top: calc(56.5px - var(--grid-margin));
+    }
+
+}
+
+body.hamburger-menu.colorscheme-green .entry-content > .wp-block-cover.is-style-sunflower-hero:first-child {
+
+    &::before,
+    &::after {
+        background-color: map.get($custom-colors, "schwarzwald");
     }
 }
 
