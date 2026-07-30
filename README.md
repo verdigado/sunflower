@@ -56,11 +56,15 @@ https://chatbegruenung.de/channel/sunflower-wordpress
 - `npm run start` : start watcher for js-files
 - `npm run build` : build javascript
 
-### Deployment
-see Makefile for tasks
+### Deployment and Publishing
 
-#### Publishing
-see Documentation in *mkdocs/docs* for more details
+Stable and beta releases are built and deployed automatically via GitHub Actions when a [GitHub Release](https://github.com/verdigado/sunflower/releases) is created.
+
+1. Run `make publish` (or `make publishbeta` for pre-releases) to bump the version in `sass/style.scss` and generate the changelog
+2. Create a GitHub Release with a matching `v`-prefixed tag (e.g. `v3.0.10`)
+3. The GitHub Action builds CSS/JS, bundles the ZIP, uploads it as a release artifact, and deploys to the update server
+
+See `Makefile` for additional manual deployment targets and *mkdocs/docs/development.md* for the full publishing documentation.
 
 ### Contributing
 see Documentation in *mkdocs/docs* for more details

@@ -57,12 +57,48 @@ Fertig.
 
 ## Publishing
 
-Das Deployment läuft über GitHub Actions. Beim Erstellen eines Releases wird das CSS und JavaScript gebaut und das ZIP-Archiv gepackt und auf dem Updateserver https://sunflower-theme.de kopiert.
+Das Deployment läuft über GitHub Actions und wird durch das Erstellen eines GitHub Releases ausgelöst.
 
-Wichtig: Vor dem Release die Versions-Nummer in `sass/style.scss` anpassen!
+### Stabile Releases
 
-Dazu kann man den Schritt `publish` des Makefiles nutzen:
+1. **Version setzen und Changelog erstellen:**
 
-`make publish`
+    ```
+    make publish
+    ```
 
-Dadurch wird ein neuer Branch `deploy` angelegt, die Versions-Nummer in `sass/style.scss` gesetzt, das Changelog aktualisiert und der Branch gepusht.
+    Fragt nach der neuen Versionsnummer (z.B. `3.0.10`, ohne `v`-Prefix), aktualisiert die Version in `sass/style.scss`, erstellt das Changelog und pusht einen `deploy`-Branch.
+
+	Der `deploy`-Branch muss in `main` gemerged werden.
+
+2. **GitHub Release erstellen:**
+    - Auf GitHub ein neues Release erstellen
+    - Tag-Format: `v3.0.10` (mit `v`-Prefix)
+    - Die GitHub Action *Build and Deploy* wird automatisch ausgelöst
+
+
+3. **Was die GitHub Action macht:**
+    - Prüft, ob die Version in `sass/style.scss` zum Tag passt (bricht ab bei Abweichung)
+    - Baut CSS, RTL-CSS und JavaScript
+    - Führt PHPCS-Checks durch
+    - Erstellt das ZIP-Bundle und lädt es als Release-Artifact hoch
+    - Deployt ZIP, Versionsdatei und Changelog auf den Updateserver
+    - Aktualisiert die Demoseite auf sunflower-theme.de
+    - Baut und deployt die mkdocs-Dokumentation
+
+**Wichtig:** Die Version in `sass/style.scss` muss exakt zum Release-Tag passen (Tag `v3.0.10` erwartet `Version: 3.0.10` in der SCSS-Datei).
+
+### Beta-Releases
+
+1. **Version setzen:**
+    ```
+    make publishbeta
+    ```
+    Fragt nach der Versionsnummer (z.B. `3.0.10-beta-1`), erstellt einen `deploy-beta`-Branch.
+
+2. **GitHub Release erstellen:**
+    - Tag-Format: `v3.0.10-beta-1` (mit `-alpha`, `-beta` oder `-rc` im Tag)
+    - Als Pre-Release markieren
+    - Die GitHub Action *Build and Deploy Beta release* wird ausgelöst
+
+Beta-Releases führen zusätzlich SCSS- und JS-Linting durch und werden als Pre-Release markiert.
