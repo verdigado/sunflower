@@ -206,6 +206,15 @@
 		} );
 	};
 
+	const readDefaultsFromBody = () => {
+		const cl = document.body.classList;
+		return {
+			formstyle: cl.contains( 'formstyle-sharp' ) ? 'sharp' : 'rounded',
+			colorscheme: cl.contains( 'colorscheme-green' ) ? 'green' : 'light',
+			footer: cl.contains( 'footer-green' ) ? 'green' : 'sand',
+		};
+	};
+
 	const init = () => {
 		const stored = getStored();
 		if ( stored ) {
@@ -213,6 +222,12 @@
 			setActiveButton( stored );
 		}
 		initPanelSelects();
+
+		if ( ! stored && ! document.getElementById( 'design-switcher' ) ) {
+			const defaults = readDefaultsFromBody();
+			setStored( defaults );
+			setActiveButton( defaults );
+		}
 	};
 
 	if ( document.readyState === 'loading' ) {
