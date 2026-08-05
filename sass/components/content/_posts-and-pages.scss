@@ -46,12 +46,16 @@
 
     padding: 140px 0 0 0;
 
-    &:has(.entry-content .wp-block-cover.is-style-sunflower-hero:first-child) {
-        padding: 0;
-    }
-
     @include media-breakpoint-down(md) {
         padding: 125px 0 0 0;
+    }
+
+    &:has(.entry-content .wp-block-cover.is-style-sunflower-hero:first-child) {
+        padding: 0;
+
+        @include media-breakpoint-down(md) {
+            padding: 80px 0 0 0;
+        }
     }
 
 }
