@@ -48,6 +48,10 @@ class SunflowerEventSettingsPage {
 		?>
 		<div class="wrap">
 			<h1><?php esc_attr_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
+			<div class="notice-info sunflower-settings">
+				<?php esc_html_e( 'Detailed documentation is available at', 'sunflower' ); ?>
+				<a href="https://sunflower-theme.de/documentation/" target="_blank" rel="noopener noreferrer">https://sunflower-theme.de/documentation/</a>.
+			</div>
 			<form method="post" action="options.php">
 			<?php
 				// This prints out all hidden setting fields.
