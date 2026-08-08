@@ -249,7 +249,6 @@ class SunflowerSettingsPage {
 			)
 		);
 
-
 		add_settings_field(
 			'sunflower_categories_archive',
 			__( 'Show list of categories on category archive', 'sunflower' ),
@@ -518,7 +517,6 @@ class SunflowerSettingsPage {
 
 		echo '</select>';
 	}
-
 }
 
 if ( is_admin() ) {
