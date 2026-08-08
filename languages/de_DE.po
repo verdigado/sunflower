@@ -1424,3 +1424,15 @@ msgstr ""
 #~ msgctxt "block title"
 #~ msgid "Accordion (Sunflower)"
 #~ msgstr "Akkordeon (Sunflower)"
+#: functions/admin.php
+msgid "Last modified"
+msgstr "Zuletzt geändert"
+
+#: functions/admin.php
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#. translators: %1$s is the modification date, %2$s is the modification time.
+#: functions/admin.php
+msgid "%1$s at %2$s"
+msgstr "%1$s um %2$s Uhr"
