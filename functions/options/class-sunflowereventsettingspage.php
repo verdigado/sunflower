@@ -49,8 +49,15 @@ class SunflowerEventSettingsPage {
 		<div class="wrap">
 			<h1><?php esc_attr_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
 			<div class="notice-info sunflower-settings">
-				<?php esc_html_e( 'Detailed documentation is available at', 'sunflower' ); ?>
-				<a href="https://sunflower-theme.de/documentation/" target="_blank" rel="noopener noreferrer">https://sunflower-theme.de/documentation/</a>.
+				<p><strong><?php esc_html_e( 'Documentation', 'sunflower' ); ?></strong></p>
+				<ul>
+					<li>
+						<a href="https://sunflower-theme.de/documentation/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'General Sunflower documentation', 'sunflower' ); ?></a>
+					</li>
+					<li>
+						<a href="https://sunflower-theme.de/documentation26/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Documentation for the Sunflower26 theme', 'sunflower' ); ?></a>
+					</li>
+				</ul>
 			</div>
 			<form method="post" action="options.php">
 			<?php
