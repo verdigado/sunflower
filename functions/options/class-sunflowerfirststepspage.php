@@ -61,8 +61,8 @@ class SunflowerFirstStepsPage {
 
 			<h2><?php esc_html_e( 'First steps', 'sunflower' ); ?></h2>
 			<div class="notice-info sunflower-settings">
-				Eine ausführliche Dokumentation gibt es unter
-				<a href="https://sunflower-theme.de/documentation26/" target="_blank">https://sunflower-theme.de/documentation26/</a>.
+				<?php esc_html_e( 'Detailed documentation is available at', 'sunflower' ); ?>
+				<a href="https://sunflower-theme.de/documentation/" target="_blank" rel="noopener noreferrer">https://sunflower-theme.de/documentation/</a>.
 			</div>
 
 			<form method="post" action="options.php">
