@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: sunflower 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
 "POT-Creation-Date: 2026-07-01T16:38:57+02:00\n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2026-08-08 22:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -811,16 +811,16 @@ msgstr "deaktiviert"
 #: functions/options/class-sunflowersocialmediasettingspage.php:34
 #: functions/options/class-sunflowersocialmediasettingspage.php:35
 msgid "Social Media"
-msgstr "Profile in Sozialen Medien"
+msgstr "Soziale Medien"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:75
 #: functions/options/class-sunflowersocialmediasettingspage.php:82
 msgid "Social Media Profiles"
-msgstr "Profile in Sozialen Medien"
+msgstr "Social-Media-Profile"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:90
-msgid "Social Sharers"
-msgstr "Teile in Sozialen Medien"
+msgid "Share Buttons"
+msgstr "Teilen-Buttons"
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:97
 msgid "Open Graph Fallback Image"
@@ -1288,6 +1288,35 @@ msgstr ""
 msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php
+#: functions/options/class-sunflowersettingspage.php
+#: functions/options/class-sunflowersocialmediasettingspage.php
+#: functions/options/class-sunflowereventsettingspage.php
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: functions/options/class-sunflowerfirststepspage.php
+#: functions/options/class-sunflowersettingspage.php
+#: functions/options/class-sunflowersocialmediasettingspage.php
+#: functions/options/class-sunflowereventsettingspage.php
+msgid "General Sunflower documentation"
+msgstr "Allgemeine Sunflower-Dokumentation"
+
+#: functions/options/class-sunflowerfirststepspage.php
+#: functions/options/class-sunflowersettingspage.php
+#: functions/options/class-sunflowersocialmediasettingspage.php
+#: functions/options/class-sunflowereventsettingspage.php
+msgid "Documentation for the Sunflower26 theme"
+msgstr "Dokumentation für das Sunflower26-Theme"
+
+#: functions/options/class-sunflowersocialmediasettingspage.php
+msgid "Social Media Buttons"
+msgstr "Social-Media-Buttons"
+
+#: functions/options/class-sunflowersocialmediasettingspage.php
+msgid "Configure the linked social media buttons shown in the footer and optionally in the header."
+msgstr "Konfiguriere die verlinkten Social-Media-Buttons, die in der Fußzeile und optional im Header angezeigt werden."
 
 #~ msgid "Form not sent. Captcha wrong. Please try again."
 #~ msgstr ""
