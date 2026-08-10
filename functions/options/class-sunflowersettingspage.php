@@ -61,6 +61,17 @@ class SunflowerSettingsPage {
 		?>
 		<div class="wrap sunflower-setting-admin">
 			<h1><?php esc_html_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
+			<div class="notice-info sunflower-settings">
+				<p><strong><?php esc_html_e( 'Documentation', 'sunflower' ); ?></strong></p>
+				<ul>
+					<li>
+						<a href="https://sunflower-theme.de/documentation/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'General Sunflower documentation', 'sunflower' ); ?></a>
+					</li>
+					<li>
+						<a href="https://sunflower-theme.de/documentation26/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Documentation for the Sunflower26 theme', 'sunflower' ); ?></a>
+					</li>
+				</ul>
+			</div>
 			<form method="post" action="options.php">
 			<?php
 				// This prints out all hidden setting fields.
@@ -236,15 +247,6 @@ class SunflowerSettingsPage {
 				'field' => 'sunflower_main_menu_item_is_placeholder',
 				'label' => __( 'items with href=# in the main menu are placeholders for submenu', 'sunflower' ),
 			)
-		);
-
-		add_settings_field(
-			'sunflower_header_social_media',
-			__( 'Show social media icons in header', 'sunflower' ),
-			$this->sunflower_header_social_media( ... ),
-			'sunflower-setting-admin',
-			'sunflower_layout',
-			array( 'sunflower_header_social_media', __( 'Show social media icons in header', 'sunflower' ) )
 		);
 
 		add_settings_field(
@@ -514,26 +516,6 @@ class SunflowerSettingsPage {
 		}
 
 		echo '</select>';
-	}
-
-	/**
-	 * Show social media icons in header, too.
-	 *
-	 * @param Array $args The forms argument.
-	 */
-	public function sunflower_header_social_media( $args ): void {
-		$field = $args[0];
-		$label = $args[1];
-
-		printf(
-			'<label>
-                    <input type="checkbox" id="%1$s" name="sunflower_options[%1$s]" value="checked" %2$s />
-                    %3$s
-                </label>',
-			esc_attr( $field ),
-			isset( $this->options[ $field ] ) ? 'checked' : '',
-			esc_attr( $label )
-		);
 	}
 }
 

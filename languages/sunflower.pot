@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-01T16:38:57+02:00\n"
+"POT-Creation-Date: 2026-08-08T22:47:32+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower\n"
@@ -762,7 +762,7 @@ msgid "Social Media Profiles"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:90
-msgid "Social Sharers"
+msgid "Share Buttons"
 msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:97
@@ -1218,3 +1218,33 @@ msgstr ""
 msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php
+#: functions/options/class-sunflowersettingspage.php
+#: functions/options/class-sunflowersocialmediasettingspage.php
+#: functions/options/class-sunflowereventsettingspage.php
+msgid "Documentation"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php
+#: functions/options/class-sunflowersettingspage.php
+#: functions/options/class-sunflowersocialmediasettingspage.php
+#: functions/options/class-sunflowereventsettingspage.php
+msgid "General Sunflower documentation"
+msgstr ""
+
+#: functions/options/class-sunflowerfirststepspage.php
+#: functions/options/class-sunflowersettingspage.php
+#: functions/options/class-sunflowersocialmediasettingspage.php
+#: functions/options/class-sunflowereventsettingspage.php
+msgid "Documentation for the Sunflower26 theme"
+msgstr ""
+
+#: functions/options/class-sunflowersocialmediasettingspage.php
+msgid "Social Media Buttons"
+msgstr ""
+
+#: functions/options/class-sunflowersocialmediasettingspage.php
+msgid "Configure the linked social media buttons shown in the footer and optionally in the header."
+msgstr ""
+

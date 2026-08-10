@@ -48,6 +48,17 @@ class SunflowerSocialMediaSettingsPage {
 		?>
 		<div class="wrap">
 			<h1><?php esc_html_e( 'Sunflower Settings', 'sunflower' ); ?></h1>
+			<div class="notice-info sunflower-settings">
+				<p><strong><?php esc_html_e( 'Documentation', 'sunflower' ); ?></strong></p>
+				<ul>
+					<li>
+						<a href="https://sunflower-theme.de/documentation/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'General Sunflower documentation', 'sunflower' ); ?></a>
+					</li>
+					<li>
+						<a href="https://sunflower-theme.de/documentation26/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Documentation for the Sunflower26 theme', 'sunflower' ); ?></a>
+					</li>
+				</ul>
+			</div>
 			<form method="post" action="options.php">
 			<?php
 				// This prints out all hidden setting fields.
@@ -72,7 +83,7 @@ class SunflowerSocialMediaSettingsPage {
 
 		add_settings_section(
 			'sunflower_social_media',
-			__( 'Social Media Profiles', 'sunflower' ),
+			__( 'Social Media Buttons', 'sunflower' ),
 			$this->print_section_info( ... ),
 			'sunflower-setting-social-media-options'
 		);
@@ -85,9 +96,17 @@ class SunflowerSocialMediaSettingsPage {
 			'sunflower_social_media'
 		);
 
+		add_settings_field(
+			'sunflower_header_social_media',
+			__( 'Show social media icons in header', 'sunflower' ),
+			$this->sunflower_header_social_media_callback( ... ),
+			'sunflower-setting-social-media-options',
+			'sunflower_social_media'
+		);
+
 		add_settings_section(
 			'sunflower_social_media_sharers',
-			__( 'Social Sharers', 'sunflower' ),
+			__( 'Share Buttons', 'sunflower' ),
 			$this->print_section_info_sharers( ... ),
 			'sunflower-setting-social-media-options'
 		);
@@ -172,7 +191,8 @@ class SunflowerSocialMediaSettingsPage {
 	/**
 	 * Print the Section text
 	 */
-	public function print_section_info() {
+	public function print_section_info(): void {
+		esc_html_e( 'Configure the linked social media buttons shown in the footer and optionally in the header.', 'sunflower' );
 	}
 
 	/**
@@ -199,6 +219,32 @@ class SunflowerSocialMediaSettingsPage {
 			esc_attr( $field ),
 			isset( $this->options[ $field ] ) ? 'checked' : '',
 			esc_attr( $label )
+		);
+	}
+
+	/**
+	 * Show social media icons in the header.
+	 *
+	 * Existing values from sunflower_options are used until this setting is
+	 * saved on the Social Media page for the first time.
+	 */
+	public function sunflower_header_social_media_callback(): void {
+		$field          = 'sunflower_header_social_media';
+		$legacy_options = get_option( 'sunflower_options' );
+		$has_new_value  = isset( $this->options[ $field ] );
+		$is_checked     = $has_new_value
+			? 'checked' === $this->options[ $field ]
+			: is_array( $legacy_options ) && isset( $legacy_options[ $field ] );
+
+		printf(
+			'<input type="hidden" name="sunflower_social_media_options[%1$s]" value="" />
+                <label>
+                    <input type="checkbox" id="%1$s" name="sunflower_social_media_options[%1$s]" value="checked" %2$s />
+                    %3$s
+                </label>',
+			esc_attr( $field ),
+			checked( $is_checked, true, false ),
+			esc_attr__( 'Show social media icons in header', 'sunflower' )
 		);
 	}
 
