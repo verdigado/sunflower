@@ -811,7 +811,7 @@ msgstr "deaktiviert"
 #: functions/options/class-sunflowersocialmediasettingspage.php:34
 #: functions/options/class-sunflowersocialmediasettingspage.php:35
 msgid "Social Media"
-msgstr "Soziale Medien"
+msgstr ""
 
 #: functions/options/class-sunflowersocialmediasettingspage.php:75
 #: functions/options/class-sunflowersocialmediasettingspage.php:82
