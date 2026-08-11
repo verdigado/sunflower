@@ -133,9 +133,9 @@ export default function Edit( { attributes, setAttributes } ) {
 						onChange={ ( value ) =>
 							setAttributes( { count: value } )
 						}
-						min={ 6 }
+						min={ 1 }
 						max={ 18 }
-						step={ 6 }
+						step={ 1 }
 					/>
 				</PanelBody>
 				<PanelBody
