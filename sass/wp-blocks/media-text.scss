@@ -23,6 +23,17 @@
 
         @include media-breakpoint-down(md) {
             row-gap: var(--double-grid-margin);
+            grid-template-columns: 100% !important;
+
+            .wp-block-media-text__media {
+                grid-row: 1;
+                grid-column: 1;
+            }
+
+            .wp-block-media-text__content {
+                grid-row: 2;
+                grid-column: 1;
+            }
         }
     }
 
