@@ -21,6 +21,7 @@ import {
 	Disabled,
 	FormTokenField,
 	Notice,
+	RadioControl,
 	RangeControl,
 	PanelBody,
 	TextControl,
@@ -63,6 +64,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		title,
 		categories,
 		excludedCategories,
+		sticky,
 		count,
 		archiveText,
 		blockLayout,
@@ -150,6 +152,23 @@ export default function Edit( { attributes, setAttributes } ) {
 		} );
 	};
 
+	// Stored as a string so further modes (e.g. "only", "exclude") can be added later.
+	const onChangeSticky = ( value ) => {
+		setAttributes( { sticky: value } );
+	};
+
+	// Describes what the selected mode does, instead of explaining both at once.
+	const stickyHelp =
+		sticky === 'first'
+			? __(
+					'Posts marked to stick to the top come first, all other posts follow by date.',
+					'sunflower-latest-posts'
+			  )
+			: __(
+					'All posts are listed by date. The mark to stick a post to the top is ignored.',
+					'sunflower-latest-posts'
+			  );
+
 	const onChangeCount = ( value ) => {
 		setAttributes( { count: value } );
 	};
@@ -198,6 +217,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								blockLayout,
 								categories,
 								excludedCategories,
+								sticky,
 								count,
 								archiveText,
 								categoriesFormValue,
@@ -251,22 +271,32 @@ export default function Edit( { attributes, setAttributes } ) {
 							max={ 20 }
 						/>
 
-						<TextControl
+						<RadioControl
 							label={ __(
-								'Archive Text',
+								'Order of posts',
 								'sunflower-latest-posts'
 							) }
-							help={ __(
-								'Link label of the archive link',
-								'sunflower-latest-posts'
-							) }
-							placeholder={ __(
-								'Archive',
-								'sunflower-latest-posts'
-							) }
-							value={ archiveText }
-							onChange={ onChangeArchiveText }
+							help={ stickyHelp }
+							selected={ sticky }
+							options={ [
+								{
+									value: 'ignore',
+									label: __(
+										'By date',
+										'sunflower-latest-posts'
+									),
+								},
+								{
+									value: 'first',
+									label: __(
+										'Sticky posts first',
+										'sunflower-latest-posts'
+									),
+								},
+							] }
+							onChange={ onChangeSticky }
 						/>
+
 						{ blockLayout === 'grid' && ! isFlexibleMode && (
 							<RangeControl
 								__nextHasNoMarginBottom
@@ -289,6 +319,23 @@ export default function Edit( { attributes, setAttributes } ) {
 								) }
 							</Notice>
 						) }
+
+						<TextControl
+							label={ __(
+								'Archive Text',
+								'sunflower-latest-posts'
+							) }
+							help={ __(
+								'Link label of the archive link',
+								'sunflower-latest-posts'
+							) }
+							placeholder={ __(
+								'Archive',
+								'sunflower-latest-posts'
+							) }
+							value={ archiveText }
+							onChange={ onChangeArchiveText }
+						/>
 					</PanelBody>
 				</InspectorControls>
 			}

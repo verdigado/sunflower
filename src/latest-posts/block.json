@@ -23,6 +23,10 @@
 		"excludedCategories": {
 			"type": "array"
 		},
+		"sticky": {
+			"type": "string",
+			"default": "ignore"
+		},
 		"count": {
 			"type": "number",
 			"default": 6
