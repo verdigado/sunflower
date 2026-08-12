@@ -445,6 +445,20 @@ body main #content .wp-block-cover:not(.is-style-sunflower-hero):has(.wp-block-c
     }
 }
 
+
+.entry-content > .wp-block-cover.is-style-sunflower-hero.sunflower-hero-no-crop {
+    height: auto !important;
+    min-height: 0 !important;
+
+    .wp-block-cover__image-background {
+        position: relative !important;
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+    }
+}
+
 // -- Hamburger concave corners on hero (scroll with content) --
 
 body.hamburger-menu .entry-content > .wp-block-cover.is-style-sunflower-hero:first-child {

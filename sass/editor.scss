@@ -87,6 +87,21 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
     }
 }
 
+// "Bild nicht zuschneiden": Bildproportion bestimmt die Hoehe,
+// keine feste (Viewport-)Hoehe im Editor-Canvas.
+.editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero.sunflower-hero-no-crop {
+    height: auto !important;
+    min-height: 0 !important;
+
+    .wp-block-cover__image-background {
+        position: relative !important;
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+    }
+}
+
 .editor-styles-wrapper .wp-block-cover.is-style-sunflower-hero .wp-block-cover__inner-container {
     background-color: map.get($custom-colors, "white");
     position: absolute;

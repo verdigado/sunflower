@@ -132,15 +132,13 @@ add_action( 'enqueue_block_assets', 'sunflower_enqueue_editor_mark_bg' );
  */
 function sunflower_enqueue_block_core_assets() {
 
+	$cover_asset = include get_template_directory() . '/build/core/cover/index.asset.php';
+
 	wp_enqueue_script(
 		'sunflower-core-cover-variations',
 		get_template_directory_uri() . '/build/core/cover/index.js',
-		array(
-			'wp-blocks',
-			'wp-i18n',
-			'wp-element',
-		),
-		SUNFLOWER_VERSION,
+		$cover_asset['dependencies'],
+		$cover_asset['version'],
 		true
 	);
 

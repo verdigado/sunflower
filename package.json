@@ -63,7 +63,9 @@
     "packages-update": "wp-scripts packages-update"
   },
   "dependencies": {
+    "baseline-browser-mapping": "^2.11.13",
     "bootstrap": "^5.3.8",
+    "caniuse-lite": "^1.0.30001809",
     "copyfiles": "^2.4.1",
     "fork-awesome": "^1.2.0",
     "fullcalendar": "^6.1.20",
