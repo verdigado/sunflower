@@ -404,6 +404,17 @@ body.formstyle-sharp {
             }
         }
 
+        > :first-child.wp-block-cover.is-style-sunflower-hero.sunflower-hero-no-crop {
+            height: auto !important;
+            min-height: 0 !important;
+
+            img.wp-block-cover__image-background {
+                height: auto !important;
+                max-height: none !important;
+                min-height: 0 !important;
+            }
+        }
+
 
         @layer fade;
 
@@ -547,6 +558,11 @@ body.formstyle-sharp {
                 height: auto !important;
                 min-height: 0 !important;
             }
+        }
+
+        .entry-content > .wp-block-cover.is-style-sunflower-hero.sunflower-hero-no-crop:first-child {
+            height: auto !important;
+            min-height: 0 !important;
         }
     }
 

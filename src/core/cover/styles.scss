@@ -322,6 +322,45 @@ $themes: (
     }
 }
 
+/* ----------------------------------------------------------------
+ * Sidebar: Panel "Sunflower Hero" direkt unter die Stil-Auswahl.
+ * WordPress rendert den Slot group="styles" fest am Ende des
+ * Stile-Tabs, daher wird die Reihenfolge per Flex-Order korrigiert.
+ * (Laeuft im Admin-Frame, nicht im Editor-Canvas.)
+ * ---------------------------------------------------------------- */
+.block-editor-block-inspector__tabs [role="tabpanel"]:has(.sunflower-hero-style-panel) {
+    display: flex;
+    flex-direction: column;
+
+    /* Stil-Auswahl (erstes Element) bleibt ganz oben */
+    > :first-child {
+        order: -2;
+    }
+
+    /* Unser Panel direkt dahinter, alles andere folgt (order: 0) */
+    > .sunflower-hero-style-panel,
+    > :has(.sunflower-hero-style-panel) {
+        order: -1;
+    }
+}
+
+/* ----------------------------------------------------------------
+ * 2️⃣  "Bild nicht zuschneiden" (no-crop mode)
+ *     Die Bildproportion bestimmt die Hoehe statt des Viewports.
+ * ---------------------------------------------------------------- */
+.wp-block-cover.is-style-sunflower-hero.sunflower-hero-no-crop {
+    height: auto !important;
+    min-height: 0 !important;
+
+    .wp-block-cover__image-background {
+        position: relative !important;
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+    }
+}
+
 body.admin-bar .entry-content > :first-child.wp-block-cover.is-style-sunflower-hero {
     height: calc(100vh - (var(--double-grid-margin) + 32px ));
 
