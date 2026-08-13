@@ -84,10 +84,6 @@ header .social-media-profiles {
 
             }
 
-            button.submenu-opener {
-                background-image: url(assets/img/dropdown.svg) !important;
-            }
-
             border: 1px solid rgba(255, 255, 255, 0.15);
 
             .menu-item-has-children {
@@ -141,15 +137,19 @@ header .social-media-profiles {
         }
     }
 
+    button.submenu-opener {
+        background-image: url(assets/img/dropdown.svg) !important;
+        pointer-events: none;
+    }
+
     .logo-background {
-        background-color: #005538;
+        background-color: #005538 !important;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 60px;
         height: 60px;
         transition: 0.3s background-color ease;
-
         border-radius: 10px;
 
         @include media-breakpoint-down(xl) {
@@ -157,7 +157,7 @@ header .social-media-profiles {
         }
 
         &:hover {
-            background-color: map.get($custom-colors, "grashalm");
+            background-color: map.get($custom-colors, "grashalm") !important;
 
             .logo-img {
                 color: map.get($custom-colors, "white");
@@ -314,6 +314,7 @@ header .social-media-profiles {
                 .nav {
                     gap: var(--gap-large);
                     margin-right: var(--grid-margin);
+                    flex-direction: row;
                 }
 
                 ul {
@@ -329,17 +330,14 @@ header .social-media-profiles {
 
                     .dropdown-menu {
                         display: none;
-
                         list-style: none;
                         margin: 33px 0 0 0;
                         padding-top: 17px;
                         position: absolute;
-
                         left: calc(-1 * calc(var(--gap-large) / 2));
                         right: auto;
-                        background: map.get($custom-colors, "white");
                         z-index: 100;
-                        min-width: 250px;
+                        min-width: 150px;
                         border: none;
                         width: fit-content;
                         overflow-x: hidden;
@@ -955,7 +953,6 @@ body.admin-bar {
 .menu-item-has-children {
 
     a {
-        padding-right: 18px;
         position: relative;
         z-index: 140;
     }

@@ -10,9 +10,6 @@ body.navbar-open {
 
         .nav-item {
 
-            /* open the dropdown menu on hover only on desktop with
-             * mouse pointer
-             */
             @media (hover: hover) {
 
                 &:hover {
@@ -33,6 +30,15 @@ body.navbar-open {
 
 .hamburger-menu .topmenu {
     display: none;
+}
+
+/* Während der Überlaufmessung (Menu-Collapse in frontend.js) offene
+ * Dropdowns ausblenden, damit sie die Messung nicht verfälschen.
+ * Die Klasse liegt nur synchron innerhalb eines JS-Tasks an und
+ * wird nie gerendert.
+ */
+body.menu-measuring .main-menu .dropdown-menu {
+    display: none !important;
 }
 
 .topmenu {
@@ -250,6 +256,7 @@ body.colorscheme-green .topmenu .current-menu-item a {
                     button.submenu-opener {
                         border: none;
                         background: none;
+                        padding: 0 12px;
 
                         @include themed-colorscheme-nested() {
                             background-image: url(#{t(menu-dropdown-icon)});
@@ -259,10 +266,6 @@ body.colorscheme-green .topmenu .current-menu-item a {
                         background-size: 13px;
                         background-position: center;
                         transition: transform 0.2s ease-in-out;
-
-                        @include media-breakpoint-up(lg) {
-                            padding: 0 12px;
-                        }
 
                         &.show {
                             content: "";
@@ -295,8 +298,8 @@ body.colorscheme-green .topmenu .current-menu-item a {
 
                             border-radius: 0;
                             padding: 0;
-
                             border: none;
+                            --bs-dropdown-bg: transparent !important;
 
                             &-spacer {
                                 height: 0;
@@ -315,12 +318,12 @@ body.colorscheme-green .topmenu .current-menu-item a {
 
                                 &-0 {
 
-                                    @include media-breakpoint-up(lg) {
-                                        overflow: visible;
-                                        border: 0;
-                                        border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
-                                        box-shadow: 0 25px 20px rgba(0, 0, 0, 0.1);
-                                    }
+                                    border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
+                                    padding: 10px 0 3px 0;
+                                    overflow: visible;
+                                    border: 0;
+                                    box-shadow: 0 25px 20px rgba(0, 0, 0, 0.1);
+                                    background: map.get($custom-colors, "white") !important;
 
                                     a {
                                         padding-left: 1rem;
