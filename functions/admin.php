@@ -220,6 +220,61 @@ function sunflower_admin_style() {
 add_action( 'admin_enqueue_scripts', 'sunflower_admin_style' );
 
 /**
+ * Add the last modified column to post, page and event list tables.
+ *
+ * @param array<string, string> $columns Existing list table columns.
+ * @return array<string, string> List table columns including last modified.
+ */
+function sunflower_add_modified_by_column( $columns ) {
+	$columns['last_modified_by'] = __( 'Last modified', 'sunflower' );
+
+	return $columns;
+}
+
+// Also applies to non-hierarchical custom post types such as sunflower_event.
+add_filter( 'manage_posts_columns', 'sunflower_add_modified_by_column' );
+add_filter( 'manage_pages_columns', 'sunflower_add_modified_by_column' );
+
+/**
+ * Show the last editor and modification timestamp in the custom list table column.
+ *
+ * @param string $column  Current column name.
+ * @param int    $post_id Current post ID.
+ */
+function sunflower_fill_modified_by_column( $column, $post_id ) {
+	if ( 'last_modified_by' !== $column ) {
+		return;
+	}
+
+	$last_user_id = (int) get_post_meta( $post_id, '_edit_last', true );
+	if ( ! $last_user_id ) {
+		$last_user_id = (int) get_post_field( 'post_author', $post_id );
+	}
+
+	$user      = get_userdata( $last_user_id );
+	$user_name = $user ? $user->user_login : __( 'Unknown', 'sunflower' );
+
+	$modified_date = get_the_modified_date( 'd.m.Y', $post_id );
+	$modified_time = get_the_modified_time( 'H:i', $post_id );
+	$modified_at   = sprintf(
+		/* translators: %1$s is the modification date, %2$s is the modification time. */
+		__( '%1$s at %2$s', 'sunflower' ),
+		$modified_date,
+		$modified_time
+	);
+
+	printf(
+		'<strong>%1$s</strong><br><small>%2$s</small>',
+		esc_html( $user_name ),
+		esc_html( $modified_at )
+	);
+}
+
+// Also applies to non-hierarchical custom post types such as sunflower_event.
+add_action( 'manage_posts_custom_column', 'sunflower_fill_modified_by_column', 10, 2 );
+add_action( 'manage_pages_custom_column', 'sunflower_fill_modified_by_column', 10, 2 );
+
+/**
  * Add footer note to all backend pages.
  */
 function sunflower_change_admin_footer() {

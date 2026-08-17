@@ -1218,3 +1218,15 @@ msgstr ""
 msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
+#: functions/admin.php
+msgid "Last modified"
+msgstr ""
+
+#: functions/admin.php
+msgid "Unknown"
+msgstr ""
+
+#. translators: %1$s is the modification date, %2$s is the modification time.
+#: functions/admin.php
+msgid "%1$s at %2$s"
+msgstr ""
