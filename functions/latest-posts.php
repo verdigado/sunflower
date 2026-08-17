@@ -124,10 +124,11 @@ add_action( 'admin_init', 'sunflower_migrate_latest_posts_block_layout' );
  * @param int                 $number The amount of posts to fetch. -1 for all.
  * @param null|int[]|string[] $category_ids Array of category IDs.
  * @param null|string[]       $exclude_ids Array of category IDs to exclude posts.
+ * @param string              $sticky How to handle sticky posts: 'first' shows them at the top, 'ignore' sorts them by date.
  *
  * @return WP_Query
  */
-function sunflower_get_latest_posts( $number = -1, $category_ids = null, $exclude_ids = null ) {
+function sunflower_get_latest_posts( $number = -1, $category_ids = null, $exclude_ids = null, $sticky = 'ignore' ) {
 	$tax_query = array();
 
 	if ( $exclude_ids ) {
@@ -169,12 +170,52 @@ function sunflower_get_latest_posts( $number = -1, $category_ids = null, $exclud
 		}
 	}
 
+	/*
+	 * Core sorts sticky posts to the front only for the blog home page and skips
+	 * it as soon as a category filter is set, so 'ignore_sticky_posts' switches
+	 * off that unreliable handling. Like core/latest-posts, sticky posts are
+	 * therefore listed by date - unless $sticky asks for them at the top, which
+	 * is done by hand below.
+	 */
+	$args = array(
+		'post_type'           => 'post',
+		'posts_per_page'      => $number,
+		'tax_query'           => $tax_query,
+		'order'               => 'DESC',
+		'ignore_sticky_posts' => true,
+		'no_found_rows'       => true,
+	);
+
+	$sticky_posts = get_option( 'sticky_posts' );
+	if ( 'first' !== $sticky || ! $sticky_posts ) {
+		return new WP_Query( $args );
+	}
+
+	// Query IDs with the same filters, so the chosen categories apply to sticky posts as well.
+	$id_args = array_merge(
+		$args,
+		array(
+			'fields'           => 'ids',
+			'suppress_filters' => false,
+		)
+	);
+
+	$sticky_ids = get_posts( array_merge( $id_args, array( 'post__in' => $sticky_posts ) ) );
+	if ( ! $sticky_ids ) {
+		return new WP_Query( $args );
+	}
+
+	$other_ids = get_posts( array_merge( $id_args, array( 'post__not_in' => $sticky_ids ) ) );
+
+	// Sticky posts first, the rest by date. 'posts_per_page' cuts off the surplus.
 	return new WP_Query(
 		array(
-			'post_type'      => 'post',
-			'posts_per_page' => $number,
-			'tax_query'      => $tax_query,
-			'order'          => 'DESC',
+			'post_type'           => 'post',
+			'posts_per_page'      => $number,
+			'post__in'            => array_merge( $sticky_ids, $other_ids ),
+			'orderby'             => 'post__in',
+			'ignore_sticky_posts' => true,
+			'no_found_rows'       => true,
 		)
 	);
 }

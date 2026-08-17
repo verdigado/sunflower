@@ -68,7 +68,9 @@ if ( ! $sunflower_link || '' === $sunflower_link ) {
 
 $sunflower_archive_label = ( $attributes['archiveText'] ?? '' ) ? ( $attributes['archiveText'] ?? '' ) : __( 'Archive', 'sunflower-latest-posts' );
 
-$sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories, $sunflower_excluded_categories );
+$sunflower_sticky = isset( $attributes['sticky'] ) ? (string) $attributes['sticky'] : 'ignore';
+
+$sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories, $sunflower_excluded_categories, $sunflower_sticky );
 
 $sunflower_title = ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) ? sprintf( '<h2 class="text-center">%s</h2>', $attributes['title'] ) : '';
 
