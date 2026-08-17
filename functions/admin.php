@@ -231,9 +231,9 @@ function sunflower_add_modified_by_column( $columns ) {
 	return $columns;
 }
 
+// Also applies to non-hierarchical custom post types such as sunflower_event.
 add_filter( 'manage_posts_columns', 'sunflower_add_modified_by_column' );
 add_filter( 'manage_pages_columns', 'sunflower_add_modified_by_column' );
-add_filter( 'manage_sunflower_event_posts_columns', 'sunflower_add_modified_by_column' );
 
 /**
  * Show the last editor and modification timestamp in the custom list table column.
@@ -270,9 +270,9 @@ function sunflower_fill_modified_by_column( $column, $post_id ) {
 	);
 }
 
+// Also applies to non-hierarchical custom post types such as sunflower_event.
 add_action( 'manage_posts_custom_column', 'sunflower_fill_modified_by_column', 10, 2 );
 add_action( 'manage_pages_custom_column', 'sunflower_fill_modified_by_column', 10, 2 );
-add_action( 'manage_sunflower_event_posts_custom_column', 'sunflower_fill_modified_by_column', 10, 2 );
 
 /**
  * Add footer note to all backend pages.
