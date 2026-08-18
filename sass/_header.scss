@@ -138,8 +138,7 @@ header .social-media-profiles {
     }
 
     button.submenu-opener {
-        background-image: url(assets/img/dropdown.svg) !important;
-        pointer-events: none;
+        background-image: url(assets/img/dropdown.svg);
     }
 
     .logo-background {
@@ -398,6 +397,9 @@ header .social-media-profiles {
 
                         > .dropdown-menu {
                             display: block;
+
+                            top: 100%;
+                            margin-top: 0;
                         }
                     }
 

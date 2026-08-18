@@ -247,6 +247,7 @@ body.colorscheme-green .topmenu .current-menu-item a {
 
                 padding: 4px 0;
                 display: flex;
+                align-items: center;
 
                 &.menu-item-has-children {
 
@@ -257,6 +258,8 @@ body.colorscheme-green .topmenu .current-menu-item a {
                         border: none;
                         background: none;
                         padding: 0 12px;
+
+                        align-self: stretch;
 
                         @include themed-colorscheme-nested() {
                             background-image: url(#{t(menu-dropdown-icon)});

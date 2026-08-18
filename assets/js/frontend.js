@@ -684,7 +684,13 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 		const openHandler = () => requestAnimationFrame( reposition );
 		const closeHandler = () => {
-			submenu.style.transform = '';
+			// Per Klick (Bootstrap) geöffnete Dropdowns bleiben trotz
+			// mouseleave/focusout offen. Dann das Clamp-Transform behalten,
+			// sonst springt ein am rechten Rand geclamptes Menü aus dem
+			// Viewport. Nur zurücksetzen, wenn das Menü wirklich zu ist.
+			if ( getComputedStyle( submenu ).display === 'none' ) {
+				submenu.style.transform = '';
+			}
 		};
 
 		item.addEventListener( 'mouseenter', openHandler );
