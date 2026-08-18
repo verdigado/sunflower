@@ -368,7 +368,7 @@ body {
     }
 }
 
-body #content {
+:where(#content) {
 
     .has-small-font-size,
     .article .has-small-font-size p,
@@ -423,7 +423,7 @@ body #content {
     }
 }
 
-body #content {
+:where(#content) {
 
 
     h1 {
