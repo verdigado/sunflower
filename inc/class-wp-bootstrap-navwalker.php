@@ -353,7 +353,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 
 			if ( $this->has_children && 0 === $depth ) {
 				$item_output .= '
-					<button class="toggle submenu-expand submenu-opener" data-toggle-target="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+					<button class="toggle submenu-expand submenu-opener" data-toggle-target="dropdown" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
 						<span class="screen-reader-text">' . esc_attr__( 'Show sub menu', 'sunflower' ) . '</span>
 					</button>';
 			}

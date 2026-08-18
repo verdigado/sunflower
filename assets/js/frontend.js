@@ -494,6 +494,7 @@ document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
 
 ( () => {
 	const BODY_CLASS = 'hamburger-menu';
+	const MEASURE_CLASS = 'menu-measuring';
 	const rightBar = document.querySelector( '.right-bar' );
 	const content = rightBar?.querySelector( '.right-bar__content' );
 	if ( ! rightBar || ! content ) {
@@ -515,10 +516,18 @@ document.querySelectorAll( '.wp-block-group' ).forEach( ( group ) => {
 			stickyEl.classList.remove( 'stuck' );
 		}
 
+		// Hide open dropdown submenus during measurement: they are absolutely
+		// positioned but still count towards scrollWidth/scrollHeight and
+		// would falsely trigger the hamburger collapse (e.g. when the mouse
+		// hovers a parent item right after a page load).
+		document.body.classList.add( MEASURE_CLASS );
+
 		// scrollWidth read forces synchronous reflow — no paint until JS yields
 		const overflow =
 			content.scrollWidth > content.clientWidth + 1 ||
 			content.scrollHeight > content.clientHeight + 1;
+
+		document.body.classList.remove( MEASURE_CLASS );
 
 		if ( wasStuck ) {
 			stickyEl.classList.add( 'stuck' );
@@ -632,41 +641,56 @@ document.addEventListener( 'keydown', ( e ) => {
 
 document.addEventListener( 'DOMContentLoaded', () => {
 	const ITEM_SELECTOR = '.main-menu .nav > li.menu-item-has-children';
+	const VIEWPORT_MARGIN = 8;
 	const items = document.querySelectorAll( ITEM_SELECTOR );
+	const repositioners = [];
 
 	items.forEach( ( item ) => {
-		const submenu = item.querySelector( ':scope > ul.dropdown-menu' );
+		// Der Navwalker rendert das Untermenü als <div class="dropdown-menu">.
+		const submenu = item.querySelector( ':scope > div.dropdown-menu' );
 		if ( ! submenu ) {
 			return;
 		}
 
 		const reposition = () => {
-			submenu.style.left = '';
-			submenu.style.right = '';
 			submenu.style.transform = '';
 
-			if ( getComputedStyle( submenu ).display === 'none' ) {
+			// Nur im Desktop-Layout verschieben; im Hamburger-Menü ist das
+			// Untermenü Teil des normalen Flusses.
+			if (
+				document.body.classList.contains( 'hamburger-menu' ) ||
+				getComputedStyle( submenu ).display === 'none'
+			) {
 				return;
 			}
 
 			const rect = submenu.getBoundingClientRect();
-			const overflowRight = rect.right - window.innerWidth;
-			const overflowLeft = rect.left;
+			let shift = 0;
 
-			if ( overflowRight > 0 ) {
-				submenu.style.left = 'auto';
-				submenu.style.right = '0';
-			} else if ( overflowLeft < 0 ) {
-				submenu.style.left = '0';
-				submenu.style.right = 'auto';
+			if ( rect.right > window.innerWidth - VIEWPORT_MARGIN ) {
+				shift = window.innerWidth - VIEWPORT_MARGIN - rect.right;
+			}
+			// Nie über den linken Rand hinaus schieben.
+			if ( rect.left + shift < VIEWPORT_MARGIN ) {
+				shift = VIEWPORT_MARGIN - rect.left;
+			}
+
+			if ( shift !== 0 ) {
+				submenu.style.transform = `translateX(${ shift }px)`;
 			}
 		};
 
+		repositioners.push( reposition );
+
 		const openHandler = () => requestAnimationFrame( reposition );
 		const closeHandler = () => {
-			submenu.style.left = '';
-			submenu.style.right = '';
-			submenu.style.transform = '';
+			// Per Klick (Bootstrap) geöffnete Dropdowns bleiben trotz
+			// mouseleave/focusout offen. Dann das Clamp-Transform behalten,
+			// sonst springt ein am rechten Rand geclamptes Menü aus dem
+			// Viewport. Nur zurücksetzen, wenn das Menü wirklich zu ist.
+			if ( getComputedStyle( submenu ).display === 'none' ) {
+				submenu.style.transform = '';
+			}
 		};
 
 		item.addEventListener( 'mouseenter', openHandler );
@@ -680,24 +704,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	} );
 
 	window.addEventListener( 'resize', () => {
-		document
-			.querySelectorAll( `${ ITEM_SELECTOR }:hover > ul.dropdown-menu` )
-			.forEach( ( submenu ) =>
-				requestAnimationFrame( () => {
-					submenu.style.left = '';
-					submenu.style.right = '';
-					const rect = submenu.getBoundingClientRect();
-					const overflowRight = rect.right - window.innerWidth;
-					const overflowLeft = rect.left;
-					if ( overflowRight > 0 ) {
-						submenu.style.left = 'auto';
-						submenu.style.right = '0';
-					} else if ( overflowLeft < 0 ) {
-						submenu.style.left = '0';
-						submenu.style.right = 'auto';
-					}
-				} )
-			);
+		requestAnimationFrame( () =>
+			repositioners.forEach( ( reposition ) => reposition() )
+		);
 	} );
 } );
 
