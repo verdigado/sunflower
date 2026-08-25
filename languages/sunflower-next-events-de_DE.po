@@ -1,89 +1,169 @@
-# Copyright (C) 2024 verdigado eG
-# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.0.9\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-next-"
-"events\n"
-"POT-Creation-Date: 2024-04-15T13:17:31+00:00\n"
-"PO-Revision-Date: 2024-04-15 15:35+0200\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-next-events\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-25T15:49:32+02:00\n"
+"PO-Revision-Date: 2026-08-25 15:56+0200\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Domain: sunflower-next-events\n"
 
 #. Theme Name of the theme
-msgid "sunflower"
+#: style.css:3
+msgid "Sunflower 26"
 msgstr ""
 
 #. Theme URI of the theme
+#: style.css:4
 msgid "https://sunflower-theme.de"
 msgstr "Nächste Termine"
 
 #. Description of the theme
+#: style.css:7
 msgid "Theme for the German Green Party"
 msgstr ""
 
 #. Author of the theme
+#: style.css:5
 msgid "verdigado eG"
 msgstr ""
 
 #. Author URI of the theme
+#: style.css:6
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/next-events/render.php:21 build/next-events/index.js:262
-#: build/next-events/index.js:213 src/next-events/edit.js
+#: build/next-events/render.php:10
+#: src/next-events/render.php:10
+#: build/next-events/index.js:201
+#: src/next-events/edit.js:117
+#: build/next-events/index.js:166
 msgid "Next events"
 msgstr "Nächste Termine"
 
+#: build/core/button/block.json
+#: src/core/button/block.json
+msgctxt "block title"
+msgid "Modified Button Block for Sunflower Theme"
+msgstr ""
+
+#: build/core/button/block.json
+#: src/core/button/block.json
+msgctxt "block description"
+msgid "Core button block with optional Font‑Awesome icon."
+msgstr ""
+
+#: build/core/cover/block.json
+#: src/core/cover/block.json
+msgctxt "block title"
+msgid "Modified Cover Block Styles for Sunflower Theme"
+msgstr ""
+
+#: build/core/list/block.json
+#: src/core/list/block.json
+msgctxt "block title"
+msgid "Modified List Block Styles for Sunflower Theme"
+msgstr ""
+
 #: build/next-events/block.json
+#: src/next-events/block.json
 msgctxt "block title"
 msgid "Next Events (Sunflower)"
 msgstr "Nächste Termine (Sunflower)"
 
 #: build/next-events/block.json
+#: src/next-events/block.json
 msgctxt "block description"
 msgid "Show Next Events in Sunflower Design"
 msgstr "Zeige die nächsten Termine im Sunflower-Design"
 
-#: src/next-events/edit.js
-msgid "Settings"
-msgstr "Einstellungen"
+#: theme.json
+msgctxt "Color name"
+msgid "Schwarzwald"
+msgstr ""
 
-#: src/next-events/edit.js
-msgid "Block title"
-msgstr "Blocktitel"
+#: theme.json
+msgctxt "Color name"
+msgid "Tanne"
+msgstr ""
 
-#: src/next-events/edit.js
-msgid "Heading displayed above the events list"
-msgstr "Überschrift, die über der Terminliste angezeigt wird"
+#: theme.json
+msgctxt "Color name"
+msgid "Klee"
+msgstr ""
 
-#: src/next-events/edit.js
-msgid "Number of items"
-msgstr "Anzahl der Einträge"
+#: theme.json
+msgctxt "Color name"
+msgid "Grashalm"
+msgstr ""
 
-#: src/next-events/edit.js
-msgid "Number of events to show"
-msgstr "Anzahl der angezeigten Termine"
+#: theme.json
+msgctxt "Color name"
+msgid "Sonne"
+msgstr ""
 
-#: src/next-events/edit.js
-msgid "Filter"
-msgstr "Filter"
+#: theme.json
+msgctxt "Color name"
+msgid "Sand"
+msgstr ""
 
-#: src/next-events/edit.js
-msgid "Filter by title"
-msgstr "Nach Titel filtern"
+#: theme.json
+msgctxt "Color name"
+msgid "Grüner Sand"
+msgstr ""
 
-#: src/next-events/edit.js
-msgid "Only show events whose title contains this text (case-insensitive)"
-msgstr "Nur Termine anzeigen, deren Titel diesen Text enthält (Groß-/Kleinschreibung wird ignoriert)"
+#: theme.json
+msgctxt "Color name"
+msgid "Maus"
+msgstr ""
 
-#: src/next-events/edit.js
-msgid "Tags"
-msgstr "Schlagwörter"
+#: theme.json
+msgctxt "Color name"
+msgid "Kalk"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Himmel"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "PT Sans"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "GrueneType Neue"
+msgstr ""
