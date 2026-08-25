@@ -24,8 +24,7 @@ $sunflower_captcha_sum   = $sunflower_captcha_num1 + $sunflower_captcha_num2;
 $sunflower_captcha_salt  = defined( 'NONCE_SALT' ) ? NONCE_SALT : 'sunflower_default_fallback_salt';
 $sunflower_captcha_token = hash( 'sha256', $sunflower_captcha_sum . $sunflower_captcha_salt );
 
-// translators: %1$d and %2$d are random numbers for a math captcha.
-$sunflower_captcha_expr = sprintf( __( '%1$d + %2$d', 'sunflower-contact-form' ), $sunflower_captcha_num1, $sunflower_captcha_num2 );
+$sunflower_captcha_expr = sprintf( '%1$d + %2$d', $sunflower_captcha_num1, $sunflower_captcha_num2 );
 // translators: %s is the arithmetic expression (e.g., "3 + 5").
 $sunflower_placeholder_captcha = sprintf( __( 'How much is %s?', 'sunflower-contact-form' ), $sunflower_captcha_expr ) . '*';
 ?>

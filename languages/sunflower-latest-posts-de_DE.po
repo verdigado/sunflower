@@ -1,18 +1,15 @@
-# Copyright (C) 2024 verdigado eG
-# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.0.9\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-latest-"
-"posts\n"
-"POT-Creation-Date: 2026-08-11T21:26:03+00:00\n"
-"PO-Revision-Date: 2026-08-11 22:55+0200\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-latest-posts\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-25T15:49:24+02:00\n"
+"PO-Revision-Date: 2026-08-25 15:54+0200\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.2\n"
 "X-Domain: sunflower-latest-posts\n"
@@ -42,94 +39,46 @@ msgstr ""
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/latest-posts/render.php:69 src/latest-posts/render.php:69
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:332
+#: build/latest-posts/render.php:69
+#: src/latest-posts/render.php:69
+#: build/latest-posts/index.js:323
+#: src/latest-posts/edit.js:332
+#: build/latest-posts/index.js:386
 msgid "Archive"
 msgstr "Archiv"
 
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:163
-msgid ""
-"Posts marked to stick to the top come first, all other posts follow by date."
-msgstr ""
-"Beiträge mit der Markierung „oben halten“ kommen zuerst, alle anderen "
-"folgen nach Datum."
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:167
-msgid ""
-"All posts are listed by date. The mark to stick a post to the top is ignored."
-msgstr ""
-"Alle Beiträge stehen nach Datum. Die Markierung „oben halten“ wird "
-"ignoriert."
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:199
-msgid "Slider view"
-msgstr ""
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:235
-msgid "Title of the block section"
-msgstr "Titel des Beitrags-Blocks"
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:253
-msgid "Excluded Categories"
-msgstr "Ausgeschlossene Kategorien"
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:264
-msgid "Number of posts to be shown"
-msgstr "Anzahl der Beiträge, die angezeigt werden sollen"
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:275
-msgid "Order of posts"
-msgstr "Reihenfolge der Beiträge"
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:284
-msgid "By date"
-msgstr "Nach Datum"
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:291
-msgid "Sticky posts first"
-msgstr "Oben gehaltene zuerst"
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:316
-msgid ""
-"Im Modus für flexible Beitragsbild-Proportionen wird das Raster immer "
-"zweispaltig. Die Spaltenanzahl kann nur im „Modern\"-Modus (Sunflower-"
-"Einstellungen) geändert werden."
-msgstr ""
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:324
-msgid "Archive Text"
-msgstr "Blog-Archiv-Link"
-
-#: build/latest-posts/index.js:1 src/latest-posts/edit.js:328
-msgid "Link label of the archive link"
-msgstr "Linktext für den Archiv-Link"
-
-#: build/core/button/block.json src/core/button/block.json
+#: build/core/button/block.json
+#: src/core/button/block.json
 msgctxt "block title"
 msgid "Modified Button Block for Sunflower Theme"
 msgstr ""
 
-#: build/core/button/block.json src/core/button/block.json
+#: build/core/button/block.json
+#: src/core/button/block.json
 msgctxt "block description"
 msgid "Core button block with optional Font‑Awesome icon."
 msgstr ""
 
-#: build/core/cover/block.json src/core/cover/block.json
+#: build/core/cover/block.json
+#: src/core/cover/block.json
 msgctxt "block title"
 msgid "Modified Cover Block Styles for Sunflower Theme"
 msgstr ""
 
-#: build/core/list/block.json src/core/list/block.json
+#: build/core/list/block.json
+#: src/core/list/block.json
 msgctxt "block title"
 msgid "Modified List Block Styles for Sunflower Theme"
 msgstr ""
 
-#: build/latest-posts/block.json src/latest-posts/block.json
+#: build/latest-posts/block.json
+#: src/latest-posts/block.json
 msgctxt "block title"
 msgid "Latest Posts (Sunflower)"
 msgstr "Neueste Beiträge (Sunflower)"
 
-#: build/latest-posts/block.json src/latest-posts/block.json
+#: build/latest-posts/block.json
+#: src/latest-posts/block.json
 msgctxt "block description"
 msgid "Show Latest Posts in Sunflower Design"
 msgstr "Zeige die letzten Beiträge im Sunflower-Design"
@@ -219,19 +168,11 @@ msgctxt "Font family name"
 msgid "GrueneType Neue"
 msgstr ""
 
-#~ msgid ""
-#~ "Sticky posts are listed at the beginning of the block, all other posts "
-#~ "follow by date."
-#~ msgstr ""
-#~ "Oben gehaltene Beiträge stehen am Anfang des Blocks, alle weiteren "
-#~ "Beiträge folgen nach Datum."
+#~ msgid "Sticky posts are listed at the beginning of the block, all other posts follow by date."
+#~ msgstr "Oben gehaltene Beiträge stehen am Anfang des Blocks, alle weiteren Beiträge folgen nach Datum."
 
-#~ msgid ""
-#~ "Sticky posts get no preferential treatment, all posts appear in the order "
-#~ "of their date."
-#~ msgstr ""
-#~ "Oben gehaltene Beiträge werden nicht bevorzugt – alle Beiträge erscheinen "
-#~ "in der Reihenfolge ihres Datums."
+#~ msgid "Sticky posts get no preferential treatment, all posts appear in the order of their date."
+#~ msgstr "Oben gehaltene Beiträge werden nicht bevorzugt – alle Beiträge erscheinen in der Reihenfolge ihres Datums."
 
 #~ msgid "Sticky posts"
 #~ msgstr "Oben gehaltene Beiträge"
@@ -240,24 +181,16 @@ msgstr ""
 #~ msgstr "Ganz oben"
 
 #~ msgid "Sticky posts are sorted by date, just like every other post."
-#~ msgstr ""
-#~ "Oben gehaltene Beiträge werden nach Datum sortiert, genau wie alle "
-#~ "anderen Beiträge."
+#~ msgstr "Oben gehaltene Beiträge werden nach Datum sortiert, genau wie alle anderen Beiträge."
 
-#~ msgid ""
-#~ "Posts marked as sticky are either sorted by date like every other post or "
-#~ "listed at the beginning of the block."
-#~ msgstr ""
-#~ "Beiträge, die als „oben halten“ markiert sind, werden entweder wie alle "
-#~ "anderen Beiträge nach Datum sortiert oder am Anfang des Blocks aufgeführt."
+#~ msgid "Posts marked as sticky are either sorted by date like every other post or listed at the beginning of the block."
+#~ msgstr "Beiträge, die als „oben halten“ markiert sind, werden entweder wie alle anderen Beiträge nach Datum sortiert oder am Anfang des Blocks aufgeführt."
 
 #~ msgid "Show sticky posts first"
 #~ msgstr "Oben gehaltene Beiträge zuerst anzeigen"
 
 #~ msgid "Posts marked as sticky are shown at the beginning of the block."
-#~ msgstr ""
-#~ "Beiträge, die als „oben halten“ markiert sind, werden am Anfang des "
-#~ "Blocks angezeigt."
+#~ msgstr "Beiträge, die als „oben halten“ markiert sind, werden am Anfang des Blocks angezeigt."
 
 #~ msgid "to archive"
 #~ msgstr "zum Blog-Archiv"
