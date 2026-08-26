@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-25T15:49:11+02:00\n"
+"POT-Creation-Date: 2026-08-26T13:16:30+02:00\n"
 "PO-Revision-Date: \n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -64,7 +64,6 @@ msgstr "Zu den kommenden Veranstaltungen"
 
 #: archive-sunflower_event.php:49
 #: build/next-events/render.php:62
-#: src/next-events/render.php:62
 msgid "all events"
 msgstr "Alle Termine"
 
@@ -117,12 +116,10 @@ msgid "next"
 msgstr "vor"
 
 #: build/latest-posts/render.php:123
-#: src/latest-posts/render.php:123
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"
 
 #: build/next-events/render.php:47
-#: src/next-events/render.php:47
 msgid "Currently there are no coming events."
 msgstr "Derzeit sind keine Veranstaltungen geplant."
 
@@ -1116,25 +1113,21 @@ msgid "Related Posts"
 msgstr "Ähnliche Artikel"
 
 #: build/core/button/block.json
-#: src/core/button/block.json
 msgctxt "block title"
 msgid "Modified Button Block for Sunflower Theme"
 msgstr ""
 
 #: build/core/button/block.json
-#: src/core/button/block.json
 msgctxt "block description"
 msgid "Core button block with optional Font‑Awesome icon."
 msgstr ""
 
 #: build/core/cover/block.json
-#: src/core/cover/block.json
 msgctxt "block title"
 msgid "Modified Cover Block Styles for Sunflower Theme"
 msgstr ""
 
 #: build/core/list/block.json
-#: src/core/list/block.json
 msgctxt "block title"
 msgid "Modified List Block Styles for Sunflower Theme"
 msgstr ""

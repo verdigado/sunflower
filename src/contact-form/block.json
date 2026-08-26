@@ -32,6 +32,10 @@
 		"sendCopy": {
 			"type": "boolean",
 			"default": false
+		},
+		"showCaptcha": {
+			"type": "boolean",
+			"default": true
 		}
 	},
 	"supports": {
