@@ -16,6 +16,7 @@ $sunflower_sendcopy      = $attributes['sendCopy'] ?? 0;
 $sunflower_display_phone = $attributes['displayPhone'] ?? false;
 $sunflower_require_phone = $attributes['requirePhone'] ?? false;
 $sunflower_require_mail  = $attributes['requireMail'] ?? false;
+$sunflower_show_captcha  = $attributes['showCaptcha'] ?? true;
 
 // Dynamic Captcha generation.
 $sunflower_captcha_num1  = wp_rand( 1, 9 );
@@ -31,7 +32,23 @@ $sunflower_captcha_expr = sprintf( __( '%1$d + %2$d', 'sunflower-contact-form' )
 <div class="comment-respond mb-5">
 	<?php printf( '<h2 id="contact-form-title" class="text-center h1">%s</h2>', esc_attr( $sunflower_title ) ); ?>
 	<form id="sunflower-contact-form" method="post" class="row">
-	<?php wp_nonce_field( 'sunflower_contact_form' ); ?>
+		<?php wp_nonce_field( 'sunflower_contact_form' ); ?>
+		<?php
+		// Spam protection: signed render timestamp (time-trap) + captcha-enabled flag.
+		// The flag is inside the HMAC so a bot cannot switch the captcha off by tampering.
+		$sunflower_form_ts      = time();
+		$sunflower_captcha_flag = $sunflower_show_captcha ? '1' : '0';
+		$sunflower_form_ts_sig  = hash_hmac( 'sha256', $sunflower_form_ts . '|' . $sunflower_captcha_flag, $sunflower_captcha_salt );
+		?>
+		<input type="hidden" name="form_ts" value="<?php echo esc_attr( $sunflower_form_ts ); ?>" />
+		<input type="hidden" name="form_ts_sig" value="<?php echo esc_attr( $sunflower_form_ts_sig ); ?>" />
+		<input type="hidden" name="captcha_on" value="<?php echo esc_attr( $sunflower_captcha_flag ); ?>" />
+
+		<?php // Honeypot: hidden from humans; bots that fill it are rejected. ?>
+		<div class="comment-form-website" aria-hidden="true" style="position:absolute;left:-5000px;top:auto;width:1px;height:1px;overflow:hidden;">
+			<label for="website"><?php esc_html_e( 'Leave this field empty', 'sunflower-contact-form' ); ?></label>
+			<input id="website" name="website" type="text" tabindex="-1" autocomplete="off" value="" />
+		</div>
 
 	<div class="col-12 col-md-6">
 		<p class="comment-form-comment">
@@ -81,8 +98,9 @@ $sunflower_captcha_expr = sprintf( __( '%1$d + %2$d', 'sunflower-contact-form' )
 			<?php
 		}
 		?>
-		<p class="comment-form-email">
-			<label for="captcha">
+		<?php if ( $sunflower_show_captcha ) : ?>
+			<p class="comment-form-email">
+				<label for="captcha">
 				<?php
 					/* translators: %s is the arithmetic expression (e.g., "3 + 5") */
 					echo esc_html( sprintf( __( 'How much is %s?', 'sunflower-contact-form' ), $sunflower_captcha_expr ) );
@@ -100,9 +118,10 @@ $sunflower_captcha_expr = sprintf( __( '%1$d + %2$d', 'sunflower-contact-form' )
 						required
 					/>
 					<input type="hidden" name="captcha_token" value="<?php echo esc_attr( $sunflower_captcha_token ); ?>" />
-		</p>
+			</p>
 
-	</div>
+		</div>
+		<?php endif; ?>
 
 		<?php
 		if ( $sunflower_mailto ) {

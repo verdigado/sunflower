@@ -165,6 +165,10 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function ( e ) {
 				captcha_token: jQuery( 'input[name="captcha_token"]' ).val(),
 				sendCopy: jQuery( '#send-copy' ).val(),
 				postId: jQuery( '#post-id' ).val(),
+				website: jQuery( 'input[name="website"]' ).val(),
+				form_ts: jQuery( 'input[name="form_ts"]' ).val(),
+				form_ts_sig: jQuery( 'input[name="form_ts_sig"]' ).val(),
+				captcha_on: jQuery( 'input[name="captcha_on"]' ).val(),
 			},
 		} )
 		.done( function ( response ) {
