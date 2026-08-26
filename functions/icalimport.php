@@ -98,6 +98,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			$wp_id = get_the_ID();
 		}
 
+		$title        = isset( $event->SUMMARY ) ? $event->SUMMARY->getValue() : __( 'Event', 'sunflower' ); // phpcs:ignore
 		$post_content = sprintf( '<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->', nl2br( (string) $event->DESCRIPTION ) ); // phpcs:ignore
 
 		if ( isset( $event->URL ) && filter_var( (string) $event->URL, FILTER_VALIDATE_URL ) ) { // phpcs:ignore
@@ -107,7 +108,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 		$post = array(
 			'ID'           => $wp_id,
 			'post_type'    => 'sunflower_event',
-			'post_title'   => $event->SUMMARY->getValue(), // phpcs:ignore
+			'post_title'   => $title,
 			'post_content' => $post_content,
 			'post_status'  => 'publish',
 		);
@@ -121,7 +122,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 				</p>',
 				esc_attr__( 'Failed to import event', 'sunflower' ),
 				esc_attr( $event->DTSTART->getDateTime()->format( 'd.m.Y' ) ), // phpcs:ignore
-				esc_attr( $event->SUMMARY->getValue() ) // phpcs:ignore
+				esc_attr( $title )
 			);
 			continue;
 		}
