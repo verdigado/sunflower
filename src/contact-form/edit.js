@@ -45,8 +45,15 @@ export default function Edit( { attributes, setAttributes } ) {
 		className: 'row',
 	} );
 
-	const { title, mailTo, requireMail, requirePhone, displayPhone, sendCopy } =
-		attributes;
+	const {
+		title,
+		mailTo,
+		requireMail,
+		requirePhone,
+		displayPhone,
+		sendCopy,
+		showCaptcha,
+	} = attributes;
 
 	const onChangeTitle = ( input ) => {
 		setAttributes( { title: input === undefined ? '' : input } );
@@ -76,6 +83,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								requireMail,
 								requirePhone,
 								displayPhone,
+								showCaptcha,
 							} }
 						/>
 					</Disabled>
@@ -158,6 +166,18 @@ export default function Edit( { attributes, setAttributes } ) {
 								onChange={ toggleAttribute( 'requirePhone' ) }
 							/>
 						) }
+						<ToggleControl
+							label={ __(
+								'Show number captcha',
+								'sunflower-contact-form'
+							) }
+							help={ __(
+								'Simple arithmetic captcha as spam protection. Honeypot, time trap and rate limiting stay active regardless.',
+								'sunflower-contact-form'
+							) }
+							checked={ showCaptcha }
+							onChange={ toggleAttribute( 'showCaptcha' ) }
+						/>
 					</PanelBody>
 				</InspectorControls>
 			}
