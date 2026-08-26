@@ -25,6 +25,7 @@
     "@wordpress/stylelint-config": "^23.30.0",
     "dir-archiver": "^2.2.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-jsdoc": "^64.2.1",
     "rtlcss": "^3.5.0",
     "sass": "^1.97.3"
   },
