@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-17T12:42:07+02:00\n"
-"PO-Revision-Date: 2026-06-17 12:49+0200\n"
+"POT-Creation-Date: 2026-08-26T14:41:48+02:00\n"
+"PO-Revision-Date: 2026-08-26 14:42+0200\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "2025-07-21T08: 35:19+00:00\n"
@@ -42,35 +42,33 @@ msgid "https://verdigado.com"
 msgstr ""
 
 #: build/contact-form/render.php:11
-#: functions/contact-form.php:95
-#: functions/contact-form.php:111
-#: src/contact-form/render.php:11
-#: build/contact-form/index.js:120
-#: src/contact-form/edit.js:101
-#: build/contact-form/index.js:101
+#: functions/contact-form.php:207
+#: functions/contact-form.php:223
+#: build/contact-form/index.js:122
+#: build/contact-form/index.js:109
 msgid "Contact Form"
 msgstr "Kontaktformular"
 
-#. translators: %1$d and %2$d are random numbers for a math captcha.
-#: build/contact-form/render.php:28
-#: src/contact-form/render.php:28
+#. translators: %s is the arithmetic expression (e.g., "3 + 5").
+#: build/contact-form/render.php:30
 #, php-format
-msgid "%1$d + %2$d"
-msgstr "%1$d + %2$d"
+msgid "How much is %s?"
+msgstr "Was ist %s?"
 
-#: build/contact-form/render.php:38
-#: functions/contact-form.php:60
-#: src/contact-form/render.php:38
+#: build/contact-form/render.php:50
+msgid "Leave this field empty"
+msgstr "Dies Feld bleibt leer"
+
+#: build/contact-form/render.php:56
+#: functions/contact-form.php:172
 msgid "Message"
 msgstr "Nachricht"
 
-#: build/contact-form/render.php:41
-#: src/contact-form/render.php:41
+#: build/contact-form/render.php:59
 msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
 msgstr "Bitte fülle alle Pflichtfelder (<span class=\"required\">*</span>) aus."
 
-#: build/contact-form/render.php:45
-#: src/contact-form/render.php:45
+#: build/contact-form/render.php:63
 msgid ""
 "By using this form, you consent to the storage and processing of your data through our website.\n"
 "            Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>"
@@ -78,123 +76,67 @@ msgstr ""
 "Mit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch diese Website einverstanden. \n"
 "\t\tWeiteres entnimm bitte unserer  <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>"
 
-#: build/contact-form/render.php:56
-#: functions/contact-form.php:47
-#: src/contact-form/render.php:56
+#: build/contact-form/render.php:74
+#: functions/contact-form.php:159
 msgid "Name"
 msgstr "Name"
 
-#: build/contact-form/render.php:63
-#: functions/contact-form.php:52
-#: src/contact-form/render.php:63
+#: build/contact-form/render.php:81
+#: functions/contact-form.php:164
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: build/contact-form/render.php:75
-#: functions/contact-form.php:57
-#: src/contact-form/render.php:75
+#: build/contact-form/render.php:93
+#: functions/contact-form.php:169
 msgid "Phone"
 msgstr "Telefon"
 
-#. translators: %s is the arithmetic expression (e.g., "3 + 5")
-#: build/contact-form/render.php:88
-#: src/contact-form/render.php:88
-#, php-format
-msgid "How much is %s?"
-msgstr "Was ist %s?"
-
-#: build/contact-form/render.php:118
-#: src/contact-form/render.php:118
+#: build/contact-form/render.php:138
 msgid "submit"
 msgstr "absenden"
 
-#: functions/contact-form.php:36
-msgid "Form not sent. Captcha wrong. Please try again."
-msgstr "Das Formular konnte nicht abgesendet werden. Das Captcha ist ungültig. Bitte probier es erneut."
-
-#: functions/contact-form.php:64
+#: functions/contact-form.php:49
+#: functions/contact-form.php:176
 msgid "Thank you. The form has been sent."
 msgstr "Vielen Dank. Deine Nachricht wurde verschickt."
 
-#: functions/contact-form.php:95
+#: functions/contact-form.php:66
+msgid "Form not sent. Please reload the page and try again."
+msgstr "Das Formular konnte nicht abgesendet werden. Bitte lade die Seite neu und versuche es erneut."
+
+#: functions/contact-form.php:77
+msgid "Form not sent. Please take a moment and try again."
+msgstr "Das Formular konnte nicht abgesendet werden. Bitte versuch es in einem Moment erneut."
+
+#: functions/contact-form.php:114
+msgid "Too many messages from your address. Please try again later."
+msgstr "Es gab zu viele Nachrichten von deiner Adresse. Bitte versuch es später wieder."
+
+#: functions/contact-form.php:147
+msgid "Form not sent. Captcha wrong. Please try again."
+msgstr "Das Formular konnte nicht abgesendet werden. Das Captcha ist ungültig. Bitte probier es erneut."
+
+#: functions/contact-form.php:207
 msgid "New Message from"
 msgstr "Neue Nachricht über"
 
-#: functions/contact-form.php:111
+#: functions/contact-form.php:223
 msgid "Your Message on"
 msgstr "Deine Nachricht über"
 
 #: build/contact-form/block.json
-#: src/contact-form/block.json
 msgctxt "block title"
 msgid "Contact Form (Sunflower)"
 msgstr "Kontaktformular ( Sunflower)"
 
 #: build/contact-form/block.json
-#: src/contact-form/block.json
 msgctxt "block description"
 msgid "Simple Contact Form"
 msgstr "Einfaches Kontaktformular"
 
-#: theme.json
-msgctxt "Color name"
-msgid "Himmel"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Tanne"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Klee"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Klee-700"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Grashalm"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "White"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Sonne"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Sand"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Gray"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Black"
-msgstr ""
-
-#: theme.json
-msgctxt "Font family name"
-msgid "PT Sans"
-msgstr ""
-
-#: theme.json
-msgctxt "Font family name"
-msgid "GrueneType Neue"
-msgstr ""
+#, php-format
+#~ msgid "%1$d + %2$d"
+#~ msgstr "%1$d + %2$d"
 
 #~ msgid "Your Message"
 #~ msgstr "Deine Nachricht"
