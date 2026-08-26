@@ -98,6 +98,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 			$wp_id = get_the_ID();
 		}
 
+		$title        = isset( $event->SUMMARY ) ? $event->SUMMARY->getValue() : __( 'Event', 'sunflower' ); // phpcs:ignore
 		// Make plain URLs and e-mail addresses in the description clickable
 		// before newlines are converted, so links pasted into the iCal
 		// DESCRIPTION (e.g. from Nextcloud) become usable (#1155).
@@ -114,7 +115,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 		$post = array(
 			'ID'           => $wp_id,
 			'post_type'    => 'sunflower_event',
-			'post_title'   => $event->SUMMARY->getValue(), // phpcs:ignore
+			'post_title'   => $title,
 			'post_content' => $post_content,
 			'post_status'  => 'publish',
 		);
@@ -128,7 +129,7 @@ function sunflower_icalimport( $url = false, $auto_categories = false ) {
 				</p>',
 				esc_attr__( 'Failed to import event', 'sunflower' ),
 				esc_attr( $event->DTSTART->getDateTime()->format( 'd.m.Y' ) ), // phpcs:ignore
-				esc_attr( $event->SUMMARY->getValue() ) // phpcs:ignore
+				esc_attr( $title )
 			);
 			continue;
 		}
