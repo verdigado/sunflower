@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-25T15:49:20+02:00\n"
-"PO-Revision-Date: 2026-08-25 15:53+0200\n"
+"POT-Creation-Date: 2026-08-26T13:16:53+02:00\n"
+"PO-Revision-Date: 2026-08-26 13:41+0200\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.2\n"
@@ -17,7 +17,7 @@ msgstr ""
 #. Theme Name of the theme
 #: style.css:3
 msgid "Sunflower 26"
-msgstr ""
+msgstr "Sunflower 26"
 
 #. Theme URI of the theme
 #: style.css:4
@@ -27,7 +27,7 @@ msgstr ""
 #. Description of the theme
 #: style.css:7
 msgid "Theme for the German Green Party"
-msgstr ""
+msgstr "WordPress Theme für BÜNDNIS 90/DIE GRÜNEN"
 
 #. Author of the theme
 #: style.css:5
@@ -40,215 +40,103 @@ msgid "https://verdigado.com"
 msgstr ""
 
 #: build/contact-form/render.php:8
-#: functions/contact-form.php:95
-#: functions/contact-form.php:111
-#: src/contact-form/render.php:8
-#: build/contact-form/index.js:120
-#: src/contact-form/edit.js:101
-#: build/contact-form/index.js:101
+#: functions/contact-form.php:207
+#: functions/contact-form.php:223
+#: build/contact-form/index.js:122
+#: build/contact-form/index.js:109
 msgid "Contact Form"
 msgstr "Kontaktformular"
 
-#: build/contact-form/render.php:16
-#: src/contact-form/render.php:16
+#: build/contact-form/render.php:17
 msgid "Your Message"
 msgstr "Deine Nachricht"
 
-#: build/contact-form/render.php:17
-#: build/contact-form/render.php:62
-#: functions/contact-form.php:47
-#: src/contact-form/render.php:17
-#: src/contact-form/render.php:62
+#: build/contact-form/render.php:18
+#: build/contact-form/render.php:78
+#: functions/contact-form.php:159
 msgid "Name"
 msgstr "Name"
 
-#: build/contact-form/render.php:18
-#: build/contact-form/render.php:80
-#: functions/contact-form.php:52
-#: src/contact-form/render.php:18
-#: src/contact-form/render.php:80
+#: build/contact-form/render.php:19
+#: build/contact-form/render.php:96
+#: functions/contact-form.php:164
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: build/contact-form/render.php:19
-#: build/contact-form/render.php:99
-#: functions/contact-form.php:57
-#: src/contact-form/render.php:19
-#: src/contact-form/render.php:99
+#: build/contact-form/render.php:20
+#: build/contact-form/render.php:115
+#: functions/contact-form.php:169
 msgid "Phone"
 msgstr "Telefon"
-
-#. translators: %1$d and %2$d are random numbers for a math captcha.
-#: build/contact-form/render.php:28
-#: src/contact-form/render.php:28
-#, fuzzy,php-format
-msgid "%1$d + %2$d"
-msgstr "%d + %d"
 
 #. translators: %s is the arithmetic expression (e.g., "3 + 5").
 #. translators: %s is the arithmetic expression (e.g., "3 + 5")
 #: build/contact-form/render.php:30
-#: build/contact-form/render.php:121
-#: src/contact-form/render.php:30
-#: src/contact-form/render.php:121
+#: build/contact-form/render.php:138
 #, php-format
 msgid "How much is %s?"
 msgstr "Was ist %s?"
 
-#: build/contact-form/render.php:46
-#: functions/contact-form.php:60
-#: src/contact-form/render.php:46
+#: build/contact-form/render.php:55
+msgid "Leave this field empty"
+msgstr "Dies Feld bleibt leer"
+
+#: build/contact-form/render.php:62
+#: functions/contact-form.php:172
 msgid "Message"
 msgstr "Nachricht"
 
-#: build/contact-form/render.php:144
-#: src/contact-form/render.php:144
+#: build/contact-form/render.php:162
 msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
 msgstr "Bitte fülle alle Pflichtfelder* aus."
 
-#: build/contact-form/render.php:149
-#: src/contact-form/render.php:149
+#: build/contact-form/render.php:167
 msgid "By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
 msgstr "Mit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch diese Website einverstanden. Weitere Informationen findest du in unserer <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
 
-#: build/contact-form/render.php:172
-#: src/contact-form/render.php:172
+#: build/contact-form/render.php:190
 msgid "submit"
 msgstr "absenden"
 
-#: functions/contact-form.php:36
-msgid "Form not sent. Captcha wrong. Please try again."
-msgstr "Das Formular konnte nicht abgesendet werden. Das Captcha ist ungültig. Bitte probier es erneut."
-
-#: functions/contact-form.php:64
+#: functions/contact-form.php:49
+#: functions/contact-form.php:176
 msgid "Thank you. The form has been sent."
 msgstr "Vielen Dank. Deine Nachricht wurde verschickt."
 
-#: functions/contact-form.php:95
+#: functions/contact-form.php:66
+msgid "Form not sent. Please reload the page and try again."
+msgstr "Das Formular konnte nicht abgesendet werden. Bitte lade die Seite neu und versuche es erneut."
+
+#: functions/contact-form.php:77
+msgid "Form not sent. Please take a moment and try again."
+msgstr "Das Formular konnte nicht abgesendet werden. Bitte versuch es in einem Moment erneut."
+
+#: functions/contact-form.php:114
+msgid "Too many messages from your address. Please try again later."
+msgstr "Es gab zu viele Nachrichten von deiner Adresse. Bitte versuch es später wieder."
+
+#: functions/contact-form.php:147
+msgid "Form not sent. Captcha wrong. Please try again."
+msgstr "Das Formular konnte nicht abgesendet werden. Das Captcha ist ungültig. Bitte probier es erneut."
+
+#: functions/contact-form.php:207
 msgid "New Message from"
 msgstr "Neue Nachricht über"
 
-#: functions/contact-form.php:111
+#: functions/contact-form.php:223
 msgid "Your Message on"
 msgstr "Deine Nachricht über"
 
 #: build/contact-form/block.json
-#: src/contact-form/block.json
 msgctxt "block title"
 msgid "Contact Form (Sunflower)"
 msgstr "Kontaktformular ( Sunflower)"
 
 #: build/contact-form/block.json
-#: src/contact-form/block.json
 msgctxt "block description"
 msgid "Simple Contact Form"
 msgstr "Einfaches Kontaktformular"
 
-#: build/core/button/block.json
-#: src/core/button/block.json
-msgctxt "block title"
-msgid "Modified Button Block for Sunflower Theme"
-msgstr ""
-
-#: build/core/button/block.json
-#: src/core/button/block.json
-msgctxt "block description"
-msgid "Core button block with optional Font‑Awesome icon."
-msgstr ""
-
-#: build/core/cover/block.json
-#: src/core/cover/block.json
-msgctxt "block title"
-msgid "Modified Cover Block Styles for Sunflower Theme"
-msgstr ""
-
-#: build/core/list/block.json
-#: src/core/list/block.json
-msgctxt "block title"
-msgid "Modified List Block Styles for Sunflower Theme"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Schwarzwald"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Tanne"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Klee"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Grashalm"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Sonne"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Sand"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Grüner Sand"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Maus"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Kalk"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "White"
-msgstr ""
-
-#: theme.json
-msgctxt "Color name"
-msgid "Himmel"
-msgstr ""
-
-#: theme.json
-msgctxt "Font size name"
-msgid "Small"
-msgstr ""
-
-#: theme.json
-msgctxt "Font size name"
-msgid "Medium"
-msgstr ""
-
-#: theme.json
-msgctxt "Font size name"
-msgid "Large"
-msgstr ""
-
-#: theme.json
-msgctxt "Font size name"
-msgid "Huge"
-msgstr ""
-
-#: theme.json
-msgctxt "Font family name"
-msgid "PT Sans"
-msgstr ""
-
-#: theme.json
-msgctxt "Font family name"
-msgid "GrueneType Neue"
-msgstr ""
+#, fuzzy,php-format
+#~ msgid "%1$d + %2$d"
+#~ msgstr "%d + %d"
