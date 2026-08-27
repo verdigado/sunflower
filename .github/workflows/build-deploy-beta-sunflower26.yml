@@ -67,6 +67,9 @@ jobs:
       - name: Build CSS-RTL
         run: npm run compile:rtl
 
+      - name: Build Editor CSS
+        run: npm run compile:editor
+
       - name: Lint JS
         run: npm run lint:js
 

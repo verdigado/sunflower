@@ -60,6 +60,9 @@ jobs:
       - name: Build CSS-RTL
         run: npm run compile:rtl
 
+      - name: Build Editor CSS
+        run: npm run compile:editor
+
       - name: Build JS
         run: npm run build
 

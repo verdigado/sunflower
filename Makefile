@@ -5,7 +5,7 @@ stop:
 	cd ../../../../ && docker-compose stop
 
 compile:
-	npm run compile:css
+	npm run compile:all
 
 compile-silent:
 	npm run compile:build
