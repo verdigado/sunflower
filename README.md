@@ -35,6 +35,7 @@ https://chatbegruenung.de/channel/sunflower-wordpress
  - compile the theme with the following commands:
     ```sh
     npm run compile:css
+    npm run compile:editor
     npm run composer-lib
     npm run copy-node-modules
     npm run build
@@ -48,8 +49,12 @@ https://chatbegruenung.de/channel/sunflower-wordpress
 - `vendor/bin/rector`: run rector with provided `rector.php`.
 - `vendor/bin/ecs`: run ecs with provided `ecs.php`.
 - `npm run compile:css` : compiles SASS files to css.
+- `npm run compile:editor` : compiles the block editor stylesheet to `assets/css/editor-style-compiled.css`.
+- `npm run compile:all` : runs `compile:css` and `compile:editor`.
 - `npm run compile:rtl` : generates an RTL stylesheet.
 - `npm run watch` : watches all SASS files and recompiles them to css when they change.
+- `npm run watch:editor` : watches the editor SASS files and recompiles them to css when they change.
+- `npm run watch:all` : watches both the theme and the editor SASS files in a single process.
 - `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
 - `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
 - `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
