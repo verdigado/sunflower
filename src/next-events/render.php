@@ -7,7 +7,8 @@
 
 $sunflower_tag                = $attributes['tag'] ?? '';
 $sunflower_count              = isset( $attributes['count'] ) ? (int) $attributes['count'] : 3;
-$sunflower_title              = ( isset( $attributes['title'] ) && '' !== $attributes['title'] ) ? $attributes['title'] : __( 'Next events', 'sunflower-next-events' );
+$sunflower_title              = array_key_exists( 'title', $attributes ) ? (string) $attributes['title'] : __( 'Next events', 'sunflower-next-events' );
+$sunflower_title_markup       = ! empty( $sunflower_title ) ? sprintf( '<h2 class="wp-block-heading has-text-align-center h1">%s</h2>', esc_html( $sunflower_title ) ) : '';
 $sunflower_classes            = $attributes['className'] ?? '';
 $sunflower_event_title_filter = $attributes['eventTitleFilter'] ?? '';
 $sunflower_archive_url        = get_post_type_archive_link( 'sunflower_event' );
@@ -18,10 +19,10 @@ $sunflower_next_events = sunflower_get_next_events( $sunflower_count, $sunflower
 $sunflower_return = sprintf(
 	'<div class="wp-block-group has-text-color has-white-color has-background is-vertical is-content-justification-center is-layout-flex wp-block-group-is-layout-flex next-events %s">
 		<div class="wp-block-group__inner-container">
-			<h2 class="wp-block-heading has-text-align-center h1">%s</h2>
+			%s
 			<div class="row">',
 	esc_attr( $sunflower_classes ),
-	esc_html( $sunflower_title )
+	$sunflower_title_markup
 );
 
 ob_start();

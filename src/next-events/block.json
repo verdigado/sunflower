@@ -10,8 +10,7 @@
 	"example": {},
 	"attributes": {
 		"title": {
-			"type": "string",
-			"default": ""
+			"type": "string"
 		},
 		"tag": {
 			"type": "array"
