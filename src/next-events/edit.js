@@ -113,11 +113,10 @@ export default function Edit( { attributes, setAttributes } ) {
 							'Heading displayed above the events list',
 							'sunflower-next-events'
 						) }
-						value={ title }
-						placeholder={ __(
-							'Next events',
-							'sunflower-next-events'
-						) }
+						value={
+							title ??
+							__( 'Next events', 'sunflower-next-events' )
+						}
 						onChange={ onChangeTitle }
 					/>
 					<RangeControl
