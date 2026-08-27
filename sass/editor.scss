@@ -270,6 +270,10 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
         width: fit-content;
         max-width: 100%;
     }
+
+    .has-small-font-size {
+        font-size: 16px !important;
+    }
 }
 
 .editor-styles-wrapper {
@@ -350,7 +354,6 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
             margin-left: 20px;
             margin-right: 20px;
             z-index: 1;
-            background-color: transparent !important;
 
             @each $name, $code in $custom-colors {
                 &.has-#{$name}-background-color {
@@ -376,7 +379,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
                 content: "";
                 z-index: -1;
                 transform: skewX(-12deg);
-                background-color: var(--bg);
+                background-color: inherit;
 
                 @include media-breakpoint-down(xl) {
                     left: -7px;
@@ -657,7 +660,6 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
 
                         .continue-reading {
                             color: #005538 !important;
-                            font-style: italic;
                             display: flex;
                             align-items: center;
                             gap: 10px;
