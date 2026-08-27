@@ -78,6 +78,7 @@
   "overrides": {
     "ws": "^8.18.0",
     "lighthouse": "^12.1.0",
-    "puppeteer-core": "^22.13.1"
+    "puppeteer-core": "^22.13.1",
+    "typescript": "^5.9.3"
   }
 }
