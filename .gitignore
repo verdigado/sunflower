@@ -4,6 +4,8 @@ vendor/
 style.css
 style.css.map
 style-rtl.css
+assets/css/editor-style-compiled.css
+assets/css/editor-style-compiled.css.map
 documentation/
 build/
 assets/vndr/
