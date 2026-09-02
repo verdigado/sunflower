@@ -160,15 +160,12 @@ jQuery( '#sunflower-contact-form' ).on( 'submit', function ( e ) {
 				name: jQuery( '#name' ).val(),
 				mail: jQuery( '#mail' ).val(),
 				phone: jQuery( '#phone' ).val(),
-				title: jQuery( '#contact-form-title' ).html(),
 				captcha: jQuery( '#captcha' ).val(),
 				captcha_token: jQuery( 'input[name="captcha_token"]' ).val(),
-				sendCopy: jQuery( '#send-copy' ).val(),
 				postId: jQuery( '#post-id' ).val(),
 				website: jQuery( 'input[name="website"]' ).val(),
 				form_ts: jQuery( 'input[name="form_ts"]' ).val(),
 				form_ts_sig: jQuery( 'input[name="form_ts_sig"]' ).val(),
-				captcha_on: jQuery( 'input[name="captcha_on"]' ).val(),
 			},
 		} )
 		.done( function ( response ) {
