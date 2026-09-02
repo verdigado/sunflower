@@ -29,6 +29,44 @@ function sunflower_contact_form_client_ip() {
 }
 
 /**
+ * Helper to decide whether the send‑copy feature is enabled.
+ *
+ * The flag is stored in the block attributes (sendCopy).
+ *
+ * @param array $block The parsed block array.
+ * @return bool Whether the send-copy feature is enabled.
+ */
+function sunflower_contact_form_send_copy_enabled( $block ) {
+	return ! empty( $block['attrs']['sendCopy'] );
+}
+
+/**
+ * Recursively find the first sunflower/contact-form block.
+ *
+ * Blocks may be nested inside layout blocks (columns, group, cover, …), so a
+ * flat scan of the top-level blocks is not enough.
+ *
+ * @param array $blocks Parsed blocks (from parse_blocks()).
+ * @return array|null The matching block array, or null if none was found.
+ */
+function sunflower_contact_form_find_block( $blocks ) {
+	foreach ( $blocks as $block ) {
+		if ( isset( $block['blockName'] ) && 'sunflower/contact-form' === $block['blockName'] ) {
+			return $block;
+		}
+
+		if ( ! empty( $block['innerBlocks'] ) ) {
+			$nested = sunflower_contact_form_find_block( $block['innerBlocks'] );
+			if ( $nested ) {
+				return $nested;
+			}
+		}
+	}
+
+	return null;
+}
+
+/**
  * Render the Sunflower contact form.
  */
 function sunflower_contact_form() {
@@ -52,12 +90,26 @@ function sunflower_contact_form() {
 		die();
 	}
 
+	// Resolve the hosting contact-form block from its trusted server-side
+	// attributes. All feature flags (captcha, send-copy), the title and the
+	// recipient are read from here - never from the request - so the client
+	// cannot forge them.
+	$found_block = null;
+	if ( ! empty( $_POST['postId'] ) ) {
+		$sunflower_post = get_post( (int) $_POST['postId'] );
+		if ( $sunflower_post ) {
+			$found_block = sunflower_contact_form_find_block( parse_blocks( $sunflower_post->post_content ) );
+		}
+	}
+
+	// Captcha is on unless the block explicitly disables it (showCaptcha=false).
+	$sunflower_show_captcha = (bool) ( $found_block['attrs']['showCaptcha'] ?? true );
+
 	// Time-trap: reject forms submitted implausibly fast or long stale. The render
 	// timestamp is HMAC-signed, so it cannot be forged or replayed with a new value.
 	$sunflower_form_ts     = isset( $_POST['form_ts'] ) ? (int) $_POST['form_ts'] : 0;
 	$sunflower_form_ts_sig = isset( $_POST['form_ts_sig'] ) ? sanitize_text_field( wp_unslash( $_POST['form_ts_sig'] ) ) : '';
-	$sunflower_captcha_on  = ( isset( $_POST['captcha_on'] ) && '0' === (string) $_POST['captcha_on'] ) ? '0' : '1';
-	$sunflower_expected_ts = hash_hmac( 'sha256', $sunflower_form_ts . '|' . $sunflower_captcha_on, $sunflower_spam_salt );
+	$sunflower_expected_ts = hash_hmac( 'sha256', (string) $sunflower_form_ts, $sunflower_spam_salt );
 
 	if ( ! $sunflower_form_ts || ! hash_equals( $sunflower_expected_ts, $sunflower_form_ts_sig ) ) {
 		echo wp_json_encode(
@@ -124,8 +176,8 @@ function sunflower_contact_form() {
 		set_transient( $sunflower_rl_key, $sunflower_rl_bucket, max( 1, $sunflower_rl_ttl ) );
 	}
 
-	// Captcha only when this form was rendered with it enabled (flag is signed).
-	if ( '1' === $sunflower_captcha_on ) {
+	// Captcha only when the block enables it (read from trusted block attributes).
+	if ( $sunflower_show_captcha ) {
 		$captcha_user_input = (int) sanitize_text_field( $_POST['captcha'] );
 		$captcha_token      = sanitize_text_field( $_POST['captcha_token'] );
 		$captcha_salt       = defined( 'NONCE_SALT' ) ? NONCE_SALT : 'sunflower_default_fallback_salt';
@@ -171,30 +223,12 @@ function sunflower_contact_form() {
 
 	$message[] = "\n" . __( 'Message', 'sunflower-contact-form' ) . ': ' . sanitize_textarea_field( $_POST['message'] );
 
-	$title = sanitize_text_field( $_POST['title'] );
+	// $found_block was already resolved above (before the time-trap) from the
+	// trusted block attributes. Derive the title and recipient from it.
+	$title   = sanitize_text_field( $found_block['attrs']['title'] ?? '' );
+	$mail_to = $found_block['attrs']['mailTo'] ?? '';
 
 	$response = __( 'Thank you. The form has been sent.', 'sunflower-contact-form' );
-
-	$mail_to = '';
-	if ( ! empty( $_POST['postId'] ) ) {
-		$post_id = (int) $_POST['postId'];
-		$post    = get_post( $post_id );
-
-		if ( $post ) {
-			$blocks = parse_blocks( $post->post_content );
-			$found  = false;
-			// Look for the specific contact-form block instance by index.
-			foreach ( $blocks as $block ) {
-				if ( 'sunflower/contact-form' === $block['blockName'] ) {
-					$mail_to = $block['attrs']['mailTo'] ?? '';
-					if ( sanitize_email( $mail_to ) ) {
-						$found = true;
-						break;
-					}
-				}
-			}
-		}
-	}
 
 	if ( ! empty( $mail_to ) ) {
 		$to = sanitize_email( $mail_to );
@@ -205,20 +239,20 @@ function sunflower_contact_form() {
 	}
 
 	$subject     = __( 'New Message from', 'sunflower-contact-form' ) . ' ' . ( $title ? $title : __( 'Contact Form', 'sunflower-contact-form' ) );
-	$message_str = sprintf( '%s', implode( "\n", $message ) );
+	$message_str = implode( "\n", $message );
 
 	if ( ! empty( $mail ) ) {
 		$headers = 'Reply-To: ' . $mail;
 	}
 
-	if ( '' === $headers || '0' === $headers ) {
+	if ( empty( $headers ) ) {
 		wp_mail( $to, $subject, $message_str );
 	} else {
 		wp_mail( $to, $subject, $message_str, $headers );
 	}
 
 	// Send mail to sender if selected and email address is available.
-	if ( ! empty( $mail ) && sanitize_text_field( $_POST['sendCopy'] ) ) {
+	if ( ! empty( $mail ) && sunflower_contact_form_send_copy_enabled( $found_block ?? array() ) ) {
 		$headers = 'Reply-To: ' . $to;
 		$subject = __( 'Your Message on', 'sunflower-contact-form' ) . ' ' . ( $title ? $title : __( 'Contact Form', 'sunflower-contact-form' ) );
 		wp_mail( $mail, $subject, $response, $headers );
