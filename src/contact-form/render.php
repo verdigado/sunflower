@@ -11,8 +11,6 @@ if ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) {
 	$sunflower_title = __( 'Contact Form', 'sunflower-contact-form' );
 }
 
-$sunflower_mailto        = $attributes['mailTo'] ?? '';
-$sunflower_sendcopy      = $attributes['sendCopy'] ?? 0;
 $sunflower_display_phone = $attributes['displayPhone'] ?? false;
 $sunflower_require_phone = $attributes['requirePhone'] ?? false;
 $sunflower_require_mail  = $attributes['requireMail'] ?? false;
@@ -35,15 +33,13 @@ $sunflower_placeholder_captcha = sprintf( __( 'How much is %s?', 'sunflower-cont
 	<form id="sunflower-contact-form" method="post" class="row">
 		<?php wp_nonce_field( 'sunflower_contact_form' ); ?>
 		<?php
-		// Spam protection: signed render timestamp (time-trap) + captcha-enabled flag.
-		// The flag is inside the HMAC so a bot cannot switch the captcha off by tampering.
-		$sunflower_form_ts      = time();
-		$sunflower_captcha_flag = $sunflower_show_captcha ? '1' : '0';
-		$sunflower_form_ts_sig  = hash_hmac( 'sha256', $sunflower_form_ts . '|' . $sunflower_captcha_flag, $sunflower_captcha_salt );
+		// Spam protection: signed render timestamp (time-trap). Captcha state is no
+		// longer a client field - the handler reads showCaptcha from the block.
+		$sunflower_form_ts     = time();
+		$sunflower_form_ts_sig = hash_hmac( 'sha256', (string) $sunflower_form_ts, $sunflower_captcha_salt );
 		?>
 		<input type="hidden" name="form_ts" value="<?php echo esc_attr( $sunflower_form_ts ); ?>" />
 		<input type="hidden" name="form_ts_sig" value="<?php echo esc_attr( $sunflower_form_ts_sig ); ?>" />
-		<input type="hidden" name="captcha_on" value="<?php echo esc_attr( $sunflower_captcha_flag ); ?>" />
 
 		<?php // Honeypot: hidden from humans; bots that fill it are rejected. ?>
 		<div class="comment-form-website" aria-hidden="true" style="position:absolute;left:-5000px;top:auto;width:1px;height:1px;overflow:hidden;">
@@ -120,18 +116,13 @@ $sunflower_placeholder_captcha = sprintf( __( 'How much is %s?', 'sunflower-cont
 					/>
 					<input type="hidden" name="captcha_token" value="<?php echo esc_attr( $sunflower_captcha_token ); ?>" />
 			</p>
-
 		</div>
 		<?php endif; ?>
 
 		<?php
-		if ( $sunflower_mailto ) {
-			echo '<input id="post-id" name="post_id" type="hidden" value="' . esc_attr( get_the_ID() ) . '" />';
-		}
-
-		if ( $sunflower_sendcopy ) {
-			echo '<input id="send-copy" name="send-copy" type="hidden" value="1" />';
-		}
+		// Always emit the post ID so the handler can look up this block's trusted
+		// server-side attributes (recipient + send-copy flag) via $_POST['postId'].
+		echo '<input id="post-id" name="post_id" type="hidden" value="' . esc_attr( get_the_ID() ) . '" />';
 		?>
 
 		<p class="form-submit">
