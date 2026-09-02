@@ -6,8 +6,6 @@
  */
 
 $sunflower_title         = $attributes['title'] ?? __( 'Contact Form', 'sunflower-contact-form' );
-$sunflower_mailto        = $attributes['mailTo'] ?? '';
-$sunflower_sendcopy      = $attributes['sendCopy'] ?? 0;
 $sunflower_display_phone = $attributes['displayPhone'] ?? false;
 $sunflower_require_phone = $attributes['requirePhone'] ?? false;
 $sunflower_require_mail  = $attributes['requireMail'] ?? false;
@@ -171,11 +169,6 @@ $sunflower_placeholder_captcha = sprintf( __( 'How much is %s?', 'sunflower-cont
 	// Always emit the post ID so the handler can look up this block's trusted
 	// server-side attributes (recipient + send-copy flag) via $_POST['postId'].
 	echo '<input id="post-id" name="post_id" type="hidden" value="' . esc_attr( get_the_ID() ) . '" />';
-
-	if ( $sunflower_sendcopy ) {
-		echo '<input id="send-copy" name="send-copy" type="hidden" value="1" />';
-	}
-
 	?>
 
 		</div>
