@@ -326,7 +326,7 @@ body.colorscheme-green .topmenu .current-menu-item a {
                                     overflow: visible;
                                     border: 0;
                                     box-shadow: 0 25px 20px rgba(0, 0, 0, 0.1);
-                                    background: map.get($custom-colors, "white") !important;
+                                    background: map.get($custom-colors, "white");
 
                                     a {
                                         padding-left: 1rem;
