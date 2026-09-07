@@ -2,7 +2,7 @@
 
 Um Anträge oder Beschlüsse sinnvoller darzustellen, kannst Du Metadaten zu Beiträgen hinzufügen.
 
-Dazu findest Du rechts im Seiteninspektor im Backend den Bereich *Metadaten*. 
+Dazu findest Du rechts im Seiteninspektor im Backend den Bereich *Metadaten*.
 
 <figure markdown="span">
   ![Screenshot vom Sunflower-Menü](images/sunflower_post_metadatafield.png){ width="" }
@@ -17,4 +17,4 @@ Was Du hier  einträgst, erscheint im Kopfbereich in einem eignen grünen Kasten
 </figure>
 
 
-Auf der Demoseite findest Du ein Beispiel unter [*Anträge*](https://sunflower-theme.de/demo/category/antraege/).
+Auf der Demoseite findest Du ein Beispiel unter [*Anträge*](https://sunflower-theme.de/demo-22/category/antraege/).
