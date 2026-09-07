@@ -16,8 +16,10 @@ $sunflower_show_post_thumbnail = has_post_thumbnail() && ! get_post_meta( $post-
 $sunflower_metadata            = $args['metadata'] ?? '';
 $sunflower_class               = $args['class'] ?? '';
 
-// Check if content is empty for layout purposes.
-$sunflower_content_empty = empty( trim( wp_strip_all_tags( get_the_content() ) ) );
+/*
+ * Check if content is empty for layout purposes.
+ */
+$sunflower_content_empty = '' === trim( get_the_content() );
 if ( $sunflower_content_empty ) {
 	$sunflower_class .= ' content-empty';
 }
