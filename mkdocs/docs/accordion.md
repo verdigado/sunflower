@@ -1,6 +1,6 @@
 # Accordions
 
-Das Sunflower Theme bringt einen eigenen Block "Akkordion" mit. Für einfachen, klappbaren Text genügt das. Ein Beispiel ist unter [https://sunflower-theme.de/demo/klappbarer-text/](https://sunflower-theme.de/demo/klappbarer-text/) zu finden.
+Das Sunflower Theme bringt einen eigenen Block "Akkordion" mit. Für einfachen, klappbaren Text genügt das. Ein Beispiel ist unter [https://sunflower-theme.de/demo-22/klappbarer-text/](https://sunflower-theme.de/demo-22/klappbarer-text/) zu finden.
 
 Für komplexere Darstellungen kann man das Plugin [Accordion Blocks](https://wordpress.org/plugins/accordion-blocks/) installieren. Auch dafür bringt Sunflower einen passenden Style mit.
 
