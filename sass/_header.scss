@@ -86,13 +86,11 @@ header .social-media-profiles {
 
             border: 1px solid rgba(255, 255, 255, 0.15);
 
-            .menu-item-has-children {
+            .navbar-main .navbar-nav > .nav-item.menu-item-has-children button.submenu-opener {
+                background-image: url(#{$sunflower-img-path}/dropdown.svg);
+            }
 
-                &:hover,
-                &:focus-within {
-                    padding-bottom: 24px;
-                    margin-bottom: -24px;
-                }
+            .menu-item-has-children {
 
                 .dropdown-menu {
                     top: 40px;
@@ -497,6 +495,8 @@ header .social-media-profiles {
 
                         padding: 4px 0;
                         display: flex;
+                        align-items: start;
+
 
                         &.menu-item-has-children {
                             flex-direction: column;

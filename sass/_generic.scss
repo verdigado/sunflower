@@ -201,9 +201,6 @@ body.colorscheme-green {
             content: url("/wp-content/themes/sunflower26/assets/img/dropdown.svg");
         }
 
-        .main-menu ul .dropdown-menu {
-            background-color: map.get($custom-colors, "white");
-        }
     }
 }
 
