@@ -637,7 +637,9 @@ body #content .wp-block-cover {
     .next {
         margin-left: var(--half-grid-margin);
     }
-    .prev, .next {
+
+    .prev,
+    .next {
         margin-top: -4px;
     }
 }

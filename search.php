@@ -40,8 +40,26 @@ get_header();
 
 						$sunflower_search_sortings = array(
 							'relevance' => array( __( 'Relevance', 'sunflower' ), $sunflower_search_base ),
-							'newest'    => array( __( 'Newest', 'sunflower' ), add_query_arg( array( 'orderby' => 'date', 'order' => 'desc' ), $sunflower_search_base ) ),
-							'oldest'    => array( __( 'Oldest', 'sunflower' ), add_query_arg( array( 'orderby' => 'date', 'order' => 'asc' ), $sunflower_search_base ) ),
+							'newest'    => array(
+								__( 'Newest', 'sunflower' ),
+								add_query_arg(
+									array(
+										'orderby' => 'date',
+										'order'   => 'desc',
+									),
+									$sunflower_search_base
+								),
+							),
+							'oldest'    => array(
+								__( 'Oldest', 'sunflower' ),
+								add_query_arg(
+									array(
+										'orderby' => 'date',
+										'order'   => 'asc',
+									),
+									$sunflower_search_base
+								),
+							),
 						);
 
 						echo '<div class="filter-button-group mb-5 text-center"><ul class="wp-block-categories-list">';
