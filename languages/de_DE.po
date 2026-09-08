@@ -115,6 +115,18 @@ msgstr "zurück"
 msgid "next"
 msgstr "vor"
 
+#: search.php:35
+msgid "Relevance"
+msgstr "Relevanz"
+
+#: search.php:36
+msgid "Newest"
+msgstr "Neuste"
+
+#: search.php:37
+msgid "Oldest"
+msgstr "Älteste"
+
 #: build/latest-posts/render.php:123
 msgid "No posts found"
 msgstr "Keine Beiträge gefunden"

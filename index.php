@@ -15,7 +15,7 @@ get_header();
 				<main id="primary" class="site-main archive">
 					<?php if ( have_posts() ) { ?>
 
-						<header class="page-header mb-5 text-center">
+						<header class="page-header">
 						<?php
 						if ( is_home() ) {
 							printf( '<h1 class="page-title">%s</h1>', esc_attr( get_bloginfo( 'name' ) ) );

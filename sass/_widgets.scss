@@ -97,34 +97,47 @@
 }
 
 
+@mixin widget-search-expanded {
+    width: 400px;
+
+    input[type="search"] {
+        width: 400px;
+    }
+
+    @include media-breakpoint-down(md) {
+        width: 300px;
+
+        input[type="search"] {
+            width: 300px;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        width: 280px;
+
+        input[type="search"] {
+            width: 280px;
+        }
+    }
+}
+
 .widget_search {
     width: 46px;
     position: relative;
     transition: 300ms ease-out;
 
-    &:hover,
+    &--open,
     &:active,
     &:focus-within {
-        width: 400px;
 
-        input[type="search"] {
-            width: 400px;
-        }
+        @include widget-search-expanded;
+    }
 
-        @include media-breakpoint-down(md) {
-            width: 300px;
+    @media (hover: hover) {
 
-            input[type="search"] {
-                width: 300px;
-            }
-        }
+        &:hover {
 
-        @include media-breakpoint-down(sm) {
-            width: 280px;
-
-            input[type="search"] {
-                width: 280px;
-            }
+            @include widget-search-expanded;
         }
     }
 

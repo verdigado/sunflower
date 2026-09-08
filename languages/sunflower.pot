@@ -116,6 +116,18 @@ msgstr ""
 msgid "next"
 msgstr ""
 
+#: search.php:35
+msgid "Relevance"
+msgstr ""
+
+#: search.php:36
+msgid "Newest"
+msgstr ""
+
+#: search.php:37
+msgid "Oldest"
+msgstr ""
+
 #: build/latest-posts/render.php:123
 msgid "No posts found"
 msgstr ""

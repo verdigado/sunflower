@@ -26,6 +26,35 @@ get_header();
 						</header><!-- .page-header -->
 
 						<?php
+						/* Sort filter, same look as the category filter on archive pages. */
+						$sunflower_search_orderby = get_query_var( 'orderby' );
+						$sunflower_search_order   = strtoupper( (string) get_query_var( 'order' ) );
+
+						if ( 'date' === $sunflower_search_orderby ) {
+							$sunflower_search_sorting = ( 'ASC' === $sunflower_search_order ) ? 'oldest' : 'newest';
+						} else {
+							$sunflower_search_sorting = 'relevance';
+						}
+
+						$sunflower_search_base = get_search_link();
+
+						$sunflower_search_sortings = array(
+							'relevance' => array( __( 'Relevance', 'sunflower' ), $sunflower_search_base ),
+							'newest'    => array( __( 'Newest', 'sunflower' ), add_query_arg( array( 'orderby' => 'date', 'order' => 'desc' ), $sunflower_search_base ) ),
+							'oldest'    => array( __( 'Oldest', 'sunflower' ), add_query_arg( array( 'orderby' => 'date', 'order' => 'asc' ), $sunflower_search_base ) ),
+						);
+
+						echo '<div class="filter-button-group mb-5 text-center"><ul class="wp-block-categories-list">';
+						foreach ( $sunflower_search_sortings as $sunflower_sorting_key => $sunflower_sorting ) {
+							printf(
+								'<li%s><a href="%s">%s</a></li>',
+								( $sunflower_sorting_key === $sunflower_search_sorting ) ? ' class="current-cat"' : '',
+								esc_url( $sunflower_sorting[1] ),
+								esc_html( $sunflower_sorting[0] )
+							);
+						}
+						echo '</ul></div>';
+
 						/* Start the Loop */
 						$sunflower_list_items = '';
 						while ( have_posts() ) {
@@ -50,7 +79,7 @@ get_header();
 						}
 						?>
 
-						<div class="archive-loop row alignwide" data-masonry='{"percentPosition": true }'>
+						<div class="archive-loop alignwide row" <?php echo sunflower_get_masonry_attr(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 								<?php
 								echo wp_kses(
 									$sunflower_list_items,

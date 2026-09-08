@@ -63,9 +63,12 @@ ul.wp-block-categories-list {
         margin-bottom: 0;
     }
 
+    .page-header {
+        margin-bottom: var(--grid-margin);
+    }
+
     &-description {
         text-align: center;
-        margin-bottom: var(--grid-margin);
 
         p {
             margin-bottom: 0;
@@ -144,7 +147,7 @@ ul.wp-block-categories-list {
         }
     }
 
-    .sunflower-categories {
+    .filter-button-group {
         margin-top: 0;
     }
 }

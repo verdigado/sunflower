@@ -197,6 +197,42 @@ jQuery( function () {
 		jQuery( '.topmenu .search input' ).trigger( 'focus' );
 	} );
 
+	// Ohne Hover deckt der Button das eingeklappte Suchwidget komplett ab,
+	// deshalb klappt der erste Tipp es nur auf, statt zu suchen.
+	jQuery( document ).on(
+		'click',
+		'.header-widget-area .widget_search .search-submit',
+		function ( event ) {
+			const $widget = jQuery( this ).closest( '.widget_search' );
+
+			if (
+				window.matchMedia( '(hover: hover)' ).matches ||
+				$widget.hasClass( 'widget_search--open' )
+			) {
+				return;
+			}
+
+			event.preventDefault();
+			$widget.addClass( 'widget_search--open' );
+			jQuery( '.search-field', $widget ).trigger( 'focus' );
+		}
+	);
+
+	jQuery( document ).on( 'click', function ( event ) {
+		if ( ! jQuery( event.target ).closest( '.widget_search' ).length ) {
+			jQuery( '.widget_search' ).removeClass( 'widget_search--open' );
+		}
+	} );
+
+	jQuery( document ).on( 'submit', '.search-form', function ( event ) {
+		const $field = jQuery( '.search-field', this );
+
+		if ( '' === $field.val().trim() ) {
+			event.preventDefault();
+			$field.trigger( 'focus' );
+		}
+	} );
+
 	jQuery( '.show-contrast' ).on( 'click', function () {
 		jQuery( 'html' ).toggleClass( 'theme--contrast' );
 		jQuery( 'html' ).toggleClass( 'theme--default' );
