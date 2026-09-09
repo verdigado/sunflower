@@ -855,16 +855,17 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 	const prevent = ( e ) => e.preventDefault();
 
+	// Bewusst nur das Mausrad. Touch-Scrolling wird über `touch-action: pan-y`
+	// am Track und preventDefault im track-eigenen touchmove geregelt.
+	// Ein document-weiter touchmove-Listener, der mitten in der Gesture an- und
+	// abgemeldet wird, wirkt in WebKit nicht mehr (die Scroll-Entscheidung fällt
+	// beim touchstart) und lässt iOS die Gesture per touchcancel abbrechen.
 	const disableScroll = () => {
 		document.addEventListener( 'wheel', prevent, { passive: false } );
-		document.addEventListener( 'touchmove', prevent, { passive: false } );
 	};
 
 	const enableScroll = () => {
 		document.removeEventListener( 'wheel', prevent, { passive: false } );
-		document.removeEventListener( 'touchmove', prevent, {
-			passive: false,
-		} );
 	};
 
 	function bootstrap() {
@@ -909,6 +910,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 	function initSlider( track ) {
 		track.classList.add( 'column-slider', 'js-column-slider' );
+		// Vertikales Scrollen dem Browser überlassen, horizontales dem JS.
+		// Per Inline-Style, damit kein SCSS-Rebuild nötig ist.
+		track.style.touchAction = 'pan-y';
 		track.style.flexWrap = 'nowrap';
 		track.style.transition = 'transform .5s ease-in-out';
 
@@ -957,6 +961,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			isDragging: false,
 			startX: 0,
 			startY: 0,
+			axis: null, // 'x' | 'y', einmal pro Gesture festgelegt
 			currentTranslate: 0,
 			previousTranslate: 0,
 			rafId: 0,
@@ -1075,6 +1080,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			state.isDragging = true;
 			state.startX = x;
 			state.startY = y;
+			state.axis = null;
 			state.track.style.transition = 'none';
 			state.rafId = requestAnimationFrame( onAnim );
 			disableScroll();
@@ -1087,14 +1093,20 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			const dx = x - state.startX;
 			const dy = y - state.startY;
 
-			// Vertikales Scrollen zulassen, wenn Absicht klar ist
-			if (
-				Math.abs( dy ) > verticalScrollThreshold &&
-				Math.abs( dx ) < dragThreshold * 10
-			) {
-				enableScroll();
-			} else {
-				disableScroll();
+			// Achse einmal pro Gesture festlegen und danach nicht revidieren.
+			if ( ! state.axis ) {
+				if (
+					Math.abs( dx ) < verticalScrollThreshold &&
+					Math.abs( dy ) < verticalScrollThreshold
+				) {
+					return; // Richtung noch nicht erkennbar
+				}
+				state.axis = Math.abs( dx ) > Math.abs( dy ) ? 'x' : 'y';
+			}
+
+			// Vertikale Gesture gehört dem Browser.
+			if ( state.axis === 'y' ) {
+				return;
 			}
 
 			const maxTranslate = -(
@@ -1114,6 +1126,11 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 		function onEnd() {
 			cancelAnimationFrame( state.rafId );
+			// Vor dem Early Return: sonst bleibt der wheel-Blocker hängen,
+			// wenn onEnd ohne laufendes Dragging kommt (z. B. touchcancel
+			// direkt gefolgt von touchend).
+			enableScroll();
+			state.axis = null;
 			if ( ! state.isDragging ) {
 				return;
 			}
@@ -1132,7 +1149,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 			setByIndex();
 			state.track.style.transition = 'transform .5s ease-in-out';
-			enableScroll();
 		}
 
 		function onAnim() {
@@ -1162,8 +1178,14 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		// Touch-Events
 		const onTouchStart = ( e ) =>
 			onStart( e.touches[ 0 ].clientX, e.touches[ 0 ].clientY );
-		const onTouchMove = ( e ) =>
+		const onTouchMove = ( e ) => {
 			onMove( e.touches[ 0 ].clientX, e.touches[ 0 ].clientY );
+			// Nur die horizontale Gesture abfangen. `e.cancelable` ist false,
+			// sobald der Browser die Gesture schon übernommen hat.
+			if ( state.axis === 'x' && e.cancelable ) {
+				e.preventDefault();
+			}
+		};
 		const onTouchEnd = () => onEnd();
 
 		// Mouse-Events
@@ -1235,11 +1257,27 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 		instances[ i ].remove();
 		track.classList.remove( 'column-slider', 'js-column-slider' );
+		track.style.touchAction = '';
 		instances.splice( i, 1 );
 	}
 
+	// iOS feuert resize beim Ein-/Ausfahren der Adressleiste – dabei ändert sich
+	// nur die Höhe. bootstrap() räumt aber über destroySlider() alle Listener ab,
+	// deshalb nur bei echter Breitenänderung und entprellt neu aufbauen.
+	let resizeTimer = null;
+	let lastViewportWidth = window.innerWidth;
+
+	const onResize = () => {
+		if ( window.innerWidth === lastViewportWidth ) {
+			return;
+		}
+		lastViewportWidth = window.innerWidth;
+		window.clearTimeout( resizeTimer );
+		resizeTimer = window.setTimeout( bootstrap, 150 );
+	};
+
 	document.addEventListener( 'DOMContentLoaded', bootstrap );
-	window.addEventListener( 'resize', bootstrap );
+	window.addEventListener( 'resize', onResize );
 } )();
 
 // Accordion: immer nur EIN Panel geöffnet
