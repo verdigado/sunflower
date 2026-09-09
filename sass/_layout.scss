@@ -616,8 +616,11 @@ body #content .wp-block-cover {
     gap: var(--half-grid-margin);
 
     .page-numbers:not(.next, .prev) {
-        padding: 0 0 4px 0 !important;
-        width: 46px !important;
+        padding: 0 0 2px 0 !important;
+        width: 46px;
+        height: 46px;
+        border-radius: 25px;
+        font-size: 17px;
 
         &.current {
             background-color: map.get($custom-colors, "schwarzwald");
@@ -635,6 +638,10 @@ body #content .wp-block-cover {
         margin-left: var(--half-grid-margin);
     }
 
+    .prev,
+    .next {
+        margin-top: -4px;
+    }
 }
 
 .search-no-results .page-content p {

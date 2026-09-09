@@ -1,9 +1,22 @@
-.widget {
+.footer-widget {
     margin: 0 0 1.5em;
+}
 
+.header-widget {
+    margin: -5px 0 0 0;
+}
+
+.widget {
     // Make sure select elements fit in widgets.
     select {
         max-width: 100%;
+    }
+}
+
+.home:has(.entry-content>.wp-block-cover:first-child) {
+
+    .widget {
+        margin: var(--grid-margin) 0;
     }
 }
 
