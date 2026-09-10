@@ -11,9 +11,15 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	RichText,
+	InspectorControls,
+	BlockControls,
+	HeadingLevelDropdown,
+} from '@wordpress/block-editor';
 
-import { TextControl } from '@wordpress/components';
+import { PanelBody, SelectControl, TextControl } from '@wordpress/components';
 import { useEffect } from '@wordpress/element';
 
 /**
@@ -53,10 +59,43 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		setAttributes( { headline: newHeadline } );
 	};
 
+	const HeadingTag = `h${ attributes.headingLevel }`;
+
 	return (
 		<div { ...blockProps }>
+			<BlockControls group="block">
+				<HeadingLevelDropdown
+					value={ attributes.headingLevel }
+					options={ [ 2, 3, 4, 5, 6 ] }
+					onChange={ ( level ) =>
+						setAttributes( { headingLevel: level } )
+					}
+				/>
+			</BlockControls>
+			<InspectorControls>
+				<PanelBody title={ __( 'Settings', 'sunflower-accordion' ) }>
+					<SelectControl
+						__nextHasNoMarginBottom
+						label={ __( 'Heading level', 'sunflower-accordion' ) }
+						help={ __(
+							'All items of one accordion should use the same level.',
+							'sunflower-accordion'
+						) }
+						value={ String( attributes.headingLevel ) }
+						options={ [ 2, 3, 4, 5, 6 ].map( ( level ) => ( {
+							label: `H${ level }`,
+							value: String( level ),
+						} ) ) }
+						onChange={ ( value ) =>
+							setAttributes( {
+								headingLevel: parseInt( value, 10 ),
+							} )
+						}
+					/>
+				</PanelBody>
+			</InspectorControls>
 			<div className="accordion-item alignfull">
-				<h4 className="accordion-header">
+				<HeadingTag className="accordion-header">
 					<TextControl
 						className="accordion-button"
 						hideLabelFromVision="true"
@@ -71,7 +110,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							'sunflower-accordion'
 						) }
 					/>
-				</h4>
+				</HeadingTag>
 				<div className="accordion-body">
 					<RichText
 						onChange={ onChangeContent }

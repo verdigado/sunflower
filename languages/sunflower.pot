@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sunflower 26 3.0.10\n"
+"Project-Id-Version: Sunflower 26 3.0.11\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower26\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-26T13:16:30+02:00\n"
+"POT-Creation-Date: 2026-09-10T10:16:26+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: sunflower\n"
@@ -64,7 +64,7 @@ msgid "to upcoming events"
 msgstr ""
 
 #: archive-sunflower_event.php:49
-#: build/next-events/render.php:62
+#: build/next-events/render.php:63
 msgid "all events"
 msgstr ""
 
@@ -105,34 +105,22 @@ msgstr ""
 #: archive.php:71
 #: category.php:97
 #: index.php:76
-#: search.php:73
+#: search.php:120
 msgid "previous"
 msgstr ""
 
 #: archive.php:72
 #: category.php:98
 #: index.php:77
-#: search.php:74
+#: search.php:121
 msgid "next"
-msgstr ""
-
-#: search.php:35
-msgid "Relevance"
-msgstr ""
-
-#: search.php:36
-msgid "Newest"
-msgstr ""
-
-#: search.php:37
-msgid "Oldest"
 msgstr ""
 
 #: build/latest-posts/render.php:123
 msgid "No posts found"
 msgstr ""
 
-#: build/next-events/render.php:47
+#: build/next-events/render.php:48
 msgid "Currently there are no coming events."
 msgstr ""
 
@@ -314,6 +302,7 @@ msgstr ""
 
 #: functions/events.php:47
 #: functions/events.php:110
+#: functions/icalimport.php:101
 msgid "Event"
 msgstr ""
 
@@ -333,11 +322,11 @@ msgstr ""
 msgid "Event location"
 msgstr ""
 
-#: functions/icalimport.php:111
+#: functions/icalimport.php:112
 msgid "More Information"
 msgstr ""
 
-#: functions/icalimport.php:129
+#: functions/icalimport.php:130
 msgid "Failed to import event"
 msgstr ""
 
@@ -1008,6 +997,18 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
+#: search.php:42
+msgid "Relevance"
+msgstr ""
+
+#: search.php:44
+msgid "Newest"
+msgstr ""
+
+#: search.php:54
+msgid "Oldest"
+msgstr ""
+
 #: searchform.php:16
 #: searchform.php:22
 msgid "Suche"
@@ -1059,32 +1060,32 @@ msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searc
 msgstr ""
 
 #: template-parts/content-page.php:36
-#: template-parts/content.php:122
+#: template-parts/content.php:124
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content.php:80
+#: template-parts/content.php:82
 msgid "Mastodon Instance address"
 msgstr ""
 
-#: template-parts/content.php:86
+#: template-parts/content.php:88
 msgid "Enter your instance's address"
 msgstr ""
 
-#: template-parts/content.php:91
+#: template-parts/content.php:93
 msgid "Memorize my instance"
 msgstr ""
 
-#: template-parts/content.php:95
+#: template-parts/content.php:97
 msgid "Close"
 msgstr ""
 
-#: template-parts/content.php:96
+#: template-parts/content.php:98
 msgid "Save and Share"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:109
+#: template-parts/content.php:111
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
@@ -1109,19 +1110,40 @@ msgstr ""
 msgid "Related Posts"
 msgstr ""
 
-#: build/core/button/index.js:1
+#: build/core/button/index.js:287
+#: build/core/button/index.js:142
 msgid "Icon auswählen"
 msgstr ""
 
-#: build/core/button/index.js:1
+#: build/core/button/index.js:290
+#: build/core/button/index.js:146
 msgid "Font Awesome Icon"
 msgstr ""
 
-#: build/core/cover/index.js:1
+#: build/core/cover/index.js:219
+#: build/core/cover/index.js:257
+#: build/core/cover/index.js:102
+#: build/core/cover/index.js:154
 msgid "Sunflower Hero"
 msgstr ""
 
-#: build/core/list/index.js:1
+#: build/core/cover/index.js:262
+#: build/core/cover/index.js:160
+msgid "Bild nicht zuschneiden"
+msgstr ""
+
+#: build/core/cover/index.js:263
+#: build/core/cover/index.js:162
+msgid "Das Bild wird in voller Breite ohne Zuschnitt angezeigt. Die Höhe ergibt sich aus dem Seitenverhältnis des Bildes."
+msgstr ""
+
+#: build/core/cover/index.js:263
+#: build/core/cover/index.js:166
+msgid "Standard: Volle Bildschirmhöhe. Das Bild füllt den Viewport und wird an den Rändern zugeschnitten."
+msgstr ""
+
+#: build/core/list/index.js:154
+#: build/core/list/index.js:92
 msgid "Sunflower Checkmarks"
 msgstr ""
 
