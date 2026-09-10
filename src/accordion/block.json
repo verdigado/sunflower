@@ -30,6 +30,10 @@
 		"themeForm": {
 			"type": "string",
 			"default": ""
+		},
+		"headingLevel": {
+			"type": "number",
+			"default": 3
 		}
 	},
 	"textdomain": "sunflower-accordion",

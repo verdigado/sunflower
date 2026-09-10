@@ -19,10 +19,13 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  */
 export default function Save( { attributes } ) {
 	const blockProps = useBlockProps.save();
+	// Der Default 4 (siehe block.json) hält das Markup bestehender Blöcke
+	// byte-identisch, damit die Blockvalidierung nicht anschlägt.
+	const HeadingTag = `h${ attributes.headingLevel }`;
 	return (
 		<div { ...blockProps }>
 			<div className="accordion-item">
-				<h4 className="accordion-header">
+				<HeadingTag className="accordion-header">
 					<button
 						className="accordion-button collapsed"
 						type="button"
@@ -34,7 +37,7 @@ export default function Save( { attributes } ) {
 					>
 						{ attributes.headline }
 					</button>
-				</h4>
+				</HeadingTag>
 
 				<div
 					id={ 'sacc-' + attributes.blockId }
