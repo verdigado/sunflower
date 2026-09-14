@@ -135,7 +135,9 @@
 
     .vendorflex {
         width: 33.3%;
-        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--grid-margin);
 
         @include media-breakpoint-down(md) {
             width: 100%;
@@ -173,6 +175,39 @@
             align-items: flex-start;
             width: 100%;
         }
+
+        .navbar {
+            width: 100%;
+            justify-content: center;
+
+            @include media-breakpoint-down(xl) {
+                justify-content: flex-start;
+            }
+
+            .navbar-nav {
+                width: 90%;
+            }
+        }
+
+        &:not(:has(.footer-widget-area)) {
+
+            .navbar {
+                justify-content: center;
+
+                @include media-breakpoint-down(md) {
+                    justify-content: flex-start;
+                }
+            }
+
+            .navbar-nav {
+                width: auto;
+                align-items: center;
+
+                @include media-breakpoint-down(md) {
+                    align-items: flex-start;
+                }
+            }
+        }
     }
 
     .footermenu-2 {
@@ -185,6 +220,31 @@
         @include media-breakpoint-down(md) {
             align-items: flex-start;
             width: 100%;
+        }
+
+        .navbar {
+            width: 90%;
+            justify-content: flex-start;
+
+            @include media-breakpoint-down(xl) {
+                width: 100%;
+            }
+
+            .navbar-nav {
+                width: 100%;
+            }
+        }
+
+        &:has(.footer-widget-area) .navbar-nav {
+            min-width: calc(200px - var(--grid-margin));
+        }
+
+        &:not(:has(.footer-widget-area)) {
+
+            .navbar,
+            .navbar-nav {
+                width: auto;
+            }
         }
     }
 
@@ -203,18 +263,17 @@
 
     }
 
-    .navbar-nav {
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: flex-start;
+    .navbar {
 
-        .nav-link {
-            padding: 3px 0;
+        .navbar-nav {
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: flex-start;
+
+            .nav-link {
+                padding: 3px 0;
+            }
         }
-    }
-
-    #footer1 {
-        min-width: calc(200px - var(--grid-margin));
     }
 
     #footer1,
@@ -240,9 +299,20 @@
     .footer-widget {
         margin-bottom: 0;
 
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .post-date {
+            display: block;
+            font-size: 0.85em;
+            opacity: 0.8;
+        }
+
         .widget-title {
             color: map.get($custom-colors, "tanne");
-            font-weight: 700;
             font-size: 1.1rem;
             letter-spacing: 0.3px;
             margin-bottom: 0.5rem;
