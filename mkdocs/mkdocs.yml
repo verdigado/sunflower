@@ -9,6 +9,7 @@ nav:
           - Menüs: menus.md
           - Design-Umschalter: design-switcher.md
           - Individuelles CSS: customcss.md
+          - Widgets: widgets.md
     - Nutzung:
           - Elemente (Blöcke): blocks.md
           - Vorlagen: templates.md
