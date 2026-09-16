@@ -16,9 +16,33 @@ function sunflower_widgets_init() {
 
 	register_sidebar(
 		array(
+			'name'          => __( 'Header (Nur Suche!)', 'sunflower' ),
+			'id'            => 'header-after-brand',
+			'description'   => __( 'Achtung! Ausschließlich für das Such-Widget!', 'sunflower' ),
+			'before_widget' => '<div id="%1$s" class="widget header-widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer Links', 'sunflower' ),
+			'id'            => 'footer-left',
+			'description'   => __( 'Bereich links im Footer für Widgets', 'sunflower' ),
+			'before_widget' => '<div id="%1$s" class="widget footer-widget footer-widget--left %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
+		)
+	);
+
+	register_sidebar(
+		array(
 			'name'          => __( 'Footer Mitte', 'sunflower' ),
 			'id'            => 'footer-center',
-			'description'   => __( 'Bereich in der Footer-Mitte für Kontakt-Widget', 'sunflower' ),
+			'description'   => __( 'Bereich in der Footer-Mitte für Widgets', 'sunflower' ),
 			'before_widget' => '<div id="%1$s" class="widget footer-widget footer-widget--center %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widget-title">',
@@ -30,23 +54,11 @@ function sunflower_widgets_init() {
 		array(
 			'name'          => __( 'Footer Rechts', 'sunflower' ),
 			'id'            => 'footer-right',
-			'description'   => __( 'Bereich rechts im Footer für die Suche', 'sunflower' ),
+			'description'   => __( 'Bereich rechts im Footer für Widgets', 'sunflower' ),
 			'before_widget' => '<div id="%1$s" class="widget footer-widget footer-widget--right %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widget-title">',
 			'after_title'   => '</h4>',
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'          => __( 'Header (nach Logo)', 'sunflower' ),
-			'id'            => 'header-after-brand',
-			'description'   => __( 'Bereich im Header für die Suche', 'sunflower' ),
-			'before_widget' => '<div id="%1$s" class="widget header-widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '',
-			'after_title'   => '',
 		)
 	);
 
@@ -58,14 +70,11 @@ function sunflower_widgets_init() {
 		'WP_Widget_Archives',
 		'WP_Widget_Links',
 		'WP_Widget_Meta',
-		'WP_Widget_Text',
 		'WP_Widget_Categories',
-		'WP_Widget_Recent_Posts',
 		'WP_Widget_Recent_Comments',
 		'WP_Widget_RSS',
 		'WP_Widget_Tag_Cloud',
 		'WP_Nav_Menu_Widget',
-		'WP_Widget_Custom_HTML',
 		'WP_Widget_Media_Audio',
 		'WP_Widget_Media_Image',
 		'WP_Widget_Media_Gallery',
@@ -80,6 +89,10 @@ function sunflower_widgets_init() {
 add_action( 'widgets_init', 'sunflower_widgets_init' );
 
 add_filter( 'use_widgets_block_editor', '__return_false' );
+
+// Text-Widgets führen Shortcodes von sich aus nicht aus.
+add_filter( 'widget_text_content', 'do_shortcode', 11 );
+add_filter( 'widget_text', 'do_shortcode', 11 );
 
 /**
  * Use the search widget title as the search field placeholder instead of

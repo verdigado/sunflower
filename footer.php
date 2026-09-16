@@ -16,10 +16,16 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 
 	<div class="container site-info">
 
-		<div class="site-footer__content">
+			<div class="site-footer__content">
 
 			<div class="d-flex justify-content-between w-100 site-footer__content--top">
 				<div class="vendorflex row">
+					<?php if ( is_active_sidebar( 'footer-left' ) ) : ?>
+						<div class="footer-widget-area footer-widget-area--left">
+							<?php dynamic_sidebar( 'footer-left' ); ?>
+						</div>
+					<?php endif; ?>
+
 					<p class="small">
 						<?php bloginfo( 'name' ); ?> benutzt das freie
 						grüne Theme <a href="https://sunflower-theme.de" target="_blank">sunflower</a> &dash; ein
@@ -36,7 +42,6 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 				<?php endif; ?>
 
 				<nav class="navbar navbar-top navbar-expand-md">
-					<div class="text-center ">
 						<?php
 						wp_nav_menu(
 							array(
@@ -51,7 +56,6 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 							)
 						);
 						?>
-					</div>
 				</nav>
 			</div>
 
@@ -63,7 +67,7 @@ $sunflower_social_media_profiles = sunflower_get_social_media_profiles();
 				</div>
 				<?php endif; ?>
 				<nav class="navbar navbar-top navbar-expand-md">
-					<div class="text-center ">
+					<div>
 						<?php
 						wp_nav_menu(
 							array(

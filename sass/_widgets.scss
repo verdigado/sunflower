@@ -19,12 +19,21 @@
 .footer-widget-area {
     gap: var(--gap-large);
 
+    p {
+        margin: calc(var(--gap-large) - 5px) 0 0 0;
+    }
+
     &--right {
         right: 0;
         display: flex;
         justify-content: center;
         align-items: flex-end;
         flex-direction: column;
+        width: 100%;
+
+        .widget {
+            width: 90%;
+        }
 
         @include media-breakpoint-down(xl) {
             align-items: flex-start;
@@ -39,8 +48,24 @@
         align-items: center;
         flex-direction: column;
 
+        .widget {
+            width: 90%;
+        }
+
         @include media-breakpoint-down(xl) {
             align-items: flex-start;
+        }
+    }
+
+    &--left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+
+        .widget {
+            width: 90%;
         }
     }
 }
@@ -58,7 +83,6 @@
 .footer-widget-area {
 
     .widget_search {
-        width: 100%;
         position: relative;
         transition: 300ms ease-out;
 
