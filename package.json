@@ -30,7 +30,7 @@
     "@wordpress/hooks": "^4.54.0",
     "@wordpress/i18n": "^6.6.1",
     "@wordpress/icons": "^11.0.1",
-    "@wordpress/scripts": "^31.5.0",
+    "@wordpress/scripts": "^35.0.0",
     "@wordpress/server-side-render": "^6.30.0",
     "@wordpress/stylelint-config": "^23.30.0",
     "dir-archiver": "^2.2.0",
