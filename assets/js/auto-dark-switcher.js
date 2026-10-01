@@ -7,7 +7,7 @@
 		const raw = localStorage.getItem( 'sunflower_design' );
 		try {
 			return JSON.parse( raw ).colorscheme !== 'auto';
-		} catch ( e ) {
+		} catch {
 			return false;
 		}
 	};

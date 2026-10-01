@@ -5,14 +5,14 @@ import { FormTokenField, PanelBody } from '@wordpress/components';
 import TagColorPicker from './TagColorPicker';
 
 /**
- * @param {Object}   props
- * @param {Array}    props.tagSuggestions    Available tag suggestions
- * @param {Array}    props.selectedTagNames  Current tag names
- * @param {Function} props.onTagChange       Tag change handler
- * @param {boolean}  props.hasResolved       Whether tags have loaded
- * @param {Array}    props.allTags           All available tags (full objects)
- * @param {Object}   props.tagColors         Current tag-color mapping
- * @param {Function} props.onTagColorsChange Tag color change handler
+ * @param {Object}                      props
+ * @param {Array}                       props.tagSuggestions    Available tag suggestions
+ * @param {Array}                       props.selectedTagNames  Current tag names
+ * @param {(tagNames: Array) => void}   props.onTagChange       Tag change handler
+ * @param {boolean}                     props.hasResolved       Whether tags have loaded
+ * @param {Array}                       props.allTags           All available tags (full objects)
+ * @param {Object}                      props.tagColors         Current tag-color mapping
+ * @param {(tagColors: Object) => void} props.onTagColorsChange Tag color change handler
  * @return {Element} InspectorPanel component
  */
 export default function InspectorPanel( {

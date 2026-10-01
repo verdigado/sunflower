@@ -36,10 +36,10 @@ import './editor.scss';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
- * @param {Object}   props               React props.
- * @param {Object}   props.attributes
- * @param {Function} props.setAttributes
- * @param {string}   props.clientId
+ * @param {Object}                       props               React props.
+ * @param {Object}                       props.attributes
+ * @param {(attributes: Object) => void} props.setAttributes
+ * @param {string}                       props.clientId
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes, clientId } ) {

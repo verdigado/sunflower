@@ -254,7 +254,7 @@ body main #content .wp-block-cover:not(.is-style-sunflower-hero):has(.wp-block-c
         }
 
         &:has(> :is(h1, h2, h3, h4)):not(
-        :has(> :not(:is(h1, h2, h3, h4, .wp-block-buttons)))) {
+            :has(> :not(:is(h1, h2, h3, h4, .wp-block-buttons)))) {
             padding-top: var(--gap-huge);
             padding-bottom: var(--gap-huge);
 

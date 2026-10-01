@@ -11,7 +11,7 @@
 		}
 		try {
 			return JSON.parse( raw );
-		} catch ( e ) {
+		} catch {
 			return null;
 		}
 	};

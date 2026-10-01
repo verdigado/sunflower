@@ -19,11 +19,11 @@ function getUpdatedTagColors( currentTagColors, tagSlug, color ) {
 }
 
 /**
- * @param {Object}   props
- * @param {Array}    props.allTags     All available event tags
- * @param {Object}   props.tagColors   Current tag color mappings (slug => color)
- * @param {Function} props.onChange    Callback when tag color changes
- * @param {boolean}  props.hasResolved Whether tags have loaded
+ * @param {Object}                      props
+ * @param {Array}                       props.allTags     All available event tags
+ * @param {Object}                      props.tagColors   Current tag color mappings (slug => color)
+ * @param {(tagColors: Object) => void} props.onChange    Callback when tag color changes
+ * @param {boolean}                     props.hasResolved Whether tags have loaded
  * @return {Element} TagColorPicker component
  */
 function TagColorPicker( { allTags, tagColors, onChange, hasResolved } ) {
@@ -95,10 +95,10 @@ function TagColorPicker( { allTags, tagColors, onChange, hasResolved } ) {
 }
 
 /**
- * @param {Object}   props
- * @param {Object}   props.tag           Tag object
- * @param {string}   props.color         Current color for this tag
- * @param {Function} props.onColorChange Callback when color changes
+ * @param {Object}                  props
+ * @param {Object}                  props.tag           Tag object
+ * @param {string}                  props.color         Current color for this tag
+ * @param {(color: string) => void} props.onColorChange Callback when color changes
  * @return {Element} TagColorItem component
  */
 function TagColorItem( { tag, color, onColorChange } ) {
