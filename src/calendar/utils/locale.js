@@ -85,7 +85,7 @@ export function getLocaleFirstDay() {
 		const firstDay = new Intl.Locale( locale ).weekInfo?.firstDay;
 
 		return 'number' === typeof firstDay ? firstDay % 7 : DEFAULT_FIRST_DAY;
-	} catch ( error ) {
+	} catch {
 		return DEFAULT_FIRST_DAY;
 	}
 }

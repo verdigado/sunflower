@@ -50,9 +50,9 @@ import './editor.scss';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
- * @param {Object}   props               React props.
- * @param {Object}   props.attributes
- * @param {Function} props.setAttributes
+ * @param {Object}                       props               React props.
+ * @param {Object}                       props.attributes
+ * @param {(attributes: Object) => void} props.setAttributes
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
@@ -163,11 +163,11 @@ export default function Edit( { attributes, setAttributes } ) {
 			? __(
 					'Posts marked to stick to the top come first, all other posts follow by date.',
 					'sunflower-latest-posts'
-			  )
+				)
 			: __(
 					'All posts are listed by date. The mark to stick a post to the top is ignored.',
 					'sunflower-latest-posts'
-			  );
+				);
 
 	const onChangeCount = ( value ) => {
 		setAttributes( { count: value } );

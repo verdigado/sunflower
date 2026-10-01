@@ -83,11 +83,11 @@ const withHeroNoCropToggle = createHigherOrderComponent( ( BlockEdit ) => {
 							? __(
 									'Das Bild wird in voller Breite ohne Zuschnitt angezeigt. Die Höhe ergibt sich aus dem Seitenverhältnis des Bildes.',
 									'sunflower'
-							  )
+								)
 							: __(
 									'Standard: Volle Bildschirmhöhe. Das Bild füllt den Viewport und wird an den Rändern zugeschnitten.',
 									'sunflower'
-							  ),
+								),
 						checked: noCrop,
 						onChange: setNoCrop,
 					} )

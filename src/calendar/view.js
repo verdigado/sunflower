@@ -29,9 +29,9 @@ const localeLoaders = new Map();
 function hasFullCalendarLocale( localeCode ) {
 	return Boolean(
 		Array.isArray( FullCalendar?.globalLocales ) &&
-			FullCalendar.globalLocales.some(
-				( locale ) => locale.code === localeCode
-			)
+		FullCalendar.globalLocales.some(
+			( locale ) => locale.code === localeCode
+		)
 	);
 }
 

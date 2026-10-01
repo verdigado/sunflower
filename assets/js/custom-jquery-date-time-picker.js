@@ -27,10 +27,10 @@ jQuery( function ( $ ) {
 					).val()
 						? $(
 								'input.datetimepicker[name="_sunflower_event_until"]'
-						  ).val()
+							).val()
 						: $(
 								'input.datetimepicker[name="_sunflower_event_from"]'
-						  ).val(),
+							).val(),
 				} );
 			},
 		} );
@@ -55,10 +55,10 @@ jQuery( function ( $ ) {
 					).val()
 						? $(
 								'input.datetimepicker[name="_sunflower_event_until"]'
-						  ).val()
+							).val()
 						: $(
 								'input.datetimepicker[name="_sunflower_event_from"]'
-						  ).val(),
+							).val(),
 				} );
 			},
 		} );
