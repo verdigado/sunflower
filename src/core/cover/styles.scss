@@ -193,7 +193,7 @@ $themes: (
 
         // extra padding when only headings (no buttons) are present
         &:has(> :is(h1, h2, h3, h4)):not(
-        :has(> :not(:is(h1, h2, h3, h4, .wp-block-buttons)))) {
+            :has(> :not(:is(h1, h2, h3, h4, .wp-block-buttons)))) {
             padding-top: var(--gap-huge);
             padding-bottom: var(--gap-huge);
 

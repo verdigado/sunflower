@@ -103,7 +103,7 @@ img.post-thumbnail {
 
     &-content {
         margin: 0;
-        word-wrap: break-word;
+        overflow-wrap: break-word;
         text-wrap: pretty;
     }
 }
