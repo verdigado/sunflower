@@ -9,6 +9,10 @@ on:
 env:
   NODE_VERSION: 24
 
+# Needed for the version bump pushed back to main after a release.
+permissions:
+  contents: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -31,6 +35,9 @@ jobs:
       - uses: actions/checkout@v6
         with:
             path: sunflower26
+            # create-changelog.php reads git tag and git log, so it needs the
+            # full history including tags.
+            fetch-depth: 0
 
       - name: check theme version against tag
         run: |
@@ -139,6 +146,29 @@ jobs:
             ssh production "cd /var/www && wp post update $PAGEID - < /tmp/content-$PAGEID.txt --url=sunflower-theme.de/"
             ssh production "cd /var/www && wp menu item update 147 --url=https://sunflower-theme.de/demo --link=https://sunflower-theme.de/updateserver/sunflower26/sunflower-v$THEME_VERSION.zip"
             ssh production "cd /var/www && rm -fr wp-content/themes/sunflower26/ && wp theme install updateserver/sunflower26/sunflower-v$THEME_VERSION.zip >> /tmp/sunflower-install.log"
+
+      # The release tag points at a commit that already carries the released
+      # version, because main is kept one patch level ahead. Move it on again so
+      # the next release can be cut from main without editing anything by hand.
+      # The "Bump ..." message is filtered out of the changelog by
+      # create-changelog.php.
+      - name: Bump main to next patch version
+        run: |
+            # checkout@v6 leaves us on the tag in detached HEAD with a narrow
+            # refspec, so origin/main may not exist as a tracking ref.
+            git fetch origin main
+            git checkout -B main FETCH_HEAD
+            git reset --hard FETCH_HEAD
+            CURRENT=$(grep -i '^Version' sass/style.scss | sed -r 's/Version:\s*//I')
+            NEXT=$(echo "$CURRENT" | awk -F. -v OFS=. '{ $NF += 1; print }')
+            echo "Bumping version $CURRENT -> $NEXT"
+            sed -i "s/Version.*/Version: $NEXT/" sass/style.scss
+            php create-changelog.php
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add sass/style.scss changelog.html
+            git commit -m "Bump version to $NEXT"
+            git push origin main
 
   mkdocs:
     runs-on: ubuntu-latest
