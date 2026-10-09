@@ -18,7 +18,20 @@ $sunflower_output = '<!DOCTYPE html>
 
 exec( 'git tag -l --sort=-creatordate --format="%(creatordate:short);%(refname:short)" | head -n 10', $tags ); // phpcs:ignore
 
-$sunflower_output .= sunflower_read_commits_between_tags( array( '', 'HEAD' ), explode( ';', $tags[0] ) );
+/*
+ * Commits since the newest tag, listed under the upcoming version.
+ *
+ * Skipped when that tag already points at HEAD: the release workflow runs this
+ * script after GitHub created the tag, so the range would be empty and produce
+ * a headline without entries. The loop below then covers those commits via the
+ * tag pair instead.
+ */
+exec( 'git rev-parse HEAD', $sunflower_head ); // phpcs:ignore
+exec( 'git rev-list -n 1 ' . escapeshellarg( explode( ';', $tags[0] )[1] ), $sunflower_newest_tag ); // phpcs:ignore
+
+if ( ( $sunflower_head[0] ?? '' ) !== ( $sunflower_newest_tag[0] ?? '' ) ) {
+	$sunflower_output .= sunflower_read_commits_between_tags( array( '', 'HEAD' ), explode( ';', $tags[0] ) );
+}
 
 $sunflower_count_tags = count( $tags );
 for ( $sunflower_i = 0; $sunflower_i < $sunflower_count_tags - 1; ++$sunflower_i ) {

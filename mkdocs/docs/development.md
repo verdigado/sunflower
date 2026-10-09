@@ -61,32 +61,22 @@ Das Deployment läuft über GitHub Actions und wird durch das Erstellen eines Gi
 
 ### Stabile Releases
 
-1. **Version setzen und Changelog erstellen:**
+Das Deployment läuft vollständig automatisiert über GitHub Actions:
 
-    ```
-    make publish
-    ```
-
-    Fragt nach der neuen Versionsnummer (z.B. `3.0.10`, ohne `v`-Prefix), aktualisiert die Version in `sass/style.scss`, erstellt das Changelog und pusht einen `deploy`-Branch.
-
-	Der `deploy`-Branch muss in `main` gemerged werden.
-
-2. **GitHub Release erstellen:**
+1. **GitHub Release erstellen:**
     - Auf GitHub ein neues Release erstellen
     - Tag-Format: `v3.0.10` (mit `v`-Prefix)
     - Die GitHub Action *Build and Deploy* wird automatisch ausgelöst
 
+2. **Automatischer Ablauf:**
+    - **Version:** Die Action nutzt die Version aus `sass/style.scss` (die bereits auf main dem Release-Tag entsprechen muss).
+    - **Build:** Baut CSS, RTL-CSS und JavaScript.
+    - **Checks:** Führt PHPCS-Checks durch.
+    - **Artifacts:** Erstellt das ZIP-Bundle und lädt es als Release-Artifact hoch.
+    - **Deploy:** Deployt ZIP, Versionsdatei und Changelog auf den Updateserver und aktualisiert die Demoseite.
+    - **Post-Release Bump:** Der Workflow erhöht automatisch die Versionsnummer in `sass/style.scss` auf das nächste Patch-Level und committet diese zurück auf main, sodass main immer bereit für das nächste Release ist.
 
-3. **Was die GitHub Action macht:**
-    - Prüft, ob die Version in `sass/style.scss` zum Tag passt (bricht ab bei Abweichung)
-    - Baut CSS, RTL-CSS und JavaScript
-    - Führt PHPCS-Checks durch
-    - Erstellt das ZIP-Bundle und lädt es als Release-Artifact hoch
-    - Deployt ZIP, Versionsdatei und Changelog auf den Updateserver
-    - Aktualisiert die Demoseite auf sunflower-theme.de
-    - Baut und deployt die mkdocs-Dokumentation
-
-**Wichtig:** Die Version in `sass/style.scss` muss exakt zum Release-Tag passen (Tag `v3.0.10` erwartet `Version: 3.0.10` in der SCSS-Datei).
+**Wichtig:** Da die Action die Version in `sass/style.scss` prüft, muss für Minor- oder Major-Releases die Nummer in der Datei vor dem Release manuell auf main aktualisiert werden.
 
 ### Beta-Releases
 
