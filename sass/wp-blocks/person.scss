@@ -1,22 +1,6 @@
 @use "sass:map";
 
 
-body.colorscheme-green .container .entry-content .wp-block-media-text.person {
-    background-color: #000;
-    border-radius: var(--border-radius-large);
-    color: map.get($custom-colors, "white");
-
-    .person-name,
-    .h4 {
-        color: map.get($custom-colors, "white");
-    }
-}
-
-body.colorscheme-light .container .entry-content .wp-block-media-text.person {
-    background-color: #fff;
-    border-radius: var(--border-radius-large);
-}
-
 body #content .mb-md-4:has(.person) {
     margin-bottom: 0 !important;
 }
@@ -27,12 +11,14 @@ body #content .entry-content .wp-block-media-text.person {
     flex-direction: column;
     height: 100%;
     padding: 0 !important;
+    background-color: map.get($custom-colors, "white");
+    border-radius: var(--border-radius-large);
+    color: map.get($custom-colors, "schwarzwald");
 
-    .person-name,
-    .h4 {
+    .person-name {
         line-height: 110%;
         font-family: var(--wp--preset--font-family--gruenetypeneue);
-        font-size: 25px;
+        font-size: 26px;
         text-transform: uppercase;
         color: map.get($custom-colors, "tanne");
         margin-top: 0;

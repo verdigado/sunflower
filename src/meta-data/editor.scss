@@ -23,6 +23,20 @@
         color: variables.$body-color;
     }
 
+    /**
+     * Circle geometry already arrives from the theme's editor stylesheet; only
+     * the colours are missing. The frontend wraps them in
+     * themed-colorscheme-nested(), which emits ".colorscheme-* &" — and that
+     * class sits on the admin <body>, above the editor canvas, so those rules
+     * never match here. Reference the palette directly instead.
+     */
+    .is-empty,
+    .sunflower-meta-data__link {
+        background-color: variables.$white;
+        color: variables.$primary;
+        border: 2px solid variables.$primary;
+    }
+
     .is-empty {
         opacity: 0.6;
         color: inherit !important;
