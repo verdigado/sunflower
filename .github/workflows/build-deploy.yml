@@ -152,23 +152,29 @@ jobs:
       # the next release can be cut from main without editing anything by hand.
       # The "Bump ..." message is filtered out of the changelog by
       # create-changelog.php.
-      - name: Bump main to next patch version
-        run: |
-            # checkout@v6 leaves us on the tag in detached HEAD with a narrow
-            # refspec, so origin/main may not exist as a tracking ref.
-            git fetch origin main
-            git checkout -B main FETCH_HEAD
-            git reset --hard FETCH_HEAD
-            CURRENT=$(grep -i '^Version' sass/style.scss | sed -r 's/Version:\s*//I')
-            NEXT=$(echo "$CURRENT" | awk -F. -v OFS=. '{ $NF += 1; print }')
-            echo "Bumping version $CURRENT -> $NEXT"
-            sed -i "s/Version.*/Version: $NEXT/" sass/style.scss
-            php create-changelog.php
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add sass/style.scss changelog.html
-            git commit -m "Bump version to $NEXT"
-            git push origin main
+       - name: Create Version Bump PR
+         run: |
+             git fetch origin main
+             CURRENT=$(grep -i '^Version' sass/style.scss | sed -r 's/Version:\s*//I')
+             NEXT=$(echo "$CURRENT" | awk -F. -v OFS=. '{ $NF += 1; print }')
+             BRANCH="bump-version-$NEXT"
+             echo "Preparing bump from $CURRENT to $NEXT on branch $BRANCH"
+             
+             git checkout -B $BRANCH
+             sed -i "s/Version.*/Version: $NEXT/" sass/style.scss
+             php create-changelog.php
+             
+             git config user.name "github-actions[bot]"
+             git config user.email "github-actions[bot]@users.noreply.github.com"
+             git add sass/style.scss changelog.html
+             git commit -m "Bump version to $NEXT"
+             git push origin $BRANCH
+             
+             gh pr create \
+               --title "Bump version to $NEXT" \
+               --body "Automated version bump after release of v$CURRENT. Please merge to keep main updated." \
+               --base main \
+               --head $BRANCH
 
   mkdocs:
     runs-on: ubuntu-latest
