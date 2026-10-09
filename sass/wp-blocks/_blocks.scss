@@ -1,15 +1,5 @@
 @use "sass:map";
 
-.wp-block-sunflower-meta-data {
-    margin-right: var(--grid-margin);
-}
-
-.wp-block-group:has(.wp-block-sunflower-meta-data) {
-    flex-wrap: wrap;
-    row-gap: var(--half-grid-margin);
-
-}
-
 .latest-posts {
     max-width: calc(100% + var(--double-grid-margin)) !important;
 

@@ -951,11 +951,14 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
     flex-direction: column;
     height: 100%;
     padding: 0 !important;
+    background-color: map.get($custom-colors, "white");
+    border-radius: var(--border-radius-large);
+    color: map.get($custom-colors, "schwarzwald");
 
-    .person-name,
-    .h4 {
-        font-weight: 700;
+    .person-name {
         line-height: 110%;
+        font-family: var(--wp--preset--font-family--gruenetypeneue);
+        font-size: 26px;
         text-transform: uppercase;
         color: map.get($custom-colors, "tanne");
         margin-top: 0;
@@ -982,22 +985,6 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
             width: 100%;
         }
     }
-}
-
-.editor-styles-wrapper .colorscheme-green .wp-block-media-text.person {
-    background-color: #000;
-    border-radius: var(--border-radius-large);
-    color: map.get($custom-colors, "white");
-
-    .person-name,
-    .h4 {
-        color: map.get($custom-colors, "white");
-    }
-}
-
-.editor-styles-wrapper .colorscheme-light .wp-block-media-text.person {
-    background-color: #fff;
-    border-radius: var(--border-radius-large);
 }
 
 .editor-styles-wrapper .mb-md-4:has(.person) {

@@ -53,6 +53,8 @@
  */
 .wp-block-sunflower-meta-data {
 
+    margin-right: var(--grid-margin);
+
     .is-empty,
     .sunflower-meta-data__link {
 
@@ -83,6 +85,23 @@
     .is-empty {
         opacity: 0.6;
     }
+}
+
+.wp-block-group:has(.wp-block-sunflower-meta-data) {
+    flex-wrap: wrap;
+    row-gap: var(--half-grid-margin);
+}
+
+/**
+ * Icon rows must not inherit the doubled flex gap set above.
+ * This selector has the same specificity (1,2,1) as the rule there, so it
+ * wins by source order only: "wp-blocks/*" is imported after "layout" in
+ * style.scss. Keep that order.
+ */
+body #content .wp-block-group:has(.wp-block-sunflower-meta-data) {
+    flex-wrap: wrap;
+    column-gap: var(--half-grid-margin);
+    row-gap: var(--half-grid-margin);
 }
 
 /**
