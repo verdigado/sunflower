@@ -458,11 +458,14 @@ body.post-image-modern {
 
 body.post-image-flexible {
 
-    .wp-block-group__inner-container {
-
-        > h2 {
-            margin-left: var(--grid-margin);
-        }
+    // Indent section headings. Mirrors the selector pair used for
+    // margin-bottom in wp-blocks/group.scss: a group either wraps its
+    // content in an __inner-container (latest-posts and next-events render
+    // one themselves) or uses the flow layout, where the heading is a
+    // direct child of .wp-block-group.
+    .wp-block-group.wp-block-group-is-layout-flow > h2,
+    .wp-block-group__inner-container > h2 {
+        margin-left: var(--grid-margin);
     }
 
     .latest-posts--grid .archive-article,

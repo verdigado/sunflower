@@ -23,7 +23,13 @@
     }
 }
 
-.latest-posts:has(.column-slider):not(:has(h2.text-center)) {
+
+/*
+ * Layout adjustment for blocks without their own heading: reduces the top
+ * padding and shifts slider and navbuttons up to keep the visual balance.
+ * Card titles inside the slider carry .card-title, so they stay out of it.
+ */
+.latest-posts:has(.column-slider):not(:has(h2.wp-block-heading)) {
     padding: calc(var(--half-block-spacing) - 46px) var(--grid-margin)  var(--half-block-spacing) var(--grid-margin) !important;
 
     @include media-breakpoint-down(md) {
@@ -117,7 +123,7 @@
 .latest-posts .navbuttons {
 
     position: absolute;
-    top: 115px;
+    top: 95px;
     right: var(--block-spacing);
 
     @media (max-width: 1200px) {
@@ -228,4 +234,3 @@ a:has(.continue-reading) {
     }
 
 }
-
