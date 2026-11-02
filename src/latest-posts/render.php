@@ -6,6 +6,7 @@
  */
 
 $sunflower_classnames   = array();
+$sunflower_classnames[] = 'wp-block-group';
 $sunflower_classnames[] = 'has-background';
 $sunflower_classnames[] = 'latest-posts';
 
@@ -72,7 +73,7 @@ $sunflower_sticky = isset( $attributes['sticky'] ) ? (string) $attributes['stick
 
 $sunflower_posts = sunflower_get_latest_posts( $sunflower_count, $sunflower_categories, $sunflower_excluded_categories, $sunflower_sticky );
 
-$sunflower_title = ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) ? sprintf( '<h2 class="text-center">%s</h2>', $attributes['title'] ) : '';
+$sunflower_title = ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) ? sprintf( '<h2 class="wp-block-heading has-text-align-left is-visible">%s</h2>', $attributes['title'] ) : '';
 
 $sunflower_classes = get_block_wrapper_attributes(
 	array(

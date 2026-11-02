@@ -8,7 +8,7 @@
 $sunflower_tag                = $attributes['tag'] ?? '';
 $sunflower_count              = isset( $attributes['count'] ) ? (int) $attributes['count'] : 3;
 $sunflower_title              = array_key_exists( 'title', $attributes ) ? (string) $attributes['title'] : __( 'Next events', 'sunflower-next-events' );
-$sunflower_title_markup       = ! empty( $sunflower_title ) ? sprintf( '<h2 class="wp-block-heading has-text-align-center h1">%s</h2>', esc_html( $sunflower_title ) ) : '';
+$sunflower_title_markup       = ! empty( $sunflower_title ) ? sprintf( '<h2 class="wp-block-heading has-text-align-left">%s</h2>', esc_html( $sunflower_title ) ) : '';
 $sunflower_classes            = $attributes['className'] ?? '';
 $sunflower_event_title_filter = $attributes['eventTitleFilter'] ?? '';
 $sunflower_archive_url        = get_post_type_archive_link( 'sunflower_event' );

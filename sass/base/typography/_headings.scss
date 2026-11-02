@@ -202,7 +202,7 @@ h3:has(mark) {
     }
 }
 
-.wp-block-group.has-background:not(.next-events),
+.wp-block-group.has-background:not(.next-events, .latest-posts),
 .wp-block-cover.has-background,
 .wp-block-cover:has(.wp-block-cover__background) {
 
