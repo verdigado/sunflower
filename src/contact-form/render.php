@@ -11,6 +11,37 @@ $sunflower_require_phone = $attributes['requirePhone'] ?? false;
 $sunflower_require_mail  = $attributes['requireMail'] ?? false;
 $sunflower_show_captcha  = $attributes['showCaptcha'] ?? true;
 
+/*
+ * Privacy notice. Deliberately not editable per block: the wording carries legal
+ * weight, so it stays one translatable string that a correction reaches
+ * everywhere at once. See mkdocs/docs/privacy.md for the background.
+ */
+$sunflower_privacy_notice = __( 'Note on data processing: When you submit this form, your data will be processed in order to handle your request. Further information, including how to withdraw your consent, can be found in our [privacy policy].', 'sunflower-contact-form' );
+
+/*
+ * [Any label] turns into a link to the privacy policy page, which keeps markup
+ * out of the translatable string. Without a privacy page configured, the label
+ * stays plain text. Rendered here rather than in JavaScript: the URL is available
+ * server-side, and the former jQuery hook addressed an id, which only ever
+ * matched the first form on a page.
+ */
+$sunflower_privacy_url    = get_privacy_policy_url();
+$sunflower_privacy_notice = preg_replace_callback(
+	'/\[([^\]]+)\]/',
+	static function ( $sunflower_matches ) use ( $sunflower_privacy_url ) {
+		if ( ! $sunflower_privacy_url ) {
+			return $sunflower_matches[1];
+		}
+
+		return sprintf(
+			'<a href="%1$s">%2$s</a>',
+			esc_url( $sunflower_privacy_url ),
+			esc_html( $sunflower_matches[1] )
+		);
+	},
+	$sunflower_privacy_notice
+);
+
 // Placeholder with '*' appended if required.
 $sunflower_placeholder_message = __( 'Your Message', 'sunflower-contact-form' ) . '*';
 $sunflower_placeholder_name    = __( 'Name', 'sunflower-contact-form' ) . '*';
@@ -159,9 +190,7 @@ $sunflower_placeholder_captcha = sprintf( __( 'How much is %s?', 'sunflower-cont
 				</p>
 
 				<p class="small">
-					<?php
-					echo wp_kses_post( __( 'By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href="#" id="privacy_policy_url">Datenschutzerklärung</a>.', 'sunflower-contact-form' ) );
-					?>
+					<?php echo wp_kses_post( $sunflower_privacy_notice ); ?>
 				</p>
 			</div>
 

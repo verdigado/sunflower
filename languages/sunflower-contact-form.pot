@@ -90,8 +90,8 @@ msgstr ""
 msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
 msgstr ""
 
-#: build/contact-form/render.php:167
-msgid "By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
+#: build/contact-form/render.php:22
+msgid "Note on data processing: When you submit this form, your data will be processed in order to handle your request. Further information, including how to withdraw your consent, can be found in our [privacy policy]."
 msgstr ""
 
 #: build/contact-form/render.php:190
