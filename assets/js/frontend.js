@@ -187,11 +187,6 @@ jQuery( function () {
 		showLeaflet( lat, lon, zoom );
 	} );
 
-	jQuery( '#privacy_policy_url' ).attr(
-		'href',
-		sunflower.privacy_policy_url
-	);
-
 	jQuery( '.show-search' ).on( 'click', function () {
 		jQuery( '.topmenu .search input' ).toggleClass( 'active' );
 		jQuery( '.topmenu .search input' ).trigger( 'focus' );

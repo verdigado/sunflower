@@ -108,6 +108,9 @@ Ein integriertes Formular, das ohne zusätzliche Plugins direkt im Theme funktio
 - **Pflichtfelder**: Du kannst festlegen, ob E-Mail und Telefonnummer zwingend erforderlich sind.
 - **Telefonanzeige**: Optionale Anzeige des Telefonfeldes im Formular.
 - **Bestätigung an Absender**: Sendet eine kurze Bestätigung über den erfolgreichen Versand an die Person, die das Formular ausfüllt. (Es werden keine Benutzereingaben in dieser Mail übertragen).
+- **Zahlen-Captcha**: Einfache Rechenaufgabe als Spamschutz. Honeypot, Zeitfalle und Rate-Limit bleiben unabhängig davon aktiv.
+
+**Hinweis zur Datenverarbeitung:** Unter dem Formular steht ein fester Hinweis mit Link auf die Datenschutzerklärung. Er lässt sich nicht pro Formular ändern; die Hintergründe dazu stehen unter [Datenschutz](privacy.md#kontaktformular).
 
 ### Metadaten-Zeile (Sunflower)
 Ein kleines Hilfselement, um Informationen mit einem Icon (z.B. Uhrzeit, Ort, Telefon) darzustellen.

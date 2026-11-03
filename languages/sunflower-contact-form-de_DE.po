@@ -1,15 +1,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sunflower 2.0.9\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-form\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sunflower-contact-"
+"form\n"
+"POT-Creation-Date: 2026-08-26T13:16:53+02:00\n"
+"PO-Revision-Date: 2026-11-03 09:46+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-26T13:16:53+02:00\n"
-"PO-Revision-Date: 2026-08-26 13:41+0200\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.2\n"
 "X-Domain: sunflower-contact-form\n"
@@ -39,10 +40,8 @@ msgstr ""
 msgid "https://verdigado.com"
 msgstr ""
 
-#: build/contact-form/render.php:8
-#: functions/contact-form.php:207
-#: functions/contact-form.php:223
-#: build/contact-form/index.js:122
+#: build/contact-form/render.php:8 functions/contact-form.php:207
+#: functions/contact-form.php:223 build/contact-form/index.js:122
 #: build/contact-form/index.js:109
 msgid "Contact Form"
 msgstr "Kontaktformular"
@@ -51,28 +50,24 @@ msgstr "Kontaktformular"
 msgid "Your Message"
 msgstr "Deine Nachricht"
 
-#: build/contact-form/render.php:18
-#: build/contact-form/render.php:78
+#: build/contact-form/render.php:18 build/contact-form/render.php:78
 #: functions/contact-form.php:159
 msgid "Name"
 msgstr "Name"
 
-#: build/contact-form/render.php:19
-#: build/contact-form/render.php:96
+#: build/contact-form/render.php:19 build/contact-form/render.php:96
 #: functions/contact-form.php:164
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: build/contact-form/render.php:20
-#: build/contact-form/render.php:115
+#: build/contact-form/render.php:20 build/contact-form/render.php:115
 #: functions/contact-form.php:169
 msgid "Phone"
 msgstr "Telefon"
 
 #. translators: %s is the arithmetic expression (e.g., "3 + 5").
 #. translators: %s is the arithmetic expression (e.g., "3 + 5")
-#: build/contact-form/render.php:30
-#: build/contact-form/render.php:138
+#: build/contact-form/render.php:30 build/contact-form/render.php:138
 #, php-format
 msgid "How much is %s?"
 msgstr "Was ist %s?"
@@ -81,8 +76,7 @@ msgstr "Was ist %s?"
 msgid "Leave this field empty"
 msgstr "Dies Feld bleibt leer"
 
-#: build/contact-form/render.php:62
-#: functions/contact-form.php:172
+#: build/contact-form/render.php:62 functions/contact-form.php:172
 msgid "Message"
 msgstr "Nachricht"
 
@@ -90,34 +84,48 @@ msgstr "Nachricht"
 msgid "Please fill in all required (<span class=\"required\">*</span>) fields."
 msgstr "Bitte fülle alle Pflichtfelder* aus."
 
-#: build/contact-form/render.php:167
-msgid "By using this form, you consent to the storage and processing of your data through our website. Additional information can be found in our privacy policy on <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
-msgstr "Mit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch diese Website einverstanden. Weitere Informationen findest du in unserer <a href=\"#\" id=\"privacy_policy_url\">Datenschutzerklärung</a>."
+#: build/contact-form/render.php:22
+msgid ""
+"Note on data processing: When you submit this form, your data will be "
+"processed in order to handle your request. Further information, including "
+"how to withdraw your consent, can be found in our [privacy policy]."
+msgstr ""
+"Hinweis zur Datenverarbeitung: Wenn du dieses Formular absendest, werden "
+"deine Daten zur Bearbeitung deiner Anfrage verarbeitet. Weitere "
+"Informationen und Widerrufshinweise findest du in unserer "
+"[Datenschutzerklärung]."
 
 #: build/contact-form/render.php:190
 msgid "submit"
 msgstr "absenden"
 
-#: functions/contact-form.php:49
-#: functions/contact-form.php:176
+#: functions/contact-form.php:49 functions/contact-form.php:176
 msgid "Thank you. The form has been sent."
 msgstr "Vielen Dank. Deine Nachricht wurde verschickt."
 
 #: functions/contact-form.php:66
 msgid "Form not sent. Please reload the page and try again."
-msgstr "Das Formular konnte nicht abgesendet werden. Bitte lade die Seite neu und versuche es erneut."
+msgstr ""
+"Das Formular konnte nicht abgesendet werden. Bitte lade die Seite neu und "
+"versuche es erneut."
 
 #: functions/contact-form.php:77
 msgid "Form not sent. Please take a moment and try again."
-msgstr "Das Formular konnte nicht abgesendet werden. Bitte versuch es in einem Moment erneut."
+msgstr ""
+"Das Formular konnte nicht abgesendet werden. Bitte versuch es in einem "
+"Moment erneut."
 
 #: functions/contact-form.php:114
 msgid "Too many messages from your address. Please try again later."
-msgstr "Es gab zu viele Nachrichten von deiner Adresse. Bitte versuch es später wieder."
+msgstr ""
+"Es gab zu viele Nachrichten von deiner Adresse. Bitte versuch es später "
+"wieder."
 
 #: functions/contact-form.php:147
 msgid "Form not sent. Captcha wrong. Please try again."
-msgstr "Das Formular konnte nicht abgesendet werden. Das Captcha ist ungültig. Bitte probier es erneut."
+msgstr ""
+"Das Formular konnte nicht abgesendet werden. Das Captcha ist ungültig. Bitte "
+"probier es erneut."
 
 #: functions/contact-form.php:207
 msgid "New Message from"
@@ -126,6 +134,61 @@ msgstr "Neue Nachricht über"
 #: functions/contact-form.php:223
 msgid "Your Message on"
 msgstr "Deine Nachricht über"
+
+#: build/contact-form/index.js:117 build/contact-form/index.js:96
+msgid ""
+"The receiver address may be altered within the Sunflower theme settings. By "
+"default, emails are sent to the site administrator."
+msgstr ""
+
+#: build/contact-form/index.js:120 build/contact-form/index.js:104
+msgid "Title of the form"
+msgstr ""
+
+#: build/contact-form/index.js:125 build/contact-form/index.js:116
+msgid "Mail To"
+msgstr "Empfänger E-Mail"
+
+#: build/contact-form/index.js:126 build/contact-form/index.js:117
+msgid "Mail form to this address instead of default receiver."
+msgstr ""
+
+#: build/contact-form/index.js:128 build/contact-form/index.js:122
+msgid "default receiver"
+msgstr ""
+
+#: build/contact-form/index.js:132 build/contact-form/index.js:130
+msgid "Require E-Mail"
+msgstr "E-Mail ist Pflichtfeld"
+
+#: build/contact-form/index.js:136 build/contact-form/index.js:139
+msgid "Send confirmation to sender"
+msgstr ""
+
+#: build/contact-form/index.js:137 build/contact-form/index.js:143
+msgid ""
+"This only sends a short confirmation that the form was submitted "
+"successfully. No user content will be included. It is recommended to use a "
+"ticket system for detailed confirmations."
+msgstr ""
+
+#: build/contact-form/index.js:141 build/contact-form/index.js:152
+msgid "Display Phone Field"
+msgstr ""
+
+#: build/contact-form/index.js:145 build/contact-form/index.js:161
+msgid "Require Phone"
+msgstr ""
+
+#: build/contact-form/index.js:149 build/contact-form/index.js:170
+msgid "Show number captcha"
+msgstr ""
+
+#: build/contact-form/index.js:150 build/contact-form/index.js:174
+msgid ""
+"Simple arithmetic captcha as spam protection. Honeypot, time trap and rate "
+"limiting stay active regardless."
+msgstr ""
 
 #: build/contact-form/block.json
 msgctxt "block title"
@@ -137,6 +200,6 @@ msgctxt "block description"
 msgid "Simple Contact Form"
 msgstr "Einfaches Kontaktformular"
 
-#, fuzzy,php-format
+#, fuzzy, php-format
 #~ msgid "%1$d + %2$d"
 #~ msgstr "%d + %d"
