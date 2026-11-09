@@ -77,11 +77,6 @@ html.preload * {
 .entry-content > *:not(.alignwide):not(.alignfull) {
 
     @media (max-width: 480px) {
-        padding-left: var(--grid-margin);
-        padding-right: var(--grid-margin);
-    }
-
-    @media (max-width: 480px) {
         width: 100%;
         max-width: 100%;
         padding-left: 0;
