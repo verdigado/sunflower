@@ -40,3 +40,17 @@ blockquote.wp-block-quote {
         margin: 0;
     }
 }
+
+/*
+ * The quote carries a background, so its inner padding has to come from the
+ * element itself. The generic layout rule for direct children of .entry-content
+ * sets padding-left/right as longhands at a higher specificity than
+ * blockquote.wp-block-quote, which silently flattens the padding above - to
+ * var(--grid-margin) below 782px, and to zero below 481px, where the text then
+ * touches the edge of the box. Repeating the selector plus the element wins the
+ * horizontal padding back at every breakpoint.
+ */
+.entry-content > blockquote:not(.alignwide):not(.alignfull) {
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin);
+}
