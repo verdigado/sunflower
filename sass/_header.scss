@@ -396,8 +396,13 @@ header .social-media-profiles {
                         > .dropdown-menu {
                             display: block;
 
-                            top: 100%;
                             margin-top: 0;
+                        }
+
+                        // Only the first level is position: absolute, where
+                        // top: 100% means "directly below the nav item".
+                        > .dropdown-menu-level-0 {
+                            top: 100%;
                         }
                     }
 
