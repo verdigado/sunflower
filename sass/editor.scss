@@ -585,7 +585,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
 
             article {
                 background-color: #fff !important;
-                border: 2px solid #008939;
+                border: 2px solid map.get($custom-colors, "klee");
                 border-radius: var(--border-radius-medium);
                 overflow: hidden;
                 position: relative;
@@ -636,7 +636,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
                         .entry-meta {
                             display: flex;
                             justify-content: space-between;
-                            color: #008939 !important;
+                            color: map.get($custom-colors, "klee") !important;
                             margin-bottom: 15px !important;
                             font-size: 14px;
 
@@ -646,7 +646,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
                             }
 
                             .roofline {
-                                color: #008939 !important;
+                                color: map.get($custom-colors, "klee") !important;
                                 text-transform: uppercase;
                                 font-family: var(--wp--preset--font-family--gruenetypeneue);
                                 font-size: 14px;
@@ -662,7 +662,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
 
                         h2,
                         h2 a {
-                            color: #008939 !important;
+                            color: map.get($custom-colors, "klee") !important;
                         }
                     }
 
@@ -674,7 +674,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
                         margin-top: auto;
 
                         .continue-reading {
-                            color: #005538 !important;
+                            color: map.get($custom-colors, "tanne") !important;
                             display: flex;
                             align-items: center;
                             gap: 10px;
@@ -816,7 +816,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
         width: 100%;
         background-color: #fff;
         color: #212529;
-        border: 2px solid #005538;
+        border: 2px solid map.get($custom-colors, "tanne");
     }
 
     textarea {
@@ -836,17 +836,17 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
         font-family: "PT Sans", sans-serif;
         padding: 0 35px 4px 35px;
         transition: 0.3s ease;
-        border: 2px solid #005538;
+        border: 2px solid map.get($custom-colors, "tanne");
         background-color: #fff;
-        color: #005538;
+        color: map.get($custom-colors, "tanne");
         display: inline-flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
 
         &:hover {
-            color: #002216 !important;
-            background-color: #fff17a !important;
+            color: map.get($custom-colors, "schwarzwald") !important;
+            background-color: map.get($custom-colors, "sonne") !important;
         }
     }
 
@@ -917,7 +917,7 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
             min-height: 46px;
             font-size: 20px;
             font-family: "PT Sans", sans-serif;
-            border: 2px solid #005538;
+            border: 2px solid map.get($custom-colors, "tanne");
             background-color: #fff;
             position: relative;
         }
@@ -931,12 +931,12 @@ $fa-font-path: "#{$sunflower-vndr-path}/@fortawesome/fontawesome-free/webfonts";
             height: 46px;
             font-family: "PT Sans", sans-serif;
             padding: 0 35px 4px 35px;
-            border: 2px solid #005538;
-            background-color: #005538;
-            color: #f5f1e9;
+            border: 2px solid map.get($custom-colors, "tanne");
+            background-color: map.get($custom-colors, "tanne");
+            color: map.get($custom-colors, "sand");
 
             &:hover {
-                background-color: #008939;
+                background-color: map.get($custom-colors, "klee");
             }
         }
 

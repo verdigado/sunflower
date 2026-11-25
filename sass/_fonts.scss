@@ -1,14 +1,20 @@
-@font-face {
-    font-family: "GrueneType Neue";
-    src:
-        url("#{$sunflower-fonts-path}/GrueneTypeNeue-Regular.woff2") format("woff2"),
-        url("#{$sunflower-fonts-path}/GrueneTypeNeue-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-    -webkit-font-smoothing: subpixel-antialiased;
-    text-rendering: optimizelegibility;
-    -moz-osx-font-smoothing: grayscale;
+// GrueneType Neue is licensed to BÜNDNIS 90/DIE GRÜNEN. Child themes that are
+// not entitled to use it set $sunflower-load-gruenetype to false and point the
+// gruenetypeneue preset in their theme.json at their own typeface instead.
+@if $sunflower-load-gruenetype {
+
+    @font-face {
+        font-family: "GrueneType Neue";
+        src:
+            url("#{$sunflower-fonts-path}/GrueneTypeNeue-Regular.woff2") format("woff2"),
+            url("#{$sunflower-fonts-path}/GrueneTypeNeue-Regular.woff") format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+        -webkit-font-smoothing: subpixel-antialiased;
+        text-rendering: optimizelegibility;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }
 
 @font-face {

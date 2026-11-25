@@ -285,7 +285,7 @@
 .wp-block-site-logo {
 
     .logo-background {
-        background-color: #005538;
+        background-color: map.get($custom-colors, "tanne");
         border-radius: 10px;
         display: flex;
         justify-content: center;

@@ -4,6 +4,9 @@ $sunflower-assets-path: "assets" !default;
 $sunflower-vndr-path: "#{$sunflower-assets-path}/vndr" !default;
 $sunflower-fonts-path: "#{$sunflower-assets-path}/fonts" !default;
 $sunflower-img-path: "#{$sunflower-assets-path}/img" !default;
+
+// Emit the @font-face for GrueneType Neue. See sass/_fonts.scss.
+$sunflower-load-gruenetype: true !default;
 $custom-colors: (
     "schwarzwald": #002216,
     "tanne": #005538,
@@ -16,7 +19,7 @@ $custom-colors: (
     "gruener-sand": #f3faf6,
     "white": #fff,
     "himmel": #0ba1dd,
-);
+) !default;
 
 
 $primary: map.get($custom-colors, "tanne");
@@ -40,8 +43,8 @@ $body-color: #212529;
 
 $sidebar-color: #afafaf;
 
-$lightgreen: #f3faf6;
-$darkgreen: #002216;
+$lightgreen: map.get($custom-colors, "gruener-sand");
+$darkgreen: map.get($custom-colors, "schwarzwald");
 
 $transition-duration: 0.3s !default;
 $transition-easing:   ease !default;
