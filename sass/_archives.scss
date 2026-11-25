@@ -274,7 +274,7 @@ body.post-image-flexible {
             width: 35px;
             height: 20px;
             mask: url(../sunflower26/assets/img/arrow-right.svg) no-repeat center;
-            background-color: #008939;
+            background-color: map.get($custom-colors, "klee");
             mask-size: 18px;
             position: relative;
             top: 2px;

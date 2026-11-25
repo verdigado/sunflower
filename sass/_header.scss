@@ -140,7 +140,7 @@ header .social-media-profiles {
     }
 
     .logo-background {
-        background-color: #005538 !important;
+        background-color: map.get($custom-colors, "tanne") !important;
         display: flex;
         justify-content: center;
         align-items: center;

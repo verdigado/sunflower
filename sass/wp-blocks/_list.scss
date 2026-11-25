@@ -37,7 +37,7 @@ ul {
                     top: 6px;
                     width: 21px;
                     height: 21px;
-                    mask: url("assets/img/bullet.svg") no-repeat center;
+                    mask: url("#{$sunflower-img-path}/bullet.svg") no-repeat center;
                     mask-size: contain;
                     background-color: currentcolor;
 

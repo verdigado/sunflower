@@ -49,8 +49,8 @@ body #content {
         &__button {
             position: absolute;
             right: 0;
-            background-color: #005538;
-            color: #f5f1e9;
+            background-color: map.get($custom-colors, "tanne");
+            color: map.get($custom-colors, "sand");
         }
 
         &__label {

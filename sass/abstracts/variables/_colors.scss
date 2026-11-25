@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
@@ -8,8 +10,8 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: #008939;
-$color__link-visited: #008939;
+$color__link: map.get($custom-colors, "klee");
+$color__link-visited: map.get($custom-colors, "klee");
 $color__link-hover: #006e2e;
 $color__text-main: #212529;
 

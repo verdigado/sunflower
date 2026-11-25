@@ -120,7 +120,7 @@ body .wp-block-site-title {
         content: "";
         z-index: -1;
         transform: skewX(-12deg);
-        background-color: #005538;
+        background-color: map.get($custom-colors, "tanne");
         transition: background-color 0.3s ease;
 
         @include media-breakpoint-down(xl) {
