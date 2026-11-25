@@ -621,6 +621,22 @@ header .social-media-profiles {
 
                                     &-0 {
                                         box-shadow: none;
+
+                                        /* The first submenu level carries the
+                                         * white panel background of the desktop
+                                         * dropdown (_navigation.scss). In the
+                                         * off-canvas menu it sits inside the
+                                         * panel and has to follow the colour
+                                         * scheme instead - otherwise the dark
+                                         * scheme shows a white box behind the
+                                         * sub items. Prefix-nogap because
+                                         * colorscheme-* and hamburger-menu are
+                                         * both body classes.
+                                         */
+
+                                        @include themed-colorscheme-prefix-nogap() {
+                                            background: t(background);
+                                        }
                                     }
                                 }
 
