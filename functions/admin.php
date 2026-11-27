@@ -37,11 +37,14 @@ add_action( 'admin_bar_menu', 'sunflower_admin_bar', 999 );
 function sunflower_notice() {
 	global $pagenow;
 
+	// Everybody sees the notice, but only administrators can dismiss it (site-wide).
+	$sunflower_dismissible = current_user_can( 'manage_options' ) ? 'is-dismissible' : '';
+
 	if ( ! in_array( $pagenow, array( 'themes.php', 'index.php', 'admin.php' ), true ) ) {
 		return;
 	}
 	?>
-	<div id="sunflower-plugins" class="notice notice-info notice-large sunflower-plugins is-dismissible">
+	<div id="sunflower-plugins" class="notice notice-info notice-large sunflower-plugins <?php echo esc_attr( $sunflower_dismissible ); ?>">
 		<?php wp_nonce_field( 'sunflower_update_notice', '_sunflower_nonce' ); ?>
 		<p>
 		<?php
@@ -74,11 +77,14 @@ if ( empty( get_option( 'sunflower-plugins-dismissed' ) ) ) {
 function sunflower_notice_php() {
 	global $pagenow;
 
+	// Everybody sees the notice, but only administrators can dismiss it (site-wide).
+	$sunflower_dismissible = current_user_can( 'manage_options' ) ? 'is-dismissible' : '';
+
 	if ( ! in_array( $pagenow, array( 'themes.php', 'index.php', 'admin.php' ), true ) ) {
 		return;
 	}
 	?>
-	<div id="sunflower-plugins-php-82" class="notice notice-error update-nag sunflower-plugins is-dismissible">
+	<div id="sunflower-plugins-php-82" class="notice notice-error update-nag sunflower-plugins <?php echo esc_attr( $sunflower_dismissible ); ?>">
 		<?php wp_nonce_field( 'sunflower_update_notice', '_sunflower_nonce' ); ?>
 		<p class="h3"><?php esc_attr_e( 'PHP Version End of Life', 'sunflower' ); ?></p>
 		<p>
@@ -118,11 +124,14 @@ if ( empty( get_option( 'sunflower-plugins-php-82-dismissed' ) ) && version_comp
 function sunflower_notice_terms() {
 	global $pagenow;
 
+	// Everybody sees the notice, but only administrators can dismiss it (site-wide).
+	$sunflower_dismissible = current_user_can( 'manage_options' ) ? 'is-dismissible' : '';
+
 	if ( ! in_array( $pagenow, array( 'themes.php', 'index.php', 'admin.php' ), true ) ) {
 		return;
 	}
 	?>
-	<div id="sunflower-notice-terms" class="notice notice-error update-nag sunflower-plugins is-dismissible">
+	<div id="sunflower-notice-terms" class="notice notice-error update-nag sunflower-plugins <?php echo esc_attr( $sunflower_dismissible ); ?>">
 		<?php wp_nonce_field( 'sunflower_update_notice', '_sunflower_nonce' ); ?>
 		<p class="h3"><?php esc_attr_e( 'New Terms and Use Settings', 'sunflower' ); ?></p>
 		<p>
@@ -176,14 +185,27 @@ add_action( 'admin_enqueue_scripts', 'sunflower_load_admin_scripts' );
  */
 function sunflower_update_notice() {
 	// Do not save, if nonce is invalid.
-	if ( ! isset( $_POST['_sunflower_nonce'] ) || ! wp_verify_nonce( $_POST['_sunflower_nonce'], 'sunflower_update_notice' ) ) {
-		return;
+	if ( ! isset( $_POST['_sunflower_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_sunflower_nonce'] ) ), 'sunflower_update_notice' ) ) {
+		wp_send_json_error( null, 403 );
 	}
 
-	$id              = $_POST['id'] ?? '';
-	$dissmiss_option = empty( $id ) ? 'sunflower-plugins-dismissed' : $id . '-dismissed';
+	// The notices are site-wide, so only administrators may dismiss them.
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_send_json_error( null, 403 );
+	}
 
-	update_option( $dissmiss_option, 1 );
+	// Only the known notices: the id must never become an arbitrary option name.
+	$id = isset( $_POST['id'] ) ? sanitize_key( wp_unslash( $_POST['id'] ) ) : '';
+	if ( '' === $id ) {
+		$id = 'sunflower-plugins';
+	}
+
+	if ( ! in_array( $id, array( 'sunflower-plugins', 'sunflower-plugins-php-82', 'sunflower-notice-terms' ), true ) ) {
+		wp_send_json_error( null, 400 );
+	}
+
+	update_option( $id . '-dismissed', 1 );
+	wp_send_json_success();
 }
 
 add_action( 'wp_ajax_sunflower_plugins_dismiss', 'sunflower_update_notice' );
@@ -364,37 +386,42 @@ add_action( 'login_enqueue_scripts', 'sunflower_login_logo' );
 
 /**
  * Fix event location.
+ *
+ * Stores (or deletes) a manually corrected geo position in the geocode cache,
+ * which sunflower_geocode() consults before asking the geocoding service.
  */
 function sunflower_fix_event_location() {
-	if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'sunflower_location' ) ) {
-		return;
+	if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'sunflower_location' ) ) {
+		wp_send_json_error( null, 403 );
 	}
-	$transient = sprintf( 'sunflower_geocache_%s', $_POST['transient'] );
-	if ( 'delete' === $_POST['do'] ) {
+
+	// The nonce is printed for everybody who can edit events; this is the
+	// actual permission check.
+	if ( ! current_user_can( 'edit_posts' ) ) {
+		wp_send_json_error( null, 403 );
+	}
+
+	// Same key derivation as in sunflower_geocode().
+	$location = isset( $_POST['transient'] ) ? sanitize_title( sanitize_text_field( wp_unslash( $_POST['transient'] ) ) ) : '';
+	if ( '' === $location ) {
+		wp_send_json_error( null, 400 );
+	}
+	$transient = sprintf( 'sunflower_geocache_%s', $location );
+
+	if ( isset( $_POST['do'] ) && 'delete' === $_POST['do'] ) {
 		delete_transient( $transient );
-	} else {
-		$lon = $_POST['lon'];
-		$lat = $_POST['lat'];
-		set_transient( $transient, array( $lon, $lat ) );
+		wp_send_json_success();
 	}
-}
 
-add_action( 'wp_ajax_sunflower_fix_event_location', 'sunflower_fix_event_location' );
-
-/**
- * Set event location.
- */
-function sunflower_set_event_location() {
-	if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'sunflower_location' ) ) {
-		return;
+	// Coordinates end up in page output, so accept plain numbers in range only.
+	$lon = isset( $_POST['lon'] ) && is_scalar( $_POST['lon'] ) ? sanitize_text_field( wp_unslash( $_POST['lon'] ) ) : '';
+	$lat = isset( $_POST['lat'] ) && is_scalar( $_POST['lat'] ) ? sanitize_text_field( wp_unslash( $_POST['lat'] ) ) : '';
+	if ( ! is_numeric( $lon ) || ! is_numeric( $lat ) || abs( (float) $lon ) > 180 || abs( (float) $lat ) > 90 ) {
+		wp_send_json_error( null, 400 );
 	}
-	$transient = sprintf( 'sunflower_geocache_%s', $_POST['transient'] );
-	$lon       = $_POST['lon'];
-	$lat       = $_POST['lat'];
-	set_transient( $transient, array( $lon, $lat ) );
 
-	update_post_meta( $id, '_sunflower_event_lat', $lat );
-	update_post_meta( $id, '_sunflower_event_lon', $lon );
+	set_transient( $transient, array( (float) $lon, (float) $lat ) );
+	wp_send_json_success();
 }
 
 add_action( 'wp_ajax_sunflower_fix_event_location', 'sunflower_fix_event_location' );
