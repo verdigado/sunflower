@@ -295,6 +295,9 @@ jQuery( function () {
 
 	lightbox.option( {
 		albumLabel: sunflower.texts.lightbox2.imageOneOf,
+		// Captions are plain text. Without this, lightbox2 inserts them as
+		// HTML, so a caption like "<img onerror=…>" would be executed.
+		sanitizeTitle: true,
 	} );
 } );
 
