@@ -132,6 +132,22 @@ function sunflowerSetMarker( lat, lon, zoom, setmarker, update ) {
 			address.push( city.trim() );
 		}
 
+		let location = address.join( ', ' );
+
+		// On the events settings page there are no address fields: the
+		// location to correct is the one chosen in the select box.
+		const selected = jQuery( '#sunflower-location option:selected' );
+		if ( ! location && selected.length && selected.val() ) {
+			location = selected.text();
+			selected.val( lat + ';' + lon );
+		}
+
+		// Without an address there is no cache entry to correct. In the event
+		// editor the position is still saved with the event itself.
+		if ( ! location ) {
+			return;
+		}
+
 		jQuery.ajax( {
 			url: ajaxurl,
 			method: 'POST',
@@ -141,7 +157,7 @@ function sunflowerSetMarker( lat, lon, zoom, setmarker, update ) {
 				lat,
 				lon,
 				do: 'update',
-				transient: address.join( ', ' ),
+				transient: location,
 			},
 		} );
 	}

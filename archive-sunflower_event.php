@@ -110,18 +110,21 @@ $sunflower_is_event_archive = isset( $_GET['archive'] ) && ( 'true' === $_GET['a
 								$sunflower_location = ' | ' . $sunflower_location;
 							}
 
-							if ( $sunflower_event_lat && $sunflower_event_lon ) {
-								$sunflower_map[] = (object) array(
-									'lat'     => $sunflower_event_lat,
-									'lon'     => $sunflower_event_lon,
-									'content' => sprintf(
-										'<div class="leaflet-marker"><strong>%s</strong><div>%s%s</div><div>%s</div><a href="%s">%s</a></div>',
-										get_the_title(),
-										$sunflower_days,
-										$sunflower_location,
-										get_the_excerpt(),
-										get_permalink(),
-										__( 'more info', 'sunflower' )
+							// Coordinates are stored as free text, so only accept real numbers.
+							if ( is_numeric( $sunflower_event_lat ) && is_numeric( $sunflower_event_lon ) ) {
+								$sunflower_map[] = array(
+									'lat'     => (float) $sunflower_event_lat,
+									'lon'     => (float) $sunflower_event_lon,
+									'content' => wp_kses_post(
+										sprintf(
+											'<div class="leaflet-marker"><strong>%s</strong><div>%s%s</div><div>%s</div><a href="%s">%s</a></div>',
+											get_the_title(),
+											esc_html( $sunflower_days ),
+											esc_html( $sunflower_location ),
+											get_the_excerpt(),
+											esc_url( get_permalink() ),
+											esc_html__( 'more info', 'sunflower' )
+										)
 									),
 								);
 							}
@@ -146,27 +149,33 @@ endif;
 						$sunflower_upper_lon = 0;
 
 						foreach ( $sunflower_map as $sunflower_marker ) {
-							printf(
-								"map.marker.push( { 'lat' : %s, 'lon': %s, 'content': '%s'} );",
-								esc_attr( $sunflower_marker->lat ),
-								esc_attr( $sunflower_marker->lon ),
-								wp_kses_post( $sunflower_marker->content )
-							);
-
-							$sunflower_lower_lat = min( $sunflower_lower_lat, $sunflower_marker->lat );
-							$sunflower_upper_lat = max( $sunflower_upper_lat, $sunflower_marker->lat );
-							$sunflower_lower_lon = min( $sunflower_lower_lon, $sunflower_marker->lon );
-							$sunflower_upper_lon = max( $sunflower_upper_lon, $sunflower_marker->lon );
+							$sunflower_lower_lat = min( $sunflower_lower_lat, $sunflower_marker['lat'] );
+							$sunflower_upper_lat = max( $sunflower_upper_lat, $sunflower_marker['lat'] );
+							$sunflower_lower_lon = min( $sunflower_lower_lon, $sunflower_marker['lon'] );
+							$sunflower_upper_lon = max( $sunflower_upper_lon, $sunflower_marker['lon'] );
 						}
 
 						$sunflower_center_lat = ( $sunflower_lower_lat + $sunflower_upper_lat ) / 2;
 						$sunflower_center_lon = ( $sunflower_lower_lon + $sunflower_upper_lon ) / 2;
 						$sunflower_zoom       = sunflower_get_setting( 'sunflower_zoom' ) ? sunflower_get_setting( 'sunflower_zoom' ) : 11;
+
+						// Hand the data over as JSON: values must never be concatenated into
+						// script source. The JSON_HEX_* flags keep "</script>" and quotes inert.
+						$sunflower_json_flags = JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT;
 						printf(
-							"map.center = { 'lat': %s, 'lon': %s, 'zoom': %s };",
-							esc_attr( $sunflower_center_lat ),
-							esc_attr( $sunflower_center_lon ),
-							esc_attr( $sunflower_zoom )
+							'map.marker = %s;',
+							wp_json_encode( $sunflower_map, $sunflower_json_flags ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						);
+						printf(
+							'map.center = %s;',
+							wp_json_encode( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								array(
+									'lat'  => (float) $sunflower_center_lat,
+									'lon'  => (float) $sunflower_center_lon,
+									'zoom' => (int) $sunflower_zoom,
+								),
+								$sunflower_json_flags
+							)
 						);
 
 						?>
