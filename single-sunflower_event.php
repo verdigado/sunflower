@@ -88,12 +88,12 @@ if ( is_array( $sunflower_location ) ) {
 					if ( filter_var( $locline, FILTER_VALIDATE_URL ) ) {
 						return sprintf(
 							'<i class="fa-solid fa-location-dot"></i><a href="%s" class="location" target="_blank">%s</a>',
-							$locline,
-							__( 'Location Link', 'sunflower' )
+							esc_url( $locline ),
+							esc_html__( 'Location Link', 'sunflower' )
 						);
 					}
 
-					return $locline;
+					return esc_html( $locline );
 				},
 				$sunflower_location
 			)
@@ -104,23 +104,23 @@ if ( is_array( $sunflower_location ) ) {
 if ( $sunflower_event_webinar ) {
 	$sunflower_metadata .= sprintf(
 		'<div class="mt-1 mb-1"><a href="%s" target="_blank">%s</a></div>',
-		$sunflower_event_webinar,
-		__( 'Link to webinar', 'sunflower' )
+		esc_url( $sunflower_event_webinar ),
+		esc_html__( 'Link to webinar', 'sunflower' )
 	);
 }
 
 if ( $sunflower_event_organizer ) {
 	if ( $sunflower_event_organizer_url ) {
-		$sunflower_metadata .= sprintf( '<div class="mt-1 mb-1">%s <a href="%s" target="_blank">%s</a></div>', __( 'organized by', 'sunflower' ), $sunflower_event_organizer_url, $sunflower_event_organizer );
+		$sunflower_metadata .= sprintf( '<div class="mt-1 mb-1">%s <a href="%s" target="_blank">%s</a></div>', esc_html__( 'organized by', 'sunflower' ), esc_url( $sunflower_event_organizer_url ), esc_html( $sunflower_event_organizer ) );
 	} else {
-		$sunflower_metadata .= sprintf( '<div class="mt-1 mb-1">%s %s</div>', __( 'organized by', 'sunflower' ), $sunflower_event_organizer );
+		$sunflower_metadata .= sprintf( '<div class="mt-1 mb-1">%s %s</div>', esc_html__( 'organized by', 'sunflower' ), esc_html( $sunflower_event_organizer ) );
 	}
 }
 
 $sunflower_metadata .= sprintf(
 	'<div><a href="%s" class="text-white">%s</a></div>',
-	$sunflower_ics_link,
-	__( 'Download as ics', 'sunflower' )
+	esc_url( $sunflower_ics_link ),
+	esc_html__( 'Download as ics', 'sunflower' )
 );
 
 ?>
