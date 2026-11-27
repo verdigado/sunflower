@@ -147,7 +147,9 @@ function sunflower_save_event_meta_boxes() {
 		return;
 	}
 
-	$into_transients = array( '_sunflower_event_lat', '_sunflower_event_lon', '_sunflower_event_zoom' );
+	if ( ! current_user_can( 'edit_post', $post->ID ) ) {
+		return;
+	}
 
 	$is_all_day = $_POST['_sunflower_event_whole_day'] ?? '';
 
@@ -163,15 +165,6 @@ function sunflower_save_event_meta_boxes() {
 		}
 
 		update_post_meta( $post->ID, $id, sanitize_text_field( $value ) );
-		if ( ! in_array( $id, $into_transients, true ) ) {
-			continue;
-		}
-
-		if ( ! $value ) {
-			continue;
-		}
-
-		set_transient( $id, $value );
 	}
 
 	$sunflower_location = array();
