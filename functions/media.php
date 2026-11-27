@@ -49,10 +49,15 @@ function sunflower_rest_api_media_creator() {
 		'attachment',
 		'_media_creator',
 		array(
-			'show_in_rest'  => true,
-			'single'        => true,
-			'type'          => 'string',
-			'auth_callback' => function () {
+			'show_in_rest'      => true,
+			'single'            => true,
+			'type'              => 'string',
+			// The creator may contain links, so allow post HTML but nothing else.
+			// Runs on every write, whether from the media form or the REST API.
+			'sanitize_callback' => static function ( $value ) {
+				return is_string( $value ) ? wp_kses_post( $value ) : '';
+			},
+			'auth_callback'     => function () {
 				return current_user_can( 'edit_posts' );
 			},
 		)
