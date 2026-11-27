@@ -47,12 +47,16 @@ $sunflower_placeholder_message = __( 'Your Message', 'sunflower-contact-form' ) 
 $sunflower_placeholder_name    = __( 'Name', 'sunflower-contact-form' ) . '*';
 $sunflower_placeholder_email   = __( 'E-Mail', 'sunflower-contact-form' ) . ( $sunflower_require_mail ? '*' : '' );
 $sunflower_placeholder_phone   = __( 'Phone', 'sunflower-contact-form' ) . ( $sunflower_require_phone ? '*' : '' );
+// Spam protection: signed render timestamp (time-trap). The captcha token is
+// bound to it, so both expire together.
+$sunflower_form_ts     = time();
+$sunflower_form_ts_sig = sunflower_contact_form_ts_signature( $sunflower_form_ts );
+
 // Dynamic Captcha generation.
 $sunflower_captcha_num1  = wp_rand( 1, 9 );
 $sunflower_captcha_num2  = wp_rand( 1, 9 );
 $sunflower_captcha_sum   = $sunflower_captcha_num1 + $sunflower_captcha_num2;
-$sunflower_captcha_salt  = defined( 'NONCE_SALT' ) ? NONCE_SALT : 'sunflower_default_fallback_salt';
-$sunflower_captcha_token = hash( 'sha256', $sunflower_captcha_sum . $sunflower_captcha_salt );
+$sunflower_captcha_token = sunflower_contact_form_captcha_token( $sunflower_captcha_sum, $sunflower_form_ts );
 
 $sunflower_captcha_expr = sprintf( '%1$d + %2$d', $sunflower_captcha_num1, $sunflower_captcha_num2 );
 // translators: %s is the arithmetic expression (e.g., "3 + 5").
@@ -68,12 +72,7 @@ $sunflower_placeholder_captcha = sprintf( __( 'How much is %s?', 'sunflower-cont
 
 	<form id="sunflower-contact-form" method="post" class="row">
 		<?php wp_nonce_field( 'sunflower_contact_form' ); ?>
-		<?php
-		// Spam protection: signed render timestamp (time-trap). Captcha state is no
-		// longer a client field - the handler reads showCaptcha from the block.
-		$sunflower_form_ts     = time();
-		$sunflower_form_ts_sig = hash_hmac( 'sha256', (string) $sunflower_form_ts, $sunflower_captcha_salt );
-		?>
+		<?php // Captcha state is not a client field - the handler reads showCaptcha from the block. ?>
 		<input type="hidden" name="form_ts" value="<?php echo esc_attr( $sunflower_form_ts ); ?>" />
 		<input type="hidden" name="form_ts_sig" value="<?php echo esc_attr( $sunflower_form_ts_sig ); ?>" />
 

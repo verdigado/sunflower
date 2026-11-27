@@ -6,26 +6,83 @@
  */
 
 /**
- * Best-effort client IP for rate limiting.
+ * Client IP for rate limiting.
  *
- * Behind a reverse proxy / DDEV router, REMOTE_ADDR is the proxy address and is
- * therefore shared by all visitors. A trusted proxy sets X-Forwarded-For with the
- * real client IP as the left-most entry, so we prefer that. IMPORTANT:
- * X-Forwarded-For is client-supplied and spoofable UNLESS a trusted proxy
- * overwrites/appends it - only rely on it when such a proxy is actually in front
- * (otherwise keep REMOTE_ADDR). Behind Cloudflare prefer CF-Connecting-IP.
+ * By default this is REMOTE_ADDR, the only address a client cannot make up.
+ * Behind a reverse proxy REMOTE_ADDR is the proxy, so all visitors share one
+ * rate limit. Sites in that situation can opt in to X-Forwarded-For:
+ *
+ *     define( 'SUNFLOWER_CONTACT_FORM_TRUST_PROXY', true );
+ *
+ * or with the filter 'sunflower_contact_form_trust_proxy'. Only do this when a
+ * proxy you control really is in front - otherwise the header is whatever the
+ * client sends. The right-most entry is used: it is the one appended by the
+ * nearest proxy, while everything left of it comes from the request itself.
+ * Setups with several proxies, or with a header such as CF-Connecting-IP, can
+ * supply the address through the filter 'sunflower_contact_form_client_ip'.
  *
  * @return string Client IP, or '' if none could be determined.
  */
 function sunflower_contact_form_client_ip() {
-	if ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-		$sunflower_xff = explode( ',', sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) );
-		$sunflower_ip  = trim( $sunflower_xff[0] );
-		if ( filter_var( $sunflower_ip, FILTER_VALIDATE_IP ) ) {
-			return $sunflower_ip;
+	$sunflower_ip = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+
+	/**
+	 * Whether to take the client IP from X-Forwarded-For.
+	 *
+	 * @param bool $trust_proxy Default: the constant SUNFLOWER_CONTACT_FORM_TRUST_PROXY, else false.
+	 */
+	$sunflower_trust_proxy = (bool) apply_filters( 'sunflower_contact_form_trust_proxy', (bool) sunflower_get_constant( 'SUNFLOWER_CONTACT_FORM_TRUST_PROXY' ) );
+
+	if ( $sunflower_trust_proxy && ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+		$sunflower_xff       = explode( ',', sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) );
+		$sunflower_forwarded = trim( (string) end( $sunflower_xff ) );
+		if ( filter_var( $sunflower_forwarded, FILTER_VALIDATE_IP ) ) {
+			$sunflower_ip = $sunflower_forwarded;
 		}
 	}
-	return isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+
+	/**
+	 * The client IP used for the contact form rate limit.
+	 *
+	 * @param string $sunflower_ip The detected address.
+	 */
+	$sunflower_ip = (string) apply_filters( 'sunflower_contact_form_client_ip', $sunflower_ip );
+
+	return filter_var( $sunflower_ip, FILTER_VALIDATE_IP ) ? $sunflower_ip : '';
+}
+
+/**
+ * Secret for signing the form timestamp and the captcha token.
+ *
+ * @return string The site's nonce salt.
+ */
+function sunflower_contact_form_secret() {
+	return wp_salt( 'nonce' );
+}
+
+/**
+ * Signature of the render timestamp (time-trap).
+ *
+ * @param int $form_ts Unix time at which the form was rendered.
+ * @return string The signature.
+ */
+function sunflower_contact_form_ts_signature( $form_ts ) {
+	return hash_hmac( 'sha256', 'ts|' . (int) $form_ts, sunflower_contact_form_secret() );
+}
+
+/**
+ * Captcha token for a given result.
+ *
+ * The token is bound to the render timestamp, so a solved captcha is only
+ * worth something together with the form it was rendered in - and that form
+ * expires after an hour.
+ *
+ * @param int $sum     The expected result of the arithmetic question.
+ * @param int $form_ts Unix time at which the form was rendered.
+ * @return string The token.
+ */
+function sunflower_contact_form_captcha_token( $sum, $form_ts ) {
+	return hash_hmac( 'sha256', 'captcha|' . (int) $sum . '|' . (int) $form_ts, sunflower_contact_form_secret() );
 }
 
 /**
@@ -76,8 +133,6 @@ function sunflower_contact_form() {
 		return;
 	}
 
-	$sunflower_spam_salt = defined( 'NONCE_SALT' ) ? NONCE_SALT : 'sunflower_default_fallback_salt';
-
 	// Honeypot: a hidden field humans never see. If filled, silently accept and drop
 	// (fake success so bots get no signal to adapt).
 	if ( ! empty( $_POST['website'] ) ) {
@@ -97,7 +152,11 @@ function sunflower_contact_form() {
 	$found_block = null;
 	if ( ! empty( $_POST['postId'] ) ) {
 		$sunflower_post = get_post( (int) $_POST['postId'] );
-		if ( $sunflower_post ) {
+
+		// Only a post the sender can actually see may supply the form settings.
+		// Otherwise any post ID could be named to borrow, say, a draft's
+		// recipient or a form with the captcha switched off.
+		if ( $sunflower_post && ( 'publish' === $sunflower_post->post_status || current_user_can( 'read_post', $sunflower_post->ID ) ) ) {
 			$found_block = sunflower_contact_form_find_block( parse_blocks( $sunflower_post->post_content ) );
 		}
 	}
@@ -109,7 +168,7 @@ function sunflower_contact_form() {
 	// timestamp is HMAC-signed, so it cannot be forged or replayed with a new value.
 	$sunflower_form_ts     = isset( $_POST['form_ts'] ) ? (int) $_POST['form_ts'] : 0;
 	$sunflower_form_ts_sig = isset( $_POST['form_ts_sig'] ) ? sanitize_text_field( wp_unslash( $_POST['form_ts_sig'] ) ) : '';
-	$sunflower_expected_ts = hash_hmac( 'sha256', (string) $sunflower_form_ts, $sunflower_spam_salt );
+	$sunflower_expected_ts = sunflower_contact_form_ts_signature( $sunflower_form_ts );
 
 	if ( ! $sunflower_form_ts || ! hash_equals( $sunflower_expected_ts, $sunflower_form_ts_sig ) ) {
 		echo wp_json_encode(
@@ -178,21 +237,16 @@ function sunflower_contact_form() {
 
 	// Captcha only when the block enables it (read from trusted block attributes).
 	if ( $sunflower_show_captcha ) {
-		$captcha_user_input = (int) sanitize_text_field( $_POST['captcha'] );
-		$captcha_token      = sanitize_text_field( $_POST['captcha_token'] );
-		$captcha_salt       = defined( 'NONCE_SALT' ) ? NONCE_SALT : 'sunflower_default_fallback_salt';
-		$expected_token     = '';
+		$captcha_user_input = isset( $_POST['captcha'] ) ? (int) sanitize_text_field( wp_unslash( $_POST['captcha'] ) ) : 0;
+		$captcha_token      = isset( $_POST['captcha_token'] ) ? sanitize_text_field( wp_unslash( $_POST['captcha_token'] ) ) : '';
 
-		// We need to find the sum that produces this token.
-		// Since we only use numbers 1-9, there are very few possibilities (2 to 18).
-		for ( $i = 2; $i <= 18; $i++ ) {
-			if ( hash( 'sha256', $i . $captcha_salt ) === $captcha_token ) {
-				$expected_sum = $i;
-				break;
-			}
-		}
+		// The token must be the one issued for this answer and this form's
+		// (already verified) timestamp. Answers range from 2 to 18.
+		$captcha_valid = $captcha_user_input >= 2
+			&& $captcha_user_input <= 18
+			&& hash_equals( sunflower_contact_form_captcha_token( $captcha_user_input, $sunflower_form_ts ), $captcha_token );
 
-		if ( ! isset( $expected_sum ) || $captcha_user_input !== $expected_sum ) {
+		if ( ! $captcha_valid ) {
 			echo wp_json_encode(
 				array(
 					'code' => 500,
