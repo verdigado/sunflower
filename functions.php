@@ -114,17 +114,35 @@ function sunflower_get_social_media_profiles() {
 
 /**
  * SVG Upload
+ *
+ * An SVG is a document that can carry scripts, so it is treated differently
+ * from other images: only editors and administrators may upload one, and every
+ * upload is rebuilt by an allowlist-based sanitizer. Files that cannot be
+ * sanitized are rejected.
  */
 
 /**
- * SVG-MIME-Typen für Uploads erlauben.
+ * Whether the current user may upload SVG files.
+ *
+ * @return bool True for editors and administrators.
+ */
+function sunflower_user_can_upload_svg() {
+	return current_user_can( 'edit_others_posts' );
+}
+
+/**
+ * SVG-MIME-Typ für Uploads erlauben.
+ *
+ * Compressed SVG (.svgz) is deliberately not allowed: it cannot be sanitized
+ * without unpacking it first.
  *
  * @param array<string, string> $mimes Vorhandene MIME-Typen.
  * @return array<string, string> Angepasste MIME-Typen.
  */
 function sunflower_allow_svg_uploads( $mimes ) {
-	$mimes['svg']  = 'image/svg+xml';
-	$mimes['svgz'] = 'image/svg+xml';
+	if ( sunflower_user_can_upload_svg() ) {
+		$mimes['svg'] = 'image/svg+xml';
+	}
 
 	return $mimes;
 }
@@ -132,6 +150,9 @@ add_filter( 'upload_mimes', 'sunflower_allow_svg_uploads' );
 
 /**
  * Fehlerhafte SVG-MIME-Typen beim Upload korrigieren.
+ *
+ * Only for users who may upload SVG at all - otherwise this would hand a valid
+ * type to a file that the list of allowed MIME types has just refused.
  *
  * @param array<string, mixed> $data     Dateidaten und MIME-Infos.
  * @param string               $file     Dateipfad.
@@ -142,7 +163,7 @@ function sunflower_fix_svg_mime_type( $data, $file, $filename ) {
 
 	$ext = strtolower( pathinfo( $filename, PATHINFO_EXTENSION ) );
 
-	if ( 'svg' === $ext ) {
+	if ( 'svg' === $ext && sunflower_user_can_upload_svg() ) {
 		$data['ext']  = 'svg';
 		$data['type'] = 'image/svg+xml';
 	}
@@ -154,36 +175,60 @@ add_filter( 'wp_check_filetype_and_ext', 'sunflower_fix_svg_mime_type', 10, 3 );
 /**
  * SVG-Code bereinigen (Skripte, Event-Handler usw. entfernen).
  *
+ * The decision is based on the file name: the MIME type in $file['type'] is
+ * sent by the browser and must not be trusted.
+ *
  * @param array<string, mixed> $file Daten der hochgeladenen Datei.
- * @return array<string, mixed> Bereinigte Dateidaten.
+ * @return array<string, mixed> Bereinigte Dateidaten, or with 'error' set to reject the upload.
  */
 function sunflower_sanitize_svg( $file ) {
 
-	if ( isset( $file['type'] ) && 'image/svg+xml' === $file['type'] ) {
-		global $wp_filesystem;
+	$ext = strtolower( pathinfo( (string) ( $file['name'] ?? '' ), PATHINFO_EXTENSION ) );
 
-		if ( ! $wp_filesystem ) {
-			require_once ABSPATH . 'wp-admin/includes/file.php';
-			WP_Filesystem();
-		}
-
-		if ( $wp_filesystem ) {
-			$contents = $wp_filesystem->get_contents( $file['tmp_name'] );
-
-			if ( false !== $contents ) {
-				// Entfernt Skripte, Event-Handler, iframes usw.
-				$contents = preg_replace( '/<script.*?<\/script>/is', '', $contents );
-				$contents = preg_replace( '/on\w+="[^"]*"/i', '', $contents );
-				$contents = preg_replace( '/<iframe.*?<\/iframe>/is', '', $contents );
-
-				$wp_filesystem->put_contents( $file['tmp_name'], $contents );
-			}
-		}
+	if ( 'svgz' === $ext ) {
+		$file['error'] = __( 'Compressed SVG files (.svgz) are not allowed. Please upload a plain .svg file.', 'sunflower' );
+		return $file;
 	}
+
+	if ( 'svg' !== $ext ) {
+		return $file;
+	}
+
+	if ( ! sunflower_user_can_upload_svg() ) {
+		$file['error'] = __( 'Sorry, you are not allowed to upload SVG files.', 'sunflower' );
+		return $file;
+	}
+
+	// Fail closed: without the sanitizer library no SVG gets through.
+	if ( ! class_exists( '\enshrined\svgSanitize\Sanitizer' ) || empty( $file['tmp_name'] ) ) {
+		$file['error'] = __( 'This SVG file could not be checked and was not uploaded.', 'sunflower' );
+		return $file;
+	}
+
+	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- local temporary upload file.
+	$contents = file_get_contents( $file['tmp_name'] );
+
+	try {
+		$sanitizer = new \enshrined\svgSanitize\Sanitizer();
+		$sanitizer->removeRemoteReferences( true );
+		$clean = is_string( $contents ) ? $sanitizer->sanitize( $contents ) : false;
+	} catch ( \Throwable $e ) {
+		// A sanitizer that fails must never let the file through.
+		$clean = false;
+	}
+
+	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents -- local temporary upload file.
+	if ( ! is_string( $clean ) || '' === $clean || false === file_put_contents( $file['tmp_name'], $clean ) ) {
+		$file['error'] = __( 'This SVG file could not be sanitized and was not uploaded.', 'sunflower' );
+		return $file;
+	}
+
+	$file['size'] = strlen( $clean );
 
 	return $file;
 }
 add_filter( 'wp_handle_upload_prefilter', 'sunflower_sanitize_svg' );
+add_filter( 'wp_handle_sideload_prefilter', 'sunflower_sanitize_svg' );
 
 
 

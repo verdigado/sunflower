@@ -1,5 +1,6 @@
 {
 	"require": {
-		"sabre/vobject": "^4.5"
+		"sabre/vobject": "^4.5",
+		"enshrined/svg-sanitize": "^1.1.1"
 	}
 }
