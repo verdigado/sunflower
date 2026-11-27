@@ -20,12 +20,19 @@ use Sabre\VObject\Reader;
  * @param boolean        $auto_categories Additional categories to add to every imported event.
  */
 function sunflower_icalimport( $url = false, $auto_categories = false ) {
+	// The "safe" variant refuses URLs that point into the local or private
+	// network, so a feed URL cannot be used to reach internal services.
+	$ical_response = wp_safe_remote_get( $url );
+	if ( is_wp_error( $ical_response ) ) {
+		return $ical_response->get_error_message();
+	}
+
 	try {
+		// Forgiving mode: tolerate slightly malformed lines instead of
+		// rejecting the whole feed.
 		$vcalendar = Reader::read(
-			wp_remote_retrieve_body(
-				wp_remote_get( ( $url ) ),
-				Reader::OPTION_FORGIVING
-			)
+			wp_remote_retrieve_body( $ical_response ),
+			Reader::OPTION_FORGIVING
 		);
 	} catch ( ParseException $parse_exception ) {
 		return $parse_exception->getMessage();
