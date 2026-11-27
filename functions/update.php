@@ -39,12 +39,15 @@ function sunflower_update_theme( $transient, $theme_data, $theme_slug ) {
 	);
 	$raw_response   = wp_remote_post( $theme_data['UpdateURI'], $send_for_check );
 
-	if ( ! is_wp_error( $raw_response ) && ( 200 === $raw_response['response']['code'] ) ) {
-		$response = unserialize( $raw_response['body'] ); // phpcs:ignore
+	$response = false;
+	if ( ! is_wp_error( $raw_response ) && 200 === wp_remote_retrieve_response_code( $raw_response ) ) {
+		// The update server answers with a serialized array. Never let the
+		// response instantiate objects: that would allow PHP object injection.
+		$response = @unserialize( wp_remote_retrieve_body( $raw_response ), array( 'allowed_classes' => false ) ); // phpcs:ignore
 	}
 
-	// Feed the update data into WP updater.
-	if ( ! empty( $response ) ) {
+	// Feed the update data into WP updater. Anything but a plain array is ignored.
+	if ( is_array( $response ) && ! empty( $response ) ) {
 		$response['version'] = $response['new_version'] ?? $theme_data['Version'];
 		return $response;
 	}
