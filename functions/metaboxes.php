@@ -54,10 +54,17 @@ function sunflower_save_meta_boxes() {
 		return;
 	}
 
+	if ( ! current_user_can( 'edit_post', $post->ID ) ) {
+		return;
+	}
+
 	update_post_meta( $post->ID, '_sunflower_styled_layout', sanitize_text_field( $_POST['_sunflower_styled_layout'] ?? '' ) );
 	update_post_meta( $post->ID, '_sunflower_hide_feature_image', sanitize_text_field( $_POST['_sunflower_hide_feature_image'] ?? '' ) );
 	update_post_meta( $post->ID, '_sunflower_roofline', sanitize_text_field( $_POST['_sunflower_roofline'] ?? '' ) );
-	update_post_meta( $post->ID, '_sunflower_metadata', $_POST['sunflower-meta-data'] ?? '' );
+	// Rich text from the editor: keep the HTML that is allowed in posts, drop the
+	// rest. wp_filter_post_kses() expects the slashed data that $_POST holds.
+	$sunflower_metadata = isset( $_POST['sunflower-meta-data'] ) && is_string( $_POST['sunflower-meta-data'] ) ? wp_filter_post_kses( $_POST['sunflower-meta-data'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash
+	update_post_meta( $post->ID, '_sunflower_metadata', $sunflower_metadata );
 }
 
 add_action( 'save_post', 'sunflower_save_meta_boxes' );
